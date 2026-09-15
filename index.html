@@ -38,18 +38,23 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">Claim Browser</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
 <div class="tagline">Multi-culture fact-checking — interactive reports and benchmark reviews</div>
-<span class="pill">1 page</span>
+<span class="pill">2 pages</span>
 </div>
 <div class="list">
 <a class="card" href="veritas-intake-review/">
-<h2>Claim Browser — VeriTaS Intake Review</h2>
-<p>Recent VeriTaS claims run through our decontextualization, evidence extraction, and date-verified URL recovery pipeline. Per-claim evidence with provenance badges and verdict comparison.</p>
-<div class="meta"><span>2026-09-08</span><span class="chip">n = 82 claims</span><span class="chip">438 evidence</span></div>
+<h2>VeriTaS Intake Review</h2>
+<p><b>Their claims, their articles, our pipeline.</b> Claims and fact-checking article links come from the VeriTaS export; everything downstream is ours: decontextualization, evidence extraction, and URL recovery under the strict temporal policy, where an evidence item is kept only if it carries an article-embedded URL or an externally recovered one whose date we could verify against the claim date.</p>
+<div class="meta"><span>2026-09-14</span><span class="chip">n = 69 claims</span><span class="chip">308 evidence</span><span class="chip">strict temporal policy</span></div>
+</a>
+<a class="card" href="original-pipeline-review/">
+<h2>Original Pipeline Review</h2>
+<p><b>Our claims, dataset articles, our pipeline.</b> Claims are normalized and decontextualized by us from AVeriTeC's fact-checking articles rather than taken from the dataset's gold field, so this is the pipeline running end to end on its own output. The run itself predates the strict temporal policy, so the policy is applied at display time: 13 of the original 51 evidence items are dropped, and every item shown carries a URL on the same terms as the VeriTaS page.</p>
+<div class="meta"><span>2026-08-10</span><span class="chip">n = 20 claims · AVeriTeC train</span><span class="chip">38 evidence</span><span class="chip">strict temporal policy</span></div>
 </a>
 </div>
 <script>
