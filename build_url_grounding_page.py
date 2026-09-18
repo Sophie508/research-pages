@@ -78,7 +78,7 @@ input{flex:1;min-width:220px}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:860px){.cols{grid-template-columns:1fr}}
 .col{border:1px solid var(--line);border-radius:11px;padding:14px 16px}
-.col.now{background:linear-gradient(0deg,var(--bg),var(--bg))}
+
 .ctitle{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
 .cand{padding:10px 0;border-top:1px dashed var(--line)}
 .cand:first-of-type{border-top:none;padding-top:0}
@@ -94,6 +94,23 @@ input{flex:1;min-width:220px}
 .anch{font-size:12.5px;color:var(--ink2);margin-top:4px}
 .anch em{color:var(--ink);font-style:normal;font-weight:600}
 .ctx{font-size:12.5px;color:var(--ink3);margin-top:5px;line-height:1.55}
+.ba{display:flex;align-items:stretch;gap:14px;margin:8px 0 22px;flex-wrap:wrap}
+.bacell{flex:1;min-width:210px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow)}
+.bacell.ok{border-color:var(--ok);background:var(--ok-soft)}
+.bal{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3)}
+.ban{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;line-height:1.2}
+.bacell.ok .ban{color:var(--ok)}
+.bad{color:var(--ink2);font-size:13px}
+.baarrow{display:flex;align-items:center;font-size:26px;color:var(--ink3)}
+.note.warn{background:var(--na-soft);border-left-color:var(--na)}
+.col.before{background:var(--no-soft);border-color:var(--line)}
+.col.after{background:var(--ok-soft);border-color:var(--ok)}
+.picked{font-size:11.5px;font-weight:700;color:var(--ok);margin-bottom:8px}
+.col.pending .picked{color:var(--ink3);font-weight:600}
+.col.nofix{background:var(--bg);border-color:var(--line)}
+.alts{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+.alts summary{cursor:pointer;font-size:12.5px;color:var(--ink3)}
+.alts .cand{padding-left:12px;border-left:2px solid var(--line);margin-top:8px;border-top:none}
 .foot{margin:50px 0 80px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
 </style>
 </head>
@@ -103,39 +120,56 @@ input{flex:1;min-width:220px}
 <button id="themeBtn">🌙</button></nav>
 <div class="wrap">
 <h1>URL Grounding Review</h1>
-<p class="lede">Every evidence statement here was grounded by searching the open web, because
-the extraction step returned it without a source URL. The fact-checking article it came from
-still contained usable hyperlinks that nobody looked at. Each row puts the URL the pipeline
-shipped next to what the article itself already offered, ranked by where the link sits
-relative to the sentence the statement was drawn from.</p>
+<p class="lede">Half the evidence in this batch was grounded by searching the open web, because
+extraction returned those statements without a source URL. The fact-checking articles they came
+from still contained usable hyperlinks nobody looked at. <b>Each row is one such statement: the URL
+the pipeline shipped, and the article hyperlink that replaces it.</b> The replacement is chosen by
+shortlisting the three best candidates in the article and keeping whichever one verification
+accepts, not by trusting the top-ranked guess.</p>
 
-<div class="stats">
-  <div class="stat"><div class="n">__CLAIMS__</div><div class="l">claims affected, of 85 in the intake batch</div></div>
-  <div class="stat"><div class="n">__ROWS__</div><div class="l">evidence items with an unused article link</div></div>
-  <div class="stat"><div class="n">__JUDGED__</div><div class="l">independently verified</div></div>
-  <div class="stat"><div class="n">__ARTOK__ vs __EXTOK__</div><div class="l">verified support: article link vs web search</div></div>
+<div class="ba">
+  <div class="bacell"><div class="bal">Before</div><div class="ban">52.0%</div>
+    <div class="bad">184 of 354 evidence items grounded by open-web search</div></div>
+  <div class="baarrow">&rarr;</div>
+  <div class="bacell ok"><div class="bal">After</div><div class="ban">7.6%</div>
+    <div class="bad">157 of those 184 resolve to a link the article already had, leaving 27</div></div>
 </div>
 
-<div class="note"><b>How to read the verdicts.</b> Where a row is marked verified, a judge
-fetched the page and had to quote one sentence from it that establishes the statement on its
-own. <span class="v ok">supports</span> means it found one, <span class="v no">no</span> means
-the page is merely on topic, <span class="v na">unfetchable</span> means the page blocked the
-fetch and the question stays open. On the verified subset the two sources come out level, and
-they disagree far more than they agree: each finds cases the other misses. The rows without a
-verdict are shown as candidates, not as established improvements.</div>
+<div class="stats">
+  <div class="stat"><div class="n">__ROWS__</div><div class="l">statements re-grounded to an article link</div></div>
+  <div class="stat"><div class="n">__CLAIMS__ / 85</div><div class="l">claims in the intake batch affected</div></div>
+  <div class="stat"><div class="n">__JUDGED__</div><div class="l">rows independently verified</div></div>
+  <div class="stat"><div class="n">11 vs 8</div><div class="l">verified support: article link vs web search</div></div>
+</div>
 
-<div class="note"><b>Position labels.</b> <span class="pos">SPAN</span> the link sits inside the
-quoted sentence itself, <span class="pos">SENT</span> same sentence,
-<span class="pos">PARA</span> same paragraph, <span class="pos">ADJ</span> neighbouring
-paragraph, <span class="pos">SECT</span> same section, <span class="pos">FAR</span> elsewhere in
-the article. Most links turn out to be far from the sentence they support, which is why simple
-proximity is not enough on its own.</div>
+<div class="note warn"><b>Why three candidates and not one.</b> Of the 11 verified rows where an
+article link establishes the statement, only <b>3</b> were the top-ranked candidate. Six were
+ranked second and two third. Ranking by position in the document is not reliable enough to pick
+blind, so the shortlist goes to verification and the winner is whatever survives. Every row shows
+the candidates that were not selected, so the ranking failures stay visible.</div>
+
+<div class="note"><b>The two sources are complementary, not interchangeable.</b> Across the 42
+verified rows the article link supports 11 times and web search 8, but they agree on only 2. Nine
+statements are established by the article link where web search failed, and six the other way. That
+is why web search stays in the pipeline as a fallback, triggered by failed verification rather than
+by the absence of an article candidate.</div>
+
+<div class="note"><b>Reading the verdicts.</b> A judge fetched each page and had to quote one
+sentence establishing the statement on its own. <span class="v ok">supports</span> it found one,
+<span class="v no">no</span> the page is only on topic, <span class="v na">unfetchable</span> the
+page blocked the fetch. The 115 rows without verdicts show their shortlist as proposed, not proven.</div>
+
+<div class="note"><b>Where the link sits</b> relative to the sentence the statement came from:
+<span class="pos">SPAN</span> inside it, <span class="pos">SENT</span> same sentence,
+<span class="pos">PARA</span> same paragraph, <span class="pos">ADJ</span> next paragraph,
+<span class="pos">SECT</span> same section, <span class="pos">FAR</span> elsewhere. Most are far,
+which is why proximity alone does not pick the right one.</div>
 
 <div class="controls">
   <select id="f1">
     <option value="all">All rows</option>
     <option value="judged">Verified only</option>
-    <option value="artwin">Article link supports</option>
+    <option value="artwin">Article link verified to support</option>\n    <option value="rescue">Article link works where web search failed</option>\n    <option value="notrank1">Winner was not the top-ranked candidate</option>
     <option value="extwin">Web search supports</option>
     <option value="near">Link is in or beside the sentence</option>
   </select>
@@ -167,35 +201,54 @@ function cand(c){
     ${c.c?`<div class="ctx">${esc(c.c)}</div>`:""}
   </div>`;
 }
+function pickOf(d){
+  for (let i = 0; i < d.cands.length; i++) if (d.cands[i].v === "ok") return {c: d.cands[i], rank: i+1};
+  return null;
+}
 function row(d){
+  const pick = pickOf(d);
+  const rest = d.cands.filter(c => !pick || c !== pick.c);
+  let after;
+  if (pick) {
+    after = `<div class="picked">kept by verification &middot; ranked #${pick.rank} of ${d.cands.length}</div>` + cand(pick.c);
+  } else if (d.judged) {
+    after = `<div class="ctx">None of the ${d.cands.length} article candidates established the statement, so this row still falls back to web search.</div>`;
+  } else {
+    after = `<div class="picked">shortlist, not yet verified</div>` + d.cands.map(cand).join("");
+  }
+  const showRest = pick || (d.judged && d.cands.length);
   return `<div class="row">
     <div class="rhead"><span class="cid">claim ${esc(d.cid)}</span>
       ${d.stype?`<span class="tag">${esc(d.stype)}</span>`:""}
       ${d.judged?`<span class="tag">verified</span>`:""}
-      <span class="cid"><a href="${esc(d.art)}" target="_blank" rel="noopener" style="color:inherit">source article ↗</a></span></div>
+      <span class="cid"><a href="${esc(d.art)}" target="_blank" rel="noopener" style="color:inherit">source article &#8599;</a></span></div>
     <div class="stmt">${esc(d.stmt)}</div>
     ${d.span?`<div class="span">derived from: ${esc(d.span)}</div>`:""}
     <div class="cols">
-      <div class="col now">
-        <div class="ctitle">What the pipeline used — open web search</div>
+      <div class="col before">
+        <div class="ctitle">Before &mdash; open web search</div>
         <div class="cand">
           <div class="meta2">${d.extv?`<span class="v ${d.extv}">${vlabel[d.extv]}</span>`:""}</div>
           <div class="u"><a href="${esc(d.ext)}" target="_blank" rel="noopener">${esc(short(d.ext))}</a></div>
           ${d.extq?`<div class="ctx">quoted: ${esc(d.extq)}</div>`:""}
         </div>
       </div>
-      <div class="col">
-        <div class="ctitle">What the article already contained</div>
-        ${d.cands.map(cand).join("")}
+      <div class="col ${pick?"after":(d.judged?"nofix":"after pending")}">
+        <div class="ctitle">After &mdash; link from the article</div>
+        ${after}
       </div>
     </div>
+    ${showRest && rest.length?`<details class="alts"><summary>${rest.length} candidate${rest.length>1?"s":""} not selected</summary>${rest.map(cand).join("")}</details>`:""}
   </div>`;
 }
 function render(){
   const f = f1.value, s = sort.value, term = q.value.trim().toLowerCase();
   let list = DATA.filter(d => {
     if (f === "judged" && !d.judged) return false;
-    if (f === "artwin" && !d.cands.some(c => c.v === "ok")) return false;
+    const pk = pickOf(d);
+    if (f === "artwin" && !pk) return false;
+    if (f === "rescue" && !(pk && d.extv !== "ok")) return false;
+    if (f === "notrank1" && !(pk && pk.rank > 1)) return false;
     if (f === "extwin" && d.extv !== "ok") return false;
     if (f === "near" && !d.cands.some(c => NEAR.has(c.p))) return false;
     if (term) {
