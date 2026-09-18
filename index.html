@@ -38,12 +38,12 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a><a href="url-grounding-review/">URL Grounding</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
 <div class="tagline">Multi-culture fact-checking — interactive reports and benchmark reviews</div>
-<span class="pill">2 pages</span>
+<span class="pill">3 pages</span>
 </div>
 <div class="list">
 <a class="card" href="veritas-intake-review/">
@@ -55,6 +55,11 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 <h2>Original Pipeline Review</h2>
 <p><b>Our claims, dataset articles, our pipeline.</b> Claims are normalized and decontextualized by us from AVeriTeC's fact-checking articles rather than taken from the dataset's gold field, so this is the pipeline running end to end on its own output. The run itself predates the strict temporal policy, so the policy is applied at display time: 13 of the original 51 evidence items are dropped, and every item shown carries a URL on the same terms as the VeriTaS page.</p>
 <div class="meta"><span>2026-08-10</span><span class="chip">n = 20 claims · AVeriTeC train</span><span class="chip">38 evidence</span><span class="chip">strict temporal policy</span></div>
+</a>
+<a class="card" href="url-grounding-review/">
+<h2>URL Grounding Review</h2>
+<p><b>Where the evidence link should have come from.</b> Half of the evidence in the intake batch was grounded by searching the open web, because extraction returned those statements without a source URL. The articles they came from still held usable hyperlinks that nobody looked at. Each row shows the URL the pipeline shipped beside what the article itself already contained, positioned by how close the link sits to the sentence the statement was drawn from, with verdicts where a judge fetched both pages.</p>
+<div class="meta"><span>2026-09-18</span><span class="chip">157 evidence items</span><span class="chip">64 of 85 claims</span><span class="chip">42 verified</span></div>
 </a>
 </div>
 <script>
