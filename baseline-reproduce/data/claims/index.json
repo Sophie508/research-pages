@@ -1,0 +1,5205 @@
+{
+ "schema_version": "claims-1.1",
+ "exported_at": "2026-09-18T00:28:46+00:00",
+ "data_observed_at": "2026-09-18T00:14:24+00:00",
+ "sample_rule": "索引列出全部冻结计划样本（AVeriTeC dev 0–99、AVerImaTeC val 0–79），不隐藏未运行的样本。详情页导出规则：在任一已配置运行中至少有一个系统落盘记录的样本，全部导出，不按成功与否挑选；无记录的样本只有索引条目与输入信息。",
+ "image_note": "claim 输入图片来自已公开的固定版本镜像；gold 问题里的 input_images 未公开，只显示文件名。系统检索到的图片按 URL 原样列出，不做托管。",
+ "runs": [
+  {
+   "run_id": "smoke_formal_text_20260917_rog_cpu_r2",
+   "role": "formal",
+   "dataset": "averitec",
+   "split": "dev",
+   "label": "正式运行 · AVeriTeC dev 0–99",
+   "note": "目录名带 smoke，但这轮是正式 100 条运行。2026-09-18 因搜索额度耗尽人工停止，尚未续跑。",
+   "terminal_audit": "outputs/campaign_text_20260917/formal_text_r2_terminal_audit.json",
+   "blocker": {
+    "type": "search_credits_exhausted",
+    "checked_utc": "2026-09-18T00:16:34.974274+00:00",
+    "experiment_running": false,
+    "needs_user": "Restore credits on the existing Serper account, or supply a legitimately available funded key via local credential file. No credit purchase or provider replacement authorized."
+   },
+   "exists": true,
+   "observed_at": "2026-09-18T00:14:24+00:00",
+   "terminal": {
+    "checked_utc": "2026-09-18T00:14:24.573017+00:00",
+    "returncode": -2,
+    "cause": "Serper free account endpoint reports balance -2; search service exhausted",
+    "cause_zh": "搜索额度耗尽（Serper 余额 -2）后人工停止；不是服务器故障，也不是预算用尽。",
+    "state": "stopped",
+    "source": "outputs/campaign_text_20260917/formal_text_r2_terminal_audit.json"
+   },
+   "systems": {
+    "aic_ctu_averitec": {
+     "n_records": 33,
+     "status_counts": {
+      "ok": 5,
+      "crashed": 28
+     },
+     "planned_n": 100,
+     "completed_n": 5,
+     "not_run_n": 67,
+     "crashed_n": 28,
+     "running": false,
+     "incomplete": true,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-18T00:10:22+00:00",
+     "file_sha256": "7fcfadace57a442aa8b8cd2ab5860ace502b31f2d46b4c94786756b225028649",
+     "audit": {
+      "recorded": 33,
+      "statuses": {
+       "ok": 5,
+       "crashed": 28
+      },
+      "not_run_n": 67
+     },
+     "state": "stopped"
+    },
+    "hero2": {
+     "n_records": 100,
+     "status_counts": {
+      "ok": 100
+     },
+     "planned_n": 100,
+     "completed_n": 100,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T17:35:44+00:00",
+     "file_sha256": "543cf392cfcf3e9c13e6c80dc2f531dcff15e17c774aaa469d1ce852b8921b0c",
+     "audit": {
+      "recorded": 100,
+      "statuses": {
+       "ok": 100
+      },
+      "not_run_n": 0
+     },
+     "state": "completed"
+    },
+    "sanctuary": {
+     "n_records": 100,
+     "status_counts": {
+      "ok": 83,
+      "crashed": 17
+     },
+     "planned_n": 100,
+     "completed_n": 83,
+     "not_run_n": 0,
+     "crashed_n": 17,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-18T00:04:47+00:00",
+     "file_sha256": "44d1d6d6f6aa4743e8b86da4b641ef477efe47c7c09221b493ceebc9a00cd5b7",
+     "audit": {
+      "recorded": 100,
+      "statuses": {
+       "ok": 83,
+       "crashed": 17
+      },
+      "not_run_n": 0
+     },
+     "state": "completed_with_failures"
+    },
+    "infact": {
+     "n_records": 0,
+     "status_counts": {},
+     "planned_n": 100,
+     "completed_n": null,
+     "not_run_n": 100,
+     "crashed_n": null,
+     "running": false,
+     "incomplete": null,
+     "stop_reason": null,
+     "date_policy": null,
+     "observed_at": null,
+     "file_sha256": null,
+     "audit": {
+      "recorded": 0,
+      "statuses": {},
+      "not_run_n": 100
+     },
+     "state": "not_started"
+    }
+   }
+  },
+  {
+   "run_id": "smoke_campaign_text_20260917_cpu",
+   "role": "smoke",
+   "dataset": "averitec",
+   "split": "dev",
+   "label": "小样（前 5 条试运行） · AVeriTeC dev 0–4",
+   "note": "五条真实小样，只证明系统跑通。",
+   "exists": true,
+   "observed_at": "2026-09-17T02:40:36+00:00",
+   "systems": {
+    "aic_ctu_averitec": {
+     "n_records": 5,
+     "status_counts": {
+      "ok": 5
+     },
+     "planned_n": 5,
+     "completed_n": 5,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T02:13:25+00:00",
+     "file_sha256": "f6371d7d7378f91f4910c4db5ee99fdbdf586082ea04c44959b94887cbc6fd41",
+     "state": "completed"
+    },
+    "hero2": {
+     "n_records": 5,
+     "status_counts": {
+      "ok": 5
+     },
+     "planned_n": 5,
+     "completed_n": 5,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T01:50:15+00:00",
+     "file_sha256": "5cb3f3ba56f5c0f188099f612132b19d895566853fecb0dc3546f3eb480bdc5e",
+     "state": "completed"
+    },
+    "infact": {
+     "n_records": 5,
+     "status_counts": {
+      "ok": 4,
+      "no_evidence": 1
+     },
+     "planned_n": 5,
+     "completed_n": 5,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T02:40:36+00:00",
+     "file_sha256": "b73aa28094160bafc4ecd406476af710801ce423d5a021a759349b44cc81b8fb",
+     "state": "completed"
+    },
+    "sanctuary": {
+     "n_records": 5,
+     "status_counts": {
+      "ok": 5
+     },
+     "planned_n": 5,
+     "completed_n": 5,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T02:11:15+00:00",
+     "file_sha256": "45775b23bc1512e718e70a147164688c44e315f6506b7f0b6fd1e6ebc2091879",
+     "state": "completed"
+    }
+   }
+  },
+  {
+   "run_id": "smoke_campaign_mm_20260917_rog_cpu_r2",
+   "role": "smoke",
+   "dataset": "averimatec",
+   "split": "val",
+   "label": "小样（前 5 条试运行） · AVerImaTeC val 0–4",
+   "note": "五条真实小样，只证明系统跑通。",
+   "exists": true,
+   "observed_at": "2026-09-17T05:06:23+00:00",
+   "systems": {
+    "aic_ctu_averimatec": {
+     "n_records": 5,
+     "status_counts": {
+      "ok": 5
+     },
+     "planned_n": 5,
+     "completed_n": 5,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T05:06:23+00:00",
+     "file_sha256": "bf84a63b9ccb602270a0d90c0b0067274297b6a4cdbac11712bac1dfafaa332d",
+     "state": "completed"
+    },
+    "villain": {
+     "n_records": 5,
+     "status_counts": {
+      "ok": 5
+     },
+     "planned_n": 5,
+     "completed_n": 5,
+     "not_run_n": 0,
+     "crashed_n": 0,
+     "running": false,
+     "incomplete": false,
+     "stop_reason": null,
+     "date_policy": "v2-revision-exclusion-20260916",
+     "observed_at": "2026-09-17T05:02:36+00:00",
+     "file_sha256": "9243d307990cdc88a32d33ab20232f54370e812483d7841a54866eabe4ca3190",
+     "state": "completed"
+    }
+   }
+  }
+ ],
+ "systems": {
+  "aic_ctu_averitec": {
+   "name_en": "AIC CTU (AVeriTeC)",
+   "modality": "text"
+  },
+  "hero2": {
+   "name_en": "HerO2",
+   "modality": "text"
+  },
+  "sanctuary": {
+   "name_en": "SANCTUARY",
+   "modality": "text"
+  },
+  "infact": {
+   "name_en": "InFact",
+   "modality": "text"
+  },
+  "aic_ctu_averimatec": {
+   "name_en": "AIC CTU (AVerImaTeC)",
+   "modality": "multimodal"
+  },
+  "villain": {
+   "name_en": "VILLAIN",
+   "modality": "multimodal"
+  }
+ },
+ "n_claims": 180,
+ "n_with_detail": 105,
+ "claims": [
+  {
+   "key": "averitec/dev/0",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 0,
+   "claim": "In a letter to Steve Jobs, Sean Connery refused to appear in an apple commercial.",
+   "claim_date": "2020-10-31",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "infact": "ok",
+     "sanctuary": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/1",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 1,
+   "claim": "Trump Administration claimed songwriter Billie Eilish Is Destroying Our Country In Leaked Documents",
+   "claim_date": "2020-10-31",
+   "speaker": null,
+   "reporting_source": "Instagram",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "infact": "ok",
+     "sanctuary": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/2",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 2,
+   "claim": "Due to Imran Khan's criticism of Macron's comments on Islam, French authorities cancelled the visas of 183 Pakistani citizens and deported 118 from the country.",
+   "claim_date": "2020-10-31",
+   "speaker": "Consulate General Of Pakistan France",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20201113115127/https://twitter.com/pakconsulatefr/status/1322495811993903104",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "infact": "no_evidence",
+     "sanctuary": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/3",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 3,
+   "claim": "UNESCO declared Nadar community as the most ancient race in the world.",
+   "claim_date": "2020-10-31",
+   "speaker": "Kumar Shankar",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "infact": "ok",
+     "sanctuary": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/4",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 4,
+   "claim": "Republican Matt Gaetz was part of a company that had to pay 75 million in hospice fraud. They stole from dying people.",
+   "claim_date": "2020-10-31",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": "ok",
+     "hero2": "ok",
+     "infact": "ok",
+     "sanctuary": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/5",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 5,
+   "claim": "The United States of America and its Western allies have been using their media outlets to publish articles based on fabricated information under allegations of non-compliance with the Chemical Weapons Convention.",
+   "claim_date": "2020-10-30",
+   "speaker": "Syrian Arab News Agency (SANA)",
+   "reporting_source": "Syrian state media outlet",
+   "original_claim_url": "https://web.archive.org/web/20210415103410/https://sana.sy/en/?p=208083",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/6",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 6,
+   "claim": "More than 225,000 people dead, 225,000. The estimates are, if we’d have acted responsibly, there’d be 160,000 fewer dead than there are today, because of covid-19.",
+   "claim_date": "2020-10-30",
+   "speaker": "Joe Biden",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/7",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 7,
+   "claim": "Why should you pay more taxes than Donald Trump pays? And that’s a fact. $750. Remember what he said when that was raised a while ago, how he only pays … He said, ‘Because I’m smart. I know how to game the system.’",
+   "claim_date": "2020-10-30",
+   "speaker": "Joe Biden",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/8",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 8,
+   "claim": "You’re watching the cheaters and all those people that send in the phony ballots. … They want to have the count weeks after November 3.",
+   "claim_date": "2020-10-30",
+   "speaker": "Donald Trump",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/9",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 9,
+   "claim": "You see the number today? 33.1 GDP. The biggest in the history of our country by almost triple, right? Almost triple. Now it’s very much bigger than any GDP we’ve ever had. You have to go back to the 1950s, and then it’s less than half. This is the greatest number, 33.1 percent.",
+   "claim_date": "2020-10-30",
+   "speaker": "Donald Trump",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/10",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 10,
+   "claim": "Donald Trump, when he thinks of climate change, he says hoax. Well, guess what? Speaking of hoaxes, remember what he said about these increasing violent hurricanes and the frequency? He actually said, maybe we should detonate a nuclear bomb over the Atlantic. By the way, the same stable genius who said the biggest problem we had in the Revolutionary War is we didn’t have enough airports.",
+   "claim_date": "2020-10-30",
+   "speaker": "Joe Biden",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/11",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 11,
+   "claim": "The U.S. surgeon general and the Centers for Disease Control both previously said that ‘masks are not effective in preventing [the] general public from catching coronavirus.’",
+   "claim_date": "2020-10-29",
+   "speaker": "Yinon Weiss",
+   "reporting_source": "The Federalist",
+   "original_claim_url": "https://thefederalist.com/2020/10/29/these-12-graphs-show-mask-mandates-do-nothing-to-stop-covid/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/12",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 12,
+   "claim": "New Zealand’s new Food Bill bans gardening",
+   "claim_date": "2020-10-29",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/13",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 13,
+   "claim": "Wearing face masks will stop the spread of covid 19",
+   "claim_date": "2020-10-29",
+   "speaker": "Yinon Weiss",
+   "reporting_source": "The Federalist",
+   "original_claim_url": "https://thefederalist.com/2020/10/29/these-12-graphs-show-mask-mandates-do-nothing-to-stop-covid/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/14",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 14,
+   "claim": "Jammu and Kashmir (J&K) in Pakistan/India was removed from the United Nations (UN) list of “unresolved disputes”.",
+   "claim_date": "2020-10-29",
+   "speaker": "Paresh Rawal ‏",
+   "reporting_source": "Twitter/Latest laws",
+   "original_claim_url": "https://archive.ph/3oBfZ",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/15",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 15,
+   "claim": "Illegal drug, border crossings, and human smuggling activities have decreased in areas where barriers are deployed in the United States.",
+   "claim_date": "2020-10-29",
+   "speaker": "Chase Jennings",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://twitter.com/spoxdhs/status/1322031666739748864?s=21",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/16",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 16,
+   "claim": "The plentiful evidence we have indicates that masks would not meaningfully help with aerosol transmission of COVID 19.",
+   "claim_date": "2020-10-29",
+   "speaker": "Yinon Weiss",
+   "reporting_source": "The Federalist",
+   "original_claim_url": "https://thefederalist.com/2020/10/29/these-12-graphs-show-mask-mandates-do-nothing-to-stop-covid/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/17",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 17,
+   "claim": "All USA Ballots Arriving After Election Day Will Be Thrown Out",
+   "claim_date": "2020-10-28",
+   "speaker": "Eric Holder",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20210216082556/https://twitter.com/EricHolder/status/1321123705200758786",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/18",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 18,
+   "claim": "Even if your mail-in ballot is postmarked prior to the Election day but arrives after the Election day it will be thrown out.",
+   "claim_date": "2020-10-28",
+   "speaker": "Elizabeth Gilbert",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20201029195951/https://www.facebook.com/GilbertLiz/photos/a.356148997800555/3549940058421417/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/19",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 19,
+   "claim": "Video shows attack of French embassy in Sudan",
+   "claim_date": "2020-10-28",
+   "speaker": "Anmol Alphonso",
+   "reporting_source": null,
+   "original_claim_url": "https://www.boomlive.in/fake-news/2012-embassy-attacks-in-sudan-falsely-shared-as-attack-on-french-embassy-10392",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/20",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 20,
+   "claim": "Viral video purportedly shows Pakistani opposition MPs chanted ‘Modi, Modi’ (India's PM)  inside the Pakistani Parliament",
+   "claim_date": "2020-10-28",
+   "speaker": "BJP MP Shobha Karandlaje",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20201029052913/https://twitter.com/ShobhaBJP/status/1321685388029689857",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/21",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 21,
+   "claim": "Taylor Zundel claimed on Instagram that she and other early voters in Utah, were unable to cast ballots in the 2020 presidential elections, as they were told they had already voted.",
+   "claim_date": "2020-10-27",
+   "speaker": "Taylor Zundel",
+   "reporting_source": "Instagram",
+   "original_claim_url": "https://www.instagram.com/tv/CG2tF9eF-VS/?utm_source=ig_embed&utm_campaign=loading",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/22",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 22,
+   "claim": "Trash Can Plastered With 'Ballot Box' Sign In Philadelphia Was Intended To Get People To Toss Their Ballots In The Trash.",
+   "claim_date": "2020-10-27",
+   "speaker": null,
+   "reporting_source": "Instagram",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/23",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 23,
+   "claim": "Joe Biden wants to ban fracking",
+   "claim_date": "2020-10-27",
+   "speaker": "The Donald Trump 2020 presidential campaign",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/24",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 24,
+   "claim": "Germany’s Foreign Minister Heiko Maas said that Thailand’s King Maha Vajiralongkorn didn’t do anything illegal while at his German residence.",
+   "claim_date": "2020-10-27",
+   "speaker": null,
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/25",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 25,
+   "claim": "McDonald’s Azerbaijan's official account was promoting the military taking of Nagorno-Karabakh.",
+   "claim_date": "2020-10-27",
+   "speaker": null,
+   "reporting_source": "Twitter",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/26",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 26,
+   "claim": "Ivermectin is a treatment for coronavirus.",
+   "claim_date": "2020-10-26",
+   "speaker": "Pearson Sharp",
+   "reporting_source": "One America News Network,",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/27",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 27,
+   "claim": "Sleeping under a mosquito bed net treated (or not treated) with insecticide is ineffective and harmful to human health.",
+   "claim_date": "2020-10-26",
+   "speaker": null,
+   "reporting_source": "Vikaspedia",
+   "original_claim_url": "https://vikaspedia.in/health/diseases/vector-borne-diseases/treatment-and-use-of-insecticide-treated-mosquito-nets",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/28",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 28,
+   "claim": "Pogba Has Quit The French National Team Over Macron's Remarks on Islam.",
+   "claim_date": "2020-10-26",
+   "speaker": "Troll Football Nepal",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/OfficialTFN/photos/a.2080854138854114/2743164972623024/?type=3&__xts__[0]=68.ARA0aaJdMED8IPqlzRS68cB2DSqDil_1rHOwNOhrSS5qM-nX__BYEqmUEjtfhqbWCqsHTuh_htN7RuTU3BtPF5PueggMPFouVSZ3pwJqCqYy7-__GxLGaTUKzTj5WIIKisdiBs3HBr9OO3Gn3MdFIVMUWtA7LiNUc1x6G7h_YYJ_K1oryvj8bmRaeeZ30er-3U1xZyQSdTNCQp1fWAOUpjFKzSTMl51rrAByWfasax90j2VzELEqZshfzWiWZLegCVZGjsFbdCd41icecnLYbCO75EkNiAdspkhslPCelf-qcVBtQitdCiHfWo8U_ElDhZV1B7Jq1kv782nhi2Ho_rNL6XEI",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/29",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 29,
+   "claim": "The Wire called Durga puja racist and the goddess Durga a sex worker",
+   "claim_date": "2020-10-26",
+   "speaker": null,
+   "reporting_source": "Twitter",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/30",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 30,
+   "claim": "Paul Pogba, who plays for Manchester United and the French national team, retired from international football in response to French President Macron’s comments on Islamist terrorism.",
+   "claim_date": "2020-10-26",
+   "speaker": null,
+   "reporting_source": "The Sun ",
+   "original_claim_url": "https://www.195sports.com/%D8%A8%D9%88%D9%84-%D8%A8%D9%88%D8%AC%D8%A8%D8%A7-%D9%8A%D8%B9%D8%AA%D8%B2%D9%84-%D8%A7%D9%84%D9%84%D8%B9%D8%A8-%D8%AF%D9%88%D9%84%D9%8A%D9%8B%D8%A7-%D8%A8%D8%B9%D8%AF-%D9%85%D8%A7-%D8%AD%D8%AF%D8%AB/?utm_campaign=nabdapp.com&utm_medium=referral&utm_source=nabdapp.com&ocid=Nabd_App",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/31",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 31,
+   "claim": "Amy Coney Barrett was confirmed as US Supreme Court Justice on October 26, 2020",
+   "claim_date": "2020-10-26",
+   "speaker": "Meena Harris @meenaharris",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20210226092601im_/https://images-prod.misbar.com/articlebody/origin_biicxyi9w.jpg",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/32",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 32,
+   "claim": "The New York post Endorsed Donald trumps bid for re-election.",
+   "claim_date": "2020-10-26",
+   "speaker": null,
+   "reporting_source": "New York Post",
+   "original_claim_url": "https://web.archive.org/web/20210119183455/https://nypost.com/2020/10/26/the-new-york-post-endorses-president-donald-j-trump-for-re-election/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": "crashed",
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/33",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 33,
+   "claim": "America went from 75,000 flu deaths last year in 2019 to almost 0 in 2020",
+   "claim_date": "2020-10-26",
+   "speaker": null,
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/34",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 34,
+   "claim": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+   "claim_date": "2020-10-26",
+   "speaker": "Jonathan Malaya",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/35",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 35,
+   "claim": "COVID-19 pandemic pre-planned with the help from Bill Gates.",
+   "claim_date": "2020-10-25",
+   "speaker": "Claire Edwards",
+   "reporting_source": "Youtube",
+   "original_claim_url": "https://www.youtube.com/watch?v=xMLFiRmWSxk",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/36",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 36,
+   "claim": "Speaker Robin Vos lost a Republican-held seat in the 2018 election for the first time.",
+   "claim_date": "2020-10-25",
+   "speaker": "Robyn Vining",
+   "reporting_source": "WISN-TV’s \"UpFront\" episode",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/37",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 37,
+   "claim": "Breitbart News reports that the daughter of Delaware Democratic Senator Chris Coons and seven other underage girls were featured on Hunter Biden's laptop.",
+   "claim_date": "2020-10-25",
+   "speaker": "Andrew Souter",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/photo.php?fbid=10208101855580224&set=a.2027887312886&type=3",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/38",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 38,
+   "claim": "Hunter Biden, son of US President Joe Biden has died.",
+   "claim_date": "2020-10-25",
+   "speaker": null,
+   "reporting_source": "4chan",
+   "original_claim_url": "https://web.archive.org/web/20210116153238/https://media.thedonald.win/post/H3A2atAb.png",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/39",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 39,
+   "claim": "5G causes COVID-19.",
+   "claim_date": "2020-10-25",
+   "speaker": "Claire Edwards",
+   "reporting_source": "Youtube",
+   "original_claim_url": "https://www.youtube.com/watch?v=xMLFiRmWSxk",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/40",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 40,
+   "claim": "Rock musician Jon Bon Jovi performed for 12 people and 7 pumpkins at a campaign event for Democratic presidential nominee Joe Biden in Pennsylvania.",
+   "claim_date": "2020-10-25",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/41",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 41,
+   "claim": "Wearing face masks can cause infections from bacteria such as staphylococcus.",
+   "claim_date": "2020-10-24",
+   "speaker": "Jane Taylor",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/IOnJa",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/42",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 42,
+   "claim": "An 'anti-Black Lives Matter' flag replaced the American flag behind President Trump during a Waukesha campaign rally.",
+   "claim_date": "2020-10-24",
+   "speaker": "Jeff Sharlet",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20210529130838/https://twitter.com/JeffSharlet/status/1320189238214799360",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/43",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 43,
+   "claim": "Donald Trump said that $15 an hour is too much for essential workers",
+   "claim_date": "2020-10-24",
+   "speaker": "Joe Biden",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/44",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 44,
+   "claim": "Deliberately infecting children to COVID-19 at “pox parties” could be a good way to help create herd immunity against COVID-19 without a vaccine.",
+   "claim_date": "2020-10-23",
+   "speaker": "Professor Paul Lehner",
+   "reporting_source": "Daily Mail",
+   "original_claim_url": "https://web.archive.org/web/20201201202446/https://www.dailymail.co.uk/news/article-8868269/Controversial-pox-parties-used-build-immunity-Covid-19-scientist-says.html",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/45",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 45,
+   "claim": "Cutting the umbilical cord straight away deliberately denies the baby natural immunity so that medical professionals have a reason to vaccinate and medicate them.",
+   "claim_date": "2020-10-23",
+   "speaker": "Robin L. Haywood",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/ZLpUA#selection-437.0-437.16",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/46",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 46,
+   "claim": "The umbilical cord should not be cut until 1 hour after birth or they baby will not have enough blood right after birth.",
+   "claim_date": "2020-10-23",
+   "speaker": "Robin L. Haywood",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/ZLpUA",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/47",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 47,
+   "claim": "Joe Biden said he wants to ban fracking in the US.",
+   "claim_date": "2020-10-23",
+   "speaker": "Charlie Kirk of the conservative student organization Turning Point USA",
+   "reporting_source": "Speech, Republican National Convention",
+   "original_claim_url": "https://web.archive.org/web/20210506043822/https://www.youtube.com/watch?v=hV8_Bunawqg",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/48",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 48,
+   "claim": "99% of people recover from COVID-19.",
+   "claim_date": "2020-10-23",
+   "speaker": "Donald Trump",
+   "reporting_source": "Final Presedential Debate",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/49",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 49,
+   "claim": "The US saw the best carbon emission numbers in 35 years under President Donald Trump's administration.",
+   "claim_date": "2020-10-23",
+   "speaker": "Donald Trump",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/50",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 50,
+   "claim": "Twitter now putting warnings on tweets that are just unedited clips of Biden saying he would end fracking",
+   "claim_date": "2020-10-23",
+   "speaker": "Zach Parkinson",
+   "reporting_source": "Twitter",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/51",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 51,
+   "claim": "People who do not vote for the Bharatiya Janata Party (BJP) in the 2020 elections will not get the COVID vaccine free of cost.",
+   "claim_date": "2020-10-22",
+   "speaker": "Firoz Khan ",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://twitter.com/sirfirozkhan/status/1319360671729922048",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/52",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 52,
+   "claim": "President Ferdinand Marcos and Dr. Jose Rizal established and founded the WORLD BANK and International Monetary Fund.",
+   "claim_date": "2020-10-22",
+   "speaker": "Bangon Bansang Maharlika",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/53",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 53,
+   "claim": "The FBI is in possession of the president of the US's son  Hunter Biden's laptop.",
+   "claim_date": "2020-10-22",
+   "speaker": null,
+   "reporting_source": "New York Post",
+   "original_claim_url": "https://nypost.com/2020/10/14/email-reveals-how-hunter-biden-introduced-ukrainian-biz-man-to-dad/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/54",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 54,
+   "claim": "India’s imports from China increased by 27% in April-August 2020",
+   "claim_date": "2020-10-22",
+   "speaker": null,
+   "reporting_source": "Facebook post",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/55",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 55,
+   "claim": "Generally the deaths from Covid-19 are still pretty flat because we've flattened the curve.",
+   "claim_date": "2020-10-21",
+   "speaker": "Ron Johnson",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/56",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 56,
+   "claim": "Previous flu vaccines may have made President Donald Trump susceptible to COVID-19",
+   "claim_date": "2020-10-21",
+   "speaker": "Miriam Fauzia",
+   "reporting_source": "USA TODAY",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/57",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 57,
+   "claim": "While serving as Town Supervisor on Grand Island, Nebraska, US Nate McMurray voted to raise taxes on homeowners.",
+   "claim_date": "2020-10-21",
+   "speaker": "US Rep. Chris Jacobs",
+   "reporting_source": " NY-27 debate ",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/58",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 58,
+   "claim": "Russia sent medical aid to the US, in the form of medical equipment to help coronavirus patients.",
+   "claim_date": "2020-10-21",
+   "speaker": "Dmitry Peskov",
+   "reporting_source": "RIA Novosti",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/59",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 59,
+   "claim": "There is a scam involving Santander customers being sent fake bank cards.",
+   "claim_date": "2020-10-21",
+   "speaker": "Nigel Howard Berry",
+   "reporting_source": "facebook",
+   "original_claim_url": "https://www.facebook.com/groups/719779154837578/permalink/1864476120367870/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/60",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 60,
+   "claim": "UK Employees unable to work in tier 3 areas will get a combination of Job Support Scheme and Universal Credit, which will mean they get 80% of their wages.",
+   "claim_date": "2020-10-21",
+   "speaker": "Boris Johnson",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/61",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 61,
+   "claim": "The large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee US indicates the motorcycle manufacturer's endorsement of the US Democratic presidential nominee.",
+   "claim_date": "2020-10-20",
+   "speaker": "Christopher Andree",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20201101001018/https://www.facebook.com/photo.php?fbid=10220958474525938&set=a.1213306567152&type=3",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/62",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 62,
+   "claim": "Scientific American magazine warned that 5G technology is not safe.",
+   "claim_date": "2020-10-20",
+   "speaker": "Cassie B",
+   "reporting_source": "Natural News",
+   "original_claim_url": "https://www.naturalnews.com/2020-10-20-scientific-american-issues-warnings-dangers-of-5g.html",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/63",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 63,
+   "claim": "Officer who wore Trump 2020 mask to polls to face disciplinary action",
+   "claim_date": "2020-10-20",
+   "speaker": "Steve Simeonidis",
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/64",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 64,
+   "claim": "Eric Trump, Donald J. Trump Jr., and Ivanka Trump are banned from ever operating a charity again because they stole donations for children with cancer.",
+   "claim_date": "2020-10-20",
+   "speaker": "Left Action",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.vn/ssfb8",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/65",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 65,
+   "claim": "Someone who couldn't afford health care under Barack Obama's Affordable Care Act gets penalized $10,000",
+   "claim_date": "2020-10-20",
+   "speaker": "Capitalism",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20210116144247/https://www.facebook.com/Capitalists/photos/a.226491315514/10164464788875515",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/66",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 66,
+   "claim": "Hunter Biden was chairman of the Nobel Peace Prize winning World Food Program.",
+   "claim_date": "2020-10-20",
+   "speaker": "Left Action",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.vn/ssfb8",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/67",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 67,
+   "claim": "National Testing Agency (NTA) has made a major blunder in NEET Exam Result 2020. They stated that the all India topper had failed.",
+   "claim_date": "2020-10-20",
+   "speaker": null,
+   "reporting_source": "Zee news, DNA, Times now and First post",
+   "original_claim_url": "https://www.facebook.com/dainikshivtimes/photos/a.107824287641270/161506492273049/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/68",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 68,
+   "claim": "Joe Biden said 'If Your 8-Year-Old Child Says They Want To Be Transgender, They Have A Right To Transition'.",
+   "claim_date": "2020-10-20",
+   "speaker": "On point with with pastor Greg locke",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/69",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 69,
+   "claim": "White House coronavirus adviser Dr. Anthony Fauci wrote a 2008 paper that found most 1918-1919 Spanish Influenza pandemic deaths were because of bacterial pneumonia from wearing masks.",
+   "claim_date": "2020-10-19",
+   "speaker": "Dawn Hellewell",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20201020155800/https://www.facebook.com/photo.php?fbid=10157592306850779&set=a.10154146794715779&type=3",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/70",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 70,
+   "claim": "Dr Anthony Fauci wrote a paper regarding the Spanish Flu and stated that the majority of deaths in 1918-1919 was because of bacterial pneumonia from wearing masks.",
+   "claim_date": "2020-10-19",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/71",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 71,
+   "claim": "India's imports from China increased by 27% during the period April-August 2020.",
+   "claim_date": "2020-10-19",
+   "speaker": "Pankaj Pachauri",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://twitter.com/PankajPachauri/status/1318185530786459648",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/72",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 72,
+   "claim": "The daughter of Muahammadu Buhari (the President of Nigeria) is a board member of the Nigerian National Petroleum Corporation (NNPC).",
+   "claim_date": "2020-10-19",
+   "speaker": null,
+   "reporting_source": "Twitter",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/73",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 73,
+   "claim": "Chinese Diplomats Assault Taiwan Counterparts in Fiji",
+   "claim_date": "2020-10-19",
+   "speaker": null,
+   "reporting_source": "media outlets",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/74",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 74,
+   "claim": "The Iowa Farm Bureau, US says that it would no longer be endorsing US Republican Iowa Sen. Joni Ernst for her re-election",
+   "claim_date": "2020-10-18",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/75",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 75,
+   "claim": "Joe and Jill Biden's income has increased recently.",
+   "claim_date": "2020-10-18",
+   "speaker": "Kitty Freed",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/76",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 76,
+   "claim": "Hunter Biden (son of US president Joe Biden)  had 25,000 pics of him torturing and raping children under 10 in China on his laptop.",
+   "claim_date": "2020-10-18",
+   "speaker": null,
+   "reporting_source": "Facebook User posts",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/77",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 77,
+   "claim": "A third of excess deaths in the United States between 1 March and  1 August 2020 during the COVID-19 pandemic could not be directly attributed to the coronavirus",
+   "claim_date": "2020-10-18",
+   "speaker": "Michael Lee  Washington Examiner",
+   "reporting_source": "Journal of the American Medical Association (JAMA)",
+   "original_claim_url": "https://web.archive.org/web/20210310055253/https://archive.is/EKPAJ",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/78",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 78,
+   "claim": "Prominent US Democrat party members including Hillary and Bill Clinton, were running a child sex-trafficking ring in the basement of a Washington, D.C., pizzeria.",
+   "claim_date": "2020-10-18",
+   "speaker": null,
+   "reporting_source": "Facebook user posts",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/79",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 79,
+   "claim": "Anthony Weiner’s laptop contained proof Hillary Clinton & her associates are involved in child trafficking & paedophilia",
+   "claim_date": "2020-10-18",
+   "speaker": null,
+   "reporting_source": "Facebook user posts",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/80",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 80,
+   "claim": "“Red-tagging” is a term invented by the Communist Party of the Philippines, the New People's Army, and the National Democratic Front (CPP-NPA-NDF).",
+   "claim_date": "2020-10-18",
+   "speaker": "Lorraine Badoy",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/81",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 81,
+   "claim": "NBC News Kristen Welker gave thousands of dollars to Obama, Clinton and Biden, is registered as a Democrat & her family spent Christmas with the Obamas at the White House.",
+   "claim_date": "2020-10-18",
+   "speaker": "Ray Martorella",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/xraymart/posts/10213780377302144",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/82",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 82,
+   "claim": "In the US lockdowns are partly responsible for excess deaths not directly attributed to COVID-19 which were observed in 2020.",
+   "claim_date": "2020-10-18",
+   "speaker": "Michael Lee ",
+   "reporting_source": "Washington Examiner",
+   "original_claim_url": "https://web.archive.org/web/20210310055253/https://archive.is/EKPAJ",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "ok",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/83",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 83,
+   "claim": "Pennsylvania US rejects 372,000 mail-in ballots.",
+   "claim_date": "2020-10-17",
+   "speaker": "The Blaze",
+   "reporting_source": "The Geller Report",
+   "original_claim_url": "https://web.archive.org/web/20210609133131/https://gellerreport.com/2020/10/pennsylvania-rejects-372000-mail-in-ballots-leaving-many-voters-confused-report.html/",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/84",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 84,
+   "claim": "It's unclear how Joe Biden acquired his recent wealth since leaving office in 2017",
+   "claim_date": "2020-10-17",
+   "speaker": "The Lutchman Report",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/thelutchmanreport/photos/a.101396464922781/195966522132441/?type=3&theater",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/85",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 85,
+   "claim": "India's Congress party candidate Maskoor Usmani installed Jinnah's portrait at AMU.",
+   "claim_date": "2020-10-17",
+   "speaker": "Pooja Chaudhuri",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://t.co/sf132cXZN6pic.twitter.com/Um6lIYhCI7",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/86",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 86,
+   "claim": "Donald Trump Jr. said, “My father doesn’t need to rape women. It’s more likely a woman would rape him. That’s how popular he is.”",
+   "claim_date": "2020-10-16",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/87",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 87,
+   "claim": "Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering 1kg bleaching powder, chlorine tablets to people’s doorsteps",
+   "claim_date": "2020-10-16",
+   "speaker": null,
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/88",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 88,
+   "claim": "A man who received four ballot applications votes four times in the 2020 election.",
+   "claim_date": "2020-10-16",
+   "speaker": "James Snapp.",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/89",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 89,
+   "claim": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
+   "claim_date": "2020-10-16",
+   "speaker": "Colleen Huber NMD",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.ph/Z1d7o",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/90",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 90,
+   "claim": "BJP MP Kirron Kher Said \"Rape Is A Part Of Indian Culture And It Can't Be Stopped\"",
+   "claim_date": "2020-10-15",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/91",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 91,
+   "claim": "A message will be sent to your phone claiming to show that the Covid19 curve is flattening in India, But It will contain a malicious file",
+   "claim_date": "2020-10-15",
+   "speaker": null,
+   "reporting_source": "WhatsApp viral message and social media",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/92",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 92,
+   "claim": "US Sen Kamala Harris failed the bar exam  (qualifying examination for lawyers)on her first attempt",
+   "claim_date": "2020-10-14",
+   "speaker": null,
+   "reporting_source": "Facebook user post",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/93",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 93,
+   "claim": "US Judge Amy Coney Barrett graduated at the top of her law school class at Notre Dame Law School",
+   "claim_date": "2020-10-14",
+   "speaker": null,
+   "reporting_source": "facebook user post",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/94",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 94,
+   "claim": "Saved by the Bell actor, Dustin Diamond died in a prison riot.",
+   "claim_date": "2020-10-14",
+   "speaker": "No Kut James",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/photo.php?fbid=199002924939869&set=a.178458260327669&type=3",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/95",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 95,
+   "claim": "Controversial abortion methods are allowed under New Zealand's Abortion Legislation Act (2020).",
+   "claim_date": "2020-10-14",
+   "speaker": "Right To Life UK",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20201204210013/https://perma.cc/CU7H-NQ83?type=image",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/96",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 96,
+   "claim": "Commission on Human Rights (CHR) Chairman Chito Gascon called a “surprise military attack” by the Philippine Army,  conducted on members of the New People’s Army (NPA) a “violation of human rights.”",
+   "claim_date": "2020-10-14",
+   "speaker": "Pinoy News Center",
+   "reporting_source": "Blog",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/97",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 97,
+   "claim": "IMAGE CLAIMS DONALD TRUMP CURRENTLY FACES A COURT CASE FOR ALLEGEDLY SEXUALLY ASSAULTING A 13-YEAR-OLD",
+   "claim_date": "2020-10-14",
+   "speaker": null,
+   "reporting_source": null,
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/98",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 98,
+   "claim": "The iPhone 12 won’t come with earphones and a charging adapter.",
+   "claim_date": "2020-10-14",
+   "speaker": null,
+   "reporting_source": "Apple",
+   "original_claim_url": null,
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averitec/dev/99",
+   "dataset": "averitec",
+   "split": "dev",
+   "original_index": 99,
+   "claim": "New Zealand's Abortion Legislation Act (2020) does not make it a legal requirement that babies born alive after an abortion are given medical support.",
+   "claim_date": "2020-10-14",
+   "speaker": "Right To Life UK",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20201204210013/https://perma.cc/CU7H-NQ83?type=image",
+   "images": [],
+   "has_images": false,
+   "outputs": {
+    "smoke_formal_text_20260917_rog_cpu_r2": {
+     "aic_ctu_averitec": null,
+     "hero2": "ok",
+     "sanctuary": "crashed",
+     "infact": null
+    },
+    "smoke_campaign_text_20260917_cpu": {
+     "aic_ctu_averitec": null,
+     "hero2": null,
+     "infact": null,
+     "sanctuary": null
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averimatec/val/0",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 0,
+   "claim": "Photo shows a 101-year-old woman who has given birth to her 17th child.",
+   "claim_date": "2023-07-04",
+   "speaker": "The Love for Babies",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "67878fcce2f02e5f498136dd#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67878fcce2f02e5f498136dd%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": "ok",
+     "villain": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averimatec/val/1",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 1,
+   "claim": "Images show the renovation of the Cuttack hospital just before PM Modi’s arrival  to meet the victims of the Odisha train accident.",
+   "claim_date": "2023-06-03",
+   "speaker": "@iamyournaveen",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.ph/886yS#selection-357.0-525.16",
+   "images": [
+    {
+     "file": "6787a513e2f02e5f49815c30#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787a513e2f02e5f49815c30%23CLAIM%230.jpg"
+    },
+    {
+     "file": "6787a513e2f02e5f49815c30#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787a513e2f02e5f49815c30%23CLAIM%231.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": "ok",
+     "villain": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averimatec/val/2",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 2,
+   "claim": "Photos show that the craft store chain Hobby Lobby is selling demonic statues. ",
+   "claim_date": "2023-06-13",
+   "speaker": "Carousel Studios",
+   "reporting_source": "Facebook ",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "6787dee1e2f02e5f4981b14e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%230.jpg"
+    },
+    {
+     "file": "6787dee1e2f02e5f4981b14e#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%231.jpg"
+    },
+    {
+     "file": "6787dee1e2f02e5f4981b14e#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%232.jpg"
+    },
+    {
+     "file": "6787dee1e2f02e5f4981b14e#CLAIM#3.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%233.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": "ok",
+     "villain": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averimatec/val/3",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 3,
+   "claim": "An image shows the missing submersible Titan near the wreckage of the Titanic.",
+   "claim_date": "2023-06-21",
+   "speaker": "@Santa_Hustler",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/Santa_Hustler/status/1671787050448703488?ref_src=twsrc%5Etfw",
+   "images": [
+    {
+     "file": "6787e7eee2f02e5f4981c2b7#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787e7eee2f02e5f4981c2b7%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": "ok",
+     "villain": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averimatec/val/4",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 4,
+   "claim": "A new study proves 8,000 more ballots were counted than voters who actually voted in Arizona during the 2022 midterm election.",
+   "claim_date": "2023-06-25",
+   "speaker": "@BehizyTweets",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/BehizyTweets/status/1673384270616997890?t=4PlsRFZ9xKMHeintNW1Puw&s=03",
+   "images": [
+    {
+     "file": "6787eaf9e2f02e5f4981c66a#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787eaf9e2f02e5f4981c66a%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": "ok",
+     "villain": "ok"
+    }
+   },
+   "has_detail": true
+  },
+  {
+   "key": "averimatec/val/5",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 5,
+   "claim": "The multi-train collision in Odisha’s Balasore that claimed at least 275 lives happened near a mosque.",
+   "claim_date": "2023-06-03",
+   "speaker": "The Random Indian",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.is/f6PGV",
+   "images": [
+    {
+     "file": "67882ce6e2f02e5f4981f208#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67882ce6e2f02e5f4981f208%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67882ce6e2f02e5f4981f208#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67882ce6e2f02e5f4981f208%23CLAIM%231.jpg"
+    },
+    {
+     "file": "67882ce6e2f02e5f4981f208#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67882ce6e2f02e5f4981f208%23CLAIM%232.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/6",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 6,
+   "claim": "Map of California reflects the state's certified results from the 2020 presidential election. ",
+   "claim_date": "2023-06-01",
+   "speaker": "@GregRubini",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.org/details/20230613_20230613_1956",
+   "images": [
+    {
+     "file": "67888820e2f02e5f498207ad#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67888820e2f02e5f498207ad%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/7",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 7,
+   "claim": "Photo shows a Russian fuel truck recently destroyed by Ukrainian partisans in Kherson oblast.",
+   "claim_date": "2023-07-19",
+   "speaker": "@NOELreports",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/NOELreports/status/1681346661216403665",
+   "images": [
+    {
+     "file": "67892a9ce2f02e5f498294f1#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67892a9ce2f02e5f498294f1%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/8",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 8,
+   "claim": "Photo showing a pastor’s family being publicly paraded naked for preaching the gospel in Uttar Pradesh.",
+   "claim_date": "2023-07-26",
+   "speaker": null,
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "6789d5a0e2f02e5f4982f194#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6789d5a0e2f02e5f4982f194%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/9",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 9,
+   "claim": "The world’s oldest olive tree is found in Jerusalem, Israel and is estimated to be over 3000 years old.",
+   "claim_date": "2023-06-23",
+   "speaker": "Israel – Land of milk and honey",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://ghostarchive.org/archive/wjOqL",
+   "images": [
+    {
+     "file": "678a1258e2f02e5f498301f3#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678a1258e2f02e5f498301f3%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/10",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 10,
+   "claim": "Image shows ex-opposition supporter Ny Nak did not vote or get his index finger inked  because voter turnout was low in the 2023 Cambodia national election.",
+   "claim_date": "2023-07-31",
+   "speaker": "Khmer Blood National Rescue",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/1SIzV",
+   "images": [
+    {
+     "file": "678a2970e2f02e5f49830bda#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678a2970e2f02e5f49830bda%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/11",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 11,
+   "claim": "French protesters are shown seizing a police vehicle.",
+   "claim_date": "2023-07-02",
+   "speaker": "Der Trzaskal",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230707020416/https://twitter.com/Trzaskal/status/1675479836729409539",
+   "images": [
+    {
+     "file": "678a4042e2f02e5f498329d8#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678a4042e2f02e5f498329d8%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/12",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 12,
+   "claim": "The first telephone in Gujarat was installed at Sabarmati Ashram.",
+   "claim_date": "2023-07-29",
+   "speaker": "Vivek Pandey",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.is/20Sl7",
+   "images": [
+    {
+     "file": "678ab6a4e2f02e5f4983d9b0#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678ab6a4e2f02e5f4983d9b0%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/13",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 13,
+   "claim": "The telephone line was installed by the Britishers who spent lakhs to ensure they could speak to Gandhi.",
+   "claim_date": "2023-07-28",
+   "speaker": "Vivek Pandey",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.is/20Sl7",
+   "images": [
+    {
+     "file": "678aba3ae2f02e5f4983db92#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678aba3ae2f02e5f4983db92%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/14",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 14,
+   "claim": "An image shows a photo of a pro-refugee protest in France in 2016 and another of the recent riots in the country.",
+   "claim_date": "2023-06-02",
+   "speaker": "व्यंग्य",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/photo/?fbid=671669354999007",
+   "images": [
+    {
+     "file": "678bbb34e2f02e5f49841f87#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bbb34e2f02e5f49841f87%23CLAIM%230.jpg"
+    },
+    {
+     "file": "678bbb34e2f02e5f49841f87#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bbb34e2f02e5f49841f87%23CLAIM%231.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/15",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 15,
+   "claim": "Image shows painting by famous painter Raja Ravi Varma's.\n",
+   "claim_date": "2023-07-11",
+   "speaker": " @PanchvatiNasik",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230713051138/https://twitter.com/PanchvatiNasik/status/1679029812269031426",
+   "images": [
+    {
+     "file": "678bbf5fe2f02e5f4984205f#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bbf5fe2f02e5f4984205f%23CLAIM%230.jpg"
+    },
+    {
+     "file": "678bbf5fe2f02e5f4984205f#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bbf5fe2f02e5f4984205f%23CLAIM%231.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/16",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 16,
+   "claim": "A sign in a UK branch of Nando’s says: “We’re card only! Sorry, guess we’re part of the New World Order now.” Although the sign then says “just kidding”, this is not a joke.",
+   "claim_date": "2023-06-24",
+   "speaker": "@ANTlWEF",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230630135448/https://twitter.com/ANTlWEF/status/1672961395405586433",
+   "images": [
+    {
+     "file": "678bc292e2f02e5f49842cd9#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bc292e2f02e5f49842cd9%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/17",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 17,
+   "claim": "Image shows Russia transports dead soldiers in “meat cubes.”",
+   "claim_date": "2023-06-03",
+   "speaker": "mzKnowitaLL",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/photo/?fbid=709617554512131&set=a.130533155753910",
+   "images": [
+    {
+     "file": "678bc952e2f02e5f49843df7#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bc952e2f02e5f49843df7%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/18",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 18,
+   "claim": "Photo shows men accused in Manipur viral video case.\n",
+   "claim_date": "2023-07-22",
+   "speaker": "@SubhashiniAli",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230724065923/https://twitter.com/SubhashiniAli/status/1683029085851914244",
+   "images": [
+    {
+     "file": "678bcdbfe2f02e5f49844274#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bcdbfe2f02e5f49844274%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/19",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 19,
+   "claim": "An image shows French protesters allegedly seizing a police vehicle.",
+   "claim_date": "2023-07-01",
+   "speaker": "@Trzaskal",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/Trzaskal/status/1675479836729409539?ref_src=twsrc%5Etfw",
+   "images": [
+    {
+     "file": "678bd04be2f02e5f498442c9#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bd04be2f02e5f498442c9%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/20",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 20,
+   "claim": "Image of Jammu National Highway 44 in India.",
+   "claim_date": "2023-06-23",
+   "speaker": "The Right Action",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://perma.cc/VBR4-X426",
+   "images": [
+    {
+     "file": "678bd2cbe2f02e5f498443c4#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bd2cbe2f02e5f498443c4%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/21",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 21,
+   "claim": "An image shows a traffic light that melted in Texas due to extreme heat.",
+   "claim_date": "2023-07-07",
+   "speaker": "@AlayaZBVegan17",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/AlayaZBVegan17/status/1681435187878723585",
+   "images": [
+    {
+     "file": "678bd52de2f02e5f4984441f#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bd52de2f02e5f4984441f%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/22",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 22,
+   "claim": "A photo shows US ambassador to Jamaica, Nickolas Perry, with his spouse.",
+   "claim_date": "2023-07-27",
+   "speaker": "@justsociety4all",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.ph/auqDQ",
+   "images": [
+    {
+     "file": "678bd921e2f02e5f49844783#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bd921e2f02e5f49844783%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/23",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 23,
+   "claim": "Photo shows the arrest of Thai pro-democracy activist Anon Numpa in July 2023.",
+   "claim_date": "2023-07-20",
+   "speaker": "@sokenlive5",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.ph/06SRe",
+   "images": [
+    {
+     "file": "678bda5de2f02e5f498447e6#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678bda5de2f02e5f498447e6%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/24",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 24,
+   "claim": "In the United States of America (USA), an automobile brand has launched a new car in the name of Hindu deity Lord Rama.",
+   "claim_date": "2023-07-30",
+   "speaker": "Bajrangi Dal",
+   "reporting_source": null,
+   "original_claim_url": "https://perma.cc/7DSH-GAUG",
+   "images": [
+    {
+     "file": "678d1cb8e2f02e5f49849ab8#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678d1cb8e2f02e5f49849ab8%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/25",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 25,
+   "claim": "Photo shows the fishing trawler that went down off Greece carrying hundreds of migrants in June 2023. ",
+   "claim_date": "2023-06-17",
+   "speaker": "@Shahnafisa",
+   "reporting_source": "Facebook ",
+   "original_claim_url": "https://perma.cc/5M2K-QBVP?type=image",
+   "images": [
+    {
+     "file": "678d339ce2f02e5f4984a2f2#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678d339ce2f02e5f4984a2f2%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/26",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 26,
+   "claim": "A photo of Prime Minister Narendra Modi showing his back to Lord Ganesha while worshipping.",
+   "claim_date": "2023-07-31",
+   "speaker": "@ysathishreddy",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/ysathishreddy/status/1686412409433620480?s=46&t=kIszbQH_arRSG8kPbuGeZw",
+   "images": [
+    {
+     "file": "678d8eb6e2f02e5f4984e230#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678d8eb6e2f02e5f4984e230%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/27",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 27,
+   "claim": "A person with dementia named \"Jackson Simmons\" and his dog \"Cami\" missing and there has been a silver alert issued for \"Simmons\".",
+   "claim_date": "2023-07-31",
+   "speaker": "Kristin W. Montgomery",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/u8aqS#selection-553.0-558.0",
+   "images": [
+    {
+     "file": "678e4c49e2f02e5f49857eb1#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678e4c49e2f02e5f49857eb1%23CLAIM%230.jpg"
+    },
+    {
+     "file": "678e4c49e2f02e5f49857eb1#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678e4c49e2f02e5f49857eb1%23CLAIM%231.jpg"
+    },
+    {
+     "file": "678e4c49e2f02e5f49857eb1#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678e4c49e2f02e5f49857eb1%23CLAIM%232.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/28",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 28,
+   "claim": "A picture of a highway shows the National Highway (NH-44) running from Srinagar to Kanyakumari.",
+   "claim_date": "2023-07-03",
+   "speaker": "RSS Kashaya Dalam",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20230705100832/https://www.facebook.com/photo/?fbid=606708328268078&set=a.604887638450147",
+   "images": [
+    {
+     "file": "678edc39e2f02e5f4985e1e6#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678edc39e2f02e5f4985e1e6%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/29",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 29,
+   "claim": "Facebook users are being asked to help find a missing five-year-old girl named Sofia in Falkirk, Scotland.",
+   "claim_date": "2023-07-05",
+   "speaker": " Adrian H Peacok",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.is/z8jaC#selection-648.0-665.15",
+   "images": [
+    {
+     "file": "678f7ea4e2f02e5f49861c40#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/678f7ea4e2f02e5f49861c40%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/30",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 30,
+   "claim": "Two Kuki militants laid down their arms after meeting Congress leader Rahul Gandhi, who had recently concluded his two-day visit to Manipur.",
+   "claim_date": "2023-07-11",
+   "speaker": "@AabidMagami",
+   "reporting_source": "Twitter",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "67917d98e2f02e5f4987401e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67917d98e2f02e5f4987401e%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/31",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 31,
+   "claim": "The destruction of the Earth, geocide. The photo shows the spread path of radioactive materials from the Fukushima nuclear power plant estimated by the NOAA.",
+   "claim_date": "2023-07-04",
+   "speaker": "Ahn Chansoo",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.vn/h2iDz#selection-551.0-551.11",
+   "images": [
+    {
+     "file": "6791c0e9e2f02e5f49875607#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6791c0e9e2f02e5f49875607%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/32",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 32,
+   "claim": "Gurpatwant Singh Pannun, leader of the banned group Sikhs for Justice (SFJ), died in a road accident in the United States.",
+   "claim_date": "2023-07-04",
+   "speaker": "@VishalGargBjp",
+   "reporting_source": "X",
+   "original_claim_url": "https://archive.is/6NDPI#selection-427.0-427.3",
+   "images": [
+    {
+     "file": "6791c6fde2f02e5f498758f8#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6791c6fde2f02e5f498758f8%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/33",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 33,
+   "claim": "A Dalit woman gang raped in front of her husband in Rajasthan, the accused made the video viral.",
+   "claim_date": "2023-07-20",
+   "speaker": "Ramsakha Mishra",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02VDGLCQPXmoN8ysBv18Q8S5Gge4Vwc6mntw7pSgUcjuaAcekhgGgNyufyhhmtkvc1l&id=100003550490571",
+   "images": [
+    {
+     "file": "6792bb19e2f02e5f498854f6#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6792bb19e2f02e5f498854f6%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/34",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 34,
+   "claim": "Orthodox relics from Kyiv, Ukraine, are set to be auctioned at the Osenat Auction House in France on October 1st, 2023. ",
+   "claim_date": "2023-07-12",
+   "speaker": "Jack Woodhead",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20230810151055/https://www.facebook.com/jack.woodhead.9/posts/6259100694187551",
+   "images": [
+    {
+     "file": "679659a4e2f02e5f4989e5e9#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/679659a4e2f02e5f4989e5e9%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/35",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 35,
+   "claim": "An image shows French rioters at the Eiffel Tower recently.",
+   "claim_date": "2023-07-01",
+   "speaker": "@iamyesyouareno",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/iamyesyouareno/status/1675531037764464640?ref_src=twsrc%5Etfw",
+   "images": [
+    {
+     "file": "67965b50e2f02e5f4989e65e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965b50e2f02e5f4989e65e%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/36",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 36,
+   "claim": "Photos of Pakistani woman Seema Haider who fled to India to marry lover Sachin Meena.",
+   "claim_date": "2023-07-14",
+   "speaker": "Sachin Singh Durgvansh",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/9l28w#selection-49.0-49.21",
+   "images": [
+    {
+     "file": "67965fe6e2f02e5f4989e75e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965fe6e2f02e5f4989e75e%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67965fe6e2f02e5f4989e75e#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965fe6e2f02e5f4989e75e%23CLAIM%231.jpg"
+    },
+    {
+     "file": "67965fe6e2f02e5f4989e75e#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965fe6e2f02e5f4989e75e%23CLAIM%232.jpg"
+    },
+    {
+     "file": "67965fe6e2f02e5f4989e75e#CLAIM#3.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965fe6e2f02e5f4989e75e%23CLAIM%233.jpg"
+    },
+    {
+     "file": "67965fe6e2f02e5f4989e75e#CLAIM#4.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965fe6e2f02e5f4989e75e%23CLAIM%234.jpg"
+    },
+    {
+     "file": "67965fe6e2f02e5f4989e75e#CLAIM#5.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67965fe6e2f02e5f4989e75e%23CLAIM%235.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/37",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 37,
+   "claim": "Image of a police van driving down a street with people inside is from the protests in France.",
+   "claim_date": "2023-06-30",
+   "speaker": "@leslibless",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/leslibless/status/1675019008901349377",
+   "images": [
+    {
+     "file": "67966544e2f02e5f4989e9b0#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67966544e2f02e5f4989e9b0%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/38",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 38,
+   "claim": "A photograph authentically shows a multistory white mansion with a swimming pool and rooftop gym that is the home of Ukrainian President Volodymyr Zelenskyy.",
+   "claim_date": "2023-07-17",
+   "speaker": "@liz_churchill10",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230719222519/https://web.archive.org/web/20230719200244/https://twitter.com/liz_churchill10/status/1681325307863728129",
+   "images": [
+    {
+     "file": "6796664de2f02e5f4989ea43#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6796664de2f02e5f4989ea43%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/39",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 39,
+   "claim": "A rare photo shows the Earth's day and night regions simultaneously across the African and European continents.",
+   "claim_date": "2023-07-17",
+   "speaker": "The Youth",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/TheYouth2u/posts/pfbid0np45cS5LMN1ECvMUwmZAdp971cV4M9Z6qxhEQgjoJqiNKGKsZtUTc9giZaZ7ZUztl",
+   "images": [
+    {
+     "file": "67966812e2f02e5f4989ead6#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67966812e2f02e5f4989ead6%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/40",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 40,
+   "claim": "Bandages around former President Barack Obama’s hand on Friday are suspicious and suggest he was involved in the death of his family chef.",
+   "claim_date": "2023-07-29",
+   "speaker": "MAGA Underground",
+   "reporting_source": "Facebook ",
+   "original_claim_url": "https://www.facebook.com/MAGAUnderground1/posts/pfbid0bySkYEDb3wx4uuYpz8QA9rejBoMnCZhuVAHM9xbAJ3M2BnWDq1654wJP561vktxcl?_rdc=1&_rdr",
+   "images": [
+    {
+     "file": "679669fbe2f02e5f4989ec06#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/679669fbe2f02e5f4989ec06%23CLAIM%230.jpg"
+    },
+    {
+     "file": "679669fbe2f02e5f4989ec06#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/679669fbe2f02e5f4989ec06%23CLAIM%231.jpg"
+    },
+    {
+     "file": "679669fbe2f02e5f4989ec06#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/679669fbe2f02e5f4989ec06%23CLAIM%232.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/41",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 41,
+   "claim": "A robber was shot dead by customers in a convenience store in Texas.",
+   "claim_date": "2023-07-07",
+   "speaker": "Mike Noder",
+   "reporting_source": "Facebook ",
+   "original_claim_url": "https://www.facebook.com/photo/?fbid=10224824247088500&set=a.1110868446927",
+   "images": [
+    {
+     "file": "67966b1ae2f02e5f4989ed40#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67966b1ae2f02e5f4989ed40%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/42",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 42,
+   "claim": "Photo shows Finnish people protesting US President Joe Biden's visit in July 2023.",
+   "claim_date": "2023-07-13",
+   "speaker": "Min Ayeyar",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/WF1GP",
+   "images": [
+    {
+     "file": "67978606e2f02e5f498b50e1#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67978606e2f02e5f498b50e1%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/43",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 43,
+   "claim": "Three “major newspapers of Pakistan” — including Dawn, Tribune, and The News — did not publish on their front pages news about the hundreds of Pakistanis who drowned in the Greece boat disaster in June 2023.",
+   "claim_date": "2023-06-17",
+   "speaker": "@mustafa_wynne",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://ghostarchive.org/archive/zD3rO",
+   "images": [
+    {
+     "file": "67a172dae2f02e5f49958033#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a172dae2f02e5f49958033%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/44",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 44,
+   "claim": "Indian Prime minister Narendra  Modi is the only world leader, apart from former Prime Minister of the United Kingdom Winston Churchill, to be addressing the capitol joint meeting of Congress  in the USA twice",
+   "claim_date": "2023-06-21",
+   "speaker": "@KotiSuryaNaray1",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://perma.cc/37ZB-DG93",
+   "images": [
+    {
+     "file": "67a17483e2f02e5f4995807c#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a17483e2f02e5f4995807c%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/45",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 45,
+   "claim": "Mohammad Rifat Anjum died during the anti-Qadiani movement in Panchagarh",
+   "claim_date": "2023-06-03",
+   "speaker": "I am Muslim.",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://web.archive.org/web/20230315024213/https://archive.ph/JBbnv",
+   "images": [
+    {
+     "file": "67a17d32e2f02e5f49958122#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a17d32e2f02e5f49958122%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/46",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 46,
+   "claim": "A five-year-old girl named Sofia is missing after going out on her bike and failing to return home. A silver alert has been issued following her disappearance.",
+   "claim_date": "2023-06-29",
+   "speaker": "Carl H",
+   "reporting_source": "facebook",
+   "original_claim_url": "https://www.facebook.com/photo.php?fbid=109477908865380&set=gm.1700243117071211&type=3&theater",
+   "images": [
+    {
+     "file": "67a26631e2f02e5f499601dd#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a26631e2f02e5f499601dd%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/47",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 47,
+   "claim": "Genuine images of Mayon volcano's eruption in 2023.",
+   "claim_date": "2023-06-15",
+   "speaker": "Costales Bhabez Magnumstriker",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/46v7I",
+   "images": [
+    {
+     "file": "67a28d8ce2f02e5f49963b30#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a28d8ce2f02e5f49963b30%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67a28d8ce2f02e5f49963b30#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a28d8ce2f02e5f49963b30%23CLAIM%231.jpg"
+    },
+    {
+     "file": "67a28d8ce2f02e5f49963b30#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a28d8ce2f02e5f49963b30%23CLAIM%232.jpg"
+    },
+    {
+     "file": "67a28d8ce2f02e5f49963b30#CLAIM#3.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a28d8ce2f02e5f49963b30%23CLAIM%233.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/48",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 48,
+   "claim": "Google Maps is adding a feature that allows drivers to challenge each other to a race.",
+   "claim_date": "2023-06-18",
+   "speaker": "@soren_iverson",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.ph/SMeTe",
+   "images": [
+    {
+     "file": "67a36bd7e2f02e5f4996cdd0#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a36bd7e2f02e5f4996cdd0%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/49",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 49,
+   "claim": "Photo shows victim of the ongoing recent violence between the ethnic Meitei and Kuki communities in Manipur, India.",
+   "claim_date": "2023-06-17",
+   "speaker": "@auztynn_shimray ",
+   "reporting_source": "X (Formally Twitter)",
+   "original_claim_url": "https://archive.is/7zAew",
+   "images": [
+    {
+     "file": "67a373a2e2f02e5f4996d2aa#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a373a2e2f02e5f4996d2aa%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/50",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 50,
+   "claim": "Image shows anti Indian Prime Minister Narendra Modi posters in the USA just ahead of his recent US visit.",
+   "claim_date": "2023-06-20",
+   "speaker": "@abdquddus117",
+   "reporting_source": "X (Formally Twitter)",
+   "original_claim_url": "https://x.com/abdquddus117/status/1671077782888267776?ref_src=twsrc%5Etfw",
+   "images": [
+    {
+     "file": "67a37aebe2f02e5f4996d43f#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a37aebe2f02e5f4996d43f%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/51",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 51,
+   "claim": "photo shows a handcuffed person being led away by police  in Thailand, for insulting Buddhism.",
+   "claim_date": "2023-06-01",
+   "speaker": "  Sanka Dasun",
+   "reporting_source": "Facebook user post",
+   "original_claim_url": "https://archive.ph/wgpmI#selection-768.0-848.0",
+   "images": [
+    {
+     "file": "67a39144e2f02e5f4996d50a#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a39144e2f02e5f4996d50a%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/52",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 52,
+   "claim": "Photo shows a dog being stolen in the UK by a man with a gun.",
+   "claim_date": "2023-06-08",
+   "speaker": null,
+   "reporting_source": "social media posts.",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "67a5284be2f02e5f4998e0da#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a5284be2f02e5f4998e0da%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67a5284be2f02e5f4998e0da#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a5284be2f02e5f4998e0da%23CLAIM%231.jpg"
+    },
+    {
+     "file": "67a5284be2f02e5f4998e0da#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a5284be2f02e5f4998e0da%23CLAIM%232.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/53",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 53,
+   "claim": "Station Master Shairf Ali At Bahanaga Bazar Station run away.",
+   "claim_date": "2023-06-05",
+   "speaker": "Sujatha Ananthan",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://ghostarchive.org/archive/7SDBA",
+   "images": [
+    {
+     "file": "67a529f9e2f02e5f4998e155#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67a529f9e2f02e5f4998e155%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/54",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 54,
+   "claim": "A picture shows an injured woman bleeding from her head and breastfeeding her child is from violence-stricken Manipur.",
+   "claim_date": "2023-06-18",
+   "speaker": "@jadonjpr",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20240712220507/https://web.archive.org/web/20230620123104/https://twitter.com/jadonjpr/status/1670398261864325120",
+   "images": [
+    {
+     "file": "67ab54b278ffc1b9fb7574b5#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab54b278ffc1b9fb7574b5%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/55",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 55,
+   "claim": "Photo of debris of Titan submersible, which imploded during its descent to the Titanic shipwreck site in June 2023.",
+   "claim_date": "2023-06-22",
+   "speaker": "@SteelToss",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230623052841/https://twitter.com/SteelToss/status/1671947966133796889",
+   "images": [
+    {
+     "file": "67ab55a278ffc1b9fb75752a#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab55a278ffc1b9fb75752a%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/56",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 56,
+   "claim": "Picture shows world’s darkest baby.",
+   "claim_date": "2023-06-09",
+   "speaker": "Chinaza ucheoma page",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/photo/?fbid=154854214249240&set=a.118518641216131",
+   "images": [
+    {
+     "file": "67ab5d2778ffc1b9fb75bcb0#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab5d2778ffc1b9fb75bcb0%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67ab5d2778ffc1b9fb75bcb0#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab5d2778ffc1b9fb75bcb0%23CLAIM%231.jpg"
+    },
+    {
+     "file": "67ab5d2778ffc1b9fb75bcb0#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab5d2778ffc1b9fb75bcb0%23CLAIM%232.jpg"
+    },
+    {
+     "file": "67ab5d2778ffc1b9fb75bcb0#CLAIM#3.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab5d2778ffc1b9fb75bcb0%23CLAIM%233.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/57",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 57,
+   "claim": "Kuki militants who met Rahul Gandhi surrendered and pledged to give up violence and follow Mahatma Gandhi's path.",
+   "claim_date": "2023-06-30",
+   "speaker": "@AWhiteTigerINC",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230630125507/https://twitter.com/AWhiteTigerINC/status/1674672255929024513",
+   "images": [
+    {
+     "file": "67ab67a878ffc1b9fb7614fe#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ab67a878ffc1b9fb7614fe%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/58",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 58,
+   "claim": "A poster targeting Prime Minister Narendra Modi was put up in United States ahead of his recent visit to the country.",
+   "claim_date": "2023-06-20",
+   "speaker": "@abdquddus117",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230621034916/https://twitter.com/abdquddus117/status/1671077782888267776",
+   "images": [
+    {
+     "file": "67aca5ac78ffc1b9fb782219#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67aca5ac78ffc1b9fb782219%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/59",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 59,
+   "claim": "Photo of an injured woman breastfeeding a child is related to the ongoing violence in Manipur.",
+   "claim_date": "2023-06-18",
+   "speaker": "@Namaste30135301",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://x.com/Namaste30135301/status/1670319813066121217?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1670319813066121217%7Ctwgr%5E9a189b8746c972fe29050a3251ad85b1f390122b%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.vishvasnews.com%2Fwp-admin%2Fpost-new.php",
+   "images": [
+    {
+     "file": "67aca90178ffc1b9fb7822d8#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67aca90178ffc1b9fb7822d8%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/60",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 60,
+   "claim": "The White House violated flag code by putting a LGBTQ+ pride flag in between two U.S. flags.",
+   "claim_date": "2023-06-11",
+   "speaker": "Roger Marshall",
+   "reporting_source": "X",
+   "original_claim_url": "https://x.com/RogerMarshallMD/status/1667942869519269890",
+   "images": [
+    {
+     "file": "67acf68b78ffc1b9fb789da1#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67acf68b78ffc1b9fb789da1%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/61",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 61,
+   "claim": "An image shows a group of dogs in flood waters in the aftermath of the Ukranian dam being destroyed.",
+   "claim_date": "2023-06-06",
+   "speaker": "Yuriy Dryha",
+   "reporting_source": "X",
+   "original_claim_url": "https://x.com/drigli_/status/1665972016719994882",
+   "images": [
+    {
+     "file": "67ad11bf78ffc1b9fb78b07a#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ad11bf78ffc1b9fb78b07a%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/62",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 62,
+   "claim": "The image of an expressway depicts Jammu National Highway 44",
+   "claim_date": "2023-06-26",
+   "speaker": "Er sachin rajpoot",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/100063812023244/posts/pfbid02AfkYiiD5qh2jZXeX85zkvHB8aD2ePiuW5Lm6CYvN3MEc231zzJ9bX3BjvDJ5fmHHl/?mibextid=cr9u03",
+   "images": [
+    {
+     "file": "67ae140278ffc1b9fb7a2c8b#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae140278ffc1b9fb7a2c8b%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/63",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 63,
+   "claim": "A photo shows tents set up in New York City to treat children kept in underground captivity.",
+   "claim_date": "2023-06-04",
+   "speaker": "THiS LiL' MiSS Can't Be Wrong",
+   "reporting_source": "X",
+   "original_claim_url": "https://x.com/l42022425/status/1665422432570679296",
+   "images": [
+    {
+     "file": "67ae140578ffc1b9fb7a2d7e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae140578ffc1b9fb7a2d7e%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/64",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 64,
+   "claim": "Photo shows the bodies of the victims killed in Islamic terrorist attack in France.",
+   "claim_date": "2023-06-07",
+   "speaker": "황성민",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/IIlMw",
+   "images": [
+    {
+     "file": "67ae18a578ffc1b9fb7a3087#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae18a578ffc1b9fb7a3087%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/65",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 65,
+   "claim": "Photo showing US President Joe Biden with a Justice Department official.",
+   "claim_date": "2023-06-19",
+   "speaker": "@realDonaldTrump",
+   "reporting_source": "Truth Social",
+   "original_claim_url": "https://archive.is/VmxZl",
+   "images": [
+    {
+     "file": "67ae22e367f879bc89a25e5e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae22e367f879bc89a25e5e%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/66",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 66,
+   "claim": "The UN replaced all 193 country flags with LGBT flags outside its headquarters.",
+   "claim_date": "2023-06-07",
+   "speaker": "Rosana RáBago Sainz",
+   "reporting_source": "Voz Media",
+   "original_claim_url": "https://perma.cc/5F2J-UF7A",
+   "images": [
+    {
+     "file": "67ae246e67f879bc89a26221#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae246e67f879bc89a26221%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/67",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 67,
+   "claim": "An aerial photo of the site of the Indian worst train crash shows a mosque nearby -- suggesting Muslims were responsible for the tragedy.",
+   "claim_date": "2023-06-04",
+   "speaker": "Alok Pandey",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://archive.ph/EnMbk",
+   "images": [
+    {
+     "file": "67ae4b5767f879bc89a29e13#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae4b5767f879bc89a29e13%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/68",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 68,
+   "claim": "A 25 year’s old Hindu girl’s headless body recovered from sea stuffed in a suitcase.",
+   "claim_date": "2023-06-02",
+   "speaker": "School of Vedic Science",
+   "reporting_source": "X",
+   "original_claim_url": "https://x.com/schoolofvedics1/status/1664664379009433600?t=kIszbQH_arRSG8kPbuGeZw",
+   "images": [
+    {
+     "file": "67ae6c8967f879bc89a34b39#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae6c8967f879bc89a34b39%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/69",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 69,
+   "claim": "A Hindu girl’s headless body is associated with a war against Hindus. ",
+   "claim_date": "2023-06-02",
+   "speaker": "School of Vedic Science",
+   "reporting_source": "X",
+   "original_claim_url": "https://x.com/schoolofvedics1/status/1664664379009433600?t=kIszbQH_arRSG8kPbuGeZw",
+   "images": [
+    {
+     "file": "67ae753067f879bc89a34dce#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67ae753067f879bc89a34dce%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/70",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 70,
+   "claim": "The UK government is cutting waiting lists.",
+   "claim_date": "2023-06-14",
+   "speaker": "Rishi Sunak",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://twitter.com/RishiSunak/status/1663942341529313281",
+   "images": [
+    {
+     "file": "67b2734c719ccca960b54484#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b2734c719ccca960b54484%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67b2734c719ccca960b54484#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b2734c719ccca960b54484%23CLAIM%231.jpg"
+    },
+    {
+     "file": "67b2734c719ccca960b54484#CLAIM#2.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b2734c719ccca960b54484%23CLAIM%232.jpg"
+    },
+    {
+     "file": "67b2734c719ccca960b54484#CLAIM#3.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b2734c719ccca960b54484%23CLAIM%233.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/71",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 71,
+   "claim": "White House pride flag display violated the US flag code.",
+   "claim_date": "2023-06-11",
+   "speaker": "@RogerMarshallMD",
+   "reporting_source": "Twitter",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "67b2c522719ccca960b5512b#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b2c522719ccca960b5512b%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/72",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 72,
+   "claim": "The LGBTQI2S+ flag has been updated by the official flag creator for prides and LGBT orgs.\n\nThe new flag has now added AUTISM.",
+   "claim_date": "2023-06-19",
+   "speaker": "@OliLondonTV",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230626160643/https://twitter.com/OliLondonTV/status/1670908024863457282?s=20",
+   "images": [
+    {
+     "file": "67b53432886de82ea9472734#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b53432886de82ea9472734%23CLAIM%230.jpg"
+    },
+    {
+     "file": "67b53432886de82ea9472734#CLAIM#1.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b53432886de82ea9472734%23CLAIM%231.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/73",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 73,
+   "claim": "A photo shows Aileen Cannon, the US district court judge assigned to the criminal case against Donald Trump for retaining classified documents, wearing Trump apparel outside one of the former president's rallies.",
+   "claim_date": "2023-06-09",
+   "speaker": "Laurie Garrett",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://archive.is/G5Y2n",
+   "images": [
+    {
+     "file": "67b56276886de82ea9472d9f#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b56276886de82ea9472d9f%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/74",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 74,
+   "claim": "Photo shows President Joe Biden sitting with Lisa Monaco, second in charge of the DOJ, probably working on future Plots and Schemes against Republicans.",
+   "claim_date": "2023-06-19",
+   "speaker": "Donald.J.Trump",
+   "reporting_source": "Truth social ",
+   "original_claim_url": "https://archive.is/0z8q2",
+   "images": [
+    {
+     "file": "67b578fd886de82ea94746b5#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b578fd886de82ea94746b5%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/75",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 75,
+   "claim": "North Korean communist identity card issued to son of former South korean president Kim Dae-Jung.\n",
+   "claim_date": "2023-06-27",
+   "speaker": "Hong moon",
+   "reporting_source": "Facebook ",
+   "original_claim_url": "https://archive.vn/FqizG",
+   "images": [
+    {
+     "file": "67b57fc2886de82ea9474b9e#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b57fc2886de82ea9474b9e%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/76",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 76,
+   "claim": "Photo shows 2023 French riots.",
+   "claim_date": "2023-07-02",
+   "speaker": null,
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20241105061033/https://twitter.com/iamyesyouareno/status/1675531037764464640",
+   "images": [
+    {
+     "file": "67b58756886de82ea947506b#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b58756886de82ea947506b%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/77",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 77,
+   "claim": "A cocker spaniel was found by the side of the road two weeks ago and its owner still cannot be traced.",
+   "claim_date": "2023-06-08",
+   "speaker": "Yolanda J Grey",
+   "reporting_source": "Facebook",
+   "original_claim_url": "https://www.facebook.com/photo.php?fbid=187009037662966&set=gm.6174073572629249&type=3&theater",
+   "images": [
+    {
+     "file": "67b67be4886de82ea948bed2#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b67be4886de82ea948bed2%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/78",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 78,
+   "claim": "PTI tweeted that Kuki militants in Manipur, India, surrendered after Rahul Gandhi’s visit.",
+   "claim_date": "2023-07-02",
+   "speaker": "Abdicate Caste",
+   "reporting_source": "Facebook",
+   "original_claim_url": null,
+   "images": [
+    {
+     "file": "67b760fe63f044a004da871a#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b760fe63f044a004da871a%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  },
+  {
+   "key": "averimatec/val/79",
+   "dataset": "averimatec",
+   "split": "val",
+   "original_index": 79,
+   "claim": "Image shows bleeding woman in Violence-stricken Manipur breastfeeding her child. ",
+   "claim_date": "2023-06-18",
+   "speaker": "jadon @jadonjpr",
+   "reporting_source": "Twitter",
+   "original_claim_url": "https://web.archive.org/web/20230620123104/https://twitter.com/jadonjpr/status/1670398261864325120",
+   "images": [
+    {
+     "file": "67b7718f63f044a004dab69b#CLAIM#0.jpg",
+     "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67b7718f63f044a004dab69b%23CLAIM%230.jpg"
+    }
+   ],
+   "has_images": true,
+   "outputs": {
+    "smoke_campaign_mm_20260917_rog_cpu_r2": {
+     "aic_ctu_averimatec": null,
+     "villain": null
+    }
+   },
+   "has_detail": false
+  }
+ ]
+}

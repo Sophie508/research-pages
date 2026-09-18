@@ -1,0 +1,444 @@
+{
+ "key": "averitec/dev/38",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 38,
+ "claim": "Hunter Biden, son of US President Joe Biden has died.",
+ "claim_date": "2020-10-25",
+ "speaker": null,
+ "reporting_source": "4chan",
+ "original_claim_url": "https://web.archive.org/web/20210116153238/https://media.thedonald.win/post/H3A2atAb.png",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim \"Hunter Biden, son of US President Joe Biden has died,\" I will evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that Hunter Biden is deceased.\n2.  **Evaluate the Evidence:**\n    *   **Q1, Q2, Q4, Q7, Q8, and Q10** explicitly clarify that the son of Joe Biden who passed away was **Beau Biden**, who died from brain cancer (glioblastoma multiforme).\n    *   **Q2, Q5, Q6, and Q9** state that there is no mention of Hunter Biden's death in the provided evidence and that no reports confirm his death.\n    *   **Q3 and Q9** note that the evidence focuses on other topics (foreign policy, business dealings, and intelligence investigations) rather than Hunter Biden's health or status.\n3.  **Determine the Relationship:** The evidence consistently identifies Beau Biden as the deceased son and explicitly states that the provided information does not support the claim that Hunter Biden has died. In fact, the evidence clarifies that the death mentioned in the context of the Biden family refers to a different individual (Beau).\n4.  **Conclusion:** Since the evidence explicitly identifies the deceased son as Beau Biden and states that there is no evidence or mention of Hunter Biden's death, the claim that Hunter Biden has died is directly contradicted by the factual information provided in the evidence.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Who is the son of Joe Biden that has passed away?",
+      "answer": "Based on the evidence provided, the son of Joe Biden who passed away is Beau Biden, the former attorney general of Delaware, who died following a battle with brain cancer.",
+      "url": "https://www.npr.org/sections/thetwo-way/2015/05/30/410882614/beau-biden-vice-president-joe-bidens-son-dies-after-cancer-battle",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Beau Biden or Hunter Biden pass away?",
+      "answer": "Based on the evidence provided, Beau Biden passed away following a battle with brain cancer. There is no mention of Hunter Biden passing away.",
+      "url": "https://www.bbc.com/news/world-us-canada-32949891",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support or refute the claim that Hunter Biden has died?",
+      "answer": "The provided evidence does not address the claim regarding Hunter Biden's death. The evidence focuses on foreign policy evaluations concerning allegations of corruption involving Hunter Biden and Joe Biden in relation to China, and therefore it neither supports nor refutes the claim that Hunter Biden has died.",
+      "url": "https://www.tampabay.com/news/florida-politics/elections/2020/10/21/fact-checking-claims-about-hunter-biden-joe-biden-and-china-politifact/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did Hunter Biden pass away, or was it his brother Beau Biden?",
+      "answer": "It was Beau Biden who passed away, not Hunter Biden. According to the evidence, the Biden family announced the passing of Beau Biden following a battle with brain cancer.",
+      "url": "https://www.presidency.ucsb.edu/documents/statement-the-vice-president-the-death-beau-biden",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that Hunter Biden has died?",
+      "answer": "No, the evidence does not support the claim that Hunter Biden has died. The provided text focuses on discussions regarding his business dealings in China and allegations of corruption involving Joe Biden, but it contains no mention of Hunter Biden's death.",
+      "url": "https://politifact.com/article/2020/oct/19/fact-checking-claims-about-hunter-biden-joe-biden/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the NBC News collection contain any reports confirming that Hunter Biden has died?",
+      "answer": "No, the NBC News collection does not contain any reports confirming that Hunter Biden has died. The evidence provided mentions that the collection includes \"investigations into conspiracy theories surrounding the Biden family,\" but it does not list any reports confirming his death.",
+      "url": "https://www.nbcnews.com/now/video/inside-the-false-conspiracy-theory-being-pushed-on-the-bidens-94512709627",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Joe Biden's son, Hunter Biden, pass away from brain cancer?",
+      "answer": "No, Hunter Biden has not passed away from brain cancer. According to the provided evidence, it was Joe Biden's other son, **Beau Biden**, who passed away after a battle with brain cancer.",
+      "url": "https://www.theguardian.com/us-news/2015/may/31/beau-biden-dies-of-brain-cancer",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Which son of Joe Biden passed away?",
+      "answer": "Based on the evidence provided, Joseph “Beau” Biden III, the son of Joe Biden, passed away after a battle with brain cancer.",
+      "url": "https://www.cnn.com/2015/05/30/politics/obit-vice-president-son-beau-biden",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Hunter Biden die?",
+      "answer": "Based on the evidence provided, there is no information available to confirm or deny whether Hunter Biden has died. The provided text focuses on intelligence officials' suspicions regarding a New York Post report and potential Russian information operations related to Hunter Biden's emails, but it does not mention his health or status.",
+      "url": "https://www.politico.com/news/2020/10/19/hunter-biden-story-russian-disinfo-430276",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence to support the claim that Hunter Biden has died?",
+      "answer": "No, there is no evidence in the provided text to support the claim that Hunter Biden has died. The evidence only mentions the death of Joe Biden's son, **Beau Biden**, who died from glioblastoma multiforme.",
+      "url": "https://www.pbs.org/newshour/health/biden-addresses-possible-link-between-sons-fatal-brain-cancer-and-toxic-military-burn-pits",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.npr.org/sections/thetwo-way/2015/05/30/410882614/beau-biden-vice-president-joe-bidens-son-dies-after-cancer-battle",
+      "date": "2015-05-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-32949891",
+      "date": "2015-05-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/newshour/videos/remembering-joseph-beau-biden-iii-1969-2015/10153371867908675/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.presidency.ucsb.edu/documents/statement-the-vice-president-the-death-beau-biden",
+      "date": "2015-05-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/health/biden-addresses-possible-link-between-sons-fatal-brain-cancer-and-toxic-military-burn-pits",
+      "date": "2018-01-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/theDanRather/posts/no-matter-how-many-times-you-hear-joe-bidens-life-story-of-tragedy-it-still-hits/10164124369030716/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/2015/05/30/politics/obit-vice-president-son-beau-biden",
+      "date": "2015-05-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2015/may/31/beau-biden-dies-of-brain-cancer",
+      "date": "2015-05-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/article/2020/oct/19/fact-checking-claims-about-hunter-biden-joe-biden/",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/recode/2020/10/14/21516194/hunter-biden-new-york-post-facebook-twitter-removed",
+      "date": "2020-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/media/2020/oct/22/hunter-biden-do-digital-platforms-care-more-than-news-corp-about-likely-misinformation",
+      "date": "2020-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/now/video/inside-the-false-conspiracy-theory-being-pushed-on-the-bidens-94512709627",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tampabay.com/news/florida-politics/elections/2020/10/21/fact-checking-claims-about-hunter-biden-joe-biden-and-china-politifact/",
+      "date": "2020-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/2020/10/19/hunter-biden-story-russian-disinfo-430276",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 14,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that Hunter Biden, the son of then-candidate Joe Biden, died on or around October 25, 2020. The claim originated on the internet forum 4chan in the US.\n2. The provided evidence shows that during October 2020, Hunter Biden was the subject of various disinformation campaigns and conspiracy theories (such as those involving child pornography or foreign intelligence operations), but there is no mention of a death report in any credible news source. In fact, the evidence highlights that major news organizations (NBC, NYT, Politico, etc.) were covering his activities, his laptop, and the surrounding political controversies, none of which included a report of his death. Furthermore, a spokesperson for Hunter Biden is quoted addressing \"widely discredited conspiracy theories,\" implying he was alive and active.\n3. There are no contradictions to the claim in the evidence; rather, the evidence focuses on other types of disinformation (Pizzagate-style rumors) circulating at the same time, which serves to contextualize the environment of misinformation on 4chan but does not provide any evidence of a death. There is a total absence of any report confirming the death.\n4. Since the claim is a specific event claim (a death) and there is no evidence to support it, and the context of the time shows he was actively involved in news cycles regarding his laptop and political ties, the claim is directly refuted by the lack of any such occurrence in the public record and the presence of other, documented disinformation campaigns that did not include this specific claim.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is there any credible evidence or official report confirming that Hunter Biden has died as claimed on 4chan in October 2020?",
+      "answer": "15, 2020 Browse the Truth-O-Meter More by Daniel Funke Fact-checking unproven claims about Hunter Biden and child pornography Support independent fact-checking. Become a member! In a world of wild talk and fake news, help us stand up for the facts. But unlike the pizzagate-style rumors in 2016 that were largely confined to far-right message boards like 4chan and parts of Reddit, the Hunter Biden iteration of the same conspiracy theory took off last weekend with the help of of speculation from conservative TV hosts and members of Congress. The disinformation campaign appears to have been successful in its goal of generating a smear against the former vice president's son. Social media users dedicated to QAnon, a baseless conspiracy theory that claims Trump is secretly fighting a cabal of Satan-worshipping, cannibalistic, left-leaning pedophiles, took the 4chan posts as evidence that the FBI was investigating Hunter Biden for potentially possessing child pornography. By Sunday, the conspiracy theory had made its way to Fox News.",
+      "url": "https://dpaq.de/gXxW2",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the status of Hunter Biden's health and public activity around the time the claim was made in October 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How should the source of the claim, 4chan, be viewed regarding the veracity of such news reports?",
+      "answer": "But there is no evidence to support allegations that it contains thousands of images of Hunter Biden abusing children in China. (Screenshot from Facebook) The unproven claim has roots on a fringe internet forum that’s a known source of online disinformation, 4chan. On Oct. 15, Chanel Rion, the chief White House correspondent for One America News Network — a pro-Trump cable TV network — tweeted that she had seen the contents of the hard drive at the center of the New York Post story. \"Drugs, underage obsessions, power deals,\" she said in the post.",
+      "url": "https://dpaq.de/gXxW2",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did any major news organizations report on the death of Hunter Biden in late October 2020?",
+      "answer": "18, 2020 The New York Times, \"One America News, the Network That Spreads Conspiracies to the West Wing,\" June 9, 2020 Politico, \"Hunter Biden story is Russian disinfo, dozens of former intel officials say,\" Oct. 19, 2020 PolitiFact, \"A look behind the NY Post headline about Joe Biden and a Ukraine meeting,\" Oct. 15, 2020 PolitiFact, \"Hoaxes, fake news about the Las Vegas massacre,\" Oct. 2, 2017 PolitiFact, \"What is QAnon, the baseless conspiracy spilling into US politics? 17, 2020 NBC News, \"Feds examining whether alleged Hunter Biden emails are linked to a foreign intel operation,\" Oct. 15, 2020 NBC News, \"Ratcliffe says no proof foreign actors tied to 'Biden' laptop, but officials say FBI is probing,\" Oct. 19, 2020 Newsweek, \"From 'Child Porn on Hunter Biden's Laptop' to QAnon, Conspiracy Theories Pollute 2020 Election's Final Weeks,\" Oct. Click here for more. Our Sources Business Insider, \"The New York Post inadvertently revealed the original source of its dubious Hunter Biden story,\" Oct. 14, 2020 CrowdTangle, accessed Oct. 19, 2020 The Daily Beast, \"Facebook Removes Conspiracy Site Natural News,\" Jan. 19, 2020 New York Post, \"Smoking-gun email reveals how Hunter Biden introduced Ukrainian businessman to VP dad,\" Oct. 14, 2020 The New York Times, \"Facebook Bars Alex Jones, Louis Farrakhan and Others From Its Services,\" May 2, 2019 The New York Times, \"New York Post Published Hunter Biden Report Amid Newsroom Doubts,\" Oct. 17, 2020 InfoWars, \"Did Hunter Biden’s Laptop Contain Child Porn?\" Oct. 15, 2020 Mediaite, \"EXCLUSIVE: Fox News Passed on Hunter Biden Laptop Story Over Credibility Concerns,\" Oct. 19, 2020 Natural News, \"EXCLUSIVE: Chinese whistleblower reveals Hunter Biden ‘sex tapes’ contain video of Joe Biden’s son sexually ABUSING multiple under-age Chinese teens,\" Oct. A spokesperson for Hunter Biden called the story \"widely discredited conspiracy theories\" in a statement to the New York Post. The Trump or Biden campaigns did not respond to an inquiry for this article, though Schweizer did. Also, for clarity’s sake, the China allegations against Hunter Biden are separate from those involving alleged ties to Ukraine that were published on Oct.",
+      "url": "https://dpaq.de/gXxW2",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Can the claim that Hunter Biden died be classified as a hoax or misinformation?",
+      "answer": "A spokesperson for Hunter Biden called the story \"widely discredited conspiracy theories\" in a statement to the New York Post.",
+      "url": "https://www.businessinsider.com/facebook-hunter-biden-new-york-post-story-fact-checkers-2020-10",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.nbcchicago.com/news/national-international/inside-the-campaign-to-pizzagate-hunter-biden/2358265/",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rollingstone.com/culture/culture-news/hunter-biden-twitter-facebook-election-conspiracy-theories-1077735/",
+      "date": "2020-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/2020/10/19/hunter-biden-story-russian-disinfo-430276",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://dpaq.de/gXxW2",
+      "date": "2020-10-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/zuck/posts/as-part-of-our-ongoing-efforts-to-prevent-election-interference-today-we-removed/10105140110214721/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nowthisimpact/posts/aoc-questioned-why-attacks-by-white-supremacists-arent-widely-recognized-as-acts/2947372638627540/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABCNews/posts/fiona-hill-i-believe-that-those-who-have-information-that-the-congress-deems-rel/10159062800758812/",
+      "date": "2012-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/trump-biden-debate-fuels-allegations-improper-family-foreign/story?id=73778317",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/article/2020/oct/19/fact-checking-claims-about-hunter-biden-joe-biden/",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/10/17/924506867/analysis-questionable-n-y-post-scoop-driven-by-ex-hannity-producer-giuliani",
+      "date": "2020-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/joe-bidens-effort-dodge-sons-conflict-interest-backfired/story?id=66371399",
+      "date": "2019-10-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://fortune.com/2020/10/23/trump-biden-debate-2020-election-corruption-china-ukraine/",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.wttw.com/2020/10/21/face-face-trump-biden-meet-final-debate",
+      "date": "2020-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://misinforeview.hks.harvard.edu/article/the-spread-of-covid-19-conspiracy-theories-on-social-media-and-the-effect-of-content-moderation/",
+      "date": "2020-08-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.quora.com/Why-isnt-4chan-displayed-on-Google-as-much-as-other-platforms-when-it-comes-to-random-information-quoted-from-the-platform",
+      "date": "2003-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ctc.westpoint.edu/the-qanon-conspiracy-theory-a-security-threat-in-the-making/",
+      "date": "2020-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/technology/2018/jul/30/qanon-4chan-rightwing-conspiracy-theory-explained-trump",
+      "date": "2018-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wbaltv11/posts/hunter-biden-has-dropped-a-lawsuit-accusing-fox-news-of-illegally-publishing-exp/885644333609162/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/now/video/inside-the-false-conspiracy-theory-being-pushed-on-the-bidens-94512709627",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/media/2020/oct/22/hunter-biden-do-digital-platforms-care-more-than-news-corp-about-likely-misinformation",
+      "date": "2020-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/facebook-hunter-biden-new-york-post-story-fact-checkers-2020-10",
+      "date": "2020-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/10/20/925755387/unfettered-free-speech-is-a-threat-to-democracy-journalist-says",
+      "date": "2020-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox2detroit.com/news/fbi-investigating-if-hunter-biden-email-story-tied-to-russian-disinformation-effort",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/10/social-media-posts-dredge-up-baseless-child-trafficking-conspiracy-theory/",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 130,
+     "n_urls_after_bm25": 23,
+     "n_chunks": 810
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The second answer shows that Hunter Biden is still alive and therefore the claim is refuted.",
+   "questions": [
+    {
+     "question": "When was this claim made?",
+     "answers": [
+      {
+       "answer": "25/10/2020",
+       "answer_type": "Extractive",
+       "source_url": "Metadata",
+       "source_medium": "Metadata"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Is Hunter Biden dead?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://it.wikipedia.org/wiki/Hunter_Biden",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210116153238/https://leadstories.com/hoax-alert/2020/10/fact-check-no-evidence-that-hunter-biden-is-dead.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "There is no evidence to support the claim that Hunter Biden is dead, which originated from an anonymous 4chan post on October 25, 2020, that provided no proof for its assertion.",
+     "support_span": "There is absolutely zero evidence to support the claim that the son of the Democratic presidential nominee is dead. | The claim appeared in a 4chan post... on October 25, 2020. The post was made by an anonymous user. ... The post offered no proof to support its claim, going so far as to say \"don't ask me how I know.\""
+    },
+    {
+     "statement": "Reporters monitoring Joe Biden did not observe him rushing to a hospital, contradicting claims of a medical emergency related to Hunter Biden, as on October 25, 2020, Joe Biden attended church in Wilmington, Delaware, and participated in a virtual concert, with no reported emergency movements.",
+     "support_span": "Reporters closely watching the movements of his father Joe Biden also did not observe the former vice president rush to a hospital as claimed. | On Sunday, October 25, 2020, Joe Biden attended church in Wilmington, Delaware, near his home. He returned to his residence and, besides an appearance at a virtual concert that night, had no other events."
+    }
+   ],
+   "justification": "The evidence indicates that the claim regarding Hunter Biden's death is unsupported and originated from an anonymous, unverified 4chan post on October 25, 2020, which provided no proof. Furthermore, observations of Joe Biden's activities on that date—including attending church and a virtual concert—show no evidence of a medical emergency or sudden movements to a hospital that would corroborate such a claim.",
+   "article_url": "https://web.archive.org/web/20210116153238/https://leadstories.com/hoax-alert/2020/10/fact-check-no-evidence-that-hunter-biden-is-dead.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

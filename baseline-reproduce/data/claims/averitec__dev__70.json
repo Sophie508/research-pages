@@ -1,0 +1,432 @@
+{
+ "key": "averitec/dev/70",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 70,
+ "claim": "Dr Anthony Fauci wrote a paper regarding the Spanish Flu and stated that the majority of deaths in 1918-1919 was because of bacterial pneumonia from wearing masks.",
+ "claim_date": "2020-10-19",
+ "speaker": null,
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim asserts two specific things: first, that Dr. Anthony Fauci wrote a paper regarding the Spanish Flu; and second, that in this paper, he stated that the majority of deaths in 1918-1919 were caused by bacterial pneumonia resulting from wearing masks.\n2.  **Evaluate Evidence for Part 1 (The Paper):** Multiple pieces of evidence (A3, A4, A5, A6, A8, A9) explicitly state that there is no mention of Dr. Anthony Fauci writing a paper regarding the Spanish Flu or the 1918 pandemic.\n3.  **Evaluate Evidence for Part 2 (The Content of the Claim):** Evidence A1 clarifies the actual scientific consensus: while secondary bacterial pneumonia was indeed the cause of death for the vast majority of victims, this was due to the virus damaging the respiratory tract, not due to mask-wearing. Furthermore, A1, A3, A4, A5, and A6 all confirm that there is no record of Dr. Fauci making the claim that masks caused these deaths.\n4.  **Determine the Relationship:** The claim is a direct contradiction of the scientific facts provided (which attribute pneumonia to the virus, not masks) and is unsupported by any evidence regarding Dr. Fauci's authorship or statements. Since the evidence consistently denies the existence of such a paper and denies the validity of the causal link (masks $\\rightarrow$ pneumonia), the claim is factually incorrect based on the provided context.\n\n**Label:** Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: Did Dr. Anthony Fauci state that the majority of deaths in the 1918-1919 Spanish Flu were caused by wearing masks, or was the cause attributed to secondary bacterial pneumonia?",
+      "answer": "Based on the provided evidence, the cause of death for the vast majority of victims during the 1918 influenza pandemic was attributed to **secondary bacterial pneumonia**, not wearing masks.\n\nThe evidence states that researchers from the NIAID concluded that the virus likely damaged the respiratory tract, which allowed bacteria to invade and cause fatal infections in over 90% of cases. The text does not mention Dr. Anthony Fauci writing a paper about masks causing these deaths; rather, it attributes the mortality to the virus's ability to facilitate bacterial infections.",
+      "url": "https://www.cidrap.umn.edu/influenza-vaccines/study-bacterial-pneumonia-was-main-killer-1918-flu-pandemic",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the documentary \"Plandemic\" make unsubstantiated or inaccurate claims regarding Dr. Anthony Fauci?",
+      "answer": "Yes, the documentary \"Plandemic\" makes unsubstantiated claims regarding Dr. Anthony Fauci. According to the provided evidence, the film promotes \"unsubstantiated attacks on Dr. Anthony Fauci\" as part of a series of grand conspiracy theories.",
+      "url": "https://www.factcheck.org/2020/05/the-falsehoods-of-the-plandemic-video/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Dr. Anthony Fauci claim that bacterial pneumonia caused most deaths during the 1918-1919 Spanish Flu due to mask-wearing?",
+      "answer": "Based on the provided evidence, there is no mention of Dr. Anthony Fauci writing a paper regarding the Spanish Flu or making claims about bacterial pneumonia caused by mask-wearing. The evidence only discusses historical public health advice in Santa Barbara during the 1918–1919 epidemic, noting that medical advice at that time focused on wearing masks once a person became sick.",
+      "url": "https://www.facebook.com/groups/CalHistory/posts/1246615292215919/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Dr. Anthony Fauci write a paper stating that the majority of deaths during the 1918-1919 Spanish Flu were caused by bacterial pneumonia resulting from mask-wearing?",
+      "answer": "Based on the provided evidence, there is no mention of Dr. Anthony Fauci writing a paper regarding the Spanish Flu, nor is there any mention of a claim that deaths during the 1918-1919 period were caused by bacterial pneumonia resulting from mask-wearing. The evidence focuses on the impact of the H1N1 virus, the demographic groups affected, and the public health interventions implemented at the time.",
+      "url": "https://www.chicagotribune.com/2020/04/24/how-the-1918-flu-pandemic-mirrors-todays-coronavirus-crisis/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Dr. Anthony Fauci write a paper stating that the majority of deaths during the 1918-1919 Spanish Flu pandemic were caused by bacterial pneumonia resulting from mask-wearing?",
+      "answer": "Based on the evidence provided, there is no mention of Dr. Anthony Fauci writing a paper regarding the Spanish Flu or making any claims about deaths being caused by bacterial pneumonia resulting from mask-wearing. The provided text focuses on how public health officials during the 1918 pandemic transitioned to using visual education methods, such as cartoons, to communicate health messages to the general public.",
+      "url": "https://www.facebook.com/harpersferrynps/posts/use-the-handkerchief-and-do-your-bit-to-protect-meduring-the-1918-flu-pandemic-t/3417682551604770/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that Dr. Anthony Fauci stated the majority of deaths during the Spanish Flu were caused by bacterial pneumonia resulting from mask-wearing?",
+      "answer": "No, the provided evidence does not support the claim. The evidence contains no mention of Dr. Anthony Fauci, nor does it state that he wrote a paper regarding the Spanish Flu. Furthermore, while the text notes that the pandemic often led to fatal complications like pneumonia, it does not attribute these deaths to mask-wearing.",
+      "url": "https://boomcalifornia.org/2020/06/18/california-and-the-1918-1920-influenza-pandemic/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided evidence support the claim that Dr. Anthony Fauci attributed 1918 Spanish Flu deaths to bacterial pneumonia caused by mask-wearing?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses on addressing social media claims regarding the accuracy of COVID-19 death tolls and the methodologies used by medical experts and agencies like the CDC to certify deaths. It contains no mention of Dr. Anthony Fauci, a paper regarding the Spanish Flu, or any statement attributing 1918-1919 deaths to bacterial pneumonia caused by mask-wearing.",
+      "url": "https://www.kcra.com/article/fact-check-social-media-posts-make-baseless-claim-on-covid-19-death-toll/32096409",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain any information regarding Dr. Anthony Fauci or his writings on the Spanish Flu?",
+      "answer": "No, the provided evidence does not contain any information regarding Dr. Anthony Fauci or his writings on the Spanish Flu.",
+      "url": "https://www.kcra.com/article/face-check-in-viral-video-doctor-falsely-touts-hydroxychloroquine-as-covid-19-cure/33457764",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain any information regarding Dr. Anthony Fauci or his writings on the 1918 flu pandemic?",
+      "answer": "No, the provided evidence does not contain any information regarding Dr. Anthony Fauci or any writings by him concerning the 1918 flu pandemic. The evidence is limited to user comments discussing a video of a pandemic survivor and personal family histories.",
+      "url": "https://www.facebook.com/nowthisimpact/posts/listen-to-this-1918-flu-pandemic-survivor-describe-what-it-was-like-to-live-thro/3555528854478579/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: How can one verify the authenticity of claims regarding Dr. Anthony Fauci's writings to combat misinformation?",
+      "answer": "To verify the authenticity of claims regarding Dr. Anthony Fauci's writings and combat misinformation, the provided evidence suggests the following methods:\n\n*   **Critically evaluate news sources:** Recognize that various actors in the media production process can introduce bias or intentional falsehoods, such as satire, hoaxes, and disinformation.\n*   **Utilize specific tools:** Use resources like the *Breaking News Consumer's Handbook*.\n*   **Conduct secondary fact-checking:** Visit investigative websites that allow for secondary fact-checking.\n*   **Perform independent research:** Conduct independent research regarding the authors, the facts presented, and the funding involved.\n*   **Verify visual media:** Be cautious with photos and videos, as they may be outdated, taken out of context, or manipulated using artificial intelligence (such as \"deepfakes\").",
+      "url": "https://guides.lib.k-state.edu/media-literacy/factcheck",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.cidrap.umn.edu/influenza-vaccines/study-bacterial-pneumonia-was-main-killer-1918-flu-pandemic",
+      "date": "2008-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/harpersferrynps/posts/use-the-handkerchief-and-do-your-bit-to-protect-meduring-the-1918-flu-pandemic-t/3417682551604770/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://boomcalifornia.org/2020/06/18/california-and-the-1918-1920-influenza-pandemic/",
+      "date": "2020-06-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nowthisimpact/posts/listen-to-this-1918-flu-pandemic-survivor-describe-what-it-was-like-to-live-thro/3555528854478579/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.chicagotribune.com/2020/04/24/how-the-1918-flu-pandemic-mirrors-todays-coronavirus-crisis/",
+      "date": "2020-04-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/CalHistory/posts/1246615292215919/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://guides.lib.k-state.edu/media-literacy/factcheck",
+      "date": "2017-02-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2009-2017-fpc.state.gov/196978.htm",
+      "date": "2012-08-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://utopia.ut.edu/FakeNews/factcheck",
+      "date": "2017-02-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.kcra.com/article/fact-check-social-media-posts-make-baseless-claim-on-covid-19-death-toll/32096409",
+      "date": "2020-04-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2018/10/factchecking-trumps-medicare-op-ed/",
+      "date": "2018-10-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/05/the-falsehoods-of-the-plandemic-video/",
+      "date": "2020-05-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reutersinstitute.politics.ox.ac.uk/our-research/understanding-promise-and-limits-automated-fact-checking",
+      "date": "2016-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.kcra.com/article/face-check-in-viral-video-doctor-falsely-touts-hydroxychloroquine-as-covid-19-cure/33457764",
+      "date": "2020-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 14,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that Dr. Anthony Fauci authored a paper regarding the 1918-1919 Spanish Flu pandemic, in which he stated that the majority of deaths during that period were caused by bacterial pneumonia resulting from wearing masks.\n2. Evidence assessment:\n    * **Regarding the paper:** Evidence (Q1, A1, A4, A5) confirms that Dr. Anthony Fauci co-authored a study published in *The Journal of Infectious Diseases* in 2008. This study concluded that the vast majority (over 90%) of deaths during the 1918 pandemic were caused by secondary bacterial pneumonia following the initial viral infection.\n    * **Regarding the cause of death:** The evidence (Q1, A4, Q1, A5, Q2, A12, Q2, A16) consistently shows that the deaths were caused by bacterial pneumonia that colonized the lungs *after* the virus had weakened the respiratory tract, not because of mask-wearing.\n    * **Regarding the link to masks:** There is no evidence in the provided research (Q3, Q5) that links mask-wearing to the occurrence of bacterial pneumonia. Historical evidence shows that mask-wearing was a debated public health measure, but the scientific consensus in the Fauci/Taubenberger paper attributes the pneumonia to the virus's effect on the lungs and subsequent bacterial infection.\n3. Contradictions/Gaps: The claim contains a significant factual error by conflating the *cause* of the pneumonia (secondary bacterial infection following viral infection) with the *method of prevention* (masks). The claim misrepresents the scientific finding by suggesting masks caused the pneumonia, whereas the research states the virus caused the vulnerability to pneumonia.\n4. The claim is refuted because while Dr. Fauci did co-author a paper about bacterial pneumonia and the 1918 flu, the paper's conclusion was that the pneumonia was a secondary effect of the influenza virus, and it made no claim that masks caused these deaths.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Dr. Anthony Fauci write a paper regarding the Spanish Flu claiming that bacterial pneumonia from masks caused the majority of deaths in 1918-1919?",
+      "answer": "Taubenberger, and Anthony S. Fauci. “Predominant Role of Bacterial Pneumonia as a Cause of Death in Pandemic Influenza: Implications for Pandemic Influenza Preparedness.” The Journal of Infectious Diseases 198, no. 7 (2008): 962–970. Nevertheless, the study is an important contribution for showing that bacterial pneumonia was common in the 1918 pandemic, Schaffner added. \"I'm still not convinced that that bimodal concept [of the causes of death in 1918] is not true,\" he said. \"These fellows have nailed the second part; I'm just not sure they represent the entire population of deaths.\" Schaffner observed that the idea of including bacterial pneumonia in pandemic planning has already been under discussion for a while. The 1918 was indeed a pandemic. BILL MOYERS: Really. DR. ANTHONY FAUCI: It was the mother of all pandemic flus, really. It was one of the worst in history. BILL MOYERS: So could you say if avian flu spreads as the film suggested it might and that you are warning us against, that it could be greater than the epidemic of 1918, the flu epidemic, pandemic? DR. ANTHONY FAUCI: Well, let me put it into some perspective. 1918 was a total public health catastrophe. Taubenberger, MD, PhD, and NIAID Director Anthony S. Fauci, MD. Many accounts of the 1918 pandemic have emphasized how quickly patients succumbed to the infection, creating an impression that a large share of the victims died of the virus's direct effects on the lungs or the immune system's intense response to the infection. But the new report suggests that more than 90% actually died of invading bacterial pneumonia after the virus wiped out cells lining the bronchial tubes and lungs. Experts at the National Institute of Allergy and Infectious Diseases (NIAID) examined pieces of lung tissue preserved from 58 victims of the 1918 pandemic and reviewed reports distilled from thousands of autopsies to reach their conclusions, published online by the Journal of Infectious Diseases. \"Histological and bacteriologic evidence suggests that the vast majority of influenza deaths resulted from secondary bacterial pneumonia,\" says the report by David M. Morens, MD, Jeffery K.",
+      "url": "https://www.aai.org/About/History/History-Articles-Keep-for-Hierarchy/The-1918%E2%80%931919-Influenza-Pandemic-as-Covered-in-(1)",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the actual cause of the majority of deaths during the 1918-1919 Spanish Flu pandemic?",
+      "answer": "The 1918 influenza pandemic swept across the globe, sickening one-third of the world’s population, or about half a billion people, by the end of its terrifying run. At least 50 million people — including 675,000 in the United States — were killed by this strain of the H1N1 virus. Despite being referred to as “Spanish flu,” there is no evidence the pandemic began in Spain. Researchers don’t know its true origin but only that it spread throughout the world from 1918 to 1919. Diagnosing and caring for the sick was challenging. Cite This Article Cite This Article Citation for Media Abstract The \"Spanish\" influenza pandemic of 1918–1919, which caused ≈50 million deaths worldwide, remains an ominous warning to public health. Many questions about its origins, its unusual epidemiologic features, and the basis of its pathogenicity remain unanswered. The public health implications of the pandemic therefore remain in doubt even as we now grapple with the feared emergence of a pandemic caused by H5N1 or other virus. The influenza pandemic of 1918-1919 killed more people than the Great War, known today as World War I (WWI), at somewhere between 20 and 40 million people. It has been cited as the most devastating epidemic in recorded world history. More people died of influenza in a single year than in four-years of the Black Death Bubonic Plague from 1347 to 1351. Known as \"Spanish Flu\" or \"La Grippe\" the influenza of 1918-1919 was a global disaster. 1). The 1918–1919 Spanish flu pandemic, subtype H1N1, resulted in an estimated 50–100 million deaths worldwide and will be discussed in detail in the following sections. The 1957–1958 Asian flu pandemic, subtype H2N2, originated in China in February 1957 and spread throughout Asia and then globally by the summer. Case fatality rates were approximately 0.67% with 1–2 million deaths worldwide [20, 28,29,30,31]. Total deaths were estimated at ≈50 million (5–7) and were arguably as high as 100 million (7). The impact of this pandemic was not limited to 1918–1919. All influenza A pandemics since that time, and indeed almost all cases of influenza A worldwide (excepting human infections from avian viruses such as H5N1 and H7N7), have been caused by descendants of the 1918 virus, including \"drifted\" H1N1 viruses and reassorted H2N2 and H3N2 viruses. The deadly \"Spanish flu\" claimed more lives than World War I, which ended the same year the pandemic struck. The U.S. and European press, likely for political reasons, did not acknowledge or transmit timely and accurate news about the high number of casualties among their military and civilian population that were attributable to the ongoing influenza epidemic.” While “the Spanish flu” remains the best-known moniker for the cause of the 1918 pandemic, the illness took on other names, depending on the country. In Spain, it was sometimes referred to as “the French flu,” possibly because Spanish seasonal workers traveled to and from France by train, prompting Spanish authorities to believe that they had “imported” the virus from France. In addition, the \"few relevant data from the 1968-1969 pandemic\" reflect the same pattern, they write. \"We believe that the weight of 90 years of evidence, including the exceptional but largely forgotten work of an earlier generation of pathologists, indicates that the vast majority of pulmonary deaths from pandemic influenza viruses have resulted from poorly understood interactions between the infecting virus and secondary infections due to bacteria that colonize the upper respiratory tract,\" the report says. Severity still unexplained The researchers say their findings leave the extreme severity of the 1918 pandemic unexplained. It certainly wasn’t during the influenza pandemic of 1918, which lasted from January 1918 to December 1920, and infected one-third of the world’s population, or about 500 million people, leading to about 50 million deaths – about half a million of which were in the United States. Abstract 2018 marks the 100-year anniversary of the 1918 influenza pandemic, which killed ~50 million people worldwide. The severity of this pandemic resulted from a complex interplay between viral, host, and societal factors. Here, we review the viral, genetic and immune factors that contributed to the severity of the 1918 pandemic and discuss the implications for modern pandemic preparedness. We address unresolved questions of why the 1918 influenza H1N1 virus was more virulent than other influenza pandemics and why some people survived the 1918 pandemic and others succumbed to the infection. Recently the virus has been reconstructed from the tissue of a dead soldier and is now being genetically characterized. The name of Spanish Flu came from the early affliction and large mortalities in Spain (BMJ,10/19/1918) where it allegedly killed 8 million in May (BMJ, 7/13/1918). However, a first wave of influenza appeared early in the spring of 1918 in Kansas and in military camps throughout the US. Few noticed the epidemic in the midst of the war. 3% of cases. At the time of the pandemic, nearly all experts agreed that deaths were almost never caused by the then-unidentified flu virus itself, \"but resulted directly from severe secondary pneumonia caused by well-known bacterial 'pneumopathogens' that colonized the upper respiratory tract,\" the report states. The most common pathogens were pneumococci, streptococci, and staphylococci. The authors also reviewed evidence from the relatively mild pandemic of 1957-58 and determined that most deaths were due to secondary bacterial pneumonia. 1918 Flu Pandemic That Killed 50 Million Originated in China, Historians Say Chinese laborers transported across Canada thought to be source. The global flu outbreak of 1918 killed 50 million people worldwide, ranking as one of the deadliest epidemics in history. For decades, scientists have debated where in the world the pandemic started, variously pinpointing its origins in France, China, the American Midwest, and beyond. Without a clear location, scientists have lacked a complete picture of the conditions that bred the disease and factors that might lead to similar outbreaks in the future. Historians have suggested that the Spanish influenza mutated and became most deadly in spring 1918, spreading from Europe to ports as far apart as Boston and Freetown, Sierra Leone. By the height of the global pandemic that autumn, however, no more such cases were reported among the Chinese laborers in Europe. Medical Evidence Humphries concedes that a final answer to the mystery of the Spanish flu's origins is still a ways off. Host factors associated with variations in influenza morbidity and mortality in 1918 The 1918 influenza pandemic is notorious for its high morbidity and mortality rates. However, it is important to recognize that there were substantial variations in mortality, both within and between countries (Mills, 1986; Johnson and Mueller, 2002; Johnson, 2006). General estimations assume an overall death rate of 2. Aug 22, 2008 (CIDRAP News) – It was secondary bacterial pneumonia—not the influenza virus by itself—that killed most of the millions who perished in the 1918 flu pandemic, which suggests that current pandemic preparations should include stockpiling of antibiotics and bacterial vaccines, influenza researchers reported this week. There are many parallels between the two pandemics. While origin theories about the 1918 virus still abound, it was assigned a country specific name: the Spanish Flu. Ultimately, the pandemic would result in an estimated 500 million infections worldwide (~ 1/3 of the world’s population at the time) and a case fatality rate > 2.5%, more than 25 times higher than any other pandemic [4, 37]. As a testament to the severity of this second wave, during the fall of 1918, the first 4–5 pages of Spanish newspapers were filled with obituaries of those who had succumbed to the pandemic virus [35]. Introduction In 1918 a mysterious and deadly disease spread around the world in three consecutive waves (spring 1918, autumn 1918, and winter 1918–19). This pandemic infected over one third of the world's population and killed an estimated 50 million people (Johnson and Mueller, 2002; Murray et al., 2006), with unusually severe clinical manifestations in previously healthy young adults (Collins, ; Hoffman, 2011). In 1918, the etiological agent that caused this disease was unknown (Hildreth, 1991). Nevertheless, the study is an important contribution for showing that bacterial pneumonia was common in the 1918 pandemic, Schaffner added. \"I'm still not convinced that that bimodal concept [of the causes of death in 1918] is not true,\" he said. \"These fellows have nailed the second part; I'm just not sure they represent the entire population of deaths.\" Schaffner observed that the idea of including bacterial pneumonia in pandemic planning has already been under discussion for a while.",
+      "url": "https://www.chicagotribune.com/2020/04/24/how-the-1918-flu-pandemic-mirrors-todays-coronavirus-crisis/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any scientific evidence linking the use of face masks to an increase in bacterial pneumonia during the 1918 pandemic?",
+      "answer": "Nevertheless, the study is an important contribution for showing that bacterial pneumonia was common in the 1918 pandemic, Schaffner added. \"I'm still not convinced that that bimodal concept [of the causes of death in 1918] is not true,\" he said. \"These fellows have nailed the second part; I'm just not sure they represent the entire population of deaths.\" Schaffner observed that the idea of including bacterial pneumonia in pandemic planning has already been under discussion for a while. ” This article uses a combination of methods to examine the available sources and draw conclusions about the use of masks during the 1918 influenza epidemic. Did mask wearing work? During the 1918 flu pandemic, scientific research around mask use was still largely anecdotal – and the compelling story of one ocean liner caught people’s attention. Indeed, a behavioral study showed that individuals were more likely to wear a facemask when they received autonomy-supportive advice as compared to controlled instructions (Chan et al., ). Medical interventions, therapies and vaccines: then and now The 1918 influenza pandemic occurred during a period in history when controlling infectious diseases had become a realistic goal of the medical profession (Tomkins, 1992; Johnson, 2006). (2008). Deaths from bacterial pneumonia during 1918-19 influenza pandemic. Emerg. Infect. Dis. 14, 1193–1199. Experts at the National Institute of Allergy and Infectious Diseases (NIAID) examined pieces of lung tissue preserved from 58 victims of the 1918 pandemic and reviewed reports distilled from thousands of autopsies to reach their conclusions, published online by the Journal of Infectious Diseases. \"Histological and bacteriologic evidence suggests that the vast majority of influenza deaths resulted from secondary bacterial pneumonia,\" says the report by David M. Morens, MD, Jeffery K. These numbers indicate that the required period of mask wearing was probably too short to effect the number of deaths from this disease, but they also suggest that the mask ordinance came too late in the epidemic to make a significant difference in fatality rates. During the influenza epidemic of 1918, in contrast to the US experience with Covid-19 in 2020, the peak in case numbers rose and then fell so quickly that mask ordinances, especially those lasting just a week, were more significant as a signal that authorities perceived the need to act than as a meaningful public health intervention. As we reflect on our experiences with Covid-19 and look back to 1918 for historical analogies, we can be impressed by the seeming ubiquity of masks in this cartoon while also acknowledging that containing an epidemic requires comprehensive, committed, and consistent changes in public and personal behavior. Appendix: Discussion of Sources and Methods The Library of Congress’s Chronicling America portal provides extensive evidence of how flu masks appeared in news reporting during the epidemic. Searching newspapers from September 1, 1918, to March 31, 1919, produces 403 page results for the entire collection. During the Great Manchurian Plague of 1910-1911, which saw Chinese, Russian, Mongolian and Japanese scientists come together to combat a widespread outbreak of bubonic plague in northern China, face masks had been deemed effective. Science journalist Laura Spinney, author of the 2017 book “The Pale Rider: The Spanish Flu of 1918 and How it Changed the World,” notes that after their experiences in Manchuria in 1911, the Japanese took swiftly to wearing masks in public in 1918. Taubenberger, MD, PhD, and NIAID Director Anthony S. Fauci, MD. Many accounts of the 1918 pandemic have emphasized how quickly patients succumbed to the infection, creating an impression that a large share of the victims died of the virus's direct effects on the lungs or the immune system's intense response to the infection. But the new report suggests that more than 90% actually died of invading bacterial pneumonia after the virus wiped out cells lining the bronchial tubes and lungs. While people were unsure of the etiological agent of the pandemic, the consensus was that it was an airborne disease and wearing a facemask would prevent infections (Crosby, ). However, it has also been demonstrated that excess influenza fatalities during the 1918–1919 pandemic were associated with an acute aggressive bronchopneumonia (including epithelial and vascular necrosis, hemorrhage, edema, and bacterial-associated variant pathology within the lungs) and a severe acute respiratory distress-like syndrome associated with severe facial cyanosis [43]. , 2012b). In addition to co-infections with bacterial pathogens such as S. pneumoniae, chronic bacterial infections, such as those with Mycobacterium tuberculosis, contributed to variations in influenza mortality during the 1918 pandemic. For example, data from a Swiss sanatorium during the 1918 pandemic suggested that the risk of influenza death was higher among tuberculosis (TB) patients than non-TB controls (Oei and Nishiura, 2012). Similarly, individuals with TB were 2. (2009). Bacterial pathogens and death during the 1918 influenza pandemic. N. Engl. J. Med.361, 2582–2583. Rather, the CDC only recommended facemasks for individuals at increased risk of severe illness from influenza and/or individuals who were the direct careers of persons infected with the pandemic virus (CDC, ). Moreover, the effectiveness of facemasks in preventing the transmission of influenza virus remains unclear (Cowling et al., ) and just as was observed in 1918, low public compliance significantly limits the utility of facemasks in a modern pandemic setting (Cowling et al. The role of secondary bacterial infections during the 1918 pandemic is consistent with epidemiological observations that while influenza virus attack rates in 1918 were similar among soldiers and civilians, mortality rates were much higher amongst newly arrived soldiers (Shanks et al., 2016b). The unhygienic circumstances in the army camps led to frequent bacterial infections, especially amongst immunologically naïve new army recruits. In addition, the \"few relevant data from the 1968-1969 pandemic\" reflect the same pattern, they write. \"We believe that the weight of 90 years of evidence, including the exceptional but largely forgotten work of an earlier generation of pathologists, indicates that the vast majority of pulmonary deaths from pandemic influenza viruses have resulted from poorly understood interactions between the infecting virus and secondary infections due to bacteria that colonize the upper respiratory tract,\" the report says. Severity still unexplained The researchers say their findings leave the extreme severity of the 1918 pandemic unexplained. In the era before commercial radio, newspapers were the primary form for information dissemination, which means that reading newspapers now is the closest possible approximation to understanding the information available to the public in 1918. This essay uses a combination of methods to examine the available sources and draws conclusions about the use of masks during the 1918 influenza epidemic. A case study approach to newspaper reporting in Indiana cities in the 1918 epidemic can thus inform understanding in 2020 of public policies and popular attitudes. M. (2007). The effect of public health measures on the 1918 influenza pandemic in U.S. cities. Proc. Natl. Acad. , ). Similarly, in Hong Kong there was approximately a 25% reduction influenza virus transmission following secondary schools closures from June 11 to July 10, 2009 (Wu et al., 2010). However, just as in 1918, the duration of these intervention strategies affected their efficacy, and there was a dramatic increase influenza activity in 32 Mexican states in the autumn of 2009, a period which coincided with schools opening for the autumn term (Chowell et al., ). Facemasks and hygiene Facemasks were a popular preventative measure employed during the 1918 pandemic.",
+      "url": "https://www.cidrap.umn.edu/influenza-vaccines/study-bacterial-pneumonia-was-main-killer-1918-flu-pandemic",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "When was this specific claim regarding Dr. Fauci and the Spanish Flu being circulated on social media?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the historical consensus regarding the relationship between mask-wearing and pneumonia during the 1918 pandemic?",
+      "answer": "” This article uses a combination of methods to examine the available sources and draw conclusions about the use of masks during the 1918 influenza epidemic. Nevertheless, the study is an important contribution for showing that bacterial pneumonia was common in the 1918 pandemic, Schaffner added. \"I'm still not convinced that that bimodal concept [of the causes of death in 1918] is not true,\" he said. \"These fellows have nailed the second part; I'm just not sure they represent the entire population of deaths.\" Schaffner observed that the idea of including bacterial pneumonia in pandemic planning has already been under discussion for a while. While people were unsure of the etiological agent of the pandemic, the consensus was that it was an airborne disease and wearing a facemask would prevent infections (Crosby, ). Indeed, a behavioral study showed that individuals were more likely to wear a facemask when they received autonomy-supportive advice as compared to controlled instructions (Chan et al., ). Medical interventions, therapies and vaccines: then and now The 1918 influenza pandemic occurred during a period in history when controlling infectious diseases had become a realistic goal of the medical profession (Tomkins, 1992; Johnson, 2006). What did the mask mean to her and those she encountered? Masks in public spaces The earliest and certainly most consistent policy was the recommendation that nurses, doctors, and anyone caring for influenza patients wear a mask.3Muncie Evening Press, October 6, 1918. https://www. As we reflect on our experiences with Covid-19 and look back to 1918 for historical analogies, we can be impressed by the seeming ubiquity of masks in this cartoon while also acknowledging that containing an epidemic requires comprehensive, committed, and consistent changes in public and personal behavior. Appendix: Discussion of Sources and Methods The Library of Congress’s Chronicling America portal provides extensive evidence of how flu masks appeared in news reporting during the epidemic. Searching newspapers from September 1, 1918, to March 31, 1919, produces 403 page results for the entire collection. Did masks prevent the spread of influenza during the 1918 epidemic? One physician in Muncie, Indiana, declared emphatically: “Masks are useless,” because “influenza germs can penetrate any cloth masks without trouble.” Another physician quoted in the same newspaper reached the opposite conclusion: “Masks should be worn when about those afflicted with it. I believe them to be the best preventive.” A third physician echoed this advice about public behavior: “By all means wear masks where there is suspected contagion. By this time, researchers, physicians, and the public had mostly accepted that infectious diseases were transmitted from person to person, displacing previous beliefs about heredity or miasma as primary forms of transmission. By contrast, recommendations and regulations for public masks were inconsistent, contested, and controversial. These numbers indicate that the required period of mask wearing was probably too short to effect the number of deaths from this disease, but they also suggest that the mask ordinance came too late in the epidemic to make a significant difference in fatality rates. During the influenza epidemic of 1918, in contrast to the US experience with Covid-19 in 2020, the peak in case numbers rose and then fell so quickly that mask ordinances, especially those lasting just a week, were more significant as a signal that authorities perceived the need to act than as a meaningful public health intervention. It doesn’t appear that there were similar leagues or protests in other cities. Nancy Tomes, a distinguished professor of history at Stony Brook University who has written about public health measures during the 1918-1919 flu pandemic says while there were pockets of resistance to mask-wearing in 1918 and 1919, it was not widespread. And, unlike handkerchiefs and paper tissues, which Tomes says people began to use more regularly because of the pandemic, mask-wearing did not catch on in the United States after the ordinances ended. In mid-October of 1918, amidst a raging epidemic in the Northeast and rapidly growing outbreaks nationwide, the United States Public Health Service circulated leaflets recommending that all citizens wear a mask. In the era before commercial radio, newspapers were the primary form for information dissemination, which means that reading newspapers now is the closest possible approximation to understanding the information available to the public in 1918. This essay uses a combination of methods to examine the available sources and draws conclusions about the use of masks during the 1918 influenza epidemic. A case study approach to newspaper reporting in Indiana cities in the 1918 epidemic can thus inform understanding in 2020 of public policies and popular attitudes. Yet the Indiana case studies illustrate how masks must be part of a combination of strategies to contain the spread of disease. In the United States in 2020, even with delays and inconsistency across regions, a set of consensus recommendations have emerged: emphasizing personal hygiene; closing or restricting business, entertainment, and recreation spaces; working remotely to keep people isolated; seeking medical treatment as early as possible; and wearing masks in public spaces. In 1918, each of these measures were recommended or required, but they were implemented inconsistently and unevenly. It’s still difficult to say how effective mask-wearing on its own was in 1918 and 1919. Did mask wearing work? During the 1918 flu pandemic, scientific research around mask use was still largely anecdotal – and the compelling story of one ocean liner caught people’s attention. Deeply entrenched ideals of individual freedom, the lack of cohesive messaging and leadership on mask wearing, and pervasive misinformation have proven to be major hindrances thus far, precisely when the crisis demands consensus and widespread compliance. This was certainly the case in many communities during the fall of 1918. That pandemic ultimately killed about 675,000 people in the U. During the Great Manchurian Plague of 1910-1911, which saw Chinese, Russian, Mongolian and Japanese scientists come together to combat a widespread outbreak of bubonic plague in northern China, face masks had been deemed effective. Science journalist Laura Spinney, author of the 2017 book “The Pale Rider: The Spanish Flu of 1918 and How it Changed the World,” notes that after their experiences in Manchuria in 1911, the Japanese took swiftly to wearing masks in public in 1918. newspapers.com/image/34055469/. Ten days later, the Board of Health recommended people wear gauze masks to “prevent an epidemic” and save hundreds of lives: “This may appear ridiculous, but it is the only way to prevent the spread of influenza.”14Fort Wayne Sentinel, October 24, 1918, 1. https://www. 2This case study approach is inspired by the account of mask ordinances in San Francisco in Alfred W. Crosby, America’s Forgotten Pandemic: The Influenza of 1918 (Cambridge: Cambridge University Press, 1989), 91–120. For more about the methodology used in this article, see the appendix at the end of the piece. Masks marked the intersection between public policy and personal actions. newspapers.com/image/254258604/. The Muncie Evening Press acknowledged that “nobody is certain that wearing a mask has anything to do with keeping away the deadly germ,” yet endorsed this practice: “if wearing a mask upon the thoroughfares or in crowds makes the wearer happier, gives him a sense of security that he would not otherwise have, by all means wear the mask, but see to it that you have several as long wearing of one is bound to cause it to be insanitary.”10Muncie Evening Press, November 22, 1918, 4. https://www.",
+      "url": "https://items.ssrc.org/covid-19-and-the-social-sciences/mediated-crisis/flu-masks-in-indiana-during-the-1918-epidemic/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.cidrap.umn.edu/influenza-vaccines/study-bacterial-pneumonia-was-main-killer-1918-flu-pandemic",
+      "date": "2008-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/harpersferrynps/posts/use-the-handkerchief-and-do-your-bit-to-protect-meduring-the-1918-flu-pandemic-t/3417682551604770/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2018.00343/full",
+      "date": "2018-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.chicagotribune.com/2020/04/24/how-the-1918-flu-pandemic-mirrors-todays-coronavirus-crisis/",
+      "date": "2020-04-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nowthisimpact/posts/listen-to-this-1918-flu-pandemic-survivor-describe-what-it-was-like-to-live-thro/3555528854478579/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/500716313939425/posts/532699257407797/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/CalHistory/posts/1246615292215919/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/OldVaudeville/posts/2777755999017781/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://wwwnc.cdc.gov/eid/article/12/1/05-0979_article",
+      "date": "2011-11-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.jefferson.edu/alumni/connect/alumni-bulletin/summer-2020/the-flu-pandemic-hits-home.html",
+      "date": "2020-07-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://virus.stanford.edu/uda/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nationalgeographic.com/adventure/article/140123-spanish-flu-1918-china-origins-pandemic-science-health",
+      "date": "2014-01-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.history.com/articles/1918-spanish-flu-mask-wearing-resistance",
+      "date": "2020-05-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://items.ssrc.org/covid-19-and-the-social-sciences/mediated-crisis/flu-masks-in-indiana-during-the-1918-epidemic/",
+      "date": "2020-07-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aai.org/About/History/History-Articles-Keep-for-Hierarchy/The-1918%E2%80%931919-Influenza-Pandemic-as-Covered-in-(1)",
+      "date": "2008-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pfizer.com/news/articles/flashback_spanish_flu_mask",
+      "date": "2017-01-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/wnet/wideangle/interactives-extras/interviews/h5n1-killer-flu-dr-anthony-fauci/2519/",
+      "date": "2005-09-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.medicalnewstoday.com/articles/the-flu-pandemic-of-1918-and-early-conspiracy-theories",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://link.springer.com/article/10.1186/s12879-019-3750-8",
+      "date": "2019-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/thedailyshow/videos/dr-fauci-answers-trevors-questions-about-coronavirus/665870344167425/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theconversation.com/mask-resistance-during-a-pandemic-isnt-new-in-1918-many-americans-were-slackers-141687",
+      "date": "2020-07-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/2020/04/03/americas/flu-america-1918-masks-intl-hnk",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 176,
+     "n_urls_after_bm25": 21,
+     "n_chunks": 1226
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "No link to masks was mentioned. ",
+   "questions": [
+    {
+     "question": "What Caused Most Deaths in 1918 Spanish Flu  Influenza/Pandemic ?",
+     "answers": [
+      {
+       "answer": "The majority of deaths during the influenza pandemic of 1918-1919 were not caused by the influenza virus acting alone, report researchers from the National Institute of Allergy and Infectious Diseases (NIAID), part of the National Institutes of Health. Instead, most victims succumbed to bacterial pneumonia following influenza virus infection. The pneumonia was caused when bacteria that normally inhabit the nose and throat invaded the lungs along a pathway created when the virus destroyed the cells that line the bronchial tubes and lungs.\n\nA future influenza pandemic may unfold in a similar manner, say the NIAID authors, whose paper in the Oct. 1 issue of The Journal of Infectious Diseases is now available online. Therefore, the authors conclude, comprehensive pandemic preparations should include not only efforts to produce new or improved influenza vaccines and antiviral drugs but also provisions to stockpile antibiotics and bacterial vaccines as well.\n\nThe work presents complementary lines of evidence from the fields of pathology and history of medicine to support this conclusion. \"The weight of evidence we examined from both historical and modern analyses of the 1918 influenza pandemic favors a scenario in which viral damage followed by bacterial pneumonia led to the vast majority of deaths,\" says co-author NIAID Director Anthony S. Fauci, M.D. \"In essence, the virus landed the first blow while bacteria delivered the knockout punch.\"\n\nNIAID co-author and pathologist Jeffery Taubenberger, M.D., Ph.D., examined lung tissue samples from 58 soldiers who died of influenza at various U. S. military bases in 1918 and 1919. The samples, preserved in paraffin blocks, were re-cut and stained to allow microscopic evaluation. Examination revealed a spectrum of tissue damage \"ranging from changes characteristic of the primary viral pneumonia and evidence of tissue repair to evidence of severe, acute, secondary bacterial pneumonia,\" says Dr. Taubenberger. In most cases, he adds",
+       "answer_type": "Extractive",
+       "source_url": "https://www.nih.gov/news-events/news-releases/bacterial-pneumonia-caused-most-deaths-1918-influenza-pandemic",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did Dr Anthony Fauci publication blame masks for 1918-19 flu deaths ?",
+     "answers": [
+      {
+       "answer": "Medical and scientific experts now agree that bacteria, not influenza viruses, were the greatest cause of death during the 1918 flu pandemic.\n\nGovernment efforts to gird for the next influenza pandemic – bird flu or otherwise – ought to take notice and stock up on antibiotics, says John Brundage, a medical microbiologist at the Armed Forces Health Surveillance Center in Silver Spring, Maryland.\n\nBrundage’s team culled first-hand accounts, medical records and infection patterns from 1918 and 1919. Although a nasty strain of flu virus swept around the world, bacterial pneumonia that came on the heels of mostly mild cases of flu killed the majority of the 20 to 100 million victims of the so-called Spanish flu, they conclude.\n\n“We agree completely that bacterial pneumonia played a major role in the mortality of the 1918 pandemic,” says Anthony Fauci, director of National Institute for Allergy and Infectious Disease in Bethesda, Maryland, and author of another journal article out next month that comes to a similar conclusion.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.newscientist.com/article/dn14458-bacteria-were-the-real-killers-in-1918-flu-pandemic/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210607122341/https://www.politifact.com/factchecks/2020/oct/21/facebook-posts/dr-anthony-fauci-didnt-blame-masks-1918-19-flu-dea/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Dr. Anthony Fauci co-authored a 2008 study published in the Journal of Infectious Diseases which found that bacterial pneumonia caused a majority of deaths during the 1918 influenza pandemic, making no mention of masks; according to the report, pneumonia was caused when bacteria that normally inhabit the nose and throat invaded the lungs along a pathway created when the virus destroyed the cells that line the bronchial tubes and lungs, and Fauci is quoted stating that \"the virus landed the first blow while bacteria delivered the knockout punch.\"",
+     "support_span": "A 2008 study, co-authored by Dr. Fauci, found that bacterial pneumonia caused a majority of deaths in the 1918 influenza pandemic. | The study made no mention of masks. | Researchers from the National Institute of Allergy and Infectious Diseases, which Fauci heads, published their report in October 2008 in the Journal of Infectious Diseases. | \"The pneumonia was caused when bacteria that normally inhabit the nose and throat invaded the lungs along a pathway created when the virus destroyed the cells that line the bronchial tubes and lungs,\" | \"In essence\" Fauci is quoted in the report as saying, \"the virus landed the first blow while bacteria delivered the knockout punch.\""
+    },
+    {
+     "statement": "Historians and researchers have long established that a significant portion of 1918-19 pandemic deaths were due to secondary bacterial pneumonia infections, and expert J. Alexander Navarro stated that the claim that masks caused bacterial pneumonia is 'absolutely preposterous.'",
+     "support_span": "Experts told us that historians and other researchers have assumed for decades that a significant portion of the 1918-19 pandemic deaths were due to secondary bacterial pneumonia infections, and more recent studies have supported this thesis. | J. Alexander Navarro... called the claim that masks caused bacterial pneumonia \"absolutely preposterous.\""
+    }
+   ],
+   "justification": "The evidence confirms that Dr. Anthony Fauci co-authored a 2008 study in the Journal of Infectious Diseases which concluded that bacterial pneumonia caused a majority of deaths during the 1918 influenza pandemic. However, the evidence explicitly states that this study made no mention of masks. While the study explains that bacteria invaded the lungs after the virus destroyed protective cell linings, it does not link this process to mask-wearing. Furthermore, experts characterize the claim that masks caused this bacterial pneumonia as 'absolutely preposterous,' highlighting a direct contradiction between the claim's assertion and the actual content of the research.",
+   "article_url": "https://web.archive.org/web/20210607122341/https://www.politifact.com/factchecks/2020/oct/21/facebook-posts/dr-anthony-fauci-didnt-blame-masks-1918-19-flu-dea/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

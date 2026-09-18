@@ -1,0 +1,290 @@
+{
+ "key": "averitec/dev/97",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 97,
+ "claim": "IMAGE CLAIMS DONALD TRUMP CURRENTLY FACES A COURT CASE FOR ALLEGEDLY SEXUALLY ASSAULTING A 13-YEAR-OLD",
+ "claim_date": "2020-10-14",
+ "speaker": null,
+ "reporting_source": null,
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim, we evaluate the provided question-answer pairs:\n\n1.  **Analyze the Claim:** The claim asserts that Donald Trump is **currently** facing a court case for allegedly sexually assaulting a 13-year-old.\n2.  **Evaluate Evidence for \"Current\" Status:**\n    *   **A1** states that a 2016 lawsuit alleging rape of a minor in 1994 was **dropped** by the accuser that same year.\n    *   **A7** mentions a woman (Jane Doe) **refiled** a lawsuit alleging rape when she was 13.\n    *   **A9** explicitly states that the lawsuit filed by Jane Doe against Donald Trump **has been dismissed** because the plaintiff voluntarily dismissed it in a New York district court.\n3.  **Synthesize Findings:** While there have been historical allegations and lawsuits involving an allegation of sexual assault of a 13-year-old (specifically by a \"Jane Doe\" regarding an incident in 1994), the evidence consistently indicates that these legal actions are not active. Specifically, A1 and A9 confirm that the relevant lawsuits were dropped or dismissed.\n4.  **Conclusion:** Since the claim specifies that he is *currently* facing such a case, and the evidence shows the relevant legal actions have been dismissed or dropped, the claim is factually incorrect regarding the \"current\" status.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is the claim that Donald Trump is currently facing a court case for allegedly sexually assaulting a 13-year-old accurate?",
+      "answer": "No, the claim is inaccurate. While a 2016 lawsuit did allege that Donald Trump and Jeffrey Epstein raped a minor in 1994, the lawsuit was dropped by the accuser later that same year without any evidence being presented or any litigation proceeding. Furthermore, the evidence states that claims portraying these allegations as a recent revelation are false.",
+      "url": "https://politifact.com/factchecks/2020/jun/03/facebook-posts/no-proof-donald-trump-raped-13-year-old-girl-1994/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Donald Trump currently facing a court case for allegedly sexually assaulting a 13-year-old?",
+      "answer": "Yes, according to the evidence, a federal lawsuit has been filed by an anonymous \"Jane Doe\" accusing Donald Trump of raping her in 1994 when she was thirteen years old. While the evidence notes that these allegations are unproven and denied by Trump’s legal team, the lawsuit exists as a legal claim involving these specific allegations.",
+      "url": "https://thebloomfirm.com/why-the-new-child-rape-case-filed-against-donald-trump-should-not-be-ignored/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does Donald Trump currently face a court case for allegedly sexually assaulting a 13-year-old?",
+      "answer": "Based on the provided evidence, there is no mention of Donald Trump currently facing a court case for allegedly sexually assaulting a 13-year-old. The evidence only discusses past allegations involving Ivana Trump and Jill Harth.",
+      "url": "https://apnews.com/events-united-states-presidential-election-9a2c849efddc43bd967188fdcc6fd68a",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does Donald Trump face a current court case for allegedly sexually assaulting a 13-year-old?",
+      "answer": "Based on the provided evidence, there is no mention of a current court case against Donald Trump for allegedly sexually assaulting a 13-year-old. The text states that there is a compilation of various allegations of sexual misconduct, harassment, and assault made by women spanning several decades, including accusations of rape and non-consensual touching, but it does not specify a current legal case involving a 13-year-old.",
+      "url": "https://www.nbcnews.com/politics/2016-election/allegations-women-have-made-against-donald-trump-n665731",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence support the claim that Donald Trump is currently facing a court case for allegedly sexually assaulting a 13-year-old?",
+      "answer": "No, the evidence does not support the claim. While the evidence states that sixteen women have made allegations of inappropriate conduct and sexual assault against Donald Trump ranging from the early 1980s to 2013, it does not mention any allegations or court cases involving the sexual assault of a 13-year-old.",
+      "url": "https://www.pbs.org/newshour/politics/assault-allegations-donald-trump-recapped",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Donald Trump currently facing a court case for allegedly sexually assaulting a 13-year-old?",
+      "answer": "Based on the provided evidence, there is no mention of Donald Trump currently facing a court case for allegedly sexually assaulting a 13-year-old. \n\nThe evidence does note that at least 28 women have accused him of various forms of sexual misconduct (including sexual assault, non-consensual kissing, and groping) and that he was found liable for sexual abuse and defamation in civil trials involving writer E. Jean Carroll. However, the specific claim regarding a 13-year-old is not supported by the text provided.",
+      "url": "https://en.wikipedia.org/wiki/Donald_Trump_sexual_misconduct_allegations",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has Donald Trump been refiled in a lawsuit alleging he sexually assaulted a 13-year-old at a party hosted by Jeffrey Epstein?",
+      "answer": "Yes, a woman identified as Jane Doe has refiled a lawsuit in Manhattan federal court alleging that Donald Trump raped her at a private sex party hosted by Jeffrey Epstein when she was 13 years old. The new complaint claims she was lured to Epstein's mansion by a recruiter to enter the modeling industry and was subsequently assaulted by both Trump and Epstein.",
+      "url": "https://www.courthousenews.com/rape-allegations-refiled-against-trump/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the nature of the civil lawsuit involving Donald Trump and allegations of sexual assault occurring in 1994?",
+      "answer": "The civil lawsuit is a legal action involving Donald Trump and an anonymous plaintiff referred to as “Jane Doe.” The lawsuit alleges that Trump raped the woman in 1994 at Jeffrey Epstein’s Manhattan home when she was 13 years old.",
+      "url": "https://www.theguardian.com/us-news/2016/oct/12/donald-trump-jeffrey-epstein-alleged-rape-lawsuit",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the lawsuit filed by Jane Doe against Donald Trump, which alleged he raped her when she was 13 years old, been dismissed?",
+      "answer": "Yes, the lawsuit filed by Jane Doe against Donald Trump has been dismissed. According to the evidence, the woman voluntarily dismissed the lawsuit in a New York district court after deciding to cancel a planned public appearance due to reported threats.",
+      "url": "https://www.theguardian.com/us-news/2016/nov/04/donald-trump-teenage-rape-accusations-lawsuit-dropped",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claim that Donald Trump is currently facing a court case for allegedly sexually assaulting a 13-year-old stem from the allegations involving the Epstein files mentioned in the PolitiFact post?",
+      "answer": "Based on the provided evidence, it is not possible to confirm if the claim stems specifically from the Epstein files mentioned in the PolitiFact post. \n\nThe evidence states that the PolitiFact post discusses \"renewed allegations involving President Donald Trump and sexual assault claims related to the Epstein files,\" but the text does not provide the specific details of the allegations or confirm that the specific claim regarding a \"13-year-old\" is contained within those files. The evidence only notes that users in the discussion thread are expressing interest in reading the files and questioning the implications of the Epstein connections.",
+      "url": "https://www.facebook.com/politifact/videos/trump-assault-allegations-epstein-files/3776336389328239/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.courthousenews.com/rape-allegations-refiled-against-trump/",
+      "date": "2016-09-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Donald_Trump_sexual_misconduct_allegations",
+      "date": "2016-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thebloomfirm.com/why-the-new-child-rape-case-filed-against-donald-trump-should-not-be-ignored/",
+      "date": "2016-06-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/assault-allegations-donald-trump-recapped",
+      "date": "2016-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2016/oct/12/donald-trump-jeffrey-epstein-alleged-rape-lawsuit",
+      "date": "2016-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/politifact/videos/trump-assault-allegations-epstein-files/3776336389328239/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/policy-and-politics/2016/11/3/13501364/trump-rape-13-year-old-lawsuit-katie-johnson-allegation",
+      "date": "2016-11-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/jun/03/facebook-posts/no-proof-donald-trump-raped-13-year-old-girl-1994/",
+      "date": "2020-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://apnews.com/events-united-states-presidential-election-9a2c849efddc43bd967188fdcc6fd68a",
+      "date": "2016-10-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2016/jul/07/donald-trump-sexual-assault-lawsuits-norm-lubow",
+      "date": "2016-07-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/politics/2016-election/allegations-women-have-made-against-donald-trump-n665731",
+      "date": "2016-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2018/09/trumps-distorted-attacks-on-his-accusers/",
+      "date": "2018-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2016/nov/04/donald-trump-teenage-rape-accusations-lawsuit-dropped",
+      "date": "2016-11-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/msn/posts/fact-check-distortion-in-trumps-defense/10157054172031409/",
+      "date": "2016-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.courthousenews.com/trump-rape-accuser-dismisses-new-york-case/",
+      "date": "2016-11-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/StopCPSFromLegallyKidnapping/posts/783739518629925/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.academia.edu/34516320/The_Craft_of_Research_by_Booth_Colomb_Williams_pdf",
+      "date": "2017-09-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2016/nov/02/donald-trump-rape-lawsuit-13-year-old-cancels-public-event",
+      "date": "2016-11-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/story/2016/11/donald-trump-rape-lawsuit-dropped-230770",
+      "date": "2016-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 19,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Answer states trump attended no such court appearance and a case was dropped in 2016 which was similar.",
+   "questions": [
+    {
+     "question": "Was Donald Trump due in  court on Oct 14 2020 accused of sexually assaulting a 13 year old?",
+     "answers": [
+      {
+       "answer": "Trump’s publicly available schedule for Oct. 14 shows no such appearance in court,",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210110213522/https://factba.se/topic/calendar",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has Donald Trump ever been accused of sexual assaulting a 13 year old?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210117013453/https://www.vox.com/policy-and-politics/2016/11/3/13501364/trump-rape-13-year-old-lawsuit-katie-johnson-allegation",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210111062415/https://checkyourfact.com/2020/10/19/fact-check-donald-trump-court-case-sexual-assault-minor/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "An anonymous woman filed a 2016 civil lawsuit alleging Donald Trump raped her when she was a 13-year-old aspiring model in 1994, but the lawsuit was voluntarily withdrawn by the accuser in November 2016.",
+     "support_span": "The post appears to reference a 2016 civil lawsuit brought forward by an anonymous woman who alleged Trump sexually assaulted her when she was a 13-year-old aspiring model in 1994. | The suit... was refiled in September 2016 before being voluntarily withdrawn by the accuser in November of that year"
+    },
+    {
+     "statement": "There was no evidence of a court appearance for Donald Trump on October 14, 2020, regarding a sexual assault case, no news media reported on a court case involving Donald Trump and sexual assault scheduled for October 14, 2020, and a spokesperson for the Trump campaign stated there is no truth to the claim that he was facing a court case for sexual assault.",
+     "support_span": "Trump’s publicly available schedule for Oct. 14 shows no such appearance in court, however. | Had Trump had a court case to that effect scheduled earlier this month, it would have been picked up by the media, yet no news reporting could be found. | A spokesperson for the Trump campaign told the Daily Caller News Foundation via email that there is no truth to the post’s claim."
+    }
+   ],
+   "justification": "While an anonymous woman did file a civil lawsuit in 2016 alleging sexual assault when she was 13, that specific lawsuit was voluntarily withdrawn by the accuser in November 2016. Evidence from public schedules and news media reports indicates there was no court case involving Donald Trump for sexual assault on the date mentioned in the claim (October 14, 2020), and a Trump campaign spokesperson explicitly denied the claim. Therefore, the evidence suggests the claim of a current court case regarding this specific allegation is not supported by available records.",
+   "article_url": "https://web.archive.org/web/20210111062415/https://checkyourfact.com/2020/10/19/fact-check-donald-trump-court-case-sexual-assault-minor/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

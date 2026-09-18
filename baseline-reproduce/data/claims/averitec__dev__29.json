@@ -1,0 +1,447 @@
+{
+ "key": "averitec/dev/29",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 29,
+ "claim": "The Wire called Durga puja racist and the goddess Durga a sex worker",
+ "claim_date": "2020-10-26",
+ "speaker": null,
+ "reporting_source": "Twitter",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim asserts that the news organization *The Wire* explicitly labeled Durga Puja as \"racist\" and referred to the goddess Durga as a \"sex worker.\"\n2.  **Evaluate the Evidence:** \n    *   Multiple pieces of evidence (Q1, Q2, Q3, Q5, and Q6) directly address this specific allegation.\n    *   The evidence clarifies that *The Wire* did not make these statements as its own editorial view. Instead, the news portal was reporting on a 2016 parliamentary speech delivered by then-HRD Minister Smriti Irani.\n    *   During that speech, Irani was reading excerpts from a pamphlet (allegedly distributed at JNU) to condemn the contents of that pamphlet.\n    *   The evidence further states that a viral screenshot of *The Wire's* article was \"mischievously cropped\" and \"misrepresented\" to create the false impression that the publication itself was making these derogatory claims (Q5, Q6).\n3.  **Determine the Verdict:** Since the evidence consistently shows that the claims attributed to *The Wire* are factually incorrect and the result of misrepresentation/out-of-context cropping, the claim is directly contradicted by the facts provided.\n\n**Label:** Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did *The Wire* label Durga Puja as \"racist\" and the goddess Durga as a \"sex worker,\" or was that text actually part of a parliamentary speech being reported on by the website?",
+      "answer": "No, *The Wire* did not label Durga Puja as \"racist\" or the goddess Durga as a \"sex worker.\" That text was actually part of a parliamentary speech being reported on by the website.\n\nAccording to the evidence, the controversial text was a quote from a speech delivered by then-Union Minister Smriti Irani in the Lok Sabha. During her speech, she was reading extracts from a pamphlet allegedly distributed by students at Jawaharlal Nehru University (JNU). *The Wire* clarified that the content was not their own editorial view, but a report on Irani's speech regarding the pamphlet.",
+      "url": "https://m.thewire.in/article/media/fact-check-viral-durga-puja-screenshot",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did *The Wire* call Durga puja racist and the goddess Durga a sex worker, or was the news portal simply quoting a pamphlet that was read by Smriti Irani during a speech in Parliament?",
+      "answer": "No, *The Wire* did not call Durga Puja racist or refer to the goddess Durga as a sex worker. According to the evidence, the news portal was simply quoting a pamphlet that was read by then-HRD Minister Smriti Irani during a speech in Parliament regarding \"anti-national\" events at Jawaharlal Nehru University. The claims that the portal intentionally insulted the goddess are based on excerpts taken out of context; *The Wire* was merely documenting the contents of the pamphlet as part of its reporting on the minister's parliamentary statements.",
+      "url": "https://www.thequint.com/news/webqoof/excerpt-shared-without-context-to-label-the-wire-as-anti-hindu",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did *The Wire* actually call Durga Puja racist and the goddess Durga a sex worker, or was it simply quoting a parliamentary speech by Smriti Irani?",
+      "answer": "No, *The Wire* did not call Durga Puja racist or the goddess Durga a sex worker. The article was simply quoting a 2016 parliamentary speech made by then-HRD Minister Smriti Irani. According to the evidence, Irani was referencing a pamphlet she claimed had been distributed at JNU; *The Wire's* founding editor clarified that these controversial excerpts were part of the historical record of her speech and were not the news organization's own views.",
+      "url": "https://www.altnews.in/the-wire-did-not-disrespect-durga-excerpt-from-2016-article-misrepresented/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Smriti Irani call the goddess Durga a \"sex worker,\" or was she condemning such remarks made by others?",
+      "answer": "Smriti Irani did not call the goddess Durga a \"sex worker.\" Instead, she was condemning such remarks made by others. According to the evidence, misleading videos attributed these derogatory comments to her, but factual review of the original footage shows she was reading from a pamphlet to express her distress and condemnation regarding repulsive comments made by certain students at Jawaharlal Nehru University (JNU).",
+      "url": "https://timesofindia.indiatimes.com/times-fact-check/news/fake-alert-no-smriti-irani-didnt-call-goddess-durga-a-sex-worker/articleshow/71185792.cms",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did The Wire call Durga Puja racist and the goddess Durga a sex worker?",
+      "answer": "No, *The Wire* did not call Durga Puja racist or the goddess Durga a sex worker. \n\nAccording to the evidence, a screenshot of a 2016 article from *The Wire* was mischievously cropped to create this false claim. In reality, the original article was reporting on a speech by then-HRD Minister Smriti Irani, who was quoting controversial lines from a pamphlet to highlight what she characterized as \"anti-national\" activities at Jawaharlal Nehru University (JNU). The inflammatory descriptions were attributed to the pamphlet being read by Irani, not to *The Wire* itself.",
+      "url": "https://www.boomlive.in/fake-news/cropped-screenshot-of-the-wire-article-on-durga-puja-is-misleading-10354",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did *The Wire* actually call Durga Puja racist and the goddess Durga a sex worker, or has a viral screenshot misrepresented their 2016 article?",
+      "answer": "Based on the provided evidence, a viral screenshot has **misrepresented** a 2016 article originally published by *The Wire*. The evidence indicates that the claims made in the screenshot regarding the article are inaccurate representations of the actual content.",
+      "url": "https://thewire.in/media/fact-check-viral-durga-puja-screenshot",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that The Wire called Durga Puja racist and the goddess Durga a sex worker?",
+      "answer": "No, the provided evidence does not support the claim.\n\nThe evidence discusses a legal conflict regarding whether the glorification of Mahishasura's death during festivals like Durga Puja constitutes an insult to the religious beliefs of certain tribal communities. It does not mention *The Wire*, nor does it contain any statement characterizing Durga Puja as \"racist\" or the goddess Durga as a \"sex worker.\"",
+      "url": "https://www.facebook.com/groups/IndianLiberals/posts/364227963987597/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that The Wire called Durga Puja racist and the goddess Durga a sex worker?",
+      "answer": "No, the provided evidence does not support the claim.\n\nThe evidence discusses a controversy regarding West Bengal police restrictions on Durga Puja idol immersion timings to prevent communal violence. It focuses on the distinction between \"baroari\" (community) pujas and family pujas and argues that the administration's cautious approach is a necessary measure for maintaining public order. There is no mention in the text of *The Wire* calling Durga Puja racist or referring to the goddess Durga as a sex worker.",
+      "url": "https://m.thewire.in/article/communalism/if-only-durga-could-slay-the-asura-of-politicking",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who is accused of being a divisive figure in the article that discusses the claims made by The Wire?",
+      "answer": "In the article discussing these claims, K.R. Sathyanidhi accuses **Sandhya Jain** and **Radha Rajan** of being divisive figures. He contends that they use their online platforms to launch attacks against Hindu leaders and institutions and promote a narrow, distorted version of Hinduism.",
+      "url": "https://www.facebook.com/Hinduhumanrights/posts/shame-on-sandhya-jain-and-radha-rajan-a-rajanhtmby-kr-sathyanidhionce-upon-a-tim/10150511076419076/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that *The Wire* called Durga Puja racist and the goddess Durga a sex worker?",
+      "answer": "No, the provided evidence does not support the claim.\n\nThe evidence describes a Facebook post by Anuraag Saxena regarding Durga Ashtami and a link to an article from *The Sunday Guardian Live* titled \"Heritage crimes: Let’s get our past back.\" There is no mention of *The Wire*, nor is there any information in the text suggesting that *The Wire* called Durga Puja racist or referred to the goddess Durga as a sex worker.",
+      "url": "https://www.facebook.com/Anuraag.Saxena.Official/posts/wishing-each-other-on-durgaashtami-isnt-enoughit-is-time-to-destroy-parampasuras/1284716131905362/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.altnews.in/the-wire-did-not-disrespect-durga-excerpt-from-2016-article-misrepresented/",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.boomlive.in/fake-news/cropped-screenshot-of-the-wire-article-on-durga-puja-is-misleading-10354",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thewire.in/media/fact-check-viral-durga-puja-screenshot",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Anuraag.Saxena.Official/posts/wishing-each-other-on-durgaashtami-isnt-enoughit-is-time-to-destroy-parampasuras/1284716131905362/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.thewire.in/article/communalism/if-only-durga-could-slay-the-asura-of-politicking",
+      "date": "2017-09-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/IndianLiberals/posts/364227963987597/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Hinduhumanrights/posts/shame-on-sandhya-jain-and-radha-rajan-a-rajanhtmby-kr-sathyanidhionce-upon-a-tim/10150511076419076/",
+      "date": "2010-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thequint.com/news/webqoof/excerpt-shared-without-context-to-label-the-wire-as-anti-hindu",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.thewire.in/article/media/fact-check-viral-durga-puja-screenshot",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://timesofindia.indiatimes.com/times-fact-check/news/fake-alert-no-smriti-irani-didnt-call-goddess-durga-a-sex-worker/articleshow/71185792.cms",
+      "date": "2019-09-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 10,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that the digital news publication *The Wire* (India) described the festival of Durga Puja as \"racist\" and referred to the Hindu goddess Durga as a \"sex worker.\" This claim circulated on social media around October 2020.\n2. Multiple pieces of evidence from reliable fact-checking and news sources (*The Wire*, *The Quint*, *Boom Live*, *Alt News*, and *Times of India*) clarify the context. The controversial text (which included the terms \"racial festival\" and \"sex worker\") was not the original editorial content of *The Wire*. Instead, *The Wire* was reporting on a 2016 event where Union Minister Smriti Irani read aloud a pamphlet in Parliament. The pamphlet, allegedly distributed at Jawaharlal Nehru University (JNU), contained those specific derogatory descriptions.\n3. The evidence shows that the claim is based on a \"mischievously cropped\" or \"misrepresented\" screenshot. While the words themselves appeared in an article published by *The Wire*, they were presented as a quote from the Minister reading a pamphlet, not as the publication's own stance or description of the goddess.\n4. The balance of evidence clearly refutes the claim that *The Wire* itself made these descriptions. The publication was reporting on the existence of the pamphlet and the Minister's speech regarding it.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did the digital publication The Wire describe the goddess Durga as a sex worker in an article published around October 2020?",
+      "answer": "Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire New Delhi: As India celebrates the festivals of Durga Puja and Navratri, a cropped screenshot of a 2016 article by The Wire is being misrepresented and doing the rounds on social media, falsely claiming the news website referred to the festival as \"racist\" and called the Hindu goddess a \"sex worker\". First #Tanishq then #EROS_NOW and now #TheWire Hope some day they also get some guts to write something about the 6 year old girl Aisha. An excerpt from a report by The Wire is doing the rounds on social media to claim that the news portal intentionally disrespected Hindu goddess Durga by calling her a “sex slave”. However, it is noteworthy that the excerpt has been taken out of context. It is from a report where The Wire had quoted Union Minister Smriti Irani speaking in the Parliament and reading out a pamphlet insulting the Hindu festival of Durga Puja which she claimed was distributed on the campus of the Jawaharlal Nehru University. Cropped Screenshot Of The Wire Article On Durga Puja Is Misleading The viral screenshot has been cropped from a longer story by the Wire which quotes Smriti Irani reading about an event held at JNU A mischievously cropped screenshot of 2016 article by The Wire is circulating online falsely claiming the news website referred to the festival of Durga puja as 'racist' and called the Hindu goddess a 'sex worker'. An excerpt from an article in The Wire is making the rounds on Twitter to claim that the news organisation promoted ‘anti-Hindu’ sentiments by terming Durga Puja a “racist festival” and the Hindu deity a “sex worker”. Ex-navy officer Harinder Sikka questioned The Wire in a critically worded tweet, “Can u dare write such obscene words for Islam?” Twitter handle @missionkaali followed by Delhi BJP leader Kapil Mishra also shared the screenshot speculating if the outlet indeed published the excerpt. That is hurtful to those, especially marginalised sections, who have a different view of the story,” said Anil speaking to The Wire at the time. A four-year-old article in The Wire, quoting Smriti Irani making a reference to a pamphlet distributed at JNU, was misrepresented on social media. It is noteworthy that organisers of the university event denied printing a pamphlet that referred to Hindu deity Durga as a “sex worker”. They alleged that ABVP had misquoted them and in turn, the Union Minister. So someone in the extreme Left allegedly described Durga, the Hindu Goddess, as a “sex worker”. Those on the extreme Right, unable to take a high ground, want them to be punished. For those watching this rooster fight between hecklers and reactionaries, encouraged by politicians who want to distract all attention from “development”, it is time to ponder on the term “sex worker”. Sex worker allegedly is a politically correct phrase for “prostitute”. The sociological meaning of the word is very different from the mythological meaning. Twitter handle @indianrightwing opined, “Maa durga being called a s*x worker that too during navratri by @thewire_in. There can be no punishment except for legal death sentence…” Fact-check Twitter handle @indianrightwing which suggested the “death penalty” for The Wire as punishment for alleged “Hinduphobic” views also shared the article containing the excerpt in question. Had the user read the report, they’d know that the news organisation wasn’t promoting its own opinions but a reference made by Union Minister Smriti Irani in 2016. Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire - The Wire The Wire: The Wire News India, Latest News,News from India, Politics, External Affairs, Science, Economics, Gender and Culture. They hired a sex worker called Durga, who enticed Mahishasura into marriage and killed him after nine nights of honeymooning, during sleep,” the portal quoted her as saying. This explainer by The Quint details the entire controversy as it happened in the Parliament. Clearly, an excerpt from a pamphlet which was read by Smriti Irani in the Parliament and was subsequently reported by The Wire is now being used without context to claim that the news portal is “anti-Hindu” and “anti-national”. #TheWire #DurgaPuja #sicularism #sickularism pic.twitter.com/LKaLm8zl6z — James vinchi 🇮🇳 (@JamesVinchi) October 23, 2020 The text in the viral screenshot reads: \"Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans. â The same video is being shared with similar claims on other social media platforms as well. For instance, itâs being shared on YoutTube à¤¦à¥à¤°à¥à¤à¤¾ à¤à¤ à¤à¥à¤¬à¤¸à¥à¤°à¤¤ à¤µà¥à¤¶à¥à¤¯à¤¾ à¤¥à¥ | Durga was a beautiful Sex Worker. Those who worship Mahishasur – are they saying Durga is a sex worker?” “There are only few thousand people who worship Mahishasura. But they do not say that Durga is a sex worker. There are chances that the entire legend is different from the original one. CLAIMA highly derogatory and offensive quote about Hindu goddess Durga is being attributed to Union Minister Smriti Irani. A Facebook user who goes by the name âMohd Talibâ shared a video in which Irani is speaking in Parliament with a claim that she called goddess Durga a âsex workerâ who lured âMahishasurâ into her trap. Talib captioned the video âDurga was a beautiful sex workerâ. They hired a sex worker called Durga, who enticed Mahishasura into marriage and killed him after nine nights of honeymooning, during sleep”. Among those who shared this screenshot and attributed the quote to The Wire is former Navy officer and author Harinder Sikka. WHAT WE FOUND A keyword search using the terms from viral excerpt directed us to the full report published on The Wire. The text in the viral screenshot reads, \"Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans. They hired a sex worker called Durga, who enticed Mahishasura into marriage and killed him after nine nights of honeymooning, during sleep. Smriti Irani And on Twitter TRUTHIrani didnât call goddess Durga a âsex-workerâ. In Parliament, Irani was quoting minority students of Jawaharlal Nehru University ( JNU) as making such repulsive and defamatory remarks. She was quoted out of context and the entire video is misleading. VERIFICATION AND METHODOLOGYUsing keywords âSmriti Irani Durga speechâ, we found a video uploaded by news outlet Swarajya on YouTube on Feb 26, 2016. ” “It’s part of evangelist’s unholy methods of cheating naive dalits and tribals to convert them. The story of Durga as sex worker is created by evangelists the way they created caste systems and such derogatory things about Hinduism.",
+      "url": "https://m.thewire.in/article/media/fact-check-viral-durga-puja-screenshot",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the actual context of the controversy involving The Wire and religious sentiments in October 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence to support the claim that The Wire called Durga Puja racist?",
+      "answer": "An excerpt from an article in The Wire is making the rounds on Twitter to claim that the news organisation promoted ‘anti-Hindu’ sentiments by terming Durga Puja a “racist festival” and the Hindu deity a “sex worker”. Ex-navy officer Harinder Sikka questioned The Wire in a critically worded tweet, “Can u dare write such obscene words for Islam?” Twitter handle @missionkaali followed by Delhi BJP leader Kapil Mishra also shared the screenshot speculating if the outlet indeed published the excerpt. Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire New Delhi: As India celebrates the festivals of Durga Puja and Navratri, a cropped screenshot of a 2016 article by The Wire is being misrepresented and doing the rounds on social media, falsely claiming the news website referred to the festival as \"racist\" and called the Hindu goddess a \"sex worker\". First #Tanishq then #EROS_NOW and now #TheWire Hope some day they also get some guts to write something about the 6 year old girl Aisha. Cropped Screenshot Of The Wire Article On Durga Puja Is Misleading The viral screenshot has been cropped from a longer story by the Wire which quotes Smriti Irani reading about an event held at JNU A mischievously cropped screenshot of 2016 article by The Wire is circulating online falsely claiming the news website referred to the festival of Durga puja as 'racist' and called the Hindu goddess a 'sex worker'. Twitter handle @indianrightwing opined, “Maa durga being called a s*x worker that too during navratri by @thewire_in. There can be no punishment except for legal death sentence…” Fact-check Twitter handle @indianrightwing which suggested the “death penalty” for The Wire as punishment for alleged “Hinduphobic” views also shared the article containing the excerpt in question. Had the user read the report, they’d know that the news organisation wasn’t promoting its own opinions but a reference made by Union Minister Smriti Irani in 2016. #TheWire #DurgaPuja #sicularism #sickularism pic.twitter.com/LKaLm8zl6z — James vinchi 🇮🇳 (@JamesVinchi) October 23, 2020 The text in the viral screenshot reads: \"Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans. Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire - The Wire The Wire: The Wire News India, Latest News,News from India, Politics, External Affairs, Science, Economics, Gender and Culture. An excerpt from a report by The Wire is doing the rounds on social media to claim that the news portal intentionally disrespected Hindu goddess Durga by calling her a “sex slave”. However, it is noteworthy that the excerpt has been taken out of context. It is from a report where The Wire had quoted Union Minister Smriti Irani speaking in the Parliament and reading out a pamphlet insulting the Hindu festival of Durga Puja which she claimed was distributed on the campus of the Jawaharlal Nehru University. In the video, Irani is reading out a paper while making following remarks, âDurga Puja is the most controversial, racial festival where a fair-skinned, beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasur. Mahishasur, a brave, self-respecting leader tricked into marriage by Aryans, they hired a sex-worker called Durga who entices Mahishasur into marriage and killed him after nine nights of honeymooning during sleep. “Durga Puja is the most controversial racial festival, where a fair-skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans. Asking her “god to forgive” her, she read from a pamphlet allegedly brought out by the organisers of the event: “Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. That is hurtful to those, especially marginalised sections, who have a different view of the story,” said Anil speaking to The Wire at the time. A four-year-old article in The Wire, quoting Smriti Irani making a reference to a pamphlet distributed at JNU, was misrepresented on social media. It is noteworthy that organisers of the university event denied printing a pamphlet that referred to Hindu deity Durga as a “sex worker”. They alleged that ABVP had misquoted them and in turn, the Union Minister.",
+      "url": "https://www.altnews.in/the-wire-did-not-disrespect-durga-excerpt-from-2016-article-misrepresented/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did fact-checkers respond to the viral claim regarding The Wire and the goddess Durga?",
+      "answer": "Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire New Delhi: As India celebrates the festivals of Durga Puja and Navratri, a cropped screenshot of a 2016 article by The Wire is being misrepresented and doing the rounds on social media, falsely claiming the news website referred to the festival as \"racist\" and called the Hindu goddess a \"sex worker\". First #Tanishq then #EROS_NOW and now #TheWire Hope some day they also get some guts to write something about the 6 year old girl Aisha. An excerpt from a report by The Wire is doing the rounds on social media to claim that the news portal intentionally disrespected Hindu goddess Durga by calling her a “sex slave”. However, it is noteworthy that the excerpt has been taken out of context. It is from a report where The Wire had quoted Union Minister Smriti Irani speaking in the Parliament and reading out a pamphlet insulting the Hindu festival of Durga Puja which she claimed was distributed on the campus of the Jawaharlal Nehru University. Cropped Screenshot Of The Wire Article On Durga Puja Is Misleading The viral screenshot has been cropped from a longer story by the Wire which quotes Smriti Irani reading about an event held at JNU A mischievously cropped screenshot of 2016 article by The Wire is circulating online falsely claiming the news website referred to the festival of Durga puja as 'racist' and called the Hindu goddess a 'sex worker'. Twitter handle @indianrightwing opined, “Maa durga being called a s*x worker that too during navratri by @thewire_in. There can be no punishment except for legal death sentence…” Fact-check Twitter handle @indianrightwing which suggested the “death penalty” for The Wire as punishment for alleged “Hinduphobic” views also shared the article containing the excerpt in question. Had the user read the report, they’d know that the news organisation wasn’t promoting its own opinions but a reference made by Union Minister Smriti Irani in 2016. Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire - The Wire The Wire: The Wire News India, Latest News,News from India, Politics, External Affairs, Science, Economics, Gender and Culture. An excerpt from an article in The Wire is making the rounds on Twitter to claim that the news organisation promoted ‘anti-Hindu’ sentiments by terming Durga Puja a “racist festival” and the Hindu deity a “sex worker”. Ex-navy officer Harinder Sikka questioned The Wire in a critically worded tweet, “Can u dare write such obscene words for Islam?” Twitter handle @missionkaali followed by Delhi BJP leader Kapil Mishra also shared the screenshot speculating if the outlet indeed published the excerpt. That is hurtful to those, especially marginalised sections, who have a different view of the story,” said Anil speaking to The Wire at the time. A four-year-old article in The Wire, quoting Smriti Irani making a reference to a pamphlet distributed at JNU, was misrepresented on social media. It is noteworthy that organisers of the university event denied printing a pamphlet that referred to Hindu deity Durga as a “sex worker”. They alleged that ABVP had misquoted them and in turn, the Union Minister. #TheWire #DurgaPuja #sicularism #sickularism pic.twitter.com/LKaLm8zl6z — James vinchi 🇮🇳 (@JamesVinchi) October 23, 2020 The text in the viral screenshot reads: \"Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans.",
+      "url": "https://m.thewire.in/article/media/fact-check-viral-durga-puja-screenshot",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the veracity of the claim that The Wire used derogatory terms for the goddess Durga?",
+      "answer": "An excerpt from a report by The Wire is doing the rounds on social media to claim that the news portal intentionally disrespected Hindu goddess Durga by calling her a “sex slave”. However, it is noteworthy that the excerpt has been taken out of context. It is from a report where The Wire had quoted Union Minister Smriti Irani speaking in the Parliament and reading out a pamphlet insulting the Hindu festival of Durga Puja which she claimed was distributed on the campus of the Jawaharlal Nehru University. Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire New Delhi: As India celebrates the festivals of Durga Puja and Navratri, a cropped screenshot of a 2016 article by The Wire is being misrepresented and doing the rounds on social media, falsely claiming the news website referred to the festival as \"racist\" and called the Hindu goddess a \"sex worker\". First #Tanishq then #EROS_NOW and now #TheWire Hope some day they also get some guts to write something about the 6 year old girl Aisha. An excerpt from an article in The Wire is making the rounds on Twitter to claim that the news organisation promoted ‘anti-Hindu’ sentiments by terming Durga Puja a “racist festival” and the Hindu deity a “sex worker”. Ex-navy officer Harinder Sikka questioned The Wire in a critically worded tweet, “Can u dare write such obscene words for Islam?” Twitter handle @missionkaali followed by Delhi BJP leader Kapil Mishra also shared the screenshot speculating if the outlet indeed published the excerpt. Cropped Screenshot Of The Wire Article On Durga Puja Is Misleading The viral screenshot has been cropped from a longer story by the Wire which quotes Smriti Irani reading about an event held at JNU A mischievously cropped screenshot of 2016 article by The Wire is circulating online falsely claiming the news website referred to the festival of Durga puja as 'racist' and called the Hindu goddess a 'sex worker'. Twitter handle @indianrightwing opined, “Maa durga being called a s*x worker that too during navratri by @thewire_in. There can be no punishment except for legal death sentence…” Fact-check Twitter handle @indianrightwing which suggested the “death penalty” for The Wire as punishment for alleged “Hinduphobic” views also shared the article containing the excerpt in question. Had the user read the report, they’d know that the news organisation wasn’t promoting its own opinions but a reference made by Union Minister Smriti Irani in 2016. #TheWire #DurgaPuja #sicularism #sickularism pic.twitter.com/LKaLm8zl6z — James vinchi 🇮🇳 (@JamesVinchi) October 23, 2020 The text in the viral screenshot reads: \"Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans. That is hurtful to those, especially marginalised sections, who have a different view of the story,” said Anil speaking to The Wire at the time. A four-year-old article in The Wire, quoting Smriti Irani making a reference to a pamphlet distributed at JNU, was misrepresented on social media. It is noteworthy that organisers of the university event denied printing a pamphlet that referred to Hindu deity Durga as a “sex worker”. They alleged that ABVP had misquoted them and in turn, the Union Minister. So someone in the extreme Left allegedly described Durga, the Hindu Goddess, as a “sex worker”. Those on the extreme Right, unable to take a high ground, want them to be punished. For those watching this rooster fight between hecklers and reactionaries, encouraged by politicians who want to distract all attention from “development”, it is time to ponder on the term “sex worker”. Sex worker allegedly is a politically correct phrase for “prostitute”. The sociological meaning of the word is very different from the mythological meaning. The text in the viral screenshot reads, \"Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Mahishasura, a brave self-respecting leader, was tricked into marriage by the Aryans. They hired a sex worker called Durga, who enticed Mahishasura into marriage and killed him after nine nights of honeymooning, during sleep. Asking her “god to forgive” her, she read from a pamphlet allegedly brought out by the organisers of the event: “Durga Puja is the most controversial racial festival, where a fair skinned beautiful goddess Durga is depicted brutally killing a dark-skinned native called Mahishasura. Viral Screenshot Misrepresents a 2016 Article on Durga Puja From The Wire - The Wire The Wire: The Wire News India, Latest News,News from India, Politics, External Affairs, Science, Economics, Gender and Culture. When you picture Durga based on blatant lies as sex worker, it is called freedom of speech? What kind of logic is that? They hired a sex worker called Durga, who enticed Mahishasura into marriage and killed him after nine nights of honeymooning, during sleep”. Among those who shared this screenshot and attributed the quote to The Wire is former Navy officer and author Harinder Sikka. WHAT WE FOUND A keyword search using the terms from viral excerpt directed us to the full report published on The Wire. CLAIMA highly derogatory and offensive quote about Hindu goddess Durga is being attributed to Union Minister Smriti Irani. A Facebook user who goes by the name âMohd Talibâ shared a video in which Irani is speaking in Parliament with a claim that she called goddess Durga a âsex workerâ who lured âMahishasurâ into her trap. Talib captioned the video âDurga was a beautiful sex workerâ.",
+      "url": "https://www.thequint.com/news/webqoof/excerpt-shared-without-context-to-label-the-wire-as-anti-hindu",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.boomlive.in/fake-news/cropped-screenshot-of-the-wire-article-on-durga-puja-is-misleading-10354",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/the-wire-did-not-disrespect-durga-excerpt-from-2016-article-misrepresented/",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.thewire.in/article/media/fact-check-viral-durga-puja-screenshot",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.forwardpress.in/2018/10/why-are-sex-workers-refusing-to-give-mud-for-durga-idols/",
+      "date": "2018-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://timesofindia.indiatimes.com/times-fact-check/news/fake-alert-no-smriti-irani-didnt-call-goddess-durga-a-sex-worker/articleshow/71185792.cms",
+      "date": "2019-09-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theworld.org/stories/2018/02/13/headline-7",
+      "date": "2018-02-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://indianexpress.com/article/lifestyle/art-and-culture/durga-puja-street-graffiti-narrates-sex-workers-tale-5392384/",
+      "date": "2018-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dailyo.in/politics/durga-sex-worker-mahishasur-prostitution-patriarchy-feminism-womens-freedom-sexuality-virgin-hinduism-christianity-9264",
+      "date": "2016-02-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://source.washu.edu/2020/10/washu-expert-religion-and-the-2020-election/",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://spectrummagazine.org/post-archives/wire-and-why-error-christianity/",
+      "date": "2008-04-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/mattfradd/posts/my-latest-post-over-at-daily-wire/1518810126273409/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pewresearch.org/religion/2008/11/20/how-the-news-media-covered-religion-in-the-general-election/",
+      "date": "2008-11-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thequint.com/news/webqoof/excerpt-shared-without-context-to-label-the-wire-as-anti-hindu",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/parama2016/posts/thakur-gawra-and-shashi-babuthe-most-intriguing-part-of-durga-pujo-for-me-is-the/2871342836272945/?locale=zh_CN",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/archives/la-xpm-2008-jan-13-ca-letters13.s1-story.html",
+      "date": "2008-01-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://nyunews.com/2015/10/22/institutional-racism-drives-the-plot-of-the-wire/",
+      "date": "2015-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/logical.indian/posts/a-set-of-photographs-of-a-charred-idol-of-hindu-deity-kali-is-being-circulated-w/3170415969754767/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/tezpurbuzz/posts/pillion-riding-for-males-are-not-allowed-during-the-three-days-of-durga-puja-how/2482272365403165/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ndtv/posts/there-is-a-brand-new-dispute-between-the-bjp-and-the-trinamool-congress-this-tim/10157865534335798/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/fact-check-did-darul-uloom-deoband-slam-tmc-mp-nusrat-jahan-for-celebrating-durga-puja/",
+      "date": "2019-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.opindia.com/2018/10/katyayani-born-out-of-anger-of-gods-the-sixth-avatar-of-maa-durga-killed-the-demon-mahishasur/",
+      "date": "2018-10-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thewire.in/media/fact-check-viral-durga-puja-screenshot",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scoopwhoop.com/news/du-professor-booked-for-calling-durga-sexy-prostitute/",
+      "date": "2017-09-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TimesofIndia/posts/israeli-prime-minister-benjamin-netanyahus-eldest-son-yair-has-apologised-to-hin/10158979465167139/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.thewire.in/article/politics/mahishasura-and-the-minister",
+      "date": "2016-02-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.sanskritimagazine.com/goddess-durga-controversy-behind-mahishasura/",
+      "date": "2016-03-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 66,
+     "n_urls_after_bm25": 26,
+     "n_chunks": 376
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The claim is refuted as the magazine The Wire was not calling the gods those things but it was from a pamphlet so the claim is refuted.",
+   "questions": [
+    {
+     "question": "Who was \"The Wire\" referencing in the article from which the claim was derived",
+     "answers": [
+      {
+       "answer": "They were referencing HRD minister Smriti Irani",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20201101134920/https://thewire.in/politics/mahishasura-and-the-minister",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did HRD minister Smriti Irani make the comments herself",
+     "answers": [
+      {
+       "answer": "She read from a pamphlet allegedly brought out by the organisers of the event",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201101134920/https://thewire.in/politics/mahishasura-and-the-minister",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201128021609/https://www.boomlive.in/fake-news/cropped-screenshot-of-the-wire-article-on-durga-puja-is-misleading-10354",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The viral screenshot claiming The Wire called Durga Puja racist and the goddess a sex worker is a misleading, cropped snippet of a 2016 article where the controversial text was actually being read by then-Union Minister Smriti Irani during a Lok Sabha speech in February 2016 from a pamphlet she claimed was distributed by students during 'Mahishasur Martyrdom Day' celebrations at JNU; The Wire's article reported on Smriti Irani reading the pamphlet rather than authoring the claims, a fact clarified by Siddharth Varadarajan, the founding editor of The Wire, who explained the screenshot shows a quote of Smriti Irani reading extracts from a JNU pamphlet.",
+     "support_span": "A mischievously cropped screenshot of 2016 article by The Wire is circulating online falsely claiming the news website referred to the festival of Durga puja as 'racist' and called the Hindu goddess a 'sex worker'. | The screenshot is a tiny snippet of a news article from Feb 27, 2016 which quotes Union minister Smriti Irani as reading the said lines about Durga Puja in her Lok Sabha speech. | Irani was reading the description of Durga Puja from a pamphlet which she claimed was distributed when students of Jawaharlal Nehru University (JNU) celebrated 'Mahishasur Martyrdom Day.' | The Wire attributes the said lines to Irani who in turn is reading from a pamphlet which she alleged was distributed by the organisers behind the Mahishasur Martyrdom Day event. | BOOM also reached out to Siddharth Varadarajan, founding editor of The Wire who directed us to a tweet by him which explained that the screenshot is a \"quote of Smriti Irani, as HRD min in Feb 2016, reading out in parliament extracts from what she said was a JNU pamphlet.\""
+    },
+    {
+     "statement": "The full article by The Wire regarding this event can be found at the provided link.",
+     "support_span": "The full story done by The Wire can be read here [https://thewire.in/politics/mahishasura-and-the-minister]"
+    }
+   ],
+   "justification": "The evidence indicates that the claim is based on a misleading, cropped screenshot of a 2016 article from The Wire. Rather than expressing its own views, The Wire's article was reporting on a Lok Sabha speech by then-Union Minister Smriti Irani, who was reading controversial text from a pamphlet allegedly distributed during 'Mahishasur Martyrdom Day' celebrations at JNU. The founding editor of The Wire has clarified that the text in the screenshot was a quote of the Minister reading the pamphlet, not the publication's own editorial stance.",
+   "article_url": "https://web.archive.org/web/20201128021609/https://www.boomlive.in/fake-news/cropped-screenshot-of-the-wire-article-on-durga-puja-is-misleading-10354",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

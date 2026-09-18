@@ -1,0 +1,247 @@
+{
+ "key": "averitec/dev/83",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 83,
+ "claim": "Pennsylvania US rejects 372,000 mail-in ballots.",
+ "claim_date": "2020-10-17",
+ "speaker": "The Blaze",
+ "reporting_source": "The Geller Report",
+ "original_claim_url": "https://web.archive.org/web/20210609133131/https://gellerreport.com/2020/10/pennsylvania-rejects-372000-mail-in-ballots-leaving-many-voters-confused-report.html/",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"Pennsylvania US rejects 372,000 mail-in ballots,\" we must analyze the provided evidence:\n\n1.  **Analyze Q1 and Q2:** These answers suggest that the number 372,000 refers to **mail-in ballot applications** that were rejected due to duplicate filings, not the actual **ballots** themselves. There is a critical distinction between a rejected *application* to vote by mail and a rejected *ballot* (the actual vote cast).\n2.  **Analyze Q3, Q4, Q9, and Q10:** These answers explicitly state that the provided evidence does not support the claim. They note that the evidence in those specific contexts discusses legal rulings, drop boxes, or entirely different elections (Illinois or presidential debates) and contains no mention of the number 372,000 in relation to rejected ballots.\n3.  **Analyze Q5, Q7, and Q8:** These answers address a different incident involving the discarding of only **nine** ballots in Luzerne County due to an administrative error, which contradicts the scale of the claim.\n4.  **Synthesis:** The claim asserts that 372,000 *ballots* were rejected. However, the only evidence mentioning this specific number (Q1/Q2) clarifies that it was 372,000 *applications* that were rejected. Because the claim misrepresents the nature of the rejected items (applications vs. ballots), the claim is factually inaccurate based on the provided text.\n\n**Conclusion:** The evidence clarifies that the figure 372,000 pertains to rejected *applications* due to duplicates, thereby refuting the claim that 372,000 *ballots* were rejected.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Why did Pennsylvania election offices reject approximately 372,000 mail-in ballot applications?",
+      "answer": "Pennsylvania election offices rejected approximately 372,000 mail-in ballot applications primarily due to **duplicate filings**. \n\nAccording to the evidence, this surge in duplicates was driven by several factors:\n*   A lack of voter education regarding new laws that allow for permanent mail-in status.\n*   Inaccurate information provided on the state's ballot-tracking website.\n*   A high volume of unsolicited applications sent from political and get-out-the-vote groups.",
+      "url": "https://www.propublica.org/article/pennsylvanias-rejection-of-372-000-ballot-applications-bewilders-voters-and-strains-election-staff",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Why were over 370,000 mail-in ballots in Pennsylvania reportedly rejected?",
+      "answer": "The reported rejection of over 370,000 mail-in ballots in Pennsylvania was due to them being duplicates.",
+      "url": "https://www.facebook.com/foxandfriends/posts/more-than-370k-pennsylvania-mail-in-ballots-not-accepted-because-most-were-dupli/3599547080132862/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence support the claim that Pennsylvania rejected 372,000 mail-in ballots?",
+      "answer": "No, the provided evidence does not support the claim that Pennsylvania rejected 372,000 mail-in ballots. The evidence focuses on a legal ruling by the Pennsylvania Supreme Court regarding the extension of the deadline for receiving postmarked ballots due to COVID-19 delivery delays and the rejection of a campaign effort to ban ballot drop boxes, but it contains no mention of the number of rejected ballots.",
+      "url": "https://www.factcheck.org/2020/09/trumps-false-statement-about-counting-ballots-in-pennsylvania/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Pennsylvania rejected 372,000 mail-in ballots?",
+      "answer": "No, the provided evidence does not support the claim that Pennsylvania rejected 372,000 mail-in ballots. The evidence focuses on legal battles regarding ballot drop boxes, poll watcher locations, ballot counting extensions, and \"ballot harvesting,\" but it contains no mention of a specific number of rejected ballots.",
+      "url": "https://www.pbs.org/newshour/politics/trumps-war-on-mail-in-voting-suffers-setback-in-pennsylvania",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How many mail-in ballots were actually discarded in Luzerne County, Pennsylvania?",
+      "answer": "Based on the evidence provided, the U.S. Attorney's Office reported finding **nine** ballots in a dumpster in Luzerne County, Pennsylvania.",
+      "url": "https://abc7.com/post/mail-in-ballots-mail-in-pennsylvania-trump-found/6577247/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Is the rejection of mail-in ballots in Pennsylvania related to the legal dispute over whether satellite election offices should be classified as polling places?",
+      "answer": "Based on the provided evidence, there is no information linking the rejection of 372,000 mail-in ballots to the legal dispute over satellite election offices.\n\nThe evidence focuses exclusively on a \"legal and semantic controversy\" in Philadelphia regarding whether satellite election offices should be classified as \"polling places.\" This distinction is being debated to determine if Republican poll watchers have the legal right to observe activities at those locations. The text does not mention any specific number of rejected ballots or any connection between this classification dispute and the rejection of mail-in ballots.",
+      "url": "https://www.facebook.com/groups/1785258968422419/posts/2815867055361600/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How many mail-in ballots were actually reported to have been incorrectly discarded by a contractor in Pennsylvania?",
+      "answer": "Based on the provided evidence, nine military ballots were reported to have been incorrectly discarded by a temporary seasonal independent contractor.",
+      "url": "https://www.facebook.com/KCTV5/posts/in-a-statement-county-officials-said-the-issue-regarding-nine-military-ballots-w/10158538601005470/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How many mail-in ballots were actually discarded due to an administrative error in Luzerne County, Pennsylvania?",
+      "answer": "Nine mail-in ballots (specifically military and overseas/UMOVA ballots) were discarded due to an administrative error by a temporary contractor in Luzerne County, Pennsylvania.",
+      "url": "https://abcnews.com/Politics/temporary-contractor-threw-trump-mail-ballots-trash-pennsylvania/story?id=73251533",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that Pennsylvania rejected 372,000 mail-in ballots?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses entirely on the 2018 general election for Illinois' 6th Congressional District and the victory of Sean Casten over Peter Roskam; it contains no information regarding mail-in ballots or election results in Pennsylvania.",
+      "url": "https://ballotpedia.org/Illinois%27_6th_Congressional_District_election,_2018",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Pennsylvania rejected 372,000 mail-in ballots?",
+      "answer": "No, the provided evidence does not support the claim. The text focuses on a description of the third presidential debate between Hillary Clinton and Donald Trump, discussing Clinton's performance and Trump's rhetoric; it contains no information regarding mail-in ballots or rejection numbers in Pennsylvania.",
+      "url": "https://www.smh.com.au/world/north-america/hillary-clinton-outtrumps-donald-trump-in-third-us-presidential-debate-20161021-gs7dve.html",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.propublica.org/article/pennsylvanias-rejection-of-372-000-ballot-applications-bewilders-voters-and-strains-election-staff",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/foxandfriends/posts/more-than-370k-pennsylvania-mail-in-ballots-not-accepted-because-most-were-dupli/3599547080132862/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/channelsforum/posts/state-elections-situation-room-says-it-has-recorded-seven-deaths/2442251792453598/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/Illinois%27_6th_Congressional_District_election,_2018",
+      "date": "2017-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1785258968422419/posts/2815867055361600/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://digitalcommons.law.villanova.edu/cgi/viewcontent.cgi?article=1015&context=pabulletin_2007",
+      "date": "2007-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.smh.com.au/world/north-america/hillary-clinton-outtrumps-donald-trump-in-third-us-presidential-debate-20161021-gs7dve.html",
+      "date": "2016-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/09/trumps-false-statement-about-counting-ballots-in-pennsylvania/",
+      "date": "2020-09-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/2020/09/25/pennsylvania-ballots-trump-421908",
+      "date": "2020-09-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abc7.com/post/mail-in-ballots-mail-in-pennsylvania-trump-found/6577247/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/temporary-contractor-threw-trump-mail-ballots-trash-pennsylvania/story?id=73251533",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KCTV5/posts/in-a-statement-county-officials-said-the-issue-regarding-nine-military-ballots-w/10158538601005470/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.irs.gov/irb/2007-34_IRB",
+      "date": "2007-08-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/trumps-war-on-mail-in-voting-suffers-setback-in-pennsylvania",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 14,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "It was applications that were rejected and not actual ballots.",
+   "questions": [
+    {
+     "question": "Did PA actually reject Mail in ballots?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://www.inquirer.com/politics/election/pennsylvania-mail-ballot-rejections-duplicate-applications-20201016.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210609133131/https://leadstories.com/hoax-alert/2020/10/fact-check-pennsylvania-did-not-destroy-372,000-ballots-they-were-ballot-applications.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Pennsylvania rejected approximately 372,000 applications for mail-in ballots, not the actual ballots themselves, and the vast majority of the rejected mail-in ballot applications were denied because they were duplicates, with more than 90% of the rejected applications, totaling about 336,000, being denied as duplicates primarily because voters who requested mail ballots for the June 2 primary did not realize they had also checked a box to receive ballots for the general election, while nongovernmental groups sent many mail ballot applications to Pennsylvania voters, contributing to the high volume of duplicate requests.",
+     "support_span": "Pennsylvania rejected 372,000 applications for mail-in ballots -- not actual ballots | the vast majority of them for being duplicate applications. | More than 90% of those applications, or about 336,000, were denied as duplicates | primarily because people who had requested mail ballots for the state's June 2 primary did not realize they had checked a box to be sent ballots for the general election, too. | Nongovernmental groups have inundated Pennsylvania voters with mail ballot applications, making it easy to request ballots -- and contributing to the flood of duplicates."
+    },
+    {
+     "statement": "The Philadelphia Inquirer and ProPublica co-published a report on October 16, 2020, regarding the rejection of these ballot applications, and The Blaze published a report that was later corrected to clarify that it was applications, not actual ballots, that were rejected.",
+     "support_span": "ProPublica and the Philadelphia Inquirer co-published a report on Friday discovering that 372,000 mail-in ballots were rejected. | The Geller Report is identical to a report published first by The Blaze, which has since been corrected to say it was the applications that were rejected, not the actual ballots."
+    }
+   ],
+   "justification": "The evidence clarifies a critical distinction between the claim and the facts: Pennsylvania rejected approximately 372,000 mail-in ballot applications, not the actual ballots themselves. The majority of these rejections (over 90%, or about 336,000) were due to duplicate applications, often caused by voters inadvertently requesting ballots for both a primary and a general election or by nongovernmental groups sending out high volumes of applications. While some reports initially conflated applications with actual ballots, subsequent corrections and investigative reports from sources like ProPublica and The Blaze have specified that the rejections applied to the applications.",
+   "article_url": "https://web.archive.org/web/20210609133131/https://leadstories.com/hoax-alert/2020/10/fact-check-pennsylvania-did-not-destroy-372,000-ballots-they-were-ballot-applications.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

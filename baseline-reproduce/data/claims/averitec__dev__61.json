@@ -1,0 +1,503 @@
+{
+ "key": "averitec/dev/61",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 61,
+ "claim": "The large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee US indicates the motorcycle manufacturer's endorsement of the US Democratic presidential nominee.",
+ "claim_date": "2020-10-20",
+ "speaker": "Christopher Andree",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://web.archive.org/web/20201101001018/https://www.facebook.com/photo.php?fbid=10220958474525938&set=a.1213306567152&type=3",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim asserts that a large projection of the Biden-Harris logo onto a Harley-Davidson location in Milwaukee serves as an indication of the manufacturer's endorsement of the Democratic presidential nominees.\n2.  **Evaluate Evidence (Q1):** Q1 directly addresses the core of the claim. It states that Harley-Davidson did **not** endorse the candidates. It clarifies that the company is apolitical and that the projection was performed without its consent by the United Steelworkers union to spark conversation.\n3.  **Evaluate Evidence (Q2, Q3, Q4):** These answers reinforce the findings in Q1. Q3 specifies that using the brand's imagery without permission is a violation of company policy and does not constitute an official endorsement. Q4 notes that such an act is a trademark/affiliation issue rather than a legal endorsement.\n4.  **Evaluate Irrelevant Evidence (Q5–Q10):** Several other question-answer pairs (Q5–Q10) state that their specific provided texts do not contain information regarding the Milwaukee incident. However, Q1 provides direct, factual refutation of the claim.\n5.  **Conclusion:** Since the evidence explicitly states that the projection was unauthorized, done by a third party (the union), and that the company clarified it is apolitical and did not endorse the candidates, the claim is factually incorrect.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Harley-Davidson endorse Joe Biden and Kamala Harris by projecting their logo onto one of its locations?",
+      "answer": "No, Harley-Davidson did not endorse Joe Biden and Kamala Harris. According to the evidence, the company clarified that it is apolitical and that the projection was done without its consent. The image was actually part of a project by the United Steelworkers union—which has endorsed the Biden candidacy—to spark election-related conversations in a COVID-friendly manner. The union has previously used this method to project logos on other buildings, such as Wrigley Field and Trump Tower, without the permission of the owners.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the projection of the Biden-Harris campaign logo onto a Harley-Davidson location in Milwaukee constitute an endorsement by the motorcycle manufacturer?",
+      "answer": "Based on the provided evidence, there is no information available to answer whether the projection of the Biden-Harris campaign logo onto a Harley-Davidson location constitutes an endorsement by the manufacturer. The evidence focuses exclusively on the design elements, typeface changes (from Brother 1816 to Decimal), and the symbolic intent of the updated Biden-Harris campaign logo.",
+      "url": "https://www.yellopolitics.com/p/the-biden-harris-logo-is-here-9e9",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the projection of the Joe Biden and Kamala Harris logo onto a Harley-Davidson location constitute an official endorsement by the company, or would such unauthorized use of the brand's imagery be considered a violation of their policies?",
+      "answer": "Based on the provided evidence, the projection of the Joe Biden and Kamala Harris logo onto a Harley-Davidson location does not constitute an official endorsement by the company. \n\nThe evidence states that using the Harley Davidson name or logo for commercial purposes without explicit written permission from the corporation is considered theft and is strictly prohibited. Therefore, the unauthorized use of the brand's imagery in this manner would be considered a violation of their policies.",
+      "url": "https://www.facebook.com/groups/OperationBikerDown/posts/1384407425025920/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the projection of a political logo onto a Harley-Davidson location constitute a legal endorsement by the manufacturer, or could it be viewed as a trademark issue regarding implied affiliation?",
+      "answer": "Based on the provided evidence, the projection of a political logo onto a Harley-Davidson location does not inherently constitute a legal endorsement by the manufacturer; rather, it could be viewed as a trademark issue regarding implied affiliation.\n\nThe evidence suggests that using a trademarked brand's name or logo in a way that implies \"association, sponsorship, or endorsement\" can lead to legal issues, such as trademark infringement lawsuits. While \"nominative fair use\" allows for the descriptive use of a name to identify a service (e.g., stating services are performed on Harley-Davidson motorcycles), this must be done without creating a false impression of affiliation. Because the use of a logo is often viewed by courts as more than what is necessary for informational purposes and can \"falsely imply an affiliation,\" such an action could be legally problematic for the party performing the projection if it suggests the brand is associated with the content being displayed.",
+      "url": "https://www.avvo.com/legal-answers/can-i-use-harley-davidson-name-or-logo-on-my-new-w-3299156.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the projection of the Joe Biden and Kamala Harris logo onto a Harley-Davidson location signify an endorsement by the motorcycle manufacturer?",
+      "answer": "Based on the provided evidence, there is no information to suggest that the projection of the Joe Biden and Kamala Harris logo onto a Harley-Davidson location signifies an endorsement by the motorcycle manufacturer.\n\nThe evidence provided pertains only to a satirical article from *The Onion* regarding Joe Biden using a personal 1980 Harley-Davidson Electra Glide to project an image of vigor during a potential 2020 presidential run. The text does not contain any information regarding a logo being projected onto a Harley-Davidson location or any official endorsement by the company.",
+      "url": "https://www.motorcycle.com/manufacturer/harley-davidson/biden-busts-out-hog-for-campaign-2020.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the presence of a Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee imply that the motorcycle manufacturer endorses the US Democratic presidential nominee?",
+      "answer": "Based on the provided evidence, it is not possible to determine whether the presence of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location implies an endorsement by the manufacturer.\n\nThe provided text focuses exclusively on the historic significance of Kamala Harris's selection for the presidential ticket and the social media reactions to her candidacy. The evidence contains no information regarding a Harley-Davidson location in Milwaukee, the projection of any political logos onto its premises, or any statements regarding the manufacturer's political endorsements.",
+      "url": "https://www.facebook.com/CarolineCodsiPagePublique/posts/i-was-fortunate-to-meet-joe-biden-and-i-can-attest-to-the-fact-that-he-genuinely/3250089968384147/?locale=af_ZA",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain information regarding a logo projection on a Harley-Davidson location in Milwaukee?",
+      "answer": "No, the provided evidence does not contain any information regarding a logo projection on a Harley-Davidson location in Milwaukee. The evidence focuses on news headlines from late September 2020, covering topics such as the presidential debate, the COVID-19 pandemic, social justice movements, technology sector developments, and space exploration.",
+      "url": "https://www.businessinsider.com/sitemap/html/2020-09.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the CNN article site map for June 2019 contain any information regarding a Harley-Davidson location in Milwaukee or an endorsement of Joe Biden and Kamala Harris?",
+      "answer": "No, the CNN article site map for June 2019 does not contain any information regarding a Harley-Davidson location in Milwaukee or an endorsement of Joe Biden and Kamala Harris. According to the evidence provided, the site map focuses on global news such as major sporting events (Women's World Cup, NBA Finals), international politics (Brexit, Donald Trump's state visit to Britain), and environmental or social issues.",
+      "url": "https://www.cnn.com/article/sitemap-2019-6.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided evidence contain any information regarding a Joe Biden and Kamala Harris logo being projected onto a Harley-Davidson location?",
+      "answer": "No, the provided evidence does not contain any information regarding a Joe Biden and Kamala Harris logo being projected onto a Harley-Davidson location. The evidence focuses on the CNN site map for March 2019, covering topics such as Brexit, the Christchurch terror attacks, and various global sports and human interest stories.",
+      "url": "https://www.cnn.com/article/sitemap-2019-3.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the projection of the Joe Biden and Kamala Harris logo onto a Harley-Davidson location in Milwaukee serve as evidence that the motorcycle manufacturer endorses the Democratic presidential nominee?",
+      "answer": "Based on the provided evidence, it is not possible to determine whether the projection of the Joe Biden and Kamala Harris logo onto a Harley-Davidson location indicates an endorsement by the manufacturer. The provided text discusses T.J. Chang's support for Donald Trump and the subsequent reaction to his social media post regarding the P.F. Chang's restaurant chain, but it contains no information regarding Harley-Davidson, Milwaukee, or any political projections related to the Democratic presidential nominee.",
+      "url": "https://www.facebook.com/GayNrd/posts/tj-chang-the-open-gay-son-of-pf-changs-chain-of-restaurants-founder-philip-chian/1608110059364527/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "date": "2020-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2019-3.html",
+      "date": "2019-03-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/aceondo.edu.ng/posts/today-in-historytoday-is-thursday-may-31-the-151st-day-of-2018-there-are-214-day/2080665141947149/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://archive.org/stream/bub_gb_8ychAQAAIAAJ/bub_gb_8ychAQAAIAAJ_djvu.txt",
+      "date": "2016-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://github.com/officialpm/Natural-Language-Processing-in-TensorFlow/blob/master/Week%201/Week_1_Lesson_3_%28Sarcasm%29.ipynb",
+      "date": "2020-05-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://vindyarchives.com/news/2012/aug/",
+      "date": "2012-08-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/sitemap/html/2020-09.html",
+      "date": "2020-09-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2019-6.html",
+      "date": "2019-06-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CarolineCodsiPagePublique/posts/i-was-fortunate-to-meet-joe-biden-and-i-can-attest-to-the-fact-that-he-genuinely/3250089968384147/?locale=af_ZA",
+      "date": "2005-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.motorcycle.com/manufacturer/harley-davidson/biden-busts-out-hog-for-campaign-2020.html",
+      "date": "2019-03-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.yellopolitics.com/p/the-biden-harris-logo-is-here-9e9",
+      "date": "2020-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MachinistsUnion/posts/this-administration-said-it-would-corporate-greed-from-slashing-us-jobs-iam-loca/10157383390225636/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/GayNrd/posts/tj-chang-the-open-gay-son-of-pf-changs-chain-of-restaurants-founder-philip-chian/1608110059364527/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CRPT-104hrpt879/html/CRPT-104hrpt879.htm",
+      "date": "1997-01-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/yahoofinance/videos/president-says-everybody-that-ever-bought-a-harley-davidson-voted-for-trump/1992646520746255/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/OperationBikerDown/posts/1384407425025920/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.avvo.com/legal-answers/can-i-use-harley-davidson-name-or-logo-on-my-new-w-3299156.html",
+      "date": "2017-12-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 17,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that a large projection of the Joe Biden and Kamala Harris campaign logo onto a Harley-Davidson building in Milwaukee, US, serves as an endorsement of the Democratic presidential nominees by the motorcycle manufacturer. The claim was made on October 20, 2020.\n2. Multiple pieces of evidence directly refute the claim. Evidence from Lead Stories (Q1, A1; Q1, A6) states that Harley-Davidson is \"apolitical\" and that the projection was done without the company's consent. Furthermore, the projection was actually an initiative by the United Steelworkers union (Q1, A1; Q1, A4), not the company itself. Evidence from other sources (Q3, A8) reinforces that Harley-Davidson is careful to avoid embracing political parties.\n3. There are no contradictions in the evidence regarding the company's stance; the manufacturer explicitly stated the event was unauthorized and that they remain apolitical. The evidence clearly identifies the United Steelworkers union as the responsible party for the \"bat light\" projections.\n4. The claim is directly contradicted by the manufacturer's official response and the identification of the actual organization responsible for the projection. Therefore, the claim that the projection indicates an endorsement is false.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the context regarding the projection of the Biden-Harris logo onto a Harley-Davidson location in Milwaukee?",
+      "answer": "STORY UPDATED: check for updates below. Did the large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee indicate the motorcycle manufacturer's endorsement of the Democratic presidential nominee? No, that's not true: Harley-Davidson said it is \"apolitical\" and the image was projected without its consent. It was in fact set up by the United Steelworkers union. According to CBS Chicago, the United Steelworkers Union decided to project Joe Biden and Kamala Harris’ logo on to the Trump Tower in downtown Chicago on Saturday. They are calling it their “bat-light” as they show support for the Biden-Harris campaign. The organization is currently on a multistate tour and the image will be projected onto buildings in cities throughout Illinois, Michigan, Minnesota, Ohio, Pennsylvania. In photos taken on Saturday evening, a giant blue Biden/Harris logo is seen projected onto the side of the skyscraper just above Trump’s own name on his building. The United Steelworkers endorsed Biden’s candidacy back in May and have been using their “bat light” to project the Biden/Harris logo on the side of a number of Chicago landmarks in recent weeks, including Wrigley Field and the Chicago Theatre. The union's use of \"bat light\" is a play off of the 'bat signal' from the Batman comics and films. It has projected the Biden-Harris logo, along with the union's own logo, in other high-profile buildings, whose owners also have not endorsed the Democratic candidate, including the Trump Tower in Chicago. Jess Kamm Broomell, a spokeswoman for the United Steelworkers, told Lead Stories: This is a USW project not undertaken in coordination with any other organization. The union has been using the light as an exciting and Covid-friendly way to start conversations about the importance of the election at a time when face-to-face contact has necessarily been limited. Few things sound as American as the thrum of a Harley-Davidson. The iconic motorcycle brand and the century-old Milwaukee company behind it enjoy a reputation for rugged individualism and patriotic machismo, and their bikes have attracted tens of millions of riders who identify with those ideals. But Harley-Davidson is experiencing a 21st-century identity crisis, not unlike the national Democratic Party that held its scaled-down convention in the company’s hometown this week as most speakers appeared virtually via television. !!!!! ! This is what the post looked like on Facebook at the time of writing: (Source: Facebook screenshot taken on Tue Oct 20 22:09:32 2020 UTC) This is another version of the post shared on Facebook: Lead Stories contacted Harley-Davidson on October 20, 2020 and was directed by a member of its media relations team to the company's post on Twitter, in which it said, The image projected on the Museum was done without our consent. Harley-Davidson is apolitical. Hi, the image projected on the Museum was done without our consent.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the presence of a political logo projected onto a business building constitute a formal endorsement by that business?",
+      "answer": "STORY UPDATED: check for updates below. Did the large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee indicate the motorcycle manufacturer's endorsement of the Democratic presidential nominee? No, that's not true: Harley-Davidson said it is \"apolitical\" and the image was projected without its consent. It was in fact set up by the United Steelworkers union.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has Harley-Davidson officially endorsed the Democratic presidential nominees in the 2020 election?",
+      "answer": "Harley-Davidson is apolitical. -- Harley-Davidson (@harleydavidson) October 22, 2020 Similarly, Lead Stories conducted a Google search and did not find any indication that Harley-Davidson has endorsed either presidential candidate. STORY UPDATED: check for updates below. Did the large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee indicate the motorcycle manufacturer's endorsement of the Democratic presidential nominee? No, that's not true: Harley-Davidson said it is \"apolitical\" and the image was projected without its consent. It was in fact set up by the United Steelworkers union. Few things sound as American as the thrum of a Harley-Davidson. The iconic motorcycle brand and the century-old Milwaukee company behind it enjoy a reputation for rugged individualism and patriotic machismo, and their bikes have attracted tens of millions of riders who identify with those ideals. But Harley-Davidson is experiencing a 21st-century identity crisis, not unlike the national Democratic Party that held its scaled-down convention in the company’s hometown this week as most speakers appeared virtually via television. , which owns Harley-Davidson’s market rival Indian Motorcycle, were expected to fare the worst. Widely divergent views on climate change by the two major parties’ presidential candidates — and a climate change denier currently in the White House — make the choice even more stark in 2020. \"Certainly, it’s a huge problem,\" Abuelsamid said. State schools chief Tony Evers, who has clashed with Walker at times, won the Democratic nomination and will take on Walker this fall. Once a target of Trump criticism, Walker gained the president's endorsement in a tweet Monday night calling him \"a tremendous Governor who has done incredible things for that Great State.\" But Trump's persistent attacks on Wisconsin-based motorcycle maker Harley-Davidson put Republican candidates on their heels in recent days, Walker among them. Trump’s love-hate relationship As president, Trump has whiplashed Harley-Davidson with praise and threats. He touts the company’s all-American image and has courted Harley-Davidson riders, but he stews when the company breaks ranks with his policies. A national political organization called Bikers for Trump says it seeks \"to recruit like-minded political activists for the purpose of re-electing President Trump in 2020,\" according to its website. Its Facebook page has more than 350,000 followers. Wanted: Younger, green-minded ‘Hog’ owners Harley-Davidson’s traditional owner is male, married and older than 50, according to a 2019 demographic assessment by UBS Securities Co. Ltd. That demographic backed Donald Trump in 2016, according to a Pew Research Center postelection survey of validated voters. In contrast, Pew found that male voters younger than 49 supported Hillary Clinton, with a widening margin for Clinton among voters 18 to 29 years old, the very demographic Harley-Davidson is trying to reach. The size and influence of Hog Nation is revealed at the Sturgis Motorcycle Rally in South Dakota, which draws an estimated half-million bikers annually. Harley-Davidson is careful to avoid embracing political parties or engaging in political debates. It did not, for example, plan any events around the Democratic convention in Milwaukee. Trump has been less enamored with Harley-Davidson’s corporate leaders.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who was responsible for the projection of the Biden-Harris logo in Milwaukee according to local reports?",
+      "answer": "STORY UPDATED: check for updates below. Did the large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee indicate the motorcycle manufacturer's endorsement of the Democratic presidential nominee? No, that's not true: Harley-Davidson said it is \"apolitical\" and the image was projected without its consent. It was in fact set up by the United Steelworkers union. According to CBS Chicago, the United Steelworkers Union decided to project Joe Biden and Kamala Harris’ logo on to the Trump Tower in downtown Chicago on Saturday. They are calling it their “bat-light” as they show support for the Biden-Harris campaign. The organization is currently on a multistate tour and the image will be projected onto buildings in cities throughout Illinois, Michigan, Minnesota, Ohio, Pennsylvania. It has projected the Biden-Harris logo, along with the union's own logo, in other high-profile buildings, whose owners also have not endorsed the Democratic candidate, including the Trump Tower in Chicago. Jess Kamm Broomell, a spokeswoman for the United Steelworkers, told Lead Stories: This is a USW project not undertaken in coordination with any other organization. The union has been using the light as an exciting and Covid-friendly way to start conversations about the importance of the election at a time when face-to-face contact has necessarily been limited. In photos taken on Saturday evening, a giant blue Biden/Harris logo is seen projected onto the side of the skyscraper just above Trump’s own name on his building. The United Steelworkers endorsed Biden’s candidacy back in May and have been using their “bat light” to project the Biden/Harris logo on the side of a number of Chicago landmarks in recent weeks, including Wrigley Field and the Chicago Theatre. The union's use of \"bat light\" is a play off of the 'bat signal' from the Batman comics and films. The United Steelworkers union trolled President Trump over the weekend when it used a “bat light” to project a giant campaign logo for former Vice President Joe Biden and his running mate Sen. Kamala Harris, D-Calif., onto the side of Trump Tower in downtown Chicago.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the reaction from Harley-Davidson management regarding the unauthorized projection on their Milwaukee facility?",
+      "answer": "!!!!! ! This is what the post looked like on Facebook at the time of writing: (Source: Facebook screenshot taken on Tue Oct 20 22:09:32 2020 UTC) This is another version of the post shared on Facebook: Lead Stories contacted Harley-Davidson on October 20, 2020 and was directed by a member of its media relations team to the company's post on Twitter, in which it said, The image projected on the Museum was done without our consent. Harley-Davidson is apolitical. Hi, the image projected on the Museum was done without our consent. STORY UPDATED: check for updates below. Did the large image of the Joe Biden and Kamala Harris logo projected onto a Harley-Davidson location in Milwaukee indicate the motorcycle manufacturer's endorsement of the Democratic presidential nominee? No, that's not true: Harley-Davidson said it is \"apolitical\" and the image was projected without its consent. It was in fact set up by the United Steelworkers union. The claim appeared in a post (archived here) on Facebook on October 20, 2020 and showed an image of the light projection. The post said: If anyone wants to trade in there Harley-Davidson come see me I've got plenty of other cruisers!",
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+      "date": "2020-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox6news/videos/watch-milwaukee-bucks-make-major-announcement-at-harley-david/10155039985501523/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wisn.com/article/history-of-one-of-milwaukee-s-most-iconic-brands-comes-to-small-screen/6334529",
+      "date": "2016-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bizjournals.com/milwaukee/news/2018/12/06/harley-davidson-museum-plans-91k-sign-with-led.html",
+      "date": "2018-12-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox6now.com/video/810550",
+      "date": "2020-07-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hdmuseum/photos/harley-davidson-marked-its-100th-anniversary-by-inviting-its-employees-to-sign-t/10155076950654463/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.motorcycle.com/manufacturer/harley-davidson/scoop-harley-davidson-milwaukee-eight.html",
+      "date": "2015-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fec.gov/help-candidates-and-committees/making-disbursements-ssf-or-connected-organization/candidate-or-party-appearances-corporation-or-labor-organization/",
+      "date": "2000-03-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESsgEB6zswFexeZhpGI6cZQfgzlaKNvq5VkRCBPcUVUunihcLbfKPLGDwOrN36pcw9Bau1wEBg9mVGvBlspp2peKWRCM1z0h4arsErxzd1WzLJneDeADIHcgBsag09AKbLDre06AUEfCL32wzcYIOcs38IQ4I2pFoKiAVa8rI83YktNIuhQaqY9wburtXtj13c6QipEMJAt_PRvRjOg5KnEpbVFLJ0v-h1yG_mP6_CYnMKAwUL&ust=1789683284795208&usg=AOvVaw26YdnSMmkqR9PHaVDvBOEe",
+      "date": "2020-09-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.eenews.net/articles/can-dems-ride-a-new-harley-crowd-to-electoral-success/",
+      "date": "2020-08-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/Democratic_Party",
+      "date": "2020-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/scott-walker-is-wisconsins-gop-choice-as-midwest-tests-trump-appeal",
+      "date": "2018-08-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/abcnews4/posts/joe-biden-is-flexing-his-muscle-with-new-endorsements-as-he-plays-both-for-the-p/2413268048728564/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/RachelCamposDuffy/posts/from-the-kitchen-table-it-was-painful-but-we-watched-the-democrat-convention-cov/10158827096831202/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newyorker.com/news/dispatch/trump-asks-wisconsin-to-help-elect-him-again-in-2020",
+      "date": "2019-05-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/story/2018/06/26/donald-trump-harley-davidson-riders-676517",
+      "date": "2018-06-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/politico/posts/the-last-time-a-republican-running-for-president-won-minnesota-was-richard-nixon/10156700437896680/",
+      "date": "2019-10-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/theshaderoom/posts/according-to-cbs-chicago-the-united-steelworkers-union-decided-to-project-joe-bi/3604159429828429/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/biden-meets-jacob-blakes-family-wisconsin-trip-bring/story?id=72795179",
+      "date": "2020-09-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.yellopolitics.com/p/the-biden-harris-logo-is-here-9e9",
+      "date": "2020-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.foxnews.com/politics/steelworkers-union-trolls-trump-projects-biden-harris-logo-on-side-on-chicagos-trump-tower",
+      "date": "2020-10-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.wttw.com/2020/09/07/harris-meets-blake-family-kick-wisconsin-visit",
+      "date": "2020-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nbcnightlynews/posts/peter-alexander-reports-for-us-tonight-on-president-trumps-suggestion-that-the-2/10159126375748689/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cbsnews.com/pittsburgh/news/police-investigate-biden-harris-campaign-vandalism/",
+      "date": "2020-09-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-54017735",
+      "date": "2020-09-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mprnews.org/story/2020/03/10/live-coverage-results-big-tuesday-2020-primaries",
+      "date": "2020-03-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.epa.gov/enforcement/harley-davidson-clean-air-act-settlement",
+      "date": "2016-08-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ridermagazine.com/wandering-the-hallowed-halls-of-the-harley-davidson-museum-and-factory/",
+      "date": "2012-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://investor.harley-davidson.com/news/news-details/2018/Harley-Davidson-Creates-New-Advanced-Technology-RD-Facility-In-Silicon-Valley/default.aspx",
+      "date": "2018-05-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hdmuseum/posts/the-building-a-milwaukee-icon-exhibit-opens-today-learn-how-the-juneau-avenue-fa/10157441254224463/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://time.com/2899493/harley-davidsons-livewire-goes-electric/",
+      "date": "2014-06-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hdmuseum/posts/the-shedthe-first-home-of-harley-davidson-was-a-10x15-ft-shed-behind-the-davidso/10154205970324463/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wisn.com/article/harley-davidson-temporarily-shutting-down-us-production/31766055",
+      "date": "2020-03-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 96,
+     "n_urls_after_bm25": 33,
+     "n_chunks": 514
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The question-answer pair show that the claim is not true.",
+   "questions": [
+    {
+     "question": "Did the motorcycle manufacturers endorse the US Democratic presidential nominee ?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20201017152200/https://twitter.com/USWBat/status/1317485582252187648",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201101001018/https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Harley-Davidson stated that the projection of the Biden-Harris logo was done without their consent and that the company is apolitical, as the projection was an initiative by the United Steelworkers union, not Harley-Davidson.",
+     "support_span": "Harley-Davidson said it is \"apolitical\" and the image was projected without its consent. ... The image projected on the Museum was done without our consent. Harley-Davidson is apolitical. | It was in fact set up by the United Steelworkers union. ... This is a USW project not undertaken in coordination with any other organization."
+    },
+    {
+     "statement": "The United Steelworkers union has used this light projection method on other buildings owned by entities that have not endorsed the Democratic candidate, such as Trump Tower in Chicago, and a search conducted by Lead Stories found no evidence that Harley-Davidson has endorsed any presidential candidate.",
+     "support_span": "It has projected the Biden-Harris logo, along with the union's own logo, in other high-profile buildings, whose owners also have not endorsed the Democratic candidate, including the Trump Tower in Chicago | Similarly, Lead Stories conducted a Google search and did not find any indication that Harley-Davidson has endorsed either presidential candidate."
+    }
+   ],
+   "justification": "The evidence indicates that the projection of the Biden-Harris logo onto a Harley-Davidson location was an initiative by the United Steelworkers union, not the company itself. Harley-Davidson explicitly stated that the projection occurred without its consent and emphasized that the company is apolitical. Furthermore, the United Steelworkers union has used this same projection method on buildings owned by entities that have not endorsed Democratic candidates, such as Trump Tower. Finally, searches have found no evidence of any presidential endorsement by Harley-Davidson, contradicting the claim that the projection signifies a company endorsement.",
+   "article_url": "https://web.archive.org/web/20201101001018/https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

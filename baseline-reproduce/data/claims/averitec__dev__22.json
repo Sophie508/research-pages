@@ -1,0 +1,500 @@
+{
+ "key": "averitec/dev/22",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 22,
+ "claim": "Trash Can Plastered With 'Ballot Box' Sign In Philadelphia Was Intended To Get People To Toss Their Ballots In The Trash.",
+ "claim_date": "2020-10-27",
+ "speaker": null,
+ "reporting_source": "Instagram",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim asserts that a trash can in Philadelphia with a \"Ballot Box\" sign was intentionally designed to trick people into throwing their ballots away.\n2.  **Evaluate the Evidence (Q1, Q2, Q3):** \n    *   **Q1** states that the \"Ballot Box\" signs on solar-powered trash compactors in Philadelphia were actually created to advertise an exhibit about the history of voting rights at the nearby Union League Building.\n    *   **Q2** explicitly states that the sign was *not* intended to encourage people to throw away ballots, but was a misunderstanding caused by an advertisement for a museum exhibit.\n    *   **Q3** clarifies that the placement was an \"advertising blunder\" by the Union League Legacy Foundation and was \"unintentional,\" rather than an attempt at voter suppression.\n3.  **Address Counter-Evidence (Q4-Q10):** While some other Q&A pairs (Q4, Q6, Q7, Q8, Q9, Q10) discuss different incidents (such as discarded ballots in Luzerne County or Supreme Court rulings) that do not relate to the specific Philadelphia trash can incident, the first three answers provide direct, specific evidence regarding the claim.\n4.  **Determine the Verdict:** Since the evidence explicitly states the purpose was advertising an exhibit and that the intent was not to trick voters, the claim that it was \"intended to get people to toss their ballots in the trash\" is directly contradicted by the facts provided.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What was the actual purpose of the 'Ballot Box' signs placed on the trash compactors in Philadelphia?",
+      "answer": "The \"Ballot Box\" signs placed on the solar-powered trash compactors in Philadelphia were actually created to advertise an exhibit about the history of voting rights located at the nearby Union League Building.",
+      "url": "https://leadstories.com/mp/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the \"Ballot Box\" sign on a trash can in Philadelphia intended to encourage people to throw away their ballots?",
+      "answer": "No, the \"Ballot Box\" sign on the trash can was not intended to encourage people to throw away their ballots. According to the evidence, the signs were placed on solar-powered trash compactors to advertise a Union League Legacy Foundation exhibit regarding the history of voting rights. While the signage caused public concern and accusations of voter suppression, it was a misunderstanding intended to promote the exhibit.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the placement of \"BALLOT BOX\" signs on trash cans in Philadelphia an intentional attempt at voter suppression?",
+      "answer": "Based on the provided evidence, the placement of the \"BALLOT BOX\" signs was not an intentional attempt at voter suppression, but rather an **advertising blunder** by the Union League Legacy Foundation.\n\nThe signs were intended to promote an exhibit on the history of voting rights. Although the signage caused public concern and social media backlash because voters might have mistaken the trash cans for official ballot boxes, the foundation issued a formal apology and clarified that the mistake was **unintentional**.",
+      "url": "https://www.inquirer.com/politics/election/election-2020-ballot-box-trash-can-ad-philadelphia-union-league-foundation-20201023.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the incident involving discarded ballots in Pennsylvania a coordinated attempt to trick voters, or was it an administrative error?",
+      "answer": "The incident was an administrative error rather than a coordinated attempt to trick voters. According to the evidence, the discarding of the ballots was caused by an error made by a temporary contractor at the Luzerne County Elections Bureau. This error resulted in a small number of military and overseas voter (UMOVA) ballots being accidentally placed in an office trash bin. \n\nWhile the incident triggered investigations by the FBI, the U.S. Attorney's Office, and state police, the FBI stated they found no evidence of a coordinated national voter fraud effort. In response to the error, the contractor was removed from service, and the county implemented extra staff training and security cameras to prevent future occurrences.",
+      "url": "https://abcnews.com/Politics/temporary-contractor-threw-trump-mail-ballots-trash-pennsylvania/story?id=73251533",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the legal dispute regarding the classification of satellite election offices in Philadelphia relate to the claim that a trash can was used to trick voters?",
+      "answer": "No, the legal dispute described in the evidence does not relate to the claim that a trash can was used to trick voters. \n\nAccording to the evidence, the legal controversy in Philadelphia concerns a semantic and legal disagreement over whether \"satellite election offices\" should be classified as \"polling places,\" which affects the legal right of Republican poll watchers to observe activities at those locations. The dispute focuses on the classification of these offices and the transparency of their operations, rather than any incident involving a trash can.",
+      "url": "https://www.facebook.com/groups/1785258968422419/posts/2815867055361600/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence regarding the discarded military ballots in Luzerne County support the claim that a trash can in Philadelphia was intentionally used to trick people into discarding their ballots?",
+      "answer": "No, the evidence provided does not support the claim. The evidence focuses exclusively on an investigation into nine discarded military ballots in Luzerne County, Pennsylvania, and the political controversy surrounding the U.S. Attorney’s office's public statement regarding those ballots. The evidence contains no information regarding a trash can in Philadelphia or any attempt to trick people into discarding ballots via a \"Ballot Box\" sign.",
+      "url": "https://www.nbcphiladelphia.com/news/local/probe-into-discarded-ballots-becomes-campaign-outrage-fuel/2544640/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that a trash can with a 'Ballot Box' sign in Philadelphia was intended to trick people into discarding their ballots?",
+      "answer": "No, the provided evidence does not support the claim. The evidence discusses a political appeal regarding vote-by-mail ballots and reactions to a petition involving Michelle Obama and Donald Trump; it contains no information regarding a trash can with a \"Ballot Box\" sign in Philadelphia or any intent to trick people into discarding ballots.",
+      "url": "https://www.facebook.com/pelosiforcongress/posts/i-need-your-help-my-friend-michelle-obama-and-i-just-demanded-vote-by-mail-ballo/2666691823576564/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that a trash can in Philadelphia was intended to trick people into throwing away their ballots?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses on Donald Trump's use of mail-in voting in a Florida special election and his advocacy for the SAVE Act; it contains no information regarding a trash can in Philadelphia or any incident involving a \"Ballot Box\" sign.",
+      "url": "https://www.facebook.com/groups/Pete2024/posts/26042556768734449/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the Supreme Court's ruling on the receipt of postmarked mail-in ballots provide any information regarding the intent behind the 'Ballot Box' sign found on a trash can in Philadelphia?",
+      "answer": "No, the provided evidence does not provide any information regarding the intent behind the 'Ballot Box' sign found on a trash can in Philadelphia. The evidence focuses exclusively on a Supreme Court ruling concerning the legality of counting mail-in ballots that arrive after Election Day if they were postmarked by the deadline.",
+      "url": "https://www.facebook.com/BlackVotersMtr/posts/the-supreme-court-ruled-54-that-states-can-count-mail-in-ballots-that-arrive-aft/1034678445625318/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provide information regarding the trash can in Philadelphia?",
+      "answer": "No, the provided evidence does not provide any information regarding a trash can in Philadelphia. The evidence is limited to fragmented comments about the American voting system, observations about Las Vegas, and a note regarding sheriff's cards for casino employment.",
+      "url": "https://www.facebook.com/WorldNewsTonight/posts/voter-frustration-as-early-voting-kicks-off-across-several-states-new-video-show/10158434478559818/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/WCNCtv/posts/posts-online-claim-that-if-you-tape-your-ballot-shut-instead-of-sealing-by-licki/4859735760734542/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldNewsTonight/posts/voter-frustration-as-early-voting-kicks-off-across-several-states-new-video-show/10158434478559818/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://rethinkpriorities.org/research-area/intervention-profile-ballot-initiatives/",
+      "date": "2020-01-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/APWUnational/posts/postal-workers-have-extra-eyes-on-the-mail-extra-scrutiny-making-sure-it-gets-cl/10158546739351352/",
+      "date": "2005-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://apps.chicagotribune.com/bond-debt/chicago-bonds.html",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.inquirer.com/politics/election/election-2020-ballot-box-trash-can-ad-philadelphia-union-league-foundation-20201023.html",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/SullivanCountyPost/posts/1968994113225121/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.capradio.org/news/insight/2016/05/23/insight-052316ab/",
+      "date": "2016-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/Pete2024/posts/26042556768734449/",
+      "date": "2016-02-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BlackVotersMtr/posts/the-supreme-court-ruled-54-that-states-can-count-mail-in-ballots-that-arrive-aft/1034678445625318/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnnpolitics/posts/secretary-of-homeland-security-markwayne-mullin-claimed-last-month-that-250000-n/1415504847102662/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pelosiforcongress/posts/i-need-your-help-my-friend-michelle-obama-and-i-just-demanded-vote-by-mail-ballo/2666691823576564/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KTNNewsKenya/posts/what-really-happened-during-the-2013-elections-the-inside-story-501-part-one/2652524368343466/",
+      "date": "2002-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CHRG-116hhrg39401/html/CHRG-116hhrg39401.htm",
+      "date": "2019-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1785258968422419/posts/2815867055361600/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/SenDuckworth/posts/all-americans-deserve-equal-access-to-the-ballot-boxthis-ruling-makes-that-less-/1785269848313623/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CRPT-116hrpt346/html/CRPT-116hrpt346-pt1.htm",
+      "date": "2019-05-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nytopinion/posts/once-you-have-almost-become-president-and-then-lost-you-probably-feel-more-free-/3423677707647161/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "date": "2020-10-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/temporary-contractor-threw-trump-mail-ballots-trash-pennsylvania/story?id=73251533",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcphiladelphia.com/news/local/probe-into-discarded-ballots-becomes-campaign-outrage-fuel/2544640/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://leadstories.com/mp/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 22,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that a trash can in Philadelphia, which was labeled with a \"Ballot Box\" sign, was intentionally designed to trick people into throwing their ballots into the trash. The claim dates to October 27, 2020, during the U.S. election period.\n2. Multiple pieces of evidence (Q1, A1; Q1, A2; Q1, A4; Q3, A7) clarify that the \"Ballot Box\" signs were actually advertisements for an exhibit titled \"Ballot Box\" regarding the history of voting rights, hosted by the Union League Legacy Foundation. The signs were placed on solar-powered trash compactors (BigBelly cans) as a marketing tool for the exhibit, not as a voter suppression tactic.\n3. The evidence shows that the signs were removed quickly (within a few hours) once the organization realized the potential for confusion (Q1, A4). Furthermore, city officials and the Streets Department checked the bins and confirmed that no actual ballots had been placed in them (Q2, A6; Q3, A9).\n4. There are no contradictions to the fact that the signs were advertisements; the evidence consistently points to a \"messaging blunder\" or \"misunderstanding\" rather than a coordinated effort to discard ballots. The claim's intent (voter suppression/trickery) is directly refuted by the explanation of the signs' actual purpose (exhibit advertisement).\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What was the actual purpose of the trash can with the 'Ballot Box' sign in Philadelphia?",
+      "answer": "Did a worker in Philadelphia disguise trash cans so that people would throw away their ballots? No, that's not true: The posters proclaiming \"Ballot Box\" on sidewalk solar-powered trash compactors were created to advertise \"Ballot Box\" an exhibit about the history of voting rights at the nearby Union League Building. Suspicions were aired. Complaints were made. PHILADELPHIA (KYW Newsradio) — Two signs posted on city trash cans that said \"BALLOT BOX\" were swiftly taken down Friday after what's being called a big misunderstanding. The signs were posted as an advertisement by the Union League Legacy Foundation — a separate entity of the Union League of Philadelphia — for an exhibit on voting, called \"America's Fight for the Vote.\" The signs appeared on two BigBelly trash cans — at 15th and Sansom, and Broad and Sansom — which seemed to confuse passersby. .. This is how the post appeared at the time of writing: (Source: Instagram screenshot taken on Tuesday Oct 27 17:28:52 2020 UTC) The Philadelphia Inquirer reported about the misunderstanding October 23, 2020, in an article titled, \"The Union League foundation just wanted to advertise an exhibit on voting. Then it was accused of suppression.\" The bright-red signs took up the entire side of the two trash cans and read in large lettering: \"BALLOT BOX. The bright-red signs took up the entire side of the two trash cans and read in large lettering: “BALLOT BOX.” It was an advertisement unveiled Friday for the Union League Legacy Foundation’s exhibit on the history of voting rights — and a quickly realized mistake. The signs were up for only a couple hours, said Kira Foley-Tuzman, the foundation’s chief administrative officer, before the group realized that the signage could mislead voters into thinking a trash can was an official ballot box. It was an unfortunate messaging blunder, with terrible timing. \"The intention was to draw people into our exhibit, so we apologize for that misunderstanding.\" We understand there was confusion about ads installed, since removed, on trash cans, for our exhibit on voting rights. Please accept apologies for any misunderstanding. Ballot Box is an exhibit on the history of voting rights & the importance of voting & civic engagement. pic.twitter. ” And, his campaign filed a lawsuit against the city over being able to observe activities inside satellite election offices. Omar Sabir, one of the three Philadelphia city commissioners who oversee elections, said he understood why people would have strong reactions to the trash can “ballot box” advertisements and emphasized that voting in Philadelphia is safe. “There is a lot of confusion going on right now with ballot boxes and there’s, let’s be quite frank, people are doing tricks right now, they’re doing voter suppression right now. So people were concerned,\" Sabir said. \" The post had four photos of the scene and this caption: This is a trash receptacle I have used many times on the corner of s 15th & Sansom..... This guy just plastered these ballot box signs on it. And he had more to plaster on other trash cans around downtown. show the Bigbelly trash cans with advertising for Gary Barbera's \"Coats for Kids\" winter coat drive. Clearly the intention in that case was not to put the coats in the garbage cans. These Bigbelly cans are one of very few advertising surfaces in this Center City neighborhood. Two Google Streetview screenshots (taken at an earlier date) showing Ads on Bigbelly trash cans and the East and West entrances of the Union League Building where the \"Ballot Box\" exhibition was held In Philadelphia and several eastern U. » READ MORE: Everything you need to know about voting by mail, or in person, in Pennsylvania “Even if one ballot ended up in that trash receptacle rather than where it belonged, that’s just a huge shame,” Thornburgh said. “All eyes are on Philadelphia. And for six months we’ve been trying to do everything we can to educate voters, and ensure that we execute a fair, safe and secure election.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the trash can in Philadelphia an official method for voters to cast their ballots?",
+      "answer": "Did a worker in Philadelphia disguise trash cans so that people would throw away their ballots? No, that's not true: The posters proclaiming \"Ballot Box\" on sidewalk solar-powered trash compactors were created to advertise \"Ballot Box\" an exhibit about the history of voting rights at the nearby Union League Building. Suspicions were aired. Complaints were made. ” And, his campaign filed a lawsuit against the city over being able to observe activities inside satellite election offices. Omar Sabir, one of the three Philadelphia city commissioners who oversee elections, said he understood why people would have strong reactions to the trash can “ballot box” advertisements and emphasized that voting in Philadelphia is safe. “There is a lot of confusion going on right now with ballot boxes and there’s, let’s be quite frank, people are doing tricks right now, they’re doing voter suppression right now. So people were concerned,\" Sabir said. » READ MORE: Everything you need to know about voting by mail, or in person, in Pennsylvania “Even if one ballot ended up in that trash receptacle rather than where it belonged, that’s just a huge shame,” Thornburgh said. “All eyes are on Philadelphia. And for six months we’ve been trying to do everything we can to educate voters, and ensure that we execute a fair, safe and secure election. .. This is how the post appeared at the time of writing: (Source: Instagram screenshot taken on Tuesday Oct 27 17:28:52 2020 UTC) The Philadelphia Inquirer reported about the misunderstanding October 23, 2020, in an article titled, \"The Union League foundation just wanted to advertise an exhibit on voting. Then it was accused of suppression.\" The bright-red signs took up the entire side of the two trash cans and read in large lettering: \"BALLOT BOX. PHILADELPHIA (KYW Newsradio) — Two signs posted on city trash cans that said \"BALLOT BOX\" were swiftly taken down Friday after what's being called a big misunderstanding. The signs were posted as an advertisement by the Union League Legacy Foundation — a separate entity of the Union League of Philadelphia — for an exhibit on voting, called \"America's Fight for the Vote.\" The signs appeared on two BigBelly trash cans — at 15th and Sansom, and Broad and Sansom — which seemed to confuse passersby. “We immediately took them down and have been communicating nonstop to folks.” The Streets Department deployed sanitation workers to sort through the trash of those bins — at Broad and Sansom Streets and 15th and Sansom Streets — looking for any ballots a voter may have slipped in. A city spokesperson confirmed there were none. “Crisis averted,” said David Thornburgh, CEO of the Committee of Seventy, a nonpartisan advocate for trustworthy government in Philadelphia and Pennsylvania.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the 'Ballot Box' sign on the trash can represent a coordinated effort to suppress votes in Philadelphia?",
+      "answer": ".. This is how the post appeared at the time of writing: (Source: Instagram screenshot taken on Tuesday Oct 27 17:28:52 2020 UTC) The Philadelphia Inquirer reported about the misunderstanding October 23, 2020, in an article titled, \"The Union League foundation just wanted to advertise an exhibit on voting. Then it was accused of suppression.\" The bright-red signs took up the entire side of the two trash cans and read in large lettering: \"BALLOT BOX. PHILADELPHIA (KYW Newsradio) — Two signs posted on city trash cans that said \"BALLOT BOX\" were swiftly taken down Friday after what's being called a big misunderstanding. The signs were posted as an advertisement by the Union League Legacy Foundation — a separate entity of the Union League of Philadelphia — for an exhibit on voting, called \"America's Fight for the Vote.\" The signs appeared on two BigBelly trash cans — at 15th and Sansom, and Broad and Sansom — which seemed to confuse passersby. Did a worker in Philadelphia disguise trash cans so that people would throw away their ballots? No, that's not true: The posters proclaiming \"Ballot Box\" on sidewalk solar-powered trash compactors were created to advertise \"Ballot Box\" an exhibit about the history of voting rights at the nearby Union League Building. Suspicions were aired. Complaints were made. ” And, his campaign filed a lawsuit against the city over being able to observe activities inside satellite election offices. Omar Sabir, one of the three Philadelphia city commissioners who oversee elections, said he understood why people would have strong reactions to the trash can “ballot box” advertisements and emphasized that voting in Philadelphia is safe. “There is a lot of confusion going on right now with ballot boxes and there’s, let’s be quite frank, people are doing tricks right now, they’re doing voter suppression right now. So people were concerned,\" Sabir said. » READ MORE: Everything you need to know about voting by mail, or in person, in Pennsylvania “Even if one ballot ended up in that trash receptacle rather than where it belonged, that’s just a huge shame,” Thornburgh said. “All eyes are on Philadelphia. And for six months we’ve been trying to do everything we can to educate voters, and ensure that we execute a fair, safe and secure election. The bright-red signs took up the entire side of the two trash cans and read in large lettering: “BALLOT BOX.” It was an advertisement unveiled Friday for the Union League Legacy Foundation’s exhibit on the history of voting rights — and a quickly realized mistake. The signs were up for only a couple hours, said Kira Foley-Tuzman, the foundation’s chief administrative officer, before the group realized that the signage could mislead voters into thinking a trash can was an official ballot box. It was an unfortunate messaging blunder, with terrible timing. Some Twitter users misinterpreted the signs as a mockery of a ballot drop-off box. A spokesperson for the Philadelphia District Attorney's Office said the Election Task Force received \"at least one complaint about the misguided ads,\" and the Union League quickly remove them \"to avoid confusing the public.\" \"Somebody was confused that this was an actual ballot or something,\" said John Mako, executive director of the nonprofit. \"That is not the intention at all. \"The intention was to draw people into our exhibit, so we apologize for that misunderstanding.\" We understand there was confusion about ads installed, since removed, on trash cans, for our exhibit on voting rights. Please accept apologies for any misunderstanding. Ballot Box is an exhibit on the history of voting rights & the importance of voting & civic engagement. pic.twitter. Although the Enquirer explained the situation on October 23, quoting the Union League official as saying the signs were up for \"only a couple of hours,\" posts with photos continued to be shared on social media. The Enquirer article also explained: The Streets Department deployed sanitation workers to sort through the trash of those bins -- at Broad and Sansom Streets and 15th and Sansom Streets -- looking for any ballots a voter may have slipped in. A city spokesperson confirmed there were none. \" The post had four photos of the scene and this caption: This is a trash receptacle I have used many times on the corner of s 15th & Sansom..... This guy just plastered these ballot box signs on it. And he had more to plaster on other trash cans around downtown. “We immediately took them down and have been communicating nonstop to folks.” The Streets Department deployed sanitation workers to sort through the trash of those bins — at Broad and Sansom Streets and 15th and Sansom Streets — looking for any ballots a voter may have slipped in. A city spokesperson confirmed there were none. “Crisis averted,” said David Thornburgh, CEO of the Committee of Seventy, a nonpartisan advocate for trustworthy government in Philadelphia and Pennsylvania.",
+      "url": "https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Philadelphia election officials respond to the claim that the trash can was meant to trick voters?",
+      "answer": "” And, his campaign filed a lawsuit against the city over being able to observe activities inside satellite election offices. Omar Sabir, one of the three Philadelphia city commissioners who oversee elections, said he understood why people would have strong reactions to the trash can “ballot box” advertisements and emphasized that voting in Philadelphia is safe. “There is a lot of confusion going on right now with ballot boxes and there’s, let’s be quite frank, people are doing tricks right now, they’re doing voter suppression right now. So people were concerned,\" Sabir said. Did a worker in Philadelphia disguise trash cans so that people would throw away their ballots? No, that's not true: The posters proclaiming \"Ballot Box\" on sidewalk solar-powered trash compactors were created to advertise \"Ballot Box\" an exhibit about the history of voting rights at the nearby Union League Building. Suspicions were aired. Complaints were made. .. This is how the post appeared at the time of writing: (Source: Instagram screenshot taken on Tuesday Oct 27 17:28:52 2020 UTC) The Philadelphia Inquirer reported about the misunderstanding October 23, 2020, in an article titled, \"The Union League foundation just wanted to advertise an exhibit on voting. Then it was accused of suppression.\" The bright-red signs took up the entire side of the two trash cans and read in large lettering: \"BALLOT BOX. PHILADELPHIA (KYW Newsradio) — Two signs posted on city trash cans that said \"BALLOT BOX\" were swiftly taken down Friday after what's being called a big misunderstanding. The signs were posted as an advertisement by the Union League Legacy Foundation — a separate entity of the Union League of Philadelphia — for an exhibit on voting, called \"America's Fight for the Vote.\" The signs appeared on two BigBelly trash cans — at 15th and Sansom, and Broad and Sansom — which seemed to confuse passersby. » READ MORE: Trump has put Philly on the front lines of his attack on voting There was at least one complaint to the District Attorney’s Election Task Force, a spokesperson said. The task force told the foundation to remove the advertisements immediately to avoid any possible confusion with actual ballot boxes. “It was certainly not intended,” Foley-Tuzman said of the misleading advertisements. » READ MORE: Everything you need to know about voting by mail, or in person, in Pennsylvania “Even if one ballot ended up in that trash receptacle rather than where it belonged, that’s just a huge shame,” Thornburgh said. “All eyes are on Philadelphia. And for six months we’ve been trying to do everything we can to educate voters, and ensure that we execute a fair, safe and secure election. The bright-red signs took up the entire side of the two trash cans and read in large lettering: “BALLOT BOX.” It was an advertisement unveiled Friday for the Union League Legacy Foundation’s exhibit on the history of voting rights — and a quickly realized mistake. The signs were up for only a couple hours, said Kira Foley-Tuzman, the foundation’s chief administrative officer, before the group realized that the signage could mislead voters into thinking a trash can was an official ballot box. It was an unfortunate messaging blunder, with terrible timing. “We immediately took them down and have been communicating nonstop to folks.” The Streets Department deployed sanitation workers to sort through the trash of those bins — at Broad and Sansom Streets and 15th and Sansom Streets — looking for any ballots a voter may have slipped in. A city spokesperson confirmed there were none. “Crisis averted,” said David Thornburgh, CEO of the Committee of Seventy, a nonpartisan advocate for trustworthy government in Philadelphia and Pennsylvania. Some Twitter users misinterpreted the signs as a mockery of a ballot drop-off box. A spokesperson for the Philadelphia District Attorney's Office said the Election Task Force received \"at least one complaint about the misguided ads,\" and the Union League quickly remove them \"to avoid confusing the public.\" \"Somebody was confused that this was an actual ballot or something,\" said John Mako, executive director of the nonprofit. \"That is not the intention at all. Although the Enquirer explained the situation on October 23, quoting the Union League official as saying the signs were up for \"only a couple of hours,\" posts with photos continued to be shared on social media. The Enquirer article also explained: The Streets Department deployed sanitation workers to sort through the trash of those bins -- at Broad and Sansom Streets and 15th and Sansom Streets -- looking for any ballots a voter may have slipped in. A city spokesperson confirmed there were none.",
+      "url": "https://www.inquirer.com/politics/election/election-2020-ballot-box-trash-can-ad-philadelphia-union-league-foundation-20201023.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the official, secure ways to return a mail-in ballot in Philadelphia according to election guidelines?",
+      "answer": "To ensure your ballot is counted make sure to: - Mail in your ballot early. Your ballot must be received by the County Board of Elections no later than 5 p.m. on November 6, and either postmarked by November 3 or there is no evidence to suggest they were sent after Election Day. This means you should place your ballot in the mail as soon as possible so it can be delivered by the deadline. - You can also choose to hand deliver your mail-in ballot to the Philadelphia County Board of Elections, at a ballot drop off box, or at a satellite election office. » READ MORE: Everything you need to know about voting by mail, or in person, in Pennsylvania “Even if one ballot ended up in that trash receptacle rather than where it belonged, that’s just a huge shame,” Thornburgh said. “All eyes are on Philadelphia. And for six months we’ve been trying to do everything we can to educate voters, and ensure that we execute a fair, safe and secure election. This post was written by Joel Landau As the November 3 election approaches, the City Commissioners and the City of Philadelphia are working to accommodate all eligible voters to ensure anyone who chooses to vote by mail can successfully cast their ballot. As residents continue to try to socially distance and stop the spread of COVID-19, more voters may decide to vote by mail this year. To support new mail-in ballot voters, we published an illustrated mail-in ballot guide. As long as you are in line by 8 p.m., you will be able to vote. - You should mail your ballot as promptly as possible by Election Day or personally deliver it to the County Board of Elections office, satellite office, or drop box no later than 8:00 p.m. on Election Day. The United States Postal Service recommends that you mail your ballot at least seven days before November 3, Election Day, to ensure it arrives on time. For questions about the mail-in ballot process contact the Philadelphia County Board of Elections at (215) 686-3469. About the guide The guide is available in multiple languages and explains what to expect when you go to fill out your mail-in-ballot, such as the candidates who are up for election, ballot questions, and contact information for local election offices. The guide also explains how to apply for a mail-in ballot, how to fill it out with your choices, sign it, seal it, and deliver it to the Philadelphia County Board of Elections. Making sure your ballot is counted It is essential that voters carefully follow the guidelines before sending in their vote. Vote By Mail How To Return Your Mail Ballot for the May 19th Primary Election You can return your ballot to a drop box provided by the Board of Elections. Remember: You can only return your own ballot to a drop box. 2. Return By Mail Simply place your ballot in the mail! The postage is already paid for. Note: We recommend mailing your ballot no later than May 12th. After that, return to a drop box or surrender your ballot and vote in person. His organization has been educating voters about new procedures, especially about mail-in voting and where to drop off ballots this election. As of Friday, more than 407,000 Philadelphians had requested general election mail ballots. [110] The voter also receives a form with tracking numbers and a signature line, to mail back inside or outside the envelope with the ballot, so staff can review eligibility of the voter and prevent multiple votes from the same voter. Many states accept mailed ballots after election day, to allow time for mail from distant voters to arrive. Once you’ve requested your ballot you can track the status of your application and when your ballot is on its way - Fill out your Mail-in Ballot once it arrives in the mail - Ballots will be sent out by the Board of Elections 15-30 days before the election - Return your Mail-In Ballot as soon as you’ve filled it out in-person or by mail: Bucks County Board of Elections 55 E. Court St. Doylestown, PA 18901 215-348-6154, elections@buckscounty. - Fill out your ballot in blue or black ink pen - Include all materials and enclose them properly. - Enclose your ballot in the secrecy envelope before putting it in the outer envelope. - Confirm you are eligible to vote in Philadelphia County. Check your voter status here. - Follow all instructions provided.",
+      "url": "https://www.phila.gov/2020-09-16-voting-by-mail-view-our-illustrated-mail-in-ballot-guide/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.inquirer.com/politics/election/election-2020-ballot-box-trash-can-ad-philadelphia-union-league-foundation-20201023.html",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+      "date": "2020-10-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.audacy.com/kywnewsradio/news/local/union-league-ads-on-voting-exhibit-removed-from-trash-cans",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/article/2020/oct/16/ballot-drop-boxes-have-long-been-used-without-cont/",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox12oregon/posts/police-will-not-be-touching-or-handling-ballots-and-will-notify-election-officia/10159028767348701/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thephiladelphiacitizen.org/city-rules-litter-philadelphia/",
+      "date": "2020-02-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KCTV5/posts/in-a-statement-county-officials-said-the-issue-regarding-nine-military-ballots-w/10158538601005470/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/step-step-trumps-falsehoods-mail-voting-analysis/story?id=73354979",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/100068827855860/posts/new-voting-machine-instructional-video/2637388752998964/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://philadelphianeighborhoods.com/2017/08/22/how-to-recycle-and-get-rewarded-for-it/",
+      "date": "2017-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/temporary-contractor-threw-trump-mail-ballots-trash-pennsylvania/story?id=73251533",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abc7news.com/post/mail-in-ballots-mail-in-pennsylvania-trump-found/6577247/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nbcphiladelphia/videos/pennsylvania-reports-that-they-tested-their-systems-after-nj-gov-announced-softw/1358726342902546/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.phila.gov/2020-09-16-voting-by-mail-view-our-illustrated-mail-in-ballot-guide/",
+      "date": "2020-09-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/propublica/posts/were-on-the-lookout-for-any-problems-that-prevent-people-from-voting-such-as-lon/10156843754289445/",
+      "date": "2018-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldNewsTonight/posts/voter-frustration-as-early-voting-kicks-off-across-several-states-new-video-show/10158434478559818/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK458653/",
+      "date": "2017-07-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KTNNewsKenya/posts/what-really-happened-during-the-2013-elections-the-inside-story-501-part-one/2652524368343466/",
+      "date": "2002-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abc7.com/post/mail-in-ballots-mail-in-pennsylvania-trump-found/6577247/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/2020/09/25/pennsylvania-ballots-trump-421908",
+      "date": "2020-09-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/7NewsDC/posts/federal-authorities-say-theyre-investigating-after-nine-pennsylvania-mail-in-bal/10158887053698734/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Electronic_voting_in_the_United_States",
+      "date": "2020-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/PADepartmentofState/posts/if-you-do-not-return-your-voted-mail-in-ballot-by-the-deadline-and-you-want-to-v/2142291265903474/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ElectJoeHohenstein/videos/how-to-vote-by-mail/645634136073819/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://bucksdemocrats.org/return/",
+      "date": "2020-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 188,
+     "n_urls_after_bm25": 18,
+     "n_chunks": 832
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "From the question and answer pair it seems that the claim is refuted.",
+   "questions": [
+    {
+     "question": "Did a worker in Philadelphia mark the trash cans so that people would throw away their ballots?",
+     "answers": [
+      {
+       "answer": "The posters proclaiming Ballot Box on sidewalk solar-powered trash compactors were created to advertise Ballot Box an exhibit and not to throw votes in the trash.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.instagram.com/p/CG2aethncKr/?utm_source=ig_embed",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210308132830/https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The 'Ballot Box' signs on the Philadelphia solar-powered compacting bins (Bigbelly cans), which are frequently used for commercial advertising, were actually advertisements for an exhibit about the history of voting rights at the nearby Union League Building; the Union League Legacy Foundation realized the signage could be misleading and removed it within a couple of hours, issuing an apology regarding the messaging blunder on October 23, 2020.",
+     "support_span": "The posters proclaiming \"Ballot Box\" on sidewalk solar-powered trash compactors were created to advertise \"Ballot Box\" an exhibit about the history of voting rights at the nearby Union League Building. | The signs were up for only a couple hours, said Kira Foley-Tuzman, the foundation's chief administrative officer, before the group realized that the signage could mislead voters into thinking a trash can was an official ballot box. | The Union League Legacy Foundation issued this apology on their Facebook page ( here [https://www.facebook.com/TheUnionLeagueLegacyFoundation/posts/3312872522143836]) on October 23, 2020: | To get a better perspective on how a mistake like this could be made, it helps to know the solar-powered compacting trash cans (called Bigbelly trash cans) are typically covered with ads."
+    },
+    {
+     "statement": "The Philadelphia Streets Department deployed workers to check the trash cans for ballots, and a city spokesperson confirmed that no ballots were found in them.",
+     "support_span": "The Streets Department deployed sanitation workers to sort through the trash of those bins -- at Broad and Sansom Streets and 15th and Sansom Streets -- looking for any ballots a voter may have slipped in. A city spokesperson confirmed there were none."
+    }
+   ],
+   "justification": "The evidence indicates that the 'Ballot Box' signs on Philadelphia trash cans were not intended to encourage discarding ballots, but were instead advertisements for a voting rights exhibit at the nearby Union League Building. The Union League Legacy Foundation acknowledged the signage was misleading and issued an apology after realizing the potential for confusion. Furthermore, the Philadelphia Streets Department inspected the bins and confirmed that no ballots were found inside them. The incident appears to be a messaging blunder involving solar-powered compacting bins that are commonly used for commercial advertising.",
+   "article_url": "https://web.archive.org/web/20210308132830/https://leadstories.com/hoax-alert/2020/10/fact-check-a-worker-did-not-intend-to-direct-people-to-toss-their-ballots-in-the-trash.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

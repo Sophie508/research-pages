@@ -1,0 +1,1501 @@
+{
+ "key": "averitec/dev/0",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 0,
+ "claim": "In a letter to Steve Jobs, Sean Connery refused to appear in an apple commercial.",
+ "claim_date": "2020-10-31",
+ "speaker": null,
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Sean Connery actually send a letter to Steve Jobs in 1998 refusing to appear in an Apple advertisement?",
+      "answer": "No, the letter was a piece of humor created for a satirical article on the website Scoopertino.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the name of the satirical website that published the fake letter?",
+      "answer": "Scoopertino",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the title of the Scoopertino article that featured the fake letter?",
+      "answer": "EXPOSED: The iMac disaster that almost was",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who was the marketing executive mentioned in the satirical article as telling the tale of the iMac's first Christmas?",
+      "answer": "Frederica Woods",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "According to the satirical article, what was the name of the fictional book from which the story was taken?",
+      "answer": "Immaculate Conception: How Apple's iMac Was Born",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery ever actually send a typewritten letter to Steve Jobs in 1998?",
+      "answer": "No, Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad.",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who was the individual who shared the fake letter on Twitter and his blog, causing it to go viral?",
+      "answer": "John Willshire",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/local/obituaries/la-me-roger-moore-snap-story.html",
+      "date": "2017-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scotsman.com/arts-and-culture/sean-connery-takes-out-licence-as-bond-legend-trademarks-name-593512",
+      "date": "2017-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://letterboxd.com/djdoublem3/list/movies-that-are-disliked-hated-by-actors/detail/",
+      "date": "2014-11-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "date": "2017-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_sources": 7,
+     "label_confidences": [
+      0.9479149938275155,
+      0.01736166872416146,
+      0.01736166872416146,
+      0.01736166872416146
+     ],
+     "llm_verdict_field": "Refuted",
+     "n_retrieved_chunks": 10
+    },
+    "error": null,
+    "n_evidence_statements": 7
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict of the claim, we will analyze the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim states that Sean Connery refused to appear in an Apple commercial via a letter sent to Steve Jobs.\n2.  **Evaluate the Evidence regarding the Letter's Authenticity:**\n    *   **Q1** states that the letter was not actually written by Sean Connery; it was a fake originating from *Scoopertino*, a satirical website.\n    *   **Q3** confirms the letter is not real and is a work of satire published in 2011.\n    *   **Q4** clarifies that the letter was a humorous creation intended to accompany a fictional article.\n    *   **Q5** explicitly states, \"No, Sean Connery did not actually write a letter to Steve Jobs refusing to appear in an Apple commercial,\" and identifies the event as a \"satirical hoax.\"\n3.  **Determine the Truth Value:** Since the \"letter\" and the \"refusal\" are products of a satirical website (*Scoopertino*) and were mistaken for truth due to viral misinformation, the event described in the claim did not actually occur in reality.\n4.  **Conclusion:** Because the evidence proves the letter is a fabrication/hoax and that the refusal never actually took place, the claim is factually incorrect.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Was the letter in which Sean Connery allegedly refused to appear in an Apple commercial actually written by him?",
+      "answer": "No, the letter was not actually written by Sean Connery. According to the evidence, the letter was confirmed to be a fake originating from Scoopertino, a satirical website modeled after The Onion.",
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the actual source of the claim that Sean Connery refused to appear in an Apple commercial?",
+      "answer": "The actual source of the claim is a satirical article from the humor website **Scoopertino**. The claim went viral after being mistaken for truth following being shared on Twitter and a blog by British marketing executive John Willshire.",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the letter in which Sean Connery refused to appear in an Apple commercial real?",
+      "answer": "No, the letter is not real. According to the evidence, it is a fake letter that was originally published in 2011 by the satirical website Scoopertino, an organization that specializes in fabricating news about Apple. Although it has resurfaced on social media and has been debunked by various outlets and flagged by Facebook for misinformation, the letter is a work of satire.",
+      "url": "https://politifact.com/factchecks/2020/oct/31/viral-image/fake-sean-connery-letter-steve-jobs-spreads-wake-h/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the letter in which Sean Connery refused to appear in an Apple commercial a real document or a work of satire?",
+      "answer": "The letter was a work of satire. It was a humorous creation from the satirical website Scoopertino, intended to accompany a fictional article titled \"EXPOSED: The iMac disaster that almost was.\"",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery actually write a letter to Steve Jobs refusing to appear in an Apple commercial?",
+      "answer": "No, Sean Connery did not actually write a letter to Steve Jobs refusing to appear in an Apple commercial. The letter was a satirical hoax originally published by the spoof news site *Scoopertino*. It became a viral trend on Twitter after being mistakenly shared as genuine by marketing executive John Willshire. To enhance the parody, the hoax also utilized a Photoshopped version of a real advertisement for Jim Beam bourbon.",
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery's decision to trademark his name to protect his brand relate to a refusal to appear in an Apple commercial?",
+      "answer": "Based on the provided evidence, there is no mention of Sean Connery refusing to appear in an Apple commercial or sending a letter to Steve Jobs. The evidence states that Connery trademarked his name to protect his brand and prevent unauthorized commercial exploitation of his fame, but it does not link this decision to any specific refusal regarding Apple.",
+      "url": "https://www.scotsman.com/arts-and-culture/sean-connery-takes-out-licence-as-bond-legend-trademarks-name-593512",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Sean Connery refused to appear in an Apple commercial in a letter to Steve Jobs?",
+      "answer": "No, the provided evidence does not support the claim. The text focuses on the production of the 007 film franchise and social media reactions to Sean Connery's death, but it contains no mention of an Apple commercial or a letter to Steve Jobs.",
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain information regarding Sean Connery's refusal to appear in an Apple commercial?",
+      "answer": "No, the provided evidence does not contain information regarding Sean Connery's refusal to appear in an Apple commercial. The text focuses exclusively on the plot, characters, and reception of the James Bond film *Live and Let Die*.",
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery refuse to appear in an Apple commercial in a letter to Steve Jobs?",
+      "answer": "Based on the evidence provided, there is no mention of Sean Connery or a letter to Steve Jobs regarding an Apple commercial. The text focuses on the life and career of British actor Roger Moore. Therefore, the provided evidence does not support the claim.",
+      "url": "https://www.latimes.com/local/obituaries/la-me-roger-moore-snap-story.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided document contain information regarding Sean Connery's refusal to appear in an Apple commercial?",
+      "answer": "No, the provided document does not contain information regarding Sean Connery's refusal to appear in an Apple commercial. The text focuses on general anecdotes about turbulent film productions, including conflicts between actors and directors, professional dissatisfaction, and the physical and emotional toll of filming, but it makes no mention of Sean Connery or Apple.",
+      "url": "https://letterboxd.com/djdoublem3/list/movies-that-are-disliked-hated-by-actors/detail/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/local/obituaries/la-me-roger-moore-snap-story.html",
+      "date": "2017-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scotsman.com/arts-and-culture/sean-connery-takes-out-licence-as-bond-legend-trademarks-name-593512",
+      "date": "2017-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://letterboxd.com/djdoublem3/list/movies-that-are-disliked-hated-by-actors/detail/",
+      "date": "2014-11-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/oct/31/viral-image/fake-sean-connery-letter-steve-jobs-spreads-wake-h/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "date": "2017-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MacServiceUbon/posts/this-is-the-second-part-of-the-evolution-of-apples-imac-product-line-which-saved/1345415728968989/",
+      "date": "2019-06-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://mercercapital.com/about/professionals/matthew-r-crow/",
+      "date": "2005-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheChaseFilesBlog/posts/good-morning-realdreamchasers-here-is-your-daily-news-cap-for-thursday-october-1/1719049654894530/",
+      "date": "2016-02-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 13,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that actor Sean Connery wrote a letter to Apple CEO Steve Jobs refusing to appear in an Apple commercial.\n2. Multiple highly reliable sources (Snopes, CNET, Business Insider, MI6-HQ) confirm that the letter is a fabrication. The evidence shows the letter originated from a satirical website called \"Scoopertino,\" which uses the motto \"All the News That's Fit to Fabricate.\" The \"letter\" was a piece of humor created to accompany a fictionalized story about Apple's history.\n3. There are no contradictions in the evidence; all sources consistently identify the letter as a hoax/satire. The evidence explicitly states that Connery never sent such a letter and that the \"advertisement\" associated with the story was a Photoshopped image.\n4. Since the evidence directly proves the event described in the claim never happened and was actually a satirical creation, the claim is false.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is there any historical record or documented correspondence between Sean Connery and Steve Jobs regarding an Apple commercial?",
+      "answer": "This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. Fake Sean Connery / Steve Jobs letter becomes top Twitter trending topic A 'letter' from Sean Connery to Steve Jobs was a top trending topic on Twitter today thanks to an unwitting tweet from a marketing executive who thought it was genuine. The phony letter, in which 'Connery' uses some salty language to rebuke approaches from 'Jobs' to advertise his Apple products was tweeted seriously by John Willshire and was quickly picked up by thousands, many of whom did not get the joke either.",
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery ever serve as a brand ambassador for Apple Inc.?",
+      "answer": "First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office.",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the origin of the claim that Sean Connery refused to appear in an Apple commercial via a letter to Steve Jobs?",
+      "answer": "This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. Fake Sean Connery / Steve Jobs letter becomes top Twitter trending topic A 'letter' from Sean Connery to Steve Jobs was a top trending topic on Twitter today thanks to an unwitting tweet from a marketing executive who thought it was genuine. The phony letter, in which 'Connery' uses some salty language to rebuke approaches from 'Jobs' to advertise his Apple products was tweeted seriously by John Willshire and was quickly picked up by thousands, many of whom did not get the joke either. You are a computer salesman - I am fucking JAMES BOND!\" Spoof Apple news site Scoopertino originally published the joke letter on Sunday as part of a satirical look back to Apple's marketing concerns in 1998. The fake advertisement used in the article is actually a Photoshopped version of a real Connery print ad for Jim Beam bourbon. Discuss this news here.",
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was Steve Jobs known to personally solicit actors via letters for Apple marketing campaigns?",
+      "answer": "An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. But not from Steve. He stalked me, eventually sending this e-mail: From: Steve Jobs Date: Sat, 26 Aug 2006 16:51:12 -0700 To: Jim Gianopulos Cc: Steve Jobs Subject: I'm coming to Paros Jim, We need to talk and if that's not possible over the phone or via e-mail, then I need to come to Paros and go for a walk on the beach with you and resolve this. The time is now to begin creating a new online distribution vehicle for movies, and Apple is the company to do it. I need your help.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claim regarding Sean Connery's refusal align with the timeline of Apple's major advertising eras?",
+      "answer": "Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/obituaries/story/2020-10-24/screenwriter-william-blinn-dies-brians-song-roots-purple-rain",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://rnli.org/magazine/magazine-featured-list/2020/may/a-watery-watch-15-film-and-tv-recommendations",
+      "date": "2020-05-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "date": "2017-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/AmericanFilmInstitute/videos/afi-remembers-sean-connery/426094818785502/",
+      "date": "2000-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ODDSbible/posts/sean-connery-taught-ronaldinho-everything-he-knew-rip-to-a-legend-/3493608774057066/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/obituaries/story/2020-10-31/sean-connery-dead",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hollywoodreporter.com/news/general-news/sean-connery-phone-hacking-victim-35732-331686/",
+      "date": "2012-05-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hodinkee.com/articles/sean-connery-passes-away-at-90",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/steve-jobs-hated-apple-think-different-ad-2014-5",
+      "date": "2014-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2018/09/10/nikes-ads-inspired-steve-jobs-for-apples-think-different-campaign.html",
+      "date": "2018-09-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/steve-jobs-talks-consultants-hiring-and-leaving-apple-unearthed-1992-talk",
+      "date": "2018-05-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+      "date": "2005-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://fs.blog/steve-jobs-crazy-ones/",
+      "date": "2016-03-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://allaboutstevejobs.com/verbatim/anecdotes",
+      "date": "2011-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://archive.nytimes.com/www.nytimes.com/library/tech/98/08/biztech/articles/03apple-advertising.html",
+      "date": "1998-08-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Health/steve-jobs-buddhism-guided-life-mantra-focus-simplicity/story?id=14682458",
+      "date": "2011-10-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/news/world/sean-connery-scottish-actor-who-served-tour-duty-james-bond-n922121",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bourbonbanter.com/bourbon-advertising/",
+      "date": "2012-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 117,
+     "n_urls_after_bm25": 23,
+     "n_chunks": 889
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  },
+  "smoke_campaign_text_20260917_cpu": {
+   "aic_ctu_averitec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Sean Connery actually send a letter to Steve Jobs in 1998 refusing to be in an Apple ad?",
+      "answer": "No, Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad.",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the true origin of the purported letter from Sean Connery to Steve Jobs?",
+      "answer": "The letter was part of a satirical article on the humor site Scoopertino.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the name of the satirical website that published the fake letter?",
+      "answer": "Scoopertino",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who was the person that initially shared the letter on Twitter and his blog, causing it to go viral?",
+      "answer": "British marketing exec John Willshire",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the title of the Scoopertino article that contained the fictional story about the letter?",
+      "answer": "EXPOSED: The iMac disaster that almost was",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/local/obituaries/la-me-roger-moore-snap-story.html",
+      "date": "2017-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scotsman.com/arts-and-culture/sean-connery-takes-out-licence-as-bond-legend-trademarks-name-593512",
+      "date": "2017-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://letterboxd.com/djdoublem3/list/movies-that-are-disliked-hated-by-actors/detail/",
+      "date": "2014-11-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "date": "2017-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_sources": 7,
+     "label_confidences": [
+      0.9479149938275155,
+      0.01736166872416146,
+      0.01736166872416146,
+      0.01736166872416146
+     ],
+     "llm_verdict_field": "Refuted",
+     "n_retrieved_chunks": 10
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict of the claim, we will analyze the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim states that Sean Connery refused to appear in an Apple commercial via a letter sent to Steve Jobs.\n2.  **Evaluate the Evidence regarding the Letter's Authenticity:**\n    *   **Q1** states that the letter was not actually written by Sean Connery; it was a fake originating from *Scoopertino*, a satirical website.\n    *   **Q3** confirms the letter is not real and is a work of satire published in 2011.\n    *   **Q4** clarifies that the letter was a humorous creation intended to accompany a fictional article.\n    *   **Q5** explicitly states, \"No, Sean Connery did not actually write a letter to Steve Jobs refusing to appear in an Apple commercial,\" and identifies the event as a \"satirical hoax.\"\n3.  **Determine the Truth Value:** Since the \"letter\" and the \"refusal\" are products of a satirical website (*Scoopertino*) and were mistaken for truth due to viral misinformation, the event described in the claim did not actually occur in reality.\n4.  **Conclusion:** Because the evidence proves the letter is a fabrication/hoax and that the refusal never actually took place, the claim is factually incorrect.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Was the letter in which Sean Connery allegedly refused to appear in an Apple commercial actually written by him?",
+      "answer": "No, the letter was not actually written by Sean Connery. According to the evidence, the letter was confirmed to be a fake originating from Scoopertino, a satirical website modeled after The Onion.",
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the actual source of the claim that Sean Connery refused to appear in an Apple commercial?",
+      "answer": "The actual source of the claim is a satirical article from the humor website **Scoopertino**. The claim went viral after being mistaken for truth following being shared on Twitter and a blog by British marketing executive John Willshire.",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the letter in which Sean Connery refused to appear in an Apple commercial real?",
+      "answer": "No, the letter is not real. According to the evidence, it is a fake letter that was originally published in 2011 by the satirical website Scoopertino, an organization that specializes in fabricating news about Apple. Although it has resurfaced on social media and has been debunked by various outlets and flagged by Facebook for misinformation, the letter is a work of satire.",
+      "url": "https://politifact.com/factchecks/2020/oct/31/viral-image/fake-sean-connery-letter-steve-jobs-spreads-wake-h/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the letter in which Sean Connery refused to appear in an Apple commercial a real document or a work of satire?",
+      "answer": "The letter was a work of satire. It was a humorous creation from the satirical website Scoopertino, intended to accompany a fictional article titled \"EXPOSED: The iMac disaster that almost was.\"",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery actually write a letter to Steve Jobs refusing to appear in an Apple commercial?",
+      "answer": "No, Sean Connery did not actually write a letter to Steve Jobs refusing to appear in an Apple commercial. The letter was a satirical hoax originally published by the spoof news site *Scoopertino*. It became a viral trend on Twitter after being mistakenly shared as genuine by marketing executive John Willshire. To enhance the parody, the hoax also utilized a Photoshopped version of a real advertisement for Jim Beam bourbon.",
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery's decision to trademark his name to protect his brand relate to a refusal to appear in an Apple commercial?",
+      "answer": "Based on the provided evidence, there is no mention of Sean Connery refusing to appear in an Apple commercial or sending a letter to Steve Jobs. The evidence states that Connery trademarked his name to protect his brand and prevent unauthorized commercial exploitation of his fame, but it does not link this decision to any specific refusal regarding Apple.",
+      "url": "https://www.scotsman.com/arts-and-culture/sean-connery-takes-out-licence-as-bond-legend-trademarks-name-593512",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Sean Connery refused to appear in an Apple commercial in a letter to Steve Jobs?",
+      "answer": "No, the provided evidence does not support the claim. The text focuses on the production of the 007 film franchise and social media reactions to Sean Connery's death, but it contains no mention of an Apple commercial or a letter to Steve Jobs.",
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain information regarding Sean Connery's refusal to appear in an Apple commercial?",
+      "answer": "No, the provided evidence does not contain information regarding Sean Connery's refusal to appear in an Apple commercial. The text focuses exclusively on the plot, characters, and reception of the James Bond film *Live and Let Die*.",
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery refuse to appear in an Apple commercial in a letter to Steve Jobs?",
+      "answer": "Based on the evidence provided, there is no mention of Sean Connery or a letter to Steve Jobs regarding an Apple commercial. The text focuses on the life and career of British actor Roger Moore. Therefore, the provided evidence does not support the claim.",
+      "url": "https://www.latimes.com/local/obituaries/la-me-roger-moore-snap-story.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided document contain information regarding Sean Connery's refusal to appear in an Apple commercial?",
+      "answer": "No, the provided document does not contain information regarding Sean Connery's refusal to appear in an Apple commercial. The text focuses on general anecdotes about turbulent film productions, including conflicts between actors and directors, professional dissatisfaction, and the physical and emotional toll of filming, but it makes no mention of Sean Connery or Apple.",
+      "url": "https://letterboxd.com/djdoublem3/list/movies-that-are-disliked-hated-by-actors/detail/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/local/obituaries/la-me-roger-moore-snap-story.html",
+      "date": "2017-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scotsman.com/arts-and-culture/sean-connery-takes-out-licence-as-bond-legend-trademarks-name-593512",
+      "date": "2017-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://letterboxd.com/djdoublem3/list/movies-that-are-disliked-hated-by-actors/detail/",
+      "date": "2014-11-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/oct/31/viral-image/fake-sean-connery-letter-steve-jobs-spreads-wake-h/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "date": "2017-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MacServiceUbon/posts/this-is-the-second-part-of-the-evolution-of-apples-imac-product-line-which-saved/1345415728968989/",
+      "date": "2019-06-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://mercercapital.com/about/professionals/matthew-r-crow/",
+      "date": "2005-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheChaseFilesBlog/posts/good-morning-realdreamchasers-here-is-your-daily-news-cap-for-thursday-october-1/1719049654894530/",
+      "date": "2016-02-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 13,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "infact": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is refuted because the purported letter and the story of Sean Connery refusing an Apple commercial are entirely fictional. The content originated from a satirical website, [Scoopertino](https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/), which published the piece as a \"bit of humor\" and a spoof of Apple-related news. According to [Snopes](https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/), there is no evidence in Apple's archives, Sean Connery's biographies, or any primary source documentation to support the existence of such a proposal or a corresponding letter to Steve Jobs.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Sean Connery ever receive a formal offer from Apple Inc. to appear in a television or print commercial?",
+      "answer": "No, there is no evidence that Sean Connery ever received a formal offer from Apple Inc.; the claim stems from a \"fictional\" letter and article created by the satirical website Scoopertino, which \"spoofs on all things Apple.\"",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery write a letter to Steve Jobs regarding a commercial opportunity with Apple Inc.?",
+      "answer": "No, Sean Connery did not write such a letter; the document was a \"fictional\" creation from the satirical website Scoopertino, intended as a \"bit of humor\" to accompany a spoof article.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the content of the letter sent by Sean Connery to Steve Jobs explicitly state a refusal to participate in an Apple commercial?",
+      "answer": "The search result states that Sean Connery \"declined to participate in the misadventure on at least three separate occasions\" and that his final rejection was \"accompanied by a note revealing one mightily peeved film star,\" but the text of the letter itself is not provided in the snippet to confirm if the refusal was explicitly stated within the content of the note.",
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any documented evidence in the archives of Apple Inc. regarding a rejected commercial proposal from Sean Connery?",
+      "answer": "No, there is no documented evidence of such a proposal in Apple's archives; rather, the story originated from a satirical website called Scoopertino, which published a fictional article and a \"purported 1998 letter\" as a piece of humor.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Do the biographies of Sean Connery contain any mention of a refusal to work with Apple Inc. via a letter to Steve Jobs?",
+      "answer": "No, the search result indicates that the purported letter was not a real event documented in biographies, but was instead \"merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino.\" The claim stems from a fictionalized account in a spoof article that referenced an equally fictional book titled *iMaculate Conception: How Apple's iMac Was Born*.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was there an Apple commercial production involving Sean Connery being planned during the period when Steve Jobs was leading the company?",
+      "answer": "No, there was no such production; the idea of a 1998 Apple Christmas ad campaign featuring Sean Connery originated from a satirical article on the website Scoopertino and was entirely fictional.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any primary source documentation, such as a physical letter, that confirms Sean Connery's refusal to appear in an Apple commercial?",
+      "answer": "No, there is no primary source documentation confirming this refusal; the letter is actually a \"bit of humor created as an accompaniment to an article published on the satirical site Scoopertino,\" which specializes in \"all the news that's fit to fabricate.\"",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the refusal mentioned in the claim pertain to a specific product or a general refusal to represent the Apple brand?",
+      "answer": "The refusal pertained to a specific product, as the search result states that Steve Jobs \"instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery\" to promote the \"brand-new computer\" known as the iMac.",
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Can the claim that Sean Connery refused an Apple commercial via a letter to Steve Jobs be corroborated by multiple independent historical sources?",
+      "answer": "No, the claim cannot be corroborated because the letter is a fabrication; according to Snopes, the image of the letter was \"merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino,\" which operates under the motto \"All the News That's Fit to Fabricate.\"",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "date": "2011-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/officialshanewarne/photos/a-letter-from-sean-connery-to-steve-jobs-in-1996-how-cool-is-this-bond-james-bon/2906415609465174/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/entertainment-arts/movies/story/2020-10-31/sean-connery-dead-appreciation",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "date": "2011-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "date": "2011-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gq-magazine.co.uk/watches/article/sean-connery-james-bond-watch",
+      "date": "2020-04-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://priceonomics.com/the-economics-of-product-placements/",
+      "date": "2013-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/macsporrans/photos/sean-connery-is-trending-on-twitter-thanks-to-a-spoof-letter-to-apples-steve-job/10150199625377215/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "date": "2011-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/entertainment-arts/movies/story/2020-10-31/sean-connery-dead-appreciation",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.wttw.com/2020/10/31/actor-sean-connery-original-james-bond-dies-90",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.sltrib.com/news/nation-world/2020/10/31/sean-connery-original/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://podcasts.apple.com/au/podcast/s3-ep6-how-to-fail-james-obrien/id1407451189?i=1000429295170",
+      "date": "2019-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gq-magazine.co.uk/watches/article/sean-connery-james-bond-watch",
+      "date": "2020-04-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/macsporrans/photos/sean-connery-is-trending-on-twitter-thanks-to-a-spoof-letter-to-apples-steve-job/10150199625377215/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/waynecariniofficial/posts/for-several-generations-sean-connery-defined-the-essence-of-cool-as-her-majestys/131158875428300/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://dlab.epfl.ch/wikispeedia/wpcd/wp/s/Sean_Connery.htm",
+      "date": "1995-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/60minutes/videos/sean-connery-on-being-james-bond-60-minutes-1999/2826685197616870/",
+      "date": "2002-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vintag.es/2019/08/sean-connery-mr-universe.html",
+      "date": "2019-08-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/officialshanewarne/photos/a-letter-from-sean-connery-to-steve-jobs-in-1996-how-cool-is-this-bond-james-bon/2906415609465174/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/officialshanewarne/photos/a-letter-from-sean-connery-to-steve-jobs-in-1996-how-cool-is-this-bond-james-bon/2906415609465174/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/entertainment-arts/movies/story/2020-10-31/sean-connery-dead-appreciation",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "date": "2011-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://deadline.com/2020/10/sean-connery-appreciation-more-than-james-bond-1234607183/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://nycinfilm.com/2020/10/31/the-anderson-tapes-1971/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gq-magazine.co.uk/watches/article/sean-connery-james-bond-watch",
+      "date": "2020-04-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/343057549950000/posts/672882266967525/",
+      "date": "2020-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://tv.apple.com/il/movie/medicine-man/umc.cmc.4okbho8b3z0zwwsq45dju39vk",
+      "date": "1999-08-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.motionpictures.org/2012/10/before-there-was-apple-there-was-bond-and-q-50-years-of-impeccably-cool-gadgets/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/entertainment-arts/movies/story/2020-10-31/sean-connery-dead-appreciation",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/scoopertino/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MacServiceUbon/posts/this-is-the-second-part-of-the-evolution-of-apples-imac-product-line-which-saved/1345415728968989/",
+      "date": "2019-06-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/food/story/2020-08-05/hee-sook-lee-obit-bcd-tofu-house-soondubuee-sook-lee-dead",
+      "date": "2020-08-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+      "date": "2011-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gq-magazine.co.uk/watches/article/sean-connery-james-bond-watch",
+      "date": "2020-04-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/343057549950000/posts/672882266967525/",
+      "date": "2020-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rolexmagazine.com/2018/03/james-bond-rolex-ad-sean-connery.html",
+      "date": "2018-03-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/entertainment-arts/movies/story/2020-10-31/sean-connery-dead-appreciation",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://deadline.com/2020/10/sean-connery-appreciation-more-than-james-bond-1234607183/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_questions": 10,
+     "n_search_calls": 28,
+     "n_admitted_page_occurrences": 68,
+     "n_admitted_unique_urls": 27,
+     "n_answered": 9
+    },
+    "error": null,
+    "n_evidence_statements": 9
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that actor Sean Connery wrote a letter to Apple CEO Steve Jobs refusing to appear in an Apple commercial.\n2. Multiple highly reliable sources (Snopes, CNET, Business Insider, MI6-HQ) confirm that the letter is a fabrication. The evidence shows the letter originated from a satirical website called \"Scoopertino,\" which uses the motto \"All the News That's Fit to Fabricate.\" The \"letter\" was a piece of humor created to accompany a fictionalized story about Apple's history.\n3. There are no contradictions in the evidence; all sources consistently identify the letter as a hoax/satire. The evidence explicitly states that Connery never sent such a letter and that the \"advertisement\" associated with the story was a Photoshopped image.\n4. Since the evidence directly proves the event described in the claim never happened and was actually a satirical creation, the claim is false.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is there any historical record or documented correspondence between Sean Connery and Steve Jobs regarding an Apple commercial?",
+      "answer": "This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. Fake Sean Connery / Steve Jobs letter becomes top Twitter trending topic A 'letter' from Sean Connery to Steve Jobs was a top trending topic on Twitter today thanks to an unwitting tweet from a marketing executive who thought it was genuine. The phony letter, in which 'Connery' uses some salty language to rebuke approaches from 'Jobs' to advertise his Apple products was tweeted seriously by John Willshire and was quickly picked up by thousands, many of whom did not get the joke either.",
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Sean Connery ever serve as a brand ambassador for Apple Inc.?",
+      "answer": "First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office.",
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the origin of the claim that Sean Connery refused to appear in an Apple commercial via a letter to Steve Jobs?",
+      "answer": "This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. Fake Sean Connery / Steve Jobs letter becomes top Twitter trending topic A 'letter' from Sean Connery to Steve Jobs was a top trending topic on Twitter today thanks to an unwitting tweet from a marketing executive who thought it was genuine. The phony letter, in which 'Connery' uses some salty language to rebuke approaches from 'Jobs' to advertise his Apple products was tweeted seriously by John Willshire and was quickly picked up by thousands, many of whom did not get the joke either. You are a computer salesman - I am fucking JAMES BOND!\" Spoof Apple news site Scoopertino originally published the joke letter on Sunday as part of a satirical look back to Apple's marketing concerns in 1998. The fake advertisement used in the article is actually a Photoshopped version of a real Connery print ad for Jim Beam bourbon. Discuss this news here.",
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was Steve Jobs known to personally solicit actors via letters for Apple marketing campaigns?",
+      "answer": "An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods. This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. But not from Steve. He stalked me, eventually sending this e-mail: From: Steve Jobs Date: Sat, 26 Aug 2006 16:51:12 -0700 To: Jim Gianopulos Cc: Steve Jobs Subject: I'm coming to Paros Jim, We need to talk and if that's not possible over the phone or via e-mail, then I need to come to Paros and go for a walk on the beach with you and resolve this. The time is now to begin creating a new online distribution vehicle for movies, and Apple is the company to do it. I need your help.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claim regarding Sean Connery's refusal align with the timeline of Apple's major advertising eras?",
+      "answer": "Scoopertino's 19 June 2011 article entitled \"EXPOSED: The iMac disaster that almost was\" purported to offer a (fictional) episode from Apple's history, taken from the (equally fictional) book iMaculate Conception: How Apple's iMac Was Born, in which Apple CEO Steve Jobs supposedly sought to boost flagging holiday sales by soliciting actor Sean Connery to lend his name and visage to a 1998 Apple Christmas ad campaign: As [former Apple marketing executive Frederica] Woods spins the tale, it was just weeks before iMac's first Christmas in 1998 when slowing holiday sales rang the alarm in the CEO's office. This is a letter Sean Connery wrote didn't write in response to Steve Jobs after being asked to appear in an Apple ad. It's pretty funny. Honestly, we're not sure it's legit. An image of a purported 1998 letter from actor Sean Connery (famous for his portrayal of agent James Bond) to Apple CEO Steve Jobs, caustically rebuffing an offer to become a pitchman for Apple Computers, hit the Internet in June 2011. Despite the letter's seeming verisimilitude, it was merely a bit of humor created as an accompaniment to an article published on the satirical site Scoopertino, which spoofs on all things Apple under the motto \"All the News That's Fit to Fabricate\". First, the bad news. Sean Connery never actually sent a typewritten letter to Steve Jobs in 1998 refusing to be in an Apple ad. But the awesome news is that quite a few people believe Connery owns personalized stationery with a “007” vanity stamp in the corner and that he would have no qualms using it to dash off a letter dressing down Jobs by declaring “…you are a computer salesman. I am f%$^ing JAMES BOND! Steve Jobs, a lifelong fan of James Bond (he'd originally wanted to name the revolutionary computer \"Double-O-Mac\"), instructed his agency to begin work on a special celebrity Christmas ad featuring 007 himself, Sean Connery — even though Connery had yet to be signed. \"The ad was of dubious quality, clearly not one of the agency's finer moments,\" says Woods.",
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.snopes.com/fact-check/false-sean-connery-letter-to-apple/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnet.com/culture/fake-sean-connery-letter-to-steve-jobs-goes-viral/",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/james-bond-sean-connery-steve-jobs-apple-letter-2011-6",
+      "date": "2011-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vanityfairmagazine/posts/david-kamp-recalls-the-unlikely-teamtwo-small-time-producers-a-journeyman-direct/10158282987217572/",
+      "date": "2012-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/obituaries/story/2020-10-24/screenwriter-william-blinn-dies-brians-song-roots-purple-rain",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://rnli.org/magazine/magazine-featured-list/2020/may/a-watery-watch-15-film-and-tv-recommendations",
+      "date": "2020-05-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://oldmoviesaregreat.wordpress.com/page/6/",
+      "date": "2017-02-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/AmericanFilmInstitute/videos/afi-remembers-sean-connery/426094818785502/",
+      "date": "2000-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ODDSbible/posts/sean-connery-taught-ronaldinho-everything-he-knew-rip-to-a-legend-/3493608774057066/",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/obituaries/story/2020-10-31/sean-connery-dead",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hollywoodreporter.com/news/general-news/sean-connery-phone-hacking-victim-35732-331686/",
+      "date": "2012-05-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hodinkee.com/articles/sean-connery-passes-away-at-90",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/steve-jobs-hated-apple-think-different-ad-2014-5",
+      "date": "2014-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2018/09/10/nikes-ads-inspired-steve-jobs-for-apples-think-different-campaign.html",
+      "date": "2018-09-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/steve-jobs-talks-consultants-hiring-and-leaving-apple-unearthed-1992-talk",
+      "date": "2018-05-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+      "date": "2005-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://fs.blog/steve-jobs-crazy-ones/",
+      "date": "2016-03-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://allaboutstevejobs.com/verbatim/anecdotes",
+      "date": "2011-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://archive.nytimes.com/www.nytimes.com/library/tech/98/08/biztech/articles/03apple-advertising.html",
+      "date": "1998-08-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Health/steve-jobs-buddhism-guided-life-mantra-focus-simplicity/story?id=14682458",
+      "date": "2011-10-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mi6-hq.com/news/index.php?itemid=9532",
+      "date": "2011-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/news/world/sean-connery-scottish-actor-who-served-tour-duty-james-bond-n922121",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bourbonbanter.com/bourbon-advertising/",
+      "date": "2012-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 117,
+     "n_urls_after_bm25": 23,
+     "n_chunks": 889
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The answer and sources show that the claim was published in a fake news site so the claim is refuted.",
+   "questions": [
+    {
+     "question": "Where was the claim first published",
+     "answers": [
+      {
+       "answer": "It was first published on Sccopertino",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20201129141238/https://scoopertino.com/exposed-the-imac-disaster-that-almost-was/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What kind of website is Scoopertino",
+     "answers": [
+      {
+       "answer": "Scoopertino is an imaginary news organization devoted to ferreting out the most relevant stories in the world of Apple, whether or not they actually occurred - says their about page",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201202085933/https://scoopertino.com/about-scoopertino/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201130144023/https://checkyourfact.com/2020/11/03/fact-check-sean-connery-letter-steve-jobs-apple-1998/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The letter purportedly written by Sean Connery to Steve Jobs rejecting an Apple advertisement is a fabrication that was traced back to Scoopertino, a website that describes itself as an imaginary news organization, and the content includes Connery telling Jobs he does not sell his soul for Apple and asserting his identity as James Bond.",
+     "support_span": "The letter is a fabrication and originates from a website known for publishing satire. | Check Your Fact traced it back to an article published on Scoopertino, a website that describes itself as “an imaginary news organization devoted to ferreting out the most relevant stories in the world of Apple, whether or not they actually occurred.” | “I do not sell my soul for Apple or any other company. I have no interest in ‘changing the world’ as you suggest. You have nothing that I need or want. You are a computer salesman — I am f****** JAMES BOND!”"
+    },
+    {
+     "statement": "The letter went viral on Twitter in 2011 after being shared by John Willshire, who initially believed it was real, but he later clarified on Twitter that the letter was fake.",
+     "support_span": "The letter first went viral on Twitter in 2011 after British marketing executive John Willshire shared the letter, believing it was real | Willshire later sent a tweet clarifying that the letter was fake and he had been fooled, according to the outlet"
+    }
+   ],
+   "justification": "The evidence indicates that the alleged letter from Sean Connery to Steve Jobs is a fabrication. The content, which features Connery rejecting an Apple advertisement by asserting his identity as James Bond, originated from Scoopertino, a website that identifies itself as an imaginary news organization. Although the letter went viral in 2011 after being shared by an individual who believed it was authentic, the source has been traced to satire, and the original sharer later clarified that the document was fake.",
+   "article_url": "https://web.archive.org/web/20201130144023/https://checkyourfact.com/2020/11/03/fact-check-sean-connery-letter-steve-jobs-apple-1998/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

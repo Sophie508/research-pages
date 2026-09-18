@@ -1,0 +1,497 @@
+{
+ "key": "averitec/dev/52",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 52,
+ "claim": "President Ferdinand Marcos and Dr. Jose Rizal established and founded the WORLD BANK and International Monetary Fund.",
+ "claim_date": "2020-10-22",
+ "speaker": "Bangon Bansang Maharlika",
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim, I will follow these steps based on the provided evidence:\n\n1.  **Analyze the Claim:** The claim asserts that President Ferdinand Marcos and Dr. Jose Rizal established and founded the World Bank and the International Monetary Fund (IMF).\n2.  **Evaluate the Evidence:** I have reviewed all ten question-answer pairs (Q1–Q10). \n    *   Q1 through Q8 explicitly state that the provided evidence contains no information to support the claim that either Ferdinand Marcos or Jose Rizal founded the World Bank or the IMF. The evidence instead focuses on Marcos's political career, legal battles, the Philippine peso, and various political investigations.\n    *   Q9 discusses the history of the Philippine peso and the Bangko Sentral ng Pilipinas, which is unrelated to the founding of the World Bank or IMF.\n    *   Q10 confirms that the evidence contains no mention of the individuals or the institutions in the context of their founding.\n3.  **Determine the Verdict:** Since the claim makes a specific historical assertion that is not supported by any of the provided evidence, and the evidence consistently points to a total lack of connection between these individuals and the founding of these institutions, the claim cannot be verified. However, in the context of fact-checking where the evidence is provided specifically to test the claim and the evidence repeatedly states the claim is not mentioned or supported, the claim is unsupported. \n\nIn many fact-checking frameworks, if the evidence provided is intended to address the claim but fails to find any connection, the result is \"Not Enough Evidence.\" However, looking at the consistency of the answers (which all state \"No\" or \"No information to support\"), it is clear the provided text does not contain the necessary information to validate the claim.\n\n**Verdict: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did President Ferdinand Marcos and Dr. Jose Rizal establish and found the World Bank and the International Monetary Fund?",
+      "answer": "No, based on the provided evidence, there is no information to support the claim that President Ferdinand Marcos or Dr. Jose Rizal established or founded the World Bank and the International Monetary Fund. The evidence focuses on Ferdinand Marcos's political career, his rule in the Philippines, and his legacy, but it does not mention the founding of these international financial institutions.",
+      "url": "https://www.thoughtco.com/ferdinand-marcos-195676",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that President Ferdinand Marcos and Dr. Jose Rizal founded the World Bank and the International Monetary Fund?",
+      "answer": "No, the evidence does not support the claim. The provided text contains no mention of President Ferdinand Marcos or Dr. Jose Rizal founding the World Bank or the International Monetary Fund. The evidence focuses on President Marcos's impact on Philippine sovereignty, his use of gold reserves to increase international influence, and the political challenges he faced regarding the US Military Bases Agreement, the Roman Catholic Church, and communist insurgencies.",
+      "url": "https://www.facebook.com/groups/532525066913734/posts/738886636277575/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What information does the evidence provide regarding the involvement of Ferdinand Marcos and Jose Rizal in the establishment of the World Bank and the International Monetary Fund?",
+      "answer": "Based on the provided evidence, there is no information regarding the involvement of Ferdinand Marcos or Dr. Jose Rizal in the establishment or founding of the World Bank and the International Monetary Fund. The text focuses on Ferdinand Marcos's renegotiation of the US Military Bases Agreement, his gold reserves, opposition from the Roman Catholic Church, and the declaration of Martial Law.",
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESfgHrOzAVgM9sIp1g1e21yRPTRE5gLsqSkeBY7Lymakjhay2yvuN6sFFzWaNG_jHlStR6kTLfCVyEgVpdXfQvZ00yVWF8V8wjpaKGKoM8rr0iqvRJ4tiCpfYWN3Y-alLXUC26gtX90Q83HOlHF6sWe7DGQuZcmNorQjPRothMow&ust=1789647549613462&usg=AOvVaw18VtI2i75DBsnOhbYM6Laq",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did President Ferdinand Marcos or Dr. Jose Rizal have any role in the establishment of the World Bank and the International Monetary Fund?",
+      "answer": "Based on the provided evidence, there is no mention of President Ferdinand Marcos or Dr. Jose Rizal having any role in the establishment of the World Bank or the International Monetary Fund. The evidence focuses on the recovery of Ferdinand Marcos's ill-gotten wealth by the Presidential Commission on Good Government (PCGG) and investigations into his offshore accounts and assets.",
+      "url": "https://newslab.philstar.com/31-years-of-amnesia/never-convicted",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did President Ferdinand Marcos and Dr. Jose Rizal establish the World Bank and the International Monetary Fund?",
+      "answer": "Based on the evidence provided, there is no mention of President Ferdinand Marcos or Dr. Jose Rizal establishing or founding the World Bank or the International Monetary Fund. The provided text focuses on a defense of Ferdinand Marcos's leadership, his \"New Society\" policies, economic growth, and his actions during the EDSA Revolution.",
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEShwEB6zswFQ9agxIQcj1-_TR78hKq6OuEOIB3EScuVJk9IrBqM18FScYyfha9YF9NPsZhbJL7xHkQkC1N5AX1xIoGcWYxaoa68tilUrsg4aAc4a0gLpFGV4bSkeVbge7ECTRaAD238bAULahSEdGec4cQbsGgiJlqqDhmh19EkpUHs15kW3yJOQ8&ust=1789647549620302&usg=AOvVaw0xBctU9ZdBifn7uhqhHORb",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Ferdinand Marcos and Jose Rizal found the World Bank and the International Monetary Fund?",
+      "answer": "Based on the evidence provided, there is no information to support the claim that Ferdinand Marcos and Dr. Jose Rizal founded the World Bank and the International Monetary Fund. The provided text focuses exclusively on a Supreme Court decision regarding the forfeiture of assets belonging to Arelma, S.A. and the legal arguments made by Ferdinand Marcos, Jr. and Imelda Romualdez-Marcos.",
+      "url": "https://hrlibrary.umn.edu/research/Philippines/Ferdinand_Marcos.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did President Ferdinand Marcos and Dr. Jose Rizal establish and found the World Bank and the International Monetary Fund?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that President Ferdinand Marcos and Dr. Jose Rizal established or founded the World Bank and the International Monetary Fund. The evidence focuses on the political and economic legacy of Ferdinand Marcos's presidency, his imposition of martial law, and the socio-political impact of his era, but it does not mention the founding of these international financial institutions.",
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESdgHrOzAVs0Je-A-QLncw51Bs1raVvo461l6VZjOx12YxRMFofdAMPs5LvHaN4Mkk316hG7W9FBcu6pYkvABjARgygVg4z1KNHx35z0Gjirs9LK6vIf2JXP9LjPNg84mM4kuBbdLXN6Ampe5IAtTJLBdtvVrJPbM&ust=1789647549612889&usg=AOvVaw2N-Ye2o7OkQgEEm10opnxG",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did President Ferdinand Marcos and Dr. Jose Rizal establish and found the World Bank and the International Monetary Fund?",
+      "answer": "No, based on the provided evidence, there is no information to support the claim that President Ferdinand Marcos and Dr. Jose Rizal established the World Bank and the International Monetary Fund. The evidence focuses exclusively on fact-checking investigations regarding the academic credentials of various Philippine politicians.",
+      "url": "https://www.rappler.com/features/newsbreak/podcasts-videos/116491-newsbreak-top-stories-2015-degree-fact-check/index.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the history and management of the Philippine peso?",
+      "answer": "The Philippine peso (PHP), which is subdivided into 100 sentimo, is the official currency of the Philippines. Its history began with pre-colonial gold barter and the introduction of Spanish silver pesos, followed by various monetary standards during the American and Commonwealth periods. \n\nThe management of the currency transitioned through the establishment of the Central Bank of the Philippines in 1949 and its subsequent reorganization into the autonomous Bangko Sentral ng Pilipinas (BSP) in 1993. Under the management of the BSP, the peso moved to a fully floating exchange rate system designed to maintain price stability. The BSP is responsible for overseeing the issuance of legal tender, implementing monetary policies to ensure economic stability, and managing various banknote and coin series, such as the current New Generation Currency.",
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESZQHrOzAVLYPZp911PwNh5jItVOlLEb3MJiIlc22Moj5Uf1n2ErOByEhM3vY4i0atp4kYHn0d0lOkqc472LZvtUIn9f9ugs3VhmQQw83l3BSgNCi4c4Rxgtj-ExNXrVpP0qNXVZMr&ust=1789647549622128&usg=AOvVaw3rsYvRgVTREwBbrumlM2Cc",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that President Ferdinand Marcos and Dr. Jose Rizal founded the World Bank and the International Monetary Fund?",
+      "answer": "No, the evidence provided does not support the claim. The provided text discusses a denial by Atty. Vic Rodriguez regarding allegations involving Ferdinand \"Bongbong\" Marcos Jr. and Cambridge Analytica; it contains no mention of President Ferdinand Marcos, Dr. Jose Rizal, the World Bank, or the International Monetary Fund.",
+      "url": "https://www.facebook.com/FerdinandAlexanderMarcos/posts/that-article-is-totally-false/3132233756858846/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESfgHrOzAVgM9sIp1g1e21yRPTRE5gLsqSkeBY7Lymakjhay2yvuN6sFFzWaNG_jHlStR6kTLfCVyEgVpdXfQvZ00yVWF8V8wjpaKGKoM8rr0iqvRJ4tiCpfYWN3Y-alLXUC26gtX90Q83HOlHF6sWe7DGQuZcmNorQjPRothMow&ust=1789647549613462&usg=AOvVaw18VtI2i75DBsnOhbYM6Laq",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESdgHrOzAVs0Je-A-QLncw51Bs1raVvo461l6VZjOx12YxRMFofdAMPs5LvHaN4Mkk316hG7W9FBcu6pYkvABjARgygVg4z1KNHx35z0Gjirs9LK6vIf2JXP9LjPNg84mM4kuBbdLXN6Ampe5IAtTJLBdtvVrJPbM&ust=1789647549612889&usg=AOvVaw2N-Ye2o7OkQgEEm10opnxG",
+      "date": "2016-12-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEScwHrOzAV2v0mbFLDniP03XjquqA8KllckdQ08PmUwIEnoxj7vd2ezDVMJG1_fyWrIAjtRpZ4_hoeMl6csqNmoopTikMTkb9u2nl4FFSZ5IPBn5vu8sjmN0E0rnBt31ftyOAuL0P-TxhMoI4Oa7WurmncbSk&ust=1789647549619859&usg=AOvVaw3xaQX9QC-IeJneXZY4Xco5",
+      "date": "2013-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESZQHrOzAVLYPZp911PwNh5jItVOlLEb3MJiIlc22Moj5Uf1n2ErOByEhM3vY4i0atp4kYHn0d0lOkqc472LZvtUIn9f9ugs3VhmQQw83l3BSgNCi4c4Rxgtj-ExNXrVpP0qNXVZMr&ust=1789647549622128&usg=AOvVaw3rsYvRgVTREwBbrumlM2Cc",
+      "date": "2003-05-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEShwEB6zswFQ9agxIQcj1-_TR78hKq6OuEOIB3EScuVJk9IrBqM18FScYyfha9YF9NPsZhbJL7xHkQkC1N5AX1xIoGcWYxaoa68tilUrsg4aAc4a0gLpFGV4bSkeVbge7ECTRaAD238bAULahSEdGec4cQbsGgiJlqqDhmh19EkpUHs15kW3yJOQ8&ust=1789647549620302&usg=AOvVaw0xBctU9ZdBifn7uhqhHORb",
+      "date": "2017-09-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESnAEB6zswFUPYqAyDvnQQcSiMCIGyMqCjVwUMyc3Jc-ImrCA5F1XNQWnuyGLMXS0EK-S5YxC6rLHjbp2L1V1PpHQEcE5lsWg7Kcp62zqde9dS-sVdKn9cxnH0Q-1LC39rVQ8Ouv7qG59Kic2QkjrElHO8kcTIYtfCoXQ47_1-M0ad85IoCeqT7Bax1V_ffjgTqRR0zmh_TNhePP13N5M&ust=1789647549619938&usg=AOvVaw3qdHY_RLSb0RCMpKkz2U1i",
+      "date": "2011-06-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/100063644691746/posts/alam-nyo-ba-noong-august-1983-ferdinand-bongbong-marcos-jr-buwis-buhay-ang-ginaw/145475217248121/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://hrlibrary.umn.edu/research/Philippines/Ferdinand_Marcos.html",
+      "date": "1997-11-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://newslab.philstar.com/31-years-of-amnesia/never-convicted",
+      "date": "2016-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thoughtco.com/ferdinand-marcos-195676",
+      "date": "2009-01-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.philstar.com/headlines/2018/09/21/1853435/fact-checking-enriles-tete-tete-bongbong-marcos",
+      "date": "2018-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/FerdinandAlexanderMarcos/posts/that-article-is-totally-false/3132233756858846/",
+      "date": "2020-07-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-bongbong-marcos-falsely-claims-martial",
+      "date": "2020-01-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rappler.com/features/newsbreak/podcasts-videos/116491-newsbreak-top-stories-2015-degree-fact-check/index.html",
+      "date": "2015-12-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gmanetwork.com/news/topstories/nation/668862/fact-checking-enrile-s-claims-on-martial-law/story/",
+      "date": "2018-09-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/532525066913734/posts/738886636277575/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://anywhereiwander.com/2010/06/16/imee-marcos-in-london/",
+      "date": "2010-06-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BangkoSentralngPilipinas/posts/the-2019-bsp-imf-regional-dialogue-on-financial-stability-for-asean-central-bank/2084975461566272/",
+      "date": "2019-01-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/AFPFactCheck/posts/as-rumours-about-philippine-president-ferdinand-marcoss-ill-health-swirled-onlin/1576405661154978/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/261018364108556/posts/625459360997786/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.academia.edu/26506043/Out_of_the_Shadows_Violent_Conflict_and_the_Real_Economy_of_Mindanao",
+      "date": "2016-06-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://anywhereiwander.com/2011/06/24/%E2%80%9Cthe-marcoses-the-missing-filipino-millions%E2%80%9D/",
+      "date": "2011-06-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1710445832541836/posts/1738735553046197/",
+      "date": "2014-09-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/442077072805758/posts/698722647141198/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 24,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that President Ferdinand Marcos and Dr. Jose Rizal were the founders of the World Bank and the International Monetary Fund (IMF). The claim was made on October 22, 2020, in the Philippines.\n2. Evidence from multiple reliable sources (World Bank, IMF, Wikipedia, Library of Congress, and US State Department) confirms that the World Bank and the IMF were established during the Bretton Woods Conference in July 1944. The primary architects/founders identified are John Maynard Keynes and Harry Dexter White.\n3. Regarding the individuals mentioned:\n    - Dr. Jose Rizal: No evidence exists linking him to the founding of these institutions. Furthermore, Rizal died in 1896, nearly 50 years before the Bretton Woods Conference.\n    - Ferdinand Marcos: Evidence shows that Marcos was the President of the Philippines (1965–1986) and that the Philippines engaged in various IMF and World Bank programs during his regime, but he was not a founder of these institutions.\n4. The claim is directly contradicted by historical facts regarding the timeline of Rizal's life and the documented origins of the Bretton Woods institutions.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Who were the actual founders of the World Bank and the International Monetary Fund (IMF)?",
+      "answer": "What is the difference between the World Bank Group and the IMF? Founded at the Bretton Woods conference in 1944, the two institutions have complementary missions. The World Bank Group works with developing countries to reduce poverty and increase shared prosperity, while the International Monetary Fund serves to stabilize the international monetary system and acts as a monitor of the world’s currencies. The World Bank Group provides financing, policy advice, and technical assistance to governments, and also focuses on strengthening the private sector in developing countries. - ↑ \"The Founding Fathers\". International Monetary Fund. Archived from the original on 22 August 2017. Retrieved 11 August 2012. 1 The conference resulted in the creation of the International Monetary Fund (IMF) and the International Bank for Reconstruction & Development (IBRD) though that quickly became the World Bank. It was intended that the IMF was to maintain a system of fixed exchange rates centered on the U. [11][12] The group comprises five organizations, as established over time: - International Bank for Reconstruction and Development (IBRD), 1944 - International Development Association (IDA), 1960 - International Finance Corporation (IFC), 1956 - International Centre for Settlement of Investment Disputes (ICSID), 1965 - Multilateral Investment Guarantee Agency (MIGA), 1988 History [edit]Founding [edit]The World Bank was created at the 1944 Bretton Woods Conference (1–22 July 1944), along with the International Monetary Fund (IMF). The president of the World Bank is traditionally an American. In 1944, the Bretton Woods Agreement established a new international monetary system. The creation of the International Monetary Fund (IMF) and the World Bank were two of its most enduring legacies. The World Bank and the IMF, often called the Bretton Woods Institutions, are twin intergovernmental pillars supporting the structure of the world’s economic and financial order. Both have taken on expanding roles, and there have been renewed calls for additional expansion of their responsibilities, particularly in the continuing absence of a single global monetary agreement. [14] The World Bank and the IMF are both based in Washington, D. ”[1] This section explores both of these institutions and how they have evolved in the almost seventy years since their creation. International Monetary Fund History and Purpose The architects of the Bretton Woods Agreement, John Maynard Keynes and Harry Dexter White, envisioned an institution that would oversee the international monetary system, exchange rates, and international payments to enable countries and their citizens to buy goods and services from each other. They expected that this new global entity would ensure exchange rate stability and encourage its member countries to eliminate the exchange restrictions that hindered trade.",
+      "url": "https://www.worldbank.org/en/about/history/the-world-bank-group-and-the-imf",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the historical role of Dr. Jose Rizal in relation to the founding of international financial institutions?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the historical role of President Ferdinand Marcos regarding the creation of the World Bank and IMF?",
+      "answer": "Eighteen of the 24 IMF programs the country has ever had were during the Marcos regime, six of which were during his first term before declaring Martial Law in 1972. It also accounted for nearly a hundred World Bank projects, with loans worth some US$5. - The IMF was created following a conference of world leaders at Bretton Woods, N.H., in 1944 and began financial operations on March 1, 1947. Both the IMF and its complementary-though very separate-organization, the World Bank, were established to help stabilize the world economy after World War II. - The IMF's mission is to promote international monetary cooperation and stability, to facilitate the expansion and balanced growth of international trade by maintaining an orderly system of payments, and by lending money to member countries that face serious balance of payments difficulties. In an attempt to launch a national economic recovery program, Marcos negotiated with foreign creditors including the International Bank for Reconstruction and Development, World Bank, and the International Monetary Fund (IMF), for a restructuring of the country's foreign debts – to give the Philippines more time to pay the loans. Marcos ordered a cut in government expenditures and used a portion of the savings to finance the Sariling Sikap (Self-Reliance), a livelihood program he established in 1984. From 1984 the economy began to decline, and continued to do so despite the government's recovery efforts. 1 The conference resulted in the creation of the International Monetary Fund (IMF) and the International Bank for Reconstruction & Development (IBRD) though that quickly became the World Bank. It was intended that the IMF was to maintain a system of fixed exchange rates centered on the U. Ferdinand Marcos Ferdinand Emmanuel Edralín Marcos (September 11, 1917 – September 28, 1989) was President of the Philippines from 1965 to 1986. He was a lawyer, member of the Philippine House of Representatives (1949-1959) and a member of the Philippine Senate (1959-1965). As Philippine president and strongman, Marcos led his country in its post-war reconstruction.",
+      "url": "https://www.ibon.org/tl/marcos-ensured-us-directed-imfwb-intervention-in-ph-policy-making/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any historical evidence linking Ferdinand Marcos and Jose Rizal to the founding of the World Bank and IMF?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "When were the World Bank and the International Monetary Fund officially established?",
+      "answer": "In 1944, the Bretton Woods Agreement established a new international monetary system. The creation of the International Monetary Fund (IMF) and the World Bank were two of its most enduring legacies. The World Bank and the IMF, often called the Bretton Woods Institutions, are twin intergovernmental pillars supporting the structure of the world’s economic and financial order. Both have taken on expanding roles, and there have been renewed calls for additional expansion of their responsibilities, particularly in the continuing absence of a single global monetary agreement. - The IMF was created following a conference of world leaders at Bretton Woods, N.H., in 1944 and began financial operations on March 1, 1947. Both the IMF and its complementary-though very separate-organization, the World Bank, were established to help stabilize the world economy after World War II. - The IMF's mission is to promote international monetary cooperation and stability, to facilitate the expansion and balanced growth of international trade by maintaining an orderly system of payments, and by lending money to member countries that face serious balance of payments difficulties. S. dollar and gold, while the IBRD was responsible for providing financial assistance for the reconstruction of war-ravaged nations and the economic development of less developed countries.2 The IMF and IBRD formally came into existence on December 27, 1945. The World Bank opened it doors on June 25, 19463 and made its first loan in 1947.4 While the Bretton Woods system was in place until President Richard Nixon ended the dollar’s convertibility to gold in 1971, both the IMF and World Bank are still operating today. Today, the IMF is an organization of 190 member countries with approximately 2,700 staff from 150 countries. What is the difference between the World Bank Group and the IMF? Founded at the Bretton Woods conference in 1944, the two institutions have complementary missions. The World Bank Group works with developing countries to reduce poverty and increase shared prosperity, while the International Monetary Fund serves to stabilize the international monetary system and acts as a monitor of the world’s currencies. The World Bank Group provides financing, policy advice, and technical assistance to governments, and also focuses on strengthening the private sector in developing countries. [11][12] The group comprises five organizations, as established over time: - International Bank for Reconstruction and Development (IBRD), 1944 - International Development Association (IDA), 1960 - International Finance Corporation (IFC), 1956 - International Centre for Settlement of Investment Disputes (ICSID), 1965 - Multilateral Investment Guarantee Agency (MIGA), 1988 History [edit]Founding [edit]The World Bank was created at the 1944 Bretton Woods Conference (1–22 July 1944), along with the International Monetary Fund (IMF). The president of the World Bank is traditionally an American. The bank's stated mission is to achieve the twin goals of ending extreme poverty and building shared prosperity. [8][9] Historically, within the group, the IBRD and IDA were collectively known as the World Bank due to their emphasis on global lending. The World Bank was established along with the International Monetary Fund at the 1944 Bretton Woods Conference. Initially, its loans helped rebuild countries devastated by World War II. Over time, it has shifted its focus to development, with a stated mission of eradicating extreme poverty and boosting shared prosperity. 1 The conference resulted in the creation of the International Monetary Fund (IMF) and the International Bank for Reconstruction & Development (IBRD) though that quickly became the World Bank. It was intended that the IMF was to maintain a system of fixed exchange rates centered on the U. The World Bank is part of the broader World Bank Group, which consists of five interrelated institutions: the IBRD; the IDA; the International Finance Corporation (IFC), which was established in 1956; the Multilateral Investment Guarantee Agency (MIGA), which was established in 1988; and the International Centre for Settlement of Investment Disputes (ICSID), which was established in 1966. [9] Established in July 1944 at the Bretton Woods Conference based on the ideas of Harry Dexter White and John Maynard Keynes,[10] the IMF came into formal existence in 1945 with 29 member countries and the goal of reconstructing the international monetary system. For its first three decades, the IMF oversaw the Bretton Woods system of fixed exchange rate arrangements. Following the collapse of this system in 1971, the Fund's role shifted to managing balance-of-payments difficulties and international financial crises, becoming a key institution in the era of globalization. C. instead, noting that \"the institutions would be fatally prejudiced in American opinion if they were placed in New York, since they would then come under the taint of 'international finance'\". [17]: 151 The World Bank Group came into formal existence on 27 December 1946, following international ratification of the Bretton Woods agreements. The Conference also provided the foundation of the Osiander Committee in 1951, responsible for the preparation and evaluation of the World Development Report. [14] The World Bank and the IMF are both based in Washington, D. Abstract The International Monetary Fund was created toward the end of World War II as part of an attempt to build a new, more stable international economic system and avoid the costly mistakes of the previous decades. Over the past 60 years, it has continued to change and adapt. But since its inception, it has been shaped by history and molded by the economic and political ideas of the time. The International Monetary Fund was created toward the end of World War II as part of an attempt to build a new, more stable international economic system and avoid the costly mistakes of the previous decades. Officially, the IMF came into existence in December 1945 with twenty-nine member countries. ↵ - Encyclopedia of the New American Nation, s.v., “International Monetary Fund and World Bank—World Bank Critics on the Right and Left,” accessed June 29, 2010, http://www. International Monetary Fund The International Monetary Fund (IMF) is an international financial institution and a specialized agency of the United Nations, headquartered in Washington, D.C. It consists of 191 member countries, and its stated mission is \"working to foster global monetary cooperation, secure financial stability, facilitate international trade, promote high employment and sustainable economic growth, and reduce poverty around the world\". [8] The IMF acts as a lender of last resort to its members experiencing actual or potential balance of payments crises. The Bretton Woods Conference, officially known as the United Nations Monetary and Financial Conference, was a gathering of delegates from 44 nations that met from July 1 to 22, 1944 in Bretton Woods, New Hampshire, to agree upon a series of new rules for the post-WWII international monetary system. The two major accomplishments of the conference were the creation of the International Monetary Fund (IMF) and the International Bank for Reconstruction and Development (IBRD). The lessons taken by U. S. entry into the IMF and IBRD. The two organizations officially came into existence on December 27, 1945.",
+      "url": "https://courses.lumenlearning.com/cerritos-internationalbusiness/chapter/what-is-the-role-of-the-imf-and-the-world-bank/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/International_Monetary_Fund",
+      "date": "2001-11-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://guides.loc.gov/this-month-in-business-history/july/bretton-woods-conference",
+      "date": "2018-08-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.worldbank.org/en/about/history/the-world-bank-group-and-the-imf",
+      "date": "2019-01-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/World_Bank_Group",
+      "date": "2001-09-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aao.org/biographies-detail/jose-rizal-md",
+      "date": "2017-08-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://hiphilangsci.net/2014/04/23/dr-jose-rizal-and-the-making-of-a-modern-linguistic-messiah/",
+      "date": "2014-04-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ibon.org/tl/marcos-ensured-us-directed-imfwb-intervention-in-ph-policy-making/",
+      "date": "2016-11-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/532525066913734/posts/738886636277575/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aljazeera.com/news/2006/2/22/marcos-legacy-haunts-philippines",
+      "date": "2006-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newworldencyclopedia.org/entry/Ferdinand_Marcos",
+      "date": "1999-12-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1710445832541836/posts/1788052091447876/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rapplerdotcom/posts/the-supposed-royal-family-was-also-said-to-have-paid-marcos-a-huge-sum-of-gold-f/2472329409454494/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://philippinesfreepress.wordpress.com/1966/01/11/ferdinand-e-marcos-man-of-the-year-1965/",
+      "date": "2012-09-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.economist.com/briefing/2016/05/14/fist-of-iron",
+      "date": "2016-05-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://anywhereiwander.com/2011/06/24/%E2%80%9Cthe-marcoses-the-missing-filipino-millions%E2%80%9D/",
+      "date": "2011-06-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://dinmerican.wordpress.com/2018/09/09/ferdinand-e-marcos-president-scholar-or/",
+      "date": "2018-09-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.minneapolisfed.org/article/1999/about-the-international-monetary-fund",
+      "date": "1999-12-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.elibrary.imf.org/view/journals/023/0034/024/article-A002-en.xml",
+      "date": "2006-01-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2001-2009.state.gov/r/pa/ho/time/wwii/98681.htm",
+      "date": "2008-01-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://courses.lumenlearning.com/cerritos-internationalbusiness/chapter/what-is-the-role-of-the-imf-and-the-world-bank/",
+      "date": "2009-03-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 205,
+     "n_urls_after_bm25": 18,
+     "n_chunks": 1442
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "On the World Bank’s website and the IMF’s website, it states both entities were conceived and established in 1944, following the Bretton Woods agreement on a global economic framework post-World War II.  ",
+   "questions": [
+    {
+     "question": "When was Fredinand Marcos president of the Philippines?",
+     "answers": [
+      {
+       "answer": "Ferdinand Marcos was president of the Philippines from 1965 to 1986.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20201113200103/http://www.officialgazette.gov.ph/featured/the-fall-of-the-dictatorship/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "When was Jose Rizal executed?",
+     "answers": [
+      {
+       "answer": "Filipino nationalist Jose Rizal was executed in 1896. His death fueled nationalist sentiment against Spanish colonial rule.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210127061518/https://www.biography.com/political-figure/jos%C3%A9-rizal",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "When was the World bank established?",
+     "answers": [
+      {
+       "answer": "On the World Bank’s website and the IMF’s website, it states both entities were conceived and established in 1944, following the Bretton Woods agreement on a global economic framework post-World War II.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210127061518/https://www.worldbank.org/en/about/archives/history#:~:text=Conceived%20in%201944%20at%20the,1947%20for%20post%2Dwar%20reconstruction",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210127061518/https://factcheck.afp.com/misleading-claim-circulates-world-bank-and-imf-were-established-former-dictator-ferdinand-marcos-and",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The World Bank and the International Monetary Fund (IMF) were conceived and established in 1944 following the 1944 Bretton Woods conference/agreement in the US, which occurred five decades after Jose Rizal's death and two decades before Ferdinand Marcos was elected president.",
+     "support_span": "the World Bank and the IMF were established following the 1944 Bretton Woods conference in the US | the World Bank and the IMF were established following the 1944 Bretton Woods conference in the US, five decades after Rizal’s death | two decades before Marcos was elected president | On the World Bank’s website here [https://www.worldbank.org/en/about/archives/history#:~:text=Conceived%20in%201944%20at%20the,1947%20for%20post%2Dwar%20reconstruction] and the IMF’s website here [https://www.imf.org/external/about/histcoop.htm] , it states both entities were conceived and established in 1944, following the Bretton Woods agreement"
+    },
+    {
+     "statement": "Jose Rizal was executed in 1896, and Ferdinand Marcos served as president of the Philippines from 1965 to 1986.",
+     "support_span": "Jose Rizal [https://www.biography.com/political-figure/jos%C3%A9-rizal] was executed in 1896. | Ferdinand Marcos [https://www.officialgazette.gov.ph/featured/the-fall-of-the-dictatorship/] was president of the Philippines from 1965 to 1986."
+    },
+    {
+     "statement": "The World Bank issued a statement saying that Karen Hudes is not authorized to represent the World Bank Group and her claims should not be viewed as credible, and Karen Hudes' legal suit against the World Bank was dismissed by a US district court in 2011 and her appeal was lost in 2012.",
+     "support_span": "This [https://www.worldbank.org/en/news/press-release/2014/07/08/statement-former-staff-karen-hudes] World Bank statement, published July 8, 2014 states: “Karen Hudes has not been employed by the World Bank since 2007 and is in no capacity authorized to represent any arm of the World Bank Group. Any claims otherwise by Ms. Hudes or her proxies are false and should not be viewed as credible.” | A US district court dismissed [https://www.govinfo.gov/content/pkg/USCOURTS-dcd-1_10-cv-01444/pdf/USCOURTS-dcd-1_10-cv-01444-0.pdf] her suit in 2011 and she lost her appeal [https://www.cadc.uscourts.gov/internet/judgments.nsf/714BDB4E5B6987FD85257FCB0065F215/$file/11-7109-1405879.pdf] in 2012."
+    }
+   ],
+   "justification": "The evidence indicates that the World Bank and the International Monetary Fund (IMF) were established in 1944 following the Bretton Woods conference. This timeline contradicts the claim, as Jose Rizal was executed in 1896 (five decades before the institutions' establishment) and Ferdinand Marcos did not become president until 1965 (two decades after their establishment).",
+   "article_url": "https://web.archive.org/web/20210127061518/https://factcheck.afp.com/misleading-claim-circulates-world-bank-and-imf-were-established-former-dictator-ferdinand-marcos-and",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

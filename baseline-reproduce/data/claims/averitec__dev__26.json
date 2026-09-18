@@ -1,0 +1,393 @@
+{
+ "key": "averitec/dev/26",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 26,
+ "claim": "Ivermectin is a treatment for coronavirus.",
+ "claim_date": "2020-10-26",
+ "speaker": "Pearson Sharp",
+ "reporting_source": "One America News Network,",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim \"Ivermectin is a treatment for coronavirus,\" we evaluate the provided evidence as follows:\n\n1.  **Analyze the Claim:** The claim asserts that Ivermectin is a treatment for coronavirus (COVID-19).\n2.  **Evaluate Evidence (Q1-Q8):** \n    *   **Q1, Q3, Q6, and Q7** explicitly state that there is insufficient clinical evidence to conclude that Ivermectin is a safe or effective treatment for COVID-19 in humans. They emphasize that while it shows promise in *in vitro* (laboratory cell culture) settings, these results have not translated to human efficacy in large-scale, gold-standard randomized controlled trials.\n    *   **Q4** states that the FDA does not approve or recommend Ivermectin for COVID-19 and has warned against self-medication.\n    *   **Q5** states it has not been proven effective as a prophylactic (preventative) measure.\n    *   **Q8** notes that approved human dosages are unlikely to reach the concentrations necessary to inhibit the virus in the lungs.\n3.  **Evaluate Evidence (Q9-Q10):** These answers suggest that certain provided texts do not mention Ivermectin, but the preceding answers (Q1-Q8) provide direct, substantive evidence regarding the drug's lack of proven efficacy and safety for COVID-19.\n4.  **Synthesize Findings:** The collective evidence from the question-answer pairs consistently refutes the claim. The evidence distinguishes between laboratory success (*in vitro*) and clinical failure/lack of evidence in humans, concluding that Ivermectin is not a proven, approved, or recommended treatment for COVID-19.\n\n**Conclusion:** The claim that Ivermectin is a treatment for coronavirus is directly contradicted by the clinical evidence and regulatory stances provided.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is there sufficient clinical evidence to conclude that ivermectin is a safe and effective treatment for COVID-19 in humans?",
+      "answer": "No, there is currently insufficient clinical evidence to conclude that ivermectin is a safe or effective treatment or cure for COVID-19 in humans. \n\nWhile preliminary *in vitro* studies showed the drug could inhibit SARS-CoV-2 replication in cultured cells, large-scale research has not supported its clinical use; specifically, a study published in *The New England Journal of Medicine* found no significant effects of ivermectin on COVID-19 outcomes. Because of this lack of evidence, health organizations like the FDA have warned against self-medication and emphasized that further rigorous, peer-reviewed clinical trials are required to determine the drug's actual safety and efficacy for human patients.",
+      "url": "https://www.snopes.com/fact-check/ivermectin-cure-coronavirus/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the effectiveness of Ivermectin in reducing SARS-CoV-2 viral RNA in laboratory cell cultures mean it is a proven treatment for COVID-19 in humans?",
+      "answer": "No, the effectiveness of Ivermectin in reducing SARS-CoV-2 viral RNA in laboratory cell cultures does not mean it is a proven treatment for COVID-19 in humans.\n\nAccording to the evidence, while researchers found that Ivermectin significantly reduced viral RNA in *in vitro* (cell culture) settings, they cautioned that these results were obtained in a laboratory setting. The researchers emphasized that human trials are necessary to determine the drug's efficacy, safety, and appropriate dosage for treating COVID-19 patients.",
+      "url": "https://www.news-medical.net/news/20200406/Antiparasitic-drug-Ivermectin-kills-coronavirus-in-48-hours.aspx",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has Ivermectin been proven to be an effective treatment for COVID-19 in humans?",
+      "answer": "No, Ivermectin has not been proven to be an effective treatment for COVID-19 in humans. \n\nWhile research (such as that from Monash University and the Doherty Institute) has demonstrated that the drug can significantly reduce SARS-CoV-2 replication *in vitro* (in a laboratory setting), experts caution that there is currently insufficient evidence to support its use in humans. Medical professionals note that the high dosages required to achieve the results seen in laboratory settings may be impossible to safely replicate in the human body. Furthermore, many clinicians emphasize that these promising laboratory findings have not yet been validated through high-quality, randomized controlled clinical trials. As a result, experts maintain that the drug should currently only be used within the context of formal clinical studies.",
+      "url": "https://www1.racgp.org.au/newsgp/clinical/insufficient-evidence-to-currently-support-ivermec",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Ivermectin an approved or recommended treatment for COVID-19 according to the FDA?",
+      "answer": "No, according to the FDA, ivermectin is not an approved or recommended treatment for COVID-19. The FDA has advised against its use for this purpose outside of clinical trials.",
+      "url": "https://www.facebook.com/newscentermaine/posts/while-some-have-floated-the-anti-parasitic-drug-ivermectin-as-a-possible-covid-1/10157882201109613/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is ivermectin an effective treatment or prophylactic for COVID-19?",
+      "answer": "No, ivermectin for human use has not been proven effective as a prophylactic medication for COVID-19 and should not be used as a prevention measure. Additionally, the MOH and Reimers Feed Mill have warned against using animal-grade ivermectin for this purpose, noting that the version approved for animals is different from the version approved for humans.",
+      "url": "https://www.facebook.com/hotoffthepressbz/posts/moh-and-reimers-feed-mill-issues-statements-on-human-usage-of-ivermectinthe-offi/2783707025282423/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there sufficient clinical evidence to support the use of ivermectin as an effective and safe treatment for COVID-19?",
+      "answer": "No, there is currently no sufficient clinical evidence to support the use of ivermectin as an effective and safe treatment for COVID-19. \n\nAccording to the evidence, while ivermectin is a safe and effective anti-parasitic drug, its application against SARS-CoV-2 is uncertain because there is a \"significant gap\" between the concentrations required to show antiviral properties in laboratory settings (*in vitro*) and the levels that can be achieved in human blood. Furthermore, the text states that there is \"no robust evidence from gold-standard randomized controlled trials\" to support its use for this specific purpose. Because of this lack of evidence, researchers are still conducting clinical trials, such as the SAINT trial, to determine if the drug possesses any biological effect against the virus.",
+      "url": "https://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/questions-and-answers-about-ivermectin-and-covid-19/2877257/0",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the efficacy and safety of Ivermectin as a treatment for COVID-19 been confirmed through clinical trials in humans?",
+      "answer": "No, the efficacy and safety of Ivermectin as a treatment for COVID-19 have not been confirmed through clinical trials in humans. While *in vitro* studies have demonstrated significant efficacy against SARS-CoV-2, the evidence notes that these results have not always translated consistently in animal models. The provided text emphasizes that \"rigorous clinical trials in humans are essential to confirm its safety and efficacy in a clinical setting.\"",
+      "url": "https://www.nature.com/articles/s41429-020-0336-z",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is ivermectin an effective treatment for COVID-19 at approved human dosages?",
+      "answer": "Based on the provided evidence, it is unlikely that ivermectin is an effective treatment for COVID-19 at approved human dosages. \n\nPharmacokinetic simulations indicate that the approved oral dose of ivermectin—and even doses ten times higher—is unlikely to reach the concentration required to inhibit SARS-CoV-2 (the IC50) in the lungs. Because the drug does not reach clinically relevant concentrations at the site of action, researchers conclude that the likelihood of success for clinical trials using the approved dose is low.",
+      "url": "https://ascpt.onlinelibrary.wiley.com/doi/10.1002/cpt.1889",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence provided support the claim that Ivermectin is a treatment for coronavirus?",
+      "answer": "No, the provided evidence does not support the claim that Ivermectin is a treatment for coronavirus. The evidence focuses exclusively on the drug remdesivir and the administration's management of its distribution; it makes no mention of Ivermectin.",
+      "url": "https://www.facebook.com/RepLloydDoggett/posts/discussed-with-stat-below-the-latest-on-the-coronavirus-treatment-remdesivir-my-/10157722155598705/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Ivermectin is a treatment for coronavirus?",
+      "answer": "No, the provided evidence does not support the claim that Ivermectin is a treatment for coronavirus. The text focuses on discussions regarding the origin and spread of the virus, the importance of understanding basic biology, and the reliability of media and social media comments, but it does not mention Ivermectin or its efficacy as a medical treatment.",
+      "url": "https://www.facebook.com/Prof.Yuval.Noah.Harari/posts/if-somebody-tries-to-convince-you-of-a-conspiracy-theory-about-the-origin-and-sp/2818236678257306/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.nature.com/articles/s41429-020-0336-z",
+      "date": "2020-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www1.racgp.org.au/newsgp/clinical/insufficient-evidence-to-currently-support-ivermec",
+      "date": "2020-08-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/questions-and-answers-about-ivermectin-and-covid-19/2877257/0",
+      "date": "2020-08-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.news-medical.net/news/20200406/Antiparasitic-drug-Ivermectin-kills-coronavirus-in-48-hours.aspx",
+      "date": "2020-04-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ascpt.onlinelibrary.wiley.com/doi/10.1002/cpt.1889",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/newscentermaine/posts/while-some-have-floated-the-anti-parasitic-drug-ivermectin-as-a-possible-covid-1/10157882201109613/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/JPHMPDirect/posts/drs-john-marr-and-lloyd-f-novick-discuss-smarter-public-health-strategies-to-com/2942903639086068/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/ivermectin-cure-coronavirus/",
+      "date": "2020-08-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/RepLloydDoggett/posts/discussed-with-stat-below-the-latest-on-the-coronavirus-treatment-remdesivir-my-/10157722155598705/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Prof.Yuval.Noah.Harari/posts/if-somebody-tries-to-convince-you-of-a-conspiracy-theory-about-the-origin-and-sp/2818236678257306/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hotoffthepressbz/posts/moh-and-reimers-feed-mill-issues-statements-on-human-usage-of-ivermectinthe-offi/2783707025282423/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 11,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. **Claim Analysis**: The claim made by Pearson Sharp on October 26, 2020, via One America News Network, is that \"Ivermectin is a treatment for coronavirus.\" This is a definitive statement of efficacy regarding a medical treatment for COVID-19.\n\n2. **Evidence Assessment**:\n    * **Scientific Context (Late 2020)**: Multiple sources (Nature, Wikipedia, The Conversation, ISGlobal) indicate that while *in vitro* (laboratory/test tube) studies showed ivermectin could inhibit SARS-CoV-2, the concentrations required to achieve this were significantly higher than what is safe or achievable in the human bloodstream (Q1, A4, A6, A12).\n    * **Regulatory Status**: As of the claim date, the FDA had issued warnings against using ivermectin for COVID-19 and emphasized it should not be used outside of clinical trials (Q1, A5, Q2, A9). Major health authorities (FDA, CDC, WHO) had not approved it as a treatment.\n    * **Clinical Efficacy**: Evidence suggests that clinical research determined ivermectin was not effective for treating COVID-19 (Q1, A3) and that many studies suggesting benefits were based on flawed methodologies or low-quality data (Q1, A4, Q1, A13).\n    * **Safety Risks**: Using ivermectin at the high doses required to potentially match laboratory results poses serious risks, including nausea, dizziness, and toxicity (Q4, A1, Q1, A20).\n\n3. **Contradictions / Gaps / Biases**: The claim presents ivermectin as an established \"treatment,\" whereas the scientific and regulatory evidence from the same period characterizes it as an \"unproven method\" or a \"potential candidate\" requiring further clinical trials, with a low likelihood of success at approved human doses.\n\n4. **Conclusion**: The claim is a definitive statement of fact (\"is a treatment\") that is directly contradicted by the scientific consensus and regulatory guidance available at the time of the claim. While there was early interest due to *in vitro* studies, those studies did not translate to effective human treatment, and health authorities explicitly warned against its use for this purpose.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the scientific consensus regarding the use of Ivermectin as a treatment for COVID-19 as of late 2020?",
+      "answer": "Ivermectin: a systematic review from antiviral effects to COVID-19 complementary regimen. J Antibiot 73, 593–602 (2020). https://doi. Of course, confirmation of this statement requires human studies and clinical trials. Ivermectin, owing to its antiviral activity, may play a pivotal role in several essential biological processes, therefore it could serve as a potential candidate in the treatment of different types of viruses including COVID-19. Clinical trials are necessary to appraise the effects of ivermectin on COVID-19 in clinical setting and this warrants additional investigation for probable benefits in humans in the current and future pandemics. [159] Clinical research subsequently determined ivermectin is not effective for treating COVID-19. [154][155] The agency has prohibited the use of the untested drug, and the clinic illegally promoting it subsequently closed. [156][157] - Ivermectin, a medication used to treat parasitic infections, was suggested as a possible COVID-19 treatment in an online preprint which utilized a flawed statistical methodology. [158] Importantly, the concentration of the drug that was required to achieve the antiviral effects observed in cell culture was several times higher than what can be achieved in the bloodstream of patients. On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 [43] referring to recently published in vitro study on this subject [15]. FDA highlighted that this type of in vitro study is usually used in the early stages of drug development. Moreover, further trials are needed to confirm the safety and efficacy of ivermectin for human use against COVID-19 to discover preventive or therapeutic window [43]. , 2000). DISCUSSION The in vitro studies showing that ivermectin inhibited SARS-CoV-21 were conducted at concentrations that were substantially higher than predicted plasma and lung concentrations in humans receiving the approved dose of ivermectin. Therefore, the likelihood of a successful clinical trial using the approved dose of ivermectin is low. If a clinical trial is conducted, a well-controlled dose-response study should be considered and the feasibility of ivermectin as an inhaled treatment should be evaluated. The head lice drug ivermectin has yet again been touted in the media as a possible treatment for COVID-19. But despite the favourable headlines, huge uncertainty remains about whether this treatment can be safely and effectively repurposed to tackle the coronavirus. In recent weeks the media has been awash with claims ivermectin, when given in combination with the common antibiotic doxycycline and zinc supplements, is effectively a “cure” for COVID-19. Yet there has been no definitive clinical trial so far showing this is the case. This is for good reasons. Lessons have been learned after some serious tragedies. The main requisites for approving a drug to be used at population level is proven efficacy and safety. For ivermectin, there is robust evidence of safety when used for the approved indication at the approved doses. There is very limited evidence about the safety of ivermectin at higher doses (see table link above) and even less evidence for its safety when used in COVID-19 patients that tend to have proinflammatory states. Although a few medications have received Emergency Use Authorization for COVID-19 treatment, no proven treatment has been found as yet. A recent in vitro study showed that ivermectin was active against COVID-19-infected cell lines [15]. R. Ivermectin and novel coronavirus disease (COVID-19): keeping rigor in times of urgency. Am. J. Trop. Med. Hyg. https://doi. et al. Nebulized ivermectin for COVID-19 and other respiratory diseases, a proof of concept, dose-ranging study in rats. Sci Rep 10, 17073 (2020). https://doi. The Approved Dose of Ivermectin Alone is not the Ideal Dose for the Treatment of COVID-19 Abstract Caly et al.1 reported that ivermectin inhibited severe acute respiratory syndrome-coronavirus 2 (SARS-CoV-2) in vitro for up to 48 hours using ivermectin at 5 μM. The concentration resulting in 50% inhibition (IC50; 2 µM) was > 35× higher than the maximum plasma concentration (Cmax) after oral administration of the approved dose of ivermectin when given fasted. The World Health Organisation’s database of clinical studies for COVID-19 shows there are currently 16 trials investigating ivermectin. Even these studies are unlikely to provide the high-quality data necessary to show ivermectin can actually provide its touted benefits. Many of the current studies have low numbers of participants, weak study designs, and inconsistent (and relatively low) ivermectin dosing regimes, with ivermectin frequently given in combination with other drugs. published their in vitro results about ivermectin and SARS-CoV-2, the research world and the general public was pulled into two extreme and opposite views about this topic. One group called for an early kill of the drug for its use against COVID-19, because the effective concentrations reported by Caly et al. were too high to be achieved in vivo and therefore any effort invested in pursuing this would be a waste and generate a false sense of hope. While some have floated the anti-parasitic drug ivermectin as a possible COVID-19 treatment, the FDA has stressed it shouldn't be used outside of clinical trials. 所有心情： 15条评论 1 次分享 赞 评论 最相关 John Richardson If there is a viable treatment already on the market this would put an end to the vaccines that are being hurried along by law. In the laboratory trial, the single dose of ivermectin [Mectizan®] slashed the growth of SARS-CoV-2 by 5000-times within 48 hours, reported the study published in Antiviral Research last Friday. Clinical trials would be needed to determine if there is a dose of ivermectin that is both safe for humans and effective against the SARS-CoV-2, and even expedited human safety trials can take time, a WHO scientist told Health Policy Watch. 11, 12 If a clinical study is conducted with ivermectin, it would be important to conduct a well-controlled clinical dose-response study with ivermectin at a low dose (the approved dose, with lower likelihood of success) and at a higher dose relative to placebo in patients with COVID-19. The ideal higher dose of ivermectin has not been established. org/10.1038/s41598-020-74084-y Received: Accepted: Published: Version of record: DOI: https://doi.org/10.1038/s41598-020-74084-y Comments - This is a very interesting contribution to the field of ivermectin evaluation as a potential drug for COVID-19. Unfortunately the authors have stated that ivermectin has been previously found by Krause et al. to have a comparatively low α7-nAChR IC50 of 0. The authors acknowledged that the drug may have antiviral effects by inhibiting the importin (IMP) α/β receptor, which is responsible for transmitting viral proteins into the host cell nucleus. The authors proposed human studies to confirm the potential benefits of ivermectin in the treatment of COVID-19. Although this study was the first to confirm the antiviral effect of ivermectin on COVID-19 [15], other studies examined the antiviral effects of the drug on both RNA and DNA viruses, which are summarized in Table 1. Still, the concentrations of ivermectin that were demonstrated as effective against SARS-CoV-2 in the laboratory cell culture experiments are “far beyond” dosage levels approved by the FDA to safely treat river blindness in humans, warned the Mectizan Donation Program, in an Expert Committee Statement, issued on Tuesday. High doses of ivermectin have shown “serious toxicity” in animal studies, they added.",
+      "url": "https://www.nature.com/articles/s41429-020-0336-z",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the FDA or other major health authorities approve Ivermectin for the treatment of coronavirus by October 2020?",
+      "answer": "On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 [43] referring to recently published in vitro study on this subject [15]. FDA highlighted that this type of in vitro study is usually used in the early stages of drug development. Moreover, further trials are needed to confirm the safety and efficacy of ivermectin for human use against COVID-19 to discover preventive or therapeutic window [43]. Although a few medications have received Emergency Use Authorization for COVID-19 treatment, no proven treatment has been found as yet. A recent in vitro study showed that ivermectin was active against COVID-19-infected cell lines [15]. , Jans, D. & Wagstaff, K. M. The FDA-approved drug ivermectin inhibits the replication of SARS-CoV-2 in vitro. Antivir. Res. https://doi. The head lice drug ivermectin has yet again been touted in the media as a possible treatment for COVID-19. But despite the favourable headlines, huge uncertainty remains about whether this treatment can be safely and effectively repurposed to tackle the coronavirus. In recent weeks the media has been awash with claims ivermectin, when given in combination with the common antibiotic doxycycline and zinc supplements, is effectively a “cure” for COVID-19. Yet there has been no definitive clinical trial so far showing this is the case. [159] Clinical research subsequently determined ivermectin is not effective for treating COVID-19. Still, the concentrations of ivermectin that were demonstrated as effective against SARS-CoV-2 in the laboratory cell culture experiments are “far beyond” dosage levels approved by the FDA to safely treat river blindness in humans, warned the Mectizan Donation Program, in an Expert Committee Statement, issued on Tuesday. High doses of ivermectin have shown “serious toxicity” in animal studies, they added. [154][155] The agency has prohibited the use of the untested drug, and the clinic illegally promoting it subsequently closed. [156][157] - Ivermectin, a medication used to treat parasitic infections, was suggested as a possible COVID-19 treatment in an online preprint which utilized a flawed statistical methodology. [158] Importantly, the concentration of the drug that was required to achieve the antiviral effects observed in cell culture was several times higher than what can be achieved in the bloodstream of patients. The Approved Dose of Ivermectin Alone is not the Ideal Dose for the Treatment of COVID-19 Abstract Caly et al.1 reported that ivermectin inhibited severe acute respiratory syndrome-coronavirus 2 (SARS-CoV-2) in vitro for up to 48 hours using ivermectin at 5 μM. The concentration resulting in 50% inhibition (IC50; 2 µM) was > 35× higher than the maximum plasma concentration (Cmax) after oral administration of the approved dose of ivermectin when given fasted. While some have floated the anti-parasitic drug ivermectin as a possible COVID-19 treatment, the FDA has stressed it shouldn't be used outside of clinical trials. 所有心情： 15条评论 1 次分享 赞 评论 最相关 John Richardson If there is a viable treatment already on the market this would put an end to the vaccines that are being hurried along by law. , 2000). DISCUSSION The in vitro studies showing that ivermectin inhibited SARS-CoV-21 were conducted at concentrations that were substantially higher than predicted plasma and lung concentrations in humans receiving the approved dose of ivermectin. Therefore, the likelihood of a successful clinical trial using the approved dose of ivermectin is low. If a clinical trial is conducted, a well-controlled dose-response study should be considered and the feasibility of ivermectin as an inhaled treatment should be evaluated. Ivermectin: a systematic review from antiviral effects to COVID-19 complementary regimen. J Antibiot 73, 593–602 (2020). https://doi. gov, there are 34 trials using ivermectin in COVID-19 patients, of these 31 are still active (as of 17/august/2020). None of the trials marked as completed have results available in that platform. Big pharma does not want ivermectin to be used because they want to profit from more expensive drugs! \"Ivermectin won't treat COVID-19, but it might kill you, CDC warns\". livescience.com. Retrieved September 5, 2021. fda.gov/animal-veterinary/product-safety-information/fda-letter-stakeholders-do-not-use-ivermectin-intended-animals-treatment-covid-19-humans. Accessed 5 May 2020. Canga AG, Prieto AM, Liébana MJ, Martínez NF, Vega MS, Vieitez JJ. This is for good reasons. Lessons have been learned after some serious tragedies. The main requisites for approving a drug to be used at population level is proven efficacy and safety. For ivermectin, there is robust evidence of safety when used for the approved indication at the approved doses. There is very limited evidence about the safety of ivermectin at higher doses (see table link above) and even less evidence for its safety when used in COVID-19 patients that tend to have proinflammatory states. The Royal Australian Council of General Practitioners and the Australian Commission for Quality and Safety in Health Care have warned there is insufficient evidence ivermectin is a safe and effective treatment for people infected with the coronavirus. What do we know about ivermectin for COVID-19? [160] The promotion of ivermectin as a COVID-19 treatment has led to increases in ivermectin-related poison control centre calls in the United States,[161] as well as national shortages of the drug in Australia. [162] Anti-fraud efforts [edit]References [edit]- 1 2 3 4 Office of the Commissioner (April 1, 2020). \"Beware of Fraudulent Coronavirus Tests, Vaccines and Treatments\". - WHAT DOES THIS STUDY ADD TO OUR KNOWLEDGE? ☑ Ivermectin is unlikely to reach the IC50 in the lungs after oral administration of the approved dose or doses 10× higher than the approved doses as a single dose. The approved dose of ivermectin alone has a low probability of a success in the treatment of cornonavirus disease 2019 (COVID-19). - HOW MIGHT THIS CHANGE CLINICAL PHARMACOLOGY OR TRANSLATIONAL SCIENCE? Ivermectin was identified in late 1970s and first approved for animal use in 1981. Its potential use in humans was confirmed a few years later. Subsequently, William C.",
+      "url": "https://www.nature.com/articles/s41429-020-0336-z",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What were the findings of large-scale clinical studies regarding Ivermectin and COVID-19 during the period the claim was made?",
+      "answer": "In the laboratory trial, the single dose of ivermectin [Mectizan®] slashed the growth of SARS-CoV-2 by 5000-times within 48 hours, reported the study published in Antiviral Research last Friday. Clinical trials would be needed to determine if there is a dose of ivermectin that is both safe for humans and effective against the SARS-CoV-2, and even expedited human safety trials can take time, a WHO scientist told Health Policy Watch. [159] Clinical research subsequently determined ivermectin is not effective for treating COVID-19. The World Health Organisation’s database of clinical studies for COVID-19 shows there are currently 16 trials investigating ivermectin. Even these studies are unlikely to provide the high-quality data necessary to show ivermectin can actually provide its touted benefits. Many of the current studies have low numbers of participants, weak study designs, and inconsistent (and relatively low) ivermectin dosing regimes, with ivermectin frequently given in combination with other drugs. Results The antiviral effects of ivermectin on RNA viruses COVID-19 In a recent in vitro study, the Vero/hSLAM cells infected with the SARS-CoV-2 or COVID-19 virus were exposed to 5 µM ivermectin in 48 h, and a 5000-fold reduction in viral RNA compared with control was found [15]. The results showed that treatment with ivermectin effectively kills almost all viral particles within 48 h. The study was the first to assess the antiviral effect of ivermectin on COVID-19. Of course, confirmation of this statement requires human studies and clinical trials. Ivermectin, owing to its antiviral activity, may play a pivotal role in several essential biological processes, therefore it could serve as a potential candidate in the treatment of different types of viruses including COVID-19. Clinical trials are necessary to appraise the effects of ivermectin on COVID-19 in clinical setting and this warrants additional investigation for probable benefits in humans in the current and future pandemics. published their in vitro results about ivermectin and SARS-CoV-2, the research world and the general public was pulled into two extreme and opposite views about this topic. One group called for an early kill of the drug for its use against COVID-19, because the effective concentrations reported by Caly et al. were too high to be achieved in vivo and therefore any effort invested in pursuing this would be a waste and generate a false sense of hope. The Caly et al. in vitro report which made emphatic claims given the doses used set the stage for ivermectin but it was quickly followed by what seems to be fraudulent report showing alleged excellent results in a case-control study. , 2000). DISCUSSION The in vitro studies showing that ivermectin inhibited SARS-CoV-21 were conducted at concentrations that were substantially higher than predicted plasma and lung concentrations in humans receiving the approved dose of ivermectin. Therefore, the likelihood of a successful clinical trial using the approved dose of ivermectin is low. If a clinical trial is conducted, a well-controlled dose-response study should be considered and the feasibility of ivermectin as an inhaled treatment should be evaluated. [154][155] The agency has prohibited the use of the untested drug, and the clinic illegally promoting it subsequently closed. [156][157] - Ivermectin, a medication used to treat parasitic infections, was suggested as a possible COVID-19 treatment in an online preprint which utilized a flawed statistical methodology. [158] Importantly, the concentration of the drug that was required to achieve the antiviral effects observed in cell culture was several times higher than what can be achieved in the bloodstream of patients. 11, 12 If a clinical study is conducted with ivermectin, it would be important to conduct a well-controlled clinical dose-response study with ivermectin at a low dose (the approved dose, with lower likelihood of success) and at a higher dose relative to placebo in patients with COVID-19. The ideal higher dose of ivermectin has not been established. On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 [43] referring to recently published in vitro study on this subject [15]. FDA highlighted that this type of in vitro study is usually used in the early stages of drug development. Moreover, further trials are needed to confirm the safety and efficacy of ivermectin for human use against COVID-19 to discover preventive or therapeutic window [43]. Several ISGlobal researchers played a key role in unveiling the #LancetGate scandal about hydroxychloroquine and ivermectin. Additional trials are ongoing and their results will be disseminated in due time. Ivermectin: a systematic review from antiviral effects to COVID-19 complementary regimen. J Antibiot 73, 593–602 (2020). https://doi. Laboratory studies using monkey cells in a test tube (as opposed to clinical studies in human patients) have shown ivermectin can shut down the replication of SARS-CoV-2, the coronavirus that causes COVID-19, within 24-48 hours of exposure to the drug. Ivermectin is thought to inhibit the virus by preventing viral proteins moving in and out of the host cell’s nucleus, which is essential for replication of the coronavirus. The problem is this process requires very high concentrations of ivermectin – well above the recommended dose for humans. Still, the concentrations of ivermectin that were demonstrated as effective against SARS-CoV-2 in the laboratory cell culture experiments are “far beyond” dosage levels approved by the FDA to safely treat river blindness in humans, warned the Mectizan Donation Program, in an Expert Committee Statement, issued on Tuesday. High doses of ivermectin have shown “serious toxicity” in animal studies, they added. The authors acknowledged that the drug may have antiviral effects by inhibiting the importin (IMP) α/β receptor, which is responsible for transmitting viral proteins into the host cell nucleus. The authors proposed human studies to confirm the potential benefits of ivermectin in the treatment of COVID-19. Although this study was the first to confirm the antiviral effect of ivermectin on COVID-19 [15], other studies examined the antiviral effects of the drug on both RNA and DNA viruses, which are summarized in Table 1. et al. Nebulized ivermectin for COVID-19 and other respiratory diseases, a proof of concept, dose-ranging study in rats. Sci Rep 10, 17073 (2020). https://doi. Recently, an article by Caly et al.1 reported that ivermectin inhibited severe acute respiratory syndrome-coronavirus 2 (SARS-CoV-2) in vitro causing an ~ 5,000-fold reduction in viral RNA at 48 hours with ivermectin at 5 μM. showed a significant reduction of SARS-CoV-2 replication after incubating Vero cells, a cell line derived from African Green Monkey kidney epithelial cells, for 48 h with ivermectin concentrations not readily attainable in vivo10. Yet, these findings stirred widespread interest and together with a preprint report of potential benefit of a single dose of ivermectin 150 ug/kg on in-hospital mortality has resulted in extensive use of ivermectin for the treatment or prevention of COVID-19, particularly in Latin-America. The head lice drug ivermectin has yet again been touted in the media as a possible treatment for COVID-19. But despite the favourable headlines, huge uncertainty remains about whether this treatment can be safely and effectively repurposed to tackle the coronavirus. In recent weeks the media has been awash with claims ivermectin, when given in combination with the common antibiotic doxycycline and zinc supplements, is effectively a “cure” for COVID-19. Yet there has been no definitive clinical trial so far showing this is the case.",
+      "url": "https://healthpolicy-watch.news/bcg-ivermectin-can-old-solutions-be-repurposed-for-covid-19/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the potential risks associated with using Ivermectin for COVID-19 as highlighted by medical professionals?",
+      "answer": "Repurposing ivermectin as a “cure” for COVID-19 would require massive doses, which would substantially increase the risk of side effects such as nausea, rash, dizziness, immune suppression, abdominal pain, fever, raised heart rate and unstable blood pressure. ) lead to misuse. Ivermectin is widely available as a veterinary drug. If there is a perception that ivermectin is beneficial for COVID-19 patients, it is foreseeable that the veterinary formulations will be used at scale and this unsupervised use may lead to overdosing and other harmful practices. The US FDA has issued a warning about using ivermectin veterinary products. R. Ivermectin and novel coronavirus disease (COVID-19): keeping rigor in times of urgency. Am. J. Trop. Med. Hyg. https://doi. Of course, confirmation of this statement requires human studies and clinical trials. Ivermectin, owing to its antiviral activity, may play a pivotal role in several essential biological processes, therefore it could serve as a potential candidate in the treatment of different types of viruses including COVID-19. Clinical trials are necessary to appraise the effects of ivermectin on COVID-19 in clinical setting and this warrants additional investigation for probable benefits in humans in the current and future pandemics. [154][155] The agency has prohibited the use of the untested drug, and the clinic illegally promoting it subsequently closed. [156][157] - Ivermectin, a medication used to treat parasitic infections, was suggested as a possible COVID-19 treatment in an online preprint which utilized a flawed statistical methodology. [158] Importantly, the concentration of the drug that was required to achieve the antiviral effects observed in cell culture was several times higher than what can be achieved in the bloodstream of patients. This is for good reasons. Lessons have been learned after some serious tragedies. The main requisites for approving a drug to be used at population level is proven efficacy and safety. For ivermectin, there is robust evidence of safety when used for the approved indication at the approved doses. There is very limited evidence about the safety of ivermectin at higher doses (see table link above) and even less evidence for its safety when used in COVID-19 patients that tend to have proinflammatory states. These pro-inflammatory states may increase the penetration of ivermectin into the central nervous system with unknown consequences (see safety above). Other potential issues include drug-drug interactions with some antivirals given to COVID-19 patients such as ritonavir which may increase the levels of ivermectin. Given the absence of reasonable evidence that ivermectin has any efficacy against SARS-CoV-2, the risk-benefit analysis dictates that we should be prudent Given the absence of reasonable evidence that ivermectin has any efficacy against SARS-CoV-2, the risk-benefit analysis dictates that we should be prudent, i.e. evaluate the efficacy (and safety in this context) before taking ivermectin to the population level. The Royal Australian Council of General Practitioners and the Australian Commission for Quality and Safety in Health Care have warned there is insufficient evidence ivermectin is a safe and effective treatment for people infected with the coronavirus. What do we know about ivermectin for COVID-19? The in vitro potency of ivermectin against Covid-19 virus is a testimony that this drug can be utilized to manage those patients who have been infected with SARS-CoV-2. Since the conditions in which the virus replicates and infects the cells in vivo and in vitro differs, a decisive comment about how ivermectin may prove to be beneficial to the patients cannot be constructed yet. Similarly, any disparity in the pharmacokinetic properties of this drug and the unidentified drug interactions which may occur under such conditions are yet to be recognized and remarked on. Experts must, therefore, evaluate whether ivermectin possesses the ideal properties for inhalation, and whether inhalation of ivermectin poses any theoretical risks that might limit this route of administration. Nevertheless if compared with the other pharmacotherapeutic options for the management of Covid-19 infection, ivermectin may prove to have leverage over them. In addition to a different mechanism of action, there are other facets as well in which this drug may have an upper hand. [160] The promotion of ivermectin as a COVID-19 treatment has led to increases in ivermectin-related poison control centre calls in the United States,[161] as well as national shortages of the drug in Australia. [162] Anti-fraud efforts [edit]References [edit]- 1 2 3 4 Office of the Commissioner (April 1, 2020). \"Beware of Fraudulent Coronavirus Tests, Vaccines and Treatments\". \" And replaced with this new one: \"This may have an effect on COVID-19 through a direct or indirect mechanism\". Related contents Ivermectina y COVID-19: ¿qué está pasando? Stay informed on the COVID-19 scientific updates and other global health issues. org/10.1038/s41598-020-74084-y Received: Accepted: Published: Version of record: DOI: https://doi.org/10.1038/s41598-020-74084-y Comments - This is a very interesting contribution to the field of ivermectin evaluation as a potential drug for COVID-19. Unfortunately the authors have stated that ivermectin has been previously found by Krause et al. to have a comparatively low α7-nAChR IC50 of 0. On April 10, 2020, FDA issued a statement concerning self-administration of ivermectin against COVID-19 [43] referring to recently published in vitro study on this subject [15]. FDA highlighted that this type of in vitro study is usually used in the early stages of drug development. Moreover, further trials are needed to confirm the safety and efficacy of ivermectin for human use against COVID-19 to discover preventive or therapeutic window [43]. Those receiving ivermectin as treatment or prophylaxis may feel protected and comply less efficiently with proven measures such as face masks and social distancing. Finally, we have the utmost steem for frontline health workers and do not judge the decisions and desperation of those facing dying or worsening patients. But could the use of ivermectin (which is relatively safe) be a way to offer something and reduce political and public pressure on policy makers and health authorities? Then why is it in the national guidelines in Peru, Bolivia and several municipalities in Brazil? When used for the current indications, at the currently approved doses, ivermectin is a very safe drug In individuals infected with a high burden (>30. 11, 12 If a clinical study is conducted with ivermectin, it would be important to conduct a well-controlled clinical dose-response study with ivermectin at a low dose (the approved dose, with lower likelihood of success) and at a higher dose relative to placebo in patients with COVID-19. The ideal higher dose of ivermectin has not been established. [159] Clinical research subsequently determined ivermectin is not effective for treating COVID-19.",
+      "url": "https://theconversation.com/ivermectin-is-still-not-a-miracle-cure-for-covid-19-despite-what-you-may-have-read-144569",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the claim made by Pearson Sharp on One America News Network compare to the guidance provided by the World Health Organization (WHO) in October 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.bjid.org.br/en-ivermectin-potential-candidate-for-treatment-articulo-S1413867020300817",
+      "date": "2020-07-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/newscentermaine/posts/while-some-have-floated-the-anti-parasitic-drug-ivermectin-as-a-possible-covid-1/10157882201109613/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/FDA/posts/emergency-use-authorizations-euas-are-one-of-several-tools-fda-is-using-to-help-/10158406319902299/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/List_of_unproven_methods_against_COVID-19",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nature.com/articles/s41598-020-74084-y",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ascpt.onlinelibrary.wiley.com/doi/10.1002/cpt.1889",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/questions-and-answers-about-ivermectin-and-covid-19/2877257/0",
+      "date": "2020-08-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theconversation.com/ivermectin-is-still-not-a-miracle-cure-for-covid-19-despite-what-you-may-have-read-144569",
+      "date": "2020-08-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/world/2020/jun/04/unreliable-data-doubt-snowballed-covid-19-drug-research-surgisphere-coronavirus-hydroxychloroquine",
+      "date": "2020-06-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://healthpolicy-watch.news/bcg-ivermectin-can-old-solutions-be-repurposed-for-covid-19/",
+      "date": "2020-04-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nature.com/articles/s41429-020-0336-z",
+      "date": "2020-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/one-america-news-donald-trump-news-network-2019-10",
+      "date": "2019-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.motherjones.com/politics/2020/06/one-america-news-network-staff/",
+      "date": "2020-06-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/PrincetonSPIA/posts/policyprofile-i-grew-up-on-a-dairy-farm-in-the-rolling-hills-of-northern-virgini/10157949734921758/",
+      "date": "2020-08-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cms.gov/medicare-coverage-database/view/ncacal-decision-memo.aspx?proposed=N&NCAId=282",
+      "date": "2013-01-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rsfjournal.org/content/6/2/1",
+      "date": "2020-07-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 261,
+     "n_urls_after_bm25": 16,
+     "n_chunks": 1163
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Not Enough Evidence",
+   "justification": "Ivermectin is licensed for anti parasitic used but not enough evidence yet exists for treatment against coronavirus. ",
+   "questions": [
+    {
+     "question": "What is ivermectin?",
+     "answers": [
+      {
+       "answer": "Ivermectin is one of the most important antibiotics discovered.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30490-5/fulltext",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Could invermectin be used as a treatment for Covid-19?",
+     "answers": [
+      {
+       "answer": "The clinical efficacy and utility of ivermectin in SARS CoV-2 infected patients are unpredictable at this stage, as we are dealing with a completely novel virus. We await results of well-designed large scale randomized controlled clinical trials exploring treatment efficacy of ivermectin to treat SARS-CoV-2.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.ncbi.nlm.nih.gov/labs/pmc/articles/PMC7521351/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210703175845/https://healthfeedback.org/claimreview/strong-evidence-lacking-to-support-claim-that-ivermectin-is-a-cure-for-covid-19-there-are-only-limited-clinical-results-at-this-stage-oann/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Scientific evidence supporting ivermectin's use as a COVID-19 treatment is currently scant and appropriate clinical trials are lacking; while some studies show ivermectin has an antiviral effect against SARS-CoV-2 in laboratory settings, these are in vitro studies conducted on cell cultures, which do not accurately represent the human body; most available clinical data regarding ivermectin and COVID-19 comes from observational studies, which are considered a lower standard of evidence than randomized, controlled clinical trials; of the 68 clinical trials and surveys identified regarding ivermectin's effect on COVID-19, only seven had reached completion and released results, and only two were randomized, controlled, blinded clinical trials; a randomized, controlled, blinded clinical trial on 72 hospitalized patients found that ivermectin alone might speed up viral clearance, but the sample size was too small to draw solid conclusions; a retrospective observational study suggested lower mortality among heavily sick patients receiving ivermectin, but the authors warned that appropriate dosing is unknown and further randomized trials are needed; and some laboratories have reported no effect of ivermectin on clinical or epidemiological outcomes in patients with severe COVID-19 symptoms.",
+     "support_span": "scientific evidence supporting ivermectin’s use as a COVID-19 treatment is scant and appropriate clinical trials are still lacking | Some studies report an antiviral effect of ivermectin on SARS-CoV-2, the virus that causes COVID-19, in the lab. ... However, these data are purely in vitro, meaning that the experiments were conducted on cells growing in the laboratory and not in living animals or humans. | Most of the available data come from observational studies that do not have the same level of reliability as clinical trials; furthermore, their conclusions are mixed. | indicates that only seven of those 68 reached completion and released their results. Of them, only two are randomized, controlled, blinded clinical trials, which are considered the gold standard for testing drug safety and efficacy | a randomized, controlled, blinded clinical trial on 72 hospitalized patients found that ivermectin alone, but not ivermectin given together with doxycycline, could speed up the viral clearance from COVID-19 patients’ bodies, albeit without changing the duration of their symptoms. However, the authors note that “the study sample was too small (n = 72) to draw any solid conclusions” | A retrospective observational study looked at the course of COVID-19 patients that received ivermectin and found they had lower mortality among heavily sick patients compared to those that didn’t receive ivermectin ... But the small size of the study and its observational nature (as opposed to randomized clinical trials) led the authors to warn, “Appropriate dosing for this indication is not known, nor are the effects of ivermectin on viral load or in patients with milder disease. Further studies in appropriately designed randomized trials are recommended before any conclusions can be made.” | An observational study on patients suffering from severe COVID-19 symptoms showed no effect of ivermectin on their clinical or epidemiological outcomes"
+    },
+    {
+     "statement": "The claim that ivermectin works like a vaccine is incorrect because vaccines provide long-lasting immunological memory, whereas a prophylactic drug would require constant administration to maintain its effect.",
+     "support_span": "The claim that ivermectin works as a vaccine and prevents future infections (prophylaxis) by SARS-CoV-2, the virus that causes COVID-19, is based on a misunderstanding of the mode of action of vaccines. Vaccines stimulate the formation of long-lasting immunological memory that protect vaccinated individuals from subsequent infections. By contrast, a patient must constantly take a prophylactic drug to maintain its preventative effect."
+    }
+   ],
+   "justification": "The evidence indicates that while ivermectin has shown antiviral effects in in vitro laboratory settings, there is a significant lack of robust clinical evidence to support its use as a treatment for COVID-19 in humans. Most available data comes from observational studies with mixed conclusions, and of the 68 identified clinical trials, only two were randomized, controlled, and blinded. While some small-scale studies suggested potential benefits in viral clearance or lower mortality, these findings were limited by small sample sizes and the lack of gold-standard trial designs. Furthermore, some studies reported no effect on clinical outcomes for severe cases, and researchers emphasize that appropriate dosing remains unknown and more large-scale, appropriately designed randomized trials are necessary to draw solid conclusions.",
+   "article_url": "https://web.archive.org/web/20210703175845/https://healthfeedback.org/claimreview/strong-evidence-lacking-to-support-claim-that-ivermectin-is-a-cure-for-covid-19-there-are-only-limited-clinical-results-at-this-stage-oann/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

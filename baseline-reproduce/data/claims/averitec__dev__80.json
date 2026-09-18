@@ -1,0 +1,498 @@
+{
+ "key": "averitec/dev/80",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 80,
+ "claim": "“Red-tagging” is a term invented by the Communist Party of the Philippines, the New People's Army, and the National Democratic Front (CPP-NPA-NDF).",
+ "claim_date": "2020-10-18",
+ "speaker": "Lorraine Badoy",
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that the term \"red-tagging\" was invented by the Communist Party of the Philippines, the New People's Army, and the National Democratic Front (CPP-NPA-NDF).\n\n2.  **Evaluate the Evidence regarding the Origin of the Term:**\n    *   **A1** states that the evidence does not support the claim and suggests the term is a \"fictional scare tactic\" used to undermine government communications.\n    *   **A3** notes that the Commission on Human Rights defines the practice as a strategy used by **state agents**, which contrasts with the claim that it was originated by communist organizations.\n    *   **A4, A5, A7, and A8** explicitly state that the provided evidence contains **no information** regarding the actual origin or invention of the term \"red-tagging.\"\n    *   **A8** mentions that while some officials (like PCOO Undersecretary Badoy) claim it is a \"manufactured term used by communist rebels,\" these assertions are noted to be \"frequently debunked and criticized,\" meaning the evidence does not treat this as a factual origin.\n    *   **A10** concludes that it is **not possible to determine** whether the claim is supported or refuted because the text does not mention the term's origin.\n\n3.  **Synthesize the Findings:** While several answers (A1, A3) suggest the *practice* is attributed to the state rather than the rebels, the core question of \"who invented the term\" is addressed by multiple pieces of evidence (A4, A5, A7, A8, A10) as being **absent from the text**. There is no definitive evidence provided that proves the CPP-NPA-NDF invented the term, nor is there definitive evidence provided that proves someone else did.\n\n4.  **Conclusion:** Since the evidence explicitly states multiple times that the origin of the term is not mentioned in the provided documents, the claim cannot be verified or debunked by the given information.\n\n**Label: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the evidence support the claim that \"red-tagging\" was a term invented by the CPP-NPA-NDF, or does it suggest the term is a fictional tactic used to undermine government security communications?",
+      "answer": "The provided evidence does not support the claim that \"red-tagging\" was invented by the CPP-NPA-NDF. Instead, the evidence suggests that the term is a **fictional scare tactic** used to undermine government security communications.\n\nAccording to the document \"The Wars Within\" (2020), Victor dismisses the concept of \"red tagging\" as a tactic \"designed to weaken the government's mandate to inform the citizenry about national security threats.\"",
+      "url": "https://www.facebook.com/nomanleftbehind2018walangiwanan/posts/what-can-the-public-contribute-to-help-ease-the-communist-insurgency-and-end-the/643047663221484/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who is responsible for the practice of \"red-tagging\" in the Philippines?",
+      "answer": "Based on the provided evidence, \"red-tagging\" (also referred to as \"red-baiting\") is practiced by **government and military entities**. This practice involves the public labeling of individuals, such as media practitioners and civil society organizations, as communist insurgents by falsely linking them to the Communist Party of the Philippines (CPP) and the New People’s Army (NPA).",
+      "url": "https://cmfr-phil.org/press-freedom-protection/adding-red-baiting-to-the-perils-of-truth-telling/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: How does the Commission on Human Rights define \"red-tagging,\" and how does this definition contrast with the claim that the term was invented by the CPP-NPA-NDF?",
+      "answer": "The Commission on Human Rights (CHR) defines \"red-tagging\" as a strategy used by state agents to label individuals or groups as communist sympathizers or terrorists, branding them as perceived enemies of the state.\n\nThis definition contrasts with the claim that the term was invented by the CPP-NPA-NDF by identifying the practice as a tool used by **state agents** rather than a term originated by communist organizations. Furthermore, the evidence notes that red-tagging is a phenomenon with historical precedents in the Philippines (such as during the Arroyo administration) and is characterized by the risks it poses to individuals, including surveillance, asset freezing, and human rights violations like extrajudicial killings.",
+      "url": "https://verafiles.org/articles/vera-files-fact-sheet-why-red-tagging-dangerous",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who originated the term \"red-tagging\"?",
+      "answer": "Based on the provided evidence, there is no information regarding the origin of the term \"red-tagging\" or whether it was invented by the Communist Party of the Philippines, the New People's Army, or the National Democratic Front (CPP-NPA-NDF). The text only defines the term and discusses legal remedies available to victims.",
+      "url": "https://www.facebook.com/crimlaw75/posts/legal-explainer-na-red-tag-ka-anong-pwede-mong-gawinthe-recent-case-involving-lo/1001926725772835/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided document support the claim that the term \"red-tagging\" was invented by the Communist Party of the Philippines, the New People's Army, and the National Democratic Front?",
+      "answer": "No, the provided document does not support the claim. The evidence provided focuses on how individuals justify the practice of \"red-tagging\" and social media reactions to those justifications, but it contains no information regarding the origins of the term or whether it was invented by the CPP-NPA-NDF.",
+      "url": "https://www.facebook.com/groups/ffreethinkers/posts/10158588957502188/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who is responsible for the practice of \"red-tagging\"?",
+      "answer": "Based on the provided evidence, the responsibility for the practice of \"red-tagging\" is attributed to the following:\n\n*   **Facebook pages \"Enlightened PINOY\" and \"Enlightened Youth\":** These pages engaged in red-tagging Rowena “Weng” Paraan by using a misleading seven-year-old photo to falsely link her to the CPP and NPA.\n*   **National Task Force to End Local Communist Armed Conflict (NTF-ELCAC):** The evidence notes that this disinformation campaign occurred amidst public statements from the NTF-ELCAC accusing media groups of having communist ties.",
+      "url": "https://verafiles.org/articles/vera-files-fact-check-fb-posts-red-tag-abs-cbn-journo-2013-s",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who is responsible for the invention of the term \"red-tagging\"?",
+      "answer": "Based on the provided evidence, there is no information regarding who invented the term \"red-tagging\" or whether it was invented by the CPP-NPA-NDF. The text focuses on the criticisms faced by the National Task Force to End Local Communist Armed Conflict (NTF-ELCAC) for allegedly using the practice to label journalists and advocacy groups as communist fronts.",
+      "url": "https://www.onenews.ph/red-tagging-fake-news-amid-abs-cbn-shutdown-protested",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who invented the term “red-tagging”?",
+      "answer": "Based on the provided evidence, the text does not state who invented the term \"red-tagging.\" \n\nThe evidence notes that PCOO Undersecretary Lorraine Marie Badoy maintains that red-tagging is a \"manufactured term used by communist rebels,\" but it does not confirm this claim, noting instead that her assertions have been \"frequently debunked and criticized by journalists and lawmakers.\"",
+      "url": "https://pressone.ph/pcoos-badoy-claims-sc-junked-red-tagging-case-filed-by-nujp-journos-ask-what-case/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Who is responsible for the practice of \"red-tagging\" in the Philippines, and what is its purpose?",
+      "answer": "Based on the provided evidence, the Philippine government is responsible for the practice of \"red-tagging.\" The purpose of this practice is to delegitimize dissent and justify crackdowns on individuals and organizations under the guise of combating an ongoing insurgency.",
+      "url": "https://democratic-erosion.org/2019/12/16/activism-is-under-attack-in-the-philippines/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support or refute the claim that the term “Red-tagging” was invented by the CPP, NPA, and NDF?",
+      "answer": "Based on the provided evidence, it is **not possible to determine** whether the claim is supported or refuted.\n\nThe evidence discusses the classification of the CPP, NPA, and NDF as terrorist groups, their organizational structure (Marxist-Leninist-Maoist theory), their use of \"Red Areas\" and \"White Areas,\" and their recruitment methods. However, the text **does not mention the term \"Red-tagging\"** or provide any information regarding the origin or invention of that specific term.",
+      "url": "https://www.facebook.com/CivilRelationsServiceAFP/posts/president-duterte-yesterday-signed-a-proclamation-classifying-the-communist-part/1740921022593281/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://cmfr-phil.org/press-freedom-protection/adding-red-baiting-to-the-perils-of-truth-telling/",
+      "date": "2019-09-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CivilRelationsServiceAFP/posts/president-duterte-yesterday-signed-a-proclamation-classifying-the-communist-part/1740921022593281/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-red-tags-nun-incorrectly-labels",
+      "date": "2020-06-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheManilaTimes/posts/watch-anti-communist-groups-including-former-new-peoples-army-rebels-hold-a-rall/10157407019682012/",
+      "date": "2019-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/ffreethinkers/posts/10158588957502188/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://peoplesdispatch.org/2020/01/06/as-holiday-truce-ends-is-peace-on-the-table-for-the-philippines/",
+      "date": "2020-01-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pcogovph/posts/a-group-of-filipino-american-intruders-disrupted-the-engagement-hosted-by-the-ph/2850645891631720/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bulatlat.com/2014/08/15/10-things-to-know-about-the-worlds-longest-communist-revolutio/",
+      "date": "2014-08-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CivilRelationsServiceAFP/posts/the-end-is-near-for-communist-party-of-the-philippines-cpp-founding-chairman-jos/2754088784609828/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pressone.ph/pcoos-badoy-claims-sc-junked-red-tagging-case-filed-by-nujp-journos-ask-what-case/",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-fb-posts-red-tag-abs-cbn-journo-2013-s",
+      "date": "2020-05-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pnagovph/posts/read-major-gen-antonio-parlade-jr-of-the-national-task-force-to-end-local-commun/2245617922187302/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-sheet-why-red-tagging-dangerous",
+      "date": "2018-10-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://democratic-erosion.org/2019/12/16/activism-is-under-attack-in-the-philippines/",
+      "date": "2019-12-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nomanleftbehind2018walangiwanan/posts/what-can-the-public-contribute-to-help-ease-the-communist-insurgency-and-end-the/643047663221484/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pcij.org/2019/12/10/red-tagging-intimidation-vs-pressbrduterte-state-agents-behind-69-cases/",
+      "date": "2019-12-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.onenews.ph/red-tagging-fake-news-amid-abs-cbn-shutdown-protested",
+      "date": "2020-05-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/uplbperspective/posts/uplb-student-alliance-demands-safety-from-admin-as-red-tagging-continueswords-by/10163562555726337/",
+      "date": "2019-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/crimlaw75/posts/legal-explainer-na-red-tag-ka-anong-pwede-mong-gawinthe-recent-case-involving-lo/1001926725772835/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 19,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim made by Lorraine Badoy on October 18, 2020, in the Philippines, asserts that the term \"red-tagging\" was invented by the Communist Party of the Philippines, the New People's Army, and the National Democratic Front (CPP-NPA-NDF).\n2. The evidence provided defines \"red-tagging\" (or \"red-baiting\") as a practice used by State agents, law enforcement, and the military to label individuals or organizations as communists or terrorists (Q1, A1; Q1, A3). Multiple sources, including the Commission on Human Rights (CHR), Amnesty International, and Human Rights Watch, describe it as a tactic used *against* critics of the government and human rights defenders (Q1, A7; Q4, A7; Q4, A13). Furthermore, the evidence indicates that the term is used to describe the actions of the government/military (Q1, A1; Q4, A12) rather than being a term coined by the CPP-NPA-NDF.\n3. There is no evidence in the provided text to support the claim that the CPP-NPA-NDF invented the term. On the contrary, the evidence consistently identifies the perpetrators of \"red-tagging\" as state actors or government-aligned entities (Q1, A1; Q4, A12; Q4, A14).\n4. The claim is directly contradicted by the definitions and historical context provided by human rights organizations, legal experts, and news reports, which characterize red-tagging as a government-orchestrated harassment tactic used against the very groups Badoy claims invented it.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the definition and origin of the term ''red-tagging' according to human rights organizations and political analysts?",
+      "answer": "Red-tagging is defined by Philippine jurisprudence as “the act of labelling, branding, naming and accusing individuals and/or organizations of being left-leaning, subversives, communists or terrorists (used as) a strategy... by State agents, particularly law enforcement agencies and the military, against those perceived to be ‘threats’ or ‘enemies of the State. The NUJP said it is planning to file a report with the UN Special Rapporteur on the Promotion and Protection of the Right to Freedom of Opinion and Expression. Definition “Red-tagging” is the same as red-baiting, which in the Philippines refers to acts that publicly identify people as linked to the CPP, the NPA or the NDF. More popularly known as “red-tagging,“ it is a form of harassment against critics of government that has also targeted journalists who have either been critical in their reporting or commentary on public issues, or who have simply tried to get at the truth in observance of a fundamental ethical and professional responsibility. Red-baiting can lead to journalists’ being harmed or even killed — and all evidence suggests that it is government orchestrated. Red-tagging is the act of labeling or accusing a person or organization of being a communist, terrorist, or supporter of armed groups, often without sufficient evidence. The danger is obvious. In the Philippines, being red-tagged isn't just about getting criticized online. It can put someone's life, liberty, and security at risk. So what can you do if you're red-tagged? AT A GLANCE - Lorraine Badoy, a government official, labels various activists and journalists as communist terrorists without providing evidence, claiming that their advocacy for social justice and human rights equates to recruitment for armed struggle. - Badoy's accusations reflect a broader trend of red-tagging, where any organization critical of the government is seen as a terrorist front, leading to political repression and violence against activists. \", it's worth understanding what the law actually says. First, what is red-tagging? As a recent Human Rights Watch report on the coordinated harassment tactic noted, “the reality is that people who are red-tagged are at heightened risk, including of being targeted for killing.” In one of the most egregious recent examples of red-tagging, two human rights activists, Randall Echanis and Zara Alvarez, were murdered in August 2020. “The murders of Alvarez and Echanis also show how the government’s new anti-terrorism law can be misused,” Human Rights Watch reported. ” “As stated by (UN Special Rapporteur Philip) Alston, it is the “‘vilification,’ ‘labelling’, or guilt by association” of various democratic organizations.",
+      "url": "https://www.philstar.com/headlines/2019/04/17/1910846/chr-warns-grave-implications-red-tagging-groups",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claim by Lorraine Badoy regarding the origin of ''red-tagging' align with historical and linguistic evidence?",
+      "answer": "The recent case involving Lorraine Badoy has once again brought the issue of red-tagging into the national conversation. But before people start saying, \"Kasuhan agad!\" or \"Freedom of speech lang 'yan! AT A GLANCE - Lorraine Badoy, a government official, labels various activists and journalists as communist terrorists without providing evidence, claiming that their advocacy for social justice and human rights equates to recruitment for armed struggle. - Badoy's accusations reflect a broader trend of red-tagging, where any organization critical of the government is seen as a terrorist front, leading to political repression and violence against activists.",
+      "url": "https://www.facebook.com/crimlaw75/posts/legal-explainer-na-red-tag-ka-anong-pwede-mong-gawinthe-recent-case-involving-lo/1001926725772835/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the context of Lorraine Badoy's statement made on October 18, 2020, regarding political labeling in the Philippines?",
+      "answer": "Communications Undersecretary for New Media and External Affairs Lorraine Marie Badoy wrongly claimed the National Democratic Front of the Philippines (NDFP) has been tagged as a terrorist group by the Philippine government and other countries. During the second ASEAN (Association for Southeast Asian Nations) Conference on Crime Prevention and Criminal Justice in Thailand on Feb. 27, she said the NDFP, the legal front of the Communist Party of the Philippines (CPP), has “targeted” the youth sector and has taught young Filipinos “hate and mistrust towards the government. Communications Undersecretary Lorraine Marie Badoy repeated a wrong claim when she said the National Democratic Front (NDF) of the Philippines is a terrorist group while linking activist Sr. Mary John Mananzan to the organization. STATEMENT In a 14-paragraph Facebook post on June 17, Badoy called out and red-tagged Mananzan, vice president for external affairs of St. Badoy made similar false claims in the past in Facebook posts, opinion articles published in state-run “newswire service” Philippine News Agency, and in her official engagements. During the second ASEAN (Association for Southeast Asian Nations) Conference on Crime Prevention and Criminal Justice in February, she also wrongly stated that the NDF, along with the CPP-NPA, had been declared a terrorist organization in the United States and other countries. ” Badoy, who also serves as the country’s leader in the ASEAN Senior Officials Meeting Responsible for Information, then claimed the CPP, its armed wing the New People’s Army (NPA), and the NDFP have been declared as terrorist organizations in the country and other nations, including the United States. This was a repeat of her claim in previous Facebook posts and opinion articles published on the government’s web-based newswire service provider, the Philippine News Agency. ” Source: Lorraine Marie Badoy official Facebook page, “Mary John Mananzan, high ranking official of a school I admire, the St. Scholastica College…,” June 17, 2020 Badoy, spokesperson of the National Task Force to End Local Communist Armed Conflict (NTF ELCAC), repeated this assertion in a June 21 Facebook post as she doubled down on red-tagging the activist Catholic nun. FACT The NDF has not been officially and legally declared a terrorist organization in the Philippines. While President Rodrigo Duterte — through Proclamation No. AT A GLANCE - Lorraine Badoy, a government official, labels various activists and journalists as communist terrorists without providing evidence, claiming that their advocacy for social justice and human rights equates to recruitment for armed struggle. - Badoy's accusations reflect a broader trend of red-tagging, where any organization critical of the government is seen as a terrorist front, leading to political repression and violence against activists. Mary John Manzanan, June 18, 2020 Lorraine Marie Badoy showing support for the Anti-terrorism Bill: - National Task Force to End Local Communist Armed Conflict, “LOOK | Undersecretary and NTF ELCAC Spokesperson Lorraine Marie…,” June 13, 2020 - Philippine News Agency, PH’s anti-terror bill one of world’s ‘lightest’: PCOO exec, June 7, 2020 - Basta Batas, Anti-Terrorism Bill of 2020 Part 2″ with Dr. Lorraine Badoy and Atty. (See VERA FILES FACT SHEET: Why ‘red-tagging’ is dangerous) Responding to Badoy’s claims, GABRIELA said in a June 18 statement: “Badoy is loading up the regime’s guns for either arresting or harming Sister Mary John and other critics of the Duterte regime.” On her Facebook posts and interviews, Badoy drums up support for the proposed Anti-Terrorism Act of 2020, which aims to “strengthen” the government’s campaign against terrorism, and is currently awaiting the president’s signature.",
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-errs-claiming-ndf-tagged-terror",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How do human rights groups in the Philippines distinguish between the term ''red-tagging' and the activities of the CPP-NPA-NDF?",
+      "answer": "The NUJP said it is planning to file a report with the UN Special Rapporteur on the Promotion and Protection of the Right to Freedom of Opinion and Expression. Definition “Red-tagging” is the same as red-baiting, which in the Philippines refers to acts that publicly identify people as linked to the CPP, the NPA or the NDF. Red-tagging is defined by Philippine jurisprudence as “the act of labelling, branding, naming and accusing individuals and/or organizations of being left-leaning, subversives, communists or terrorists (used as) a strategy... by State agents, particularly law enforcement agencies and the military, against those perceived to be ‘threats’ or ‘enemies of the State. As a result, NUPL has been arbitrarily red-tagged by government officials as a front organization of the Communist Party of the Philippines and New People’s Army (NPA), along with other non-government organizations which are likewise on the front lines of defending rights and seeking accountability. The vicious red-tagging has led to the killings and attempted killings of NUPL lawyers. Human rights lawyer and NUPL founding member Benjamin Ramos Jr. Red-tagging is the act of labeling or accusing a person or organization of being a communist, terrorist, or supporter of armed groups, often without sufficient evidence. The danger is obvious. In the Philippines, being red-tagged isn't just about getting criticized online. It can put someone's life, liberty, and security at risk. So what can you do if you're red-tagged? Duterte’s romance with the Reds) But the NTF-ELCAC does not only focus on alleged members of the Communist Party of the Philippines (CPP). It has openly condemned human rights defenders, activists, and even the media, subjecting them to massive red-tagging and harassment through its official Facebook and Twitter pages. The vitriol seen on these social media pages spilled into the personal accounts of Parlade. As for criminal complaints, the AFP relies on the Philippine National Police to translate their information into accusations that can withstand the scrutiny of the courts. Not all activists they accuse of being “communist-terrorists” are actually taken to court, which also leaves them without a platform to disprove the accusations. The danger of online attacks Elsewhere on the internet, progressive groups and human rights activists face massive vilification, with Duterte allies tagging them as members of the CPP-NPA. In particular, Amnesty International calls on the Philippine government to conduct prompt, thorough, impartial and effective investigations into any incidents of “red-tagging” involving violence, threat of violence or incitement to violence, as well as the violent attacks that have resulted from them; bring those responsible for related offences to justice in fair trials; and protect those who are being accused of links to communist groups. ’” RELATED: Why is red-tagging of activists dangerous? The government has asked the European Union to hold funding for projects run by groups that it said uses the money to support the Communist Party of the Philippines and New People's Army. CHR warns of grave implications of red-tagging groups MANILA, Philippines — The Commission of Human Rights cautioned authorities Wednesday against tagging groups critical of the government as communists or terrorists as the allegations put members of those organizations in danger. In a statement, CHR Commissioner Jacqueline De Guia, a lawyer, said allegations branding organizations as being part of the underground communist movement have to be proven in fair and competent courts. The NUJP has met with the officers of the Armed Forces of the Philippines’ (AFP) 4th Infantry Division, and the Philippine National Police (PNP) Regional Office 10, both based in Cagayan de Oro city. CMFR’s List of Red-tagging/baiting Since 2017, CMFR has recorded 12 incidents of red-baiting/tagging. Those red-tagged are often journalists from alternative media groups and the community press. Public Statement Amnesty International expresses deep concern over threats against and the endangerment of two Filipino journalists, a priest, two human rights lawyers, and a government employee, including claims that they are affiliated with the Communist Party of the Philippines. As has happened in the past, “red-tagging” or branding individuals and organizations as “communist fronts” has become a means to endanger their lives, leaving them at risk of harassment and attacks by unknown individuals. Ramos had handled cases of sugar farmworkers, youth leaders and a number of political prisoners. This devious act of “red-tagging,” without any competent, admissible and independent evidence, is being carried out by military and civilian officials of the Duterte government, through its National Task Force on Eliminating Local Communist Armed Conflict (NTF-ELCAC). These officials have traveled around the country and even overseas for this smear campaign against lawyers and human rights defenders, with a hefty amount of money from the national coffers used for their travels. Local as well as international human rights organizations have accused the Duterte government of red-tagging, labeling Duterte critics as communist insurgents and even accusing them of terrorist recruitment. The military, specifically, has been accused of coordinating these attacks online, which have the potential to incite offline violence. The suspected perpetrators include state security forces or their agents according to a recent international delegation of lawyers. The red tagging of the NUPL by the Philippine military violates Article 18 of the UN Basic Principles on the Role of Lawyers (1990) that provides: “Lawyers shall not be identified with their clients or their client’s causes as a result of discharging their functions.” Doing so would deprive the people of their access to justice and basic right to counsel guaranteed by Article 14 of the International Covenant on Civil and Political Rights. It was the latest in a series of red-baiting incidents against media practitioners under the Duterte administration, the numbers of which have steadily increased as the peace talks between the peace panels of the GPH (Government of the Philippines) and the CPP-NPA-NDF (Communist Party of the Philippines – New People’s Army – National Democratic Front) were disrupted by continuing incidents of firefights and other forms of violence between the Philippine military and the NPA. The bill was signed into law by Duterte on July 3, 2020, but still faces hearings before the Philippine Supreme Court scheduled for late September. On August 3, the Philippines’ Armed Forces Chief Lieutenant General Gilbert Gapay said that the military hoped to use the law to regulate social media. Red-tagging political activists Many of the pages in the network also engaged in red-tagging — the practice of branding progressive politicians or activists as NPA sympathizers, usually sans evidence. ” The military and the police, however, continue to refer to the Communist Party of the Philippines as “subversive” and uses such terms as “Communist Terrorist” (CT) to describe it in their reports; the latest term is “CNT”, or “CPP-NPA-Terrorist.” Former UN Special Rapporteur Alston, in his report on the Philippines after his 2007 visit, noted that “many in government have concluded that numerous civil society organizations are ‘fronts’ for the Communist Party of the Philippines and its armed group, the New People’s Army. As recently as June 2019, four human rights activists belonging to “leftist organizations” that have been “red-tagged” were killed in a span of just three days. In March 2019, 14 people in Negros Oriental in southern Philippines were killed during police operations supposedly targeting “communist rebels”. Amnesty International calls on the Philippine authorities to fulfil their international obligation to respect and protect the rights of journalists, including their right to freedom of expression, as well as to life and security of person. Communications Undersecretary for New Media and External Affairs Lorraine Marie Badoy wrongly claimed the National Democratic Front of the Philippines (NDFP) has been tagged as a terrorist group by the Philippine government and other countries. During the second ASEAN (Association for Southeast Asian Nations) Conference on Crime Prevention and Criminal Justice in Thailand on Feb. 27, she said the NDFP, the legal front of the Communist Party of the Philippines (CPP), has “targeted” the youth sector and has taught young Filipinos “hate and mistrust towards the government. TERRORIST TAGGING ONLY STRENGTHENS NCCP’s FAITH IMPERATIVES TO SERVE THE POOR, THE DEPRIVED AND OPPRESSED The Promotion of Church Peoples’ Response-Hong Kong Chapter (PCPR-HK) vehemently condemns the malicious tagging of National Council of Churches in the Philippines (NCCP) as a ‘communist terrorist group’ together with other humanitarian and progressive organizations as well as the series of raids against the offices of Bayan Muna, Gabriela and National Federation of Sugar Farm Workers (NSFW) and the mass arrest of progressives, activists and human rights defenders by state forces.",
+      "url": "https://cmfr-phil.org/press-freedom-protection/adding-red-baiting-to-the-perils-of-truth-telling/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence to support the claim that the CPP-NPA-NDF invented the term ''red-tagging'?",
+      "answer": "The NUJP said it is planning to file a report with the UN Special Rapporteur on the Promotion and Protection of the Right to Freedom of Opinion and Expression. Definition “Red-tagging” is the same as red-baiting, which in the Philippines refers to acts that publicly identify people as linked to the CPP, the NPA or the NDF. Red-tagging is defined by Philippine jurisprudence as “the act of labelling, branding, naming and accusing individuals and/or organizations of being left-leaning, subversives, communists or terrorists (used as) a strategy... by State agents, particularly law enforcement agencies and the military, against those perceived to be ‘threats’ or ‘enemies of the State.",
+      "url": "https://cmfr-phil.org/press-freedom-protection/adding-red-baiting-to-the-perils-of-truth-telling/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/crimlaw75/posts/legal-explainer-na-red-tag-ka-anong-pwede-mong-gawinthe-recent-case-involving-lo/1001926725772835/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://sc.judiciary.gov.ph/sc-red-tagging-threatens-right-to-life-liberty-and-security/",
+      "date": "2012-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://newsinfo.inquirer.net/1967229/chr-looks-for-right-definition-of-red-tagging-in-inquiry",
+      "date": "1998-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pressoneph/posts/icymi-jefferson-lodia-badong-wrote-a-public-post-where-he-apologized-for-accusin/709660109890646/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nujphil/posts/statement-nujp-denounces-red-tagging-of-ex-chair-paraanthe-national-union-of-jou/10163565128125374/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dinner-conversations.com/episodes-season-3",
+      "date": "2020-07-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rappler.com/voices/thought-leaders/254098-thought-leaders-lorraine-badoy-world/",
+      "date": "2020-03-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-errs-claiming-ndf-tagged-terror",
+      "date": "2020-03-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/silentnomorePH/posts/dear-fellow-filipinosagree-kayo-ke-dr-lorraine-badoy-lovekosipabngangasipsipsile/1431197873666734/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/abscbnNEWS/posts/why-endorse-duterte-youth-for-nyc-chair-ronald-cardema-there-is-no-other-hardlin/10157124371235168/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KenmarkBroadcasting/posts/cease-fire-on-your-war-of-words-bishop-banda-urges-pf-upnd/2630803167203139/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rappler.com/newsbreak/in-depth/social-media-philippine-military-declares-war-versus-rights-defenders/",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rapplerdotcom/posts/today-on-rappler%EF%B8%8Fpresident-rodrigo-duterte-admits-in-public-that-he-molested-his/2403049216382514/",
+      "date": "2000-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/ffreethinkers/posts/10158588957502188/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ichrp.net/pcpr-hk-statement-on-red-tagging/",
+      "date": "2019-11-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://cmfr-phil.org/press-freedom-protection/adding-red-baiting-to-the-perils-of-truth-telling/",
+      "date": "2019-09-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.amnesty.org.ph/2019/09/protect-red-tagged-individuals/",
+      "date": "2019-09-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/New_People%27s_Army",
+      "date": "2004-12-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.philstar.com/headlines/2019/04/17/1910846/chr-warns-grave-implications-red-tagging-groups",
+      "date": "2019-04-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://iadllaw.org/2019/04/iadl-resolution-protesting-the-red-tagging-of-human-rights-lawyers-in-the-philippines/",
+      "date": "2019-04-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://nujp.org/statement-nujp-denounces-red-tagging-of-ex-chair-paraan/",
+      "date": "2020-05-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-red-tags-nun-incorrectly-labels",
+      "date": "2020-06-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/7/80243",
+      "date": "2019-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2009-2017.state.gov/j/ct/rls/crt/45394.htm",
+      "date": "2005-04-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CivilRelationsServiceAFP/posts/president-duterte-yesterday-signed-a-proclamation-classifying-the-communist-part/1740921022593281/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/dfrlab/facebook-removes-inauthentic-assets-linked-to-the-philippine-military-b61f9a38cb4a",
+      "date": "2020-09-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://iadllaw.org/2020/03/women-lawyers-under-attack-beleaguered-pinay-peoples-lawyers-for-justice-and-accountability/",
+      "date": "2020-03-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 260,
+     "n_urls_after_bm25": 19,
+     "n_chunks": 1570
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "“Red-tagging” has been in existence before  CPP-NPA-NDF were founded. \n\nThe word ''Red-tagging'' was used in a US document dating back to 1947. And the CPP-NPA-NDF were founded in December 26, 1968. ",
+   "questions": [
+    {
+     "question": "When was the Communist Party of the Philippines, the New People's Army, and the National Democratic Front (CPP-NPA-NDF) founded?",
+     "answers": [
+      {
+       "answer": "December 26, 1968",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20210627030423/http://web.stanford.edu/group/mappingmilitants/cgi-bin/groups/print_view/149",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What are the origins of the terminology \"red-tagging\"?",
+     "answers": [
+      {
+       "answer": "The term \"red-tag\" was used in an US document dating back to 1947: “But I believe that when this committee or any other agency undertakes to expose communism it must be scrupulous to avoid tying a red tag on innocent people by indiscriminate labeling.”",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210504130647/https://play.google.com/store/books/details?id=460vAAAAMAAJ&rdid=book-460vAAAAMAAJ&rdot=1",
+       "source_medium": "Web text"
+      },
+      {
+       "answer": "In American Newspaper 'Reading Eagle' from September 2nd 1938, the term \"red tag\" is used to describe the denial of a politician's affliction with communism.",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20210628124053/https://books.google.com.ph/books?id=kxkxAAAAIBAJ&pg=PA8&dq=%22Fumes+at+Red+Tag%22&article_id=3969,353168&hl=en&sa=X&ved=2ahUKEwiQhoGhvITuAhXbc3AKHcRfDGkQ6AEwAHoECAAQAg#v=onepage&q=%22Fumes%20at%20Red%20Tag%22&f=false",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210624201159/https://www.rappler.com/newsbreak/fact-check/red-tagging-term-invented-communist-party-philippines-new-peoples-army-national-democratic-front",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The terms 'red-tagging,' 'red tag,' or 'red-tagged' were used in journals and newspapers before 1968, which is when Jose Ma Sison founded the CPP, while the NPA and NDF were established after the founding of the CPP in 1968; specifically, a 1947 document regarding US Congress hearings on communist infiltration in the motion picture industry used the term 'red tag', the American daily Reading Eagle used the term 'Red Tag' in an editorial column on September 2, 1938, American newspapers Pittsburgh Press and St Joseph News-Press published reports in 1955 containing the words 'red tag' and 'red-tagged', the Canadian newspaper The Montreal Gazette used the term 'Red Tag' in an article published in 1956, and the Canadian newspaper Windsor Daily Star used the term 'red tag' in an article published in 1946.",
+     "support_span": "The terms “red-tagging,” “red tag,” or “red-tagged” were already used in journals and newspapers before 1968 when Jose Ma Sison founded the CPP. | The terms “red-tagging,” “red tag,” or “red-tagged,” used in contexts involving communism have already been in use in foreign printed material before 1968 when Sison founded the CPP. The NPA and NDF were established later. | A document printed in 1947 about US Congress hearings on the supposed communist infiltration in the motion picture industry contained the following passage: “But I believe that when this committee or any other agency undertakes to expose communism it must be scrupulous to avoid tying a red tag on innocent people by indiscriminate labeling.” | An editorial column in the September 2, 1938 issue of American daily Reading Eagle titled “Fair Enough” contained a section title “Fumes at Red Tag,” which referred to the denial of a leader of the Congress of Industrial Organizations (CIO) that he was a communist. | Other American newspapers Pittsburgh Press and St Joseph News-Press also published reports in 1955 that contained the words “red tag” and “red-tagged” in separate articles, referring to groups accused of operating Communist-related activities. | The Montreal Gazette published an article titled “‘Red’ Tag Defamatory, Court Awards Damages” in 1956. | The Windsor Daily Star also used the term “red tag” in an article published in 1946, which talked about labor issues and communism."
+    },
+    {
+     "statement": "Academic and dictionary definitions exist for 'red-tagging' or 'red-baiting' as a form of harassment or persecution of suspected communist sympathizers.",
+     "support_span": "Academic publisher IGI Global defines red-tagging or red-baiting as “a form of harassment or persecution of a person identified or suspected as a communist sympathizer.” This is consistent with the definition of red-baiting from Merriam-Webster."
+    }
+   ],
+   "justification": "The evidence contradicts the claim that the term 'red-tagging' was invented by the CPP, NPA, or NDF. Historical records show the term was used in various international contexts well before the founding of the CPP in 1968. Specifically, the term appeared in American newspapers as early as 1938 (Reading Eagle), in Canadian newspapers in 1946 (Windsor Daily Star), and in US Congressional documents in 1947. Further usage was documented in American and Canadian media throughout the 1950s. Consequently, the term predates the establishment of the mentioned Philippine organizations and was already part of the lexicon used to describe the labeling of suspected communists.",
+   "article_url": "https://web.archive.org/web/20210624201159/https://www.rappler.com/newsbreak/fact-check/red-tagging-term-invented-communist-party-philippines-new-peoples-army-national-democratic-front",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

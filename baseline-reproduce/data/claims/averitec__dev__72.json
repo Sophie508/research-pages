@@ -1,0 +1,544 @@
+{
+ "key": "averitec/dev/72",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 72,
+ "claim": "The daughter of Muahammadu Buhari (the President of Nigeria) is a board member of the Nigerian National Petroleum Corporation (NNPC).",
+ "claim_date": "2020-10-19",
+ "speaker": null,
+ "reporting_source": "Twitter",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided question-answer pairs step by step:\n\n1.  **Analyze the Claim:** The claim asserts that the daughter of Muhammadu Buhari (the President of Nigeria) is a board member of the Nigerian National Petroleum Corporation (NNPC).\n\n2.  **Evaluate the Evidence:**\n    *   **Q1 & Q2:** These pairs mention that there are *allegations* (specifically from a social media post by Bukola Saraki) regarding Halima Buhari's appointment to the NNPC board and a high salary. However, Q2 explicitly states that the evidence \"does not confirm this claim as a fact\" and that its \"veracity is contested.\"\n    *   **Q3, Q4, Q7, & Q10:** These pairs state that there is \"no information to confirm or deny\" the claim, or that the text focuses on unrelated matters (such as marriage or personal grievances).\n    *   **Q5:** This pair provides a specific list of newly appointed board members (Mohammed Lawal, Tajudeen Umar, etc.) and explicitly states that the President's daughter is **not** among them.\n    *   **Q6 & Q9:** These pairs state that the provided evidence does not support the claim and contains no information regarding the professional roles of the President's children.\n\n3.  **Synthesize Findings:** While Q1 and Q2 acknowledge the existence of an *allegation* or rumor, the weight of the evidence (specifically Q2, Q5, and the various \"no information\" responses) indicates that the claim is not a verified fact. Q5 provides a direct contradiction by listing the actual board members and excluding the daughter. Most importantly, the evidence consistently fails to provide factual confirmation of the claim, treating it instead as a contested allegation or an unverified statement.\n\n4.  **Conclusion:** Since the evidence presents the claim as a contested allegation rather than a fact, and in some instances (Q5) provides a list that excludes her, the evidence does not support the claim. However, because the evidence also contains conflicting reports (allegations vs. lack of confirmation), the most accurate assessment is that the evidence is insufficient to prove the claim true, and the claim itself is presented as an unverified accusation.\n\n**Verdict: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What are the allegations surrounding Halima Buhari's appointment to the NNPC board?",
+      "answer": "The allegations surrounding Halima Buhari's appointment to the NNPC board include the following:\n\n*   **Nepotism and Privilege:** The appointment is used to highlight perceived nepotism, contrasting the privileges enjoyed by the President's family with the economic hardships and unemployment faced by ordinary Nigerians.\n*   **Academic/Professional Qualifications:** It is alleged that she was granted a \"free pass\" to be called to the bar following her father's presidency, despite reportedly failing her law exams twice in the UK and failing to pass the Nigerian Law School exams.\n*   **High Compensation:** The commentary highlights that her position on the board comes with a monthly salary exceeding N7 million.",
+      "url": "https://www.facebook.com/groups/1511772025757940/posts/2199449706990165/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the daughter of President Muhammadu Buhari serve as a board member of the NNPC?",
+      "answer": "Based on the provided evidence, there is an allegation made in a social media post attributed to Bukola Saraki claiming that President Muhammadu Buhari's daughter serves as an NNPC board member earning ₦6.7m monthly. However, the evidence does not confirm this claim as a fact; instead, it notes that the allegation has elicited a \"highly polarized response,\" with some users questioning the \"factual accuracy of the allegation.\" Therefore, the evidence shows that the claim exists as an accusation, but its veracity is contested.",
+      "url": "https://www.facebook.com/KwankwasiyyaGidaGidaReporters/posts/buhari-is-fighting-corruptionbuharis-daughter-is-a-board-member-of-nnpc-her-sala/1712212408888421/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the daughter of President Muhammadu Buhari a board member of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "Based on the provided evidence, there is no information to confirm or deny whether the daughter of President Muhammadu Buhari is a board member of the Nigerian National Petroleum Corporation (NNPC). The text focuses on allegations regarding Aisha Buhari and an impostor involved in the Halliburton bribery scandal.",
+      "url": "https://www.thecable.ng/exclusive-aisha-buhari-unveiled-but-is-she-the-presidents-wife-daughter-or-an-impostor/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Zahra Buhari, the daughter of President Muhammadu Buhari, a board member of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "Based on the provided evidence, there is no information to confirm that Zahra Buhari is a board member of the Nigerian National Petroleum Corporation (NNPC).\n\nThe evidence only addresses a separate report from February 2020, in which the Presidency denied claims that she had \"fraudulently secured employment with the Petroleum Products Pricing Regulatory Agency (PPPRA),\" characterizing those specific allegations as \"fake news\" and \"malicious misinformation.\"",
+      "url": "https://www.facebook.com/BuhariSallauOnline/posts/zahra-buhari-hasnt-secured-employment-with-pppra-presidencyan-online-medium-give/1185959705069438/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the daughter of President Muhammadu Buhari among the newly appointed board members of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "No, based on the provided evidence, the daughter of President Muhammadu Buhari is not among the newly appointed board members of the Nigerian National Petroleum Corporation (NNPC).\n\nThe document lists the newly appointed board members as Mohammed Lawal, Tajudeen Umar, Adamu Mahmood Attah, Senator Magnus Abe, Dr. Stephen Dike, and Chief Pius Akinyelure. There is no mention of the President's daughter in this list.",
+      "url": "https://statehouse.gov.ng/president-buhari-reconstitutes-nnpc-board/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that the daughter of Muhammadu Buhari is a board member of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses on a statement from Femi Adesina regarding claims made by Atiku Abubakar about President Muhammadu Buhari's travel history and character; it contains no information regarding the professional roles or board memberships of the President's children or any mention of the Nigerian National Petroleum Corporation (NNPC).",
+      "url": "https://www.facebook.com/100044326904709/posts/buhari-never-banned-at-any-time-from-entering-americaformer-vice-president-atiku/1744681105827024/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the daughter of Muhammadu Buhari a board member of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "Based on the provided evidence, there is no information to confirm or deny whether the daughter of Muhammadu Buhari is a board member of the Nigerian National Petroleum Corporation (NNPC). The text only mentions that his youngest daughter, Hanan Buhari, married Mohammed Turad Sha’aban on September 4, 2020.",
+      "url": "https://www.bbc.com/pidgin/tori-54015978",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who is the person that an anti-corruption group has petitioned OPEC to remove from her position?",
+      "answer": "The anti-corruption group has petitioned OPEC to remove **Alison Madueke** from her position as Alternate President.",
+      "url": "https://www.facebook.com/Premiumtimes/posts/nigeria-anti-corruption-group-petitions-opec-demands-removal-of-alison-madueke-a/627891677248450/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that Muhammadu Buhari's daughter is a board member of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "No, the provided evidence does not support the claim. The text states that President Muhammadu Buhari appointed himself as the head of the nation's oil ministry and has begun restructuring the Nigerian National Petroleum Corporation (NNPC), but it contains no mention of his daughter or any other family members serving as board members of the corporation.",
+      "url": "https://www.csmonitor.com/World/Africa/2015/1006/Nigeria-President-Buhari-appoints-himself-to-end-nation-s-oil-corruption",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the daughter of President Muhammadu Buhari a board member of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "Based on the provided evidence, there is no information available to confirm or deny whether the daughter of President Muhammadu Buhari is a board member of the Nigerian National Petroleum Corporation (NNPC). The text focuses on a celebratory message from the Ministry of Petroleum Resources and a personal grievance regarding a delayed employment process for an NNPC graduate.",
+      "url": "https://www.instagram.com/p/B6weN0nHNgG/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/KwankwasiyyaGidaGidaReporters/posts/buhari-is-fighting-corruptionbuharis-daughter-is-a-board-member-of-nnpc-her-sala/1712212408888421/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MoroccoWorldNews/videos/aisha-hanan-buhari-daughter-of-former-nigerian-president-muhammadu-buhari-and-fo/948452581549475/",
+      "date": "2000-01-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1511772025757940/posts/2199449706990165/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BBCnewsafrica/posts/former-nigerian-president-muhammadu-buharis-daughter-nana-has-spoken-to-the-bbc-/1292115875606146/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://statehouse.gov.ng/president-buhari-reconstitutes-nnpc-board/",
+      "date": "2020-05-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.csmonitor.com/World/Africa/2015/1006/Nigeria-President-Buhari-appoints-himself-to-end-nation-s-oil-corruption",
+      "date": "2015-10-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/B6weN0nHNgG/",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BuhariSallauOnline/posts/zahra-buhari-hasnt-secured-employment-with-pppra-presidencyan-online-medium-give/1185959705069438/",
+      "date": "2020-02-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nnpclimited/posts/video-we-have-our-documents-on-the-akk-contract-intact-it-is-available-for-scrut/2738581223065713/?locale=zh_CN",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thecable.ng/exclusive-aisha-buhari-unveiled-but-is-she-the-presidents-wife-daughter-or-an-impostor/",
+      "date": "2016-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/guardianng/posts/missed-any-of-the-weeks-big-stories-here-is-a-selection-of-our-top-stories-from-/10157264102046636/",
+      "date": "2019-07-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/channelsforum/posts/nigeria-visa-policy-buhari-presents-2020-documenttwo-minutes-gives-you-a-rundown/3105332546145516/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Premiumtimes/posts/nigeria-anti-corruption-group-petitions-opec-demands-removal-of-alison-madueke-a/627891677248450/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://carnegieendowment.org/research/2018/07/a-new-taxonomy-for-corruption-in-nigeria",
+      "date": "2018-07-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/100044326904709/posts/buhari-never-banned-at-any-time-from-entering-americaformer-vice-president-atiku/1744681105827024/",
+      "date": "2017-12-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dw.africa/posts/nigerian-information-minister-lai-mohammed-defended-his-countrys-human-rights-re/2744122162335657/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/pidgin/tori-54015978",
+      "date": "2020-09-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 17,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that in October 2020, the daughter of then-President Muhammadu Buhari of Nigeria held a position as a board member of the Nigerian National Petroleum Corporation (NNPC).\n2. The evidence provided is insufficient to confirm or deny the specific claim. \n    - Q1 confirms Muhammadu Buhari was President during the relevant period.\n    - Q2, A1 mentions a \"Buhari daughter\" serving as a Special Assistant (SA) to the Petroleum Minister (Kachikwu), but this is a staff/advisory role, not a Board Member position. \n    - Q2, A3 and Q3 provide the legal structure of the NNPC Board, noting it consists of the Minister of Petroleum, the Managing Director, the Permanent Secretary of Finance, and six others appointed by the President. \n    - Q2, A5 confirms the President has the power to reconstitute the board, but does not list the names of the members in 2020.\n    - No evidence is provided that names any specific daughter of Buhari as a member of the NNPC Board.\n3. There is a gap in the evidence: while there are social media claims (Q2, A1) suggesting family members hold various advisory or top positions in state enterprises, there is no official record or specific name provided in the evidence to verify if a daughter specifically sits on the *Board of Directors* of the NNPC.\n4. Because the evidence mentions a daughter in an advisory capacity (SA to the Minister) but does not address the specific \"Board Member\" claim with any definitive proof or a direct denial, it is impossible to verify the claim's accuracy.\n\nLabel: Not Enough Evidence",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Who was the President of Nigeria at the time this claim was made in October 2020?",
+      "answer": "” Under the period in question, Mr Olusegun Obasanjo and Mr Abubakar served as Nigeria’s president and vice president respectively. Though it was not stated in the tweet, the former vice president’s claims appear to be a response to President Muhammadu Buhari’s earlier statement blaming his predecessors for ‘near destruction of Nigeria’. The former vice president concluded his tweet with, “Facts don’t lie.” But how factual or accurate are the two claims he made? Verification Claim 1: Nigeria paid off her entire foreign debt between 1999 and 2007.",
+      "url": "https://dubawa.org/fact-checking-atikus-claims-on-nigerias-foreign-debt-gdp-growth-between-1999-and-2007/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any official record or evidence confirming that a daughter of Muhammadu Buhari serves on the board of the Nigerian National Petroleum Corporation (NNPC)?",
+      "answer": "Buhari daughter SA to Kachikwu petroleum minister. 2. Mamman Daura's daughter SA to CBN gov. 3. Children of some cabinet ministers, a nephew of the president, are appointed to top positions in nnpc and cbn. I will fight kworuption.-Buhari(2015) Buhari is not kworupt. Breaking News: Abba Kyaris daughter secretly appointed VP Nigerian Sovereign Investment Authority(manages Nigeria’s excess crude oil revenues). They love oil,hide their gold and claim to hate money and kworuption(na only oil and cbn de Nigeria). Other family appointments by Buhari govt: 1. The Act and the NNPC (Amendment) Act of 2007 provide for the appointment of 9 persons to the Board of the Corporation: - The Chairman who is to be the Minister of Petroleum Resources; - The Managing Director appointed by the President; - The Permanent Secretary of the Federal Ministry of Finance; - 6 other persons appointed by the President who by their experience and knowledge of the oil and gas industry, have the capability of contributing to the Corporation. The NNPC recently announced the appointment of four Group Executive Directors. (18) Statement by the Group Managing Director of the Nigerian National Petroleum Corporation (NNPC), as reported in This Day on 19 May 2004 (see URL www.thisdayonline. PRESIDENT TINUBU MOURNS VETERAN ACTOR OLU JACOBS AT 84 September 16, 2026 May 5, 2020 on Latest News, Press Releases President Muhammadu Buhari has approved the reconstitution of the Board of the Nigerian National Petroleum Corporation (NNPC), after the expiration of the term of the board members appointed in 2016.",
+      "url": "https://www.facebook.com/groups/Edopolitics/posts/2496481690386712/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the actual leadership structure of the NNPC regarding its board of directors?",
+      "answer": "To ensure appropriate governance, we recommend that the Board should be made up of more non-executive directors than members of the executive management. Indeed, the most recent board of NNPC was constituted on that basis, with five non–executive board members and four members from the executive management. 1. Constitute the Board of NNPC: The NNPC Act provides that “The affairs of the Corporation shall…be conducted by a Board of Directors…”. The Act and the NNPC (Amendment) Act of 2007 provide for the appointment of 9 persons to the Board of the Corporation: - The Chairman who is to be the Minister of Petroleum Resources; - The Managing Director appointed by the President; - The Permanent Secretary of the Federal Ministry of Finance; - 6 other persons appointed by the President who by their experience and knowledge of the oil and gas industry, have the capability of contributing to the Corporation. The NNPC recently announced the appointment of four Group Executive Directors. The Board of the Corporation determines the policy of the Corporation, which the Managing Director and his team are required to implement. The lack of a properly constituted board is not just a breach of the enabling law of the NNPC, it takes away one of the most important mechanisms for ensuring accountability, providing strategic direction and bolstering corporate governance. It is not clear whether the four GEDs would automatically become members of the board of NNPC. Ibe Kachikwu, “NNPC isn’t a public service, it is a corporation and it is going to be run like a company, generating money and profit for Nigerians…” The reform process will be multifaceted including structural reforms, training and resizing of human resources, and financial restructuring. This short note seeks to contribute to the ongoing debate by recommending two foundational areas which immediate steps may be taken to improve governance in the running of NNPC. NNPC Reform – Two Immediate Steps to Facilitate Improved Governance Introduction The Federal Government of Nigeria recently commenced the reforms to the Nigerian National Petroleum Corporation (“NNPC”) with the dissolution of its board and executive management and the hiring of a new team to take over the running of the affairs of the Corporation. The thrust of the reform agenda of NNPC is captured in a quote attributed to the new GMD, Dr.",
+      "url": "https://www.linkedin.com/pulse/nnpc-reform-two-immediate-steps-facilitate-improved-adeoye-adefulu",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the Nigerian government or the NNPC addressed allegations regarding nepotism in board appointments involving the President's family?",
+      "answer": "Group Accuses President Buhari Of Nepotism, Breach of Federal Character In Composition Of Police Trust Fund Board | Sahara Reporters The group in a statement by its National Coordinator, Oliver Akosa, said the pattern of appointments by the President did not reflect federal character and the diversity of the country. READ MORE: https://bit.ly/2ZanbOc 所有心情： 286条评论 47次分享 赞 评论 最相关 Ilechukwu Ugo They are still complaining?",
+      "url": "https://www.facebook.com/ReportYourself/posts/group-accuses-president-buhari-of-nepotism-breach-of-federal-character-in-compos/10157224628857703/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the common sources of misinformation regarding the Nigerian presidency and state-owned enterprises?",
+      "answer": "Others such as jokers, scammers, politicians, conspiracy theorists, insiders, relatives and celebrities are among the perpetrators of misinformation (BBC, 2020). Quite a number of hoax being spread in Nigeria include: - A false report peddled after the 2015 general elections that the Independent National Electoral Commission had determined that under-age youth in northern Nigeria had voted in the elections. For instance, much of the fake information posted on the internet during the 2016 presidential election in America appeared in written text and recorded segments (Denise-Marie Ordway, 2017). In Nigeria, study has shown official personalities and political actors were found to spread fake information during the 2019 presidential election (Paul Anderson, 2019). This study seeks to build on the existing literature by harmonising their findings on ‘fake news’ as well as proposed solutions to curb its spread. It finds out that the nation’s culture of ‘closed’ (as opposed to open) governance, which thrives on official secrecy and dearth of timely official information is a recipe for the scourge to spread. It also finds out that increased Nigeria’s population on social media and other digital space is an escape route from muffled voices in the mainstream; an avenue to create, share and distribute contents of all sorts, many of which populate the misinformation ecosystem in Nigeria. Mode of Transmission Greater percentage of misinformation in Nigeria is transmitted via the internet, particularly on social media, judging from Amobi (2019) that instant messaging platforms are among the greatest purveyors of misinformation and disinformation and that “false claims are on the rise in Nigeria, partly because of citizen journalism, where there is stiff competition to be the first to publish information”. With the population of Nigerian internet and social media users witnessing a surge in recent times, this makes our democracy more susceptible to misinformation disoder. According to Datareportal (2020), as at January 2020, there were 85. With government and state actors, having muffled the public voices in the mainstream, and with the democratization of the digital space, millions of Nigerians have found willing collaborators in the social media, search engines and other enable sites to produce, distribute, share information and form communities. Some of the practical reasons “fake news” spread in Nigeria have been highlighted. Umaru Pate et al (2019) state that “fake news” spread because there is: - General distrust of elites, leaders and politicians by majority of Nigerians.",
+      "url": "https://dubawa.org/fake-news-understanding-the-scourge-in-nigeria/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/groups/mopplah/posts/1505512456131170/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/world/2018/dec/04/nigeria-election-buhari-battles-body-double-rumours-and-economic-woe",
+      "date": "2018-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aljazeera.com/news/2020/9/30/nigeria-turns-60-hope-despite-anger-over-corruption-poverty",
+      "date": "2020-09-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/RootstvNg/posts/the-first-presidential-election-after-the-1983-military-coup-was-held-on-june-12/2969635263092297/",
+      "date": "1998-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/reel/CF0G6XqHNfs/",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://dubawa.org/fact-checking-atikus-claims-on-nigerias-foreign-debt-gdp-growth-between-1999-and-2007/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/CF4QiQcFlkh/",
+      "date": "2020-10-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/news/world/nigeria-s-president-declared-winner-second-term-after-bumpy-vote-n976556",
+      "date": "2019-02-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ReportYourself/posts/read-the-full-letter-minister-of-state-kachikwu-sent-to-president-buhari-regardi/10154889615247703/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://statehouse.gov.ng/president-buhari-reconstitutes-nnpc-board/",
+      "date": "2020-05-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dw.africa/posts/nigerian-information-minister-lai-mohammed-defended-his-countrys-human-rights-re/2744122162335657/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ncdmb.gov.ng/president-buhari-inaugurates-17-storey-ncdmb-building-pledges-to-spend-more-on-infrastructure-for-job-creation/",
+      "date": "2020-08-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/Edopolitics/posts/2496481690386712/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/CDmGNuvDB0n/",
+      "date": "2020-08-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://carnegieendowment.org/research/2018/07/a-new-taxonomy-for-corruption-in-nigeria",
+      "date": "2018-07-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/RadioNigeriaNetwork/posts/in-this-weeks-package-the-new-management-team-of-nigerian-national-petroleum-cor/1101683229859449/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.facebook.com/NNPCgroup/videos/3179099818874335/?locale=it_IT",
+      "date": "2020-09-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.linkedin.com/pulse/nnpc-reform-two-immediate-steps-facilitate-improved-adeoye-adefulu",
+      "date": "2015-08-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://businessday.ng/energy/oilandgas/article/nnpc-gives-detailed-information-on-newly-appointed-highranking-officials/",
+      "date": "2019-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ReportYourself/posts/group-accuses-president-buhari-of-nepotism-breach-of-federal-character-in-compos/10157224628857703/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/punchnewspaper/posts/group-protests-kyaris-daughters-appointment-in-nsiaa-civil-rights-organisation-c/2350832261621589/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.laohamutuk.org/OilWeb/Bground/Africa/Nigeria/Nigeria%20Are%20human%20rights%20in%20the%20pipeline.htm",
+      "date": "2004-11-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/CCoec_8j0zZ/",
+      "date": "2020-07-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dw.africa/posts/since-independence-nigeria-has-struggled-with-sectarian-ethnic-and-separatist-vi/2700172290063978/",
+      "date": "2017-01-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/guardianng/posts/how-the-guardian-and-other-media-outlets-in-nigeria-are-going-the-extra-mile-to-/10156818340796636/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pewresearch.org/internet/2017/10/19/the-future-of-truth-and-misinformation-online/",
+      "date": "2017-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://dubawa.org/fake-news-understanding-the-scourge-in-nigeria/",
+      "date": "2020-08-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reutersinstitute.politics.ox.ac.uk/types-sources-and-claims-covid-19-misinformation",
+      "date": "2020-04-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/23743670.2020.1788295",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 246,
+     "n_urls_after_bm25": 23,
+     "n_chunks": 1237
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Q&As find that Muhammedu Buhari's (the President of Nigeria's) unnamed daughter is not a board member of the Nigerian National Petroleum Corporation (NNPC).",
+   "questions": [
+    {
+     "question": "Who are the board members of the Nigerian National Petroleum Corporation?",
+     "answers": [
+      {
+       "answer": "Chief Timipre Sylva \nHon. Minister of State, Petroleum Resources\n\nMele Kolo Kyari\n​Group Managing Director, \nNNPC\n\nDr. Stephen Dike\n​Member,​\nNNPC Board​\n\nChief Pius O. Akinyelure\n​Member,\nNNPC Board\n\nMrs Hadiza Coomassie\nSecretary to the Corporation ​and Legal Adviser\n\nSen. Magnus Abe\nMember,NNPC Board\n\nDr. Tajuddeen Umar\n​Member,\n​NNPC Board\n\nMallam Mohammed Lawal\nMember,\nNNPC Board\n\nMrs Lami Onayi Ahmed\nMember,\nNNPC Board\n\nAhmed Aliyu\n​Member,\n​NNPC Board",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20210516021256/https://www.nnpcgroup.com/About-NNPC/Pages/Board.aspx",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Are any of the board members a known daughter of Muahammadu Buhari, the President of Nigeria?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210516021256/https://www.nnpcgroup.com/About-NNPC/Pages/Board.aspx",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Does the claim specify the name of Buhari's daughter?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210516021256/https://twitter.com/tesseract___/status/1318264961416744967",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What are the names of Muahammadu Buhari 's childeren?",
+     "answers": [
+      {
+       "answer": "Zulaihat (deceased)\nFatima\nMusa (deceased)\nHadiza\nSafinatu\nHalima\nYusuf\nZarah\nAisha\nAmina",
+       "answer_type": "Extractive",
+       "source_url": "https://en.wikipedia.org/wiki/Muhammadu_Buhari",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Do any of his children's names appear on the list of board members of the Nigerian National Petroleum Corporation (NNPC)?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210516021256/https://www.nnpcgroup.com/About-NNPC/Pages/Board.aspx",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Do any of his children's names appear on any list of previous board members of the  NNPC?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210516021256/https://www.vanguardngr.com/2016/07/buhari-appoints-baru-nnpc-gmd/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210516021256/https://www.icirnigeria.org/is-buharis-daughter-a-board-member-of-nnpc/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The official NNPC website lists a 10-member board that does not include Zahra Buhari or any of President Buhari's known daughters, and a press statement from the Federal Ministry of Information and Culture on June 24, 2020, announced the approved list of NNPC board members approved by the President on June 2, 2020, which include Timipre Sylva, Mele Kolo Kyari, Senator Magnus Abe, Dr Isah Dutse, Dr Tajudeen Umaru, Dr Steven Dike, Mrs Lami Ahmed, Chief Pius Akinyelure, Malam Mohammed Lawal, and Mrs Hadiza Commassie.",
+     "support_span": "A check on the official website of the NNPC shows a list of a 10-member board of the corporation which does not include Zahra Buhari or any of his known daughters. | “The members of the NNPC Board who had on 2nd June, 2020 been approved by President Mohammadu Buhari are the Hon. Minister of State for Petroleum Resources, Timipre Sylva who doubles as the Alternate Chairman of the Board, Mallam Mele Kolo Kyari, GMD of NNPC, Senator Magnus Abe, Dr Isah Dutse, Permanent Secretary Ministry of Finance, Dr Tajudeen Umaru, Dr Steven Dike, Mrs Lami Ahmed, Chief Pius Akinyelure, Malam Mohammed Lawal and Secretary of the Board, Mrs Hadiza Commassie,” | on June 24, 2020, the Federal Ministry of Information and Culture (FMIC) published a press statement announcing the list of the board members approved by the president."
+    },
+    {
+     "statement": "The previous set of NNPC board members during the leadership of Dr. Maikanti Baru also did not include any of Buhari's daughters, and the claim that Buhari's daughter is a board member of the NNPC is false based on available evidence.",
+     "support_span": "In addition, the list of the previous set of board members during leadership of the late Group Managing Director, Dr Maikanti Baru did not have Buhari’s daughter’s name either. | Available evidence does not support the claim that Buhari’s daughter is a board member at NNPC. The claim is FALSE."
+    }
+   ],
+   "justification": "The evidence consistently contradicts the claim. Official NNPC website records and a press statement from the Federal Ministry of Information and Culture regarding the board members approved by President Buhari in June 2020 do not list Zahra Buhari or any of the President's known daughters. Furthermore, historical records of previous NNPC board leadership also show no such appointment, indicating that the claim is unsupported by available official documentation.",
+   "article_url": "https://web.archive.org/web/20210516021256/https://www.icirnigeria.org/is-buharis-daughter-a-board-member-of-nnpc/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

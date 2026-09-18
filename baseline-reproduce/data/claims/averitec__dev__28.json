@@ -1,0 +1,487 @@
+{
+ "key": "averitec/dev/28",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 28,
+ "claim": "Pogba Has Quit The French National Team Over Macron's Remarks on Islam.",
+ "claim_date": "2020-10-26",
+ "speaker": "Troll Football Nepal",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://www.facebook.com/OfficialTFN/photos/a.2080854138854114/2743164972623024/?type=3&__xts__[0]=68.ARA0aaJdMED8IPqlzRS68cB2DSqDil_1rHOwNOhrSS5qM-nX__BYEqmUEjtfhqbWCqsHTuh_htN7RuTU3BtPF5PueggMPFouVSZ3pwJqCqYy7-__GxLGaTUKzTj5WIIKisdiBs3HBr9OO3Gn3MdFIVMUWtA7LiNUc1x6G7h_YYJ_K1oryvj8bmRaeeZ30er-3U1xZyQSdTNCQp1fWAOUpjFKzSTMl51rrAByWfasax90j2VzELEqZshfzWiWZLegCVZGjsFbdCd41icecnLYbCO75EkNiAdspkhslPCelf-qcVBtQitdCiHfWo8U_ElDhZV1B7Jq1kv782nhi2Ho_rNL6XEI",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim \"Pogba Has Quit The French National Team Over Macron's Remarks on Islam,\" I have analyzed the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that Paul Pogba has retired or quit the French national team specifically as a protest or reaction to President Emmanuel Macron's remarks concerning Islam.\n\n2.  **Evaluate the Evidence:**\n    *   **Direct Denials:** Every single question-answer pair (Q1 through Q10) explicitly states \"No\" to the claim.\n    *   **Specific Refutations:** The evidence shows that Pogba himself has personally addressed these reports on his Instagram page, labeling them as \"100% unfounded news,\" \"fake news,\" \"unacceptable,\" and \"irresponsible misinformation.\"\n    *   **Source Verification:** The evidence notes that the rumors originated from an Egyptian sports website and were circulated by tabloids like *The Sun*. However, these publications eventually issued clarifications, errata, or apologies after acknowledging the claims were unsubstantiated.\n    *   **Intent and Status:** Pogba expressed his desire to continue playing for \"Les Blues\" (the French national team) and even threatened legal action against those spreading the misinformation.\n\n3.  **Determine the Verdict:** Since the evidence consistently and directly contradicts the claim through direct quotes from the subject and confirmation of the falsity of the original reports, the claim is factually incorrect.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Has Paul Pogba retired from the French national team due to President Emmanuel Macron's remarks on Islam?",
+      "answer": "No, Paul Pogba has not retired from the French national team due to President Emmanuel Macron's remarks on Islam. \n\nAccording to the evidence, Pogba has explicitly denied these reports, labeling them as \"100% unfounded news.\" He expressed anger and frustration regarding the claims made by *The Sun*, criticizing the tabloid for publishing unverified and irresponsible headlines. Furthermore, Pogba announced his intention to take legal action against the publishers of the report.",
+      "url": "https://www.thecable.ng/pogba-denies-quitting-french-team-over-macrons-comment-on-islam/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba actually decide to leave the French national team because of President Emmanuel Macron's comments about Islam?",
+      "answer": "No, Paul Pogba did not decide to leave the French national team because of President Emmanuel Macron's comments about Islam. According to the evidence, Pogba dismissed these reports as \"unacceptable\" and \"fake news\" on his Instagram page, clarifying that the claims—which originated on an Egyptian sports website—were unsubstantiated.",
+      "url": "https://www.newarab.com/News/2020/10/26/Paul-Pogba-denies-reports-hes-quitting-France-over-Macron",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba quit the French national team because of President Macron's remarks on Islam?",
+      "answer": "No, Paul Pogba did not quit the French national team because of President Macron's remarks on Islam. According to the evidence, Pogba denounced the report as \"fake news\" and \"unfounded,\" expressing intense anger and frustration over the false claim. He stated that the media outlet failed to verify the facts and was irresponsible regarding sensitive political and religious subjects.",
+      "url": "https://www.skysports.com/football/news/11095/12115111/paul-pogba-man-utd-midfielder-angry-and-appalled-over-reports-he-quit-france-team",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba quit the French national team due to President Emmanuel Macron's comments regarding an Islamic terrorist attack?",
+      "answer": "No, Paul Pogba did not quit the French national team due to President Emmanuel Macron's comments. Although reports from a Middle Eastern sports website suggested he intended to leave because he resented Macron's description of the killing of teacher Samuel Paty, Pogba dismissed these claims on Instagram, labeling them \"fake news\" and \"unacceptable.\" He clarified that he has not left the team.",
+      "url": "https://www.mirror.co.uk/sport/football/news/breaking-man-utd-star-paul-22904740",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba retire from the French national team due to President Macron's comments regarding Islam?",
+      "answer": "No, Paul Pogba did not retire from the French national team due to President Macron's comments regarding Islam. \n\nAccording to the evidence, reports claiming his retirement was a reaction to Macron's defense of caricatures of the Prophet Muhammad were \"100% unfounded\" and characterized as \"irresponsible misinformation\" by Pogba himself. While some media outlets initially circulated these claims, they were ultimately debunked, and publications like *The Sun* and *Mirror* issued clarifications or errata regarding the false reports.",
+      "url": "https://www.altnews.in/paul-pogba-did-not-quit-french-football-team-after-pres-macrons-remarks-on-islam/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba resign from the French national team in protest of President Emmanuel Macron's remarks on Islam?",
+      "answer": "No, Paul Pogba did not resign from the French national team in protest of President Emmanuel Macron's remarks. While reports from 195sports suggested he had quit due to the President's statements and the government's decision regarding a slain teacher, Pogba dismissed these claims as \"fake news\" and announced his intention to take legal action against those spreading the misinformation.",
+      "url": "https://www.middleeastmonitor.com/20201026-paul-pogba-denies-quitting-france-team-over-macrons-islamophobic-comments/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba intend to retire from the French national football team following President Macron's comments regarding the murder of Samuel Paty?",
+      "answer": "No, Paul Pogba did not intend to retire from the French national football team following President Macron's comments. Pogba officially denied these reports via Instagram, labeling the headlines suggesting his retirement as \"fake news.\"",
+      "url": "https://www.the-independent.com/sport/football/international/paul-pogba-quit-french-national-team-islam-emmanuel-macron-terrorism-news-b1342498.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba quit the French national team due to President Emmanuel Macron's remarks on Islam?",
+      "answer": "No, Paul Pogba did not quit the French national team due to President Emmanuel Macron's remarks on Islam. Pogba dismissed the reports claiming he intended to quit as \"total fake\" and \"unfounded,\" specifically refuting any link between his decisions and the President's comments regarding Islam.",
+      "url": "https://www.bbc.com/sport/football/54691842",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba intend to retire from international duty in protest of President Emmanuel Macron's comments regarding Islam?",
+      "answer": "No, Paul Pogba did not intend to retire from international duty in protest of President Emmanuel Macron's comments regarding Islam. Pogba denounced these reports as \"100% Fake News\" via Instagram, expressing frustration that his religion and his role on the French National Team were being used to create sensationalist headlines. Several publications that initially reported the story, including *The Sun*, have since issued apologies and updated their coverage after acknowledging the claims were unfounded.",
+      "url": "https://www.dailysabah.com/sports/football/pogba-denies-france-retirement-rumors-vows-legal-action",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba quit the French national team in response to President Macron's remarks on Islam?",
+      "answer": "No, Paul Pogba did not quit the French national team in response to President Macron's remarks on Islam. According to the evidence, Pogba issued a denial regarding these reports, labeling the claims \"unacceptable\" and expressing his desire to continue playing for \"Les Blues.\"",
+      "url": "https://www.facebook.com/legitngnews/posts/paul-pogba-has-denied-reports-on-his-instagram-account-that-he-has-retired-from-/3752182334878636/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.middleeastmonitor.com/20201026-paul-pogba-denies-quitting-france-team-over-macrons-islamophobic-comments/",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/GOAL/posts/paul-pogba-has-hit-out-at-claims-he-has-quit-the-france-national-team-calling-it/10159156563708598/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.skysports.com/football/news/11095/12115111/paul-pogba-man-utd-midfielder-angry-and-appalled-over-reports-he-quit-france-team",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.the-independent.com/sport/football/international/paul-pogba-quit-french-national-team-islam-emmanuel-macron-terrorism-news-b1342498.html",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newarab.com/News/2020/10/26/Paul-Pogba-denies-reports-hes-quitting-France-over-Macron",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thecable.ng/pogba-denies-quitting-french-team-over-macrons-comment-on-islam/",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mirror.co.uk/sport/football/news/breaking-man-utd-star-paul-22904740",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/paul-pogba-did-not-quit-french-football-team-after-pres-macrons-remarks-on-islam/",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/sport/football/54691842",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MUFCArenaOfficial/posts/paul-pogba-denies-reports-of-quitting-the-french-national-team/1323840677955715/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dailysabah.com/sports/football/pogba-denies-france-retirement-rumors-vows-legal-action",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/legitngnews/posts/paul-pogba-has-denied-reports-on-his-instagram-account-that-he-has-retired-from-/3752182334878636/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 12,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that Paul Pogba (French national football player) quit the French National Team in October 2020 as a protest against President Emmanuel Macron's remarks regarding Islam.\n2. Multiple highly reliable sources (BBC, Sky Sports, BeIN Sports, The Independent, Manchester Evening News) confirm that Paul Pogba explicitly denied these reports. He branded the claims \"fake news,\" \"unacceptable,\" and \"unfounded\" via his official Instagram account. He further stated he was \"appalled, angry, shocked and frustrated\" that media outlets used his religion and the national team to create fake headlines regarding French current events. The evidence shows the reports originated from Middle Eastern sources and were picked up by British tabloids like *The Sun*, which subsequently apologized and amended the story.\n3. There are no contradictions in the evidence; all reputable sources align on the fact that Pogba denied the resignation and that the news was false.\n4. Since the evidence directly and consistently proves that the event described in the claim (Pogba quitting) did not happen and was explicitly refuted by the subject himself, the claim is refuted.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Paul Pogba officially announce his retirement or resignation from the French National Team in October 2020?",
+      "answer": "Paul Pogba has denied reports on his Instagram account that he has retired from the France national team after the over President Macron’s comments The player says such a report is unacceptable as he hopes to continue to feature for Les Blues. 所有心情： 1,294条评论 113次分享 赞 评论 最相关 Lucky Eghosa Amen So he wanted to quit playing and lose his value because of one Arab god hmm 4 Francis Boniface Ukachi The truth is bitter... religion should not be causing issues in the society, We should understand and see ourselves as one. Paul Pogba responds to claim he's quit France national team after Emmanuel Macron comment Paul Pogba has dispelled reports from the Middle East suggesting he was quitting the France national team after recent comments from president Emmanuel Macron Paul Pogba has branded claims he's quit the France national team \"fake news\". Reports from the Middle East suggested the Manchester United midfielder was quitting Les Bleus after recent comments from president Emmanuel Macron on Islam and terrorism. #fakenews #AllezLesBleus @equipedefrance A post shared by Paul Labile Pogba (@paulpogba) on Oct 26, 2020 at 5:20am PDT The former Juventus man made it clear he has no intention of retiring from Les Bleus duty and plans to take legal action. \"I am appalled, angry, shocked and frustrated some \"media\" sources use me to make total fake headlines in the sensible subject of French current events and adding my religion and the French National Team to the pot,\" Pogba wrote. \"I am against any and all forms of terror and violence. Breadcrumb 'Fake news': Paul Pogba slams reports he's quitting France national team over Macron's Islam comments Macron has been embroiled in a row over Islamophobia, which had reportedly saw one of France's most famous Muslim figures get involved. 2 min read Manchester United star Paul Pogba has denied reports that he will quit the French national team over controversial remarks made by President Emmanuel Macron about Islam, which have been deemed \"racist\" and \"insulting\" by many French Muslims. About Paul Pogba quitting the National Team: 100% fake news, as well as any words or thoughts attributed to Paul with regards to French current events. It is shocking how the press sometimes acts irresponsibly and spreads lies only to get attention. Paul respects and feels for French current events and condemns any form of violence. Paul Pogba: Man Utd star to take legal action over reports he was quitting France national team - Published Manchester United and France midfielder Paul Pogba says he will take legal action after \"total fake\" reports said he was to quit international football. Pogba, 27, was reported to be quitting the France national team over comments made by the country's president, Emmanuel Macron, about Islam. World Cup winner Pogba, who is Muslim, has 10 goals and 72 caps for France. Paul Pogba denies reports he has quit French national team over Emmanuel Macron’s terrorism comments Pogba, who converted to Islam in 2011, rejected the reports - Bookmark - CommentsGo to comments Paul Pogba has rejected reports he is ready to quit the French national team over comments about Islam’s role in terrorism by the president, Emmanuel Macron. Reports in the Middle East claimed Pogba had stepped down from national duties over Macron’s description of the murder of French school teacher Samuel Paty as an “Islamic terrorist attack”. Paul Pogba, Manchester United midfielder, has denied claims that he has quitted the French national team over “anti-Islamic” comments attributed to Emmanuel Macron, the country’s president. The 27-year-old World Cup winner also lambasted The Sun newspaper, which first broke the story on Sunday night. The British tabloid had quoted middle east sources to have said that Pogba had retired from the country’s football team after Macron alleged that Islam was the source of international terrorism. Manchester United star Paul Pogba has dismissed reports that he has quit playing for the French international team following the latest Islamophobic statements made by President Emmanuel Macron on Friday that Islam was the source of international terrorism. According to the Arabic sports website 195sports, Pogba resigned yesterday in response to the French government’s move granting the recently slain teacher – who had shown caricatures of the Prophet Muhammad (peace be upon him) to his class – the country’s highest honour, the Legion d’honneur. Paul Pogba: Man Utd midfielder 'angry and appalled' over reports he quit France team Manchester United midfielder Paul Pogba also considering legal action against The Sun newspaper, which published the story; The Sun has since apologised and amended. Monday 26 October 2020 21:43, UK Manchester United midfielder Paul Pogba has denied media reports that claimed he quit the France national team over comments made by the country's President Emmanuel Macron which were perceived to be against Islam. Paul Pogba Withdraws from France Squad with Injury; Replaced by Matteo Guendouzi Manchester United midfielder Paul Pogba has pulled out of France's squad with an ankle injury and will be replaced by Arsenal's Matteo Guendouzi. Get French Football News reported the news on Monday: It is Guendouzi's first call-up to the senior squad. The 20-year-old had returned to France from north London to work with the under-21 side: Pogba has endured an inconsistent 2019-20 campaign so far with United. Manchester United’s Paul Pogba said on Monday reports claiming he had retired from international duty in protest against French President Emmanuel Macron’s comments about radical Islam were “fake news”. According to reports in the Middle East picked up by British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron vowed to take the fight to Islamic radicals after the October 16 beheading of history teacher Samuel Paty. “Unacceptable, fake news,” Pogba, a converted Muslim, posted on Instagram with a screenshot of The Sun’s article. Manchester United's Paul Pogba said on Monday he will be \"taking legal action\" after reports claimed he had retired from international duty in protest against French President Emmanuel Macron's controversial comments against Islam. According to British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron described Islam as a religion “in crisis” and vowed to take action. Paul is fully committed to playing for his country.\" Pogba posted a picture of an English newspaper's version of the story - which was not the original source - on his Instagram account and branded it 'unacceptable'. The Frenchman then launched into a tirade against the 'paper: \"Absolutely 100% unfounded news about me are going around, stating things I have never said or thought. I am appalled, angry, shocked and frustrated some 'media' sources use me to make total fake headlines in the sensible subject of French current events and adding the French National Team to the pot. However, Pogba posted a picture on Instagram of an article stating he had ‘quit playing for France’ and wrote \"unacceptable fake news\" over the top. View this post on Instagram So The Sun did it again... absolutely 100% unfounded news about me are going around, stating things I have never said or thought. \" That prompted claims that Pogba had quit the French national team in response to Macron's speech but the United star denied the reports on social media. United have released a statement throwing their weight behind the 27-year-old. Manchester United midfielder Paul Pogba has hit out \"unacceptable fake news\" after reports claimed he has quit international football over comments made by France president Emmanuel Macron. Pogba Slams 'Fake News' Over Claims He Quit France Duty Paul Pogba plans to take legal over reports that suggested he had called time on his France career. Macron described the beheading of teacher Samuel Paty in a north-western suburb of Paris this month as an \"Islamic terrorist attack\". Paty, 47, is said to have shown controversial cartoons of the Prophet Muhammad to his pupils. \" Pogba added that he was considering legal action against the publishers, while The Sun has issued an apology. A spokesperson for The Sun said: \"We reported on a story that Paul Pogba had taken the decision to quit the French national football team after it was published on a sports website. \"That story was also published on The Mirror, Mail Online and other websites. \"Subsequently, Paul Pogba has denied the claim and we have updated our story accordingly. Manchester United release statement after Paul Pogba condemns 'fake news' story Man Utd have backed midfielder Paul Pogba after he slammed stories claiming he had retired from the French national team. Manchester United have backed Paul Pogba in a statement released after the midfielder slammed 'fake news' reports over his international future with France. French president Emmanuel Macron described the murder of teacher Samuel Paty, 47, as an 'Islamic terrorist attack' and said: \"Unity and firmness are the only answers to the monstrosity of Islamist terrorism.",
+      "url": "https://www.facebook.com/legitngnews/posts/paul-pogba-has-denied-reports-on-his-instagram-account-that-he-has-retired-from-/3752182334878636/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the relationship between Paul Pogba and President Emmanuel Macron regarding religious remarks in late 2020?",
+      "answer": "Macron’s strong speech received backlash in some quarters, with Turkish president Recep Erdogan questioning his French counterpart’s mental state. But Pogba, who converted to Islam in 2011, rejected the reports on Instagram, posting the caption “fake news” over a headline by The Sun which said he was retiring from international football. Join our commenting forum Join thought-provoking conversations, follow other Independent readers and see their replies Comments. Breadcrumb 'Fake news': Paul Pogba slams reports he's quitting France national team over Macron's Islam comments Macron has been embroiled in a row over Islamophobia, which had reportedly saw one of France's most famous Muslim figures get involved. 2 min read Manchester United star Paul Pogba has denied reports that he will quit the French national team over controversial remarks made by President Emmanuel Macron about Islam, which have been deemed \"racist\" and \"insulting\" by many French Muslims. Pogba allegedly considered the decision an insult to him and to French Muslims, especially since Islam is the second largest religion in France after Christianity. READ: World’s most expensive footballer Pogpa performs Umrah in Makkah However, the 27-year-old footballer today branded the reports as “unacceptable” and “fake news” according to his Instagram page. Paul Pogba, Manchester United midfielder, has denied claims that he has quitted the French national team over “anti-Islamic” comments attributed to Emmanuel Macron, the country’s president. The 27-year-old World Cup winner also lambasted The Sun newspaper, which first broke the story on Sunday night. The British tabloid had quoted middle east sources to have said that Pogba had retired from the country’s football team after Macron alleged that Islam was the source of international terrorism. Paul Pogba denies reports he has quit French national team over Emmanuel Macron’s terrorism comments Pogba, who converted to Islam in 2011, rejected the reports - Bookmark - CommentsGo to comments Paul Pogba has rejected reports he is ready to quit the French national team over comments about Islam’s role in terrorism by the president, Emmanuel Macron. Reports in the Middle East claimed Pogba had stepped down from national duties over Macron’s description of the murder of French school teacher Samuel Paty as an “Islamic terrorist attack”. Manchester United star Paul Pogba has dismissed reports that he has quit playing for the French international team following the latest Islamophobic statements made by President Emmanuel Macron on Friday that Islam was the source of international terrorism. According to the Arabic sports website 195sports, Pogba resigned yesterday in response to the French government’s move granting the recently slain teacher – who had shown caricatures of the Prophet Muhammad (peace be upon him) to his class – the country’s highest honour, the Legion d’honneur. Paul Pogba has denied reports on his Instagram account that he has retired from the France national team after the over President Macron’s comments The player says such a report is unacceptable as he hopes to continue to feature for Les Blues. 所有心情： 1,294条评论 113次分享 赞 评论 最相关 Lucky Eghosa Amen So he wanted to quit playing and lose his value because of one Arab god hmm 4 Francis Boniface Ukachi The truth is bitter... religion should not be causing issues in the society, We should understand and see ourselves as one. Manchester United's Paul Pogba said on Monday he will be \"taking legal action\" after reports claimed he had retired from international duty in protest against French President Emmanuel Macron's controversial comments against Islam. According to British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron described Islam as a religion “in crisis” and vowed to take action. ” The Sun said Monday it had amended the original version of the article. Macron this month , what he called an “Islamist terrorist attack” against a history teacher decapitated in a Paris suburb and urged the nation to stand united against extremism. “I am against any and all forms of terror and violence,” Pogba wrote in his Instagram post. “My religion is one of peace and love and must be respected. Pogba played a key role in France's 2018 World Cup win and is also a leading figure in Manchester United's squad. Pogba converted to Islam in his 20s and said his faith has helped brought him \"inner-peace\" during the height of his fame. #fakenews #AllezLesBleus @equipedefrance A post shared by Paul Labile Pogba (@paulpogba) on Oct 26, 2020 at 5:20am PDT The former Juventus man made it clear he has no intention of retiring from Les Bleus duty and plans to take legal action. \"I am appalled, angry, shocked and frustrated some \"media\" sources use me to make total fake headlines in the sensible subject of French current events and adding my religion and the French National Team to the pot,\" Pogba wrote. \"I am against any and all forms of terror and violence. The French leader this month declared war on \"Islamist separatism\", which he believes is taking over some Muslim communities in France. The Sun newspaper alleged Pogba, a practising Muslim, reacted to Macron's comments by quitting the national team. The newspaper has since apologised and amended its story. The knife-wielding attacker was shot dead by police in the aftermath of the attack. Reports suggested Pogba, a practising Muslim, took offense over Macron's comments and has decided to call time on representing the world champions. Manchester United midfielder Paul Pogba has hit out \"unacceptable fake news\" after reports claimed he has quit international football over comments made by France president Emmanuel Macron. Pogba Slams 'Fake News' Over Claims He Quit France Duty Paul Pogba plans to take legal over reports that suggested he had called time on his France career. Macron described the beheading of teacher Samuel Paty in a north-western suburb of Paris this month as an \"Islamic terrorist attack\". Paty, 47, is said to have shown controversial cartoons of the Prophet Muhammad to his pupils. \" There was no suggestion Pogba supports the terrorists' actions, but Arabic sports website 195.sports.com alleged the midfielder resented Macron's description of it as an \"Islamic\" terror attack. Paul Pogba responds to claim he's quit France national team after Emmanuel Macron comment Paul Pogba has dispelled reports from the Middle East suggesting he was quitting the France national team after recent comments from president Emmanuel Macron Paul Pogba has branded claims he's quit the France national team \"fake news\". Reports from the Middle East suggested the Manchester United midfielder was quitting Les Bleus after recent comments from president Emmanuel Macron on Islam and terrorism. Manchester United’s Paul Pogba said on Monday reports claiming he had retired from international duty in protest against French President Emmanuel Macron’s comments about radical Islam were “fake news”. According to reports in the Middle East picked up by British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron vowed to take the fight to Islamic radicals after the October 16 beheading of history teacher Samuel Paty. “Unacceptable, fake news,” Pogba, a converted Muslim, posted on Instagram with a screenshot of The Sun’s article. Addressing the teacher's coffin, Macron said: \"We will continue this fight for liberty and for reason of which you have now become the face, because we owe it to you. Because in France, sir, the lights will not go out.\" Paul Pogba and Manchester United have both been approached for comment. Paty had shown cartoons of the Prophet Mohamed to pupils in a class discussion on free speech in a school near Paris. Macron’s comments triggered protests in Muslim-majority countries at the weekend, with people burning pictures of Macron in Syria and setting fire to French flags in the Libyan capital Tripoli. Pogba won the World Cup in Russia in 2018, with Les Bleus’ next fixture a friendly with Finland on November 11 ahead of Nations League meetings with Portugal and Sweden. Paul Pogba: Man Utd star to take legal action over reports he was quitting France national team - Published Manchester United and France midfielder Paul Pogba says he will take legal action after \"total fake\" reports said he was to quit international football. Pogba, 27, was reported to be quitting the France national team over comments made by the country's president, Emmanuel Macron, about Islam. World Cup winner Pogba, who is Muslim, has 10 goals and 72 caps for France.",
+      "url": "https://www.the-independent.com/sport/football/international/paul-pogba-quit-french-national-team-islam-emmanuel-macron-terrorism-news-b1342498.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the source of the claim that Pogba quit the national team due to Macron's remarks?",
+      "answer": "Paul Pogba responds to claim he's quit France national team after Emmanuel Macron comment Paul Pogba has dispelled reports from the Middle East suggesting he was quitting the France national team after recent comments from president Emmanuel Macron Paul Pogba has branded claims he's quit the France national team \"fake news\". Reports from the Middle East suggested the Manchester United midfielder was quitting Les Bleus after recent comments from president Emmanuel Macron on Islam and terrorism. Breadcrumb 'Fake news': Paul Pogba slams reports he's quitting France national team over Macron's Islam comments Macron has been embroiled in a row over Islamophobia, which had reportedly saw one of France's most famous Muslim figures get involved. 2 min read Manchester United star Paul Pogba has denied reports that he will quit the French national team over controversial remarks made by President Emmanuel Macron about Islam, which have been deemed \"racist\" and \"insulting\" by many French Muslims. Paul Pogba, Manchester United midfielder, has denied claims that he has quitted the French national team over “anti-Islamic” comments attributed to Emmanuel Macron, the country’s president. The 27-year-old World Cup winner also lambasted The Sun newspaper, which first broke the story on Sunday night. The British tabloid had quoted middle east sources to have said that Pogba had retired from the country’s football team after Macron alleged that Islam was the source of international terrorism. Paul Pogba denies reports he has quit French national team over Emmanuel Macron’s terrorism comments Pogba, who converted to Islam in 2011, rejected the reports - Bookmark - CommentsGo to comments Paul Pogba has rejected reports he is ready to quit the French national team over comments about Islam’s role in terrorism by the president, Emmanuel Macron. Reports in the Middle East claimed Pogba had stepped down from national duties over Macron’s description of the murder of French school teacher Samuel Paty as an “Islamic terrorist attack”. The French leader this month declared war on \"Islamist separatism\", which he believes is taking over some Muslim communities in France. The Sun newspaper alleged Pogba, a practising Muslim, reacted to Macron's comments by quitting the national team. The newspaper has since apologised and amended its story. \" That prompted claims that Pogba had quit the French national team in response to Macron's speech but the United star denied the reports on social media. United have released a statement throwing their weight behind the 27-year-old. About Paul Pogba quitting the National Team: 100% fake news, as well as any words or thoughts attributed to Paul with regards to French current events. It is shocking how the press sometimes acts irresponsibly and spreads lies only to get attention. Paul respects and feels for French current events and condemns any form of violence. Paul Pogba has denied reports on his Instagram account that he has retired from the France national team after the over President Macron’s comments The player says such a report is unacceptable as he hopes to continue to feature for Les Blues. 所有心情： 1,294条评论 113次分享 赞 评论 最相关 Lucky Eghosa Amen So he wanted to quit playing and lose his value because of one Arab god hmm 4 Francis Boniface Ukachi The truth is bitter... religion should not be causing issues in the society, We should understand and see ourselves as one. Manchester United star Paul Pogba has dismissed reports that he has quit playing for the French international team following the latest Islamophobic statements made by President Emmanuel Macron on Friday that Islam was the source of international terrorism. According to the Arabic sports website 195sports, Pogba resigned yesterday in response to the French government’s move granting the recently slain teacher – who had shown caricatures of the Prophet Muhammad (peace be upon him) to his class – the country’s highest honour, the Legion d’honneur. Paul Pogba: Man Utd star to take legal action over reports he was quitting France national team - Published Manchester United and France midfielder Paul Pogba says he will take legal action after \"total fake\" reports said he was to quit international football. Pogba, 27, was reported to be quitting the France national team over comments made by the country's president, Emmanuel Macron, about Islam. World Cup winner Pogba, who is Muslim, has 10 goals and 72 caps for France. Paul Pogba: Man Utd midfielder 'angry and appalled' over reports he quit France team Manchester United midfielder Paul Pogba also considering legal action against The Sun newspaper, which published the story; The Sun has since apologised and amended. Monday 26 October 2020 21:43, UK Manchester United midfielder Paul Pogba has denied media reports that claimed he quit the France national team over comments made by the country's President Emmanuel Macron which were perceived to be against Islam. However, Pogba posted a picture on Instagram of an article stating he had ‘quit playing for France’ and wrote \"unacceptable fake news\" over the top. View this post on Instagram So The Sun did it again... absolutely 100% unfounded news about me are going around, stating things I have never said or thought. Manchester United midfielder Paul Pogba has hit out \"unacceptable fake news\" after reports claimed he has quit international football over comments made by France president Emmanuel Macron. Pogba Slams 'Fake News' Over Claims He Quit France Duty Paul Pogba plans to take legal over reports that suggested he had called time on his France career. Macron described the beheading of teacher Samuel Paty in a north-western suburb of Paris this month as an \"Islamic terrorist attack\". Paty, 47, is said to have shown controversial cartoons of the Prophet Muhammad to his pupils. Pogba, who is also a Muslim, was quick to respond to unsubstantiated claims made by an Arabic-language website that he was quitting the French national team over the row. The false story in the Egyptian sports site was soon picked up by UK newspapers - including The Sun and The Daily Mail - leading Pogba to promptly dismiss the claims on his Instagram page. \"Unacceptable, Fake News\" Pogba wrote in a graphic over a screenshot of The Sun's story on the claims. Macron’s strong speech received backlash in some quarters, with Turkish president Recep Erdogan questioning his French counterpart’s mental state. But Pogba, who converted to Islam in 2011, rejected the reports on Instagram, posting the caption “fake news” over a headline by The Sun which said he was retiring from international football. Join our commenting forum Join thought-provoking conversations, follow other Independent readers and see their replies Comments. Pogba lashes out at media outlets over 'fake news' stories MANCHESTER, England (AP) — France midfielder Paul Pogba lashed out at a British tabloid on Monday and said he is taking legal action against media outlets who have reported that he is quitting international soccer. Using what it called “various Middle Eastern news sources,” British newspaper The Sun reported that Pogba would stop playing for France’s national team because of comments made by the country’s president, Emmanuel Macron, about Islam. Paul is fully committed to playing for his country.\" Pogba posted a picture of an English newspaper's version of the story - which was not the original source - on his Instagram account and branded it 'unacceptable'. The Frenchman then launched into a tirade against the 'paper: \"Absolutely 100% unfounded news about me are going around, stating things I have never said or thought. I am appalled, angry, shocked and frustrated some 'media' sources use me to make total fake headlines in the sensible subject of French current events and adding the French National Team to the pot. Reports on Sunday night claimed Pogba was allegedly against the decision to give the teacher the Legion d'honneur and Macron's above comments. But he has dispelled this on Instagram this Monday, stating the reports are \"Unacceptable. Fake news.\" Pogba led France to the World Cup in 2018 and even featured in their recent fixtures this month. The United midfielder has 72 French caps and 10 goals. \" Pogba added that he was considering legal action against the publishers, while The Sun has issued an apology. A spokesperson for The Sun said: \"We reported on a story that Paul Pogba had taken the decision to quit the French national football team after it was published on a sports website. \"That story was also published on The Mirror, Mail Online and other websites. \"Subsequently, Paul Pogba has denied the claim and we have updated our story accordingly. Manchester United’s Paul Pogba said on Monday reports claiming he had retired from international duty in protest against French President Emmanuel Macron’s comments about radical Islam were “fake news”. According to reports in the Middle East picked up by British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron vowed to take the fight to Islamic radicals after the October 16 beheading of history teacher Samuel Paty. “Unacceptable, fake news,” Pogba, a converted Muslim, posted on Instagram with a screenshot of The Sun’s article.",
+      "url": "https://www.mirror.co.uk/sport/football/news/breaking-man-utd-star-paul-22904740",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was there any official statement from the French Football Federation (FFF) regarding Pogba leaving the team for political reasons?",
+      "answer": "About Paul Pogba quitting the National Team: 100% fake news, as well as any words or thoughts attributed to Paul with regards to French current events. It is shocking how the press sometimes acts irresponsibly and spreads lies only to get attention. Paul respects and feels for French current events and condemns any form of violence. Paul Pogba: Man Utd star to take legal action over reports he was quitting France national team - Published Manchester United and France midfielder Paul Pogba says he will take legal action after \"total fake\" reports said he was to quit international football. Pogba, 27, was reported to be quitting the France national team over comments made by the country's president, Emmanuel Macron, about Islam. World Cup winner Pogba, who is Muslim, has 10 goals and 72 caps for France. Manchester United star Paul Pogba has dismissed reports that he has quit playing for the French international team following the latest Islamophobic statements made by President Emmanuel Macron on Friday that Islam was the source of international terrorism. According to the Arabic sports website 195sports, Pogba resigned yesterday in response to the French government’s move granting the recently slain teacher – who had shown caricatures of the Prophet Muhammad (peace be upon him) to his class – the country’s highest honour, the Legion d’honneur. Breadcrumb 'Fake news': Paul Pogba slams reports he's quitting France national team over Macron's Islam comments Macron has been embroiled in a row over Islamophobia, which had reportedly saw one of France's most famous Muslim figures get involved. 2 min read Manchester United star Paul Pogba has denied reports that he will quit the French national team over controversial remarks made by President Emmanuel Macron about Islam, which have been deemed \"racist\" and \"insulting\" by many French Muslims. Paul Pogba responds to claim he's quit France national team after Emmanuel Macron comment Paul Pogba has dispelled reports from the Middle East suggesting he was quitting the France national team after recent comments from president Emmanuel Macron Paul Pogba has branded claims he's quit the France national team \"fake news\". Reports from the Middle East suggested the Manchester United midfielder was quitting Les Bleus after recent comments from president Emmanuel Macron on Islam and terrorism. Paul Pogba has denied reports on his Instagram account that he has retired from the France national team after the over President Macron’s comments The player says such a report is unacceptable as he hopes to continue to feature for Les Blues. 所有心情： 1,294条评论 113次分享 赞 评论 最相关 Lucky Eghosa Amen So he wanted to quit playing and lose his value because of one Arab god hmm 4 Francis Boniface Ukachi The truth is bitter... religion should not be causing issues in the society, We should understand and see ourselves as one. The French leader this month declared war on \"Islamist separatism\", which he believes is taking over some Muslim communities in France. The Sun newspaper alleged Pogba, a practising Muslim, reacted to Macron's comments by quitting the national team. The newspaper has since apologised and amended its story. Paul Pogba, Manchester United midfielder, has denied claims that he has quitted the French national team over “anti-Islamic” comments attributed to Emmanuel Macron, the country’s president. The 27-year-old World Cup winner also lambasted The Sun newspaper, which first broke the story on Sunday night. The British tabloid had quoted middle east sources to have said that Pogba had retired from the country’s football team after Macron alleged that Islam was the source of international terrorism. Paul Pogba denies reports he has quit French national team over Emmanuel Macron’s terrorism comments Pogba, who converted to Islam in 2011, rejected the reports - Bookmark - CommentsGo to comments Paul Pogba has rejected reports he is ready to quit the French national team over comments about Islam’s role in terrorism by the president, Emmanuel Macron. Reports in the Middle East claimed Pogba had stepped down from national duties over Macron’s description of the murder of French school teacher Samuel Paty as an “Islamic terrorist attack”. \" That prompted claims that Pogba had quit the French national team in response to Macron's speech but the United star denied the reports on social media. United have released a statement throwing their weight behind the 27-year-old. Paul Pogba: Man Utd midfielder 'angry and appalled' over reports he quit France team Manchester United midfielder Paul Pogba also considering legal action against The Sun newspaper, which published the story; The Sun has since apologised and amended. Monday 26 October 2020 21:43, UK Manchester United midfielder Paul Pogba has denied media reports that claimed he quit the France national team over comments made by the country's President Emmanuel Macron which were perceived to be against Islam. Pogba, who is also a Muslim, was quick to respond to unsubstantiated claims made by an Arabic-language website that he was quitting the French national team over the row. The false story in the Egyptian sports site was soon picked up by UK newspapers - including The Sun and The Daily Mail - leading Pogba to promptly dismiss the claims on his Instagram page. \"Unacceptable, Fake News\" Pogba wrote in a graphic over a screenshot of The Sun's story on the claims. However, Pogba posted a picture on Instagram of an article stating he had ‘quit playing for France’ and wrote \"unacceptable fake news\" over the top. View this post on Instagram So The Sun did it again... absolutely 100% unfounded news about me are going around, stating things I have never said or thought. #fakenews #AllezLesBleus @equipedefrance A post shared by Paul Labile Pogba (@paulpogba) on Oct 26, 2020 at 5:20am PDT The former Juventus man made it clear he has no intention of retiring from Les Bleus duty and plans to take legal action. \"I am appalled, angry, shocked and frustrated some \"media\" sources use me to make total fake headlines in the sensible subject of French current events and adding my religion and the French National Team to the pot,\" Pogba wrote. \"I am against any and all forms of terror and violence. \" Pogba added that he was considering legal action against the publishers, while The Sun has issued an apology. A spokesperson for The Sun said: \"We reported on a story that Paul Pogba had taken the decision to quit the French national football team after it was published on a sports website. \"That story was also published on The Mirror, Mail Online and other websites. \"Subsequently, Paul Pogba has denied the claim and we have updated our story accordingly. Manchester United midfielder Paul Pogba has hit out \"unacceptable fake news\" after reports claimed he has quit international football over comments made by France president Emmanuel Macron. Pogba Slams 'Fake News' Over Claims He Quit France Duty Paul Pogba plans to take legal over reports that suggested he had called time on his France career. Macron described the beheading of teacher Samuel Paty in a north-western suburb of Paris this month as an \"Islamic terrorist attack\". Paty, 47, is said to have shown controversial cartoons of the Prophet Muhammad to his pupils. Manchester United's Paul Pogba said on Monday he will be \"taking legal action\" after reports claimed he had retired from international duty in protest against French President Emmanuel Macron's controversial comments against Islam. According to British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron described Islam as a religion “in crisis” and vowed to take action. Pogba lashes out at media outlets over 'fake news' stories MANCHESTER, England (AP) — France midfielder Paul Pogba lashed out at a British tabloid on Monday and said he is taking legal action against media outlets who have reported that he is quitting international soccer. Using what it called “various Middle Eastern news sources,” British newspaper The Sun reported that Pogba would stop playing for France’s national team because of comments made by the country’s president, Emmanuel Macron, about Islam. Manchester United release statement after Paul Pogba condemns 'fake news' story Man Utd have backed midfielder Paul Pogba after he slammed stories claiming he had retired from the French national team. Manchester United have backed Paul Pogba in a statement released after the midfielder slammed 'fake news' reports over his international future with France. French president Emmanuel Macron described the murder of teacher Samuel Paty, 47, as an 'Islamic terrorist attack' and said: \"Unity and firmness are the only answers to the monstrosity of Islamist terrorism. Macron’s strong speech received backlash in some quarters, with Turkish president Recep Erdogan questioning his French counterpart’s mental state. But Pogba, who converted to Islam in 2011, rejected the reports on Instagram, posting the caption “fake news” over a headline by The Sun which said he was retiring from international football. Join our commenting forum Join thought-provoking conversations, follow other Independent readers and see their replies Comments.",
+      "url": "https://www.instagram.com/p/CGzn_T2D3Zl/?__d=1%2F%3Fhidemenu%3Dtrue",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Paul Pogba express any political views regarding President Macron's stance on Islam during the timeframe mentioned?",
+      "answer": "Breadcrumb 'Fake news': Paul Pogba slams reports he's quitting France national team over Macron's Islam comments Macron has been embroiled in a row over Islamophobia, which had reportedly saw one of France's most famous Muslim figures get involved. 2 min read Manchester United star Paul Pogba has denied reports that he will quit the French national team over controversial remarks made by President Emmanuel Macron about Islam, which have been deemed \"racist\" and \"insulting\" by many French Muslims. \" There was no suggestion Pogba supports the terrorists' actions, but Arabic sports website 195.sports.com alleged the midfielder resented Macron's description of it as an \"Islamic\" terror attack. Macron’s strong speech received backlash in some quarters, with Turkish president Recep Erdogan questioning his French counterpart’s mental state. But Pogba, who converted to Islam in 2011, rejected the reports on Instagram, posting the caption “fake news” over a headline by The Sun which said he was retiring from international football. Join our commenting forum Join thought-provoking conversations, follow other Independent readers and see their replies Comments. Paul Pogba, Manchester United midfielder, has denied claims that he has quitted the French national team over “anti-Islamic” comments attributed to Emmanuel Macron, the country’s president. The 27-year-old World Cup winner also lambasted The Sun newspaper, which first broke the story on Sunday night. The British tabloid had quoted middle east sources to have said that Pogba had retired from the country’s football team after Macron alleged that Islam was the source of international terrorism. Manchester United star Paul Pogba has dismissed reports that he has quit playing for the French international team following the latest Islamophobic statements made by President Emmanuel Macron on Friday that Islam was the source of international terrorism. According to the Arabic sports website 195sports, Pogba resigned yesterday in response to the French government’s move granting the recently slain teacher – who had shown caricatures of the Prophet Muhammad (peace be upon him) to his class – the country’s highest honour, the Legion d’honneur. Paul Pogba denies reports he has quit French national team over Emmanuel Macron’s terrorism comments Pogba, who converted to Islam in 2011, rejected the reports - Bookmark - CommentsGo to comments Paul Pogba has rejected reports he is ready to quit the French national team over comments about Islam’s role in terrorism by the president, Emmanuel Macron. Reports in the Middle East claimed Pogba had stepped down from national duties over Macron’s description of the murder of French school teacher Samuel Paty as an “Islamic terrorist attack”. The French leader this month declared war on \"Islamist separatism\", which he believes is taking over some Muslim communities in France. The Sun newspaper alleged Pogba, a practising Muslim, reacted to Macron's comments by quitting the national team. The newspaper has since apologised and amended its story. The knife-wielding attacker was shot dead by police in the aftermath of the attack. Reports suggested Pogba, a practising Muslim, took offense over Macron's comments and has decided to call time on representing the world champions. Manchester United's Paul Pogba said on Monday he will be \"taking legal action\" after reports claimed he had retired from international duty in protest against French President Emmanuel Macron's controversial comments against Islam. According to British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron described Islam as a religion “in crisis” and vowed to take action. Manchester United midfielder Paul Pogba has hit out \"unacceptable fake news\" after reports claimed he has quit international football over comments made by France president Emmanuel Macron. Pogba Slams 'Fake News' Over Claims He Quit France Duty Paul Pogba plans to take legal over reports that suggested he had called time on his France career. Macron described the beheading of teacher Samuel Paty in a north-western suburb of Paris this month as an \"Islamic terrorist attack\". Paty, 47, is said to have shown controversial cartoons of the Prophet Muhammad to his pupils. ” The Sun said Monday it had amended the original version of the article. Macron this month , what he called an “Islamist terrorist attack” against a history teacher decapitated in a Paris suburb and urged the nation to stand united against extremism. “I am against any and all forms of terror and violence,” Pogba wrote in his Instagram post. “My religion is one of peace and love and must be respected. Pogba allegedly considered the decision an insult to him and to French Muslims, especially since Islam is the second largest religion in France after Christianity. READ: World’s most expensive footballer Pogpa performs Umrah in Makkah However, the 27-year-old footballer today branded the reports as “unacceptable” and “fake news” according to his Instagram page. Manchester United’s Paul Pogba said on Monday reports claiming he had retired from international duty in protest against French President Emmanuel Macron’s comments about radical Islam were “fake news”. According to reports in the Middle East picked up by British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron vowed to take the fight to Islamic radicals after the October 16 beheading of history teacher Samuel Paty. “Unacceptable, fake news,” Pogba, a converted Muslim, posted on Instagram with a screenshot of The Sun’s article. French schoolteacher Samuel Paty was brutally murdered on 16 October by an 18-year-old earlier, after he had allegedly showed his class pictures of the Prophet Muhammad. The horrific killing sparked nationwide outrage and a new debate on the cartoons with some projecting the offending images onto public buildings in French cities. Pogba, who is also a Muslim, was quick to respond to unsubstantiated claims made by an Arabic-language website that he was quitting the French national team over the row. Manchester United release statement after Paul Pogba condemns 'fake news' story Man Utd have backed midfielder Paul Pogba after he slammed stories claiming he had retired from the French national team. Manchester United have backed Paul Pogba in a statement released after the midfielder slammed 'fake news' reports over his international future with France. French president Emmanuel Macron described the murder of teacher Samuel Paty, 47, as an 'Islamic terrorist attack' and said: \"Unity and firmness are the only answers to the monstrosity of Islamist terrorism. Pogba, who is also a Muslim, was quick to respond to unsubstantiated claims made by an Arabic-language website that he was quitting the French national team over the row. The false story in the Egyptian sports site was soon picked up by UK newspapers - including The Sun and The Daily Mail - leading Pogba to promptly dismiss the claims on his Instagram page. \"Unacceptable, Fake News\" Pogba wrote in a graphic over a screenshot of The Sun's story on the claims. Paul Pogba: Man Utd star to take legal action over reports he was quitting France national team - Published Manchester United and France midfielder Paul Pogba says he will take legal action after \"total fake\" reports said he was to quit international football. Pogba, 27, was reported to be quitting the France national team over comments made by the country's president, Emmanuel Macron, about Islam. World Cup winner Pogba, who is Muslim, has 10 goals and 72 caps for France. Paul Pogba has denied reports on his Instagram account that he has retired from the France national team after the over President Macron’s comments The player says such a report is unacceptable as he hopes to continue to feature for Les Blues. 所有心情： 1,294条评论 113次分享 赞 评论 最相关 Lucky Eghosa Amen So he wanted to quit playing and lose his value because of one Arab god hmm 4 Francis Boniface Ukachi The truth is bitter... religion should not be causing issues in the society, We should understand and see ourselves as one. The Manchester United player, who is a practising Muslim, said he is “appalled, angry, shocked and frustrated” at being the subject of “fake headlines” amid current events in France. In a , on Instagram, Pogba put a sticker saying “UNACCEPTABLE FAKE NEWS” over a screenshot of the article published by The Sun. Pogba said the reports had created “a gossip chain without caring it affects people’s lives and my life.",
+      "url": "https://www.newarab.com/News/2020/10/26/Paul-Pogba-denies-reports-hes-quitting-France-over-Macron",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim regarding Pogba's departure supported by reputable sports news outlets?",
+      "answer": "Pogba, who is also a Muslim, was quick to respond to unsubstantiated claims made by an Arabic-language website that he was quitting the French national team over the row. The false story in the Egyptian sports site was soon picked up by UK newspapers - including The Sun and The Daily Mail - leading Pogba to promptly dismiss the claims on his Instagram page. \"Unacceptable, Fake News\" Pogba wrote in a graphic over a screenshot of The Sun's story on the claims. About Paul Pogba quitting the National Team: 100% fake news, as well as any words or thoughts attributed to Paul with regards to French current events. It is shocking how the press sometimes acts irresponsibly and spreads lies only to get attention. Paul respects and feels for French current events and condemns any form of violence. Pogba lashes out at media outlets over 'fake news' stories MANCHESTER, England (AP) — France midfielder Paul Pogba lashed out at a British tabloid on Monday and said he is taking legal action against media outlets who have reported that he is quitting international soccer. Using what it called “various Middle Eastern news sources,” British newspaper The Sun reported that Pogba would stop playing for France’s national team because of comments made by the country’s president, Emmanuel Macron, about Islam. \" Pogba added that he was considering legal action against the publishers, while The Sun has issued an apology. A spokesperson for The Sun said: \"We reported on a story that Paul Pogba had taken the decision to quit the French national football team after it was published on a sports website. \"That story was also published on The Mirror, Mail Online and other websites. \"Subsequently, Paul Pogba has denied the claim and we have updated our story accordingly. \"The story was also published by The Mirror, Mail Online and other websites. Subsequently, Paul Pogba has denied the claim and we have updated our story accordingly. However, Pogba posted a picture on Instagram of an article stating he had ‘quit playing for France’ and wrote \"unacceptable fake news\" over the top. View this post on Instagram So The Sun did it again... absolutely 100% unfounded news about me are going around, stating things I have never said or thought. Paul Pogba, Manchester United midfielder, has denied claims that he has quitted the French national team over “anti-Islamic” comments attributed to Emmanuel Macron, the country’s president. The 27-year-old World Cup winner also lambasted The Sun newspaper, which first broke the story on Sunday night. The British tabloid had quoted middle east sources to have said that Pogba had retired from the country’s football team after Macron alleged that Islam was the source of international terrorism. The false story in the Egyptian sports site was soon picked up by UK newspapers - including The Sun and The Daily Mail - leading Pogba to promptly dismiss the claims on his Instagram page. \"Unacceptable, Fake News\" Pogba wrote in a graphic over a screenshot of The Sun's story on the claims. Pogba played a key role in France's 2018 World Cup win and is also a leading figure in Manchester United's squad. Pogba converted to Islam in his 20s and said his faith has helped brought him \"inner-peace\" during the height of his fame. Manchester United release statement after Paul Pogba condemns 'fake news' story Man Utd have backed midfielder Paul Pogba after he slammed stories claiming he had retired from the French national team. Manchester United have backed Paul Pogba in a statement released after the midfielder slammed 'fake news' reports over his international future with France. French president Emmanuel Macron described the murder of teacher Samuel Paty, 47, as an 'Islamic terrorist attack' and said: \"Unity and firmness are the only answers to the monstrosity of Islamist terrorism. Manchester United midfielder Paul Pogba has hit out \"unacceptable fake news\" after reports claimed he has quit international football over comments made by France president Emmanuel Macron. Pogba Slams 'Fake News' Over Claims He Quit France Duty Paul Pogba plans to take legal over reports that suggested he had called time on his France career. Macron described the beheading of teacher Samuel Paty in a north-western suburb of Paris this month as an \"Islamic terrorist attack\". Paty, 47, is said to have shown controversial cartoons of the Prophet Muhammad to his pupils. \" While many will consider the message to be in poor taste from Pogba, football journalist Elko Born offered a possible explanation: United confirmed in their statement announcing Mourinho's departure that they will look to appoint a caretaker manager until the end of the season before pursuing a new full-time coach. It will be intriguing to see how Pogba fares under a new boss, starting with the Red Devils' trip to Cardiff City on Saturday. #fakenews #AllezLesBleus @equipedefrance A post shared by Paul Labile Pogba (@paulpogba) on Oct 26, 2020 at 5:20am PDT The former Juventus man made it clear he has no intention of retiring from Les Bleus duty and plans to take legal action. \"I am appalled, angry, shocked and frustrated some \"media\" sources use me to make total fake headlines in the sensible subject of French current events and adding my religion and the French National Team to the pot,\" Pogba wrote. \"I am against any and all forms of terror and violence. Macron’s strong speech received backlash in some quarters, with Turkish president Recep Erdogan questioning his French counterpart’s mental state. But Pogba, who converted to Islam in 2011, rejected the reports on Instagram, posting the caption “fake news” over a headline by The Sun which said he was retiring from international football. Join our commenting forum Join thought-provoking conversations, follow other Independent readers and see their replies Comments. Breadcrumb 'Fake news': Paul Pogba slams reports he's quitting France national team over Macron's Islam comments Macron has been embroiled in a row over Islamophobia, which had reportedly saw one of France's most famous Muslim figures get involved. 2 min read Manchester United star Paul Pogba has denied reports that he will quit the French national team over controversial remarks made by President Emmanuel Macron about Islam, which have been deemed \"racist\" and \"insulting\" by many French Muslims. LONDON: Manchester United's Paul Pogba said on Monday reports claiming he had retired from international duty in protest against French President Emmanuel Macron's comments about radical Islam were \"fake news\". According to reports in the Middle East picked up by British tabloid The Sun, World Cup winner Pogba wanted to end his international career after Macron vowed to take the fight to Islamic radicals after the October 16 beheading of history teacher Samuel Paty. \"Unacceptable, fake news,\" Pogba, a converted Muslim, posted on Instagram with a screenshot of The Sun's article. \"I am appalled, angry, shocked and frustrated some 'media' sources use me to make total fake headlines in the sensible subject of French current events and adding my religion and the French National Team to the pot,\" Pogba posted on Instagram. \"I am taking legal action against the publishers and spreaders of these 100% Fake News,\" he added. The Sun said in a statement that the story was picked up by the British tabloid after it was published on a sports website. The French leader this month declared war on \"Islamist separatism\", which he believes is taking over some Muslim communities in France. The Sun newspaper alleged Pogba, a practising Muslim, reacted to Macron's comments by quitting the national team. The newspaper has since apologised and amended its story. Paul Pogba: Man Utd star to take legal action over reports he was quitting France national team - Published Manchester United and France midfielder Paul Pogba says he will take legal action after \"total fake\" reports said he was to quit international football. Pogba, 27, was reported to be quitting the France national team over comments made by the country's president, Emmanuel Macron, about Islam. World Cup winner Pogba, who is Muslim, has 10 goals and 72 caps for France. Paul Pogba responds to claim he's quit France national team after Emmanuel Macron comment Paul Pogba has dispelled reports from the Middle East suggesting he was quitting the France national team after recent comments from president Emmanuel Macron Paul Pogba has branded claims he's quit the France national team \"fake news\". Reports from the Middle East suggested the Manchester United midfielder was quitting Les Bleus after recent comments from president Emmanuel Macron on Islam and terrorism.",
+      "url": "https://www.newarab.com/News/2020/10/26/Paul-Pogba-denies-reports-hes-quitting-France-over-Macron",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/GOAL/posts/paul-pogba-has-hit-out-at-claims-he-has-quit-the-france-national-team-calling-it/10159156563708598/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://timesofindia.indiatimes.com/sports/football/top-stories/paul-pogba-slams-france-retirement-rumours-as-fake-news/articleshow/78874251.cms",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/sport/football/54691842",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mirror.co.uk/sport/football/news/breaking-man-utd-star-paul-22904740",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MUFCArenaOfficial/posts/paul-pogba-denies-reports-of-quitting-the-french-national-team/1323840677955715/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://bleacherreport.com/articles/2852047-paul-pogba-withdraws-from-france-squad-with-injury-replaced-by-matteo-guendouzi",
+      "date": "2019-09-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scroll.in/field/976841/frances-world-cup-winning-midfielder-paul-pogba-s-slams-retirement-rumours-as-fake-news",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/legitngnews/posts/paul-pogba-has-denied-reports-on-his-instagram-account-that-he-has-retired-from-/3752182334878636/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.middleeastmonitor.com/20201026-paul-pogba-denies-quitting-france-team-over-macrons-islamophobic-comments/",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dailysabah.com/sports/football/pogba-denies-france-retirement-rumors-vows-legal-action",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newarab.com/News/2020/10/26/Paul-Pogba-denies-reports-hes-quitting-France-over-Macron",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.the-independent.com/sport/football/international/paul-pogba-quit-french-national-team-islam-emmanuel-macron-terrorism-news-b1342498.html",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.skysports.com/football/news/11095/12115111/paul-pogba-man-utd-midfielder-angry-and-appalled-over-reports-he-quit-france-team",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.independent.co.uk/sport/football/international/paul-pogba-quit-french-national-team-islam-emmanuel-macron-terrorism-news-b1342498.html",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/CGzn_T2D3Zl/?__d=1%2F%3Fhidemenu%3Dtrue",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dailytimesnigeria/posts/paul-pogba-left-out-of-the-french-squad-by-manager-didier-deschamps-after-testin/3143856142328442/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://bleacherreport.com/articles/2811328-paul-pogba-caption-this-social-media-post-deleted-after-jose-mourinho-sacking",
+      "date": "2018-12-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thescore.com/worldcup/news/524519/video-paul-pogba-manages-himself-on-football-manager-2014-but-not-with-juventus",
+      "date": "2014-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESrQEB6zswFWIjGufstgUXggtUH0eYAbTvSLKStOEnviQlzoeaBxGt8dbGVJ8RcyZ4mKfGoBkkFLGaDZgC8rUVTP1tzxkNm2rXwMV7kbG5GCtjjpNv5l2GRMkNnu80OM9ByE_A4STCI21sDjI_EJ6hyN1hXc7tyz9OnYA83lYTq3VmOmHf8e5DS_WuQiiQ1cRHN-yVD4xedPQtxUD6usvVbYi9h59FQCG9E3ea0-XALQ&ust=1789673358081428&usg=AOvVaw38672oS2c8d6d90zKpjLrc",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESmQEB6zswFaTosZIrewNTO4SK6YHbV7XB9ajr-uvXyBPwFErBUFoaMG_GegLvtUUZnJdi_O1Ff0TmPFk5pEjWWN2nlaHsEjh1yHRhah12rcdnH2Bc2lXYsXG4zUtuBosNUqSbgJQPKLh15si1nrZKmQwBHH8dojzOdpg3VaTOfwAJH0oqX6SHJpzMHX5ik7Aum5jBZ39w9btK-8c&ust=1789673358081702&usg=AOvVaw3g-QoTwumfQGI2toDozMUr",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESzQEB6zswFWi07qENb7wC-5JOCcqytA8xyKr8qOI4WEUxmCWhstAFa7Cy6AiOfMbQMaqodaaHfhztvQitBuG-7R2JsqVCk6mj-BPYCOfpry-ADm3Rg9xGVidBxAyJHJd_h4IQ4Qw1WDSq3YmIfN4-JMMQQn9Rc0NC4WymqxqplpLyKHt5xLk77HNK7voqDVwaVGKIVkhLcVg86D1J34VB97Bmc0WBlrTeZudiHvd3RRsQkflKf6FQwXw3C3T48Q-rWY2B2n3BlnRwO1PrZu3v&ust=1789673358081946&usg=AOvVaw1Z6ZEKvJqCeueOkOhfqbQB",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESmgEB6zswFRFXxi_QlzDU9prYQiW_w3mknISLVzycVJ2TPoV7_aAkUPsT6oxo4HFv6CLSBfG5jhNtriWo2ibg6ZvnrCOSuO_kUvJyKOQkgu52TnnemMxuGLy9TTr47PKgYgyT_uB6o-bLUq12zViYZ-aoE0FRLAyN974lt2SasiVD8LFgn9rpq2krvcx547g96RRoSOXHLesneWPn&ust=1789673358093317&usg=AOvVaw1asaA48a0M6knm6AZMqqVd",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESiAEB6zswFVSct1aasW7YFAGY8qdOJnsywBYapB3lSbYKumEPdIiM8Bj1FNeIqOZ_kmIyxDC0MGn7ALK-OEN2LtbKTDuYEwvURlCK4E_RhhgHzN2NL4PjjdPpPFhBSOuGDbKIRpf-XNTduGyn68EONk_JIJ8TKVaZGrDmS32V0hf6gozlPzDPjyX_&ust=1789673358093174&usg=AOvVaw2RsTNzHv46Irp0pprW_JxY",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESkAEB6zswFW3ZO6PHO8PmTwIVX8GWyRbZtTnhVUcfXOj6M04CYjFv7aQcztPdHKi64dSnw9MaU2bVshN4r05ET7OlvCgNcTvR-if69GT4Nuvob1W_rlmcibW5n0tO7OhcnArW5AzDJp8WIVD6Fm7UDIVXoqMOj_WLhXogH5jMhJDnHGPqa3d6N6kW75D0t5FlUdc&ust=1789673358111916&usg=AOvVaw3xOOW_laURchsUedbFC_ry",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.foxsports.com/articles/soccer/pogba-lashes-out-at-media-outlets-over-fake-news-stories",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rmcsport/videos/le-petit-pont-de-paul-pogba-%C3%A0-sa-maman/2556060711300528/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.beinsports.com/en-us/soccer/premier-league/articles-video/pogba-slams-fake-news-over-claims-he-quit-fra",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BBCMOTD/posts/the-chances-of-paul-pogba-leaving-man-utd-110-/10157882565850982/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/paul-pogba-man-united-statement-19170660",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.the-independent.com/sport/football/european/manchester-united-news-valencia-paul-pogba-champions-league-jose-mourinho-a8566151.html",
+      "date": "2018-10-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 6,
+     "n_paragraphs": 31,
+     "n_urls_after_bm25": 24,
+     "n_chunks": 121
+    },
+    "error": null,
+    "n_evidence_statements": 6
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Debunked by Pogba himself.",
+   "questions": [
+    {
+     "question": "What do British media report to the claim that French football player Paul Pogba had quit the national team in protest against President Emmanuel Macron's recent comments on Islam?",
+     "answers": [
+      {
+       "answer": "Paul Pogba is NOT quitting international football as a retaliation to statements by French president Emmanuel Macron alleging that Islam was the source of international terrorism.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.dailymail.co.uk/sport/sportsnews/article-8879445/Paul-Pogba-QUIT-France-duty-Macron-said-Islam-source-international-terrorism.html",
+       "source_medium": "Web text"
+      },
+      {
+       "answer": "Paul Pogba has dispelled reports from the Middle East suggesting he was quitting the France national team after recent comments from president Emmanuel Macron",
+       "answer_type": "Extractive",
+       "source_url": "https://www.mirror.co.uk/sport/football/news/breaking-man-utd-star-paul-22904740",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210712111918/https://www.boomlive.in/fake-news/no-pogba-has-not-quit-the-french-national-team-over-macrons-remarks-10373",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Paul Pogba denied reports that he quit the French national team in protest against President Emmanuel Macron's comments on Islam, calling the news 'absolutely 100% unfounded', after the rumor originated from an Arabic website, 195sports, which claimed Pogba quit due to Macron's alleged comments that Islam is the source of international terrorism.",
+     "support_span": "Pogba, who is Muslim, shared a screenshot of an article by the British tabloid The Sun... which has been superimposed by a graphic which read \"Unacceptable. Fake News.\" ... In the caption, Pogba termed the news \"absolutely 100% unfounded\" and also stated that he will be taking legal action against those who published the claims. | The rumour was first reported by an Arabic website called 195sports who claimed that Pogba had quit the national team over alleged comments made by Macron. The report stated that Macron had termed Islam as the source of international terrorism."
+    },
+    {
+     "statement": "There is no record of President Emmanuel Macron ever stating that Islam is the source of international terrorism, though Macron has made comments regarding 'Islamic separatism' and a 'global crisis' in Islam, which are distinct from the claim.",
+     "support_span": "However, BOOM could not find any record of Macron making any such comment. ... While Macron has criticised \"Islamic separatism\" in France, there is no record of him claiming it to be the source of terrorism. | On October 2, Macron stated that \"Islam is in a global crisis\" and that \"Islamist separatism\" was a danger to France while announcing a law against \"religious separatism\""
+    },
+    {
+     "statement": "Several news outlets, including The Sun, Daily Mail, and Daily Mirror, published the claim but later issued corrections.",
+     "support_span": "While The Sun, Daily Mail and Daily Mirror updated their articles with a corrigendum, WION and Republic have only updated their articles without acknowledging their mistake."
+    }
+   ],
+   "justification": "The evidence indicates that the claim is based on a rumor originating from an Arabic website, 195sports, which alleged that Paul Pogba quit the French national team in response to President Macron calling Islam the source of international terrorism. However, Paul Pogba explicitly denied these reports, labeling them 'absolutely 100% unfounded' and announcing legal action. Furthermore, there is no record of President Macron making the specific comment attributed to him; while he has discussed 'Islamic separatism,' this is distinct from the claim in the rumor. While several major news outlets initially published the claim, they have since issued corrections.",
+   "article_url": "https://web.archive.org/web/20210712111918/https://www.boomlive.in/fake-news/no-pogba-has-not-quit-the-french-national-team-over-macrons-remarks-10373",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

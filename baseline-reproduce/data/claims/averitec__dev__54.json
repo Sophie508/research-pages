@@ -1,0 +1,390 @@
+{
+ "key": "averitec/dev/54",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 54,
+ "claim": "India’s imports from China increased by 27% in April-August 2020",
+ "claim_date": "2020-10-22",
+ "speaker": null,
+ "reporting_source": "Facebook post",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"India’s imports from China increased by 27% in April-August 2020,\" we evaluate the provided evidence as follows:\n\n1.  **Analyze the Claim:** The claim asserts that imports from China to India **increased** by **27%** during the specific period of **April-August 2020**.\n2.  **Evaluate Evidence (Q1, Q2, Q3):** Multiple pieces of evidence (Q1, Q2, and Q3) explicitly state that during the April-August 2020 period (of the 2020-21 fiscal year), India's imports from China actually **decreased**, not increased.\n3.  **Identify the Specific Figure:** The evidence specifies that the imports **decreased by 27.63%**, totaling $21.58 billion.\n4.  **Compare Claim to Evidence:** The claim states there was an *increase* of 27%, whereas the evidence proves there was a *decrease* of 27.63%. The direction of the movement (increase vs. decrease) is the opposite of what the data shows.\n5.  **Conclusion:** Since the evidence directly contradicts the direction of the change mentioned in the claim, the claim is false.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: Did India's imports from China increase or decrease during the April-August period of the 2020-21 fiscal year?",
+      "answer": "During the April-August period of the 2020-21 fiscal year, India's imports from China **decreased**. According to data provided by Commerce and Industry Minister Piyush Goyal, imports fell by 27.63 percent, totaling $21.58 billion.",
+      "url": "https://timesofindia.indiatimes.com/business/india-business/indias-imports-from-china-dip-27-63-during-april-august-piyush-goyal/articleshow/78237856.cms",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did India's imports from China increase or decrease during the April-August 2020 period?",
+      "answer": "During the April-August 2020 period (of the 2020-21 fiscal year), India's imports from China **decreased**. According to data provided by Commerce and Industry Minister Piyush Goyal, imports saw a significant decline of 27.63%, totaling $21.58 billion compared to the previous year.",
+      "url": "https://www.livemint.com/news/india/india-s-imports-from-china-dip-27-63-during-apr-aug-piyush-goyal-11600697129199.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did India's imports from China increase or decrease by 27% during the April-August 2020 period?",
+      "answer": "India's imports from China **decreased** by 27.63 per cent during the April-August period of the 2020-21 fiscal year, totaling USD 21.58 billion.",
+      "url": "https://www.hindustantimes.com/india-news/india-s-imports-from-china-dip-27-63-per-cent-during-april-august-piyush-goyal/story-ppkIuHvm93FuvGgFMqNelM.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "By how much did India's imports from China increase during the period of April-August 2020?",
+      "answer": "Based on the evidence provided, there is no information regarding the specific percentage increase of India's imports from China during the period of April-August 2020. The text only discusses trade deficit figures from 2018-19 and general economic dependencies.",
+      "url": "https://factly.in/data-what-is-indias-trade-with-china-like/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the discrepancy between the reported increase in India's imports from China for the April-August 2020 period and the figures provided by Business Today regarding the April to August 2026-27 period?",
+      "answer": "Based on the provided evidence, the discrepancy is as follows:\n\nThe claim states that India's imports from China increased by **27%** during the **April-August 2020** period. In contrast, the figures provided by Business Today refer to a different time period, reporting that imports rose to **$65.49 billion** during the **April to August 2026-27** period.",
+      "url": "https://www.facebook.com/BusinessToday/posts/indias-imports-from-china-rise-to-6549-billion-in-april-august-2026-27/1565346362306403/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What factors are contributing to the instability in the Indian market?",
+      "answer": "The instability in the Indian market is being driven by uncertainties surrounding US-China trade negotiations and disappointing corporate earnings reports. Additionally, social media commentary indicates potential further declines linked to political outcomes.",
+      "url": "https://www.facebook.com/thehindu/posts/indian-market-has-been-on-a-shaky-ground-for-the-past-couple-of-days-driven-by-a/2353604781400178/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence explain the reasons behind the 27% increase in India's imports from China between April and August 2020?",
+      "answer": "No, the provided evidence does not explain the reasons behind the 27% increase in India's imports from China between April and August 2020. The text focuses on the developmental gap between the two nations, attributing disparities to social structures like the caste system and governance styles, but it does not mention import statistics or the specific causes for changes in trade volume during that period.",
+      "url": "https://www.facebook.com/groups/1652533501464566/posts/2174209239296987/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that India's imports from China increased by 27% in April-August 2020?",
+      "answer": "No, the provided evidence does not support the claim. The evidence discusses global trade growth trends, leading exporters in 2016, and social media engagement regarding tax payment inquiries, but it contains no information regarding India's import statistics from China for the period of April-August 2020.",
+      "url": "https://www.facebook.com/DeutscheBank/posts/since-2015-70-of-the-growth-in-global-trade-has-been-in-emerging-markets-and-dev/1687182187968011/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the increase in India's imports from China during April-August 2020 relate to the supply chain vulnerabilities caused by tariffs mentioned by trade industry officials?",
+      "answer": "Based on the provided evidence, it is not possible to determine if the increase in India's imports from China relates to the supply chain vulnerabilities mentioned.\n\nWhile the evidence states that trade industry officials are prioritizing the identification of supply chain vulnerabilities caused by **tariffs**, the provided text does not contain any information linking these specific vulnerabilities or tariffs to the 27% increase in India's imports from China during the April-August 2020 period.",
+      "url": "https://www.facebook.com/JOCnewswire/posts/trade-industry-officials-say-shippers-are-focusing-on-identifying-areas-where-th/10156811169066399/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Can the WITS platform be used to verify the increase in India's imports from China?",
+      "answer": "Yes, the WITS platform can be used to verify the increase in India's imports from China. According to the evidence, the platform offers trade statistics categorized by country and indicator, and it allows users to perform specific data queries, such as comparing India's exports with China. Additionally, the platform provides analytical tools, an analytical database, and data visualization to facilitate such research.",
+      "url": "https://wits.worldbank.org/CountryProfile/en/Compare/Country/IND/Indicator/XPRT-TRD-VL/partner/WLD/product/Total/country/CHN/show/line",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/BusinessToday/posts/indias-imports-from-china-rise-to-6549-billion-in-april-august-2026-27/1565346362306403/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://timesofindia.indiatimes.com/business/india-business/indias-imports-from-china-dip-27-63-during-april-august-piyush-goyal/articleshow/78237856.cms",
+      "date": "2020-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.livemint.com/news/india/india-s-imports-from-china-dip-27-63-during-apr-aug-piyush-goyal-11600697129199.html",
+      "date": "2020-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://factly.in/data-what-is-indias-trade-with-china-like/",
+      "date": "2020-04-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/DeutscheBank/posts/since-2015-70-of-the-growth-in-global-trade-has-been-in-emerging-markets-and-dev/1687182187968011/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hindustantimes.com/india-news/india-s-imports-from-china-dip-27-63-per-cent-during-april-august-piyush-goyal/story-ppkIuHvm93FuvGgFMqNelM.html",
+      "date": "2020-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.iemed.org/publication/the-role-of-china-in-the-middle-east-and-north-africa-mena-beyond-economic-interests/",
+      "date": "2018-03-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1652533501464566/posts/2174209239296987/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/JOCnewswire/posts/trade-industry-officials-say-shippers-are-focusing-on-identifying-areas-where-th/10156811169066399/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://wits.worldbank.org/CountryProfile/en/Compare/Country/IND/Indicator/XPRT-TRD-VL/partner/WLD/product/Total/country/CHN/show/line",
+      "date": "1995-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/thehindu/posts/indian-market-has-been-on-a-shaky-ground-for-the-past-couple-of-days-driven-by-a/2353604781400178/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 11,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that India's imports from China increased by 27% during the period of April-August 2020.\n2. The evidence directly contradicts the claim. According to official data provided by India's Commerce and Industry Minister Piyush Goyal (as reported by Livemint and Times of India), India's imports from China actually **declined by 27.63%** during the April-August 2020-21 period compared to the previous year. Furthermore, the PIB Fact Check clarifies that while imports decreased by 27.63%, it was India's *exports* to China that increased by 27% during that same period.\n3. There are no contradictions in the evidence; multiple reliable sources (government statements and news reports) consistently state that imports decreased rather than increased. The claim appears to have confused the direction of trade (imports vs. exports) or the direction of the change (increase vs. decrease).\n4. Since the evidence explicitly refutes the numerical direction of the claim (stating a 27.63% decrease instead of a 27% increase), the claim is refuted.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What was the percentage increase in India's imports from China during the April-August 2020 period?",
+      "answer": "58 in July, according to the data provided by Commerce and Industry Minister Piyush Goyal in his written reply to the Lok Sabha. \"India's imports from China have declined by 27.63% during April-August, 2020-21 over the corresponding period of the previous year,\" he said. Pankaj Pachauri has claimed in a #Tweet that India's imports from China have increased by 27% during April-August. #PIBFactCheck: This claim is #Fake. India's imports from China decreased by 27.63% whereas India's exports to China increased by 27% during April-August. 所有心情： 7条评论 26次分享 赞 评论 最相关 Bablu Reddy This should be declared by any ministry not pib fact check Adv Vaibhav Vats keep it up expose fakers 1 Rajnish Tripathi Great job doing by Pib. India's imports from China declined by 27.63% during April-August this fiscal to $21.58 billion over the same period previous year, Parliament was informed on Monday. India‘s imports from China grew faster than the total imports in majority of the years under study period. Average imports from China valued at US 29248. The table also indicates that India‘s exports to China followed a consistent rise except during 1998-99, 2008-09, 2012-13, 2014-15, 2015-16, and 2018-19. The years 2002-03 and 2004-05 marked an exceptional rise in India‘s exports to China by 107.52 and 90.04 percent respectively. Average annual growth of India‘s exports to China stood at 21. 7 percent during pre and post-recession period respectively indicating higher annual growth in exports during pre-recession period. The analysis of t-value shows that the null hypothesis H0 (3) is significant change in India‘s exports to China during pre and post-recession period. This analysis shows that India‘s exports to China have been significantly affected by the process of globalisation. Mean value of India‘s imports from China stood at 6434. The share of India’s exports to China remained more or less stable but share of India’s exports to USA is increasing continuously. India is having a more stable trade with China as compared to USA. The share of India’s imports from China in its total imports increased continuously and the share of India’s imports from USA followed more or less fluctuating trend during the study period. India’s trade with China remained unfavourable but few years showed some improvements in India’s trade with China whereas India’s trade with USA remained favourable during whole study period except 2007-08. NEW DELHI: Indiaâs trade deficit with China is estimated to have narrowed to $48.7 billion during the last financial year â the lowest in five years â compared with $53.6 billion a year ago, as imports from across the border dropped over 7% to $65 billion in 2019-20. 2 shows the trend lines of annual growth of India‘s imports from China and USA in the post globalised period. Trend analysis of the above figure shows that although annual growth rate of imports from both China and USA moved more or less in the same direction but growth of India‘s imports remained quite higher than that of USA in majority of the years. Pre-recession period depicted an increasing pattern in India‘s imports from both countries which continued to reach at peak during 2007-08 but post-recession period showed a fluctuating pattern. 43 percent during post-recession period indicating more variation in imports from China during pre-recession period. Further the compounded annual growth has been found at 38.00 percent and 7.3 percent during pre and post-recession period respectively, indicating higher annual growth in imports from China during pre-recession period. 65% year-on-year,[219] while imports in April 2020 fell by −47. 8.2 Analysis of India’s Imports during Post-WTO Period Analysis of India‘s exports during post-WTO period includes the analysis of total imports, imports from China and USA with the help of annual growth rate and average annual growth rate. The detailed analysis has been explained as follows:- Table 1.2: Comparative analysis of India’s Total Imports; Imports from China and Imports from USA in Post-WTO period Table 1.2 The analysis of India‘s imports in globalised period shows that imports increased year after year except during 2009-10, 2013-14, 2014-15, 2015-16 and 2018-19. Value of imports from China stood at $4.98 billion in August and $5. 9. CONCLUSIONS It can be concluded from this study that both India‘s exports and imports are increasing continuously year after year and with some exceptional annual growth during some years. India‘s exports to both China and USA followed a consistent rise and average annual growth of India‘s exports to China was almost double of average annual growth of total exports but average annual growth in exports to USA has been found quite less than that of total exports and exports to China. The share of India‘s exports to China remained more or less stable but share of India‘s exports to USA is increasing continuously. The status of India‘s imports from China and USA in post-WTO period can be well explained in the below figure. Figure 1.2: Annual Growth in India’s Imports from China and USA Figure-1. Overall assessment of above figures revealed more fluctuations in imports from USA as compared to imports from China. Table 8.3: Descriptive Analysis of India’s trade with China and USA during post-WTO period mean value of global exports stood at 68284. 51 percent per anum. The period from 2001-02 to 2007-08 depicts a period where imports from China registered an exceptional growth.",
+      "url": "https://www.livemint.com/news/india/india-s-imports-from-china-dip-27-63-during-apr-aug-piyush-goyal-11600697129199.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did India's trade deficit with China change during the specified timeframe of April to August 2020?",
+      "answer": "NEW DELHI: Indiaâs trade deficit with China is estimated to have narrowed to $48.7 billion during the last financial year â the lowest in five years â compared with $53.6 billion a year ago, as imports from across the border dropped over 7% to $65 billion in 2019-20. 58 in July, according to the data provided by Commerce and Industry Minister Piyush Goyal in his written reply to the Lok Sabha. \"India's imports from China have declined by 27.63% during April-August, 2020-21 over the corresponding period of the previous year,\" he said. India‘s overall trade balance remained unfavourable and continued to rise during the whole study period except for few years. India‘s trade with China remained unfavourable but few years showed some improvements in India‘s trade with China whereas India‘s trade with USA remained favourable during whole study period except 2007-08. T-test evidenced a significant change in India‘s total exports and imports and that with China and USA during pre and post-recession period. India's imports from China declined by 27.63% during April-August this fiscal to $21.58 billion over the same period previous year, Parliament was informed on Monday. T-test evidenced a significant change in India’s total exports and imports and that with China and USA during pre and post-recession period. KEYWORD India, trade, China, USA, post-WTO period, bilateral trade, economic prism, total trade, exports, imports 1. [173] In December 2020, a Right to Information petition revealed that less than 10% of the package had been actually disbursed, chiefly in the form of emergency credit. [20] Change in FDI policy [edit]On 18 April 2020, India changed its foreign direct investment (FDI) policy to curb \"'opportunistic takeovers/acquisitions' of Indian companies due to the current pandemic\", according to the Department for Promotion of Industry and Internal Trade. [81] With the fall in global shares prices, there is concern that China could take advantage of the situation, leading to hostile takeovers. Tyagi (2014) examine key issues associated with trade intensity, intra-industry trade and comparative advantage between India and China. The findings throw light on the burgeoning trade deficit of India vis-à-vis China, which have policy implications for potential trade and economic cooperation between the two developing economies. Further to ease the analysis, India’s trade has been analysed from pre and post-recession period view point also. It can be concluded from this study that India’s total trade, trade with China and USA increased continuously year after year with some exceptional annual growth during some years and average annual growth of India’s exports to China was almost double that of total exports but average annual growth in exports to USA has been found quite less than that of total exports and exports to China.",
+      "url": "https://timesofindia.indiatimes.com/business/india-business/indias-trade-deficit-with-china-at-5-year-low/articleshow/76521335.cms",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the approximate value of India's imports from China in the first eight months of 2020 compared to the previous year?",
+      "answer": "India‘s imports from China grew faster than the total imports in majority of the years under study period. Average imports from China valued at US 29248. India's imports from China declined by 27.63% during April-August this fiscal to $21.58 billion over the same period previous year, Parliament was informed on Monday. 58 in July, according to the data provided by commerce and industry minister Piyush Goyal in his written reply to the Lok Sabha. \"India's imports from China have declined by 27.63 per cent during April-August, 2020-21 over the corresponding period of the previous year,\" he said. NEW DELHI: Indiaâs trade deficit with China is estimated to have narrowed to $48.7 billion during the last financial year â the lowest in five years â compared with $53.6 billion a year ago, as imports from across the border dropped over 7% to $65 billion in 2019-20. Overall assessment of above figures revealed more fluctuations in imports from USA as compared to imports from China. Table 8.3: Descriptive Analysis of India’s trade with China and USA during post-WTO period mean value of global exports stood at 68284. The analysis of India‘s trade with China revealed that mean value of exports to china stood at 3381.74 US dollars with standard deviation of 3605.89 US dollars during the pre-recession period whereas mean value of exports to China stood at 13282. Value of imports from China stood at $4.98 billion in August and $5. Annual growth of India‘s imports from USA has been found lower than that of total imports and imports from China. Average imports from USA valued at US 14532.64 dollars for the study period. 7 percent during pre and post-recession period respectively indicating higher annual growth in exports during pre-recession period. The analysis of t-value shows that the null hypothesis H0 (3) is significant change in India‘s exports to China during pre and post-recession period. This analysis shows that India‘s exports to China have been significantly affected by the process of globalisation. Mean value of India‘s imports from China stood at 6434. In 2020, China's imports of all uncovered products from the United States were $35.0 billion, 23. The table also indicates that India‘s exports to China followed a consistent rise except during 1998-99, 2008-09, 2012-13, 2014-15, 2015-16, and 2018-19. The years 2002-03 and 2004-05 marked an exceptional rise in India‘s exports to China by 107.52 and 90.04 percent respectively. Average annual growth of India‘s exports to China stood at 21. The share of India’s exports to China remained more or less stable but share of India’s exports to USA is increasing continuously. India is having a more stable trade with China as compared to USA. The share of India’s imports from China in its total imports increased continuously and the share of India’s imports from USA followed more or less fluctuating trend during the study period. India’s trade with China remained unfavourable but few years showed some improvements in India’s trade with China whereas India’s trade with USA remained favourable during whole study period except 2007-08. Pankaj Pachauri has claimed in a #Tweet that India's imports from China have increased by 27% during April-August. #PIBFactCheck: This claim is #Fake. India's imports from China decreased by 27.63% whereas India's exports to China increased by 27% during April-August. 所有心情： 7条评论 26次分享 赞 评论 最相关 Bablu Reddy This should be declared by any ministry not pib fact check Adv Vaibhav Vats keep it up expose fakers 1 Rajnish Tripathi Great job doing by Pib. 7 billion worth of goods to India, and imported $48.6 billion worth of Indian goods. In 2017-18, imports from China stood at 68.36 % that was worth $2055.94 million, and in 2016-17, it was 66. Mean value of India‘s imports from USA stood at 6619.69 US dollars with standard deviation of 5317.99 US dollars during the pre-recession period whereas mean value of imports from USA stood at 24219.53US dollars with standard deviation of recession period indicating more variation during pre-recession period. III. China's purchases of US goods in 2020 in isolation From January 2020 to December 2020, China committed to purchase no less than an additional $63.9 billion of covered goods from the United States relative to the 2017 baselines (figure 4). Defining the 2017 baseline using Chinese import statistics implied a 2020 purchase commitment of $173.1 billion. Defining the 2017 baseline using US export statistics implied a 2020 commitment of $159.0 billion. From January 2020 through December 2020, China's total imports of covered products from the United States were $99.",
+      "url": "https://www.ignited.in/index.php/jasrae/article/download/10012/19828/49533?inline=1",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Which specific period does the claim regarding the 27% increase in imports from China refer to?",
+      "answer": "51 percent per anum. The period from 2001-02 to 2007-08 depicts a period where imports from China registered an exceptional growth. 43 percent during post-recession period indicating more variation in imports from China during pre-recession period. Further the compounded annual growth has been found at 38.00 percent and 7.3 percent during pre and post-recession period respectively, indicating higher annual growth in imports from China during pre-recession period. Pankaj Pachauri has claimed in a #Tweet that India's imports from China have increased by 27% during April-August. #PIBFactCheck: This claim is #Fake. India's imports from China decreased by 27.63% whereas India's exports to China increased by 27% during April-August. 所有心情： 7条评论 26次分享 赞 评论 最相关 Bablu Reddy This should be declared by any ministry not pib fact check Adv Vaibhav Vats keep it up expose fakers 1 Rajnish Tripathi Great job doing by Pib.",
+      "url": "https://www.ignited.in/index.php/jasrae/article/download/10012/19828/49533?inline=1",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the primary economic context in India during the April-August 2020 period when these import figures were recorded?",
+      "answer": "58 in July, according to the data provided by Commerce and Industry Minister Piyush Goyal in his written reply to the Lok Sabha. \"India's imports from China have declined by 27.63% during April-August, 2020-21 over the corresponding period of the previous year,\" he said. [327] Hindustan Unilever registered pre-COVID-19 levels in sales in late June. [327] On 2 July 2020, The Times of India reported that a number of economic indicators such as the manufacturers Purchasing Managers' Index, goods movement, GST collections, electricity usage and rail freight transport showed significant improvement as compared to previous months. [328] Localised intermittent shutdowns in July were seen to negatively affect aspects of the country's economic recovery. Govt of India releases export import data of major commodities on 15th of every month (service sector data for previous month) along with macro view on total import, export, trade balance which is a reliable and practical way to track. Using export import data we can substantiate some of the changes investors think as fundamental change happening in particular sectors/companies and build our conviction in what we track/invest. Exports have become more important in the present scenario of domestic slowdown due to Covid. [229] In March 2020, tea exports from India fell 33% in March as compared to March 2019. [230] During the lockdown, food wastage increased due to affected supply chains, affecting small farmers. [231] From 20 April, under new lockdown guidelines to reopen the economy and relax the lockdown, agricultural businesses such as dairy, tea, coffee, and rubber plantations, as well as associated shops and industries, reopened. 65% year-on-year,[219] while imports in April 2020 fell by −47. [320][329] On 29 July 2020, the Cabinet of India passed the National Educational Policy 2020 aimed at strengthening the economy. [136] By 13 September 2020, Nomura India's Business Resumption Index showed that economic activity was nearly back to pre-lockdown levels. [1] By mid-January 2021 only agriculture, forestry and fishing saw positive growth. On 1 September 2020, the Ministry of Statistics released the GDP figures for Q1 (April to June) FY21, which showed a contraction of 24% as compared to the same period the year before. According to Nomura India Business Resumption Index economic activity fell from 82.9 on 22 March to 44. India's imports from China declined by 27.63% during April-August this fiscal to $21.58 billion over the same period previous year, Parliament was informed on Monday. Economic impact of the COVID-19 pandemic in India The economic impact of the COVID-19 pandemic in India has been largely disruptive. India's growth in the fourth quarter of the fiscal year 2020 went down to 3.1% according to the Ministry of Statistics. The Chief Economic Adviser to the Government of India said that this drop is mainly due to the coronavirus pandemic effect on the Indian economy.",
+      "url": "https://www.livemint.com/news/india/india-s-imports-from-china-dip-27-63-during-apr-aug-piyush-goyal-11600697129199.html",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/pibfactcheck/posts/pankaj-pachauri-has-claimed-in-a-tweet-that-indias-imports-from-china-have-incre/201968234669611/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.livemint.com/news/india/india-s-imports-from-china-dip-27-63-during-apr-aug-piyush-goyal-11600697129199.html",
+      "date": "2020-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.piie.com/research/piie-charts/2020/us-china-phase-one-tracker-chinas-purchases-us-goods",
+      "date": "2020-05-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.census.gov/foreign-trade/balance/c5700.html",
+      "date": "2019-04-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://timesofindia.indiatimes.com/business/india-business/indias-imports-from-china-dip-27-63-during-april-august-piyush-goyal/articleshow/78237856.cms",
+      "date": "2020-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://forum.valuepickr.com/t/export-data-and-learnings/38832",
+      "date": "2020-07-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.imf.org/en/blogs/articles/2019/05/23/blog-the-impact-of-us-china-trade-tensions",
+      "date": "2019-05-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TimesofIndia/posts/in-2017-18-imports-from-china-stood-at-6836-that-was-worth-205594-million-and-in/10158855210337139/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://timesofindia.indiatimes.com/business/india-business/indias-trade-deficit-with-china-at-5-year-low/articleshow/76521335.cms",
+      "date": "2020-06-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/PeoplesDaily/posts/chinas-foreign-trade-rose-51-yoy-in-june-amid-the-nations-economic-recovery-chec/3448864558498670/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ignited.in/index.php/jasrae/article/download/10012/19828/49533?inline=1",
+      "date": "2019-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.everycrsreport.com/reports/RL33534.html",
+      "date": "2006-07-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wto.org/english/news_e/pres11_e/pr628_e.htm",
+      "date": "2010-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cbsnews.com/news/china-agrees-to-significantly-increase-imports-details-to-be-worked-out/",
+      "date": "2018-05-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESrwEB6zswFXnXcjOTaZBRm10Ry8OeOLWQUmLgbZ64HyQvL2BY0kCtwJQc9PbfFWUhnqFaibqRB6MSbaGiQuXuCyxNv_xwKvmEiMdit9IWPSfjCUexoiVZdJo3K0qrplnt__Bos71d-l3NaBnv5bFPcnzpx_L__AfxzGzI3ctfFjvH_tD9LvTQ_ipQUwGMbCGBbboh-Yeewp9rUp-CwWqHm30CmbQjjJhisT5D9UJl5Ism&ust=1789681024307502&usg=AOvVaw1HF_iu_iDbsNLm0LQvMcDA",
+      "date": "2018-03-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/airnewsalerts/posts/indias-cumulative-exports-of-merchandise-and-services-have-reached-a-new-record-/1332483345742030/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Economic_impact_of_the_COVID-19_pandemic_in_India",
+      "date": "2020-03-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 252,
+     "n_urls_after_bm25": 14,
+     "n_chunks": 1596
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Q&A 2 and 3 both show that there was a  decrease in the imports from China of 27.63%  between April- August 2020  no an increase as claimed.",
+   "questions": [
+    {
+     "question": "Did India's imports from China increase between April-August 2020?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20201101024850/https://www.businesstoday.in/current/economy-politics/imports-from-china-decline-by-27-63-during-april-august-2020-piyush-goyal/story/416674.html",
+       "source_medium": "Web text"
+      },
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://timesofindia.indiatimes.com/business/india-business/indias-imports-from-china-dip-27-63-during-april-august-piyush-goyal/articleshow/78237856.cms",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Was there an increase in India's imports from China",
+     "answers": [
+      {
+       "answer": "There was no increase, rather there was a decrease in the imports from China of 27.63% between April to August",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20201108092805/https://timesofindia.indiatimes.com/business/india-business/indias-imports-from-china-dip-27-63-during-april-august-piyush-goyal/articleshow/78237856.cms",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201101024850/http://newsmobile.in/articles/2020/10/22/fact-check-has-indias-imports-from-china-increased-by-27-in-april-august-heres-the-truth/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "According to Ministry of Commerce data and The Times of India reported on September 21, 2020, India's imports from China actually declined by 27.63% during the period of April-August 2020, while PIB Fact Check clarified that India's exports to China increased by 27% during April-August 2020.",
+     "support_span": "as per the latest data provided by the Ministry of Commerce, im ports from China have declined by 27.63% during April-August 2020. | another news article by The Times of India [https://timesofindia.indiatimes.com/business/india-business/indias-imports-from-china-dip-27-63-during-april-august-piyush-goyal/articleshow/78237856.cms] dated September 21, 2020, stated that India’s imports from China decreased by 27.63% during April-August. | Truth is that India’s imports from China have decreased by 27.63% whereas India’s exports to China are increased by 27% during April-August."
+    },
+    {
+     "statement": "The claim that imports increased by 27% is a misinterpretation of the fact that exports increased by 27%.",
+     "support_span": "India’s imports from China decreased by 27.63% whereas India’s exports to China increased by 27% during April-August."
+    }
+   ],
+   "justification": "The evidence consistently contradicts the claim that imports increased. Data from the Ministry of Commerce and reports from The Times of India indicate that India's imports from China actually declined by 27.63% during the April-August 2020 period. A PIB Fact Check clarifies that the 27% figure refers to an increase in India's exports to China, suggesting the claim is a misinterpretation of trade data by conflating imports with exports.",
+   "article_url": "https://web.archive.org/web/20201101024850/http://newsmobile.in/articles/2020/10/22/fact-check-has-indias-imports-from-china-increased-by-27-in-april-august-heres-the-truth/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

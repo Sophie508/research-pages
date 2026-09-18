@@ -1,0 +1,549 @@
+{
+ "key": "averitec/dev/19",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 19,
+ "claim": "Video shows attack of French embassy in Sudan",
+ "claim_date": "2020-10-28",
+ "speaker": "Anmol Alphonso",
+ "reporting_source": null,
+ "original_claim_url": "https://www.boomlive.in/fake-news/2012-embassy-attacks-in-sudan-falsely-shared-as-attack-on-french-embassy-10392",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim \"Video shows attack of French embassy in Sudan,\" we evaluate the provided evidence step-by-step:\n\n1.  **Analyze the Claim:** The claim asserts that a video exists depicting an attack on the French embassy in Sudan.\n2.  **Evaluate Evidence from Q1 and Q2:** The evidence explicitly states that the viral video being circulated is actually old footage from **September 2012**. This footage does not show the French embassy, but rather shows protesters setting fire to the **German Embassy in Sudan** in response to an anti-Islamic film (*Innocence of Muslims*).\n3.  **Evaluate Evidence from Q3, Q4, Q7, and Q8:** The evidence clarifies that while various embassies (German, British, US) were targeted during past unrest, there is no mention of a French embassy being attacked in these contexts.\n4.  **Evaluate Evidence from Q5, Q6, and Q10:** Multiple pieces of evidence confirm that the provided documentation contains no information supporting an attack on the French embassy in Sudan. Instead, the evidence points to different events (an attack on an IDP camp, clashes in Juba, or vandalism against US facilities).\n5.  **Conclusion:** Since the evidence identifies the video as being misrepresented and confirms it actually depicts an attack on the German Embassy in 2012, the claim that the video shows an attack on the French embassy is factually incorrect.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the video showing an embassy being set on fire depict an attack on the French Embassy in Sudan or the German Embassy in 2012?",
+      "answer": "The video depicting an embassy being set on fire shows an attack on the **German Embassy in Sudan in 2012**. \n\nAccording to the evidence, the footage was misrepresented to claim it was an attack on the French Embassy in Sudan; however, reverse image searches and news archives confirm the video actually shows protesters setting fire to the German Embassy during demonstrations against a film denigrating Prophet Muhammad.",
+      "url": "https://factly.in/old-video-is-being-passed-off-as-french-embassy-set-on-fire-in-the-wake-of-the-latest-protests-against-emmanuel-macron/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the viral video claiming that Muslims set fire to the French embassy in Sudan in retaliation for the death of Samuel Paty actually recent, or is it old footage from a different event?",
+      "answer": "The viral video is not recent; it is old footage from a different event. An investigation and reverse image search confirm that the clip actually depicts violent protests in Sudan from September 2012, during which protesters targeted various foreign embassies (including the German embassy in Khartoum) in response to an American movie trailer titled *Innocence of Muslims*.",
+      "url": "https://www.altnews.in/fact-check-did-muslims-in-sudan-attacked-on-france-embassy-after-cartoons-of-prophet-muhammad-shown-by-a-teacher/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What other diplomatic or embassy-related incidents are mentioned in the context of unrest in Sudan?",
+      "answer": "In addition to the claim regarding the French embassy, the evidence mentions violent clashes outside the **US embassy** concerning an amateur film that mocked Islam.",
+      "url": "https://www.gettyimages.com/photos/british-embassy-in-khartoum",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Which embassies in Khartoum were stormed and burned during the unrest triggered by the anti-Islam video?",
+      "answer": "During the unrest triggered by the anti-Islam video, the German, British, and US embassies in Khartoum were stormed and burned.",
+      "url": "https://www.rfi.fr/en/africa/20120914-french-immams-appeal-calm-foreign-embassies-attacked-across-arab-world",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provide information regarding an attack on the French embassy in Sudan?",
+      "answer": "No, the provided evidence does not provide information regarding an attack on the French embassy in Sudan. The evidence instead describes an attack on the Kalma internally displaced persons (IDP) camp in Nyala, Sudan, on June 29, 2006, which resulted in the death of Haroun Salmani and injuries to two other individuals.",
+      "url": "https://www.omct.org/en/resources/urgent-interventions/sudan-armed-attack-on-kalma-idp-camp",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence confirm or refute the claim that a video exists showing an attack on the French embassy in Sudan?",
+      "answer": "The provided evidence **does not confirm or refute** the claim.\n\nThe evidence focuses on a soccer match played by the U.S. Embassy on February 4 to strengthen ties with the Sudanese police and honor an officer wounded during an incident at the **U.S. Embassy** on January 31. The text contains no information regarding a French embassy or any video showing an attack on a French embassy in Sudan.",
+      "url": "https://www.facebook.com/khartoum.usembassy/posts/embassy-plays-friendly-soccer-match-with-sudan-police-show-support-for-injured-p/1832273900150514/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that an attack on the French embassy in Sudan was captured on video, or does it only mention vandalism in Sudan related to attacks on U.S. facilities?",
+      "answer": "The evidence does not support the claim that an attack on the French embassy in Sudan was captured on video. Instead, the text states that there has been \"vandalism in countries such as Yemen, Egypt, and Sudan\" specifically in the context of violent attacks against **U.S. diplomatic facilities** triggered by an inflammatory internet film. There is no mention of the French embassy in the provided text.",
+      "url": "https://www.everycrsreport.com/reports/R42743.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence support the claim that a video shows an attack on the French embassy in Sudan?",
+      "answer": "No, the evidence does not support the claim. The provided text discusses intense fighting and clashes in **Juba, South Sudan**, involving government and opposition forces, rather than an attack on the French embassy in Sudan. The evidence focuses on the conflict between the Dinka and Nuer groups and mentions evacuations initiated by the United States, Canada, and India, but it contains no mention of France or its embassy.",
+      "url": "https://www.france24.com/en/20160711-south-sudan-very-heavy-fighting-juba-kiir-machar",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the context regarding the legal rulings and compensation related to embassy bombings involving Sudan?",
+      "answer": "Regarding legal rulings and compensation for embassy bombings involving Sudan, the US Supreme Court has unanimously ruled that Sudan is liable to pay punitive damages to US nationals, embassy employees, and contractors who were victims of the 1998 al-Qaeda embassy bombings in Kenya and Tanzania.\n\nKey details regarding this ruling include:\n\n*   **Damages Reinstated:** The decision reinstates approximately $800 million of the $4 billion in punitive damages that were originally awarded in 2011. This follows a legal challenge by Sudan arguing against the retrospective application of the law.\n*   **Undisputed Compensation:** While Sudan denies involvement in the attacks, the $6 billion in compensation remains undisputed.\n*   **Further Legal Proceedings:** The case concerning damages for non-US nationals and other specific victims has been referred back to a lower court for further consideration.\n*   **Political Context:** This ruling occurs as Sudan's new government attempts to repair relations with the US and seeks removal from the state sponsors of terrorism list to end economic isolation.",
+      "url": "https://www.bbc.com/news/world-africa-52722866",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that a video exists showing an attack on the French embassy in Sudan?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses on a formal request from the U.S. Embassy for a newspaper to retract a doctored photo and a fictitious article regarding Ambassador Stevens; it contains no mention of a video or an attack on the French embassy in Sudan.",
+      "url": "https://www.facebook.com/USEmbassyAlgiers/posts/ennahar-published-a-doctored-photo-and-fictitious-article-of-ambassador-stevens-/474890115865621/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/khartoum.usembassy/posts/embassy-plays-friendly-soccer-match-with-sudan-police-show-support-for-injured-p/1832273900150514/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-africa-52722866",
+      "date": "2020-05-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rfi.fr/en/africa/20120914-french-immams-appeal-calm-foreign-embassies-attacked-across-arab-world",
+      "date": "2012-09-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.omct.org/en/resources/urgent-interventions/sudan-armed-attack-on-kalma-idp-camp",
+      "date": "2006-07-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.everycrsreport.com/reports/R42743.html",
+      "date": "2012-09-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.france24.com/en/20160711-south-sudan-very-heavy-fighting-juba-kiir-machar",
+      "date": "2016-07-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gettyimages.com/photos/british-embassy-in-khartoum",
+      "date": "2017-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.history.com/this-day-in-history/august-7/u-s-embassies-in-east-africa-bombed",
+      "date": "2010-02-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/DavidLammyTottenham/posts/statement-on-syriathere-is-no-harder-decision-for-an-mp-to-make-than-whether-to-/10153097428886541/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dpiguyana/posts/votes-cast-is-not-the-same-as-valid-votes-cast-aubrey-norton-apnu-executive-aubr/1563353257179241/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/fact-check-did-muslims-in-sudan-attacked-on-france-embassy-after-cartoons-of-prophet-muhammad-shown-by-a-teacher/",
+      "date": "2020-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/DavidCameronOfficial/posts/the-case-for-military-intervention-in-syria-as-part-of-a-wider-strategy-my-openi/1088361564521494/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BBCnewsafrica/videos/mohanad-hashim-what-i-saw-in-sudan/2347579458816010/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CPRT-108JPRT20429/html/CPRT-108JPRT20429.htm",
+      "date": "2002-03-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/kofiannanofficial/posts/this-is-an-extremely-delicate-moment-when-cool-heads-and-sober-judgement-are-req/10156074239131043/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.state.gov/report/custom/ee03a08a77",
+      "date": "2018-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/fsrb-mer/EAG-Mutual-Evaluation-Report-Belarus-2019.pdf.coredownload.inline.pdf",
+      "date": "2019-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.arabnews.com/world/france-checks-video-claim-for-paris-knife-attack-1740916",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://china.usembassy-china.org.cn/2019-country-reports-on-human-rights-practices-china/",
+      "date": "2020-03-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/U.S.EmbassyNairobi/posts/stopping-the-spread-of-fake-news-is-everyones-responsibility-stop-before-you-sha/10156423574473694/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aljazeera.com/features/2017/3/23/on-facebook-live-emojis-and-distortion",
+      "date": "2017-03-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/USEmbassyLilongwe/posts/didyouknow-that-the-us-government-has-mandatory-monitoring-and-evaluation-requir/10158122918358604/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://factly.in/old-video-is-being-passed-off-as-french-embassy-set-on-fire-in-the-wake-of-the-latest-protests-against-emmanuel-macron/",
+      "date": "2020-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/USEmbassyAlgiers/posts/ennahar-published-a-doctored-photo-and-fictitious-article-of-ambassador-stevens-/474890115865621/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NPR/posts/european-countries-have-split-over-whether-there-is-sufficient-evidence-to-suppo/10158092093876756/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.congress.gov/115/chrg/CHRG-115shrg36191/CHRG-115shrg36191.htm",
+      "date": "2018-10-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldPressPhoto/posts/explore-the-streets-of-khartoum-in-sudan-discover-the-nubians-community-from-the/3026510820718369/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 27,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that a video exists showing an attack on the French embassy in Sudan, occurring around October 28, 2020 (likely in response to President Macron's statements regarding Islam).\n2. Multiple reliable fact-checking sources (Factly and Alt News) investigated the video. They determined through reverse image searches and keyword searches that the footage is actually from September 2012. The video depicts protesters in Khartoum setting fire to the German embassy (and/or targeting the US, British, and German embassies) in response to an \"anti-Islamic\" film, not the French embassy in 2020.\n3. There are no credible reports of an attack on the French embassy in Sudan in October 2020. The evidence directly identifies the video as old footage being misrepresented to fit a new political context.\n4. The evidence is consistent and directly contradicts the claim, proving the video is misattributed in both time and target.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Was there a verified attack on the French embassy in Sudan around October 28, 2020, as suggested by the claim?",
+      "answer": "A post with a video that shows a building set on fire by a mob is being widely shared on social media. The post claims that protesters in Sudan set fire to the French Embassy in the wake of the ongoing protests against France President Emmanuel Macron’s statements on Islam. Through this article let’s fact-check the claim made in the post. Claim: Video of Muslim protesters setting fire to the French embassy in Khartoum, Sudan in the wake of ongoing protests against the statements of the French President on Islam. Other news articles which reported the incident can be read here and here. We also could not find any recent news reports related to the French embassy being set on fire in Sudan. With all these, we can conclude that the video in the post is of protesters in Sudan setting fire to the German embassy back in 2012 and the video has nothing to do with ongoing protests against the French President Emmanuel Macron. In the wake of the outrage by Muslim countries against the statements by France President Emmanuel Macron regarding Islam, posts similar to the one in the post are being widely circulated across all social media platforms with misleading claims. A video is being shared on social media with the claim that Muslims set fire to the French embassy in Sudan. It is being suggested that the embassy was set ablaze in retaliation for the cartoons of Prophet Muhammad shown by French teacher Samuel Paty in his class on freedom of speech. The teacher was beheaded by an offended Moscow-born teenager in suburban Paris on October 16. सूडान में फ्रांस की अंबेसी को मुसलमानों ने किया आग के हवाले ऐ ज़ालिमों! Fact: The video is actually of protesters setting fire to the German embassy in Khartoum, Sudan back in 2012 showing their anger over a film denigrating Prophet Muhammad. The video has nothing to do with ongoing protests against French President Emmanuel Macron’s statements on Islam. Hence the claim made in the post is FALSE. Reverse image search of the screenshots of the video in the post led us to a 2012 news article which carried a similar video. أكشن .” This roughly translates to, “A video of the attack on the American Embassy in Sudan.” A subsequent keyword search led us to media reports from September 2012 stating that various foreign embassies in Sudan had been attacked. As reported by Al Jazeera on September 15, 2012, violent protests in Tunisia, Yemen, Sudan and elsewhere targeted the American, British and German embassies. This was in response to an ‘anti-Islamic’ scene in an American movie trailer. The protesters claimed that the video insulted Muhammed.",
+      "url": "https://factly.in/old-video-is-being-passed-off-as-french-embassy-set-on-fire-in-the-wake-of-the-latest-protests-against-emmanuel-macron/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the likely origin of the video being circulated in relation to the claim about the French embassy in Sudan?",
+      "answer": "Other news articles which reported the incident can be read here and here. We also could not find any recent news reports related to the French embassy being set on fire in Sudan. With all these, we can conclude that the video in the post is of protesters in Sudan setting fire to the German embassy back in 2012 and the video has nothing to do with ongoing protests against the French President Emmanuel Macron. In the wake of the outrage by Muslim countries against the statements by France President Emmanuel Macron regarding Islam, posts similar to the one in the post are being widely circulated across all social media platforms with misleading claims. Fact: The video is actually of protesters setting fire to the German embassy in Khartoum, Sudan back in 2012 showing their anger over a film denigrating Prophet Muhammad. The video has nothing to do with ongoing protests against French President Emmanuel Macron’s statements on Islam. Hence the claim made in the post is FALSE. Reverse image search of the screenshots of the video in the post led us to a 2012 news article which carried a similar video. A post with a video that shows a building set on fire by a mob is being widely shared on social media. The post claims that protesters in Sudan set fire to the French Embassy in the wake of the ongoing protests against France President Emmanuel Macron’s statements on Islam. Through this article let’s fact-check the claim made in the post. Claim: Video of Muslim protesters setting fire to the French embassy in Khartoum, Sudan in the wake of ongoing protests against the statements of the French President on Islam. According to the article, the video is of protesters in Khartoum, Sudan besieging embassies of Britain, Germany and US as part of a protest against a film denigrating Prophet Muhammad. And the building which is set on fire as shown in the video is actually the German embassy in Sudan. Taking a cue from the news article, further Google search with relevant keywords led us to another news video which carried similar visuals like that of the video in the post. Even this video confirms that the incident is of 2012 protests in Sudan. To sum it up, the video is actually of protesters setting fire to the German embassy in Khartoum, Sudan back in 2012. Old video When we performed a reverse image search of a frame from this clip, we found the original source on YouTube from September 2012. The Arabic description of the video reads, ” فيديوا إقتحام السفارة الأمريكية في السودان… . Therefore, the viral clip has nothing to do with any recent events. The video in question actually shows scenes from the violent demonstrations that took place in Sudan in 2012. A video is being shared on social media with the claim that Muslims set fire to the French embassy in Sudan. It is being suggested that the embassy was set ablaze in retaliation for the cartoons of Prophet Muhammad shown by French teacher Samuel Paty in his class on freedom of speech. The teacher was beheaded by an offended Moscow-born teenager in suburban Paris on October 16. सूडान में फ्रांस की अंबेसी को मुसलमानों ने किया आग के हवाले ऐ ज़ालिमों! أكشن .” This roughly translates to, “A video of the attack on the American Embassy in Sudan.” A subsequent keyword search led us to media reports from September 2012 stating that various foreign embassies in Sudan had been attacked. As reported by Al Jazeera on September 15, 2012, violent protests in Tunisia, Yemen, Sudan and elsewhere targeted the American, British and German embassies. This was in response to an ‘anti-Islamic’ scene in an American movie trailer. The protesters claimed that the video insulted Muhammed. S. diplomatic personnel and family members have been evacuated from Khartoum, given damage done to the outside of the embassy building, and the State Department is evaluating the security posture of the Sudanese security forces. Sudan blocked access to YouTube's website in the country after unsuccessfully requesting that Google remove the film. Egypt:53 The \"Innocence of Muslims\" film appears to have first gained international attention in the Egyptian media, where it was debated by Coptic Christian and Salafist Muslim outlets.",
+      "url": "https://factly.in/old-video-is-being-passed-off-as-french-embassy-set-on-fire-in-the-wake-of-the-latest-protests-against-emmanuel-macron/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the security situation in Sudan during October 2020 regarding foreign diplomatic missions?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the speaker Anmol Alphonso provide any corroborating evidence for the claim of an attack on the French embassy?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Are there any recent historical events that might be confused with this claim?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/europeanunioninsudan/posts/european-union-embassies-lower-their-flags-in-khartoum-because-of-paris-terroris/968489216543051/",
+      "date": "2015-11-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-africa-43257453",
+      "date": "2018-03-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Attack_on_the_Saudi_Embassy_in_Khartoum",
+      "date": "2005-12-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.france24.com/en/20200405-three-sudanese-arrested-over-french-terror-stabbing",
+      "date": "2020-04-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/t/terrorism-in-southeast-asia.html",
+      "date": "2001-08-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hrw.org/report/2003/11/24/sudan-oil-and-human-rights",
+      "date": "2003-11-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://factly.in/old-video-is-being-passed-off-as-french-embassy-set-on-fire-in-the-wake-of-the-latest-protests-against-emmanuel-macron/",
+      "date": "2020-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-europe-48510027",
+      "date": "2019-06-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/fact-check-did-muslims-in-sudan-attacked-on-france-embassy-after-cartoons-of-prophet-muhammad-shown-by-a-teacher/",
+      "date": "2020-10-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/khartoum.usembassy/posts/embassy-plays-friendly-soccer-match-with-sudan-police-show-support-for-injured-p/1832273900150514/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.everycrsreport.com/reports/R42743.html",
+      "date": "2012-09-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ssbcnews/posts/geneva-south-sudan-ambassador-to-geneva-calls-on-regional-and-international-comm/2168661263280198/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.swp-berlin.org/en/publication/new-realities-in-foreign-affairs-diplomacy-in-the-21st-century",
+      "date": "2018-11-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.congress.gov/115/chrg/CHRG-115shrg36191/CHRG-115shrg36191.htm",
+      "date": "2018-10-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://travel.gc.ca/destinations/sudan",
+      "date": "2012-11-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/belgianembassycairo/posts/our-ambassador-visited-last-week-sudan-for-the-first-time-since-the-transition-s/3062006820540258/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/UnitedNationsMissionInSouthSudan/videos/un-security-council-arrives-in-juba-to-support-peace-process/528849851262557/",
+      "date": "2019-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reliefweb.int/report/sudan/communiqu-952nd-meeting-psc-held-6-october-2020-situation-sudan",
+      "date": "2020-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2009-2017.state.gov/r/pa/ei/bgn/5424.htm",
+      "date": "2015-11-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.burg-wein-lassnig.at/Gallery/index.php/Reben-setzen-und-Unterst-tzung/Setzmaschine_033",
+      "date": "2004-07-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/GJBFans/posts/1602989229722675/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pewresearch.org/politics/2016/12/15/americans-name-the-10-most-significant-historic-events-of-their-lifetimes/",
+      "date": "2016-12-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.marubeni.com/en/research/potomac/backnumber/19.html",
+      "date": "2016-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.claimscon.org/study/",
+      "date": "2018-04-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nationalarchives.gov.uk/education/resources/significant-events/",
+      "date": "2019-03-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.historians.org/perspectives-article/what-does-it-mean-to-think-historically-january-2007/",
+      "date": "2007-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 509,
+     "n_urls_after_bm25": 23,
+     "n_chunks": 2025
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "It is the \"German\" embassy that was under attack in Sudan.",
+   "questions": [
+    {
+     "question": "When was the video taken",
+     "answers": [
+      {
+       "answer": "The video was taken on 14th September 2012",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20220311134915/https://www.tagesspiegel.de/politik/proteste-gegen-anti-islam-film-demonstranten-setzen-deutsche-botschaft-im-sudan-in-brand/7132474.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Which embassy was being attacked in the video",
+     "answers": [
+      {
+       "answer": "In Sudan, demonstrators stormed the German embassy and set it on fire in a bloody protest against an Islam-critical abusive video",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20220311134915/https://www.tagesspiegel.de/politik/proteste-gegen-anti-islam-film-demonstranten-setzen-deutsche-botschaft-im-sudan-in-brand/7132474.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201128024341/https://www.boomlive.in/fake-news/2012-embassy-attacks-in-sudan-falsely-shared-as-attack-on-french-embassy-10392",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The video being circulated as an attack on the French embassy in Sudan is actually an eight-year-old video from September 2012 in Khartoum, Sudan, when demonstrators stormed the German embassy, as confirmed by a CNN video report from September 14, 2012, and a news report from the German newspaper Der Tagesspiegel dated September 14, 2012, which shows demonstrators storming and setting fire to the German embassy.",
+     "support_span": "An eight-year-old video showing protestors attack the German embassy in Sudan is being peddled as a recent attack on the French embassy in the country. | On breaking the video into key-frames and performing a reverse image search using Google, we found news reports which show that the visual footage is from Sudan in September 2012 when demonstrators stormed the German embassy in the capital Khartoum | We found a news report [https://www.tagesspiegel.de/politik/proteste-gegen-anti-islam-film-demonstranten-setzen-deutsche-botschaft-im-sudan-in-brand/7132474.html] by German Newspaper Der Tagesspiegel dated September 14th, 2012 which had the same visuals as in the viral clip which stated that in Sudan, demonstrators stormed the German embassy and set it on fire | We also found a video report by CNN on the incident which had the same visuals as the viral clip and reported on September 14, 2012, that protestors were able to overpower security forces to breach the walls of the German embassy in Khartoum, Sudan."
+    },
+    {
+     "statement": "The 2012 protests in Sudan were triggered by a US film titled 'Innocence of Muslims' which was critical of Islam, and during the incident, protesters breached the German embassy gates, attacked the facade, tore down the flag, and replaced it with a black Islamic flag before setting fire to the building.",
+     "support_span": "It also states that the privately made American film, called \"Innocence of Muslims,\" portrays the prophet Muhammad as a womanizer, homosexual and child abuser due to which the protests had broken out. | The report further stated that protesters threw stones at the two neighboring outposts in Khartoum before they stormed the main gates of the German embassy and attacked its facade and tore down the flag, replacing it with a black Islamic one before setting fire to the building."
+    }
+   ],
+   "justification": "The evidence indicates that the video being circulated as an attack on the French embassy in Sudan is actually footage from September 2012. Multiple sources, including a news report from Der Tagesspiegel and a CNN video report, confirm that the visuals depict demonstrators storming and setting fire to the German embassy in Khartoum, Sudan, following protests triggered by the film 'Innocence of Muslims.' Therefore, the claim misidentifies both the target embassy and the timing of the event shown in the video.",
+   "article_url": "https://web.archive.org/web/20201128024341/https://www.boomlive.in/fake-news/2012-embassy-attacks-in-sudan-falsely-shared-as-attack-on-french-embassy-10392",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

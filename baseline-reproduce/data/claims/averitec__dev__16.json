@@ -1,0 +1,477 @@
+{
+ "key": "averitec/dev/16",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 16,
+ "claim": "The plentiful evidence we have indicates that masks would not meaningfully help with aerosol transmission of COVID 19.",
+ "claim_date": "2020-10-29",
+ "speaker": "Yinon Weiss",
+ "reporting_source": "The Federalist",
+ "original_claim_url": "https://thefederalist.com/2020/10/29/these-12-graphs-show-mask-mandates-do-nothing-to-stop-covid/",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim asserts that there is \"plentiful evidence\" indicating that masks do *not* meaningfully help with the aerosol transmission of COVID-19.\n2.  **Evaluate Evidence from Q1:** Q1 directly addresses the role of masks in aerosol transmission. It states that aerosol chemists and researchers argue masks play a \"significant role\" in mitigating aerosol transmission and serve as a \"critical barrier.\" This directly contradicts the claim.\n3.  **Evaluate Evidence from Q2:** Q2 discusses the effectiveness of different mask types. While it notes that surgical and fabric masks are less effective than N95s due to leakage, it does not state they are ineffective against aerosols; rather, it categorizes their level of protection.\n4.  **Evaluate Evidence from Q3:** Q3 provides scientific findings stating that masks can reduce infection rates by more than 80 percent and that even cloth coverings significantly lower the risk of infection and death. This further contradicts the claim that evidence shows masks are not meaningful.\n5.  **Evaluate Evidence from Q5:** Q5 specifically addresses the idea of masks being ineffective, noting that such claims (like the \"fishing net\" analogy) are merely \"social media skepticism and analogies\" rather than scientific or empirical evidence.\n6.  **Synthesize Findings:** The provided evidence consistently shows that scientific consensus and research support the effectiveness of masks (especially N95s) in mitigating the transmission of COVID-19, including aerosol transmission. The claim that \"plentiful evidence\" shows they are ineffective is the opposite of what the evidence demonstrates.\n\n**Conclusion:** The claim is directly contradicted by the provided scientific evidence.\n\n**Label:** Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: Do masks play a significant role in mitigating the aerosol transmission of COVID-19?",
+      "answer": "Based on the provided evidence, the answer is yes; masks play a significant role in mitigating the aerosol transmission of COVID-19. \n\nA group of aerosol chemists and infectious disease researchers argues that widespread mask use is \"essential to combat the significant role of aerosol transmission.\" They suggest that because SARS-CoV-2 is spread through tiny aerosols that can remain airborne for extended periods and reach deep into the lungs, masks serve as a \"critical barrier to reduce transmission.\" Additionally, the evidence notes that successful containment in certain regions coincided with the implementation of mask use.",
+      "url": "https://healthpolicy-watch.news/masks-are-necessary-to-reduce-asymptomatic-transmission-in-aerosols-and-droplets-say-health-experts/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "To what extent do different types of masks, such as N95, surgical, and fabric masks, effectively reduce the aerosol transmission of COVID-19?",
+      "answer": "Based on the provided evidence, the effectiveness of different masks in reducing aerosol transmission varies significantly:\n\n*   **N95 Masks:** These provide the most effective filtration among the types mentioned, though they are currently in short supply and not recommended for general public use.\n*   **Surgical and Fabric Masks:** These offer less protection compared to N95 masks due to air leakage through the material and around the sides. \n\nThe evidence notes that scientific conclusions vary: one retracted study found no significant effect of surgical or cotton masks on viral load, while another study suggested surgical masks could reduce the release of certain seasonal coronaviruses. Because non-fitted masks (fabric and surgical) are not foolproof, health officials recommend they be used as a \"minor component\" of a broader prevention strategy—alongside social distancing and hand hygiene—rather than as a primary means of stopping infection.",
+      "url": "https://www.livescience.com/are-face-masks-effective-reducing-coronavirus-spread.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How effective are face masks in reducing the transmission of COVID-19 and the risk of infection?",
+      "answer": "Based on the provided evidence, face masks are an essential tool for reducing the spread of COVID-19. They work by blocking the large, wet droplets that carry the virus when infected individuals talk, cough, or sing.\n\nKey findings regarding their effectiveness include:\n* **Reduction in infection rates:** Scientific studies indicate that masks can reduce infection rates by more than 80 percent.\n* **Risk reduction:** Even less protective cloth coverings can significantly lower the risk of infection and death by reducing the viral dose a wearer is exposed to.\n* **Mask types:** While unvented N95 respirators are the most effective, most mask types—including multi-layered cloth masks and certain neck gaiters—provide significant benefits, provided they fit snugly against the face and are not see-through or equipped with exhalation valves.\n\nTo maximize effectiveness, it is important to ensure masks are worn reliably, kept clean and dry, and that the outer surface of the mask is not touched.",
+      "url": "https://answers.childrenshospital.org/covid-19-mask-science/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence address the effectiveness of masks in preventing the aerosol transmission of COVID-19?",
+      "answer": "No, the provided evidence does not address the effectiveness of masks in preventing the aerosol transmission of COVID-19. Instead, the text focuses on the social and personal debates surrounding mask-wearing, including discussions on social responsibility, personal freedoms, economic impacts, and anecdotal concerns regarding breathing difficulties and oxygen levels.",
+      "url": "https://www.facebook.com/MPRnews/posts/experts-say-theres-no-evidence-that-masks-decrease-oxygen-in-the-body-or-that-th/10157990599183591/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that masks are ineffective against aerosol transmission, or does it merely reflect social media skepticism and analogies?",
+      "answer": "The provided evidence does not support the claim that masks are ineffective against aerosol transmission; rather, it **merely reflects social media skepticism and analogies**.\n\nThe evidence consists solely of a Facebook post and its associated comments section. The arguments presented—specifically the analogy of using a \"fishing net\" to catch mosquitoes and claims regarding increased carbon dioxide levels—are anecdotal expressions of doubt from social media users rather than scientific data or empirical evidence regarding the efficacy of masks against aerosols.",
+      "url": "https://www.facebook.com/groups/mopplah/posts/3628677637147964/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the expert guidance from intensive care specialists in Wuhan provide evidence regarding the effectiveness of masks in preventing the aerosol transmission of COVID-19?",
+      "answer": "Based on the provided evidence, the expert guidance from the sixteen intensive care specialists in Wuhan does not provide evidence regarding the effectiveness of masks in preventing the aerosol transmission of COVID-19. \n\nWhile the document includes \"essential protocols for infection prevention and occupational safety for medical personnel,\" the evidence does not specify the contents of those protocols or mention mask effectiveness. The provided text focuses on supportive care, ventilation strategies, organ monitoring, and the management of secondary complications.",
+      "url": "https://link.springer.com/article/10.1186/s13613-020-00689-1",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the video \"How Not To Wear A Mask\" provide evidence to support the claim that masks do not meaningfully help with the aerosol transmission of COVID-19?",
+      "answer": "No, the video \"How Not To Wear A Mask\" does not provide evidence to support the claim that masks do not meaningfully help with the aerosol transmission of COVID-19.\n\nAccording to the provided evidence, the video is a critique of politicians demonstrating \"incorrect ways to wear face masks\" and serves as a \"commentary on the improper use of protective gear by public officials.\" The content focuses on the manner in which masks are worn rather than the scientific efficacy of masks in preventing aerosol transmission.",
+      "url": "https://www.facebook.com/brutindia/posts/there-is-a-right-way-and-a-wrong-way-to-wear-a-mask-these-politicians-show-us-ho/1000875613726911/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided evidence discuss the effectiveness of masks in preventing the aerosol transmission of COVID-19?",
+      "answer": "No, the provided evidence does not discuss the effectiveness of masks in preventing the aerosol transmission of COVID-19. The text focuses exclusively on tuberculosis (TB), discussing its mortality rates, drug-resistant strains, the WHO's DOTS and \"End TB\" strategies, and challenges related to TB elimination.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK525174/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence address the effectiveness of masks against the aerosol transmission of COVID-19?",
+      "answer": "No, the provided evidence does not address the effectiveness of masks against the aerosol transmission of COVID-19. The text focuses exclusively on hantaviruses (such as Sin Nombre and Andes virus), their clinical characteristics (HCPS and HFRS), and their potential use as biological weapons. There is no mention of COVID-19 or mask efficacy in the provided text.",
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESpAEB6zswFTJSyJjCEqrkayocxO2AjD0-Stqpd_hV1CBMXOQCJ0x3oBtew0btoLea3R7Skd9j7J8SrKqEVkVP-W1EzuX7MnuRn3Vlhx51tphbb7pYpcAU_3WAWQgs18fWnwhM4sINctVojJF7X6Vo4lSKFakAWZLnMWvOv5uej3GaPQNvcTWgUHB1OAP1N0twu5dXUDaJdZ45esUB0ps3DsKBrkYtmQ&ust=1789634526536025&usg=AOvVaw0KrJEQSIg1Ktm5YPL3kMO-",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://healthpolicy-watch.news/masks-are-necessary-to-reduce-asymptomatic-transmission-in-aerosols-and-droplets-say-health-experts/",
+      "date": "2020-05-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MPRnews/posts/experts-say-theres-no-evidence-that-masks-decrease-oxygen-in-the-body-or-that-th/10157990599183591/",
+      "date": "2020-04-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/mopplah/posts/3628677637147964/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.livescience.com/are-face-masks-effective-reducing-coronavirus-spread.html",
+      "date": "2020-06-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://answers.childrenshospital.org/covid-19-mask-science/",
+      "date": "2020-08-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://link.springer.com/article/10.1186/s13613-020-00689-1",
+      "date": "2020-06-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/brutindia/posts/there-is-a-right-way-and-a-wrong-way-to-wear-a-mask-these-politicians-show-us-ho/1000875613726911/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK525174/",
+      "date": "2017-11-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESpAEB6zswFTJSyJjCEqrkayocxO2AjD0-Stqpd_hV1CBMXOQCJ0x3oBtew0btoLea3R7Skd9j7J8SrKqEVkVP-W1EzuX7MnuRn3Vlhx51tphbb7pYpcAU_3WAWQgs18fWnwhM4sINctVojJF7X6Vo4lSKFakAWZLnMWvOv5uej3GaPQNvcTWgUHB1OAP1N0twu5dXUDaJdZ45esUB0ps3DsKBrkYtmQ&ust=1789634526536025&usg=AOvVaw0KrJEQSIg1Ktm5YPL3kMO-",
+      "date": "2020-08-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 9,
+     "n_top_k": 9,
+     "n_qa_after_rewrite": 9
+    },
+    "error": null,
+    "n_evidence_statements": 9
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by Yinon Weiss in October 2020 via *The Federalist*, asserts that there is \"plentiful evidence\" indicating that masks would not \"meaningfully help\" with the aerosol transmission of COVID-19.\n2. The evidence provided shows a significant body of scientific research and expert consensus that contradicts this claim. Specifically:\n    - Multiple studies (Nature, Lancet, etc.) indicate that masks (including cloth and surgical) reduce the emission of respiratory droplets and aerosols, acting as effective \"source control\" (Q1, A3, A4, A6, Q2, A15).\n    - While there was scientific debate regarding the *extent* of protection provided by cloth masks against very small aerosols (Q2, A20), research showed they still significantly reduce the dispersal of particles (Q2, A15, Q2, A20).\n    - Experts and scientists (including 239 scientists in an open letter to the WHO) argued that aerosol transmission is a key driver of COVID-19 and that masks are a necessary tool to mitigate it (Q1, A8, Q4, A9).\n    - The evidence highlights that while different mask types have varying filtration efficiencies (N95 vs. surgical vs. cloth), they all contribute to reducing transmission (Q5, A7, A13).\n3. The claim appears to be a misinterpretation or a selective presentation of scientific uncertainty. While some studies noted limitations in mask efficacy for certain particle sizes or specific settings (like the effectiveness of cloth masks against very fine aerosols), the broader scientific consensus and experimental data supported the idea that masks *do* meaningfully reduce transmission (Q2, A4, Q2, A16). The claim that there is \"plentiful evidence\" that they do *not* help is directly contradicted by the majority of the provided scientific evidence.\n4. The claim is refuted because the \"plentiful evidence\" cited by the speaker is countered by a vast body of experimental and epidemiological evidence showing that masks (at various levels of efficacy) do meaningfully reduce the transmission of respiratory aerosols and droplets.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the context of Yinon Weiss's claim regarding the effectiveness of masks against COVID-19 aerosol transmission?",
+      "answer": "The authors refer to a growing body of evidence on aerosols and masks that runs counter to the WHO’s advice – which has not recognized aerosols as a key driver of COVID-19 transmission and has warned against widespread mask use. The WHO has maintained that contact with people or contaminated surfaces is the main route of transmission, rather than aerosols. First, the study is on different diseases in different conditions (see last two paragraphs). Second, the study tested the effectiveness of masks at protecting the wearer (in this case healthcare workers), rather than source control, which is the primary purpose of masks in the COVID-19 pandemic. Third, the study did not have a \"no mask\" control, so they have no way of comparing cloth mask with no mask. The authors make this clear in the \"Strengths and limitations\" section of their paper, which appears adjacent to the abstract when you download the PDF. They did, however, find that masks reduced shedding of seasonal coronavirus from breathing for both coarse and fine particles, although viral RNA was observed in less than half of the samples even with no mask, complicating the assessment. The above studies all indicate a strong potential for masks to help reduce transmission of respiratory illnesses. To date, however, none have investigated the effectiveness of masks across a range of expiratory activities, and limited consideration has been given to different mask types. Furthermore, no studies to date have considered the masks themselves as potential sources of aerosol particles. - There is now convincing evidence from multiple controlled experiments5–7 and field observations8–14 that wearing masks reduces the transmission of COVID-19 for healthcare workers and the public. Most of this evidence is COVID-19 specific and has emerged in the past few months1,8,15,16. - Masks prevent infected people from spreading the virus to others by trapping the respiratory droplets (tiny moisture particles) that are produced when we cough, speak, and breathe11,17,18. Additionally, their primary conclusions relate to the effectiveness of masks as source control when the wearer coughs. This is largely irrelevant to COVID-19, since sick people who are coughing should not be out in public. The second study cited in this section of the UNCOVER report is a prepublication that also used schlieren imaging to look at airflow patterns when wearing a mask, cloth face covering, or face shield. There is ample evidence that even cloth masks can prevent the spread of droplets and protect others from getting infected, so they are an effective means of source control alongside physical distancing, as seen from a recent paper in the Lancet (link), and becomes more effective as a greater proportion of a community wear masks (paper in Proceedings of the Royal Society Series A, link). A few neat “popular science” experiments show how well they might work (link1, link2). Note that for source control, masks with vents allow the unfiltered exhalation of your breath and are ineffective for this purpose. It claimed, without any references, that 'sweeping mask recommendations… will not reduce SARS-CoV-2 transmission, as evidenced by the widespread practice of wearing such masks in Hubei province'. The two main reasons given for this are 1) the risk of pre-symptomatic and asymptomatic individuals spreading the virus before they know they have it, and 2) the growing body of empirical evidence that non-medical masks help to prevent SARS-CoV-2 transmission. A call to address airborne transmission of COVID-19 In an open letter to the World Health Organization (WHO), 239 scientists from 32 countries argue there is sufficient evidence COVID-19 can be transmitted through the air via aerosols for the agency to update its guidance.",
+      "url": "https://healthpolicy-watch.news/masks-are-necessary-to-reduce-asymptomatic-transmission-in-aerosols-and-droplets-say-health-experts/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does scientific consensus support the claim that masks do not meaningfully help with aerosol transmission?",
+      "answer": "The authors refer to a growing body of evidence on aerosols and masks that runs counter to the WHO’s advice – which has not recognized aerosols as a key driver of COVID-19 transmission and has warned against widespread mask use. The WHO has maintained that contact with people or contaminated surfaces is the main route of transmission, rather than aerosols. The two main reasons given for this are 1) the risk of pre-symptomatic and asymptomatic individuals spreading the virus before they know they have it, and 2) the growing body of empirical evidence that non-medical masks help to prevent SARS-CoV-2 transmission. A call to address airborne transmission of COVID-19 In an open letter to the World Health Organization (WHO), 239 scientists from 32 countries argue there is sufficient evidence COVID-19 can be transmitted through the air via aerosols for the agency to update its guidance. They did, however, find that masks reduced shedding of seasonal coronavirus from breathing for both coarse and fine particles, although viral RNA was observed in less than half of the samples even with no mask, complicating the assessment. The above studies all indicate a strong potential for masks to help reduce transmission of respiratory illnesses. To date, however, none have investigated the effectiveness of masks across a range of expiratory activities, and limited consideration has been given to different mask types. Furthermore, no studies to date have considered the masks themselves as potential sources of aerosol particles. - There is now convincing evidence from multiple controlled experiments5–7 and field observations8–14 that wearing masks reduces the transmission of COVID-19 for healthcare workers and the public. Most of this evidence is COVID-19 specific and has emerged in the past few months1,8,15,16. - Masks prevent infected people from spreading the virus to others by trapping the respiratory droplets (tiny moisture particles) that are produced when we cough, speak, and breathe11,17,18. The CDC failed to reference the National Academies of Sciences Rapid Expert Consultation on the Effectiveness of Fabric Masks for the COVID-19 Pandemic (NAS 2020), which concludes, “The evidence from…laboratory filtration studies suggests that such fabric masks may reduce the transmission of larger respiratory droplets. There is little evidence regarding the transmission of small aerosolized particulates of the size potentially exhaled by asymptomatic or presymptomatic individuals with COVID-19. It remains unknown what role aerosolized fomites play in transmission of infectious respiratory disease between humans, and it is unclear whether certain types of masks are simultaneously effective at blocking emission of respiratory particles while minimizing emission of non-expiratory (cellulosic) particles. \" [emphasis added] JH & VR: \"Osterholm also quotes from a report from the Usher Network for COVID-19 Evidence Reviews (UNCOVER), but failed to quote from the relevant section, which actually concluded that 'homemade masks worn by sick people can reduce virus transmission by mitigating aerosol dispersal. Homemade masks worn by sick people can also reduce transmission through droplets. - A cloth mask or face covering does very little to prevent the emission or inhalation of small particles. As discussed in an earlier CIDRAP commentary and more recently by Morawska and Milton (2020) in an open letter to WHO signed by 239 scientists, inhalation of small infectious particles is not only biologically plausible, but the epidemiology supports it as an important mode of transmission for SARS-CoV-2, the virus that causes COVID-19. It's ignoring some simple realities out of convenience and for the purposes of political expression. Here is one from the ACP journal with similar findings (BTW there are scores of these): In conclusion, both surgical and cotton masks seem to be ineffective in preventing the dissemination of SARS–CoV-2 from the coughs of patients with COVID-19 to the environment and external mask surface. Demanding mask wearing in public is not, at this point science. It looks more like cosplay. There is ample evidence that even cloth masks can prevent the spread of droplets and protect others from getting infected, so they are an effective means of source control alongside physical distancing, as seen from a recent paper in the Lancet (link), and becomes more effective as a greater proportion of a community wear masks (paper in Proceedings of the Royal Society Series A, link). A few neat “popular science” experiments show how well they might work (link1, link2). Note that for source control, masks with vents allow the unfiltered exhalation of your breath and are ineffective for this purpose. - The conclusion of the study should be: \"paper and cloth masks seems to be useless or worsen the emission of particles with possible effect on aerolization and, therefore, on the airborne transmission\". - Based on the statements of this Nature paper (see below) I wonder how this research made it to the journal Nature and how the authors can state those conclusions, if they dont measure all the particles. \"Note that the funnel is a semi-confined environment, and not all expired particles were necessarily captured by the APS. Results from epidemiological and clinical studies assessing the effectiveness of masks in reducing disease transmission suggest that mask wearing can provide some benefits10,11, especially with early interventions, but often the results lack statistical significance25,26,27,28,29,30,31. et al. Efficacy of masks and face coverings in controlling outward aerosol particle emission from expiratory activities. Sci Rep 10, 15665 (2020). https://doi. Aerosols are very tricky to deal with & Aerosol transmission is responsible for a rapid spread of diseases. Face masks are key in reducing the chance of aerosol transmission. Do you wear one? To know more, visit: https://bit. While the efficacy of cloth and paper masks is not as clear and confounded by shedding of mask fibers, the observations indicate it is likely that they provide some reductions in emitted expiratory particles, in particular the larger particles (> 0.5 μm). We have not directly measured virus emission; nonetheless, our results strongly imply that mask wearing will reduce emission of virus-laden aerosols and droplets associated with expiratory activities, unless appreciable shedding of viable viruses on mask fibers occurs. This suggests that even when masks do not completely stop transmission, they could still save lives. Additionally, their primary conclusions relate to the effectiveness of masks as source control when the wearer coughs. This is largely irrelevant to COVID-19, since sick people who are coughing should not be out in public. The second study cited in this section of the UNCOVER report is a prepublication that also used schlieren imaging to look at airflow patterns when wearing a mask, cloth face covering, or face shield. Related: COVID-19 may spread through breathing and talking And as for masks? Surgical masks reduced the amount of virus released from a sick person in the form of droplets but not aerosols for influenza; the masks reduced coronavirus in both droplets and aerosols; and they didn't reduce either in rhinovirus. For the seasonal coronavirus, researchers found the virus in droplets in 3 out of 10 samples from participants not wearing masks and in aerosols in 4 out of 10 samples taken without masks. 6. Why do you claim there are controlled experiments when there haven’t been any randomized controlled trials of public masking? One of the most common arguments made against masking is that there aren’t any randomized controlled trials (RCTs) showing effectiveness of public masking. This is not true. A very recent systematic review by Macintyre and Chughtai7 of public masking studies (including many RCTs) concluded that masks are effective at slowing the spread of many respiratory diseases. Additional RCTs on this subject are coming out frequently55. In summary, though we support mask wearing by the general public, we continue to conclude that cloth masks and face coverings are likely to have limited impact on lowering COVID-19 transmission, because they have minimal ability to prevent the emission of small particles, offer limited personal protection with respect to small particle inhalation, and should not be recommended as a replacement for physical distancing or reducing time in enclosed spaces with many potentially infectious people. We are very concerned about messaging that suggests cloth masks or face coverings can replace physical distancing.",
+      "url": "https://healthpolicy-watch.news/masks-are-necessary-to-reduce-asymptomatic-transmission-in-aerosols-and-droplets-say-health-experts/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What evidence exists to support the argument that masks might be ineffective against aerosols?",
+      "answer": "et al. Efficacy of masks and face coverings in controlling outward aerosol particle emission from expiratory activities. Sci Rep 10, 15665 (2020). https://doi. The authors refer to a growing body of evidence on aerosols and masks that runs counter to the WHO’s advice – which has not recognized aerosols as a key driver of COVID-19 transmission and has warned against widespread mask use. The WHO has maintained that contact with people or contaminated surfaces is the main route of transmission, rather than aerosols. They did, however, find that masks reduced shedding of seasonal coronavirus from breathing for both coarse and fine particles, although viral RNA was observed in less than half of the samples even with no mask, complicating the assessment. The above studies all indicate a strong potential for masks to help reduce transmission of respiratory illnesses. To date, however, none have investigated the effectiveness of masks across a range of expiratory activities, and limited consideration has been given to different mask types. Furthermore, no studies to date have considered the masks themselves as potential sources of aerosol particles. Likewise, more sophisticated biological techniques are necessary to gauge mask efficacy at blocking emission of viable pathogens. Our work does raise the possibility, however, that virus-contaminated masks could release aerosolized fomites into the air by shedding fiber particulates from the mask fabric. Since mask efficacy experiments are typically only conducted with fresh, not used, masks, future work assessing emission of viable pathogens should consider this possibility in more detail. 6. Why do you claim there are controlled experiments when there haven’t been any randomized controlled trials of public masking? One of the most common arguments made against masking is that there aren’t any randomized controlled trials (RCTs) showing effectiveness of public masking. This is not true. A very recent systematic review by Macintyre and Chughtai7 of public masking studies (including many RCTs) concluded that masks are effective at slowing the spread of many respiratory diseases. Additional RCTs on this subject are coming out frequently55. Laboratory studies provide another means to assess or infer mask effectiveness. Measurement of material filtration efficiencies can provide initial guidance on potential mask effectiveness for preventing outward transmission15,32,33,34,35, but do not directly address mask performance when worn. Early photographic evidence indicates masks can limit the spread of cough-generated particles36. Measurements using simulated breathing with an artificial test head showed the concentration of particles between 0.02 μm-1 μm decreases across masks of different types37. There is ample evidence that even cloth masks can prevent the spread of droplets and protect others from getting infected, so they are an effective means of source control alongside physical distancing, as seen from a recent paper in the Lancet (link), and becomes more effective as a greater proportion of a community wear masks (paper in Proceedings of the Royal Society Series A, link). A few neat “popular science” experiments show how well they might work (link1, link2). Note that for source control, masks with vents allow the unfiltered exhalation of your breath and are ineffective for this purpose. Evaluating the efficacy of cloth facemasks in reducing particulate matter exposure.J Expo Sci Environ Epidemiol 2017 May;27(3):352-7 - van der Sande M., Teunis P, Sabel R. One specific study is worth mentioning here, because of how often it is brought up in discussions of masks: MacIntyre and others 2015, \"Facemasks for the prevention of infection in healthcare and community settings. \"40 This study is often brought up as evidence that masks (especially cloth masks) don't work, and that they might actually cause harm (increase risk of infection). On first read of the abstract, it is easy to get this impression. However, this is a completely incorrect interpretation of this research for several reasons. Additionally, their primary conclusions relate to the effectiveness of masks as source control when the wearer coughs. This is largely irrelevant to COVID-19, since sick people who are coughing should not be out in public. The second study cited in this section of the UNCOVER report is a prepublication that also used schlieren imaging to look at airflow patterns when wearing a mask, cloth face covering, or face shield. The two main reasons given for this are 1) the risk of pre-symptomatic and asymptomatic individuals spreading the virus before they know they have it, and 2) the growing body of empirical evidence that non-medical masks help to prevent SARS-CoV-2 transmission. A call to address airborne transmission of COVID-19 In an open letter to the World Health Organization (WHO), 239 scientists from 32 countries argue there is sufficient evidence COVID-19 can be transmitted through the air via aerosols for the agency to update its guidance. 51 While the data supporting the use of surgical masks as PPE in real-world settings are limited, the two meta-analyses and the most recent randomized controlled study51 combined with evidence of moderate filter efficiency and complete lack of facepiece fit lead us to conclude that surgical masks offer very low levels of protection for the wearer from aerosol inhalation. There may be some protection from droplets and liquids propelled directly onto the mask, but a faceshield would be a better choice if this is a concern. ’ The WHO’s recommendations ‘are based on studies of respiratory droplets carried out in the 1930s,’ when technologies necessary to detect aerosols ‘did not exist’, said researchers. Homemade masks could be used to protect the general population against COVID-19, while also avoiding mask shortages: “The aerosol filtering efficiency [of]… homemade masks was recently found to be similar to that of the medical masks that were tested. Thus, the option of universal masking is no longer held back by shortages. This \"evidence\" speaks directly to my concern that public policy on this issue is not being guided by quality science. JH & VR: \"The article cites 4 references for a claim that \"Household studies find very limited effectiveness of surgical masks at reducing respiratory illness in other household members\". However, none of the references make this claim or show data to support it. - The conclusion of the study should be: \"paper and cloth masks seems to be useless or worsen the emission of particles with possible effect on aerolization and, therefore, on the airborne transmission\". - Based on the statements of this Nature paper (see below) I wonder how this research made it to the journal Nature and how the authors can state those conclusions, if they dont measure all the particles. \"Note that the funnel is a semi-confined environment, and not all expired particles were necessarily captured by the APS. - There is now convincing evidence from multiple controlled experiments5–7 and field observations8–14 that wearing masks reduces the transmission of COVID-19 for healthcare workers and the public. Most of this evidence is COVID-19 specific and has emerged in the past few months1,8,15,16. - Masks prevent infected people from spreading the virus to others by trapping the respiratory droplets (tiny moisture particles) that are produced when we cough, speak, and breathe11,17,18. Here, we report on experiments assessing the efficacy of unvented KN95 respirators, vented N95 respirators, surgical masks, and homemade paper and cloth masks at reducing aerosol particle emission rates from breathing, speaking, and coughing by healthy individuals. Clin Infect Dis 2009 Jul 15;49(2):275-7 Konda A, Prakash A, Moss GA, et al. Aerosol filtration efficiency of common fabrics used in respiratory cloth masks. It remains unknown what role aerosolized fomites play in transmission of infectious respiratory disease between humans, and it is unclear whether certain types of masks are simultaneously effective at blocking emission of respiratory particles while minimizing emission of non-expiratory (cellulosic) particles. There is clear evidence that face coverings reduce the spray of droplets produced during speaking, coughing, and sneezing6,17,19,49–52. This is why masks have long been recommended for individuals with respiratory infections7,7,40,53–55. Furthermore, home-made cloth masks are similar in effectiveness to surgical masks in diffusing the “jets” of droplets that could spread COVID-19 (for details on mask types, see Figure 1 and the “deep dive”)6,19.",
+      "url": "https://www.nature.com/articles/s41598-020-72798-7",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How do major health organizations view the relationship between mask-wearing and aerosol transmission?",
+      "answer": "The authors refer to a growing body of evidence on aerosols and masks that runs counter to the WHO’s advice – which has not recognized aerosols as a key driver of COVID-19 transmission and has warned against widespread mask use. The WHO has maintained that contact with people or contaminated surfaces is the main route of transmission, rather than aerosols. Aerosols are very tricky to deal with & Aerosol transmission is responsible for a rapid spread of diseases. Face masks are key in reducing the chance of aerosol transmission. Do you wear one? To know more, visit: https://bit. Uncertainty remains regarding the role and spatial scale of these different transmission modes (contact, droplet spray, or aerosol inhalation) for specific respiratory diseases, including for COVID-193,4,5,6,7, in particular settings, but airborne transmission stems from the initial expiratory emission of aerosols or droplets. Consequently, the wearing of masks—in addition to vigilant hand hygiene—has been put forth as a means to mitigate disease transmission, especially in healthcare settings8,9,10,11. The two main reasons given for this are 1) the risk of pre-symptomatic and asymptomatic individuals spreading the virus before they know they have it, and 2) the growing body of empirical evidence that non-medical masks help to prevent SARS-CoV-2 transmission. A call to address airborne transmission of COVID-19 In an open letter to the World Health Organization (WHO), 239 scientists from 32 countries argue there is sufficient evidence COVID-19 can be transmitted through the air via aerosols for the agency to update its guidance. Even the cautious and consensus-driven World Health Organization, which initially recommended against masks, now encourages their use in areas of widespread COVID-19 transmission137, in light of new information on the disease and the results of large-scale comparative studies135. Frequently asked questions (FAQs): 1. While the WHO has acknowledged that aerosols can form under certain surgical procedures – like intubation for patients that need a ventilator to breathe – the Organization has not recognized it as a key route of transmission, citing ‘respiratory droplets’ and ‘contact’ as the ‘main modes of transmission. - There is now convincing evidence from multiple controlled experiments5–7 and field observations8–14 that wearing masks reduces the transmission of COVID-19 for healthcare workers and the public. Most of this evidence is COVID-19 specific and has emerged in the past few months1,8,15,16. - Masks prevent infected people from spreading the virus to others by trapping the respiratory droplets (tiny moisture particles) that are produced when we cough, speak, and breathe11,17,18. Alternatively, masks can potentially reduce outward transmission by infected individuals, providing protection to others7,16,17. There have been indications of asymptomatic carriers of COVID-19 infecting others18,19,20, leading to increasing, albeit inconsistent21,22,23,24, calls for more universal wearing of masks or face coverings by the general public to help control disease transmission during pandemics. It is therefore important to understand the efficacy of masks and face coverings of different types in reducing outward transmission of aerosols and droplets from expiratory activities. Aerosol transmission must be recognized as one of the ‘major’ routes of transmission of the virus, urged the commentary: ‘Aerosol transmission of viruses must be acknowledged as a key factor leading to spread of infectious respiratory diseases…Evidence suggests that SARS-CoV-2 is silently spreading in aerosols exhaled by highly contagious individuals with no symptoms.” When individuals with COVID-19 sneeze or cough, droplets containing the virus are released into the air. \" [emphasis added] JH & VR: \"Osterholm also quotes from a report from the Usher Network for COVID-19 Evidence Reviews (UNCOVER), but failed to quote from the relevant section, which actually concluded that 'homemade masks worn by sick people can reduce virus transmission by mitigating aerosol dispersal. Homemade masks worn by sick people can also reduce transmission through droplets. The majority of the particles emitted were in the aerosol range (< 5 μm). As inertial impaction should increase as particle size increases, it seems likely that the emission reductions observed here provide a lower bound for the reduction of particles in the droplet range (> 5 μm). Our observations are consistent with suggestions that mask wearing can help in mitigating pandemics associated with respiratory disease. Our results highlight the importance of regular changing of disposable masks and washing of homemade masks, and suggests that special care must be taken when removing and cleaning the masks. While the efficacy of cloth and paper masks is not as clear and confounded by shedding of mask fibers, the observations indicate it is likely that they provide some reductions in emitted expiratory particles, in particular the larger particles (> 0.5 μm). We have not directly measured virus emission; nonetheless, our results strongly imply that mask wearing will reduce emission of virus-laden aerosols and droplets associated with expiratory activities, unless appreciable shedding of viable viruses on mask fibers occurs. Osterholm questions guidelines on cloth masks, says they don't stand up to virus' air assault\", quoting Osterholm as saying \"Cloth masks, I think… have little impact, if any.\" MTO: Mr. Howard and Dr. Rajkumar fail to provide additional context from this May 4 interview, in which I said the following: \"We know that the virus can be transmitted by what we call [aerosols—mistakenly termed 'air assaults' by WCCO]—it's the tiniest of particles. - A cloth mask or face covering does very little to prevent the emission or inhalation of small particles. As discussed in an earlier CIDRAP commentary and more recently by Morawska and Milton (2020) in an open letter to WHO signed by 239 scientists, inhalation of small infectious particles is not only biologically plausible, but the epidemiology supports it as an important mode of transmission for SARS-CoV-2, the virus that causes COVID-19. Additionally, their primary conclusions relate to the effectiveness of masks as source control when the wearer coughs. This is largely irrelevant to COVID-19, since sick people who are coughing should not be out in public. The second study cited in this section of the UNCOVER report is a prepublication that also used schlieren imaging to look at airflow patterns when wearing a mask, cloth face covering, or face shield. “We detected coronavirus in respiratory droplets and aerosols in 3 of 10 (30%) and 4 of 10 (40%) of the samples collected without face masks, respectively, but did not detect any virus in respiratory droplets or aerosols collected from participants wearing face masks, this difference was significant in aerosols and showed a trend toward reduced detection in respiratory droplets (Table 1b)” Nature Medicine In a 2011 randomized clinical trial studying healthcare workers, those wearing N95 masks in healthcare environments experience respiratory infections 2X less than those wearing standard surgical masks. It stated that 'observational epidemiologic data suggest that transmission of viral respiratory infection was significantly reduced during the SARS epidemic with the use of face masks as well as other infection control measures' and 'in an adjusted analysis of compliant subjects, masks as a group had protective efficacy in excess of 80% against clinical influenza-like illness.' However, the authors noted that 'we found compliance to be low, but compliance is affected by perception of risk. et al. Efficacy of masks and face coverings in controlling outward aerosol particle emission from expiratory activities. Sci Rep 10, 15665 (2020). https://doi. They did, however, find that masks reduced shedding of seasonal coronavirus from breathing for both coarse and fine particles, although viral RNA was observed in less than half of the samples even with no mask, complicating the assessment. The above studies all indicate a strong potential for masks to help reduce transmission of respiratory illnesses. To date, however, none have investigated the effectiveness of masks across a range of expiratory activities, and limited consideration has been given to different mask types. Furthermore, no studies to date have considered the masks themselves as potential sources of aerosol particles.",
+      "url": "https://healthpolicy-watch.news/masks-are-necessary-to-reduce-asymptomatic-transmission-in-aerosols-and-droplets-say-health-experts/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a distinction between different types of masks in terms of aerosol filtration?",
+      "answer": "reading time Share this article Spray mask typesÂ There are different kinds of spray masks: - Dust mask: a dust mask protects against aerosols such as dust, mists and fibers. This mask is available in three classes, namely FFP1, FFP2 and FFP3 (which stands for Filtering Facepiece Particles). FFP1 masks have the lowest protection level and FFP3 have the highest. Dust masks are disposable masks that are thrown away once they are saturated. Different filters protect against different dangers, including particulate matter, vapors and gases. That is why it is important to choose the right filter for your spray mask, so that you are optimally protected against this. There are different kinds of filters: - Dust filter: a dust filter protects - just like a dust mask - against small dust or liquid particles. It works just like a sieve; the finer the holes, the more dust is stopped. These filters for the spray mask are available in three classes, namely P1, P3 and P3. Comparison of filtration efficiency and pressure drop in anti-yellow sand masks, quarantine masks, medical masks, general masks, and handkerchiefs.Aerosol Air Qual Res 2014;14(14):991-1002. - Grinshpun SA, Haruta H, Eninger RM, et al. There are three main types of masks each with different purposes. Experts have advised the general public to wear cloth face coverings to slow the spread of COVID-19, in conjunction with hand washing, physical distancing, and other protective measures (Figure 1). N95 Respirator: An N95 mask (formally called a respirator) has an extremely small pore size that filters out most particles and aerosols. Given the shortage of these devices, it has been recommended that N95 masks should be reserved and set aside for healthcare workers in clinical settings. Â In the video below, crop protection specialist DaniÃ«lle shows the different types of spray masks. Â Â Filters for spray mask Half and full face masks feature filtersor filter tubes. N95 respirators, procedural masks, and surgical masks (face masks) are examples of personal protective equipment that are used to reduce the spread and transmission of airborne particles and aerosol liquids from infected hosts or environmental hazards. In the case where you need more information between the different types of face masks, this post is designed to help you understand the verbiage and construction difference between different types of mask products. This is quite a high standard, with compatible or higher standards around the world including European, Chinese and Korean standards. These masks are highly effective, though not foolproof, and do require proper fit to be effective. Surgical masks (those omnipresent blue masks seen in hospitals) provide 45-55% filtration of aerosol particles, cloth masks around 25-38% filtration depending on the number of layers and material type, and single layer bandanas and handkerchiefs around 3% filtration. Of course there is a tradeoff between filtration efficiency and comfort. We discovered two definitive peer-reviewed sources: (1) A comparison of facemask and respirator filtration test methods by a team at NIOSH and Nelson laboratories published in the Journal of Occupational and Environmental Hygiene (link) and (2) Comparison of Filtration Efficiency and Pressure Drop in Anti-Yellow Sand Masks, Quarantine Masks, Medical Masks, General Masks and Handkerchiefs published by a international team including 3M and Seoul National University in the journal Aerosol and Air Quality Research (link). Masks as personal protective equipment (PPE) are commonly used in a wide variety of situations from healthcare to construction. However, the effectiveness of masks as PPE varies greatly with the type of mask and the purpose. There are many claims about the filtration ability of masks. The Zansors team researched this question to guide our knowledge base on respirators, surgical masks and cloth masks. Higher filtration masks, and masks that require a tight fit, like proper N95 masks, are harder to breath in, though not to the extent of being harmful to you. More comfortable masks naturally have higher airflow and hence less filtration efficiency. However, many of the masks on the market have not been tested against NIOSH standards, for particles around 0.75 microns (the average size of the Sars-COV2 coronavirus). A full face mask is used when working with harmful or irritating substances. There are half masks with one and two filters (also called single and double pattern masks). The benefit of a mask with two filters is that the weight is distributed better and the breathing resistance is lower. Note: filters that weigh more than 300 grams may not be attached to half-face masks.Â In the video below, crop protection specialist DaniÃ«lle shows the different types of spray masks. Â Â Filters for spray mask Half and full face masks feature filtersor filter tubes. The standard bearer for filtration testing for respiratory aerosols in the US is the CDC/NIOSH standard, and the much-claimed NIOSH N95 standard requires that 95% of aerosol particles of a particular size (typically 0.3 microns or below) are filtered by the mask (along with requirements about fit of the mask). Multi-layer synthetic and cotton masks provide the most filtration, while bandanas and fleeces (neck gaiters) provide very little or no protection6,20. Because only fitted respirators (the finest-meshed masks) provide reliable protection from external droplets and viral particles41,53,56, public masking works through “source control,”15 where “my mask protects you, and your mask protects me. “The most common facemasks are the surgical masks but the main differences are; simple face masks are not used to prevent infectious diseases but a surgical mask should have a minimum of 80% bacteria filtration efficiency, a conventional face mask consists of one, two or three layers of flat or pleated fabric [5], usually made from paper or cotton fabric but a “surgical mask” is made of at least a three-ply layer of material like polypropylene[3]” In considering mask alternatives, there is virtually no face mask capable of 100 filtration of ultra-fine particulates or microscopic viruses. This type of filter offers the broadest possible protection.Â - Do not take off the mask until after you leave the room with particulate matter, mist or gas. ASTM face masks standards fall within three categories ASTM Level 1, ASTM Level 2, and ASTM Level 3. The most important difference between the levels in the degree of protection against liquid splashes or higher pressure liquid. ASTM Level three masks offer the greatest amount of protection from liquid penetration while also have equal or better particle and bacterial blocking material than lower levels. What’s the Difference Between a Premium, Surgical Style Mask and Others?",
+      "url": "https://royalbrinkman.com/knowledge-center/service-articles/spray-mask-and-filter",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the claim made by Yinon Weiss supported by a broad scientific consensus in late 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/KUTV2News/posts/mask-mandate-scientists-say-at-least-two-countries-should-have-required-masks-ev/10158873274829406/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/bbcjersey/posts/cloth-masks-not-a-substitute-for-staying-at-home/10158234136299697/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/224650028639377/posts/252323272538719/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/661618870527329/posts/3089917747697417/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/deadline/posts/william-mann-on-politicizing-face-masks-repeating-spanish-flu-mistakes-in-covid-/10159238867429897/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/bonitaspringsestero/posts/974270312992669/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/skepticalob/posts/a-modest-proposal-no-covid-coverage-for-anti-maskershow-can-we-combat-health-con/1381625712008124/",
+      "date": "2005-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/insider/posts/we-thought-it-might-be-counterproductive-if-we-forced-mask-wearing-on-those-peop/2596813960625986/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox5dc/posts/mandatory-masks-britain-and-france-are-weighing-whether-to-require-people-to-wea/10159191800392494/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theconversation.com/masks-help-stop-the-spread-of-coronavirus-the-science-is-simple-and-im-one-of-100-experts-urging-governors-to-require-public-mask-wearing-138507",
+      "date": "2020-05-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MDAnderson/posts/scientific-research-shows-that-some-masks-can-cut-down-on-coronavirus-droplet-sp/10158575198709911/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.livescience.com/are-face-masks-effective-reducing-coronavirus-spread.html",
+      "date": "2020-06-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cidrap.umn.edu/covid-19/commentary-my-views-cloth-face-coverings-public-preventing-covid-19",
+      "date": "2020-07-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ucsf.edu/news/2020/06/417906/still-confused-about-masks-heres-science-behind-how-face-masks-prevent",
+      "date": "2020-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cidrap.umn.edu/covid-19/commentary-masks-all-covid-19-not-based-sound-data",
+      "date": "2020-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://healthpolicy-watch.news/masks-are-necessary-to-reduce-asymptomatic-transmission-in-aerosols-and-droplets-say-health-experts/",
+      "date": "2020-05-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nature.com/articles/s41598-020-72798-7",
+      "date": "2020-09-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/syracusezoo/posts/heres-a-great-explainer-on-why-masks-work-to-prevent-covid-19-this-nova-l-pbs-pi/10157059859581573/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/02786826.2020.1862409",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pws.byu.edu/covid-19-and-masks",
+      "date": "2020-04-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.weforum.org/stories/health-and-healthcare-systems/covid-19-top-science-stories-of-the-week-from-brain-disorders-to-why-we-should-all-wear-masks/",
+      "date": "2020-07-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheApolloHospitals/posts/aerosols-are-very-tricky-to-deal-with-aerosol-transmission-is-responsible-for-a-/3324234500970968/?locale=de_DE",
+      "date": "2020-08-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/02786826.2020.1855321",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CCSOEM/posts/advice-on-how-and-who-should-use-respirator-masksenglish-and-spanish/1758983387548037/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://royalbrinkman.com/knowledge-center/service-articles/spray-mask-and-filter",
+      "date": "2020-05-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.zansors.com/blog-posts/2020/8/11/the-differing-filtration-rates-for-respirators-surgical-masks-and-cloth-masks",
+      "date": "2020-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://blog.gotopac.com/2020/05/07/why-3-ply-face-masks-and-surgical-masks-are-meaningful-n95-mask-alternatives/",
+      "date": "2020-05-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/UMiamiHillel/posts/throwback-to-bari-weisss-visit-where-she-spoke-about-the-fight-against-anti-semi/10159143576025769/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/14693062.2015.1135778",
+      "date": "2015-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.math.tau.ac.il/~peledron/Horowitz_seminar/Horowitz_seminar.html",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK294466/",
+      "date": "2015-04-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cambridge.org/core/journals/nationalities-papers/article/twilight-of-the-twostate-solution-in-israelpalestine-shared-sovereignty-and-nonterritorial-autonomy-as-the-new-dawn/766814D4E7F9D8CF439F748D83E8D542",
+      "date": "2020-03-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 6,
+     "n_paragraphs": 307,
+     "n_urls_after_bm25": 19,
+     "n_chunks": 1300
+    },
+    "error": null,
+    "n_evidence_statements": 6
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Evidence finds that surgical face masks could prevent transmission of human coronaviruses and influenza viruses from symptomatic individuals. The CDC and the World Health Organization (WHO), at the time of the claim, also recommended cloth masks for the general public.",
+   "questions": [
+    {
+     "question": "Have any studies been done to show if masks help with Aerosol transmission ?",
+     "answers": [
+      {
+       "answer": "Surgical face masks significantly reduced detection of influenza virus RNA in respiratory droplets and coronavirus RNA in aerosols, with a trend toward reduced detection of coronavirus RNA in respiratory droplets. Our results indicate that surgical face masks could prevent transmission of human coronaviruses and influenza viruses from symptomatic individuals.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.nature.com/articles/s41591-020-0843-2?error=cookies_not_supported&code=06c46169-a951-475f-84e1-3761c88a0a71",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Do any health body's recommend wearing a facemask to help slow down aerosol transmission of viruses at the time of the claim (2020)?",
+     "answers": [
+      {
+       "answer": "At of claim yes, the (CDC) and the World Health Organization now recommended cloth masks for the general public, but earlier in the pandemic, both organizations recommended just the opposite.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.ucsf.edu/news/2020/06/417906/still-confused-about-masks-heres-science-behind-how-face-masks-prevent",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210711073635/https://healthfeedback.org/claimreview/wearing-face-masks-helps-reduce-the-spread-of-covid-19-but-it-only-confers-partial-protection-and-should-be-combined-with-additional-public-health-measures/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Scientific evidence indicates that face masks effectively reduce the spread of COVID-19 by blocking viral transmission through respiratory droplets and some aerosol particles, including an April 2020 study in Nature Medicine which found that surgical masks reduced the amount of various respiratory viruses, including seasonal coronaviruses, in both droplets and aerosols released from infected individuals, and an August 2020 study finding that homemade cloth face masks of different materials could efficiently filter aerosol particles of various sizes, provided there were adequate layers and a proper fit.",
+     "support_span": "Scientific evidence indicates that wearing face masks effectively reduces the spread of COVID-19 by blocking viral transmission through respiratory droplets and some aerosol particles. | An April 2020 study published in Nature Medicine found that surgical masks reduced the amount of various respiratory viruses, including seasonal coronaviruses, in droplets and aerosols released from infected individuals | An August 2020 study found that face masks made at home of different cloth materials could efficiently filtrate aerosol particles of a range of sizes. An adequate number of layers and a proper fit were crucial to minimize leak flows"
+    },
+    {
+     "statement": "A study published in the International Journal of Infectious Diseases estimated that non-medical mask-wearing by 75% of the population could reduce COVID-19 infections by 37.7%, though masks only offer partial protection and should be used alongside other measures like physical distancing and hand hygiene.",
+     "support_span": "The authors estimated that non-medical mask-wearing by 75% of the population reduced infections, hospitalizations, and deaths by 37.7%, 44.2%, and 47.2%, respectively. | However, wearing face masks only confers partial protection and should be combined with other public health measures, like physical distancing and good hand hygiene."
+    }
+   ],
+   "justification": "The provided evidence contradicts the claim, indicating that masks do effectively mitigate transmission. Specifically, scientific evidence and studies in Nature Medicine and the International Journal of Infectious Diseases suggest that masks—including surgical, cloth, and non-medical varieties—can reduce the spread of respiratory viruses and aerosols, with estimates suggesting significant reductions in infections and hospitalizations. While the evidence notes that masks provide only partial protection and require proper fit and layering to be efficient, the collective findings support their effectiveness in reducing viral transmission rather than rendering them meaningless.",
+   "article_url": "https://web.archive.org/web/20210711073635/https://healthfeedback.org/claimreview/wearing-face-masks-helps-reduce-the-spread-of-covid-19-but-it-only-confers-partial-protection-and-should-be-combined-with-additional-public-health-measures/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

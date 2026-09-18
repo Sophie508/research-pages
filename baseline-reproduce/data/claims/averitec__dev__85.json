@@ -1,0 +1,323 @@
+{
+ "key": "averitec/dev/85",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 85,
+ "claim": "India's Congress party candidate Maskoor Usmani installed Jinnah's portrait at AMU.",
+ "claim_date": "2020-10-17",
+ "speaker": "Pooja Chaudhuri",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://t.co/sf132cXZN6pic.twitter.com/Um6lIYhCI7",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"India's Congress party candidate Maskoor Usmani installed Jinnah's portrait at AMU,\" we evaluate the provided evidence as follows:\n\n1.  **Analyze the Claim:** The claim asserts that a specific individual (Maskoor Usmani) performed a specific action (installing Jinnah's portrait) at a specific location (AMU).\n2.  **Evaluate Evidence from Q1 and Q2:** These answers directly address the claim, stating that the claim made by news outlets like Aaj Tak is false. They provide historical context, noting that the portrait has been part of the university's history since 1938 because Jinnah was a founder and life member of the student union. This proves the portrait predates Usmani's involvement.\n3.  **Evaluate Evidence from Q3, Q4, Q5, Q8, and Q10:** These answers consistently state that the provided evidence does not support the claim, either by noting the absence of information regarding Usmani's role in the installation or by clarifying that the controversy stems from the portrait's long-standing presence rather than a recent installation by him.\n4.  **Evaluate Evidence from Q6 and Q7:** These answers suggest that the narrative surrounding the claim is either a work of satire used to criticize political rhetoric or a politically motivated distraction orchestrated to incite communal polarization.\n5.  **Synthesize Findings:** Multiple independent pieces of evidence (investigations by journalists, historians, and the AMU administration) confirm that the portrait was installed in 1938, long before Maskoor Usmani's tenure. Therefore, the claim that he installed it is factually incorrect.\n\n**Conclusion:** The evidence explicitly refutes the claim by providing historical facts that contradict the assertion.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Maskoor Usmani install Muhammad Ali Jinnah's portrait at Aligarh Muslim University (AMU)?",
+      "answer": "No, Maskoor Usmani did not install Muhammad Ali Jinnah's portrait at Aligarh Muslim University (AMU). \n\nAccording to the evidence, the claim made by the news channel AajTak was false. Investigations by journalists, historians, and the AMU administration confirmed that the portrait has been part of the university's history since 1938, as Jinnah was a founder and a life member of the student union. The portrait is considered a traditional preservation of the university's legacy, alongside other life members such as Dr. B.R. Ambedkar and Mother Teresa, and there is no evidence to support the allegation that Usmani was responsible for its installation.",
+      "url": "https://www.thequint.com/news/webqoof/aajtaks-claim-that-maskoor-usmani-hung-jinnah-portrait-at-amu-is-false",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Maskoor Usmani install Muhammad Ali Jinnah's portrait at AMU?",
+      "answer": "No, Maskoor Usmani did not install Muhammad Ali Jinnah's portrait at AMU. While media outlets like Aaj Tak claimed he installed the portrait during his time as student union president, investigations reveal this claim is false, as the portrait has been part of AMU's history since 1938.",
+      "url": "https://www.altnews.in/aaj-tak-falselt-claims-congress-candidate-maskoor-usmani-hung-jinnahs-portrait-at-amu/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Congress party candidate Maskoor Usmani install Mohammad Ali Jinnah's portrait at Aligarh Muslim University?",
+      "answer": "Based on the provided evidence, there is no mention of a Congress party candidate named Maskoor Usmani or any information regarding him installing a portrait of Mohammad Ali Jinnah at Aligarh Muslim University (AMU). \n\nThe evidence only states that the presence of Jinnah's portrait at the university has caused political and social controversy, leading to clashes between Hindu Yuva Vahini members and AMU students, and that the Congress party has accused the BJP of using the issue to incite communal polarization.",
+      "url": "https://diplomacybeyond.com/controversy-over-jinnahs-portrait-grows-in-amu-as-other-universities-join-in/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence confirm that Maskoor Usmani installed Jinnah's portrait at AMU?",
+      "answer": "No, the evidence does not confirm that Maskoor Usmani installed Jinnah's portrait at AMU. The provided text only contains social media comments discussing whether the portrait should be removed or maintained; it contains no mention of Maskoor Usmani or any specific individual installing the portrait.",
+      "url": "https://www.facebook.com/groups/1652533501464566/posts/1860445917339989/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did the Congress party candidate Maskoor Usmani install Jinnah's portrait at AMU?",
+      "answer": "Based on the provided evidence, it is not mentioned whether the Congress party candidate Maskoor Usmani installed the portrait of Muhammad Ali Jinnah at AMU. The evidence states that the controversy and subsequent violence were sparked by a dispute over the presence of the portrait in the students' union hall following an inquiry by Lok Sabha MP Satish Gautam, but it does not identify the individual responsible for installing it.",
+      "url": "https://indianexpress.com/article/india/aligarh-muslim-university-mohammad-ali-jinnah-portrait-controversy-live-updates-5162020/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim that Maskoor Usmani installed Jinnah's portrait at AMU a factual report or a work of satire?",
+      "answer": "The claim that Maskoor Usmani installed Jinnah's portrait at AMU is a **work of satire**.\n\nAccording to the evidence, the document is \"written as a satire\" and uses the topic of the removal of M.A. Jinnah's portrait from Aligarh Muslim University as a \"springboard to criticize hyper-nationalist rhetoric.\" The text explains that the author employs irony to mock modern Indian nationalism and the tendency to use patriotism as a political tool to suppress historical nuance.",
+      "url": "https://www.thecitizen.in/index.php/en/newsdetail/index/2/13737/please-remove-jinnahs-portrait-from-amusu-but-we-cannot-stop-here-need-to-go-further",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the controversy regarding the installation of Jinnah's portrait at AMU by Congress candidate Maskoor Usmani a genuine issue or a politically motivated distraction?",
+      "answer": "Based on the provided evidence, the text presents the perspective that the controversy regarding the installation of Jinnah's portrait at AMU is a **politically motivated distraction**.\n\nThe evidence supports this view through the following points:\n* **Orchestration:** The author claims the controversy is orchestrated by the BJP to divert attention from a lack of developmental progress in Karnataka and Uttar Pradesh ahead of upcoming elections.\n* **Historical Context:** The author asserts that the portrait has existed for a long time without causing any prior issues.\n* **Intentional Diversion:** Commenters in the text echo this sentiment, suggesting that such controversies are used as diversionary tactics to incite hatred and fear and to \"brainwash young minds.\"",
+      "url": "https://www.facebook.com/groups/IndianLiberals/posts/456558018087924/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Maskoor Usmani, a candidate for India's Congress party, install a portrait of Jinnah at AMU?",
+      "answer": "Based on the provided evidence, there is no mention of a Congress party candidate named Maskoor Usmani or any claim regarding him installing a portrait of Jinnah at Aligarh Muslim University (AMU). The evidence focuses on the historical role of AMU in propagating the Two-Nation Theory and the frequent visits made by Muhammad Ali Jinnah to the institution between the 1930s and 1947.",
+      "url": "https://www.facebook.com/justicekatju/posts/amus-role-in-partition-of-indiai-am-not-blaming-the-present-students-of-aligarh-/2298284076878792/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Maskoor Usmani's past involvement with a photo of Mohammad Ali Jinnah at AMU lead to accusations of supporting pro-Pakistan ideologies?",
+      "answer": "Yes, Maskoor Usmani's past controversy regarding a photo of Mohammad Ali Jinnah at AMU was cited by Union Minister Giriraj Singh as a reason to accuse the Mahagathbandhan of supporting pro-Pakistan ideologies. Singh used this past incident, along with previous sedition charges (which were ultimately dropped), to question the Grand Alliance's stance on fielding Usmani as a candidate.",
+      "url": "https://indianexpress.com/elections/giriraj-singh-maskoor-usmani-jinnah-remark-6757964/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence or report linking the Congress party candidate Maskoor Usmani to the installation of Jinnah's portrait at Aligarh Muslim University (AMU)?",
+      "answer": "Based on the provided evidence, there is no information or report linking the Congress party candidate Maskoor Usmani to the installation of Jinnah's portrait at Aligarh Muslim University (AMU). The evidence only discusses the arrest of an activist and student named Amir Mintoee.",
+      "url": "https://www.facebook.com/arif.khanalig.5/posts/amu-students-activist-amir-mintoee-has-been-arrested-by-aligarh-police-from-jawa/886435521856818/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/justicekatju/posts/amus-role-in-partition-of-indiai-am-not-blaming-the-present-students-of-aligarh-/2298284076878792/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://indianexpress.com/elections/giriraj-singh-maskoor-usmani-jinnah-remark-6757964/",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1940027099365158/posts/2049908705043663/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/JIHMarkaz/posts/the-government-has-subverted-the-constitutional-institutions-in-order-to-enforce/1583349301809959/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MardanNewsPage/posts/%D8%A7%D9%86%DA%88%DB%8C%D8%A7-%DA%A9%DB%92-%D9%BE%DB%81%D9%84%DB%92-%D9%85%D8%B3%D9%84%D9%85%D8%A7%D9%86-%D8%B5%D8%AF%D8%B1-%D8%B0%D8%A7%DA%A9%D8%B1-%D8%AD%D8%B3%DB%8C%D9%86-%D8%A2%D9%81%D8%B1%DB%8C%D8%AF%DB%8C-1967%D8%B3%DB%92-1969-%D8%AA%DA%A9-%D8%A7%D9%86%DA%88%DB%8C%D8%A7-%DA%A9%DB%92-%D8%B5%D8%AF%D8%B1-%D8%B1%DB%81%DB%92%D9%85%D8%B1%D8%AD%D9%88%D9%85-%DA%A9/2017290715203511/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/AaghaRoohi/posts/tabarra-agitation-of-1939-was-an-event-when-some-18000-shias-were-jailed-during-/3128715357240802/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/arif.khanalig.5/posts/amu-students-activist-amir-mintoee-has-been-arrested-by-aligarh-police-from-jawa/886435521856818/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheGlobalKashmirNews/posts/insulting-vice-chancellor-of-kashmir-universitytarigami-expresses-displeasuresri/1276830582337577/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/yadavakhilesh/posts/addressed-rallies-in-etah-and-kasganj-today/1338730009483172/",
+      "date": "2016-02-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thequint.com/news/webqoof/aajtaks-claim-that-maskoor-usmani-hung-jinnah-portrait-at-amu-is-false",
+      "date": "2020-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/aaj-tak-falselt-claims-congress-candidate-maskoor-usmani-hung-jinnahs-portrait-at-amu/",
+      "date": "2020-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/IndianLiberals/posts/456558018087924/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://diplomacybeyond.com/controversy-over-jinnahs-portrait-grows-in-amu-as-other-universities-join-in/",
+      "date": "2018-05-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://indianexpress.com/article/india/aligarh-muslim-university-mohammad-ali-jinnah-portrait-controversy-live-updates-5162020/",
+      "date": "2018-05-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/824940620926723/posts/3272006702886757/",
+      "date": "2020-08-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1652533501464566/posts/1860445917339989/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Timesnow/videos/maksoor-ahmad-usmani-former-amu-student-union-president-given-ticket-by-congress/496669547958197/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thecitizen.in/index.php/en/newsdetail/index/2/13737/please-remove-jinnahs-portrait-from-amusu-but-we-cannot-stop-here-need-to-go-further",
+      "date": "2018-05-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 18,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The portrait of Jinnah has been on display at AMU since 1938, so India's Congress party candidate Maskoor Usmani could not have installed it. Hence, the claim is refuted.",
+   "questions": [
+    {
+     "question": "What is Aaj Tak?",
+     "answers": [
+      {
+       "answer": "Aaj Tak is an Entertainment company located in E-1, Videocon Tower jhandewalan Extn, New Delhi, Delhi, India.",
+       "answer_type": "Extractive",
+       "source_url": "https://in.linkedin.com/company/aaj-tak",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Who was Jinnah?",
+     "answers": [
+      {
+       "answer": "Standing before Jinnah’s tomb, Advani described the founder of Pakistan as “secular” and an “ambassador of Hindu-Muslim unity”.\n\nThat Jinnah believed in keeping statecraft and religion apart is a well-established fact of history...",
+       "answer_type": "Extractive",
+       "source_url": "https://www.telegraphindia.com/india/advani-salutes-secular-jinnah/cid/873488",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What is AMU?",
+     "answers": [
+      {
+       "answer": "Aligarh Muslim University (AMU) occupies a unique position amongst universities and institutions of higher learning in the country. It was established in 1920 and evolved out of the Mohammedan Anglo-Oriental (MAO ) which was set up on 7 January 1877 by the great visionary and social reformer, Sir Syed Ahmad khan. From its very inception, it has kept its door open to the members of all communities and from all corners of the country and the world. The Aligarh Muslim University s the realization of a vision which was broad, far-reaching and realistic",
+       "answer_type": "Extractive",
+       "source_url": "https://www.amu.ac.in/about-us/facts",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "How long has the portrait of Jinnah been hanging at AMU?",
+     "answers": [
+      {
+       "answer": "A tweet on May 3, 2018 said:\nFor Jinnah portrait hanging since 1938....",
+       "answer_type": "Extractive",
+       "source_url": "https://twitter.com/thewire_in/status/991882541337600000?ref_src=twsrc%5Etfw",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "When was Maskoor Usmani a Congress candidate?",
+     "answers": [
+      {
+       "answer": "Congress has given Jale constituency ticket to former President of Aligarh Muslim University Student's Union Dr Maskoor Ahmad Usmani (published 16 October, 2020)",
+       "answer_type": "Extractive",
+       "source_url": "https://www.newindianexpress.com/nation/2020/oct/16/ln-mishras-grandson-denied-congress-ticket-calls-party-candidate-masqoor-usmani-anti-national-ji-2211130.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did Maskoor Usmani  hang the portrait of Jinnah inside AMU campus?",
+     "answers": [
+      {
+       "answer": "Like portraits of most leaders inside the union building, Jinnah also found a spot. That portrait has been hanging at the AMU students' union hall for decades, and yet, it did not turn AMU into another Pakistan. The university remains a premier central institution, funded by the government itself.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.dailyo.in/politics/jinnah-portrait-aligarh-muslim-university-controversy-bjp-sangh-parivar-india-pakistan-amu-students-union-23850",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210226192757/https://www.altnews.in/aaj-tak-falselt-claims-congress-candidate-maskoor-usmani-hung-jinnahs-portrait-at-amu/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": false,
+   "note": "silver 参照缺此 ID（该文件 100 条中缺 6 条）",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

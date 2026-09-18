@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Browser · Baseline 复现</title>
+<meta name="description" content="以 claim 为中心浏览六个 adapted baseline 在实时 web 检索下产出的证据、问答与判决。">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{ /* MCFC Bench tokens (shared with the site home) */
+  --bg:#fafbfc; --card:#ffffff; --ink:#101828; --ink2:#475467; --ink3:#98a2b3; --line:#eaecf0; --accent:#e8590c; --info:#175cd3; --info-soft:#eff8ff;
+  --shadow:0 1px 3px rgba(16,24,40,.07),0 1px 2px rgba(16,24,40,.04);
+  /* aliases used by this page */
+  --surface:var(--card); --surface2:#f2f4f7; --border:var(--line); --text:var(--ink); --muted:var(--ink2); --faint:var(--ink3);
+  --accent-ink:#ffffff; --link:var(--info);
+  --v-refuted:#d92d20; --v-supported:#079455; --v-nee:#667085; --v-conflict:#dc6803;
+  --ref-gold:#b54708; --ref-silver:#475467;
+  --ok:#079455; --noev:#175cd3; --fail:#d92d20; --pending:#98a2b3;
+}
+[data-theme="dark"]{
+  --bg:#0c111d; --card:#161b26; --ink:#f5f5f6; --ink2:#94969c; --ink3:#61646c; --line:#1f242f; --accent:#ff692e; --info:#84adff; --info-soft:#0e1f3d;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+  --surface2:#1c2130; --accent-ink:#1a0f00;
+  --v-refuted:#f97066; --v-supported:#47cd89; --v-nee:#94969c; --v-conflict:#fdb022;
+  --ref-gold:#fec84b; --ref-silver:#98a2b3;
+  --ok:#47cd89; --noev:#84adff; --fail:#f97066; --pending:#61646c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:15px/1.6 "DM Sans",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+h1,h2,.brand,.card .name,.empty .big{font-family:"Plus Jakarta Sans","DM Sans",sans-serif}
+a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.muted{color:var(--muted)} .faint{color:var(--faint)} .small{font-size:12.5px}
+button{font:inherit;cursor:pointer}
+
+/* top bar: same shape as the MCFC Bench home nav */
+.top{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:22px;height:64px;max-width:none;padding:0 40px}
+.brand{font-weight:800;letter-spacing:-.02em;color:var(--ink);font-size:20px;white-space:nowrap}
+.brand small{display:none}
+.section-name{font-weight:600;color:var(--ink2);font-size:14.5px;white-space:nowrap;padding-left:22px;border-left:1px solid var(--line)}
+.nav{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap;font-weight:500;color:var(--ink2);font-size:14.5px}
+.nav a{color:inherit;padding:4px 0;border-bottom:2px solid transparent}
+.nav a.on{color:var(--ink);border-bottom-color:var(--accent)} .nav a:hover{color:var(--ink);text-decoration:none}
+.theme{margin-left:4px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink2)}
+
+/* freshness bar */
+.fresh{background:var(--surface2);border-bottom:1px solid var(--border);font-size:12px;color:var(--muted)}
+.fresh .wrap{display:flex;gap:18px;flex-wrap:wrap;padding:7px 24px}
+.fresh b{color:var(--text);font-weight:600}
+.fresh .warn{color:var(--accent)}
+
+main{padding:28px 0 60px}
+h1{font-size:30px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+h2{font-size:20px;font-weight:700;margin:0 0 10px}
+h3{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin:22px 0 10px}
+.pill{display:inline-block;background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:2px 10px;font-size:12px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:12px;color:var(--muted);background:var(--surface)}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--pending)}
+.chip.ok i{background:var(--ok)} .chip.no_evidence i{background:var(--noev)} .chip.system_failed i{background:var(--fail)}
+.chip.ok{color:var(--text)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:12.5px;font-weight:600;border:1px solid transparent}
+.v-Refuted{background:rgba(229,72,77,.15);color:var(--v-refuted);border-color:rgba(229,72,77,.4)}
+.v-Supported{background:rgba(48,164,108,.15);color:var(--v-supported);border-color:rgba(48,164,108,.4)}
+.v-NEE{background:rgba(139,141,152,.15);color:var(--v-nee);border-color:rgba(139,141,152,.4)}
+.v-Conflicting{background:rgba(245,165,36,.15);color:var(--v-conflict);border-color:rgba(245,165,36,.4)}
+.v-none{background:var(--surface2);color:var(--muted);border-color:var(--border)}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:4px;border:1px solid var(--border);color:var(--muted);vertical-align:middle;margin-left:6px}
+.tag.gen{color:var(--accent);border-color:rgba(242,140,40,.5)}
+.tag.human{color:var(--ref-gold);border-color:rgba(212,176,74,.5)}
+.tag.auto{color:var(--ref-silver);border-color:rgba(143,163,184,.5)}
+.tag.quote{color:var(--v-supported);border-color:rgba(48,164,108,.5)}
+
+/* explore */
+.howto{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.howto span{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-size:13px;color:var(--muted)}
+.howto b{display:inline-block;background:var(--accent);color:var(--accent-ink);border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:11px;margin-right:6px}
+.filters{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px;margin:18px 0 22px;display:grid;grid-template-columns:2fr repeat(4,1fr);gap:12px;align-items:end}
+.filters label{display:block;font-size:11.5px;color:var(--muted);margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase}
+.filters input,.filters select{width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:8px 10px;font:inherit;font-size:14px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface2)}
+.seg button{background:transparent;border:0;color:var(--muted);padding:7px 14px;font-size:13.5px;font-weight:500}
+.seg button.on{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:14px;font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px 22px;display:flex;flex-direction:column;gap:10px;color:var(--text);transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);text-decoration:none;transform:translateY(-1px)}
+.card .head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.card .claim{font-size:15px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.card .body{display:flex;gap:12px}
+.card .thumb{width:84px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--border);flex:none;background:var(--surface2)}
+.card .sys{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.pager{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:22px 0 0}
+.pager button{background:var(--surface);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 10px;font-size:13px;min-width:36px}
+.pager button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)} .pager button:disabled{opacity:.4;cursor:default}
+.empty{border:1px dashed var(--border);border-radius:12px;padding:30px;text-align:center;color:var(--muted)}
+
+/* detail */
+.crumb{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.meta{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin:12px 0 4px}
+.meta b{color:var(--text);font-weight:500}
+.imgs{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 6px}
+.imgs a img{height:150px;max-width:260px;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--surface2)}
+.imgs .cap{display:block;font-size:11px;color:var(--faint);margin-top:4px;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.runbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:22px 0 6px}
+.runinfo{font-size:12.5px;color:var(--muted)}
+details.inl{display:inline-block;margin-left:8px} details.inl summary{display:inline;cursor:pointer;color:var(--link);font-size:12px} details.inl[open]{display:block;margin:6px 0 0;padding:8px 10px;background:var(--surface2);border-radius:8px}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--border);margin:10px 0 18px;overflow-x:auto}
+.tabs button{background:transparent;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:10px 14px;font-size:14px;font-weight:500;white-space:nowrap;display:flex;gap:8px;align-items:center}
+.tabs button.on{color:var(--text);border-bottom-color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px}
+.panel + .panel{margin-top:14px}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;font-size:13px;color:var(--muted)}
+.kv b{color:var(--text);font-weight:500}
+.qa{border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;background:var(--surface2)}
+.qa .q{font-weight:600;margin-bottom:6px}
+.qa .a{margin:6px 0;color:var(--text)}
+.qa .lab{font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+.qa .src{font-size:12.5px;margin-top:6px;word-break:break-all}
+.qa .miss{color:var(--v-refuted);font-size:12.5px}
+.qa .evimg{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.qa .evimg a{display:block;max-width:180px;font-size:11px;word-break:break-all}
+.qa .evimg img{max-height:110px;max-width:180px;border-radius:6px;border:1px solid var(--border);display:block;margin-bottom:3px}
+.just{font-size:14px;line-height:1.7;color:var(--text)}
+.just p{margin:0 0 8px} .just ol,.just ul{margin:0 0 8px 1.4em} .just li{margin:2px 0} .just strong{font-weight:600} .just code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--surface2);padding:0 4px;border-radius:3px}
+details.src{margin-top:8px}
+details.src summary{cursor:pointer;color:var(--muted);font-size:13px}
+details.src table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+details.src td{padding:5px 6px;border-bottom:1px solid var(--border);vertical-align:top;word-break:break-all}
+.notice{border-left:3px solid var(--accent);background:rgba(242,140,40,.07);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--muted);margin:10px 0}
+.notice.err{border-left-color:var(--v-refuted);background:rgba(229,72,77,.07)}
+.ref{border:1px dashed var(--ref-gold);border-radius:12px;padding:18px 22px;margin-top:16px;background:rgba(212,176,74,.04)}
+.ref.silver{border-color:var(--ref-silver);background:rgba(143,163,184,.05)}
+.ref h2{font-size:15px}
+.reftoggle{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 0}
+.reftoggle button{border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:8px;padding:7px 12px;font-size:13px}
+.reftoggle button.on{border-color:var(--ref-gold);color:var(--ref-gold)}
+.reftoggle button.on.s{border-color:var(--ref-silver);color:var(--ref-silver)}
+.cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tbl{overflow-x:auto;margin-top:12px} .tbl table{width:100%;border-collapse:collapse;font-size:13px} .tbl th{text-align:left;color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;padding:6px 8px;border-bottom:1px solid var(--border)} .tbl td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
+.cmp select{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 10px;font:inherit;font-size:14px;width:100%}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 14px;font-weight:600;font-size:13.5px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padding:20px 0}
+@media (max-width:900px){.filters{grid-template-columns:1fr 1fr}.cmp{grid-template-columns:1fr}}
+@media (max-width:760px){.top .wrap{height:auto;padding:10px 16px;flex-wrap:wrap;gap:10px 16px}.nav{margin-left:0;width:100%;gap:14px}.section-name{padding-left:0;border-left:0}}
+@media (max-width:640px){.wrap{padding:0 16px}.filters{grid-template-columns:1fr}h1{font-size:23px}.imgs a img{height:110px;max-width:100%}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../">MCFC Bench</a><a class="section-name" href="#/">Baseline Reproduce</a>
+  <nav class="nav" id="nav">
+    <a href="../">Home</a>
+    <a href="#/" data-r="claims">Claims</a>
+    <a href="#/compare" data-r="compare">Compare</a>
+    <a href="#/results" data-r="results">Results</a>
+    <a href="progress.html">Progress</a>
+  </nav>
+  <button class="theme" id="theme" title="切换明暗主题">🌙</button>
+</div></header>
+<div class="fresh"><div class="wrap" id="fresh">加载导出数据…</div></div>
+<main><div class="wrap" id="view"></div></main>
+<footer><div class="wrap">本站只读取脱敏导出文件，不连接实验服务器；页面刷新不会拉取新数据。系统输出中的回答、证据陈述与判决说明均为模型生成。</div></footer>
+
+<script>
+(function(){
+  const $=(s,el=document)=>el.querySelector(s);
+  const esc=(s)=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const DS={averitec:'AVeriTeC dev · 文本',averimatec:'AVerImaTeC val · 图文'};
+  const STATUS_ZH={ok:'ok（跑通）',no_evidence:'无证据',system_failed:'系统失败',retrieval_failed:'检索失败',generation_failed:'生成失败',crashed:'崩溃（搜索失败）',skipped:'跳过',pending:'待运行',pending_not_started:'本轮未开始',pending_stopped:'本轮未跑到',pending_no_run:'尚无本轮运行'};
+  const ROLE_ZH={formal:'正式运行',smoke:'小样（前 5 条试运行）'};
+  const ROLE_TIP={formal:'正式运行：文本系统各跑 AVeriTeC dev 0–99，图文系统各跑 AVerImaTeC val 0–79；这批固定输出用于评估与排名。',smoke:'小样：每系统只跑前 5 条，用真实检索与模型调用证明系统能跑通；结果不进入评估。'};
+  const vclass=(v)=>!v?'v-none':v.startsWith('Refuted')?'v-Refuted':v.startsWith('Supported')?'v-Supported':v.startsWith('Not Enough')?'v-NEE':'v-Conflicting';
+  function fmt(iso){ if(!iso) return '未核实'; const d=new Date(iso); const p=n=>String(n).padStart(2,'0');
+    return `${d.getUTCFullYear()}-${p(d.getUTCMonth()+1)}-${p(d.getUTCDate())} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; }
+  function md(text){
+    // escape first, then render only bold / italic / lists / paragraphs; content itself is untouched
+    const lines=esc(text).replace(/\r/g,'').split('\n'); let out='', list=null;
+    const inline=(t)=>t.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g,'$1<em>$2</em>').replace(/`([^`]+)`/g,'<code>$1</code>');
+    const close=()=>{ if(list){ out+=`</${list}>`; list=null; } };
+    for(const raw of lines){ const l=raw.trim();
+      let m;
+      if((m=l.match(/^(\d+)[.)]\s+(.*)$/))){ if(list!=='ol'){close();out+='<ol>';list='ol';} out+=`<li value="${m[1]}">${inline(m[2])}</li>`; }
+      else if((m=l.match(/^[-*•]\s+(.*)$/))){ if(list!=='ul'){close();out+='<ul>';list='ul';} out+=`<li>${inline(m[1])}</li>`; }
+      else if(l===''){ close(); }
+      else if(list){ out+=`<li style="list-style:none;margin-left:-1.2em">${inline(l)}</li>`; }
+      else { out+=`<p>${inline(l)}</p>`; } }
+    close(); return out;
+  }
+  const bucket=(st)=>(st==null||String(st).startsWith('pending'))?'pending':(st==='ok'||st==='no_evidence')?st:'system_failed';
+  // why a claim has no record for a system in a run: run-level state decides the wording
+  function pendingKind(run, sid){ if(!run) return 'pending_no_run'; const sb=run.systems[sid]; if(!sb) return run.terminal?'pending_not_started':'pending'; if(sb.state==='not_started') return 'pending_not_started'; if(sb.state==='stopped') return 'pending_stopped'; return 'pending'; }
+
+  // theme: same key and default rule as the MCFC Bench home page
+  function setTheme(t){ document.documentElement.setAttribute('data-theme',t); $('#theme').textContent=t==='dark'?'☀️':'🌙'; try{localStorage.setItem('mcfc_theme',t);}catch(e){} }
+  let t0='light'; try{ t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); }catch(e){}
+  setTheme(t0); $('#theme').onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
+  let IDX=null; const DET={}; let STATUS=null;
+  const state={q:'',dataset:'all',sys:'all',status:'all',role:'formal',img:'all',page:1};
+  const PAGE=24;
+  function readState(params){ for(const k of ['q','dataset','sys','status','role','img']) if(params.has(k)) state[k]=params.get(k); state.page=Math.max(1,parseInt(params.get('page')||'1',10)||1); }
+  function writeState(){ const p=new URLSearchParams(); for(const k of ['q','dataset','sys','status','role','img']) if(state[k]&&state[k]!=='all'&&!(k==='role'&&state[k]==='formal')) p.set(k,state[k]); if(state.page>1) p.set('page',state.page); const qs=p.toString(); history.replaceState(null,'','#/'+(qs?'?'+qs:'')); }
+
+  async function loadIndex(){
+    const r=await fetch('data/claims/index.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error('HTTP '+r.status); IDX=await r.json();
+    const age=(Date.now()-new Date(IDX.exported_at))/36e5;
+    $('#fresh').innerHTML=`<span title="实验输出文件在本地镜像中的最后变化时间；导出于 ${fmt(IDX.exported_at)}。服务器上的运行可能已更靠前。">数据更新于 <b>${fmt(IDX.data_observed_at)}</b></span>${age>24?`<span class="warn">⚠ 导出已超过 24 小时，可能落后</span>`:''}`;
+  }
+  async function loadDetail(key){
+    if(DET[key]) return DET[key];
+    const fn='data/claims/'+key.replace(/\//g,'__')+'.json';
+    const r=await fetch(fn,{cache:'no-store'}); if(!r.ok) throw new Error('无详情文件 '+fn); DET[key]=await r.json(); return DET[key];
+  }
+  async function loadStatus(){ if(STATUS) return STATUS; try{ const r=await fetch('data/status.json',{cache:'no-store'}); STATUS=await r.json(); }catch(e){ STATUS=null; } return STATUS; }
+
+  const runsFor=(ds,role)=>IDX.runs.filter(r=>r.dataset===ds&&(role?r.role===role:true)&&r.exists);
+  const sysName=(sid)=>(IDX.systems[sid]||{}).name_en||sid;
+  const allSystems=()=>Object.keys(IDX.systems);
+
+  // ---------------- Explore ----------------
+  function explore(params){
+    setNav('claims'); if(params) readState(params);
+    const sysOpts=allSystems().map(s=>`<option value="${s}">${esc(sysName(s))}</option>`).join('');
+    $('#view').innerHTML=`
+      <h1>浏览 Claims <span class="pill">${IDX.n_claims} 条冻结样本 · ${IDX.n_with_detail} 条已有系统输出</span></h1>
+      <div class="howto"><span><b>1</b> 在下面找到一条 claim，点开</span><span><b>2</b> 在详情页切换系统，看它查到的证据与判决</span><span><b>3</b> 点“并排比较”，把两个系统放在一起看</span><span><b>4</b> 右上角“复现进度”看整体进展</span></div>
+      <p class="muted small" style="margin-top:10px;max-width:820px">claim 来自数据集，系统只产出证据问答、来源、判决与说明。列表包含全部计划样本，未运行的也列出；卡片上的芯片是各系统在当前类别（正式 / 小样）下的执行状态。</p>
+      <div class="filters">
+        <div><label>关键词</label><input id="f-q" placeholder="搜索 claim 原文…" value="${esc(state.q)}"></div>
+        <div><label>数据集</label><select id="f-ds"><option value="all">全部</option><option value="averitec">AVeriTeC dev（文本）</option><option value="averimatec">AVerImaTeC val（图文）</option></select></div>
+        <div><label>系统</label><select id="f-sys"><option value="all">任一系统</option>${sysOpts}</select></div>
+        <div><label>执行状态</label><select id="f-st"><option value="all">全部</option><option value="ok">ok（跑通）</option><option value="no_evidence">无证据</option><option value="system_failed">系统失败</option><option value="pending">待运行</option></select></div>
+        <div><label>图片</label><select id="f-img"><option value="all">全部</option><option value="yes">有图片</option><option value="no">无图片</option></select></div>
+      </div>
+      <div class="toolbar">
+        <span class="seg"><button data-role="formal" class="${state.role==='formal'?'on':''}" title="${esc(ROLE_TIP.formal)}">${ROLE_ZH.formal}</button><button data-role="smoke" class="${state.role==='smoke'?'on':''}" title="${esc(ROLE_TIP.smoke)}">${ROLE_ZH.smoke}</button></span>
+        <span id="role-note"></span><span id="count" style="margin-left:auto"></span>
+      </div>
+      <div class="grid" id="grid"></div><div class="pager" id="pager"></div>`;
+    $('#f-ds').value=state.dataset; $('#f-sys').value=state.sys; $('#f-st').value=state.status; $('#f-img').value=state.img;
+    $('#f-q').oninput=e=>{state.q=e.target.value;state.page=1;drawGrid();};
+    for(const [id,k] of [['#f-ds','dataset'],['#f-sys','sys'],['#f-st','status'],['#f-img','img']]) $(id).onchange=e=>{state[k]=e.target.value;state.page=1;drawGrid();};
+    document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{state.role=b.dataset.role;state.page=1;document.querySelectorAll('.seg button').forEach(x=>x.classList.toggle('on',x===b));drawGrid();});
+    drawGrid();
+  }
+  function sysStatusFor(c,role){
+    // per system: status in the runs of this role for the claim's dataset; null = pending
+    const out={}; const runs=runsFor(c.dataset,role);
+    const sids=allSystems().filter(s=>{const m=IDX.systems[s].modality; return m==='unknown'||(c.dataset==='averitec'?m==='text':m==='multimodal');});
+    for(const s of sids){ let st=null, rid=null; for(const r of runs){ const v=c.outputs[r.run_id]?.[s]; if(v!=null){st=v;rid=r.run_id;} else if(rid==null){rid=r.run_id;} }
+      if(st==null) st=pendingKind(runs.find(r=>r.run_id===rid)||runs[0]||null, s);
+      out[s]={status:st,run:rid}; }
+    return out;
+  }
+  function drawGrid(){
+    const q=state.q.trim().toLowerCase();
+    const rows=IDX.claims.filter(c=>{
+      if(state.dataset!=='all'&&c.dataset!==state.dataset) return false;
+      if(state.img==='yes'&&!c.has_images) return false; if(state.img==='no'&&c.has_images) return false;
+      if(q&&!c.claim.toLowerCase().includes(q)&&!c.key.includes(q)) return false;
+      const ss=sysStatusFor(c,state.role);
+      if(state.sys!=='all'){ if(!(state.sys in ss)) return false; if(state.status!=='all'&&bucket(ss[state.sys].status)!==state.status) return false; }
+      else if(state.status!=='all'){ if(!Object.values(ss).some(v=>bucket(v.status)===state.status)) return false; }
+      return true; });
+    const runs=IDX.runs.filter(r=>r.role===state.role);
+    $('#role-note').innerHTML=runs.length?runs.map(r=>`${esc(r.label)}${r.terminal?` <span class="chip system_failed"><i></i>已停止</span>`:''}`).join(' · '):'该类别下没有已配置的运行';
+    const pages=Math.max(1,Math.ceil(rows.length/PAGE)); if(state.page>pages) state.page=pages; writeState();
+    const slice=rows.slice((state.page-1)*PAGE,state.page*PAGE);
+    $('#count').textContent=`匹配 ${rows.length} / ${IDX.n_claims} · 第 ${state.page} / ${pages} 页`;
+    $('#pager').innerHTML=pages>1?`<button ${state.page<=1?'disabled':''} data-p="${state.page-1}">‹ 上一页</button>${Array.from({length:pages},(_,i)=>`<button data-p="${i+1}" class="${i+1===state.page?'on':''}">${i+1}</button>`).join('')}<button ${state.page>=pages?'disabled':''} data-p="${state.page+1}">下一页 ›</button>`:'';
+    $('#pager').querySelectorAll('button').forEach(b=>b.onclick=()=>{state.page=parseInt(b.dataset.p,10);drawGrid();window.scrollTo(0,0);});
+    $('#grid').innerHTML=slice.length?slice.map(c=>{
+      const ss=sysStatusFor(c,state.role);
+      const chips=Object.entries(ss).map(([s,v])=>{const b=bucket(v.status);return `<span class="chip ${b}" title="${esc(sysName(s))}: ${esc(STATUS_ZH[v.status]||v.status)}"><i></i>${esc(sysName(s))} · ${esc(STATUS_ZH[v.status]||v.status)}</span>`;}).join('');
+      const img=c.has_images?`<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="${esc(c.images[0].public_url)}" alt="claim image">`:'';
+      return `<a class="card" href="#/claim/${c.key}">
+        <div class="head"><span>${esc(DS[c.dataset])}</span><span class="mono">#${c.original_index} · ${esc(c.claim_date||'日期缺失')}</span></div>
+        <div class="body"><div class="claim">${esc(c.claim)}</div>${img}</div>
+        <div class="sys">${chips||'<span class="chip"><i></i>本类别下无已配置系统</span>'}</div></a>`;
+    }).join(''):`<div class="empty" style="grid-column:1/-1">没有匹配的样本</div>`;
+  }
+
+  // ---------------- Detail ----------------
+  function header(d){
+    const imgs=d.images.length?`<div class="imgs">${d.images.map(i=>`<a href="${esc(i.public_url)}" target="_blank" rel="noopener"><img referrerpolicy="no-referrer" src="${esc(i.public_url)}" alt="claim image"><span class="cap">${esc(i.file)}</span></a>`).join('')}</div><div class="small faint">claim 输入图片，来自已公开的固定版本镜像。</div>`:'';
+    return `<div class="crumb">Claim ${esc(d.key)}</div><h1>${esc(d.claim)}</h1>
+      <div class="meta"><span>数据集 <b>${esc(DS[d.dataset])}</b></span><span>claim 日期 <b>${esc(d.claim_date||'缺失')}</b></span>${d.speaker?`<span>说话者 <b>${esc(d.speaker)}</b></span>`:''}${d.reporting_source?`<span>来源平台 <b>${esc(d.reporting_source)}</b></span>`:''}<span>原始下标 <b class="mono">${d.original_index}</b></span></div>${imgs}`;
+  }
+  function pickRun(ds, role, runParam){
+    // Strictly the requested role: a missing formal run must show "待运行", never fall back to smoke output.
+    const runs=runsFor(ds,role); if(runParam){ const r=runs.find(x=>x.run_id===runParam); if(r) return r; }
+    return runs[0]||null;
+  }
+  function runSwitch(d, run, role, onChange){
+    const roles=['formal','smoke'];
+    const html=`<div class="runbar"><span class="seg">${roles.map(r=>`<button data-role="${r}" class="${role===r?'on':''}" title="${esc(ROLE_TIP[r])}">${ROLE_ZH[r]}</button>`).join('')}</span>
+      <span class="runinfo">${run?`${esc(run.label)}${run.terminal?` <span class="chip system_failed" title="${esc(run.terminal.cause_zh)}"><i></i>已停止 · ${esc(run.terminal.cause_zh.split('；')[0])}</span>`:''}<details class="inl"><summary>详情</summary>运行目录 <span class="mono">${esc(run.run_id)}</span> · 本地镜像更新于 ${fmt(run.observed_at)}${run.note?`<br>${esc(run.note)}`:''}${run.terminal?`<br>停止记录 ${fmt(run.terminal.checked_utc)}：${esc(run.terminal.cause_zh)}`:''}</details>`:`${ROLE_ZH[role]}：该数据集尚无本轮运行，所有系统显示“尚无本轮输出”`}</span></div>`;
+    return {html, bind:(root)=>root.querySelectorAll('.runbar .seg button').forEach(b=>b.onclick=()=>onChange(b.dataset.role))};
+  }
+  function systemsForDataset(ds){ return allSystems().filter(s=>{const m=IDX.systems[s].modality; return ds==='averitec'?m==='text':m==='multimodal';}); }
+
+  function outputPanel(d, run, sid){
+    const rec=run&&d.outputs[run.run_id]?.[sid];
+    const sysBlk=run&&run.systems[sid];
+    if(!rec){
+      const kind=pendingKind(run,sid); let why='';
+      if(kind==='pending_no_run') why='该数据集在此类别下尚无运行，所有系统尚无本轮输出。';
+      else if(kind==='pending_not_started') why=`${sysName(sid)} 在本轮一条也没跑：运行在轮到它之前已停止。`;
+      else if(kind==='pending_stopped') why=`${sysName(sid)} 在本轮跑到第 ${sysBlk.n_records} 条时停止，本条（原始下标 ${d.original_index}）未运行。`;
+      else if(sysBlk&&(sysBlk.running||sysBlk.incomplete)) why=`${sysName(sid)} 已落盘 ${sysBlk.n_records} / ${sysBlk.planned_n??'?'} 条，本条尚未处理（本地镜像可能滞后）。`;
+      else why=`${sysName(sid)} 在该运行中没有本条记录。`;
+      return `<div class="panel"><div class="row"><span class="badge v-none">尚无本轮输出</span><span class="chip pending"><i></i>${esc(STATUS_ZH[kind])}</span></div><div class="muted" style="margin-top:10px">${esc(why)}</div>${run&&run.terminal?`<div class="small faint" style="margin-top:6px">运行停止原因：${esc(run.terminal.cause_zh)}</div>`:''}</div>`;
+    }
+    const st=rec.status;
+    if(bucket(st)==='system_failed'){
+      return `<div class="panel"><div class="row"><span class="badge v-none">无判决</span><span class="chip system_failed"><i></i>${esc(STATUS_ZH[st]||st)}</span></div>
+        <div class="notice err" style="margin-top:12px"><b>失败原因：</b>${esc(rec.error?.reason||'未记录')}${rec.error?.raw_head?`<div class="mono small" style="margin-top:4px;opacity:.8">${esc(rec.error.raw_head)}</div>`:''}</div>
+        <div class="muted small">本条没有问答、来源或判决；它保留在计划分母里，续跑前不会用其他运行的输出补数。</div></div>`;
+    }
+    const statusLine=`<span class="chip ${bucket(st)}"><i></i>${esc(STATUS_ZH[st]||st)}</span>${rec.verdict_fallback?'<span class="chip system_failed"><i></i>判决为解析失败后的回退标签</span>':''}`;
+    const err=rec.error?`<div class="notice err">错误：${esc(rec.error)}</div>`:'';
+    const noev=st==='no_evidence'?`<div class="notice">该系统跑完但没有产出任何证据问答；判决仍由系统给出，评估时证据分按全样本零分、判决计入标签 accuracy。</div>`:'';
+    const just=rec.justification?`<div class="just">${md(rec.justification)}</div>`:`<div class="muted">无判决说明${sid.startsWith('aic_ctu_averitec')?'（AIC CTU 文本版不输出 justification）':'（该记录未产出）'}</div>`;
+    const qas=rec.qa_pairs.length?rec.qa_pairs.map((q,i)=>`<div class="qa">
+        <div class="q"><span class="lab">Q${i+1}</span>${esc(q.question)}<span class="tag gen">模型生成问题</span></div>
+        <div class="a"><span class="lab">A</span>${esc(q.answer||'（空）')}<span class="tag gen">模型生成回答</span></div>
+        ${q.evidence_text?`<div class="a"><span class="lab">证据陈述</span>${esc(q.evidence_text)}<span class="tag gen">模型生成陈述</span></div>`:''}
+        <div class="src">${q.url?`来源 <a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.url)}</a>`:`<span class="miss">未提供逐条来源${sid==='villain'?'（VILLAIN 不输出逐 QA 来源；下方系统级清单不作为替代）':''}</span>`}</div>
+        ${q.images&&q.images.length?`<div class="evimg">${q.images.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" src="${esc(u)}" alt="" onerror="this.style.display='none'">${esc(u)}</a>`).join('')}<span class="small faint" style="width:100%">系统检索到的图片，按原 URL 引用，未托管。</span></div>`:''}
+      </div>`).join(''):`<div class="muted">没有问答对。</div>`;
+    const srcs=rec.sources.length?`<details class="src"><summary>系统级来源记录：检索并通过日期过滤的 ${rec.sources.length} 条页面。这是检索 / 使用记录，不表示每一页都支持最终判决，也不与 QA 逐条对应。</summary><table>${rec.sources.map(s=>`<tr><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></td><td class="mono">${esc(s.date||'—')}</td><td class="mono">${esc(s.date_class||'')}</td><td class="mono">${esc(s.endpoint||'')}</td></tr>`).join('')}</table></details>`:`<div class="muted small">来源清单为空。</div>`;
+    const stats=rec.stats?`<div class="kv" style="margin-top:8px">${Object.entries(rec.stats).map(([k,v])=>`<span class="mono">${esc(k)}</span><b>${esc(typeof v==='object'?JSON.stringify(v):v)}</b>`).join('')}</div>`:'';
+    return `<div class="panel">
+        <div class="row"><span class="badge ${vclass(rec.verdict)}">${esc(rec.verdict||'无判决')}</span>${statusLine}</div>
+        ${err}${noev}
+        <h3>判决说明 <span class="tag gen">模型生成</span></h3>${just}
+        <h3>证据问答（${rec.qa_pairs.length} 对）</h3>${qas}
+        <div class="small faint" style="margin:4px 0 0">以上回答与陈述均为模型生成；系统读到的网页原文不在导出范围内。</div>
+        <h3>来源与统计</h3>${srcs}${stats}
+      </div>`;
+  }
+  function refPanels(d, show){
+    if(!show.gold&&!show.silver) return '';
+    let h='';
+    if(show.gold){ const g=d.reference.gold;
+      h+=`<div class="ref"><h2>Gold 参照 <span class="tag human">人工标注 · 数据集自带</span></h2>
+        <div class="row" style="margin:8px 0"><span class="badge ${vclass(g.label)}">${esc(g.label)}</span><span class="small muted">gold 标签与 gold 问答只是参照，不是系统输出；默认折叠以免影响阅读系统结果。</span></div>
+        ${g.justification?`<h3>Gold 判决说明</h3><div class="just">${md(g.justification)}</div>`:''}
+        <h3>Gold 问答（${g.questions.length}）</h3>${g.questions.map((q,i)=>`<div class="qa"><div class="q"><span class="lab">Q${i+1}</span>${esc(q.question)}${q.answer_method?`<span class="tag human">${esc(q.answer_method)}</span>`:''}</div>
+          ${q.answers.map(a=>`<div class="a"><span class="lab">A</span>${esc(a.answer)}<span class="tag ${a.answer_type==='Extractive'?'quote':'human'}">${esc(a.answer_type||'')}</span></div><div class="src">${a.source_url?`来源 <a href="${esc(a.source_url)}" target="_blank" rel="noopener">${esc(a.source_url)}</a>`:'<span class="miss">来源 URL 缺失</span>'}</div>`).join('')}
+          ${q.input_images&&q.input_images.length?`<div class="small faint">问题输入图片（未公开，仅文件名）：${q.input_images.map(esc).join('，')}</div>`:''}</div>`).join('')}
+        ${g.fact_checking_article?`<div class="small muted">事实核查文章：<a href="${esc(g.fact_checking_article)}" target="_blank" rel="noopener">${esc(g.fact_checking_article)}</a></div>`:''}</div>`; }
+    if(show.silver){ const s=d.reference.silver;
+      h+=`<div class="ref silver"><h2>Silver 参照 <span class="tag auto">自动生成 · 本项目 pipeline</span></h2><div class="small muted" style="margin:6px 0 10px">${esc(s.note)}${s.model?` 模型 ${esc(s.model)}。`:''}</div>`;
+      if(!s.available) h+=`<div class="notice">此 ID 没有 silver 参照。</div>`;
+      else h+=`<h3>Silver 证据陈述（${s.statements.length}）</h3>${s.statements.map((x,i)=>`<div class="qa"><div class="a"><span class="lab">S${i+1}</span>${esc(x.statement)}<span class="tag auto">自动抽取</span></div>${x.support_span?`<div class="a small muted"><span class="lab">支撑片段</span>${esc(x.support_span)}<span class="tag quote">来自核查文章</span></div>`:''}</div>`).join('')}${s.justification?`<h3>Silver 判决说明</h3><div class="just">${md(s.justification)}</div>`:''}${s.article_url?`<div class="small muted">抽取自：<a href="${esc(s.article_url)}" target="_blank" rel="noopener">${esc(s.article_url)}</a></div>`:''}`;
+      h+=`</div>`; }
+    return h;
+  }
+  function refToggle(show){ return `<div class="reftoggle"><span class="small muted" style="align-self:center">参考层（独立于系统输出）：</span><button data-ref="gold" class="${show.gold?'on':''}">Gold · 人工参照</button><button data-ref="silver" class="s ${show.silver?'on':''}">Silver · 自动参照</button></div>`; }
+
+  async function detail(key, params){
+    setNav('claims');
+    const c=IDX.claims.find(x=>x.key===key);
+    if(!c){ $('#view').innerHTML=`<div class="empty">未知 claim ${esc(key)}</div>`; return; }
+    let role=params.get('role')||'formal'; let sid=params.get('sys'); const show={gold:params.get('gold')==='1',silver:params.get('silver')==='1'};
+    let d;
+    if(c.has_detail){ d=await loadDetail(key); } else { d={...c, outputs:{}, reference:null}; }
+    function draw(){
+      const run=pickRun(c.dataset, role, null);
+      if(run) role=run.role;
+      const sids=systemsForDataset(c.dataset); if(!sid||!sids.includes(sid)) sid=sids[0];
+      const rs=runSwitch(d, run, role, r=>{role=r;draw();});
+      const tabs=`<div class="small muted" style="margin-top:14px">选择一个系统，查看它对这条 claim 的输出：</div><div class="tabs">${sids.map(s=>{let st=run?(d.outputs[run.run_id]?.[s]?.status??null):null; if(st==null) st=pendingKind(run,s); return `<button data-sys="${s}" class="${s===sid?'on':''}">${esc(sysName(s))}<span class="chip ${bucket(st)}"><i></i>${esc(STATUS_ZH[st]||st)}</span></button>`;}).join('')}</div>`;
+      history.replaceState(null,'',`#/claim/${key}?role=${role}&sys=${sid}${show.gold?'&gold=1':''}${show.silver?'&silver=1':''}`);
+      const cmp=`<div class="row" style="margin:14px 0 0"><a class="btn ghost" href="#/compare/${key}?role=${role}&a=${sid}">↔ 与另一系统并排比较</a><a class="btn ghost" href="#/">← 返回列表</a></div>`;
+      const refs=d.reference?refToggle(show)+refPanels(d,show):`<div class="notice" style="margin-top:20px">此样本尚无任何系统输出，未导出参考层。</div>`;
+      $('#view').innerHTML=header(d)+rs.html+tabs+outputPanel(d,run,sid)+refs+cmp;
+      rs.bind($('#view'));
+      $('#view').querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{sid=b.dataset.sys;draw();});
+      $('#view').querySelectorAll('.reftoggle button').forEach(b=>b.onclick=()=>{show[b.dataset.ref]=!show[b.dataset.ref];draw();});
+    }
+    draw();
+  }
+
+  // ---------------- Compare ----------------
+  async function compare(key, params){
+    setNav('compare');
+    if(!key){ const withDet=IDX.claims.filter(c=>c.has_detail);
+      $('#view').innerHTML=`<h1>并排比较</h1><p class="muted" style="margin:6px 0 16px">先选一条已有系统输出的 claim（下面只列这些），然后在两列里各选一个系统。也可以从任一 claim 详情页点“与另一系统并排比较”进入。</p><div class="grid">${withDet.map(c=>`<a class="card" href="#/compare/${c.key}"><div class="head"><span>${esc(DS[c.dataset])}</span><span class="mono">#${c.original_index}</span></div><div class="claim">${esc(c.claim)}</div></a>`).join('')}</div>`; return; }
+    const c=IDX.claims.find(x=>x.key===key); if(!c||!c.has_detail){ $('#view').innerHTML=`<div class="empty">该 claim 尚无任何系统输出可比较。</div>`; return; }
+    const d=await loadDetail(key); let role=params.get('role')||'formal'; const sids=systemsForDataset(c.dataset);
+    let a=params.get('a')||sids[0], b=params.get('b')||sids.find(s=>s!==a)||sids[0]; const show={gold:false,silver:false};
+    function col(sid,which){ return `<div><select data-which="${which}">${sids.map(s=>`<option value="${s}" ${s===sid?'selected':''}>${esc(sysName(s))}</option>`).join('')}</select><div style="height:10px"></div>${outputPanel(d,run,sid)}</div>`; }
+    let run;
+    function draw(){
+      run=pickRun(c.dataset,role,null); if(run) role=run.role;
+      const rs=runSwitch(d,run,role,r=>{role=r;draw();});
+      history.replaceState(null,'',`#/compare/${key}?role=${role}&a=${a}&b=${b}`);
+      $('#view').innerHTML=header(d)+rs.html+`<div class="small muted" style="margin:12px 0 8px">左右各选一个系统。比较的是同一条 claim 在同一轮运行里的固定输出；没有输出的系统显示“尚无本轮输出”，不会用小样或历史输出代替。</div><div class="cmp">${col(a,'a')}${col(b,'b')}</div>`+refToggle(show)+refPanels(d,show)+`<div class="row" style="margin-top:14px"><a class="btn ghost" href="#/claim/${key}?role=${role}">← 回到详情</a></div>`;
+      rs.bind($('#view'));
+      $('#view').querySelectorAll('.cmp select').forEach(s=>s.onchange=()=>{ if(s.dataset.which==='a') a=s.value; else b=s.value; draw(); });
+      $('#view').querySelectorAll('.reftoggle button').forEach(x=>x.onclick=()=>{show[x.dataset.ref]=!show[x.dataset.ref];draw();});
+    }
+    draw();
+  }
+
+  // ---------------- Results ----------------
+  async function results(){
+    setNav('results');
+    const st=await loadStatus(); const r=st&&st.results; const ds=st&&st.datasets;
+    const acc=(m)=>m&&m.value!=null?`<b>${m.value.toFixed(2)}</b> <span class="muted">(${m.numerator}/${m.denominator})</span>`:'<span class="muted">待评估</span>';
+    const gen=(row)=>{const c=row.generation_counts||{}; const z={completed:'已完成',completed_with_failures:'已完成（含失败）',stopped:'中途停止',not_started:'本轮未开始',running:'运行中'}[row.generation_state]||row.generation_state; return `${z}<div class="small muted">ok ${c.ok??'—'} · 失败 ${c.system_failed??'—'} · 未运行 ${c.not_run??'—'}</div>`;};
+    const block=(k,mod)=>{const x=ds?ds[k]:null; if(!x) return ''; const sil=x.silver_reference||{}; const blk=r[mod]||{};
+      let table='';
+      if(blk.per_system){ table=`<div class="tbl"><table><thead><tr><th>系统</th><th>正式生成</th><th>标签 accuracy</th><th>证据评分 gold</th><th>证据评分 silver</th></tr></thead><tbody>${blk.per_system.map(row=>`<tr><td>${esc(row.name_en)}</td><td>${gen(row)}</td><td>${acc(row.label_accuracy)}</td><td>${row.evidence_gold?esc(JSON.stringify(row.evidence_gold)):'<span class="muted">待评估</span>'}</td><td>${row.evidence_silver?esc(JSON.stringify(row.evidence_silver)):'<span class="muted">待评估</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+        const withPL=blk.per_system.filter(row=>row.label_accuracy&&row.label_accuracy.per_label);
+        if(withPL.length) table+=withPL.map(row=>`<h3>${esc(row.name_en)} · 各类别召回（gold 标签为准）</h3><div class="tbl"><table><thead><tr><th>gold 标签</th><th>gold 条数</th><th>召回（全样本口径）</th></tr></thead><tbody>${Object.entries(row.label_accuracy.per_label).map(([lab,v])=>`<tr><td><span class="badge ${vclass(lab)}">${esc(lab)}</span></td><td>${v.n_gold}</td><td>${(v.recall_full_sample*100).toFixed(1)}%</td></tr>`).join('')}</tbody></table></div><div class="small muted">全样本口径 ${row.label_accuracy.denominator} 条，有效预测 ${row.label_accuracy.n_valid} 条，解析回退 ${row.label_accuracy.n_verdict_fallback} 条。</div>`).join('');
+      } else table=`<div class="empty" style="margin-top:14px">本轮正式运行尚未开始，没有可评估的固定输出。</div>`;
+      return `<div class="panel"><h2>${esc(x.name)}</h2><div class="kv"><span>计划样本</span><b>${x.planned_n}</b><span>gold 参照</span><b>${x.gold_reference?.n??'未核实'}</b><span>silver 参照</span><b>${sil.n_available??'未核实'} / ${x.planned_n}${sil.missing_ids&&sil.missing_ids.length?`（缺 ${sil.missing_ids.join(', ')}）`:''}</b><span>多数类基线 accuracy</span><b>${x.majority_accuracy!=null?x.majority_accuracy.toFixed(2):'未核实'}</b></div>${table}<div class="small muted" style="margin-top:10px">排名对照：待 gold 与 silver 证据评分完成后再展示；不用小样给系统排名。</div></div>`;};
+    $('#view').innerHTML=`<h1>评估结果</h1>
+      <div class="notice" style="margin:14px 0">${r?esc(r.note):'无法读取 data/status.json'}</div>
+      <div class="small muted" style="margin:0 0 14px">标签 accuracy = 系统判决与 gold 标签一致的条数 / 计划样本数。多数类基线是全猜 Refuted 的 accuracy，只作参照。</div>
+      <div class="cmp">${block('averitec_dev','text')}${block('averimatec_val','multimodal')}</div>
+      <p class="muted small" style="margin-top:14px">运行进度、时间线与费用口径见 <a href="progress.html">复现进度</a>。</p>`;
+  }
+
+  // ---------------- Router ----------------
+  function setNav(r){ document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===r)); }
+  async function route(){
+    const h=location.hash.replace(/^#\/?/,''); const [path,qs]=h.split('?'); const params=new URLSearchParams(qs||'');
+    const parts=path.split('/').filter(Boolean);
+    try{
+      if(!IDX) await loadIndex();
+      if(parts[0]==='claim'&&parts.length>=4) await detail(parts.slice(1,4).join('/'),params);
+      else if(parts[0]==='compare') await compare(parts.length>=4?parts.slice(1,4).join('/'):null,params);
+      else if(parts[0]==='results') await results();
+      else explore(params);
+      if(!parts.length||parts[0]==='claim'||parts[0]==='compare') window.scrollTo(0,0);
+    }catch(e){ $('#view').innerHTML=`<div class="empty">加载失败：${esc(e.message)}。本页需通过 HTTP 访问（例如 python3 -m http.server），并且 data/claims/index.json 必须存在。</div>`; console.error(e); }
+  }
+  window.addEventListener('hashchange',route); route();
+})();
+</script>
+</body>
+</html>

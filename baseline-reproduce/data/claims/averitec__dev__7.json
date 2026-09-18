@@ -1,0 +1,487 @@
+{
+ "key": "averitec/dev/7",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 7,
+ "claim": "Why should you pay more taxes than Donald Trump pays? And that’s a fact. $750. Remember what he said when that was raised a while ago, how he only pays … He said, ‘Because I’m smart. I know how to game the system.’",
+ "claim_date": "2020-10-30",
+ "speaker": "Joe Biden",
+ "reporting_source": null,
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided evidence against the specific assertions made in the claim.\n\n**Step-by-Step Justification:**\n\n1.  **Analyze the Claim:** The claim makes three primary assertions:\n    *   Donald Trump paid $750 in federal income taxes.\n    *   This is a \"fact.\"\n    *   He allegedly said, \"Because I’m smart. I know how to game the system\" when asked about his low tax payments.\n\n2.  **Evaluate Assertion 1 (The $750 amount):** \n    *   Evidence from **Q1, Q2, Q5, Q6, Q8, Q9, and Q10** consistently confirms that Donald Trump paid $750 in federal income taxes during the 2016 campaign year and the 2017 tax year. This part of the claim is directly supported by the evidence.\n\n3.  **Evaluate Assertion 2 (The \"Fact\" status):**\n    *   While Trump himself disputes the findings (claiming he has paid millions, as seen in **Q4** and **Q6**), the evidence provided from *The New York Times* investigation (cited in **Q1, Q6, and Q9**) supports the $750 figure. Therefore, within the context of the provided evidence, the figure is treated as a factual finding of the investigation.\n\n4.  **Evaluate Assertion 3 (The Quote):**\n    *   I have reviewed all provided question-answer pairs (**Q1 through Q10**). While the evidence explains *how* he achieved the low tax rate (business losses, loopholes, etc.) and how he *responded* to the reports (calling them \"fake news\" or asserting he paid millions), **none of the provided evidence contains the specific quote: \"Because I’m smart. I know how to game the system.\"**\n\n**Conclusion:**\nThe claim contains a specific quote attributed to Donald Trump that is not present in any of the provided evidence. While the financial figure ($750) is supported, the claim's inclusion of a specific verbal response cannot be verified or refuted using the provided text.\n\n**Verdict: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "How much did Donald Trump pay in federal income taxes during his campaign and first year in office, and how did he respond to the report?",
+      "answer": "According to a report from *The New York Times*, Donald Trump paid only $750 in federal income taxes during both his presidential campaign year and his first year in office. In response to the report, Trump dismissed the findings as \"fake news.\"",
+      "url": "https://www.facebook.com/wbalradio/posts/president-donald-trump-paid-just-750-in-federal-income-taxes-the-year-he-ran-for/10158823692529813/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Donald Trump pay in federal income taxes in 2016 and 2017, and how did he achieve this?",
+      "answer": "In 2016 and 2017, Donald Trump paid only $750 in individual federal income taxes. He achieved this by using significant business losses to offset his tax burden.",
+      "url": "https://www.cnbc.com/2020/09/28/how-much-the-average-american-pays-in-taxes-each-year.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Donald Trump manage to pay only $750 in US income taxes for 2016 and 2017?",
+      "answer": "Based on the evidence provided, Donald Trump's low tax payments—specifically paying only $750 in US income taxes for both 2016 and 2017—have been attributed to several factors:\n\n*   **Legal loopholes**\n*   **Business write-offs**\n*   **His decision to donate his presidential salary**\n\nWhile these factors explain the low payments, the report has sparked debate, with some critics suggesting potential tax evasion and others questioning the credibility of the reporting.",
+      "url": "https://www.facebook.com/WTNH8/posts/breaking-trump-paid-750-in-us-income-taxes-in-2016-2017-paid-no-federal-income-t/10157487493560736/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: How did Donald Trump respond to reports regarding his tax payments and financial statements?",
+      "answer": "In response to reports regarding his finances, Donald Trump defended himself on Twitter by asserting that he has paid millions of dollars in taxes and that he possesses a \"very impressive\" financial statement.",
+      "url": "https://www.facebook.com/abcnews.au/posts/us-president-donald-trump-responds-on-twitter-to-a-new-york-times-report-about-h/10161746320989988/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Donald Trump pay in federal income taxes during the 2016 presidential campaign year?",
+      "answer": "During the 2016 presidential campaign year, Donald Trump paid $750 in federal income taxes.",
+      "url": "https://www.facebook.com/ABC24Memphis/posts/question-of-the-day-overnight-the-new-york-times-revealed-president-trumps-tax-h/3458731690856248/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Donald Trump pay only $750 in federal income taxes in 2016 and 2017?",
+      "answer": "Yes, according to the evidence, Donald Trump paid only $750 in federal income taxes in both 2016 and 2017. This finding was part of an investigation by *The New York Times*, which discovered that he paid little to no federal income tax for 11 of the 18 years for which records were obtained. While Trump has disputed these findings by claiming he has paid millions in taxes, he has provided no evidence to support that assertion.",
+      "url": "https://www.politifact.com/factchecks/2020/oct/07/facebook-posts/no-evidence-claims-trump-paid-millions-taxes-recen/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Donald Trump manage to pay no income taxes in 10 of the previous 15 years despite his claims of \"gaming the system\"?",
+      "answer": "Based on the provided evidence, Donald Trump paid no income taxes in 10 of the previous 15 years by **reporting significant financial losses**. \n\nThe evidence notes that while this has caused public debate, some defend the legality of these actions by stating that reporting losses to offset taxes is a common practice among business owners.",
+      "url": "https://www.facebook.com/staradvertiser/posts/trump-had-paid-no-income-taxes-at-all-in-10-of-the-previous-15-years-largely-bec/3640729582604902/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Donald Trump pay in federal income taxes in 2016 and 2017, and what methods did he reportedly use to achieve that amount?",
+      "answer": "Based on the evidence provided, Donald Trump paid only $750 in federal income taxes in both 2016 and 2017. To achieve this amount, he reportedly utilized several methods, including:\n\n*   **Chronic business losses:** Using ongoing losses to offset revenue.\n*   **Aggressive tax avoidance strategies and loopholes:** Specifically, carrying forward losses to offset hundreds of millions of dollars in revenue.\n*   **Deductions:** Deducting consulting fees paid to his daughter.",
+      "url": "https://www.bbc.com/news/technology-54319948",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Donald Trump pay in federal income taxes in 2016 and 2017, and why was his tax liability so low?",
+      "answer": "In both 2016 and 2017, Donald Trump paid only $750 in federal income taxes. His tax liability was so low because of massive business losses and significant tax refunds; the investigation noted that he paid no income tax at all in 11 of the 18 years reviewed.",
+      "url": "https://www.pbs.org/newshour/politics/ny-times-trump-paid-750-in-us-income-taxes-in-2016-2017",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Donald Trump pay only $750 in federal income taxes in 2017?",
+      "answer": "Based on the provided evidence, the document states that Donald Trump's federal income tax payment for 2017 was $750.",
+      "url": "https://www.facebook.com/KamalaHarris/posts/trump-paid-750-in-federal-income-taxes-in-2017-and-he-has-claimed-70000-in-deduc/10159336461042923/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/IvankaTrump/posts/great-conversation-with-sean-hannity-today-talking-taxreform-and-how-it-will-sup/10155940851627682/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-2019-conservative-political-action-conference/",
+      "date": "2019-03-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.debates.org/voter-education/debate-transcripts/october-22-2020-debate-transcript/",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.presidency.ucsb.edu/documents/remarks-make-america-great-again-rally-wilkes-barre-pennsylvania",
+      "date": "2018-08-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/technology-54319948",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wbalradio/posts/president-donald-trump-paid-just-750-in-federal-income-taxes-the-year-he-ran-for/10158823692529813/",
+      "date": "2016-02-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KamalaHarris/posts/trump-paid-750-in-federal-income-taxes-in-2017-and-he-has-claimed-70000-in-deduc/10159336461042923/",
+      "date": "2020-10-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/ny-times-trump-paid-750-in-us-income-taxes-in-2016-2017",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://waysandmeans.house.gov/2020/10/02/faqs-on-claims-regarding-president-trumps-tax-returns/",
+      "date": "2020-10-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politifact.com/factchecks/2020/oct/07/facebook-posts/no-evidence-claims-trump-paid-millions-taxes-recen/",
+      "date": "2020-10-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politifact.com/factchecks/2020/sep/28/viral-image/trumps-reported-tax-payments-much-lower-biden-harr/",
+      "date": "2020-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/09/28/how-much-the-average-american-pays-in-taxes-each-year.html",
+      "date": "2020-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/abcnews.au/posts/us-president-donald-trump-responds-on-twitter-to-a-new-york-times-report-about-h/10161746320989988/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/colbertlateshow/posts/tonight-trump-continues-to-do-what-he-does-best-lose-money-and-refuse-to-hand-ov/1768360219975388/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/staradvertiser/posts/trump-had-paid-no-income-taxes-at-all-in-10-of-the-previous-15-years-largely-bec/3640729582604902/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mprnews.org/story/2020/09/29/live-coverage-trump-and-bidens-1st-presidential-debate",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABC24Memphis/posts/question-of-the-day-overnight-the-new-york-times-revealed-president-trumps-tax-h/3458731690856248/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WTNH8/posts/breaking-trump-paid-750-in-us-income-taxes-in-2016-2017-paid-no-federal-income-t/10157487493560736/",
+      "date": "2005-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 18,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. **Claim Analysis**: Joe Biden claimed (on Oct 30, 2020) that Donald Trump paid only $750 in federal income taxes and that Trump justified this by saying he was \"smart\" and knew how to \"game the system.\"\n2. **Evidence Assessment**:\n    * **Tax Amount**: Multiple reliable sources (The New York Times, CNBC, The Guardian, NPR, BBC) confirm that a major investigative report revealed Donald Trump paid $750 in federal income taxes in both 2016 and 2017.\n    * **The Quote/Justification**: Evidence from Newsweek (Q1, A10) confirms that during a debate, Trump stated he didn't \"want to pay tax\" and had gone \"through the laws\" like \"every other private person, unless they're stupid.\" Biden used this context to characterize Trump's stance as \"gaming the system\" because he was \"smart.\"\n    * **Context**: While Trump's legal team disputed the accuracy of the NYT report (claiming he paid millions), the claim specifically refers to the widely reported figure and the specific rhetoric used during the 2020 election cycle.\n3. **Contradictions/Gaps**: There is a contradiction between the NYT report (which Biden is citing) and Trump's own assertions (that he paid millions). However, the claim is a report of what Biden *said* regarding the findings of the NYT and Trump's own debate comments. The $750 figure is the central factual pillar of the investigative reporting being referenced.\n4. **Conclusion**: The evidence directly supports the factual basis of Biden's statement: the $750 figure was the subject of a major, verified investigative report for the years in question, and Trump did make comments during the debate regarding his use of tax laws that align with Biden's characterization of \"gaming the system.\"\n\nLabel: Supported",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What specific tax amount did Joe Biden reference regarding Donald Trump's tax payments in his October 2020 statement?",
+      "answer": "Trump says he paid millions in income taxes; Biden says ‘show us your tax returns’ President Trump during Tuesday night’s debate said that he paid “millions” in federal income taxes in 2016 and 2017 — disputing a New York Times report saying he paid just $750 in each of those years — while Democratic presidential nominee Joe Biden repeatedly pressed the president to release his tax returns. “I paid millions of dollars in taxes, millions of dollars of income tax,” Trump said. As the president continued to speak, Biden interrupted, saying “Show us your tax returns. That year, Trump paid $750. The following year, the Bidens paid $3.7 million in federal income taxes on earnings of just over $11 million. The same year, Trump paid $750. The Bidens' 2019 state and federal tax returns are posted here. Our recent paper, Understanding Joe Biden’s 2020 Tax plan, we show Biden's tax proposals would raise between $3.35 and $3.67 trillion over a ten-year period, which is a net figure including all of his proposed increases and targeted tax reductions. His tax plan contains $4.3 trillion of gross tax increases, which we estimated in our paper The Cost of the Trump and Biden Campaign Plans. Other estimates differ in some ways but reach similar conclusions. Biden's $2. Factchecking Tax Claims in the 2020 Election In recent days, President Trump and former Vice President Joe Biden have made several competing claims about the other's tax agenda. We summarize and explain three recent claims. - Trump: Joe Biden wants to raise taxes on all Americans. Largely False - Trump: Joe Biden would have the largest tax increase in history. Almost True. - Biden: $1. Biden fully released his 2019 tax returns following a September New York Times report showing President Donald Trump paid only $750 in federal income taxes in 2016 and 2017. Biden is the Democratic Party’s presidential nominee and is facing a bruising general election battle against Trump. By contrast, Biden paid nearly $300,000 in federal taxes that year, the returns show. Trump (@realDonaldTrump) October 17, 2020 Biden's proposed tax increases, if enacted all at once, would constitute the first or second largest tax increase since World War II, but not literally the largest in all of history. We rank this as almost true. The President may have been referring to Biden's $4 trillion tax increase (as some PAC-funded campaign ads suggest) as a record in nominal dollars. President Donald Trump dismissed the recent New York Times report that he has paid little to no federal income tax over much of the past two decades during his first presidential debate with Democratic nominee Joe Biden on Tuesday. \"I've paid millions of dollars, millions of dollars in income tax,\" Trump said after being asked about the report by moderator Chris Wallace, before Biden interjected \"show us your tax returns.\" \"I paid $38 million one year, I paid $27 million one year,\" Trump continued. In 2016 and 2017, Biden paid far more in taxes than Trump did, despite making nowhere near as much money. In 2016, the Bidens paid $87,000 in federal income taxes on income of $338,000. twitter.com/ZrfPdR06CC — The Hill (@thehill) September 30, 2020 Debate moderator Chris Wallace then asked Trump if he’ll tell the public how much he paid in federal income taxes in 2016 and 2017. Trump replied “millions of dollars” and said “you’ll get to see it.” Biden asked when that would be. Trump then said that he had paid \"millions of dollars\" in federal income taxes during 2016 and 2017 and \"you'll get to see it,\" while telling Wallace that he doesn't \"want to pay tax\" and had gone \"through the laws\" like \"every other private person, unless they're stupid.\" Biden blasted Trump for claiming to be \"smart\" by taking advantage of tax laws to avoid paying, before calling him the \"worst president America's ever had. WASHINGTON — Democratic presidential nominee Joe Biden and running mate Kamala Harris released their 2019 tax returns on Tuesday, just hours before Biden's first debate with President Donald Trump. The returns show that Biden and his wife, Jill, reported $944,737 in taxable income last year and paid $299,346, or a 31% tax rate, in federal income taxes. The Bidens also reported making $14,700 in charitable contributions. The Bidens' income last year represents a significant decrease from the previous two years. Understanding Joe Biden's 2020 Tax Plan Former Vice President Joe Biden – the presumptive Democratic nominee for President in the 2020 election – has put forward a variety of tax proposals. Biden would raise the corporate tax rate from 21 to 28 percent, set minimum corporate taxes for domestic and foreign income, restore the top individual tax rate from 37 to 39.6 percent, tax capital gains as ordinary income and at death for very high earners, limit various tax breaks for higher earners, subject wages above $400,000 to the Social Security payroll tax, and pass various other cuts and increases. 3 trillion out of the $2 trillion tax cut went to the top 0.1%. During a presidential candidate town hall held in lieu of the cancelled second debate, former Vice President Joe Biden made the following claim regarding the Tax Cuts and Jobs Act (TCJA), sometimes referred to as the Trump tax cuts: \"About $1.3 trillion of the $2 trillion in his tax cuts went to the top one-tenth of 1 percent.\" Although a significant portion of the tax cuts in the TCJA went to the wealthiest Americans, it was not as much as $1. ” “You’ll see it as soon as it’s finished,” Trump replied. Joe Biden to President Trump: “Show us your tax returns.” #Debates2020 https://t.co/GqrA4foTfR pic. \" Trump responded that he would like to release his returns \"as soon as we can\" but reiterated his excuse that he's under audit, a claim he's made since he first ran for president in 2016. The president is not actually barred from releasing the documents while they're under audit. Trump also responded to the news that he paid just $750 in taxes in 2017, claiming that he was told he \"prepaid tens of millions of dollars,\" and that the $750 he paid was a \"filing fee.\" But Biden again called on Trump to release proof. A fairer approach might be to incorporate targeted tax breaks in the net cost of Biden's tax plan. Our paper Understanding Joe Biden’s 2020 Tax plan compiled several estimates of Biden's tax plan and found that it would result in a tax increase equivalent to between 1.3 and 1.4 percent of GDP, though this would include outlays from refundable tax credits as revenue instead of appropriately as spending. That would make Biden's plan the second-largest tax increase in post-war history and fourth-largest tax increase since 1940. Responding to unfounded allegations from Trump during Thursday night's debate that he's received funds from Russian sources, Biden noted that he's released 22 years of taxes, which he says show \"I have not taken a penny from any foreign source ever in my life.\" Pointing his finger at Trump, Biden asked: \"What are you hiding?\" He told Trump to \"release your tax returns or stop talking about corruption. 3 trillion out of the $2 trillion tax cut went to the top 0.1%. False. Claim #1: Joe Biden wants to raise taxes on all Americans. During a presidential candidate town hall held in lieu of the second debate, President Trump said \"...Biden comes in and raises taxes on everybody, including middle income taxes, which he wants to do.",
+      "url": "https://thehill.com/policy/finance/518869-trump-says-he-paid-millions-in-income-taxes-biden-says-show-us-your-tax/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did investigative reporting support the claim that Donald Trump paid $750 in federal income taxes for certain years?",
+      "answer": "Trump Dismisses 'New York Times' Report That He Paid Little In Federal Income Taxes Updated at 8:40 p.m. ET A New York Times investigation published on Sunday said that President Trump paid just $750 in federal income taxes each year in 2016 and 2017, which the president denied at a news conference using a familiar retort: \"fake news.\" The Times cites Trump's long-sought-after tax returns, further reporting that he paid no income taxes at all in 10 of the previous 15 years as Trump reported massive losses to his businesses. Donald Trump, a self-proclaimed billionaire, paid only $750 in federal income taxes in the year he was elected US president, according to a stunning New York Times investigation that could shake up the presidential election. “Trump taxes show chronic losses and years of tax avoidance,” was the banner headline on the paper’s website on Sunday. The president’s tax returns have long been the holy grail of American political reporting. The president “paid $750 in federal income taxes the year he won the presidency”, the paper reported, adding that “in his first year in the White House, he paid another $750. Trump’s tax revelation could tarnish image that fueled rise Trump has worked for decades to project himself as a hugely successful businessman. But The NY Times has revealed that he paid just $750 in federal income taxes in 2016. The bombshell revelations that President Donald Trump paid just $750 in federal income taxes the year he ran for office and paid no income taxes at all in many others threaten to undercut a pillar of his appeal among blue-collar voters and provide a new opening for his Democratic rival, Joe Biden, on the eve of the first presidential debate. Support trusted journalism and civil dialogue. Donate now By — Associated Press Associated Press WASHINGTON (AP) — A New York Times report that President Donald Trump paid just $750 in federal income tax the year he entered the White House — and, thanks to colossal losses, no income tax at all in 11 of the 18 years that the Times reviewed — served to raise doubts about Trump's self-image as a shrewd and successful businessman. President Donald Trump paid just $750 in federal income taxes the year he ran for president and in his first year in the White House, according to a report Sunday in The New York Times. Speaking at a news conference Sunday at the White House, Trump dismissed the report as \"fake news\" and said he has paid taxes. 所有心情： 94条评论 1 次分享 赞 评论 最相关 Camille Holt Dove All I’m gonna say is that when I file my taxes I make sure I take every deduction possible to pay as little in taxes as I need to. The release was a strategic move, coming less than 48 hours after The New York Times published a bombshell investigation based on more than a decade's worth of Trump's tax returns, showing that he paid just $750 in individual federal income taxes in 2016 and 2017. The Times also found that for 10 of the previous 15 years before he was elected to the White House, Trump paid no federal income taxes because his businesses lost hundreds of millions of dollars, which he was able to use to reduce his tax burden. “He had paid no income taxes at all in 10 of the previous 15 years – largely because he reported losing much more money than he made.” In all, the paper said, Trump paid no federal income taxes in 11 of 18 years its reporters examined. \" Earlier in the debate, the former vice president denounced Trump for paying a \"total of $750\" while working class Americans pay significantly more. On Sunday, the Times reported that Trump paid no federal income tax in 10 out of 15 years before he was elected. For both 2016 and 2017, the year he was elected and his first year in office, he paid only $750, according to the report. Here are some key takeaways from the Times' reporting: TRUMP PAID JUST $750 IN TAXES IN BOTH 2016 and 2017 The newspaper said Trump initially paid $95 million in taxes over the 18 years it studied. But he managed to recover most of that money by claiming — and receiving — a stunning $72.9 million federal tax refund. The Times published an article on Sunday that reported that Trump paid little to no federal income taxes in most years from 2000 through 2017. In each of 2016 and 2017, Trump paid $750, the Times reported. Trump is the first president in decades who has not made any of his tax returns public. He has previously said he won’t release his returns while under audit, but the IRS has said that audits don’t prevent people from releasing their personal tax information. Trump has worked for decades to build an image of himself as a hugely successful businessman — even choosing “mogul” as his Secret Service code name. But The New York Times on Sunday revealed that he paid just $750 in federal income taxes in 2016, the year he won the presidency, and in 2017, his first year in office. He paid no income taxes whatsoever in 10 of the previous 15 years, largely because he reported losing more money than he made, according to the Times, which obtained years’ worth of tax return data that the president had long fought to keep private. It said the president paid just $750 in income taxes in both 2016 and 2017, while he paid no income taxes at all in 10 of the previous 15 years, \"largely because he reported losing much more money than he made\". Before becoming president, Mr Trump was known as a celebrity businessman and property mogul, building an image of a hugely successful self-made billionaire which could be dented by the latest revelations, observers say. ” Alan Garten, a lawyer for the Trump Organization, told the Times that “most, if not all, of the facts appear to be inaccurate”. He said: “Over the past decade, President Trump has paid tens of millions of dollars in personal taxes to the federal government, including paying millions in personal taxes since announcing his candidacy in 2015.” The newspaper pointed out that “personal taxes” appeared to cover other federal taxes, including social security and Medicare. NPR has not confirmed any of the details from the filings; the Times didn't post any of its source documents to protect sources, according to the story. When asked about the report during a Sunday evening news conference, Trump refused to detail what he's paid in federal income taxes, saying simply: \"I've paid a lot.\" He said \"it'll all be revealed\" when his tax returns can be released after audit — something he's said for years. (In fact, an audit would not prevent the president from releasing his records. President Donald Trump dismissed the recent New York Times report that he has paid little to no federal income tax over much of the past two decades during his first presidential debate with Democratic nominee Joe Biden on Tuesday. \"I've paid millions of dollars, millions of dollars in income tax,\" Trump said after being asked about the report by moderator Chris Wallace, before Biden interjected \"show us your tax returns.\" \"I paid $38 million one year, I paid $27 million one year,\" Trump continued. The Trump Organization joined the president in denying the allegations in the report. The company's chief legal officer, Alan Garten, told the Times that \"most, if not all, of the facts appear to be inaccurate\". \"Over the past decade, President Trump has paid tens of millions of dollars in personal taxes to the federal government, including paying millions in personal taxes since announcing his candidacy in 2015,\" he said. Trump says he paid millions in income taxes; Biden says ‘show us your tax returns’ President Trump during Tuesday night’s debate said that he paid “millions” in federal income taxes in 2016 and 2017 — disputing a New York Times report saying he paid just $750 in each of those years — while Democratic presidential nominee Joe Biden repeatedly pressed the president to release his tax returns. “I paid millions of dollars in taxes, millions of dollars of income tax,” Trump said. As the president continued to speak, Biden interrupted, saying “Show us your tax returns. As a result of the refund, Trump paid an average $1.4 million in federal taxes from 2000 to 2017, the Times reported. By contrast, the average U.",
+      "url": "https://www.npr.org/2020/09/27/917566141/trump-dismisses-new-york-times-reporting-that-he-paid-little-in-federal-income-t",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What justification did Donald Trump reportedly give for his low tax payments as mentioned by Joe Biden?",
+      "answer": "Trump then said that he had paid \"millions of dollars\" in federal income taxes during 2016 and 2017 and \"you'll get to see it,\" while telling Wallace that he doesn't \"want to pay tax\" and had gone \"through the laws\" like \"every other private person, unless they're stupid.\" Biden blasted Trump for claiming to be \"smart\" by taking advantage of tax laws to avoid paying, before calling him the \"worst president America's ever had. Trump says he paid millions in income taxes; Biden says ‘show us your tax returns’ President Trump during Tuesday night’s debate said that he paid “millions” in federal income taxes in 2016 and 2017 — disputing a New York Times report saying he paid just $750 in each of those years — while Democratic presidential nominee Joe Biden repeatedly pressed the president to release his tax returns. “I paid millions of dollars in taxes, millions of dollars of income tax,” Trump said. As the president continued to speak, Biden interrupted, saying “Show us your tax returns. \" Trump responded that he would like to release his returns \"as soon as we can\" but reiterated his excuse that he's under audit, a claim he's made since he first ran for president in 2016. The president is not actually barred from releasing the documents while they're under audit. Trump also responded to the news that he paid just $750 in taxes in 2017, claiming that he was told he \"prepaid tens of millions of dollars,\" and that the $750 he paid was a \"filing fee.\" But Biden again called on Trump to release proof. President Donald Trump dismissed the recent New York Times report that he has paid little to no federal income tax over much of the past two decades during his first presidential debate with Democratic nominee Joe Biden on Tuesday. \"I've paid millions of dollars, millions of dollars in income tax,\" Trump said after being asked about the report by moderator Chris Wallace, before Biden interjected \"show us your tax returns.\" \"I paid $38 million one year, I paid $27 million one year,\" Trump continued. Biden Campaign Press Release - Fact Sheet: A Tale of Two Tax Policies: Trump Rewards Wealth, Biden Rewards Work During the 2016 campaign, President Donald Trump promised tax cuts that would create jobs and provide substantial savings for working families. What did he deliver? For four years, Trump has relentlessly pursued an economic agenda that rewards wealth over work and favors multinational corporations over small businesses. He won't ask a single person making under $400,000 per year to pay a penny more in taxes, and will in fact enact more than one-dozen middle class tax cuts that will finally give working families the financial support they deserve. But struggling families need support immediately, which is why Biden is demanding that Trump get off the golf course and provide emergency tax relief to middle class families as part of a new COVID-19 response package. Trump has not only refused to deliver for struggling working families, he is now pushing for another misguided tax giveaway for America's wealthiest families. It said the president paid just $750 in income taxes in both 2016 and 2017, while he paid no income taxes at all in 10 of the previous 15 years, \"largely because he reported losing much more money than he made\". Before becoming president, Mr Trump was known as a celebrity businessman and property mogul, building an image of a hugely successful self-made billionaire which could be dented by the latest revelations, observers say. President Donald Trump paid just $750 in federal income taxes the year he ran for president and in his first year in the White House, according to a report Sunday in The New York Times. Speaking at a news conference Sunday at the White House, Trump dismissed the report as \"fake news\" and said he has paid taxes. 所有心情： 94条评论 1 次分享 赞 评论 最相关 Camille Holt Dove All I’m gonna say is that when I file my taxes I make sure I take every deduction possible to pay as little in taxes as I need to. Trump’s tax revelation could tarnish image that fueled rise Trump has worked for decades to project himself as a hugely successful businessman. But The NY Times has revealed that he paid just $750 in federal income taxes in 2016. The bombshell revelations that President Donald Trump paid just $750 in federal income taxes the year he ran for office and paid no income taxes at all in many others threaten to undercut a pillar of his appeal among blue-collar voters and provide a new opening for his Democratic rival, Joe Biden, on the eve of the first presidential debate.",
+      "url": "https://www.newsweek.com/what-donald-trump-said-about-his-tax-returns-first-presidential-debate-against-biden-1535122",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "According to the claim made on October 30, 2020, what was the central argument Joe Biden was making regarding tax fairness?",
+      "answer": "Factchecking Tax Claims in the 2020 Election In recent days, President Trump and former Vice President Joe Biden have made several competing claims about the other's tax agenda. We summarize and explain three recent claims. - Trump: Joe Biden wants to raise taxes on all Americans. Largely False - Trump: Joe Biden would have the largest tax increase in history. Almost True. - Biden: $1. 3 trillion out of the $2 trillion tax cut went to the top 0.1%. False. Claim #1: Joe Biden wants to raise taxes on all Americans. During a presidential candidate town hall held in lieu of the second debate, President Trump said \"...Biden comes in and raises taxes on everybody, including middle income taxes, which he wants to do. By — Associated Press Associated Press Leave a comment 0comments Share Copy URL https://www.pbs.org/newshour/politics/trump-biden-argue-over-their-tax-returns Email Facebook Twitter LinkedIn Pinterest Tumblr Share on Facebook Share on Twitter Trump, Biden argue over their tax returns Politics Oct 22, 2020 10:05 PM EDT Joe Biden and Donald Trump argued over their tax returns during the final presidential debate.",
+      "url": "https://www.crfb.org/blogs/factchecking-tax-claims-2020-election",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the claim regarding Donald Trump's tax payments consistent with the findings of the New York Times investigation released in late 2020?",
+      "answer": "The release was a strategic move, coming less than 48 hours after The New York Times published a bombshell investigation based on more than a decade's worth of Trump's tax returns, showing that he paid just $750 in individual federal income taxes in 2016 and 2017. The Times also found that for 10 of the previous 15 years before he was elected to the White House, Trump paid no federal income taxes because his businesses lost hundreds of millions of dollars, which he was able to use to reduce his tax burden. Trump Dismisses 'New York Times' Report That He Paid Little In Federal Income Taxes Updated at 8:40 p.m. ET A New York Times investigation published on Sunday said that President Trump paid just $750 in federal income taxes each year in 2016 and 2017, which the president denied at a news conference using a familiar retort: \"fake news.\" The Times cites Trump's long-sought-after tax returns, further reporting that he paid no income taxes at all in 10 of the previous 15 years as Trump reported massive losses to his businesses. Donald Trump, a self-proclaimed billionaire, paid only $750 in federal income taxes in the year he was elected US president, according to a stunning New York Times investigation that could shake up the presidential election. “Trump taxes show chronic losses and years of tax avoidance,” was the banner headline on the paper’s website on Sunday. The president’s tax returns have long been the holy grail of American political reporting. The president “paid $750 in federal income taxes the year he won the presidency”, the paper reported, adding that “in his first year in the White House, he paid another $750. NPR has not confirmed any of the details from the filings; the Times didn't post any of its source documents to protect sources, according to the story. When asked about the report during a Sunday evening news conference, Trump refused to detail what he's paid in federal income taxes, saying simply: \"I've paid a lot.\" He said \"it'll all be revealed\" when his tax returns can be released after audit — something he's said for years. (In fact, an audit would not prevent the president from releasing his records. ” Alan Garten, a lawyer for the Trump Organization, told the Times that “most, if not all, of the facts appear to be inaccurate”. He said: “Over the past decade, President Trump has paid tens of millions of dollars in personal taxes to the federal government, including paying millions in personal taxes since announcing his candidacy in 2015.” The newspaper pointed out that “personal taxes” appeared to cover other federal taxes, including social security and Medicare. Here are some key takeaways from the Times' reporting: TRUMP PAID JUST $750 IN TAXES IN BOTH 2016 and 2017 The newspaper said Trump initially paid $95 million in taxes over the 18 years it studied. But he managed to recover most of that money by claiming — and receiving — a stunning $72.9 million federal tax refund. On Tuesday, The New York Times published a bombshell investigative report alleging that the Trump family engaged in “outright fraud” and other schemes to dodge federal taxes over many years. Through these schemes, the Trump family may have avoided or evaded as much as $500 million of taxes on the transfer of wealth from President Donald Trump’s parents to him and his siblings. If true, the revelations in the 14,000-word story are shocking. (By one estimate, the Trumps would owe New York state more than $400 million in unpaid taxes, interest, and penalties.) That is money that the Trumps owe us, the American taxpayers. Conclusion Beyond the revelations about the Trump family itself, the Times’ investigation sheds light on a rigged tax system and a culture of white-collar impunity. Hopefully, it will draw Congress’ attention to the need for a fairer tax system and stronger enforcement. What are the key claims? The Times said it reviewed tax returns relating to President Trump and companies owned by the Trump Organization going back to the 1990s, as well as his personal returns for 2016 and 2017. Support trusted journalism and civil dialogue. Donate now By — Associated Press Associated Press WASHINGTON (AP) — A New York Times report that President Donald Trump paid just $750 in federal income tax the year he entered the White House — and, thanks to colossal losses, no income tax at all in 11 of the 18 years that the Times reviewed — served to raise doubts about Trump's self-image as a shrewd and successful businessman. Trump’s tax revelation could tarnish image that fueled rise Trump has worked for decades to project himself as a hugely successful businessman. But The NY Times has revealed that he paid just $750 in federal income taxes in 2016. The bombshell revelations that President Donald Trump paid just $750 in federal income taxes the year he ran for office and paid no income taxes at all in many others threaten to undercut a pillar of his appeal among blue-collar voters and provide a new opening for his Democratic rival, Joe Biden, on the eve of the first presidential debate. Among its other findings, the investigation determined that Trump has hundreds of millions of dollars in loans that are set to come due within the next four years — potentially his second term in office — and that he's battling the Internal Revenue Service over a nearly $73 million tax refund he claimed a decade ago. The Trump Organization joined the president in denying the allegations in the report. The company's chief legal officer, Alan Garten, told the Times that \"most, if not all, of the facts appear to be inaccurate\". \"Over the past decade, President Trump has paid tens of millions of dollars in personal taxes to the federal government, including paying millions in personal taxes since announcing his candidacy in 2015,\" he said. The Times published an article on Sunday that reported that Trump paid little to no federal income taxes in most years from 2000 through 2017. In each of 2016 and 2017, Trump paid $750, the Times reported. Trump is the first president in decades who has not made any of his tax returns public. He has previously said he won’t release his returns while under audit, but the IRS has said that audits don’t prevent people from releasing their personal tax information. “He had paid no income taxes at all in 10 of the previous 15 years – largely because he reported losing much more money than he made.” In all, the paper said, Trump paid no federal income taxes in 11 of 18 years its reporters examined. Here are other key points from The New York Times: - Some reductions in the president's tax liability came from unexplained consulting fees. The Times cites evidence that some of the fees may have been paid to his daughter, Ivanka Trump, though she was not an outside figure, given her role as a top official in the Trump Organization. If that were true, it could create further legal peril. President Donald Trump paid just $750 in federal income taxes the year he ran for president and in his first year in the White House, according to a report Sunday in The New York Times. Speaking at a news conference Sunday at the White House, Trump dismissed the report as \"fake news\" and said he has paid taxes. 所有心情： 94条评论 1 次分享 赞 评论 最相关 Camille Holt Dove All I’m gonna say is that when I file my taxes I make sure I take every deduction possible to pay as little in taxes as I need to. Many of his businesses, including his golf courses, report significant financial losses – which have helped him to lower his taxes. The Times also said the documents it had obtained “comprise information that Mr Trump has disclosed to the IRS, not the findings of an independent financial examination. They report that Mr Trump owns hundreds of millions of dollars in valuable assets, but they do not reveal his true wealth.",
+      "url": "https://www.cnbc.com/2020/09/29/joe-biden-releases-2019-tax-returns-ahead-of-presidential-debate.html",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.crfb.org/blogs/factchecking-tax-claims-2020-election",
+      "date": "2020-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/oct/13/donald-trump/donald-trump-ad-accuses-joe-biden-phantom-14-tax-h/",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABC10tv/posts/verify-viewer-scott-asked-if-president-biden-released-his-tax-returns-he-did-and/10159601728550000/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/ny-times-trump-paid-750-in-us-income-taxes-in-2016-2017",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/09/27/917566141/trump-dismisses-new-york-times-reporting-that-he-paid-little-in-federal-income-t",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/technology-54319948",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wbalradio/posts/president-donald-trump-paid-just-750-in-federal-income-taxes-the-year-he-ran-for/10158823692529813/",
+      "date": "2016-02-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/09/28/two-strategies-that-may-have-helped-trump-pay-just-750-in-federal-taxes.html",
+      "date": "2020-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TELEGRAPH.CO.UK/videos/donald-trump-paid-just-750-federal-income-tax-in-2016-new-york-times-reports/1027917847621182/",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/trump-biden-argue-over-their-tax-returns",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newsweek.com/what-donald-trump-said-about-his-tax-returns-first-presidential-debate-against-biden-1535122",
+      "date": "2020-09-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/videos/politics/2019/05/03/joe-biden-tax-cut-fact-check-nws-orig.cnn",
+      "date": "2019-05-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://whyy.org/articles/trumps-tax-revelation-could-tarnish-image-that-fueled-rise/",
+      "date": "2020-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thehill.com/policy/finance/518869-trump-says-he-paid-millions-in-income-taxes-biden-says-show-us-your-tax/",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.presidency.ucsb.edu/documents/biden-campaign-press-release-fact-sheet-tale-two-tax-policies-trump-rewards-wealth-biden",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.crfb.org/papers/understanding-joe-bidens-2020-tax-plan",
+      "date": "2020-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/joebiden/posts/ive-released-21-years-of-my-tax-returns-why-havent-you-released-any-of-yours-mr-/10156540601601104/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://cbsaustin.com/news/nation-world/bidens-tax-returns-reveal-how-he-took-advantage-of-a-loophole-obama-sought-to-eliminate-10-23-2020",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ibramxkendi/posts/when-is-biden-going-to-bring-up-trumps-taxes-again-it-was-barely-discussed-i-don/1100837630314478/",
+      "date": "2005-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/09/29/joe-biden-releases-2019-tax-returns-ahead-of-presidential-debate.html",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/abcnews.au/posts/us-president-donald-trump-responds-on-twitter-to-a-new-york-times-report-about-h/10161746320989988/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.americanprogress.org/article/3-takeaways-new-york-times-bombshell-trump-investigation/",
+      "date": "2018-10-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2020/sep/27/new-york-times-publishes-donald-trumps-tax-returns-election",
+      "date": "2020-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/colbertlateshow/posts/the-new-york-times-got-their-hands-on-trumps-taxes-from-the-nineties-which-tell-/1766805303464213/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 75,
+     "n_urls_after_bm25": 24,
+     "n_chunks": 401
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "True, question mark required (?) ",
+   "questions": [
+    {
+     "question": "What was Trump's tax return in 2017",
+     "answers": [
+      {
+       "answer": "Trump Paid $750 in Federal Income Taxes in 2017",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20210212182804/https://www.nytimes.com/2020/09/29/us/trump-750-taxes.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "When did Trump say he was smart for not paying taxes",
+     "answers": [
+      {
+       "answer": "He made the boast during the 2016 electoral debate with Hilary Clinton",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210212190344/https://www.cnbc.com/2016/09/26/trump-brags-about-not-paying-taxes-that-makes-me-smart.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210212055748/https://www.washingtonpost.com/politics/2020/11/02/fact-checking-final-arguments-biden-trump/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Donald Trump's 2017 tax return showed he owed $750 in taxes, which was the result of applying a general business credit for nearly $7,435,857 to a larger tax liability, after he reported nearly $13 million in negative income due to business losses.",
+     "support_span": "The New York Times obtained his 2017 tax return and found that, when all was said and done, Trump owed just $750 in taxes. | Because of business losses, Trump actually reported nearly $13 million in negative income. | Then the alternative minimum tax kicked in, and Trump was on the hook for $7,435,857, the Times said. Trump then applied a general business credit for nearly that amount, leaving him with just a $750 tax bill."
+    },
+    {
+     "statement": "Donald Trump has refused to make his tax filings public, unlike every president since Richard Nixon.",
+     "support_span": "Trump, unlike every president since Richard Nixon, has refused to make public his tax filings."
+    },
+    {
+     "statement": "During a 2016 debate, Trump said 'that makes me smart' in response to claims about his low tax payments in 1978 and 1979, but there is no record of Donald Trump saying 'I know how to game the system' regarding his taxes.",
+     "support_span": "Trump, during a 2016 debate with Hillary Clinton, did assert “that makes me smart” after Clinton noted that Trump’s tax returns in 1978 and 1979, released by casino authorities, showed that Trump paid no federal income tax in those years. | But he did not say, “I know how to game the system.”"
+    }
+   ],
+   "justification": "The evidence confirms that Donald Trump's 2017 tax return showed a tax liability of $750, which resulted from applying a general business credit to a larger tax obligation after reporting nearly $13 million in negative income due to business losses. While the evidence supports the claim that Trump previously remarked 'that makes me smart' in response to questions about his low tax payments in the late 1970s, it explicitly notes there is no record of him saying, 'I know how to game the system.' Additionally, the evidence highlights that Trump has refused to make his tax filings public, a departure from the practice of presidents since Richard Nixon.",
+   "article_url": "https://web.archive.org/web/20210212055748/https://www.washingtonpost.com/politics/2020/11/02/fact-checking-final-arguments-biden-trump/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

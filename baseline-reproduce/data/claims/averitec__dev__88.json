@@ -1,0 +1,284 @@
+{
+ "key": "averitec/dev/88",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 88,
+ "claim": "A man who received four ballot applications votes four times in the 2020 election.",
+ "claim_date": "2020-10-16",
+ "speaker": "James Snapp.",
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"A man who received four ballot applications votes four times in the 2020 election,\" we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts a specific instance of voter fraud: that a specific individual received four ballot applications and successfully cast four votes in the 2020 election.\n2.  **Evaluate Q6:** The evidence explicitly states that the provided text does not contain any specific information or evidence regarding an individual man receiving four ballot applications or voting four times in the 2020 election.\n3.  **Evaluate Q7:** The evidence mentions a specific case in Howard County, but it clarifies that the voter in that instance voted **twice**, not four times, and this occurred during a March 2020 primary, not the general election.\n4.  **Evaluate Q9 and Q10:** Both answers confirm that the provided evidence lacks any mention of the specific individual or the specific action (receiving four applications and voting four times) described in the claim. The evidence focuses on general discussions about mail-in voting security, social media reactions, and a lawsuit in California, none of which substantiate the claim.\n5.  **Conclusion:** Since the provided evidence contains no information to confirm the occurrence of this specific event, the claim cannot be supported or refuted by the text provided.\n\n**Verdict: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the process of ballot duplication, used to replace damaged or unreadable ballots, allow for a single voter to vote multiple times?",
+      "answer": "Based on the provided evidence, the process of ballot duplication is not intended to allow a single voter to vote multiple times. Instead, it is a \"standard election administration contingency process\" used to replace damaged, improperly marked, or machine-unreadable ballots with \"clean\" versions that \"preserve the voter's original intent.\" The purpose of this process is to ensure that ballots can be accurately processed by electronic tabulation equipment while the original ballots are retained for auditing purposes.",
+      "url": "https://ovi.csg.org/ballot-duplication-what-it-is-what-it-is-not-and-why-we-are-talking-about-it-in-2020/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the Illinois mail-in ballot application system have safeguards in place to prevent a single person from voting multiple times?",
+      "answer": "Yes, the Illinois mail-in ballot application system includes several safeguards designed to prevent a single person from voting multiple times. According to the evidence, these safeguards include:\n\n*   **Signature Verification:** Election officials verify that the signature on a ballot application matches the voter's official record.\n*   **Unique Identifiers:** The system uses unique voter ID numbers to ensure that each person receives only one ballot.\n*   **Request Rejection:** Once an application has been processed, any subsequent requests from that same voter are rejected.\n*   **Legal Deterrents:** Attempting to vote multiple times is classified as a felony.\n\nDue to these security measures and the tracking processes used by election authorities, experts note that fraudulent mail-in voting is exceedingly rare.",
+      "url": "https://politifact.com/factchecks/2020/aug/13/facebook-posts/no-receiving-multiple-ballot-applications-doesnt-l/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that individual instances of fraudulent voting, such as a man receiving multiple ballot applications, indicate widespread election fraud?",
+      "answer": "No, the evidence does not support the claim that individual instances of fraudulent voting indicate widespread election fraud. \n\nAccording to the provided text, extensive research from academic studies, court rulings, and government investigations demonstrates that voter fraud is a \"vanishingly rare\" and \"infinitesimal phenomenon\" that occurs at rates \"far too low to impact election outcomes.\" The evidence further notes that most reported irregularities are typically \"clerical errors or administrative mistakes rather than intentional fraud,\" and judicial reviews have consistently found a \"lack of evidence for widespread fraud.\"",
+      "url": "https://www.brennancenter.org/our-work/research-reports/debunking-voter-fraud-myth",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the accidental mailing of duplicate ballots allow individuals to vote multiple times in an election?",
+      "answer": "No, the accidental mailing of duplicate ballots does not allow individuals to vote multiple times in an election. According to the evidence, election experts emphasize that existing safeguards prevent double voting. These systems include the use of unique barcodes, ballot tracking, and established procedures that allow officials to void mistaken ballots and lock voter records once a single ballot has been accepted. While administrative errors like these can occur, experts assert that they are manageable and do not compromise election integrity.",
+      "url": "https://www.facebook.com/wisconsinwatch/posts/duplicate-ballots-can-sound-alarming-but-election-experts-say-safeguards-are-in-/1478991327574034/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the existence of an individual case of multiple voting disprove the claim that mail-in voting is a secure practice with low rates of fraud?",
+      "answer": "No, the existence of an individual case of multiple voting does not disprove the claim that mail-in voting is a secure practice with low rates of fraud.\n\nAccording to the evidence, mail-in voting is a \"long-standing, secure practice with infinitesimally low rates of fraud,\" as evidenced by states that have used it primarily for years. The security of the process is maintained through \"various robust security measures,\" such as signature matching for identity verification, bar codes for tracking, secure drop boxes, and the threat of severe legal penalties. Additionally, the use of paper-based ballots allows for effective post-election audits to ensure election integrity.",
+      "url": "https://www.brennancenter.org/our-work/analysis-opinion/false-narrative-vote-mail-fraud",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that a man voted four times in the 2020 election?",
+      "answer": "No, the provided evidence does not support the claim. The text discusses general social media reactions and fact-checking regarding claims of mail-in ballot fraud, but it does not contain any specific information or evidence regarding an individual man receiving four ballot applications or voting four times in the 2020 election.",
+      "url": "https://www.facebook.com/981KMBZ/posts/he-got-fact-checked-by-twitter-on-two-tweets-that-falsely-claim-mail-in-ballots-/10158664900433627/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did a voter in Howard County vote four times in the 2020 election?",
+      "answer": "Based on the provided evidence, a voter in Howard County was discovered to have voted **twice** in person (once during early voting and once on Election Day) following an audit of the March 3, 2020, primary election. The evidence does not support the claim that a man received four ballot applications or voted four times in the 2020 election.",
+      "url": "https://www.facebook.com/KBestMedia/posts/howard-county-election-administrator-issues-statement-following-the-arrest-of-lo/3407350675955331/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the use of mail-in ballots facilitate individual voters casting multiple ballots in an election?",
+      "answer": "Based on the provided evidence, there is no information to suggest that the use of mail-in ballots facilitates individual voters casting multiple ballots. The text describes the history and various state-level practices regarding mail-in voting—such as \"vote at home\" systems and \"no excuse absentee voting\"—but it does not address the potential for voter fraud or the ability of an individual to vote more than once.",
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-ballot-security-features-primer",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that a man who received four ballot applications voted four times in the 2020 election?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses on a statement by J.S. regarding the President's responsibility to follow the law and the Constitution, a call for bipartisan condemnation of misinformation about mail-in voting, and a summary of polarized social media responses. There is no mention of an individual receiving four ballot applications or voting four times in the 2020 election.",
+      "url": "https://www.facebook.com/SenatorShaheen/posts/the-president-is-not-above-the-law-or-the-constitution-theres-going-to-be-an-ele/3532161913482921/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provide information regarding a man who received four ballot applications and voted four times in the 2020 election?",
+      "answer": "No, the provided evidence does not provide information regarding a man who received four ballot applications and voted four times in the 2020 election. The evidence focuses on a lawsuit in California concerning the invalidation of vote-by-mail ballots and the subsequent social media discussions regarding due process and potential disenfranchisement.",
+      "url": "https://www.facebook.com/aclu/posts/we-won-our-lawsuit-against-california-for-invalidating-the-vote-by-mail-ballots-/10155150740916813/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-ballot-security-features-primer",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ovi.csg.org/ballot-duplication-what-it-is-what-it-is-not-and-why-we-are-talking-about-it-in-2020/",
+      "date": "2020-07-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CobbCountyGovernment/posts/voting-by-absentee-ballot-this-year-cobb-elections-has-made-it-easier-than-ever-/10158442215302559/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ohiosos.gov/office/media-center/categories/press-releases/2020-10-13",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://marylandmatters.org/2020/07/10/mailing-ballot-applications-had-mixed-results-in-other-states/",
+      "date": "2020-07-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.brennancenter.org/our-work/analysis-opinion/false-narrative-vote-mail-fraud",
+      "date": "2020-04-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wisconsinwatch/posts/duplicate-ballots-can-sound-alarming-but-election-experts-say-safeguards-are-in-/1478991327574034/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fjc.gov/history/work-courts/juries-in-federal-judicial-system",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnn/posts/the-fact-that-he-knows-he-has-the-freedom-to-cast-about-as-a-campaign-in-waiting/10159136151356509/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://harvardlawreview.org/print/vol-133/controller-confusion-realigning-controlling-stockholders-and-controlled-boards/",
+      "date": "2020-03-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/aclu/posts/we-won-our-lawsuit-against-california-for-invalidating-the-vote-by-mail-ballots-/10155150740916813/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/aug/13/facebook-posts/no-receiving-multiple-ballot-applications-doesnt-l/",
+      "date": "2020-08-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/981KMBZ/posts/he-got-fact-checked-by-twitter-on-two-tweets-that-falsely-claim-mail-in-ballots-/10158664900433627/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/debunking-voter-fraud-myth",
+      "date": "2017-01-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KBestMedia/posts/howard-county-election-administrator-issues-statement-following-the-arrest-of-lo/3407350675955331/",
+      "date": "2020-06-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/sep/09/facebook-posts/post-wrongly-says-thousands-ballots-sent-dead-peop/",
+      "date": "2020-09-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/SenatorShaheen/posts/the-president-is-not-above-the-law-or-the-constitution-theres-going-to-be-an-ele/3532161913482921/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 17,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "It seems from the QAs that counting votes twice is illegal. Therefore the claim is refuted ",
+   "questions": [
+    {
+     "question": "Can you vote more than once in the US election?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://elections.maryland.gov/voting/provisional_voting.html",
+       "source_medium": "Web text"
+      },
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://www.reuters.com/article/us-usa-election-trump-vote/trump-encourages-supporters-to-try-to-vote-twice-sparking-uproar-idUSKBN25U0KK",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Is a ballot application the same as a vote ballot?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://www.fox29.com/news/receiving-multiple-ballot-applications-wont-let-you-vote-more-than-once-heres-why",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210304070729/https://leadstories.com/hoax-alert/2020/09/fact-check-man-who-received-four-ballot-applications-can-not-vote-four-times.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The man in the claim received four ballot applications, not four actual ballots, which were sent by the Center for Voter Information (CVI) that only mails applications to registered voters; even if a person returns multiple ballot applications, they are only permitted to vote once, and Tom Lopach, CEO of CVI, stated that returning multiple applications would only increase the workload for local election officials rather than allowing multiple votes.",
+     "support_span": "The man did not receive four ballots; he received four ballot applications. | They were sent to him by the Center for Voter Information (CVI)... Please bear in mind that the Center for Voter Information only mails ballot applications to registered voters. CVI does not send out actual ballots. | Even if the man returned all four applications, he would only be allowed to vote once, according to state officials and the CEO and president of the nonprofit group that sent out the applications. | If the mail recipient on this Facebook post were to return all four ballot applications to his local election office, he would still only be allowed to vote once. All he would be doing is adding to the workload of local election officials."
+    },
+    {
+     "statement": "Michigan election officials have protections in place to ensure each person receives only one vote and to track every ballot, including the Michigan Qualified Voter File (QVF) which tracks absentee ballot requests, preventing a person from requesting multiple ballots, and voting more than once in an election is illegal in Michigan.",
+     "support_span": "We have protections in place to ensure election officials track and verify every ballot they send and receive and in every instance we ensure that each person gets only one vote. | once a clerk receives an application from someone whose identity is verified and the signature on the application matches the one on file, it is marked in our Qualified Voter File that that person has requested an absentee ballot... They are not able to request multiples, as this process would flag that they had already requested a ballot any time their information was entered into the QVF. | It is illegal to vote more than once in an election. ... Michigan Attorney General Dana Nessel reminded people that it is illegal to vote more than once."
+    }
+   ],
+   "justification": "The evidence clarifies that the individual received four ballot applications rather than four actual ballots, noting that these applications were sent by the Center for Voter Information (CVI) specifically to registered voters. Furthermore, election officials and the CVI CEO state that returning multiple applications does not enable multiple votes, as Michigan's Qualified Voter File (QVF) tracks absentee ballot requests to prevent duplicate ballots. State officials emphasize that protections are in place to ensure each person only votes once and that voting more than once is illegal.",
+   "article_url": "https://web.archive.org/web/20210304070729/https://leadstories.com/hoax-alert/2020/09/fact-check-man-who-received-four-ballot-applications-can-not-vote-four-times.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

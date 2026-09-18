@@ -1,0 +1,241 @@
+{
+ "key": "averitec/dev/84",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 84,
+ "claim": "It's unclear how Joe Biden acquired his recent wealth since leaving office in 2017",
+ "claim_date": "2020-10-17",
+ "speaker": "The Lutchman Report",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://www.facebook.com/thelutchmanreport/photos/a.101396464922781/195966522132441/?type=3&theater",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"It's unclear how Joe Biden acquired his recent wealth since leaving office in 2017,\" we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that the source of Joe Biden's wealth after 2017 is \"unclear.\"\n2.  **Evaluate the Evidence:**\n    *   **Q1, Q2, Q3, Q4, and Q5** provide very specific and detailed information regarding the sources of his wealth. They explicitly list:\n        *   A multi-million dollar book deal (specifically an $8 million deal).\n        *   Lucrative speaking fees (over $4 million from more than 50 appearances).\n        *   Academic income from a professorship at the University of Pennsylvania.\n    *   **Q6, Q7, Q8, Q9, and Q10** appear to be contradictory or refer to different, non-existent datasets (mentioning Martin Van Buren, social media comments, or the Presidential Medal of Freedom) that do not align with the detailed financial information provided in the first five answers.\n3.  **Synthesize Findings:** In a task where multiple pieces of evidence are provided, we look for the most substantive information. Q1 through Q5 provide a clear, detailed, and transparent explanation of how the wealth was acquired (books, speaking, and teaching). \n4.  **Conclusion:** Because the evidence (specifically Q1-Q5) explicitly details the sources of his income (book deals, speaking fees, and academic income), the claim that it is \"unclear\" is directly contradicted by the provided facts.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "How did Joe Biden and his wife, Jill, earn more than $15 million since leaving the Obama White House?",
+      "answer": "Since leaving the Obama White House, Joe and Jill Biden earned more than $15 million primarily through the following sources:\n\n*   **Book Deal:** An $8 million multibook deal.\n*   **Speaking Fees:** Over $4 million earned from more than 50 speaking appearances.\n*   **Academic Income:** Income from Joe Biden's role as a professor at the University of Pennsylvania.",
+      "url": "https://www.pbs.org/newshour/politics/biden-earned-millions-after-leaving-white-house-financial-reports-shows",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What specific sources contributed to the growth of Joe Biden's wealth following his time in the Senate?",
+      "answer": "Based on the provided evidence, Joe Biden's wealth grew through the following specific sources:\n\n*   His vice presidency\n*   A federal pension\n*   Lucrative speaking engagements\n*   Multi-million-dollar book deals",
+      "url": "https://money.com/joe-biden-net-worth-2020-democratic-presidential-candidate/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What were the primary sources of Joe Biden's income that led to his wealth increasing from less than $400,000 to over $15 million after leaving the Obama administration?",
+      "answer": "The primary sources of Joe Biden's increased income were a multi-million dollar book deal and lucrative speaking fees, with some single events earning as much as $234,820.",
+      "url": "https://www.latimes.com/politics/la-na-pol-2020-joe-biden-income-20190709-story.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Joe Biden earn his income after leaving the vice presidency?",
+      "answer": "After leaving the vice presidency, Joe Biden earned his income through several specific sources, including a multi-book deal, a professorship at the University of Pennsylvania, and 47 paid speaking engagements. His income reached a peak of over $11 million in 2017.",
+      "url": "https://enewspaper.latimes.com/infinity/article_share.aspx?guid=7026b3ef-ca45-4562-951d-3812ee8c3541",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Joe Biden's income change after leaving the vice presidency in 2017?",
+      "answer": "After leaving the vice presidency in 2017, Joe Biden's income increased significantly, reaching millions of dollars in both 2017 and 2018. These substantial increases were attributed to payments from book deals and speaking engagements.",
+      "url": "https://politifact.com/factchecks/2020/sep/10/joe-biden/fact-checking-joe-bidens-claim-about-his-own-incom/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence explain the source of Joe Biden's wealth since leaving office in 2017?",
+      "answer": "No, the provided evidence does not explain the source of Joe Biden's wealth since leaving office in 2017. The text focuses exclusively on a White House ceremony where President Barack Obama presented Joe Biden with the Presidential Medal of Freedom, highlighting his career in public service and his relationship with the Obamas. It contains no information regarding his financial assets or income.",
+      "url": "https://obamawhitehouse.archives.gov/the-press-office/2017/01/12/remarks-president-and-vice-president-presentation-medal-freedom-vice",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What connection, if any, exists between Hunter Biden's business dealings with foreign entities and the source of Joe Biden's wealth?",
+      "answer": "Based on the provided evidence, there is no information establishing a direct connection between Hunter Biden's business dealings with foreign entities and the source of Joe Biden's wealth. The text only notes that Hunter Biden's involvement with a Chinese investment firm has sparked public debate regarding ethics and his decision to step down from a board position.",
+      "url": "https://www.facebook.com/washingtonpost/posts/hunter-biden-facing-increasing-questions-about-his-work-for-a-chinese-investment/10159159469162293/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain any information regarding Joe Biden's wealth or financial history?",
+      "answer": "No, the provided evidence does not contain any information regarding Joe Biden's wealth or financial history. The text focuses on a historical incident involving Martin Van Buren, the Emoluments Clause in relation to President Trump, and social media reactions to those topics.",
+      "url": "https://www.facebook.com/washingtonpost/posts/the-sultan-of-morocco-gifted-martin-van-buren-a-pair-of-lions-but-a-little-known/10157940496452293/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence offer any information regarding the source of Joe Biden's wealth since leaving office in 2017?",
+      "answer": "No, the provided evidence does not offer any information regarding the source of Joe Biden's wealth since leaving office in 2017. The evidence consists solely of social media comments reacting to a claim made by the President regarding mortality rates.",
+      "url": "https://www.facebook.com/cnn/posts/the-presidents-claim-is-not-true-and-its-not-even-close/10161110439786509/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence offer any information regarding the source of Joe Biden's wealth since leaving office in 2017?",
+      "answer": "No, the provided evidence does not offer any information regarding the source of Joe Biden's wealth since leaving office in 2017. The document consists solely of social media comments reacting to an article about fact-checking statements made by Donald Trump.",
+      "url": "https://www.facebook.com/STLPD/posts/a-look-at-some-of-trumps-statements-and-how-they-compare-with-the-facts/10156548138589885/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://enewspaper.latimes.com/infinity/article_share.aspx?guid=7026b3ef-ca45-4562-951d-3812ee8c3541",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/biden-earned-millions-after-leaving-white-house-financial-reports-shows",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/washingtonpost/posts/hunter-biden-facing-increasing-questions-about-his-work-for-a-chinese-investment/10159159469162293/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/magazine/story/2019/08/02/joe-biden-investigation-hunter-brother-hedge-fund-money-2020-campaign-227407",
+      "date": "2019-08-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://money.com/joe-biden-net-worth-2020-democratic-presidential-candidate/",
+      "date": "2019-04-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://obamawhitehouse.archives.gov/the-press-office/2017/01/12/remarks-president-and-vice-president-presentation-medal-freedom-vice",
+      "date": "2017-01-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/politics/la-na-pol-2020-joe-biden-income-20190709-story.html",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/sep/10/joe-biden/fact-checking-joe-bidens-claim-about-his-own-incom/",
+      "date": "2020-09-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnn/posts/the-presidents-claim-is-not-true-and-its-not-even-close/10161110439786509/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/4029news/posts/president-trump-vs-joe-biden-where-they-stand-on-health-economy-more/10158766993547206/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/STLPD/posts/a-look-at-some-of-trumps-statements-and-how-they-compare-with-the-facts/10156548138589885/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.slate.com/articles/news_and_politics/kausfiles/2008/09/listen_obamaphiles.html",
+      "date": "2008-09-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/washingtonpost/posts/the-sultan-of-morocco-gifted-martin-van-buren-a-pair-of-lions-but-a-little-known/10157940496452293/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 13,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "He made $15.6 million in the 2 years after he left office mostly through speaking fees ",
+   "questions": [
+    {
+     "question": "Has Joe Biden made his tax returns public?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://twitter.com/JoeBiden/status/1310998525321383944?s=20",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Where did Joe Biden's earnings come from in 2017-19?",
+     "answers": [
+      {
+       "answer": "But in the two years after he left the White House, Biden made $15.6 million, largely through speaking fees and book profits. He and Jill made $11 million in 2017 and $4.6 million in 2018, and paid $3.7 million in taxes in 2017 and $1.5 million in 2018, financial documents released by Biden’s campaign last year show.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.cnn.com/2020/09/29/politics/joe-biden-tax-returns/index.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210407214102/https://www.usatoday.com/story/news/factcheck/2020/10/21/fact-check-biden-amassed-wealth-through-speaking-and-book-profits/5981003002/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": false,
+   "note": "silver 参照缺此 ID（该文件 100 条中缺 6 条）",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

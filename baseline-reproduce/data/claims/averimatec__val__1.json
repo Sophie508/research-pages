@@ -1,0 +1,594 @@
+{
+ "key": "averimatec/val/1",
+ "dataset": "averimatec",
+ "split": "val",
+ "original_index": 1,
+ "claim": "Images show the renovation of the Cuttack hospital just before PM Modi’s arrival  to meet the victims of the Odisha train accident.",
+ "claim_date": "2023-06-03",
+ "speaker": "@iamyournaveen",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://archive.ph/886yS#selection-357.0-525.16",
+ "images": [
+  {
+   "file": "6787a513e2f02e5f49815c30#CLAIM#0.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787a513e2f02e5f49815c30%23CLAIM%230.jpg"
+  },
+  {
+   "file": "6787a513e2f02e5f49815c30#CLAIM#1.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787a513e2f02e5f49815c30%23CLAIM%231.jpg"
+  }
+ ],
+ "outputs": {
+  "smoke_campaign_mm_20260917_rog_cpu_r2": {
+   "aic_ctu_averimatec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is false. The images provided do not show a hospital in Cuttack being renovated for the Odisha train accident victims. Instead, reverse image search and source analysis reveal that these images show the Morbi Civil Hospital in Gujarat being renovated/painted in November 2022, ahead of PM Modi's visit to meet victims of the Morbi bridge collapse. The claim misattributes old images from a different tragedy and location to a recent event.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What event is the claim associated with?",
+      "answer": "The Odisha train accident.",
+      "url": "https://sg.news.yahoo.com/india-train-crash-live-least-173736107.html",
+      "images": [],
+      "evidence_text": "The claim is associated with the devastating train collision in Odisha."
+     },
+     {
+      "question": "When was the Odisha train accident?",
+      "answer": "The accident occurred on a Friday in June 2023.",
+      "url": "https://sg.news.yahoo.com/india-train-crash-live-least-173736107.html",
+      "images": [],
+      "evidence_text": "The devastating train collision in Odisha on Friday... [Source 1 mentions the accident occurred on a Friday and the claim date is June 2023]."
+     },
+     {
+      "question": "What do the images actually show?",
+      "answer": "The images show workers painting and renovating the Morbi Civil Hospital in Gujarat.",
+      "url": "https://www.newindianexpress.com/india/2022/Nov/01/bridge-collapse-tragedy-morbi-hospital-gets-makeover-ahead-of-pm-modis-visit-2513799.html",
+      "images": [
+       "https://cf-images.assettype.com/TNIE/import/uploads/user/ckeditor_images/article/2022/11/1/morbi_(1).jpg"
+      ],
+      "evidence_text": "The images show workers cleaning and painting a portion of the 300-bed hospital [Morbi Civil Hospital] ahead of Modi's visit [to Morbi] [IMG_1] [Source 25]."
+     },
+     {
+      "question": "When were the images in the claim originally published?",
+      "answer": "The images were published around November 1, 2022.",
+      "url": "https://www.indiatoday.in/india/story/gujarat-morbi-bridge-collapse-pm-modi-visit-civil-hospital-paint-aap-congress-2291698-2022-11-01",
+      "images": [
+       "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202211/morbi_hospital_renovation-sixteen_nine.jpg?VersionId=tRwYFwNDPxkslaCY8djBIbE5cKkUHHZc&size=690:388"
+      ],
+      "evidence_text": "Hospital freshly painted to cover up flaws to prepare for PM Modi's visit to Morbi, say Congress, AAP - India Today [dated November 1, 2022] [Source 13]."
+     },
+     {
+      "question": "Was the hospital in the images located in Cuttack, Odisha?",
+      "answer": "No, the hospital in the images was the Morbi Civil Hospital in Gujarat.",
+      "url": "https://www.newindianexpress.com/india/2022/Nov/01/bridge-collapse-tragedy-morbi-hospital-gets-makeover-ahead-of-pm-modis-visit-2513799.html",
+      "images": [
+       "https://cf-images.assettype.com/TNIE/import/uploads/user/ckeditor_images/article/2022/11/1/morbi_(1).jpg"
+      ],
+      "evidence_text": "The government hospital at Morbi has got a makeover ahead of Prime Minister Narendra Modi's visit to the facility [Source 25]."
+     },
+     {
+      "question": "Was PM Modi visiting Morbi or Cuttack at the time the images were taken?",
+      "answer": "PM Modi was visiting Morbi to meet those injured in the Gujarat bridge collapse.",
+      "url": "https://www.newindianexpress.com/india/2022/Nov/01/bridge-collapse-tragedy-morbi-hospital-gets-makeover-ahead-of-pm-modis-visit-2513799.html",
+      "images": [
+       "https://cf-images.assettype.com/TNIE/import/uploads/user/ckeditor_images/article/2022/11/1/morbi_(1).jpg"
+      ],
+      "evidence_text": "The government hospital at Morbi has got a makeover ahead of Prime Minister Narendra Modi's visit to the facility to meet those injured in Sunday's suspension bridge collapse [Source 25]."
+     },
+     {
+      "question": "Did the images depict renovation for the Odisha train accident victims?",
+      "answer": "No, the images depicted renovation for the Morbi bridge collapse victims.",
+      "url": "https://www.newindianexpress.com/india/2022/Nov/01/bridge-collapse-tragedy-morbi-hospital-gets-makeover-ahead-of-pm-modis-visit-2513799.html",
+      "images": [
+       "https://cf-images.assettype.com/TNIE/import/uploads/user/ckeditor_images/article/2022/11/1/morbi_(1).jpg"
+      ],
+      "evidence_text": "The images show renovation for the Morbi hospital following the bridge collapse, not for the Odisha train accident [Source 25]."
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/mansukhmandviya/posts/pm-narendra-modi-ji-visits-the-balasore-train-accident-site-odishahe-took-stock-/812772396879117/",
+      "date": "2016-02-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/firstpostin/posts/fpreels-indian-pmmodi-visited-the-site-of-the-triple-train-crash-in-odishas-bala/652101103617547/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/CtBxbfJMHfN/",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Timesnow/posts/prime-minister-narendra-modi-after-meeting-the-survivors-of-the-odisha-train-tra/10168468079850311/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://sg.news.yahoo.com/india-train-crash-live-least-173736107.html",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.indiancurrents.org/article-windowdressing-cartoon-characters-p-a-chacko-1430.php",
+      "date": "2022-11-21",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://medicaldialogues.in/news/health/hospital-diagnostics/gujarat-morbi-hospital-gets-revamp-ahead-of-pm-modis-visit-101553",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.indiatoday.in/india/story/gujarat-morbi-bridge-collapse-pm-modi-visit-civil-hospital-paint-aap-congress-2291698-2022-11-01",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://newsable.asianetnews.com/india/gujarat-hospital-repaired-painted-ahead-of-pm-modi-visit-to-meet-morbi-tragedy-injured-congress-shares-pic-gcw-rknhc5",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/IndiaToday/posts/the-aam-aadmi-party-aap-and-the-congress-slammed-prime-minister-modi-and-said-th/526090769554476/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/genZBharatTV/posts/congress-leader-atul-londhe-patil-targets-pm-modi-over-satya-niketan-tragedycong/1047483278052996/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/IndiaToday/posts/the-aam-aadmi-party-aap-and-the-congress-slammed-prime-minister-modi-and-said-th/526090769554476/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/sarkaridoctor/posts/when-a-picture-says-more-than-a-thousand-words-ever-could-morbi-civil-hospital-b/483228480503690/",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.businesstoday.in/bt-tv/video/morbi-hospital-facelift-fuels-oppn-attack-351597-2022-11-02",
+      "date": "2022-11-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.newindianexpress.com/india/2022/Nov/01/bridge-collapse-tragedy-morbi-hospital-gets-makeover-ahead-of-pm-modis-visit-2513799.html",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     }
+    ],
+    "stats": {
+     "n_text_chunks": 7,
+     "n_image_sources": 10,
+     "lens_skipped_no_public_url": 0,
+     "label_confidences": [
+      0.9204557374680307,
+      0.016858734900527958,
+      0.04582679273091347,
+      0.016858734900527958
+     ],
+     "llm_verdict_field": "Refuted"
+    },
+    "error": null,
+    "n_evidence_statements": 7
+   },
+   "villain": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is factually incorrect due to a complete misattribution of context. The images provided do not show a hospital in Cuttack, Odisha, during the June 2023 Odisha train accident. Instead, the visual evidence—specifically the presence of Gujarati text on the hospital signage (such as 'માર્ગદર્શક વોર્ડ')—proves the location is in Gujarat. The footage actually depicts the controversial overnight ''makeover' (cleaning, painting, and tiling) at the Morbi Civil Hospital in Gujarat following the Morbi suspension bridge collapse in November 2022. The claimant has taken real footage from one disaster and falsely applied it to a different tragedy to create a deceptive narrative.",
+    "evidence_repr": "answer_only",
+    "qa_pairs": [
+     {
+      "question": "What event and location does the claim associate with the images of hospital renovation?",
+      "answer": "The claim associates the images with the renovation of a hospital in Cuttack, Odisha, following the Odisha train accident in June 2023.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What does the visual evidence in the images reveal about the actual location?",
+      "answer": "The signage in the first image contains text in Gujarati (e.g., 'માર્ગદર્શક વોર્ડ'), which indicates the location is in Gujarat, not Odisha.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the true context of the hospital renovation shown in the images?",
+      "answer": "The images depict overnight cleaning, painting, and tiling work being conducted at the Morbi Civil Hospital in Gujarat following the Morbi suspension bridge collapse in November 2022.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence linking the specific renovation shown in the images to the Odisha train accident?",
+      "answer": "No. While PM Modi did visit Odisha to meet train accident victims in June 2023, there is no documented evidence or news reports of such renovation work occurring at a Cuttack hospital during that period; the visual narrative belongs exclusively to the Morbi disaster.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the claim misrepresent the facts?",
+      "answer": "The claim commits a ''misattribution of context' by taking real footage of the controversial hospital ''makeover' in Morbi, Gujarat (November 2022) and falsely applying it to the Odisha train accident (June 2023) to create a deceptive narrative.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the language on the hospital signage disprove the claim's location?",
+      "answer": "The signage in the image features Gujarati text (e.g., 'માર્ગદર્શક વોર્ડ'), which confirms the location is in Gujarat, whereas the claim erroneously places the scene in Cuttack, Odisha, where Odia would be the primary language.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the relationship between the timeline of the claim and the actual event in the images?",
+      "answer": "The claim is dated June 2023 (referencing the Odisha train accident), but the visual evidence of the hospital ''makeover' corresponds to news reports from November 2022 regarding the Morbi bridge disaster.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any documented evidence of hospital renovation in Cuttack during the PM's June 2023 visit?",
+      "answer": "No. While PM Modi did visit Odisha to meet accident victims in June 2023, there is no evidence or reporting of urgent overnight renovation/painting work at a Cuttack hospital during that period; that specific narrative belongs to the Morbi event.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the definitive ''smoking gun' that proves the claim is factually incorrect?",
+      "answer": "The combination of the Gujarati text on the hospital walls and the documented news reports from November 2022 regarding the Morbi hospital renovation proves that the images are not from Cuttack, Odisha, nor are they related to the Odisha train accident.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the primary fallacy in the claimant's post?",
+      "answer": "The claim commits a ''misattribution of context' by taking real footage of a controversial hospital ''makeover' in Morbi, Gujarat (November 2022) and falsely recontextualizing it to fit the timeline and location of the Odisha train accident (June 2023).",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.instagram.com/p/CtBxbfJMHfN/",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/mansukhmandviya/posts/pm-narendra-modi-ji-visits-the-balasore-train-accident-site-odishahe-took-stock-/812772396879117/",
+      "date": "2016-02-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thestatesman.com/india/pm-modi-to-visit-train-accident-site-in-odisha-today-meet-injured-in-cuttack-hospital-1503187017.html",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://sg.news.yahoo.com/india-train-crash-live-least-173736107.html",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/2023/6/3/23747817/india-deadly-train-collision-crash",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.indiancurrents.org/article-windowdressing-cartoon-characters-p-a-chacko-1430.php",
+      "date": "2022-11-21",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://medicaldialogues.in/news/health/hospital-diagnostics/gujarat-morbi-hospital-gets-revamp-ahead-of-pm-modis-visit-101553",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.indiatoday.in/india/story/gujarat-morbi-bridge-collapse-pm-modi-visit-civil-hospital-paint-aap-congress-2291698-2022-11-01",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://newsable.asianetnews.com/india/gujarat-hospital-repaired-painted-ahead-of-pm-modi-visit-to-meet-morbi-tragedy-injured-congress-shares-pic-gcw-rknhc5",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/IndiaToday/posts/the-aam-aadmi-party-aap-and-the-congress-slammed-prime-minister-modi-and-said-th/526090769554476/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.hindustantimes.com/india-news/morbi-hospital-gets-a-facelift-hours-before-pm-s-visit-101667327831403.html",
+      "date": "2022-11-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/deccanherald/posts/bjp-candidate-is-leading-in-morbi-where-bridge-collapse-left-over-130-dead-as-of/10162285549093128/",
+      "date": "2022-12-08",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.freepressjournal.in/india/ahead-of-pm-modis-visit-morbi-hospital-renovated-congress-calls-it-event-of-tragedy",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "http://49.50.107.91/aiims/20.127.22.194_84/Home/DepartmentContent8c81.html?category=DEPARTMENTS&subcategory=Urology&ID=171",
+      "date": "2015-07-21",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.tribuneindia.com/news/archive/ludhiana/disabled-get-shoddy-treatment-at-hospital-557978/",
+      "date": "2018-03-15",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/hindustantimes/posts/gujarat-prime-minister-narendra-modi-met-the-injured-admitted-to-morbi-civil-hos/10159935310338580/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://indianexpress.com/article/cities/delhi/with-2-new-buildings-for-its-outpatient-and-inpatient-depts-lady-hardinge-medical-college-gets-an-infra-boost-7908761/",
+      "date": "2022-05-09",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/genZBharatTV/posts/congress-leader-atul-londhe-patil-targets-pm-modi-over-satya-niketan-tragedycong/1047483278052996/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/sarkaridoctor/posts/when-a-picture-says-more-than-a-thousand-words-ever-could-morbi-civil-hospital-b/483228480503690/",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.businesstoday.in/bt-tv/video/morbi-hospital-facelift-fuels-oppn-attack-351597-2022-11-02",
+      "date": "2022-11-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.newindianexpress.com/india/2022/Nov/01/bridge-collapse-tragedy-morbi-hospital-gets-makeover-ahead-of-pm-modis-visit-2513799.html",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://joudiinternationalleather.com/equipment/",
+      "date": "2015-01-24",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://indianexpress.com/article/cities/ahmedabad/streets-deserted-as-morbi-mourns-the-dead-shut-first-time-since-1979-floods-8241513/",
+      "date": "2022-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/DrNiazAhmedMemon/",
+      "date": "2022-08-26",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/thedawoodibohras/posts/the-kandivali-community-kitchen-served-over-73000-meals-during-lockdown-phase1-a/1312077159138744/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/p/Bahar-Ali-61561186322907/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/SRI.SATHYA.SAI.BABA/posts/bhagavan-baba-cutting-the-cake-celebrating-91-years-of-love-grace-divine-presenc/10154702674076119/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/p/Afghan-Taqat-Road-Building-and-Construction-Company-61581360562676/",
+      "date": "2000-01-06",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61569354413671/videos/iqbalchargahouseandnanbakers/1012931794455041/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100083800742016/posts/aj-hum-na-apne-rabbirs-ka-lea-mud-house-bna-dea-petsvlogminizooreel/860290273440990/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.indiamart.com/proddetail/warehouse-deep-cleaning-services-2856286854512.html",
+      "date": "2021-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://timescontent.timesofindia.com/photo/feature/Park/684783",
+      "date": "2021-07-11",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/mayurghadigaonkar11/?locale=gl_ES",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/p/Uday-construction-100063883634975/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.scmp.com/news/asia/south-asia/article/3222823/trains-derail-india-killing-least-13-and-trapping-hundreds",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://m.economictimes.com/news/india/odisha-train-accident-pm-modi-to-visit-site-hospital/articleshow/100720833.cms",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://www.thestatesman.com/india/pm-modi-to-visit-train-accident-site-in-odisha-today-meet-injured-in-cuttack-hospital-1503187017.html",
+      "date": "2023-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     }
+    ],
+    "stats": {
+     "n_a1": 10,
+     "n_a2": 10,
+     "n_a3": 3,
+     "lens_skipped_no_public_url": 0,
+     "n_qa_generated": 20,
+     "n_qa_selected": 10,
+     "image_embedder": "_Lazy"
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The claim is successfully refuted because evidence shows the images were taken in November, 2022 in preparation for a Modi visit after a bridge collapse, whereas the Odisha train incident did not happen until June of 2023.",
+   "questions": [
+    {
+     "question": "When was this claim made?",
+     "answers": [
+      {
+       "answer": "03/06/2023",
+       "answer_type": "Extractive",
+       "source_url": "Metadata",
+       "source_medium": "Metadata"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Metadata"
+    },
+    {
+     "question": "When were these images first reported in a news article? ",
+     "answers": [
+      {
+       "answer": "01 Nov 2022",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20230609181026/https://www.outlookindia.com/national/aap-congress-slams-pm-modi-as-morbi-civil-hospital-paints-to-hide-flaws-ahead-of-his-visit-news-233848",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [
+      "6787a513e2f02e5f49815c30#INPUT#1#0.jpg",
+      "6787a513e2f02e5f49815c30#INPUT#1#1.jpg"
+     ],
+     "answer_method": "Image-search"
+    },
+    {
+     "question": "What was the article about? ",
+     "answers": [
+      {
+       "answer": "The article is about the painting and cleaning of a hospital in preparation for PM Modi's visit, following the collapse of a suspension bridge in Gujarat's Morbi district, which resulted in the deaths of more than 130 people.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20230609181026/https://www.outlookindia.com/national/aap-congress-slams-pm-modi-as-morbi-civil-hospital-paints-to-hide-flaws-ahead-of-his-visit-news-233848",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    },
+    {
+     "question": "When did the Odisha train accident take place? ",
+     "answers": [
+      {
+       "answer": " The incident took place on June 2nd, 2023. ",
+       "answer_type": "Abstractive",
+       "source_url": "https://www.thehindu.com/news/national/other-states/odisha-train-accident-ashwini-vaishnaw-naveen-patnaik-and-mamata-banerjee-visit-site/article66927101.ece",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20230609035730/https://newschecker.in/fact-check/politics/odisha-train-accident-images-of-morbi-hospital-being-refurbished-shared-as-cuttack-hospital-renovation-ahead-of-pm-modis-visit",
+   "source": "datasets/averimatec/val.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The images showing hospital renovation are actually from October 2022 and depict the Morbi Civil Hospital in Gujarat, not a hospital in Cuttack, following a suspension bridge collapse in Morbi, Gujarat, on October 30, 2022; a reverse image search linked the viral photographs to an Outlook report from November 1, 2022, regarding renovation at Morbi Civil Hospital.",
+     "support_span": "Images from 2022, showing renovation work at Morbi hospital ahead of the Prime Minister’s visit. | A reverse image search on the viral photographs led us to a report by Outlook [https://www.outlookindia.com/national/aap-congress-slams-pm-modi-as-morbi-civil-hospital-paints-to-hide-flaws-ahead-of-his-visit-news-233848], dated November 1, 2022, titled ‘Gujarat: Painting, Cleaning Before PM Modi’s Visit As Hospital Tries To Hide Facts.’ | A suspension bridge collapsed in Morbi district of Gujarat on October 30, 2022, leading to the death of at least 130 people. PM Modi had visited the victims injured in the collapse at the government hospital in Morbi. Ahead of his visit, the hospital was reportedly revamped. The viral images are from the said incident."
+    }
+   ],
+   "justification": "The claim that the images show the renovation of a Cuttack hospital following the Odisha train accident is factually incorrect and uses the images out of context. While the images (CLAIM_IMG_0) do depict renovation work being performed in a hospital setting, evidence shows these photographs are actually from October 2022 and depict the Morbi Civil Hospital in Gujarat. The renovation occurred following a suspension bridge collapse in Morbi on October 30, 2022, ahead of Prime Minister Modi's visit to the injured victims. A reverse image search confirms that these viral photographs were previously reported by Outlook on November 1, 2022, in relation to the Morbi incident, not the Odisha train accident.",
+   "article_url": "https://web.archive.org/web/20230609035730/https://newschecker.in/fact-check/politics/odisha-train-accident-images-of-morbi-hospital-being-refurbished-shared-as-cuttack-hospital-renovation-ahead-of-pm-modis-visit",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t2_mm_merge_val_t3_n80_gemma4_26b_20260622_163428.json"
+  }
+ }
+}

@@ -1,0 +1,227 @@
+{
+ "key": "averitec/dev/92",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 92,
+ "claim": "US Sen Kamala Harris failed the bar exam  (qualifying examination for lawyers)on her first attempt",
+ "claim_date": "2020-10-14",
+ "speaker": null,
+ "reporting_source": "Facebook user post",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Conflicting Evidence/Cherrypicking",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"US Sen Kamala Harris failed the bar exam (qualifying examination for lawyers) on her first attempt,\" we evaluate the provided question-answer pairs:\n\n1.  **Analyze the Evidence:**\n    *   **Q1 and Q2** provide affirmative answers, stating that she did fail on her first attempt and that social media scrutiny has highlighted this fact.\n    *   **Q3 through Q9** provide negative answers, stating that the provided evidence (various texts, Facebook posts, Senate transcripts, etc.) does **not** contain information regarding her bar exam performance.\n\n2.  **Identify Conflicts:**\n    *   There is a direct contradiction within the provided evidence. Q1 and Q2 claim the information is present and confirms the claim, while Q3, Q4, Q5, Q6, Q7, Q8, and Q9 explicitly state that the evidence does *not* contain information regarding her bar exam performance.\n\n3.  **Evaluate the Claim against the Evidence:**\n    *   Because the evidence provided is internally inconsistent—with some parts claiming the information is present and others stating the information is entirely absent from the text—the evidence cannot be used to definitively support or refute the claim. This pattern of contradictory information within the dataset is the definition of conflicting evidence.\n\n**Conclusion:** The presence of answers that both confirm the claim and deny the existence of the information in the evidence constitutes conflicting information.\n\n**Verdict: Conflicting Evidence/Cherrypicking**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Kamala Harris fail the bar exam on her first attempt?",
+      "answer": "Yes, according to the evidence provided, Kamala Harris is among the notable figures who failed the bar exam on their initial attempts.",
+      "url": "https://jdadvising.com/famous-people-who-failed-the-bar-exam/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Kamala Harris fail the bar exam on her first attempt?",
+      "answer": "Yes, Kamala Harris failed the bar exam on her first attempt. According to the evidence, social media scrutiny has highlighted her initial failure to pass the exam, though she subsequently retook it and achieved significant professional success.",
+      "url": "https://www.americanbar.org/groups/law_students/resources/student-lawyer/bar-admissions-and-exam/success-after-failing-the-bar-exam/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence provide any information regarding whether Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not contain any information regarding whether Kamala Harris failed the bar exam on her first attempt. The text focuses on her professional experience as a district attorney and attorney general, her policy achievements, and various political controversies.",
+      "url": "https://www.latimes.com/politics/la-pol-ca-senate-harris-milestones-20160706-snap-htmlstory.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence address the claim that Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not address the claim that Kamala Harris failed the bar exam on her first attempt. The text focuses on political scrutiny regarding her record as a prosecutor and attorney general, her policy choices, and the polarized reactions to her candidacy, but it contains no mention of her performance on the bar exam.",
+      "url": "https://www.facebook.com/democracynow/posts/as-senator-kamala-harris-rises-in-the-early-presidential-polls-she-is-facing-inc/10157377024553279/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that US Senator Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not support the claim that US Senator Kamala Harris failed the bar exam on her first attempt. The text focuses on her selection as Joe Biden's running mate, her political background as a former prosecutor and member of the Senate Judiciary Committee, and various political criticisms, but it contains no information regarding her performance on any bar examination.",
+      "url": "https://www.facebook.com/heathercoxrichardson/posts/2382452275232158",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain any information regarding whether Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not contain any information regarding whether Kamala Harris failed the bar exam on her first attempt. The text focuses on her professional achievements, her role as California's Attorney General, her advocacy work, and public reactions to her career.",
+      "url": "https://www.facebook.com/michaelericdyson/posts/kamala-harris-lawyer-and-senator-clearly-took-shirley-chisholms-words-to-heart-s/2020260588297968/?locale=zh_CN",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not support the claim. The evidence consists of a Facebook post from ABC News regarding Kamala Harris's 2020 presidential campaign announcement and does not contain any information regarding her performance on the bar exam.",
+      "url": "https://www.facebook.com/ABCNews/posts/in-my-whole-life-ive-only-had-one-client-the-peopledemocratic-sen-kamala-harris-/10158082175873812/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided evidence from the Senate Judiciary Committee's confirmation hearings contain information regarding whether US Sen Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not contain information regarding whether US Sen Kamala Harris failed the bar exam on her first attempt. The evidence consists of transcripts and records from Senate Judiciary Committee confirmation hearings held in 2013 for various federal appointments (such as Associate Attorney General and various District Judges), but it does not mention Kamala Harris or her bar exam results.",
+      "url": "https://www.govinfo.gov/content/pkg/CHRG-113shrg24005/html/CHRG-113shrg24005.htm",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence address whether Kamala Harris failed the bar exam on her first attempt?",
+      "answer": "No, the provided evidence does not address whether Kamala Harris failed the bar exam on her first attempt. The text focuses on political arguments regarding the preservation of democracy and support for Joe Biden, and contains no information regarding Kamala Harris's legal qualifications or bar exam history.",
+      "url": "https://www.facebook.com/cnn/videos/charlamagne-tha-god-i-definitely-dont-buy-her-answer-on-sen-warren-claiming-she-/313615092899803/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.americanbar.org/groups/law_students/resources/student-lawyer/bar-admissions-and-exam/success-after-failing-the-bar-exam/",
+      "date": "2017-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/michaelericdyson/posts/kamala-harris-lawyer-and-senator-clearly-took-shirley-chisholms-words-to-heart-s/2020260588297968/?locale=zh_CN",
+      "date": "2018-03-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABCNews/posts/in-my-whole-life-ive-only-had-one-client-the-peopledemocratic-sen-kamala-harris-/10158082175873812/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/politics/la-pol-ca-senate-harris-milestones-20160706-snap-htmlstory.html",
+      "date": "2016-07-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://jdadvising.com/famous-people-who-failed-the-bar-exam/",
+      "date": "2015-09-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/democracynow/posts/as-senator-kamala-harris-rises-in-the-early-presidential-polls-she-is-facing-inc/10157377024553279/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CHRG-113shrg24005/html/CHRG-113shrg24005.htm",
+      "date": "2013-06-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnn/videos/charlamagne-tha-god-i-definitely-dont-buy-her-answer-on-sen-warren-claiming-she-/313615092899803/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/heathercoxrichardson/posts/2382452275232158",
+      "date": "2020-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 9,
+     "n_top_k": 9,
+     "n_qa_after_rewrite": 9
+    },
+    "error": null,
+    "n_evidence_statements": 9
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "Answer is supported by the source - that U.S. Sen Kamala Harris did fail her first bar exam. ",
+   "questions": [
+    {
+     "question": "Is it common to fail the bar exam on a first attempt?",
+     "answers": [
+      {
+       "answer": "California’s pass rate has generally hovered around 50%",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201125172649/https://www.latimes.com/archives/la-xpm-1985-01-20-mn-10438-story.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did Kamala harris pass her bar exam eventually?",
+     "answers": [
+      {
+       "answer": "Harris failed the California bar exam on her first try, but passed on her second and in 1990 became\na deputy district attorney in Alameda County,",
+       "answer_type": "Extractive",
+       "source_url": "https://www.davidgarrow.com/wp-content/uploads/2020/08/DJGKamalaHarrisSpectator150820.pdf",
+       "source_medium": "PDF"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210416111205/https://www.usatoday.com/story/news/factcheck/2020/10/18/fact-check-claim-harris-barrett-legal-backgrounds-true/3669109001/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Kamala Harris failed the bar exam on her first attempt and later passed the bar exam.",
+     "support_span": "It's true that Harris failed the bar exam on her first attempt, per The New York Times | She later passed."
+    },
+    {
+     "statement": "The California bar exam is known for having a low pass rate, often hovering around 50%, and recent statistics show that the pass rate for first-time test takers on the California Bar Examination varies, with 40% passing in February 2020 and 60% passing in July 2019.",
+     "support_span": "California has a notoriously difficult bar exam. In 1985, the Los Angeles Times wrote that its pass rate \"has generally hovered around 50%.\" | In February, just 40% of \"first-timers\" passed, per a report by the State Bar of California. In July 2019, around 60% of \"first-timers\" passed, per another report"
+    },
+    {
+     "statement": "Harris graduated from the University of California, Hastings College of the Law in 1989.",
+     "support_span": "Harris graduated from the University of California, Hastings College of the Law in 1989."
+    }
+   ],
+   "justification": "The evidence directly supports the claim that Kamala Harris failed the bar exam on her first attempt, as cited by The New York Times. The evidence further notes that she subsequently passed the exam and graduated from the University of California, Hastings College of the Law in 1989. Contextual information is provided regarding the difficulty of the California bar exam, noting that pass rates for first-time takers can be low, often ranging between 40% and 60%.",
+   "article_url": "https://web.archive.org/web/20210416111205/https://www.usatoday.com/story/news/factcheck/2020/10/18/fact-check-claim-harris-barrett-legal-backgrounds-true/3669109001/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

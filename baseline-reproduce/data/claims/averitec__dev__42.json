@@ -1,0 +1,516 @@
+{
+ "key": "averitec/dev/42",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 42,
+ "claim": "An 'anti-Black Lives Matter' flag replaced the American flag behind President Trump during a Waukesha campaign rally.",
+ "claim_date": "2020-10-24",
+ "speaker": "Jeff Sharlet",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://web.archive.org/web/20210529130838/https://twitter.com/JeffSharlet/status/1320189238214799360",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided evidence through the following steps:\n\n1.  **Analyze the Claim:** The claim asserts that an \"anti-Black Lives Matter\" flag replaced the American flag behind President Trump during a campaign rally in Waukesha.\n2.  **Examine the Evidence (Q&A Pairs):**\n    *   **Q1, Q2, Q7, Q8, Q9, and Q10** explicitly state that the provided evidence contains no mention, no confirmation, and no fact-checking entries regarding this specific incident.\n    *   **Q3** notes that while there was an incident involving an upside-down American flag in Waukesha County, it does not relate to the \"anti-Black Lives Matter\" flag claim.\n    *   **Q4** clarifies that while there were reports of political vandalism in the area, they do not mention a campaign rally or the specific flag replacement described in the claim.\n    *   **Q10** provides a crucial temporal context, noting that the document's scope (late 2015 to August 2018) likely predates the event in question, explaining the absence of information.\n3.  **Synthesize Findings:** The evidence is searched extensively across multiple question-answer pairs. The consensus across all relevant pairs is that the provided text does not contain any information that can either confirm or refute the specific occurrence of an \"anti-Black Lives Matter\" flag replacing the American flag behind President Trump in Waukesha.\n\n**Conclusion:** Since the evidence does not provide any information to support or refute the claim, the correct label is \"Not Enough Evidence.\"\n\n**Label: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Was an 'anti-Black Lives Matter' flag used to replace the American flag behind President Trump during a campaign rally in Waukesha?",
+      "answer": "Based on the provided evidence, there is no mention of a claim regarding an 'anti-Black Lives Matter' flag replacing the American flag behind President Trump during a Waukesha campaign rally. The document lists several other debunked rumors and misinformation topics, but it does not address this specific claim.",
+      "url": "https://abc7ny.com/post/not-real-news-a-look-at-what-didnt-happen-this-week/6257686/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did an 'anti-Black Lives Matter' flag replace the American flag behind President Trump during a Waukesha campaign rally?",
+      "answer": "Based on the provided evidence, there is no mention of an \"anti-Black Lives Matter\" flag replacing the American flag behind President Trump during a Waukesha campaign rally. \n\nThe evidence describes a different incident in West Allis, Wisconsin, where a group of protesters known as the “F*** Your Flag Tour” laid a muddied American flag on the ground and stomped on it as a protest against Black oppression and the political system.",
+      "url": "https://www.foxnews.com/politics/flag-stomping-protesters-fueling-tensions-at-trump-other-events",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did an 'anti-Black Lives Matter' flag replace the American flag behind President Trump during a Waukesha campaign rally?",
+      "answer": "Based on the provided evidence, there is no information to confirm or deny whether an \"anti-Black Lives Matter\" flag replaced the American flag behind President Trump during a Waukesha campaign rally. The evidence only discusses a situation involving an upside-down American flag at a condominium in the Village of Lannon in Waukesha County.",
+      "url": "https://www.wisn.com/article/upside-down-american-flag-display-upsetting-neighbors-in-waukesha-county/8597967",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the replacement of the American flag with an 'anti-Black Lives Matter' flag at the Waukesha campaign rally part of the reported incidents of political vandalism in the area?",
+      "answer": "Based on the provided evidence, it is not possible to determine if the replacement of the flag was part of the reported incidents of political vandalism. The evidence only states that two men from opposing political affiliations in Waukesha County reported vandalism involving political signs and flags on their private property, but it does not mention a campaign rally or the specific incident involving the American and \"anti-Black Lives Matter\" flags.",
+      "url": "https://www.fox6now.com/video/842874",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What events occurred in Portland, Oregon, on August 22, 2020?",
+      "answer": "On August 22, 2020, right-wing groups, including the Proud Boys, gathered in downtown Portland, Oregon, for the second consecutive Saturday. This gathering led to confrontations and violence with counter-protesters, such as Black Lives Matter supporters.",
+      "url": "https://www.facebook.com/gettyimages/posts/trump-protesters-carry-flags-at-a-rally-between-the-alt-right-proud-boy-and-blac/10157289158866297/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the connection between the \"Blue Line\" flags being burned in Winston-Salem and the flag used during President Trump's rally in Waukesha?",
+      "answer": "Based on the provided evidence, there is no connection mentioned between the \"Blue Line\" flags being burned in Winston-Salem and the flag used during President Trump's rally in Waukesha. The evidence focuses exclusively on the incident in Winston-Salem involving the burning of \"Blue Line\" flags outside a bar.",
+      "url": "https://www.facebook.com/groups/278850432548581/posts/518584471908508/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was an 'anti-Black Lives Matter' flag used behind President Trump during his campaign rally in Waukesha?",
+      "answer": "Based on the evidence provided, there is no mention of an \"anti-Black Lives Matter\" flag being used behind President Trump during his campaign rally in Waukesha. The text focuses on the content of his speech, the Republican speakers present, the reasons for attendee support, and the criticisms from the Waukesha County Democratic Party Chairman.",
+      "url": "https://www.gmtoday.com/news/trump-motivates-voters-at-rally-in-waukesha/article_2892d1e4-1672-11eb-ad98-63985d599b31.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the political landscape and messaging in the Waukesha area relate to the claim regarding the flag used during President Trump's rally?",
+      "answer": "Based on the provided evidence, there is no direct mention of an \"anti-Black Lives Matter\" flag being used during a campaign rally in Waukesha. Therefore, the evidence does not confirm the specific claim regarding the flag.\n\nHowever, the evidence provides context regarding the political landscape and messaging in the Waukesha area that relates to the themes mentioned in the claim:\n\n*   **Political Alignment:** Waukesha is part of the \"WOW\" counties, which serve as a \"reliable Republican stronghold\" and a \"red firewall\" for the GOP.\n*   **Messaging and Themes:** The evidence notes that Republican leaders use \"law and order\" messaging and highlight \"perceived threats of the 'radical left'\" to consolidate their base. This messaging specifically targets residents concerned about \"civil unrest and police funding,\" which are themes often associated with the Black Lives Matter movement.\n*   **Demographic Polarization:** The area is characterized by \"extreme racial segregation and political polarization\" in contrast to the more diverse, Democratic-leaning Milwaukee.\n\nIn summary, while the evidence does not verify the incident with the flag, it describes a political environment in Waukesha defined by intense polarization and messaging centered on \"law and order\" and opposition to the \"radical left.\"",
+      "url": "https://www.newyorker.com/news/campaign-chronicles/will-trumps-law-and-order-message-work-in-wisconsins-white-suburbs",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided confirm whether an 'anti-Black Lives Matter' flag was used during the Waukesha campaign rally?",
+      "answer": "No, the evidence provided does not confirm whether an 'anti-Black Lives Matter' flag was used during the Waukesha campaign rally. The provided text focuses on Vice President Mike Pence's speeches regarding Supreme Court nominees, COVID-19, and political criticisms of Joe Biden, but it contains no mention of flags or the specific claim regarding an 'anti-Black Lives Matter' flag.",
+      "url": "https://www.pbs.org/newshour/politics/watch-live-pence-holds-rally-in-waukesha-wisconsin",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided document contain any information or fact-checking entries regarding the claim that an 'anti-Black Lives Matter' flag was used behind President Trump during a Waukesha campaign rally?",
+      "answer": "No, the provided document does not contain any information or fact-checking entries regarding the claim that an 'anti-Black Lives Matter' flag was used behind President Trump during a Waukesha campaign rally. The evidence describes the document as a collection of fact-checking entries compiled between late 2015 and August 2018, whereas the claim involves an event related to President Trump's campaign rallies which would fall outside of that specific chronological scope.",
+      "url": "https://ballotpedia.org/Federal_fact_checks",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.pbs.org/newshour/politics/watch-live-pence-holds-rally-in-waukesha-wisconsin",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/gettyimages/posts/trump-protesters-carry-flags-at-a-rally-between-the-alt-right-proud-boy-and-blac/10157289158866297/",
+      "date": "2020-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newyorker.com/news/campaign-chronicles/will-trumps-law-and-order-message-work-in-wisconsins-white-suburbs",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wisn.com/article/upside-down-american-flag-display-upsetting-neighbors-in-waukesha-county/8597967",
+      "date": "2017-01-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox6now.com/video/842874",
+      "date": "2020-08-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gmtoday.com/news/trump-motivates-voters-at-rally-in-waukesha/article_2892d1e4-1672-11eb-ad98-63985d599b31.html",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.foxnews.com/politics/flag-stomping-protesters-fueling-tensions-at-trump-other-events",
+      "date": "2016-04-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/theoregonian/posts/icymi-president-donald-trump-said-during-a-briefing-on-coronavirus-thursday-that/10157996931536973/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wgal8/posts/a-17-year-old-accused-of-killing-two-protesters-days-after-jacob-blake-was-shot-/10158912987505956/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.pnhp.org/news/categories/Articles%20of%20Interest/",
+      "date": "2006-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/BrianKempGA/posts/if-career-politician-casey-cagle-wants-to-rehash-the-past-thats-fine-i-have-noth/10155671153121275/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox11la/posts/a-video-posted-to-social-media-showed-the-moment-president-trump-supporters-and-/10163999882355553/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/the-factcheck-wire/page/268/",
+      "date": "2016-07-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abc7ny.com/post/not-real-news-a-look-at-what-didnt-happen-this-week/6257686/",
+      "date": "2020-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/Federal_fact_checks",
+      "date": "2016-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.voanews.com/a/fact-check-trump-s-epic-speech-is-laced-with-fabrication/4811557.html",
+      "date": "2019-03-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/page/223/",
+      "date": "2018-03-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nprmorningedition/posts/americans-are-under-a-lot-of-stress-given-the-weight-of-a-global-pandemic-an-ens/3775942469087031/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldHerald/posts/the-post-by-trevor-jones-the-head-of-history-nebraska-which-featured-a-photo-of-/10157629982474630/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/318595405472890/posts/479995442666218/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/278850432548581/posts/518584471908508/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/343218122369244/posts/3332046013486425/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 22,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that during a campaign rally in Waukesha, Wisconsin, on or around October 24, 2020, an \"anti-Black Lives Matter\" flag was used to replace the American flag behind President Donald Trump.\n2. The provided evidence for all five queries (Q1 through Q5) is \"No evidence.\" This means there is no documentation, reporting, or factual data provided in the evidence set to confirm the presence of such a flag, the context of the rally's stage design, the origin of the claim, or any verified reporting on the matter.\n3. There are significant gaps in the evidence. While the claim is specific regarding the event (Waukesha rally), the date (October 2020), and the subject (flag replacement), the evidence provided fails to offer any information—neither supporting nor refuting the claim.\n4. Because the evidence provided is entirely empty (\"No evidence\" for every query), it is impossible to determine the truthfulness of the claim. One cannot refute a claim without evidence that it didn't happen, nor support it without evidence that it did.\n\nLabel: Not Enough Evidence",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did an 'anti-Black Lives Matter' flag replace the American flag during President Trump's rally in Waukesha?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the actual context of the visual elements behind President Trump at the Waukesha rally?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who made the claim regarding the flag replacement at the Waukesha rally?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any verified reporting to support the claim that an anti-BLM flag was used at the Waukesha event?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "When was the claim regarding the flag at the Waukesha rally made?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/gettyimages/posts/trump-protesters-carry-flags-at-a-rally-between-the-alt-right-proud-boy-and-blac/10157289158866297/",
+      "date": "2020-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newyorker.com/news/campaign-chronicles/will-trumps-law-and-order-message-work-in-wisconsins-white-suburbs",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.milwaukeeindependent.com/articles/rally-homeland-security-office-seeks-end-indefinite-imprisonment-families/",
+      "date": "2018-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox6.amy.dupont/posts/icymi-sheboygan-family-gets-hate-mail-over-president-trump-re-election-flag-fox6/2220163078084654/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/magazine/2020/09/17/trump-suburbs-wisconsin-415148",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://wisconsinwatch.org/2020/04/coronavirus-lockdown-protesters-wisconsin-capitol/",
+      "date": "2020-04-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gmtoday.com/news/trump-motivates-voters-at-rally-in-waukesha/article_2892d1e4-1672-11eb-ad98-63985d599b31.html",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox6now.com/news/protesters-make-their-voices-heard-in-hours-leading-up-to-trump-rally-in-waukesha",
+      "date": "2016-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TomTiffanyWI/posts/we-need-all-the-help-we-can-get-to-send-president-trump-the-ally-he-needs-could-/190000759050984/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/2020/1/15/21066935/trump-milwaukee-rally-media-sanitizing-npr",
+      "date": "2020-01-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox6now.com/video/853138",
+      "date": "2020-09-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vanityfair.com/news/2020/06/decoding-the-grotesque-symbolism-of-trumps-tulsa-rally?srsltid=AU7gw4WpNQZroX6GWPPANrTm7vYYfmIHoYhyFaYLodQQaL9yLy36oaOQ",
+      "date": "2020-06-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/tmj4/posts/organizers-of-a-rally-against-wisconsins-stay-at-home-order-say-theyre-proceedin/10157566855338757/",
+      "date": "2016-02-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CREC-2006-06-13/html/CREC-2006-06-13-pt1-PgH3791-4.htm",
+      "date": "2006-06-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/2011_Wisconsin_protests",
+      "date": "2011-02-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox11la/posts/a-video-posted-to-social-media-showed-the-moment-president-trump-supporters-and-/10163999882355553/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/democrats-ramp-pressure-wisconsin-gov-scott-walker-amid/story?id=59729663",
+      "date": "2018-12-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://time.com/3923128/donald-trump-announcement-speech/",
+      "date": "2015-06-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/USHistoryGroup/posts/2149156058633105/",
+      "date": "2016-02-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WaukeshaFreeman/posts/three-bus-stops-in-waukesha-were-vandalized-with-anti-flock-graffiti-sometime-du/1759363022861565/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://faculty.lsu.edu/fakenews/about/protestfakenews.php",
+      "date": "2020-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wisn12/videos/kenosha-police-are-investigating-a-series-of-anti-immigrant-hate-signs-popping-u/2134383594627739/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://patch.com/wisconsin/waukesha/american-flag-ripped-down-waukesha-residents-report",
+      "date": "2020-08-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WaukeshaPD/posts/we-are-thankful-that-the-protest-remains-peaceful-up-to-this-point/1532846823556619/",
+      "date": "2016-02-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wisn.com/article/upside-down-american-flag-display-upsetting-neighbors-in-waukesha-county/8597967",
+      "date": "2017-01-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox6now.com/news/law-enforcement-joined-protesters-in-march-through-waukesha-after-george-floyds-death",
+      "date": "2020-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.c-span.org/clip/campaign-2016/user-clip-donald-trump-campaign-rally-in-waukesha-wisconsin/4917421",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/watch-live-pence-holds-rally-in-waukesha-wisconsin",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 175,
+     "n_urls_after_bm25": 25,
+     "n_chunks": 1498
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "The 2nd QA seems to support this claim.",
+   "questions": [
+    {
+     "question": "What flag is seen as an anti Black Lives Matter flag?",
+     "answers": [
+      {
+       "answer": "The Blue Lives Matter Flag is said to have racist symbolism which is anti Black Lives Matter.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.reformer.com/opinion/letters/letter-racist-symbolism-behind-the-blue-lives-matter-flag/article_ebf0cd26-2791-513a-8372-96edf1c48ae4.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did the Blue Lives Matter Flag show at a Donald trump Rally in Waukesha campaign rally in 2020?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210525130943im_/https://www.gannett-cdn.com/-mm-/2887f5d7d58a75a6437c45e987fd994202334aff/c=0-156-3000-1844/local/-/media/2020/10/17/Rockford/ghows_gallery_ei-IR-201019800-593e424c.jpg?width=660&height=372&fit=crop&format=pjpg&auto=webp",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210525130943/https://www.usatoday.com/story/news/factcheck/2020/10/28/fact-check-thin-blue-line-flag-prominent-trump-rallies/6058924002/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "A Thin Blue Line flag, which is a black-and-white version of the American flag with a single blue stripe instead of a red one and is associated with the 'Blue Lives Matter' movement launched in response to the Black Lives Matter movement, was used as a prominent backdrop behind President Donald Trump at his Oct. 24 rally in Waukesha, Wisconsin.",
+     "support_span": "In a review of photos of the Oct. 24 Waukesha rally taken by the Milwaukee Journal Sentinel, the Thin Blue Line flag is hung prominently behind the risers behind the podium where Trump spoke. | The flag essentially is a black-and-white version of the American flag, with a single red stripe replaced by a blue one. | The company began marketing the flag in 2014, amid the Blue Lives Matter movement, which itself was launched in response to the Black Lives Matter movement."
+    },
+    {
+     "statement": "The Thin Blue Line flag has been used by white supremacist groups alongside Confederate flags in the past, is considered controversial and some community members view it as an overt display of racism, but the Thin Blue Line USA company states the flag is intended to promote compassion and support for police officers rather than being political or hateful.",
+     "support_span": "At protests in Charlottesville in 2017, where white supremacist groups and supporters gathered to protest the removal of Confederate statues throughout the country, the blue-line flag was featured alongside Confederate flags | A July 31 NPR report highlighted a fight between a Massachusetts fire department flying the flags in honor of fallen police officers and community members who felt the flag was an overt display of racism. | According to the company’s website, the flag is meant to be a sign for “promoting compassion and support for our nation’s police officers.” ... Andrew Jacob, president of Thin Blue Line USA said: “The flag has no association with racism, hatred, bigotry. It’s a flag to show support for law enforcement — no politics involved.”"
+    }
+   ],
+   "justification": "Evidence confirms that a 'Thin Blue Line' flag, rather than an 'anti-Black Lives Matter' flag, was used as a backdrop behind President Trump at the Waukesha rally. While the Thin Blue Line flag is a black-and-white version of the American flag associated with the 'Blue Lives Matter' movement—which emerged in response to Black Lives Matter—the evidence presents conflicting interpretations of its intent. The manufacturer states the flag is intended to show compassion and support for law enforcement without political or hateful associations; however, the evidence also notes the flag is controversial, has been used by white supremacist groups, and is viewed by some community members as an overt display of racism.",
+   "article_url": "https://web.archive.org/web/20210525130943/https://www.usatoday.com/story/news/factcheck/2020/10/28/fact-check-thin-blue-line-flag-prominent-trump-rallies/6058924002/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

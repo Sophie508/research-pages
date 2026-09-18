@@ -1,0 +1,444 @@
+{
+ "key": "averitec/dev/17",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 17,
+ "claim": "All USA Ballots Arriving After Election Day Will Be Thrown Out",
+ "claim_date": "2020-10-28",
+ "speaker": "Eric Holder",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://web.archive.org/web/20210216082556/https://twitter.com/EricHolder/status/1321123705200758786",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict of the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim is \"All USA Ballots Arriving After Election Day Will Be Thrown Out.\" This is a universal generalization (\"All\") regarding the legal outcome of ballots arriving after a specific date.\n\n2.  **Evaluate the Evidence regarding the legality of late ballots:**\n    *   **A3** explicitly states: \"Yes, mail-in ballots that arrive after Election Day can be counted if they were postmarked by the deadline.\" It further notes that the Supreme Court ruled states are permitted to count these ballots if they meet the postmark requirement.\n    *   **A2** explains that the legality depends on whether a state follows \"strict receipt deadlines\" or \"flexible postmark rules.\" This indicates that the outcome is not a universal \"thrown out\" rule, but varies by state law.\n\n3.  **Evaluate the Evidence regarding the \"All\" aspect of the claim:**\n    *   **A6** directly addresses the claim, stating: \"The evidence does **not** support the claim that all ballots arriving after Election Day are thrown out.\" It explains that while \"late arrival\" is a reason for rejection, it is not the sole reason, and many ballots are counted if they meet postmark criteria.\n    *   **A4** characterizes similar rhetoric regarding election mechanics as \"unfounded\" and \"unsubstantiated.\"\n\n4.  **Synthesize the findings:** The claim asserts a universal rule (all ballots arriving after Election Day are discarded). However, the evidence provides a direct contradiction: ballots arriving after Election Day **can** be counted if they were postmarked by the deadline (A3), and the rules vary by state (A2). Because the evidence provides specific information that contradicts the \"all\" aspect of the claim, the claim is refuted.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does a Supreme Court ruling requiring absentee ballots to be postmarked by election day mean that all ballots arriving after Election Day will be thrown out?",
+      "answer": "Based on the provided evidence, it cannot be determined if all ballots arriving after Election Day will be thrown out. The text states that a U.S. Supreme Court ruling requires absentee ballots to be **postmarked by election day** to be valid, but it does not specify the consequences for ballots that arrive after Election Day if they were postmarked by the deadline. The evidence focuses on the conflicting public reactions to the ruling rather than the specific legal mechanics of ballot rejection.",
+      "url": "https://www.facebook.com/fox6news/posts/a-us-supreme-court-ruling-declared-that-absentee-ballots-must-be-postmarked-no-l/10157632280601523/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the legality of counting ballots that arrive after Election Day depend on whether they are judged by their receipt date or their postmark date?",
+      "answer": "Yes, the legality of counting ballots that arrive after Election Day depends on whether the state follows strict receipt deadlines or flexible postmark rules. \n\nAccording to the evidence, there is an ongoing legal debate regarding this issue: Democrats and voter advocacy groups are seeking to allow ballots to be counted if they are **postmarked by Election Day** to account for mail delays. Conversely, Republicans argue for maintaining strict deadlines to protect public confidence and prevent fraud. The central point of contention in these legal battles is whether to prioritize **strict receipt deadlines** or **flexible postmark rules**.",
+      "url": "https://www.npr.org/2020/07/13/889751095/signed-sealed-undelivered-thousands-of-mail-in-ballots-rejected-for-tardiness",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Can mail-in ballots that arrive after Election Day be counted if they were postmarked by the deadline?",
+      "answer": "Yes, mail-in ballots that arrive after Election Day can be counted if they were postmarked by the deadline. According to the evidence, the Supreme Court ruled that states are permitted to count these ballots, provided they meet the postmark requirement.",
+      "url": "https://www.facebook.com/KCRA3/posts/the-supreme-court-rules-that-states-can-count-mail-in-ballots-that-arrive-late-b/1482297150604268/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that all USA ballots arriving after Election Day will be thrown out, or is this part of a pattern of unsubstantiated claims regarding election integrity?",
+      "answer": "The provided evidence does not directly address the specific claim regarding whether ballots arriving after Election Day are thrown out. However, the evidence characterizes President Donald Trump's rhetoric regarding mail-in voting and the integrity of the election process as \"unfounded,\" \"unsubstantiated,\" and \"persistent attacks.\" \n\nThe text notes that experts and intelligence officials have refuted several of his claims regarding election mechanics and voter fraud, and it describes his assertions as a \"source of voter misinformation\" intended to undermine public trust. Therefore, based on the context provided, the claim aligns with a documented pattern of unsubstantiated assertions regarding election integrity.",
+      "url": "https://www.factcheck.org/2020/09/trumps-repeated-false-attacks-on-mail-in-ballots/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the potential reasons for mail-in ballots to be rejected, and does the evidence support the claim that all ballots arriving after Election Day will be thrown out?",
+      "answer": "Based on the provided evidence, the potential reasons for mail-in ballots to be rejected include **technical errors** or **late arrival**.\n\nRegarding the claim that all USA ballots arriving after Election Day will be thrown out, the evidence does not explicitly confirm or deny a universal rule for all states; however, it does note that \"late arrival\" is a reason why mail-in ballots can be rejected.",
+      "url": "https://www.factcheck.org/2020/08/voting-by-mail-in-the-swing-states/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that all ballots arriving after Election Day are thrown out, or are there other reasons why mail-in ballots might not be counted?",
+      "answer": "The evidence does **not** support the claim that all ballots arriving after Election Day are thrown out. Instead, it indicates that ballots may go uncounted due to several different procedural and technical reasons.\n\nAccording to the research by MIT professor Charles Stewart, \"lost votes\" (which accounted for approximately 4 percent of mail-in ballots in the 2016 election) stem from three primary sources:\n\n*   **Postal issues:** Such as lost deliveries or late deliveries.\n*   **Voter errors:** Specifically mistakes regarding signatures and envelopes.\n*   **Scanning machine rejections:** Caused by technical errors like overvoting.\n\nThe evidence further notes that the likelihood of a ballot being lost varies by state, depending on the level of experience or the routine nature of the state's mail-in voting processes.",
+      "url": "https://news.mit.edu/2020/odds-mail-vote-not-count-1019",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided address the claim regarding whether ballots arriving after Election Day will be thrown out?",
+      "answer": "No, the provided evidence does not address the claim. The text discusses the history, growth, and varying state practices regarding mail-in balloting (such as \"vote at home\" models and excuse requirements), but it contains no information regarding the rules or consequences for ballots arriving after Election Day.",
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-ballot-security-features-primer",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence provided address whether ballots arriving after Election Day in the USA will be thrown out?",
+      "answer": "No, the provided evidence does not address whether ballots arriving after Election Day in the USA will be thrown out. The evidence focuses on strategies to facilitate absentee voting, such as prepaid postage, the availability of secure drop boxes, and the relaxation or suspension of notary and witness requirements.",
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-voting-what-has-changed-2020",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What information does the election-related terminology glossary provide regarding the procedures for handling ballots and election canvassing?",
+      "answer": "Based on the provided evidence, the glossary addresses the **procedures for election canvassing** as part of its coverage of administrative and legal frameworks. However, the text does not provide specific details regarding the procedures for handling ballots or whether ballots arriving after Election Day are thrown out.",
+      "url": "https://pages.nist.gov/ElectionGlossary/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided guide for New York City voters contain information regarding whether ballots arriving after Election Day will be discarded?",
+      "answer": "No, the provided guide for New York City voters does not contain information regarding whether ballots arriving after Election Day will be discarded. While the document covers registration requirements, the voting process, absentee or early voting, and various electoral procedures, it does not specifically address the status of ballots received after Election Day.",
+      "url": "https://vote.nyc/page/faqs",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/fox6news/posts/a-us-supreme-court-ruling-declared-that-absentee-ballots-must-be-postmarked-no-l/10157632280601523/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/07/13/889751095/signed-sealed-undelivered-thousands-of-mail-in-ballots-rejected-for-tardiness",
+      "date": "2020-07-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-voting-what-has-changed-2020",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.mit.edu/2020/odds-mail-vote-not-count-1019",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rtenews/posts/youve-got-mail-jackie-fox-and-brian-odonovan-explain-the-us-postal-voting-system/3962665683762404/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/08/voting-by-mail-in-the-swing-states/",
+      "date": "2020-08-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-ballot-security-features-primer",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/newshour/videos/with-less-than-seven-weeks-until-election-day-the-question-of-how-americans-will/460495524908234/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/09/trumps-repeated-false-attacks-on-mail-in-ballots/",
+      "date": "2020-09-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pages.nist.gov/ElectionGlossary/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/SenatorShaheen/posts/the-president-is-not-above-the-law-or-the-constitution-theres-going-to-be-an-ele/3532161913482921/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KCRA3/posts/the-supreme-court-rules-that-states-can-count-mail-in-ballots-that-arrive-late-b/1482297150604268/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://vote.nyc/page/faqs",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/IvankaTrump/posts/back-in-north-carolina-today-campaigning-for-realdonaldtrump-the-tar-heel-states/10158975040947682/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 14,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by Eric Holder on October 28, 2020, via Twitter, asserts that all US ballots arriving after Election Day will be discarded.\n2. The evidence shows that ballot deadlines vary significantly by state. While some states require ballots to be received by Election Day, many others (at least 18 states, including several battleground states like Pennsylvania, Wisconsin, and Michigan) allow ballots to be counted if they are postmarked by Election Day and arrive within a specified grace period (ranging from 3 to 14 days after the election). Court rulings in 2020 specifically extended these deadlines in several states to accommodate mail-in voting during the pandemic.\n3. There is no evidence provided to support the claim that Eric Holder made this specific statement on October 28, 2020. Furthermore, the claim that *all* such ballots are thrown out is factually incorrect based on the documented state laws and court rulings.\n4. The claim is a sweeping generalization that is directly contradicted by the existence of \"postmark-by-date\" laws and judicial extensions in numerous states. Since the evidence proves that many ballots arriving after Election Day are indeed counted, the claim is false.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is it true that all USA ballots arriving after Election Day will be thrown out according to federal law?",
+      "answer": "What's key to know about the laws in one's respective state is whether their mail-in ballots need to be received by the time polls close on Election Day or whether ballots only need to be postmarked on or before Election Day and received within a specified number of days after the election. According to the NCSL, 18 states have postmark-by-date laws on the books, meaning that as long as ballots are postmarked on or before Election Day -- or in some cases by the day prior to the election -- they will be counted, as long as they make it to election officials by a specified deadline, ranging from three to 14 days after the election. 3. It also said that ballots without a postmark would \"be presumed to have been mailed by Election Day\" unless there was strong evidence to the contrary. Before this year, the state required absentee ballots to be received by Election Day. And in Wisconsin, a federal judge similarly ruled Monday that ballots postmarked by Election Day would count as long as officials have them in hand within six days after Nov. 3. Last week, Pennsylvania's Supreme Court said ballots that are postmarked on or before Election Day will be counted so long as they're received within the next three days. And a Michigan state judge last week also ruled that absentee ballots postmarked by Nov. 3 can be counted if they arrive up to two weeks after Election Day.",
+      "url": "https://abcnews.com/Politics/states-changed-rules-voting-amid-coronavirus-pandemic/story?id=72309089",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the specific rules regarding mail-in ballot deadlines in key states like Pennsylvania and California during the 2020 election?",
+      "answer": "Map: Mail-In Voting Rules By State — And The Deadlines You Need Loading... In response to the coronavirus pandemic, dozens of states have modified their rules for mail-in voting in November's elections. Some of those changes are more substantial than others. California, Nevada, New Jersey and Vermont, along with Washington, D. S. Postal Service General Counsel stated that Pennsylvania ballots requested near Oct. 27, 2020, might not be returned by Election Day. Pennsylvania’s Election Code deadline for receiving mail and absentee ballots is 8 p.m. on Election Day. But in three critical battleground states â Pennsylvania, Wisconsin and Michigan â officials arenât allowed to start processing early ballots until on or just before Election Day itself, which could delay not just their state results but also, if the Electoral College count is close, potentially leave the whole presidential race up in the air. Counting votes will also take longer than usual because many states will allow extra time for ballots to arrive after Election Day â as long as theyâre postmarked on or before November 3. For more American voters than ever, mail-in voting is an option this year, but the rules depend on where you live. Last Friday, a federal appeals court ruled that mail-in ballots in Michigan have to be received by Election Day. The state had wanted to extend the deadline by 14 days, arguing that postal delays could cause some ballots to be rejected. And on Monday, a state appeals court in North Carolina said the state can count ballots that arrive as late as Nov. 12, as long as they are postmarked by Election Day. What's key to know about the laws in one's respective state is whether their mail-in ballots need to be received by the time polls close on Election Day or whether ballots only need to be postmarked on or before Election Day and received within a specified number of days after the election. Republicans have opposed changing that deadline. Most states make Election Day the deadline, but 18 states — about half of which backed President Donald Trump in the 2016 election — have a post-Election Day deadline. The court’s ruling also authorized the use of satellite election offices and drop boxes by counties. Areas with heavy concentrations of registered Democratic voters, Philadelphia and its heavily populated suburbs, are planning to use satellite election offices and drop boxes to help relieve the pressure from an avalanche of mailed-in ballots expected in the presidential election. The state Supreme Court, which has a 5-2 Democratic majority, granted the Democratic Party’s request to order a three-day extension of Pennsylvania’s Election Day deadline to count mailed-in ballots. And it ruled that the Green Party’s candidate for president did not strictly follow procedures for getting on the ballot in November and cannot appear on it. Ballots that are eligible to be counted must be postmarked by the time polls close and be received by county election boards at 5 p. Pa. Supreme Court extends mail-in ballot deadline to 3 days after Election Day It also authorized the use of satellite election offices and drop boxes — which the state plans to use to help relieve the pressure from an avalanche of mailed-in ballots. Pennsylvania’s highest court gave the Democratic Party a series of victories Thursday, including one allowing repairs to glitches and gray areas in the battleground state’s fledgling mail-in voting law and another that kicked the Green Party’s presidential candidate off the November ballot. Many states, including New Hampshire and New York, have suspended the need for an excuse to obtain an absentee ballot, or said fear of contracting COVID-19 while voting is a valid excuse. Other states have altered deadlines and/or loosened rules for submitting an absentee ballot. Some states — often as the result of litigation — have said mail-in ballots only need to be postmarked by Election Day, rather than received by then. In the three \"Blue Wall\" states the president won in 2016 -- Michigan, Pennsylvania and Wisconsin -- judges have recently issued rulings that extend the deadline for mail ballots to be received. In Michigan, a court of claims judge ordered clerks to accept ballots that are postmarked by Nov. 2 and received within 14 days of the election, the deadline for results to be certified. These ballots have to be counted as provisional ballots. Thousands weren’t mailed out until the night of the primary. The Secretary of State estimated 3 million ballots would be cast by mail in the general election. The last day to request a mail ballot in Pennsylvania is Oct. 27, 2020. A letter from the U. 9. And in Pennsylvania, not only will mailed ballots that are postmarked on or before 8 p.m. on Election Day and received by 5 p. Not all mail gets a postmark date on it, so be sure that your returned ballot has one. Thanks to legal challenges from voting rights advocates, some states that typically require ballots to be received by polls closing time will accept ballots postmarked by Election Day for the 2020 election. Pennsylvania and Wisconsin are the only two swing states where officials can begin processing and counting the millions of absentee ballots only on Election Day, likely delaying complete results for several days. (In a third crucial swing state, Michigan, clerks can begin processing ballots only the day before Election Day.) In its ruling, the Pennsylvania Supreme Court said that ballots could be counted if they were received by 5 p.m. Nov. 6, as long as they were mailed by Election Day, Nov. Here's how states have changed the rules around voting amid the coronavirus pandemic Nine states plus D.C. will send mail-in ballots to active registered voters. Voting has always been cumbersome: Laws and deadlines vary state-by-state; key information can be difficult to nail down; and changes made to the process may go unnoticed by voters until it's time for them to engage in their civic duty. But voting during a global pandemic? That's an entirely new beast that election officials and voters nationwide are now having to grapple with. Even with the changes, Perez noted, North Carolina is in a slightly better position to have at least some of the mail voting results available quickly, because the state allows officials to begin processing received mail ballots two weeks before Election Day. But in Wisconsin and Pennsylvania, election officials can't begin the arduous process until polls open on Nov. In this case, Democratic party activists challenged what they said were disqualifying irregularities in how the Green Party filed affidavits for the presidential candidate that is supposed to accompany paperwork with at least 5,000 voter signatures to get on the ballot. A 2019 state law greatly expanded access to mail-in balloting in Pennsylvania and, fueled by concerns over the pandemic, more than 3 million voters are expected to cast ballots by mail in the Nov. 3 election. While the Trump campaign sued to prevent counties from using them, alleging that the way counties implemented these -- bypassing the state legislature to do it -- was unconstitutional, the state Supreme Court ruled that these are legal, writing in the ruling that \"Election Code should be interpreted to allow county boards of election to accept hand-delivered mail-in ballots at locations other than their office addresses including drop-boxes.\" Can anyone vote by mail in my state? That doesn't necessarily mean it will be hard for voters to cast mail-in ballots. Prior to the 2020 election cycle, some states -- like Arizona, Colorado, Florida and Washington -- already had robust or predominantly vote-by-mail elections, and voters were familiar with the system, so there hasn't necessarily been a need for them to change the rules. A few states require voters to have a witness or notary signature in order for their returned absentee ballots to be counted -- a requirement that could be an issue for voters who live alone and are trying to keep their distance from others during this time. While the court ordered that it will not require the state to allow for no-excuse absentee voting in the fall, it instructed state officials to ensure that voters who could be at risk of contracting the coronavirus -- like a voter with an underlying health condition -- or caretakers for a person who is vulnerable to the virus know they can cast their ballots by mail. Which states are sending absentee ballot applications? What about ballots?",
+      "url": "https://www.npr.org/2020/09/14/909338758/map-mail-in-voting-rules-by-state",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Eric Holder make a statement on October 28, 2020, claiming that late-arriving ballots would be discarded?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How do different states handle the 'postmark rule' for mail-in ballots arriving after the election?",
+      "answer": "What's key to know about the laws in one's respective state is whether their mail-in ballots need to be received by the time polls close on Election Day or whether ballots only need to be postmarked on or before Election Day and received within a specified number of days after the election. m. the Friday after it be counted, due to a ruling from the state Supreme Court, but any ballots that arrive within that time frame without a postmark, or with an unreadable postmark, will be presumed to have been sent before the cutoff point, unless evidence indicates otherwise. In Minnesota, ballots postmarked by Election Day and received within a week after the election will be counted. Both Massachusetts and Kentucky are allowing postmarked ballots received by Nov. 6 to be counted. In New Jersey, ballots received by 8 p. Not all mail gets a postmark date on it, so be sure that your returned ballot has one. Thanks to legal challenges from voting rights advocates, some states that typically require ballots to be received by polls closing time will accept ballots postmarked by Election Day for the 2020 election. According to the NCSL, 18 states have postmark-by-date laws on the books, meaning that as long as ballots are postmarked on or before Election Day -- or in some cases by the day prior to the election -- they will be counted, as long as they make it to election officials by a specified deadline, ranging from three to 14 days after the election. 3. It also said that ballots without a postmark would \"be presumed to have been mailed by Election Day\" unless there was strong evidence to the contrary. Before this year, the state required absentee ballots to be received by Election Day. And in Wisconsin, a federal judge similarly ruled Monday that ballots postmarked by Election Day would count as long as officials have them in hand within six days after Nov. 3. Last week, Pennsylvania's Supreme Court said ballots that are postmarked on or before Election Day will be counted so long as they're received within the next three days. And a Michigan state judge last week also ruled that absentee ballots postmarked by Nov. 3 can be counted if they arrive up to two weeks after Election Day. But in three critical battleground states â Pennsylvania, Wisconsin and Michigan â officials arenât allowed to start processing early ballots until on or just before Election Day itself, which could delay not just their state results but also, if the Electoral College count is close, potentially leave the whole presidential race up in the air. Counting votes will also take longer than usual because many states will allow extra time for ballots to arrive after Election Day â as long as theyâre postmarked on or before November 3. For more American voters than ever, mail-in voting is an option this year, but the rules depend on where you live. In the three \"Blue Wall\" states the president won in 2016 -- Michigan, Pennsylvania and Wisconsin -- judges have recently issued rulings that extend the deadline for mail ballots to be received. In Michigan, a court of claims judge ordered clerks to accept ballots that are postmarked by Nov. 2 and received within 14 days of the election, the deadline for results to be certified. These ballots have to be counted as provisional ballots. Rule Changes In Swing States Mean More Votes Will Count, Results May Take Longer Voters in a number of swing states this November will have more leeway in getting their mail ballots back in time to count, should rule changes announced in the past week hold up to legal challenges. But the changes could delay the reporting of election results and possibly set up court fights down the line. In North Carolina, a settlement announced by the State Board of Elections said ballots postmarked by Election Day would count as long as officials receive them within nine days after the election. 9. And in Pennsylvania, not only will mailed ballots that are postmarked on or before 8 p.m. on Election Day and received by 5 p. Last Friday, a federal appeals court ruled that mail-in ballots in Michigan have to be received by Election Day. The state had wanted to extend the deadline by 14 days, arguing that postal delays could cause some ballots to be rejected. And on Monday, a state appeals court in North Carolina said the state can count ballots that arrive as late as Nov. 12, as long as they are postmarked by Election Day. Many states, including New Hampshire and New York, have suspended the need for an excuse to obtain an absentee ballot, or said fear of contracting COVID-19 while voting is a valid excuse. Other states have altered deadlines and/or loosened rules for submitting an absentee ballot. Some states — often as the result of litigation — have said mail-in ballots only need to be postmarked by Election Day, rather than received by then. Note: This story was updated to include a new map detailing when states begin processing their pre-election ballots. It also reflects updated state policies on mail-in voting as states have made changes to their rules. The question of when mail-in ballots need to be received in order to count has been the subject of litigation in others states as well. In Georgia, a federal judge ruled that ballots postmarked by Election Day will count if election officials get them by the third day after the election, but the secretary of state, the Republican National Committee and the Georgia Republican Party are challenging this order in court. The RNC and Georgia GOP are arguing the ruling only applies to 17 counties that were \"cherry picked\" to be advantageous to Democrats. A U.S. Supreme Court ruling declared that absentee ballots must be postmarked no later than election day to count. 所有心情： 78条评论 18次分享 赞 评论 最相关 Cris Harnisch Yet they keep telling us how mail-in ballots are a trustworthy means of voting. They are not. The states that are still requiring this are Oklahoma, Alaska and Alabama. According to the National Conference of State Legislatures (NCSL), 17 states pay for postage on election mail, but for the November election, at least five more are doing this as well: Massachusetts, Montana, South Carolina and two battlegrounds -- Ohio and Pennsylvania. The judge's order extending the deadline doesn't specifically state it applies statewide, but it does order that those under Raffensperger's \"supervision, direction, or control shall accept and count otherwise valid absentee ballots from qualified voters\" that meet the postmark requirement and arrive by Nov. 6. Voters who don't trust the mail system do have another option. That doesn't necessarily mean it will be hard for voters to cast mail-in ballots. Prior to the 2020 election cycle, some states -- like Arizona, Colorado, Florida and Washington -- already had robust or predominantly vote-by-mail elections, and voters were familiar with the system, so there hasn't necessarily been a need for them to change the rules. A few states require voters to have a witness or notary signature in order for their returned absentee ballots to be counted -- a requirement that could be an issue for voters who live alone and are trying to keep their distance from others during this time. ” Attachments Related News Federal election changes loom ahead of midterms With the rapidly evolving federal legislative landscape, counties can get caught in the middle of policy changes with little guidance. USPS releases its final rule affecting mail-in voting for federal elections The USPS released its final rule imposing new requirements on how state and local governments must administer mail-in voting, including new ballot envelope requirements and the creation of a national portal of mail-in voter data.",
+      "url": "https://abcnews.com/Politics/states-changed-rules-voting-amid-coronavirus-pandemic/story?id=72309089",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the purpose of the grace periods provided by some states for receiving mail-in ballots?",
+      "answer": "What's key to know about the laws in one's respective state is whether their mail-in ballots need to be received by the time polls close on Election Day or whether ballots only need to be postmarked on or before Election Day and received within a specified number of days after the election.",
+      "url": "https://abcnews.com/Politics/states-changed-rules-voting-amid-coronavirus-pandemic/story?id=72309089",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Are there any legal challenges or court rulings that have impacted the counting of late-arriving ballots in 2020?",
+      "answer": "The question of when mail-in ballots need to be received in order to count has been the subject of litigation in others states as well. Supreme Court Rules Pennsylvania Can Count Ballots Received After Election Day The U.S. Supreme Court said Monday that election officials in Pennsylvania can count absentee ballots received as late as the Friday after Election Day so long as they are postmarked by Nov. 3. The court declined without comment to take up one of the highest-profile election law cases in the final stretch before Election Day. Pennsylvania Republicans had sought to block the counting of late-arriving ballots, which the state's Supreme Court had approved last month. Last Friday, a federal appeals court ruled that mail-in ballots in Michigan have to be received by Election Day. The state had wanted to extend the deadline by 14 days, arguing that postal delays could cause some ballots to be rejected. And on Monday, a state appeals court in North Carolina said the state can count ballots that arrive as late as Nov. 12, as long as they are postmarked by Election Day. But a new study by an MIT professor indicates that in the 2016 U.S. general election, 4 percent of all mail-in ballots were not counted — about 1.4 million votes, or 1 percent of all votes cast, signaling a significant problem that could grow in 2020. The study quantifies the range of reasons for this, including late-arriving ballots, problems with ballot signatures and envelopes, and improperly marked ballots, among other things.",
+      "url": "https://www.npr.org/2020/10/19/922411176/supreme-court-rules-pennsylvania-can-count-ballots-received-after-election-day",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/mail-voting-what-has-changed-2020",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.mit.edu/2020/odds-mail-vote-not-count-1019",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheLauraCoates/posts/scotus-just-ruled-that-pennsylvania-mail-in-ballots-will-be-counted-if-they-are-/3390438107713503/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnbc/videos/how-delaying-the-election-would-impact-the-us-economy/338406753954666/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://whyy.org/articles/pa-supreme-court-extends-mail-in-ballot-deadlines-to-3-days-after-election-day/",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.naco.org/articles/supreme-court-allows-pennsylvania-count-ballots-three-days-after-election-day",
+      "date": "2020-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/fox6news/posts/a-us-supreme-court-ruling-declared-that-absentee-ballots-must-be-postmarked-no-l/10157632280601523/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/09/14/909338758/map-mail-in-voting-rules-by-state",
+      "date": "2020-09-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MPRnews/posts/in-wisconsins-april-presidential-primary-about-23000-ballots-were-thrown-out-mos/10158042348913591/",
+      "date": "2020-07-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MaineSOS/posts/for-immediate-releasemonday-july-3-2017contact-kristen-muszynski-207-441-7638sec/1557032821015086/",
+      "date": "2017-07-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/interactive/2020/politics/mail-in-voting/",
+      "date": "2020-10-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/10/19/922411176/supreme-court-rules-pennsylvania-can-count-ballots-received-after-election-day",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NCDOJ/posts/the-postal-service-has-long-provided-essential-services-to-ncians-and-voters-sho/3180761461979651/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/states-changed-rules-voting-amid-coronavirus-pandemic/story?id=72309089",
+      "date": "2020-09-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/09/23/916012284/rule-changes-in-swing-states-mean-more-votes-will-count-results-may-take-longer",
+      "date": "2020-09-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/misupremecourt/posts/watch-live-virtual-oral-arguments-will-begin-at-noon-today-in-two-mi-court-of-cl/1528347057334574/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 6,
+     "n_paragraphs": 37,
+     "n_urls_after_bm25": 16,
+     "n_chunks": 169
+    },
+    "error": null,
+    "n_evidence_statements": 6
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Two sources confirm that postal ballots received after election day can still be counted, therefore not all will be thrown out.",
+   "questions": [
+    {
+     "question": "What was the election day in the 2020 US presidential elections?",
+     "answers": [
+      {
+       "answer": "November 3, 2020.",
+       "answer_type": "Extractive",
+       "source_url": "https://elections.maryland.gov/elections/2020/index.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "When was the deadline to receiving votes by mail?",
+     "answers": [
+      {
+       "answer": "Your mail-in ballot must be mailed or dropped in a drop off box location location by 8 pm on Election Day, November 3. If you mail your ballot, it must be postmarked on or before November 3, 2020 to be counted.",
+       "answer_type": "Extractive",
+       "source_url": "https://elections.maryland.gov/elections/2020/index.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Was there an extension to the deadline of receipt of mail ballots in the 2020 elections?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://oag.dc.gov/sites/default/files/2020-10/Wise-v-Circosta-Amicus.pdf",
+       "source_medium": "PDF"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What was the deadline for receipt of mail ballots in Alaska and Maryland in the 2020 US presidential elections?",
+     "answers": [
+      {
+       "answer": "Absentee ballots must be postmarked by Nov. 3 and received by Nov. 13.",
+       "answer_type": "Extractive",
+       "source_url": "https://projects.fivethirtyeight.com/how-to-vote-2020/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210222051131/https://leadstories.com/hoax-alert/2020/10/fact-check-it-is-not-true-that-all-ballots-arriving-after-election-day-will-be-thrown-out.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The claim that all mail-in ballots arriving after Election Day will be thrown out is false because 22 states have extended their mail-in ballot receipt deadlines beyond Election Day, although in most states, mail-in ballots must be received by Election Day (November 3, 2020) to be counted; specifically, in California, mail-in ballots must be postmarked by November 3 and received by November 20, in Washington, ballots must be postmarked by November 3 and received by November 23, in Pennsylvania, a state Supreme Court ruling allowed mail-in ballots to be received by November 6, three days after Election Day, in North Carolina, the Board of Elections extended the receipt deadline to 5 p.m. on November 12 for ballots postmarked on or before November 3, and in Utah, mail-in ballots must be postmarked by November 2 and received by the day of the county canvass, which can be as late as November 17.",
+     "support_span": "No, that's not true: 22 states have extended mail-in ballot receipt deadlines beyond Election Day. | However, almost all other states require mail-in ballots to be received by Election Day -- Tuesday, November 3, 2020 -- to be counted | California: Mail-in ballots must be postmarked by November 3 and received by November 20. | Washington: Ballots must be postmarked by November 3 and received by November 23. | Pennsylvania: As of this writing, mail-in ballots must be received by November 6, three days after Election Day, following a recent state Supreme Court ruling. | North Carolina: The receipt deadline has been extended by the Board of Elections to 5 p.m. on November 12 if the ballot is postmarked on or before November 3. | Utah: Mail-in ballots must be postmarked by November 2 and received by noon on the day of the county canvass, or final certification of the election. In Utah's largest counties, the canvass will be two weeks after the election on November 17"
+    },
+    {
+     "statement": "The misinformation regarding the rejection of all late ballots originated from a Facebook caption by Elizabeth Gilbert, not from Eric Holder's tweet.",
+     "support_span": "Holder's tweet [https://twitter.com/EricHolder/status/1321123705200758786] does not contain misinformation, saying only, \"I strongly suggest that you now vote in person.\" It is Gilbert's caption, posted to her 1.7 million followers, that contains misinformation."
+    }
+   ],
+   "justification": "The claim that all USA ballots arriving after Election Day will be thrown out is contradicted by evidence showing that 22 states have extended their mail-in ballot receipt deadlines beyond Election Day. While most states do require ballots to be received by Election Day to be counted, several states provide specific exceptions: for example, California and Washington allow ballots postmarked by Election Day to arrive later, Pennsylvania allowed a three-day extension via court ruling, and North Carolina and Utah have extended receipt deadlines for postmarked ballots. Consequently, the assertion that all such ballots are rejected is inaccurate, as the rules vary significantly by state.",
+   "article_url": "https://web.archive.org/web/20210222051131/https://leadstories.com/hoax-alert/2020/10/fact-check-it-is-not-true-that-all-ballots-arriving-after-election-day-will-be-thrown-out.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

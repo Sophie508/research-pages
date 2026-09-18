@@ -1,0 +1,724 @@
+{
+ "key": "averimatec/val/2",
+ "dataset": "averimatec",
+ "split": "val",
+ "original_index": 2,
+ "claim": "Photos show that the craft store chain Hobby Lobby is selling demonic statues. ",
+ "claim_date": "2023-06-13",
+ "speaker": "Carousel Studios",
+ "reporting_source": "Facebook ",
+ "original_claim_url": null,
+ "images": [
+  {
+   "file": "6787dee1e2f02e5f4981b14e#CLAIM#0.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%230.jpg"
+  },
+  {
+   "file": "6787dee1e2f02e5f4981b14e#CLAIM#1.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%231.jpg"
+  },
+  {
+   "file": "6787dee1e2f02e5f4981b14e#CLAIM#2.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%232.jpg"
+  },
+  {
+   "file": "6787dee1e2f02e5f4981b14e#CLAIM#3.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787dee1e2f02e5f4981b14e%23CLAIM%233.jpg"
+  }
+ ],
+ "outputs": {
+  "smoke_campaign_mm_20260917_rog_cpu_r2": {
+   "aic_ctu_averimatec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim that Hobby Lobby is selling demonic statues is false. The images provided are AI-generated, as evidenced by source 35, which discusses the creation of AI images of satanic-themed apparel that people mistook for real. The images do not depict actual inventory from the store.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the nature of the images showing demonic statues at Hobby Lobby?",
+      "answer": "The images are AI-generated and were created to mimic real products for satirical or viral purposes.",
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1871534500121691/",
+      "images": [
+       "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=24776042258663500"
+      ],
+      "evidence_text": "The person who created the AI images of satanic-themed apparel admits, 'I didn't expect so many people would believe they were real.' [IMG_1]"
+     },
+     {
+      "question": "Is Hobby Lobby actually selling the demonic statues shown in the images?",
+      "answer": "No, the images are AI-generated and do not represent actual products sold by Hobby Lobby.",
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1871534500121691/",
+      "images": [
+       "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=24776042258663500"
+      ],
+      "evidence_text": "The person who created the AI images of satanic-themed apparel admits, 'I didn't expect so many people would believe they were real.' [IMG_1]"
+     },
+     {
+      "question": "What was the reaction to the viral post about Hobby Lobby's 'Cotton Stems' product?",
+      "answer": "The product was ridiculed in a viral Facebook post as being insensitive.",
+      "url": "https://www.facebook.com/ABC10News/posts/hobby-lobbys-cotton-stems-in-glass-vase-was-ridiculed-in-a-now-viral-facebook-po/1707884432587365/",
+      "images": [],
+      "evidence_text": "Hobby Lobby's 'Cotton Stems in Glass Vase' was ridiculed in a now-viral Facebook post as an insensitive product."
+     },
+     {
+      "question": "Did Hobby Lobby face legal issues regarding ancient artifacts?",
+      "answer": "Yes, Hobby Lobby reached a $3 million settlement with the U.S. government regarding the purchase of thousands of ancient artifacts smuggled out of Iraq.",
+      "url": "https://www.theatlantic.com/politics/archive/2017/07/hobby-lobby-smuggled-thousands-of-ancient-artifacts-out-of-iraq/532743/",
+      "images": [],
+      "evidence_text": "Hobby Lobby purchased thousands of ancient artifacts smuggled out of modern-day Iraq... will pay a $3 million settlement."
+     },
+     {
+      "question": "What was the specific legal case involving Hobby Lobby and the Supreme Court?",
+      "answer": "The case was Burwell v. Hobby Lobby, which dealt with the Affordable Care Act's contraceptive mandate.",
+      "url": "https://www.law.cornell.edu/supremecourt/text/13-354",
+      "images": [],
+      "evidence_text": "The members of the Green family... are probably most famous for their participation in a 2014 Supreme Court case, Burwell v. Hobby Lobby, which helped dismantle certain birth-control-coverage requirements of the Affordable Care Act."
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/ABC10News/posts/hobby-lobbys-cotton-stems-in-glass-vase-was-ridiculed-in-a-now-viral-facebook-po/1707884432587365/",
+      "date": "2016-02-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theatlantic.com/politics/archive/2017/07/hobby-lobby-smuggled-thousands-of-ancient-artifacts-out-of-iraq/532743/",
+      "date": "2017-07-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.law.cornell.edu/supremecourt/text/13-354",
+      "date": "2014-06-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hikerdancom/posts/high-percentage-of-mislabeled-photos-and-the-poster-is-not-interested-in-correct/1723342482805089/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/552729401848274/posts/2454132898374572/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1509203563021455/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1871534500121691/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/338486830404261/posts/2299496957636562/",
+      "date": "2016-02-25",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/552729401848274/posts/2454132898374572/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/446778815870865/posts/459132691302144/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/12NewsNow/posts/amid-calls-to-boycott-target-the-person-who-created-the-ai-images-of-satanic-the/845852767584739/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/hikerdancom/posts/high-percentage-of-mislabeled-photos-and-the-poster-is-not-interested-in-correct/1723342482805089/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1871534500121691/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/552729401848274/posts/2454132898374572/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/681213859355721/posts/1997791011031326/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/rogersgardens/videos/step-into-a-boutique-filled-with-halloween-curiosities-creations-from-smoldering/1058032263498682/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1509203563021455/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/WeirdSecondhandFinds/posts/1493513284166213/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     }
+    ],
+    "stats": {
+     "n_text_chunks": 7,
+     "n_image_sources": 15,
+     "lens_skipped_no_public_url": 0,
+     "label_confidences": [
+      0.7112345942275937,
+      0.09625513525746869,
+      0.09625513525746869,
+      0.09625513525746869
+     ],
+     "llm_verdict_field": "Refuted"
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   },
+   "villain": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is refuted because there is a complete disconnect between the images provided and any evidence related to Hobby Lobby. The images show modern, mass-produced gothic/occult-themed decor (such as Baphomet statues), whereas the documented legal controversies involving Hobby Lobby pertain to an antiquities-smuggling scandal involving ancient Mesopotamian artifacts like cuneiform tablets. Furthermore, the images lack any identifiable branding, signage, or price tags that would confirm the retail location is a Hobby Lobby store. Specialized retailers like JPS Horror have been identified as the actual providers of the items shown in the images.",
+    "evidence_repr": "answer_only",
+    "qa_pairs": [
+     {
+      "question": "What do the claim images depict?",
+      "answer": "The images depict various gothic-style, horned, and winged statues, which are identified by specialized retailers like JPS Horror as Baphomet or occult-themed home decor.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Do the images contain identifiable Hobby Lobby branding?",
+      "answer": "No. The images lack any visible signage, price tags, or branding that identifies the location as a Hobby Lobby store.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there evidence in the text confirming these statues are sold at Hobby Lobby?",
+      "answer": "No. None of the retrieved text sources confirm that the statues shown in the images are part of Hobby Lobby's retail inventory; the sources instead identify specialized retailers like JPS Horror and ArtesAndCraft as sellers of such items.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the primary legal controversy involving Hobby Lobby mentioned in the text?",
+      "answer": "The primary controversy involves a major legal scandal where Hobby Lobby and its owners were fined $3 million and forced to forfeit thousands of ancient Iraqi archaeological artifacts (such as cuneiform tablets) that were illegally smuggled.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the actual subject of the documented legal controversies involving Hobby Lobby mentioned in the evidence?",
+      "answer": "The documented legal controversies involve a $3 million settlement and the forfeiture of thousands of ancient Mesopotamian archaeological artifacts, such as cuneiform tablets and clay bullae, which were illegally smuggled from Iraq; there is no mention of modern 'demonic' retail merchandise.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a connection between the smuggled artifacts and the 'demonic statues' in the images?",
+      "answer": "No. There is a fundamental category error in the claim; the text discusses ancient historical artifacts (cuneiform tablets and clay bullae), whereas the images show modern, mass-produced gothic decor.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the actual nature of the primary legal controversy involving Hobby Lobby mentioned in the evidence?",
+      "answer": "The documented controversy involves a $3 million settlement and the forfeiture of thousands of ancient Mesopotamian artifacts, such as cuneiform tablets and clay bullae, which were illegally smuggled from Iraq.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What do the text sources identify as the actual sellers of the statues shown in the images?",
+      "answer": "The retrieved text sources identify specialized horror and gothic retailers, such as JPS Horror and ArtesAndCraft, as the providers of the specific Baphomet and occult-themed decor depicted in the images.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any textual evidence connecting the 'demonic statues' in the images to the legal scandals involving Hobby Lobby?",
+      "answer": "No. There is a fundamental category error in the claim; the text sources focus exclusively on a legal scandal regarding the illegal smuggling of ancient Mesopotamian archaeological artifacts (such as cuneiform tablets), which is entirely unrelated to modern, mass-produced gothic decor.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the assertion that Hobby Lobby sells 'demonic' items?",
+      "answer": "No. There is a complete disconnect between the claim and the evidence. The text sources discuss archaeological smuggling and religious freedom legalities, providing no confirmation that the items in the images are part of Hobby Lobby's inventory.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://abcnews.com/Politics/satanists-hobby-lobby-decision-play-devils-advocate/story?id=24772548",
+      "date": "2014-07-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Hobby_Lobby_smuggling_scandal",
+      "date": "2018-05-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/kfxkfox51/posts/a-texas-womans-complaint-about-a-hobby-lobby-decoration-has-sparked-a-social-med/1692687467411073/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2018/06/28/623537440/hobby-lobbys-illegal-antiquities-shed-light-on-a-lost-looted-ancient-city-in-ira",
+      "date": "2018-06-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cbsnews.com/news/hobby-lobby-artifacts-trade-hypocrisy/",
+      "date": "2017-07-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.marketplace.org/story/2017/07/06/hobby-lobby-agrees-pay-3-million-fine-forfeit-smuggled-antiquities",
+      "date": "2017-07-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hikerdancom/posts/high-percentage-of-mislabeled-photos-and-the-poster-is-not-interested-in-correct/1723342482805089/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/552729401848274/posts/2454132898374572/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1509203563021455/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1871534500121691/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/338486830404261/posts/2299496957636562/",
+      "date": "2016-02-25",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/681213859355721/posts/1997791011031326/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/cursedaiwtf/posts/1871711066770701/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/138827139978186/posts/1620946228432929/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2854743284823259/posts/3690770811220498/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/cmcalgary/posts/pictures-of-the-halloween-stuff-michaels-has-its-fun-though-a-little-pricey/1569086137910110/",
+      "date": "2016-02-12",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2940973276124848/posts/4634393860116106/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/218961881293963/posts/393940443796105/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/dracshalloween/posts/at-home-stores-are-ready/1277496657069442/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://in.pinterest.com/gallegosgrajeda/",
+      "date": "2017-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/amber.e.dover/videos/checker-print-and-halloween-take-my-money-burlington/1674582061341307/",
+      "date": "2016-02-08",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "http://www.thespookyvegan.com/2018/08/halloween-2018-at-big-lots.html",
+      "date": "2018-08-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/screamers.costumes/posts/screamers-expanded-store-monsters-and-madmen-new-horror-merch-coming-in-daily-op/783107650520076/",
+      "date": "2016-02-09",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.emp-online.com/p/the-goat-of-mendes/362346.html",
+      "date": "2017-09-13",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/414181697821528/posts/1028898483016510/",
+      "date": "2016-02-25",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2940973276124848/posts/4677915995763892/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/338486830404261/posts/2309010246685233/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/southernvintagecogroupies/posts/2264969674323287/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/446778815870865/posts/459132691302144/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/12NewsNow/posts/amid-calls-to-boycott-target-the-person-who-created-the-ai-images-of-satanic-the/845852767584739/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/sparklechickshome/posts/151031293522717/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/GBNewsOnline/posts/target-has-sparked-fury-after-putting-up-signs-demanding-non-worshippers-not-to-/1523127353160326/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/trendzclothingz/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61550649415658/videos/walkthrough-at-homegoods-homegoods-fblifestyle/794028173168684/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/338486830404261/posts/1734210257498571/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/338486830404261/posts/1430933204492946/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/338486830404261/posts/1405101327076134/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2940973276124848/posts/4651499425072216/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/656954356907497/posts/912522674683996/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2615476182067322/posts/4231930440421880/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/halloweengraveyardsdisplayshaunts/posts/2098126127478264/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/889211531905217/posts/2441918543301167/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1346410639604763/posts/1528176731428152/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/Ozxara666/videos/deal-with-the-devilpart-14-war-with-monsters-of-underworld-horror-baphomet-scary/1734958417919624/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/vtdnews/posts/-spooky-season-starts-now-spirit-halloween-has-opened-its-doors-in-visalia-to-as/1738640311594930/",
+      "date": "2000-06-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/Halloween.x.Town/posts/7947115641994881/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/rogersgardens/videos/step-into-a-boutique-filled-with-halloween-curiosities-creations-from-smoldering/1058032263498682/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/WeirdSecondhandFinds/posts/1493513284166213/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/ChainsawCarvers/posts/10151102728519964/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61550649415658/photos/snoopy-socks-at-hobby-lobby-/122245419152021647/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/ArtesAndCraft/posts/how-big-is-your-baphometbecause-we-have-them-in-all-sizes-these-beautiful-statue/1266257942195644/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/388458232806975/posts/1123194769333314/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/gothsagainstcancelculture/posts/971632968568962/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/7409017919161222/posts/28207229965580047/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://alchemyandaura.com/products/baphomet",
+      "date": "2022-01-08",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://jpshorror.com/products/hear-speak-see-no-evil-baphomet",
+      "date": "2022-03-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/BlueBananaNewport/posts/weve-got-some-really-cool-baphomet-figurines-to-add-to-your-shrinesoccult-baphom/1268611990980521/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100089210220263/posts/jack-skellington-and-his-misfits-at-homegoods-i-want-every-single-nightmarebefor/1108017975515200/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/thesatanictemplesalem/posts/today-is-unveiling-day-the-anniversary-of-the-unveiling-of-our-infamous-baphomet/1166846988814747/",
+      "date": "2016-02-05",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.npr.org/2018/06/28/623537440/hobby-lobbys-illegal-antiquities-shed-light-on-a-lost-looted-ancient-city-in-ira",
+      "date": "2018-06-28",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://abcnews.com/Politics/satanists-hobby-lobby-decision-play-devils-advocate/story?id=24772548",
+      "date": "2014-07-30",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     }
+    ],
+    "stats": {
+     "n_a1": 10,
+     "n_a2": 10,
+     "n_a3": 2,
+     "lens_skipped_no_public_url": 0,
+     "n_qa_generated": 20,
+     "n_qa_selected": 10,
+     "image_embedder": "_Lazy"
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The claim is refuted by proving that the images were created with AI by Waster_Space for satirical purposes.",
+   "questions": [
+    {
+     "question": "What is Hobby Lobby?",
+     "answers": [
+      {
+       "answer": "Hobby Lobby Stores, Inc., formerly Hobby Lobby Creative Centers, is an American retail company. It owns a chain of arts and crafts stores with a volume of over $5 billion in 2018.",
+       "answer_type": "Extractive",
+       "source_url": "https://en.wikipedia.org/wiki/Hobby_Lobby",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    },
+    {
+     "question": "What stores are these images from?",
+     "answers": [
+      {
+       "answer": "They are AI images created by Waster_Space. This is their comment on the images: Hobby Lobby if they had \"Satanic\" merchandise...(literally done in 5 mins...if I had known the images would be shared so many times, I would have spent more time on them)",
+       "answer_type": "Abstractive",
+       "source_url": "https://www.artzone.ai/images/7f6126f1-967e-4c79-860f-f19a6eef290f",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [
+      "6787dee1e2f02e5f4981b14e#INPUT#1#0.jpg",
+      "6787dee1e2f02e5f4981b14e#INPUT#1#1.jpg",
+      "6787dee1e2f02e5f4981b14e#INPUT#1#2.jpg",
+      "6787dee1e2f02e5f4981b14e#INPUT#1#3.jpg"
+     ],
+     "answer_method": "Text-search"
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20230629073625/https://leadstories.com/hoax-alert/2023/06/fact-check-photos-do-not-prove-hobby-lobby-is-selling-satanic-statues.html",
+   "source": "datasets/averimatec/val.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The images showing demonic statues in a Hobby Lobby store are AI-generated creations, not real photographs, originating in AI art groups on Reddit and Facebook, specifically the Reddit group r/midjourney, which is an official subreddit for Midjourney related content; Hive Moderation, an AI detection program, determined there is a 99.9 percent chance the images are AI-generated, and the images contain unintelligible language on walls and signs, which is a common characteristic of AI-generated images.",
+     "support_span": "Do photos show that the craft store chain Hobby Lobby is selling demonic statues? No, that's not true: These images have been created by an AI artist. | The images originated on Reddit and Facebook in groups for AI art. | Hive Moderation, a program that detects whether content is AI-generated or not, concluded that there is a 99.9 percent chance that these images are artificial intelligence. | A reverse image search of the images (evidence of search here [https://lens.google.com/search?ep=gisbubb&hl=en&re=df&p=ATHekxdM3xnbY9D5Fqyn5VVCDPHPh90dOHs-sNuVgwfGRuCocg_RhLGkCk7YJOE8sMQiCCdpm0Z64YkNYhjt67Wmr7MkdzFepuXBhSaoRRKET_QTIhOQg5npghpwIdl-kVqJqWy-vsv4QR5LyxXcevmcczHt3KbYfguccUiLJdehBzielJtse0Q9zSJ_uAbqWfq53jylHlZtwFBjSvhsnZnmzwicLbddiwanhzoDszHWlpR7PhCavPaI1BqRWQ0VMk5ynRXxFoO15M0ObiXVlgJlHhx4zYX21SFnwk-iLjsvwfFHFl%3D%3D#lns=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxLGIsIkVrY0tKRGd4T0RrMVpURXpMV0ZqTkRJdE5EVXlaQzFpTjJSaExUa3habUZtWWpRMVlqTXpNQklmT0hoSE5WcDRNMUZaUXpSWFJVWkRjWGQ0VEhKTVVEUnhUbGhrUjJwU1p3PT0iLG51bGwsbnVsbCxbW251bGwsbnVsbCwiMS0wIl0sWyJlNzg2OTdhYy03YWUwLTRlODItODg2MS0yZGI3NGY5MGNjYWUiXV1d) found in the Facebook post led Lead Stories to a Reddit group, r/midjourney, where the images can also be found here [https://www.reddit.com/r/midjourney/comments/141w2g8/i_think_we_need_to_talk_about_what_is_going_on_at/]. The group's \"About Community\" section states it is, \"An official subreddit for Midjourney related content.\" | Looking at the images, there is an unintelligible language on the walls and on signs in the \"store.\" That is often a sign that an image was made with artificial intelligence."
+    },
+    {
+     "statement": "There are no reputable news reports confirming that Hobby Lobby is selling satanic statues.",
+     "support_span": "There have been no reputable news reports of Hobby Lobby selling satanic statues."
+    }
+   ],
+   "justification": "The claim that Hobby Lobby is selling demonic statues is factually incorrect because the images provided (CLAIM_IMG_0, CLAIM_IMG_1, CLAIM_IMG_2, CLAIM_IMG_3, and CLAIM_IMG_4) are not real photographs, but rather AI-generated creations. Evidence shows that these images originated in AI art groups on Reddit (specifically r/midjourney) and Facebook. Technical analysis by Hive Moderation, an AI detection program, determined there is a 99.9 percent probability that the images are artificial intelligence. Furthermore, the images exhibit common AI artifacts, such as unintelligible language on the walls and signs within the depicted store. Finally, there are no reputable news reports to support the assertion that Hobby Lobby is selling such items.",
+   "article_url": "https://web.archive.org/web/20230629073625/https://leadstories.com/hoax-alert/2023/06/fact-check-photos-do-not-prove-hobby-lobby-is-selling-satanic-statues.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t2_mm_merge_val_t3_n80_gemma4_26b_20260622_163428.json"
+  }
+ }
+}

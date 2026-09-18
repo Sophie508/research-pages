@@ -1,0 +1,445 @@
+{
+ "key": "averitec/dev/59",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 59,
+ "claim": "There is a scam involving Santander customers being sent fake bank cards.",
+ "claim_date": "2020-10-21",
+ "speaker": "Nigel Howard Berry",
+ "reporting_source": "facebook",
+ "original_claim_url": "https://www.facebook.com/groups/719779154837578/permalink/1864476120367870/",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict of the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim states that there is a scam where Santander customers are being sent fake bank cards.\n2.  **Evaluate the Evidence (Q1-Q4, Q7, Q10):** \n    *   **Q1** clarifies that current fraud involves fraudulent text messages (smishing) to hijack threads, not fake cards.\n    *   **Q2** explicitly states the evidence does not support the claim of fake bank cards being sent to customers; instead, it mentions email phishing.\n    *   **Q3** notes that the evidence focuses on mobile banking security measures rather than physical card scams.\n    *   **Q4** identifies a fraudulent Facebook account scam, not a fake card scam.\n    *   **Q7** addresses a fraud scheme involving ATMs, but clarifies that the issue involves suspects using *Netspend (Greendot) cards* to exploit security flaws, not that Santander customers are being sent fake cards.\n    *   **Q10** mentions a scam involving fake checks for \"secret shopper\" jobs, but again, no mention of fake bank cards being sent to customers.\n3.  **Synthesize Findings:** Every piece of evidence provided specifically addresses different types of fraud (phishing emails, fraudulent texts, Facebook scams, ATM exploitation with third-party cards, and fake check scams), but none of the evidence mentions or supports the specific scenario of Santander customers receiving fake bank cards in the mail.\n4.  **Determine Verdict:** Since the evidence consistently points to other types of fraud while explicitly stating that there is no mention or support for the \"fake bank card\" scam described in the claim, the claim is not supported by the provided text. However, because the evidence does not provide information to *disprove* the existence of such a scam in the real world (it only states the *provided text* doesn't mention it), and the question asks to predict the verdict based on the *provided evidence*, we look for whether the evidence contradicts or supports it. In this context, the evidence repeatedly states \"there is no mention\" or \"the evidence does not support,\" which indicates a lack of evidence to validate the claim.\n\n**Label: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: Are Santander customers being targeted by a scam involving fake bank cards, or is the fraud occurring through fraudulent text messages?",
+      "answer": "Based on the provided evidence, the fraud is occurring through **fraudulent text messages**. The evidence states that users are being warned about scam messages that attempt to hijack legitimate message threads to steal banking information, rather than mentioning a scam involving fake bank cards.",
+      "url": "https://www.facebook.com/reportfrauduk/posts/watch-out-for-these-fake-santander-texts-that-could-end-up-hijacking-legitimate-/2055723147778721/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that there is a scam involving Santander customers being sent fake bank cards?",
+      "answer": "No, the evidence does not support the claim that there is a scam involving Santander customers being sent fake bank cards.\n\nAccording to the provided text, the evidence only mentions a \"highly convincing Santander email phishing scam\" that uses authentic logos and marketing to trick users into providing sensitive banking information. The text does not mention any scams involving the physical mailing of fake bank cards to customers.",
+      "url": "https://content.govdelivery.com/accounts/UKCOVENTRY/bulletins/27b18e7",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there evidence to support the claim that Santander customers are being sent fake bank cards?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that Santander customers are being sent fake bank cards. The evidence focuses on Santander's efforts to combat mobile fraud through new security measures in its mobile banking app, such as requiring customers to specify transaction purposes and implementing biometric security.",
+      "url": "https://fintechmagazine.com/banking/santander-introduces-anti-scam-warning-solution",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a scam involving Santander customers being sent fake bank cards?",
+      "answer": "Based on the provided evidence, there is no mention of a scam involving Santander customers being sent fake bank cards. The evidence specifically warns of a fraudulent Facebook account named “Santander Bank” that contacts users claiming they have won a competition, and advises users not to provide account details or respond to such messages.",
+      "url": "https://www.facebook.com/santanderuk/posts/please-stay-safe-online-beware-of-fake-accountsa-facebook-account-called-santand/852454194845186/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What measures and reimbursement policies does Santander have in place to protect its customers from fraud and scams?",
+      "answer": "To protect its customers from fraud and scams, Santander employs the following measures and reimbursement policies:\n\n**Security Measures:**\n*   **Technology:** The bank uses advanced security technologies, including fraud detection systems, One-Time Passcodes (OTP), and the Confirmation of Payee service.\n*   **Communication:** To alert customers to unusual activity, Santander utilizes automated calls, interactive texts, and push notifications. They urge customers to keep contact details updated and to use secure channels, such as the 159 service, if a scam is suspected.\n*   **Industry Initiatives:** Santander participates in industry-wide initiatives such as Cifas and Take Five.\n\n**Reimbursement Policies (specifically for Authorised Push Payment (APP) fraud):**\nReimbursement is determined by the date of the transaction and reviewed on a case-by-case basis:\n*   **Transactions from 7 October 2024 onwards:** These are subject to mandatory Payment Systems Regulator (PSR) regulations. Eligible personal and micro-enterprise customers can receive up to £85,000 in refunds (subject to a £100 excess).\n*   **Transactions between 28 May 2019 and 6 October 2024:** These are assessed under the voluntary Contingent Reimbursement Model (CRM) Code.\n\n**Customer Responsibilities:**\nTo qualify for protection, customers are expected to adhere to a \"Standard of Caution,\" which includes paying attention to warnings, reporting scams promptly, and cooperating with investigations.",
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security/our-approach-to-fraud-prevention",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the nature of the fraud scheme involving Santander Bank ATMs in the tri-state area and Connecticut?",
+      "answer": "The fraud scheme involves suspects using fake debit cards at Santander Bank ATMs to fraudulently withdraw cash. This large-scale operation has impacted numerous locations across the tri-state area and Connecticut, including towns in New Jersey (such as Hoboken, Newark, and Bloomfield), Brooklyn, Staten Island, Morris County, and South Windsor, Connecticut. The scheme has potentially resulted in losses of tens of thousands of dollars for the bank.",
+      "url": "https://www.nbcnewyork.com/news/local/crime-and-courts/alleged-large-scale-scam-targets-santander-bank-atms-across-multiple-nj-towns/2573245/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a scam involving Santander customers being sent fake bank cards?",
+      "answer": "Based on the provided evidence, there is no mention of a scam involving Santander customers being sent **fake bank cards**.\n\nThe evidence describes a fraud scheme involving the unauthorized withdrawal of funds from Santander Bank ATMs in Staten Island and New Jersey. In this scheme, suspects exploited a security flaw in **Netspend (Greendot) cards** to make limitless withdrawals. While the bank temporarily closed certain ATMs and increased security in response to the activity, the evidence does not support the claim that customers were being sent fake cards.",
+      "url": "https://abc7ny.com/post/several-arrested-after-fraudulent-debit-cards-used-at-numerous-banks-across-area/6376360/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How can Santander customers report suspected fraudulent communications or scams?",
+      "answer": "Santander customers can report suspected fraudulent communications through the following channels:\n\n*   **Suspicious emails:** Send them to phishing@santander.co.uk.\n*   **Text messages:** Forward them to 7726.\n*   **Smishing attempts:** Email them to smishing@santander.co.uk.\n\nFor further guidance, customers are encouraged to visit the bank's \"how to report fraud\" webpage.",
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What has Santander Bank done in response to the fraud scheme involving prepaid debit cards and ATM withdrawals?",
+      "answer": "In response to the fraud scheme, Santander Bank has temporarily shut down certain ATM machines and increased security. Additionally, the bank has provided assurance to its customers that their personal accounts and funds remain unaffected by the activity.",
+      "url": "https://www.nbcnewyork.com/news/local/crime-and-courts/58-arrested-in-mercer-county-in-connection-with-multi-state-santander-atm-scam/2577688/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a scam involving Santander customers being sent fake bank cards?",
+      "answer": "Based on the evidence provided, there is no mention of a scam involving Santander customers being sent fake bank cards. The text only describes a scam involving fraudsters sending fake checks under the guise of secret shopper job offers.",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2018/05/scam-story-secret-shopping-fake-checks?page=12",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/santanderuk/posts/please-stay-safe-online-beware-of-fake-accountsa-facebook-account-called-santand/852454194845186/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://content.govdelivery.com/accounts/UKCOVENTRY/bulletins/27b18e7",
+      "date": "2020-02-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/reportfrauduk/posts/watch-out-for-these-fake-santander-texts-that-could-end-up-hijacking-legitimate-/2055723147778721/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security/our-approach-to-fraud-prevention",
+      "date": "2019-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnewyork.com/news/local/crime-and-courts/58-arrested-in-mercer-county-in-connection-with-multi-state-santander-atm-scam/2577688/",
+      "date": "2020-08-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://consumer.ftc.gov/consumer-alerts/2018/05/scam-story-secret-shopping-fake-checks?page=12",
+      "date": "2018-05-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abc7ny.com/post/several-arrested-after-fraudulent-debit-cards-used-at-numerous-banks-across-area/6376360/",
+      "date": "2020-08-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/santanderuk/videos/did-you-spot-it-the-mouth-the-background-the-blinkingthese-are-all-telling-signs/1009693520805606/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security",
+      "date": "2018-10-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://fintechmagazine.com/banking/santander-introduces-anti-scam-warning-solution",
+      "date": "2020-05-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnewyork.com/news/local/crime-and-courts/alleged-large-scale-scam-targets-santander-bank-atms-across-multiple-nj-towns/2573245/",
+      "date": "2020-08-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.occ.gov/topics/consumers-and-communities/consumer-protection/depository-services/checking-accounts.html",
+      "date": "2019-04-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/HMRC/posts/weve-helped-to-save-the-public-over-24m-by-tackling-fraudsters-that-trick-them-i/2092699674345253/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/friendsagainst/posts/fewer-than-a-fifth-of-people-bombarded-by-fraudulent-emails-and-text-messages-fr/1642497542584521/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/LaurenPozenNews/posts/a-womans-job-search-almost-ended-up-in-a-scam-if-it-wasnt-for-the-quick-thinking/3442657772474361/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MCProsecutors.Office/posts/investigations-into-regional-criminal-scams-across-the-state-involving-the-fraud/3231768740239302/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 16,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that a scam exists where Santander customers are sent fake bank cards, specifically in the context of reports around October 2020 in the UK.\n2. The evidence provided details several types of scams targeting Santander customers:\n    - **Phishing/Smishing:** Emails and SMS messages (smishing) designed to trick customers into providing login credentials or transferring money (Q1, A1, A2, A3, A5, A8, A13).\n    - **Social Media Scams:** Fake Facebook accounts claiming to run competitions (Q1, A7).\n    - **Data Breaches/Errors:** A 2013 incident involving Target and a 2010 incident involving misdirected bank statements (Q2, A8, Q2, A13, Q2, A15).\n    - **Deceptive Sales Practices:** Illegal overdraft practices (Q2, A9, Q2, A19).\n    - **Card Issuance:** Evidence (Q1, A11) mentions that the bank issues new cards to customers impacted by fraud to protect them.\n3. Upon reviewing all provided evidence, there is **no mention** of a scam involving the physical delivery of \"fake bank cards\" to customers. The scams described are digital (phishing, smishing, social media) or related to administrative errors (misdirected statements) and sales practices. While the bank issues new cards to victims of fraud, this is a remedial action, not the scam itself.\n4. The claim is a specific type of fraud (physical fake cards) that is not supported by any of the provided evidence, which instead focuses on digital and telemarketing scams.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the nature of the scam reported regarding Santander customers in October 2020?",
+      "answer": "News and Scam Alerts from Coventry Trading Standards - 12 February 2020 Coventry City Council sent this bulletin at 12-02-2020 10:00 AM GMT Having trouble viewing this email? View it as a Web page. News and Scam Alerts from Coventry Trading Standards - 12 February 2020 In this issue: Santander Bank email phishing scam Bogus Police Officer warning Warning: Telephone cold calls claiming to be from ‘Visa’ or ‘Mastercard’ How to report scams Santander Bank email phishing scam Trading Standards advise a convincing fake Santander email has been circulating asking customers to update their online banking security. Santander Customers Warned of Smishing Scam Several Santander customers have been duped out of their life savings following a controversial smishing scam that continues to affect existing customers. What is Smishing? Smishing is a type of phone number spoofing or SMS fraud where fraudsters are able to send you a text message or phone call taking the name of a contact on your phone that you already know and trust. They’re sending emails to our customers asking them to update their contact details, via a link. The link takes you to a fake Santander website. Here you’ll enter your Personal ID and Security number. You’ll believe you’re logging on to our real site. Studies have found that UK bank customers lost approximately £500mn to scams in the first half of 2018 alone, while only £38mn worth of scams were prevented in the whole year, highlighting the losing battle being fought by service providers. Given the prevalence of scams that involve posing as a bank, financial agency or even police officer, Santander hopes to remind customers of the importance of dealing directly with the bank to ensure optimal security and confidentiality. The initiative is the latest in a series of new solutions introduced by Santander, who recently vowed to invest more than £17. They’ll pretend to be your bank, HMRC, or another trusted person to convince you to send them money. An example of this could be: You get a call from Santander on a known and trusted number. The caller claims to be from Santander’s fraud department. They tell you that your account is at risk and you need to move your money into a newly opened account to keep it safe. They will tell you the account details of this account, and ask you to transfer the money across to it. Are Santander Offering Refunds? Sadly not. The victims of the smishing scams were told by Santander that they will not be receiving any refunds because out of ‘negligence’ they are voluntarily giving their passwords and access to their bank accounts to a third party. Please stay safe online – beware of fake accounts A Facebook account called “Santander Bank” has been contacting people claiming that they have won a Santander competition. Please note: Santander Bank is not connected to Santander UK in any way. If you are contacted by Santander Bank please do not respond. Please do report any contact directly to Facebook here: https://www.facebook.com/help/181495968648557/. In this case, the fake email looks particularly convincing. It uses high quality Santander logos, and even includes adverts for other Santander products, featuring identical wording to genuine Santander marketing emails. If you open the link, with good security on your PC, you will get the above warning: However, without, you will be taken to a very authentic looking website with fake security features that make it look real … Trading Standards advise that the entire purpose of any phishing scam email is to get the recipient to provide personal information that scammers can then go on to use for their own personal gain. The victims mentioned above have not received any refunds from Santander except for one that received £1,500 based on the amount available in her bank overdraft (not sure why they decided that outcome). How to Spot A Fraudulent Text Message and Stay Safe Santander claim that they will never ask for your account details, Pin or your OTP code in a text message or over the phone. You need to be aware that the One-Time-Passcode (OTP) is for you and you only. Banks will only ask you to confirm a transaction whereas a fraudster will ask you for exact details e. SEE ALSO: - Santander partners with IBM to drive digital transformation as part of a $700mn deal - How Santander’s technology transformation allows it to improve customers’ lives - Santander Group puts aside $22.5bn for digital transformation Upon receiving a notification, customers are implored to reach out to Santander independently to verify legitimate transactions, and ensure they are handled in a safe and trustworthy manner. They are also given the option to cancel or postpone payments until the authenticity of a transaction has been confirmed. The Bank is monitoring these accounts for suspicious activity and is issuing new cards to impacted customers. Santander is encouraging customers to monitor their accounts and report transactions they do not recognize. Customers are reminded that there is zero liability for unauthorized purchases made without a PIN when Santander is promptly notified. Customers can view their account online at Santander.com or via mobile banking. html Santander To protect you from fraud Our latest fraud updates page contains the latest techniques we see being used by criminals. Our recent ads with Kurupt FM aim to raise awareness of common fraud and scams. Branch-based scam avoidance schools are held for you to come along to. In this case, it has been Santander bank and for customers, they have already received messages from Santander in the past, but using spoofing, the fraudster is able to continue to send you fraudulent messages under the same name and existing message thread. For the customer, it is impossible to distinguish this and believe that it could be anyone else – after all, the name comes up and everything! Smishing stands for SMS Phishing – so it is considered a type of cyber hacking, similar to trojans and worms. Here is an example of Smishing from Santander below. How Do The Fraudsters Make Money? Santander introduces anti-scam warning solution Santander customers will soon be provided with additional security measures via the firm’s mobile banking app, it was announced this week. In its latest move designed to reduce the risk of fraud on mobile platforms, the finance giant has revealed that its newest solution will involve customers giving more specific details about payments they make, allowing tailored security advice to be given before any transactions take place.",
+      "url": "https://content.govdelivery.com/accounts/UKCOVENTRY/bulletins/27b18e7",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How were customers targeted in the Santander fake bank card scam mentioned in the claim?",
+      "answer": "They’re sending emails to our customers asking them to update their contact details, via a link. The link takes you to a fake Santander website. Here you’ll enter your Personal ID and Security number. You’ll believe you’re logging on to our real site. Very simple. The criminals lure you into believing that it is really your bank, like Santander (and it is very convincing). They’ll pretend to be your bank, HMRC, or another trusted person to convince you to send them money. An example of this could be: You get a call from Santander on a known and trusted number. The caller claims to be from Santander’s fraud department. They tell you that your account is at risk and you need to move your money into a newly opened account to keep it safe. They will tell you the account details of this account, and ask you to transfer the money across to it. Studies have found that UK bank customers lost approximately £500mn to scams in the first half of 2018 alone, while only £38mn worth of scams were prevented in the whole year, highlighting the losing battle being fought by service providers. Given the prevalence of scams that involve posing as a bank, financial agency or even police officer, Santander hopes to remind customers of the importance of dealing directly with the bank to ensure optimal security and confidentiality. The initiative is the latest in a series of new solutions introduced by Santander, who recently vowed to invest more than £17. Santander Customers Warned of Smishing Scam Several Santander customers have been duped out of their life savings following a controversial smishing scam that continues to affect existing customers. What is Smishing? Smishing is a type of phone number spoofing or SMS fraud where fraudsters are able to send you a text message or phone call taking the name of a contact on your phone that you already know and trust. In this case, the fake email looks particularly convincing. It uses high quality Santander logos, and even includes adverts for other Santander products, featuring identical wording to genuine Santander marketing emails. If you open the link, with good security on your PC, you will get the above warning: However, without, you will be taken to a very authentic looking website with fake security features that make it look real … Trading Standards advise that the entire purpose of any phishing scam email is to get the recipient to provide personal information that scammers can then go on to use for their own personal gain. Please stay safe online – beware of fake accounts A Facebook account called “Santander Bank” has been contacting people claiming that they have won a Santander competition. Please note: Santander Bank is not connected to Santander UK in any way. If you are contacted by Santander Bank please do not respond. Please do report any contact directly to Facebook here: https://www.facebook.com/help/181495968648557/. Santander Takes Extra Precautions to Protect Debit and Credit Card Customers Impacted by Data Breach at Target BOSTON, Dec. 23, 2013 /PRNewswire/ -- To protect customers who used their Santander and Sovereign branded debit and credit cards at Target between November 27 and December 15 when the retailer experienced a data breach, Santander Bank, N. A. today announced it is lowering the daily limits on cash withdrawals and purchases on these cards. Santander is taking these precautions to protect its customers' accounts from fraud. \"Santander's telemarketer used deceptive sales pitches to mislead customers into enrolling in overdraft service. We will put a stop to any such unlawful practices that harm consumers. The Bank is monitoring these accounts for suspicious activity and is issuing new cards to impacted customers. Santander is encouraging customers to monitor their accounts and report transactions they do not recognize. Customers are reminded that there is zero liability for unauthorized purchases made without a PIN when Santander is promptly notified. Customers can view their account online at Santander.com or via mobile banking. Santander introduces anti-scam warning solution Santander customers will soon be provided with additional security measures via the firm’s mobile banking app, it was announced this week. In its latest move designed to reduce the risk of fraud on mobile platforms, the finance giant has revealed that its newest solution will involve customers giving more specific details about payments they make, allowing tailored security advice to be given before any transactions take place. In this case, it has been Santander bank and for customers, they have already received messages from Santander in the past, but using spoofing, the fraudster is able to continue to send you fraudulent messages under the same name and existing message thread. For the customer, it is impossible to distinguish this and believe that it could be anyone else – after all, the name comes up and everything! Smishing stands for SMS Phishing – so it is considered a type of cyber hacking, similar to trojans and worms. Here is an example of Smishing from Santander below. How Do The Fraudsters Make Money? We take the security of customer and account information extremely seriously so any incident of this nature is treated with the highest priority. \"We want to reassure customers that the risk of fraud on their account has not been increased because of this error and that this is a one-off incident.\" Santander said none of the bank statements that were sent to the wrong address contained information on customers' addresses. Martin Lewis of MoneySavingExpert.com said: \"Someone needs to grab hold of the reins at Santander. The content was created with Take Five and Mencap, and is not owned by Santander. Safe account scams Criminals pretend they’re us to steal your money. They’ll say anything to convince you they’re for real. Spanish bank Santander has admitted to sending up to 35,000 bank statements to the wrong addresses. The firm, recently voted the worst bank for customer service, said a printing error led to customers being sent the first page of their own bank statement along with the second and third pages of another customer's. The bank has written to affected customers, informed City watchdog the Financial Services Authority (FSA), and has warned branch and customer services staff not to reveal account information to anyone without adhering to formal security procedures. Are Santander Offering Refunds? Sadly not. The victims of the smishing scams were told by Santander that they will not be receiving any refunds because out of ‘negligence’ they are voluntarily giving their passwords and access to their bank accounts to a third party. News and Scam Alerts from Coventry Trading Standards - 12 February 2020 Coventry City Council sent this bulletin at 12-02-2020 10:00 AM GMT Having trouble viewing this email? View it as a Web page. News and Scam Alerts from Coventry Trading Standards - 12 February 2020 In this issue: Santander Bank email phishing scam Bogus Police Officer warning Warning: Telephone cold calls claiming to be from ‘Visa’ or ‘Mastercard’ How to report scams Santander Bank email phishing scam Trading Standards advise a convincing fake Santander email has been circulating asking customers to update their online banking security. santander.co.uk/personal/support/fraud-and-security/our-approach-to-fraud-prevention Smile When fraud is suspected we will contact our customers using email, phone calls and text messages. Customers should always take the necessary precaution to ensure they are talking to who they think they are. We also utilise various security controls and offer guidance for identifying malicious contact on our website. \" The Bureau found Santander Bank's illegal and improper practices included: - Signing consumers up for overdraft service without their consent - Deceiving consumers that overdraft service was free - Deceiving consumers about the fees they would face if they did not opt in - Falsely claiming the call was not a sales pitch - Failing to stop its telemarketer's deceptive tactics The CFPB's order requires that Santander Bank: - Validate all opt-ins associated with the telemarketer - Not use a vendor to telemarket overdraft service - Increase oversight of all third-party telemarketers - Pay a $10 million penalty. The victims mentioned above have not received any refunds from Santander except for one that received £1,500 based on the amount available in her bank overdraft (not sure why they decided that outcome). How to Spot A Fraudulent Text Message and Stay Safe Santander claim that they will never ask for your account details, Pin or your OTP code in a text message or over the phone. You need to be aware that the One-Time-Passcode (OTP) is for you and you only. Banks will only ask you to confirm a transaction whereas a fraudster will ask you for exact details e.",
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security/fraud-updates",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What specific warning was issued regarding Santander customers and fake bank cards around October 2020?",
+      "answer": "News and Scam Alerts from Coventry Trading Standards - 12 February 2020 Coventry City Council sent this bulletin at 12-02-2020 10:00 AM GMT Having trouble viewing this email? View it as a Web page. News and Scam Alerts from Coventry Trading Standards - 12 February 2020 In this issue: Santander Bank email phishing scam Bogus Police Officer warning Warning: Telephone cold calls claiming to be from ‘Visa’ or ‘Mastercard’ How to report scams Santander Bank email phishing scam Trading Standards advise a convincing fake Santander email has been circulating asking customers to update their online banking security. The Bank is monitoring these accounts for suspicious activity and is issuing new cards to impacted customers. Santander is encouraging customers to monitor their accounts and report transactions they do not recognize. Customers are reminded that there is zero liability for unauthorized purchases made without a PIN when Santander is promptly notified. Customers can view their account online at Santander.com or via mobile banking. Santander introduces anti-scam warning solution Santander customers will soon be provided with additional security measures via the firm’s mobile banking app, it was announced this week. In its latest move designed to reduce the risk of fraud on mobile platforms, the finance giant has revealed that its newest solution will involve customers giving more specific details about payments they make, allowing tailored security advice to be given before any transactions take place. They’ll pretend to be your bank, HMRC, or another trusted person to convince you to send them money. An example of this could be: You get a call from Santander on a known and trusted number. The caller claims to be from Santander’s fraud department. They tell you that your account is at risk and you need to move your money into a newly opened account to keep it safe. They will tell you the account details of this account, and ask you to transfer the money across to it. Santander Takes Extra Precautions to Protect Debit and Credit Card Customers Impacted by Data Breach at Target BOSTON, Dec. 23, 2013 /PRNewswire/ -- To protect customers who used their Santander and Sovereign branded debit and credit cards at Target between November 27 and December 15 when the retailer experienced a data breach, Santander Bank, N. A. today announced it is lowering the daily limits on cash withdrawals and purchases on these cards. Santander is taking these precautions to protect its customers' accounts from fraud. Santander Customers Warned of Smishing Scam Several Santander customers have been duped out of their life savings following a controversial smishing scam that continues to affect existing customers. What is Smishing? Smishing is a type of phone number spoofing or SMS fraud where fraudsters are able to send you a text message or phone call taking the name of a contact on your phone that you already know and trust. Studies have found that UK bank customers lost approximately £500mn to scams in the first half of 2018 alone, while only £38mn worth of scams were prevented in the whole year, highlighting the losing battle being fought by service providers. Given the prevalence of scams that involve posing as a bank, financial agency or even police officer, Santander hopes to remind customers of the importance of dealing directly with the bank to ensure optimal security and confidentiality. The initiative is the latest in a series of new solutions introduced by Santander, who recently vowed to invest more than £17. They’re sending emails to our customers asking them to update their contact details, via a link. The link takes you to a fake Santander website. Here you’ll enter your Personal ID and Security number. You’ll believe you’re logging on to our real site.",
+      "url": "https://content.govdelivery.com/accounts/UKCOVENTRY/bulletins/27b18e7",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What should a Santander customer do if they receive a bank card they did not request?",
+      "answer": "The Bank is monitoring these accounts for suspicious activity and is issuing new cards to impacted customers. Santander is encouraging customers to monitor their accounts and report transactions they do not recognize. Customers are reminded that there is zero liability for unauthorized purchases made without a PIN when Santander is promptly notified. Customers can view their account online at Santander.com or via mobile banking. Are Santander Offering Refunds? Sadly not. The victims of the smishing scams were told by Santander that they will not be receiving any refunds because out of ‘negligence’ they are voluntarily giving their passwords and access to their bank accounts to a third party. We take the security of customer and account information extremely seriously so any incident of this nature is treated with the highest priority. \"We want to reassure customers that the risk of fraud on their account has not been increased because of this error and that this is a one-off incident.\" Santander said none of the bank statements that were sent to the wrong address contained information on customers' addresses. Martin Lewis of MoneySavingExpert.com said: \"Someone needs to grab hold of the reins at Santander. The victims mentioned above have not received any refunds from Santander except for one that received £1,500 based on the amount available in her bank overdraft (not sure why they decided that outcome). How to Spot A Fraudulent Text Message and Stay Safe Santander claim that they will never ask for your account details, Pin or your OTP code in a text message or over the phone. You need to be aware that the One-Time-Passcode (OTP) is for you and you only. Banks will only ask you to confirm a transaction whereas a fraudster will ask you for exact details e. Santander Takes Extra Precautions to Protect Debit and Credit Card Customers Impacted by Data Breach at Target BOSTON, Dec. 23, 2013 /PRNewswire/ -- To protect customers who used their Santander and Sovereign branded debit and credit cards at Target between November 27 and December 15 when the retailer experienced a data breach, Santander Bank, N. A. today announced it is lowering the daily limits on cash withdrawals and purchases on these cards. Santander is taking these precautions to protect its customers' accounts from fraud.",
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAES3wEB6zswFZCIkyGJjG99TEeND9eFJACFHRMz0b2eEsItHR5amYNt_w6wtHX9q88JvM7qq81Bel5DRk3Q_XkY6zPFgIoIlQTg8Im10y_abM73lzDNV_KeSb8BJjSXjx2JZIVGJN1h3pLZuQA7HbM0vleLSVv_4F5fYDvCRdRQXKE4ZYjOnTEcJjPy4qTTj0-Scl8wKdXfTRQIWJm_29UH_ATxG3e5ajnCQ_4WCvY8Ipr4tySaqP9j9vtl0pXbTtKfGDWVNqTK1Vvlkw0PbohQ5zsrGthUkpkW4iriMkhUoU5v&ust=1789682534370138&usg=AOvVaw19H1mYaL8Kzs_RbkWSkK48",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was there evidence of a widespread scam involving fake Santander cards in the UK in late 2020?",
+      "answer": "News and Scam Alerts from Coventry Trading Standards - 12 February 2020 Coventry City Council sent this bulletin at 12-02-2020 10:00 AM GMT Having trouble viewing this email? View it as a Web page. News and Scam Alerts from Coventry Trading Standards - 12 February 2020 In this issue: Santander Bank email phishing scam Bogus Police Officer warning Warning: Telephone cold calls claiming to be from ‘Visa’ or ‘Mastercard’ How to report scams Santander Bank email phishing scam Trading Standards advise a convincing fake Santander email has been circulating asking customers to update their online banking security. Studies have found that UK bank customers lost approximately £500mn to scams in the first half of 2018 alone, while only £38mn worth of scams were prevented in the whole year, highlighting the losing battle being fought by service providers. Given the prevalence of scams that involve posing as a bank, financial agency or even police officer, Santander hopes to remind customers of the importance of dealing directly with the bank to ensure optimal security and confidentiality. The initiative is the latest in a series of new solutions introduced by Santander, who recently vowed to invest more than £17. They’ll pretend to be your bank, HMRC, or another trusted person to convince you to send them money. An example of this could be: You get a call from Santander on a known and trusted number. The caller claims to be from Santander’s fraud department. They tell you that your account is at risk and you need to move your money into a newly opened account to keep it safe. They will tell you the account details of this account, and ask you to transfer the money across to it. They’re sending emails to our customers asking them to update their contact details, via a link. The link takes you to a fake Santander website. Here you’ll enter your Personal ID and Security number. You’ll believe you’re logging on to our real site. Santander Customers Warned of Smishing Scam Several Santander customers have been duped out of their life savings following a controversial smishing scam that continues to affect existing customers. What is Smishing? Smishing is a type of phone number spoofing or SMS fraud where fraudsters are able to send you a text message or phone call taking the name of a contact on your phone that you already know and trust. In this case, the fake email looks particularly convincing. It uses high quality Santander logos, and even includes adverts for other Santander products, featuring identical wording to genuine Santander marketing emails. If you open the link, with good security on your PC, you will get the above warning: However, without, you will be taken to a very authentic looking website with fake security features that make it look real … Trading Standards advise that the entire purpose of any phishing scam email is to get the recipient to provide personal information that scammers can then go on to use for their own personal gain. Please stay safe online – beware of fake accounts A Facebook account called “Santander Bank” has been contacting people claiming that they have won a Santander competition. Please note: Santander Bank is not connected to Santander UK in any way. If you are contacted by Santander Bank please do not respond. Please do report any contact directly to Facebook here: https://www.facebook.com/help/181495968648557/. Santander introduces anti-scam warning solution Santander customers will soon be provided with additional security measures via the firm’s mobile banking app, it was announced this week. In its latest move designed to reduce the risk of fraud on mobile platforms, the finance giant has revealed that its newest solution will involve customers giving more specific details about payments they make, allowing tailored security advice to be given before any transactions take place.",
+      "url": "https://content.govdelivery.com/accounts/UKCOVENTRY/bulletins/27b18e7",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security",
+      "date": "2018-10-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/business/2010/dec/23/santander-bank-statements-wrong-addresses",
+      "date": "2010-12-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/reportfrauduk/posts/watch-out-for-these-fake-santander-texts-that-could-end-up-hijacking-legitimate-/2055723147778721/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.foolproofme.org/hall-of-shame/525-santander-bank-to-pay-10-million-fine-for-illegal-overdraft-practices",
+      "date": "2016-07-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.guarantorloancomparison.co.uk/santander-customers-warned-of-smishing-scam/",
+      "date": "2017-07-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.sec.gov/Archives/edgar/data/891478/000155837018002470/san-20171231x20f.htm",
+      "date": "1996-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://parsippanyfocus.com/grewal-announces-settlement-with-santander-in-multi-state-subprime-auto-lending-practices/",
+      "date": "2020-06-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESxQEB6zswFYwr9kv4ebZVhRhas312Eo8Ek5PbTfKB82GhOWJ06Vl9uJ1IPUKE8HsfKFxq9zcqscsJV7PwsvEplJbrkWxwOgSaJJoDCtGqMeIagRySH93-LfD2YCAnkexn0q1jQSZapqy45963hoiSqBRGFCuvHir28ViAPHRMaqPlV3XgJpsIPNymSELb7_PLrXCJTtrJUVYH1_ANVtEJ4eKyqZANKhk3X6gdVWDPJc1fP6NiFXauYEXlQICj6Q1FRDeUf6zF5g&ust=1789682534360026&usg=AOvVaw2dNtimAcZCrBjAnBdNk43Q",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESdwHrOzAVJrTHX7vD4QtAPuUbXGX-zRQk8FwOFn6YM7HlX8r59XMCZwdWd01w_PDlfINkaZqdt9T2EftBc1iySJ4izsINiXoSxxcFf0pG8lxpDAg1sqwgVGuszgaBiizELEyrxCzHai6D8vead_Z_c8MHrGcEegeF&ust=1789682534365159&usg=AOvVaw2BTwv_u2FANmAlwMUpCvhK",
+      "date": "2018-10-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAES3wEB6zswFZCIkyGJjG99TEeND9eFJACFHRMz0b2eEsItHR5amYNt_w6wtHX9q88JvM7qq81Bel5DRk3Q_XkY6zPFgIoIlQTg8Im10y_abM73lzDNV_KeSb8BJjSXjx2JZIVGJN1h3pLZuQA7HbM0vleLSVv_4F5fYDvCRdRQXKE4ZYjOnTEcJjPy4qTTj0-Scl8wKdXfTRQIWJm_29UH_ATxG3e5ajnCQ_4WCvY8Ipr4tySaqP9j9vtl0pXbTtKfGDWVNqTK1Vvlkw0PbohQ5zsrGthUkpkW4iriMkhUoU5v&ust=1789682534370138&usg=AOvVaw19H1mYaL8Kzs_RbkWSkK48",
+      "date": "2013-12-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEScwHrOzAVTkPjQhqDANffL8hIodfjQqaW-tUqKSqI6b4_w1nKbFZS9dSadmaDepOSL3GIirxvH3EKKcwcNOCFqZu3aNM0V8z07qP92Enq4OWHZRNPk5nQJq8SfnzWoey_O9baumahUAvxg_zEqbp5W91IKcs&ust=1789682534371277&usg=AOvVaw1xjOymCZyjk0LuqZmm068R",
+      "date": "2020-03-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/birmingham.live/posts/santander-issues-warning-after-customers-notice-277-missing-from-bank-account/1316825383820904/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security/spotting-fraud-or-scams",
+      "date": "2018-08-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://fintechmagazine.com/banking/santander-introduces-anti-scam-warning-solution",
+      "date": "2020-05-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/santanderuk/posts/please-stay-safe-online-beware-of-fake-accountsa-facebook-account-called-santand/852454194845186/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.santander.co.uk/personal/support/fraud-and-security/fraud-updates",
+      "date": "2018-08-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/barrheadnews/posts/santander-has-warned-consumers-to-be-wary-of-online-side-hustles-as-experts-say-/1490463126418305/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/santanderuk/videos/did-you-spot-it-the-mouth-the-background-the-blinkingthese-are-all-telling-signs/1009693520805606/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://content.govdelivery.com/accounts/UKCOVENTRY/bulletins/27b18e7",
+      "date": "2020-02-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ageuk.org.uk/barnet/our-services/latest-scams/",
+      "date": "2018-03-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 176,
+     "n_urls_after_bm25": 15,
+     "n_chunks": 1037
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Not Enough Evidence",
+   "justification": "Q&A 1 says that Santander was issuing new bank cards but makes no reference to the claim about a scam being linked to fake issued bank cards,  Q&A 2 and 3 give no answer for their questions so needs more evidence overall for the claim points.",
+   "questions": [
+    {
+     "question": "Was Santander issuing new debit cards early?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://twitter.com/santanderukhelp/status/1359776098544988160",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Is there any evidence of a scam involving Santader debit cards in Oct 2020?",
+     "answers": [
+      {
+       "answer": "No answer could be found.",
+       "answer_type": "Unanswerable",
+       "source_url": null,
+       "source_medium": ""
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What did Santander say about the claim there's a scam running in their name",
+     "answers": [
+      {
+       "answer": "No answer could be found.",
+       "answer_type": "Unanswerable",
+       "source_url": null,
+       "source_medium": ""
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210228033931/https://fullfact.org/online/santander-card-scam/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Full Fact could not find any evidence that the reported Santander bank card scam exists, and Action Fraud, the UK's fraud reporting service, stated they were unaware of any reports regarding Santander card scams, while Santander investigated the claims made in the viral Facebook posts and found no evidence to support them, confirming they were not aware of any scams involving fake debit cards being sent to customers.",
+     "support_span": "We can’t find any evidence that this scam exists. | The UK’s fraud reporting service, Action Fraud, told Full Fact it was not aware of any reports of Santander card scams. | Santander also told us it looked into the accuracy of this Facebook post and found no evidence to support its claim. | But the bank told us it was not aware of any scams in which fake debit cards are being sent to customers."
+    },
+    {
+     "statement": "The claim originated from Facebook posts shared tens of thousands of times, alleging a user received a fake card despite having time left on their current one; however, since 2018, Santander has been actively sending new debit cards to customers following a switch from Visa to Mastercard, and Santander's legitimate process for issuing new cards includes emailing customers in advance to make them aware.",
+     "support_span": "Posts warning people about a possible scam involving Santander bank cards have been shared tens of thousands of times on Facebook. It claims that the original author received a new bank card “yesterday”, supposedly from Santander, despite having nine months left on their current card. | Since switching its debit cards from Visa to Mastercard in 2018, Santander has been sending new debit cards to its customers. | In advance of posting new debit cards, it said that it will email customers to make them aware."
+    }
+   ],
+   "justification": "While the claim originated from viral Facebook posts alleging a scam involving fake Santander bank cards, multiple authoritative sources find no evidence to support it. Santander investigated the claims and found no evidence of such a scam, noting that they have been actively issuing new cards due to a switch from Visa to Mastercard since 2018. Furthermore, Action Fraud reported no awareness of such scams, and Full Fact could not find any evidence to substantiate the reports. The evidence also notes that Santander's legitimate process for issuing new cards includes notifying customers via email in advance.",
+   "article_url": "https://web.archive.org/web/20210228033931/https://fullfact.org/online/santander-card-scam/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

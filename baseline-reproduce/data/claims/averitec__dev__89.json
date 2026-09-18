@@ -1,0 +1,248 @@
+{
+ "key": "averitec/dev/89",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 89,
+ "claim": "Most deaths in the 1918 influenza pandemic originated from bacterial pneumonia caused by face masks and that Dr Anthony Fauci, the US government’s top expert in the fight against Covid-19, knew about it.",
+ "claim_date": "2020-10-16",
+ "speaker": "Colleen Huber NMD",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://archive.ph/Z1d7o",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim consists of two main parts: (a) that most deaths in the 1918 influenza pandemic were caused by bacterial pneumonia resulting from the use of face masks, and (b) that Dr. Anthony Fauci was aware of this.\n2.  **Evaluate Part A (Cause of Death):** The provided evidence (A1, A3, A6, A10) consistently states that while most deaths in the 1918 pandemic were indeed caused by secondary bacterial pneumonia, the cause was the influenza virus itself. The virus destroyed the cells lining the bronchial tubes, allowing bacteria to invade the lungs. Multiple answers (A1, A3, A6, A8, A9, A10) explicitly state that the evidence **does not** support the idea that face masks caused this pneumonia; rather, masks were a public health response to the pandemic.\n3.  **Evaluate Part B (Dr. Fauci's Knowledge):** The evidence (A1, A2, A3, A5, A10) repeatedly states that there is no mention of Dr. Anthony Fauci having any knowledge of a connection between face masks and bacterial pneumonia in the 1918 pandemic. In fact, the evidence notes that Dr. Fauci advocated for mask-wearing (A2, A5).\n4.  **Conclusion:** Since the evidence directly contradicts the causal link between face masks and pneumonia (attributing it to the virus instead) and finds no evidence of Dr. Fauci's involvement or knowledge regarding such a claim, the claim is refuted by the provided information.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the relationship between the 1918 influenza pandemic deaths and bacterial pneumonia, and does the evidence support the claim that face masks were the cause?",
+      "answer": "Based on the provided evidence, the relationship between the 1918 influenza pandemic and bacterial pneumonia is that most deaths during the pandemic were caused by bacterial pneumonia rather than the influenza virus itself. Research published in the *Journal of Infectious Diseases* indicates that the influenza virus destroyed the cells lining the bronchial tubes, which created a pathway allowing bacteria from the nose and throat to invade the lungs.\n\nThe evidence **does not support** the claim that face masks were the cause of these deaths. Instead, the research attributes the bacterial infections to the damage caused to the lungs by the influenza virus. Additionally, the provided text contains no mention of Dr. Anthony Fauci or his knowledge regarding these findings.",
+      "url": "https://respiratory-therapy.com/disorders-diseases/infectious-diseases/other-infections/bacterial-pneumonia-to-blame-for-most-1918-flu-pandemic-deaths/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that the 1918 influenza pandemic deaths were caused by bacterial pneumonia from face masks and that Dr. Fauci was aware of this?",
+      "answer": "No, the provided evidence does not support the claim.\n\nThe evidence contains no mention of bacterial pneumonia being caused by face masks during the 1918 influenza pandemic, nor does it suggest that Dr. Anthony Fauci had any knowledge of such a phenomenon. \n\nInstead, the evidence states that Dr. Fauci compared the potential scale of the COVID-19 pandemic to the 1918 pandemic based on how viruses jump species and spread between humans. Furthermore, the text notes that Dr. Fauci emphasized the importance of masks, suggesting that the resurgence of COVID-19 in certain states may be linked to \"crowded gatherings without masks.\"",
+      "url": "https://www.fox13news.com/news/we-have-a-serious-situation-here-fauci-calls-covid-19-like-1918-flu-pandemic-of-historic-proportions",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did the 1918 influenza pandemic deaths result from face masks, and is there evidence that Dr. Anthony Fauci was aware of this?",
+      "answer": "Based on the provided evidence, the claim is partially accurate regarding the cause of death but incorrect regarding the role of face masks and Dr. Fauci's involvement:\n\n*   **Cause of Death:** The evidence supports the claim that the majority of deaths during the 1918 influenza pandemic resulted from secondary bacterial pneumonia rather than the influenza virus itself. Research published in the *Journal of Infectious Diseases* indicates that more than 90% of deaths were caused by bacteria (such as pneumococci, streptococci, and staphylococci) colonizing the lungs after the virus damaged the respiratory epithelium.\n*   **Role of Face Masks:** The evidence **does not** state that face masks caused the bacterial pneumonia. Instead, it attributes the bacterial infections to the damage caused to the respiratory epithelium by the influenza virus.\n*   **Dr. Anthony Fauci:** The evidence **does not** mention Dr. Anthony Fauci or suggest that he had prior knowledge of these specific findings in relation to the 1918 pandemic.",
+      "url": "https://www.cidrap.umn.edu/influenza-vaccines/study-bacterial-pneumonia-was-main-killer-1918-flu-pandemic",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim that the 1918 influenza pandemic deaths were caused by face masks an example of the misinformation and conspiracy theories that historically emerge during pandemics?",
+      "answer": "Based on the provided evidence, the claim that 1918 influenza pandemic deaths were caused by face masks is an example of the type of misinformation and conspiracy theories that historically emerge during pandemics.\n\nThe evidence states that throughout history, pandemics like the 1918 influenza pandemic have been accompanied by \"widespread mistrust in science and the emergence of conspiracy theories.\" It notes that these pandemics see the rise of \"dangerous misinformation\" and \"harmful myths\" driven by anxiety and the desire for simple explanations during times of crisis. While the evidence does not specifically mention the claim regarding face masks or Dr. Anthony Fauci, it establishes that the 1918 pandemic was characterized by the spread of such misconceptions and \"fake news.\"",
+      "url": "https://www.medicalnewstoday.com/articles/the-flu-pandemic-of-1918-and-early-conspiracy-theories",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Dr. Anthony Fauci know that most deaths in the 1918 influenza pandemic were caused by bacterial pneumonia resulting from face masks?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that Dr. Anthony Fauci knew that most deaths in the 1918 influenza pandemic were caused by bacterial pneumonia resulting from face masks. The evidence focuses on comparing the public health strategies of Dr. Thomas Tuttle and Dr. Anthony Fauci, noting their shared advocacy for mask-wearing, social distancing, and quarantine.",
+      "url": "https://www.cnn.com/2020/05/05/health/dr-fauci-thomas-tuttle-1918-influenza-wellness-trnd",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did face masks cause bacterial pneumonia during the 1918 influenza pandemic, and was Dr. Anthony Fauci aware of this?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that face masks caused bacterial pneumonia during the 1918 influenza pandemic, nor is there any mention of Dr. Anthony Fauci's awareness of such a connection.\n\nThe evidence states that high mortality rates during the 1918 pandemic were driven by factors such as **overcrowding, poor sanitation, secondary bacterial pneumonia, and potentially aspirin poisoning**. While the text confirms that secondary bacterial pneumonia was a factor in the deaths, it does not attribute this to the use of face masks.",
+      "url": "https://theconversation.com/10-misconceptions-about-the-1918-flu-the-greatest-pandemic-in-history-133994",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did face masks cause bacterial pneumonia during the 1918 influenza pandemic, and was Dr. Anthony Fauci aware of this?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that face masks caused bacterial pneumonia during the 1918 influenza pandemic, nor is there any mention of Dr. Anthony Fauci's knowledge regarding such a claim.\n\nThe evidence states that the 1918 pandemic was caused by an H1N1 virus and that, due to the lack of vaccines or antibiotics at the time, control efforts were limited to non-pharmaceutical interventions such as quarantine, isolation, hygiene practices, and the limitation of public gatherings.",
+      "url": "https://archive.cdc.gov/www_cdc_gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the mandatory use of fabric masks during the 1918 Spanish flu pandemic cause bacterial pneumonia?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that the mandatory use of fabric masks caused bacterial pneumonia. \n\nThe evidence states that the disease was \"initially believed to be bacterial,\" which led to public health measures including the \"mandatory use of fabric masks.\" The text does not link the use of masks to the cause of pneumonia; rather, it describes the mask mandate as a response to the initial belief that the disease was bacterial. Additionally, the evidence contains no mention of Dr. Anthony Fauci or his knowledge regarding the 1918 pandemic.",
+      "url": "https://www.pfizer.com/news/articles/flashback_spanish_flu_mask",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the 1918 influenza pandemic cause deaths through bacterial pneumonia resulting from face masks, and was Dr. Anthony Fauci aware of this?",
+      "answer": "Based on the provided evidence, there is no information to support the claim that deaths in the 1918 influenza pandemic were caused by bacterial pneumonia resulting from face masks, nor is there any mention of Dr. Anthony Fauci's awareness of such a phenomenon.\n\nThe evidence states that the 1918 pandemic was caused by an H1N1 virus and was characterized by severe lung damage and a high mortality rate due to \"hyperactive immune responses.\" The text does not attribute the cause of death to face masks.",
+      "url": "https://www.chicagotribune.com/2020/04/24/how-the-1918-flu-pandemic-mirrors-todays-coronavirus-crisis/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that bacterial pneumonia in the 1918 pandemic was caused by face masks, and is there any mention of Dr. Anthony Fauci's knowledge regarding this?",
+      "answer": "No, the evidence does not support the claim.\n\nAccording to the provided text:\n*   **Cause of bacterial pneumonia:** The evidence states that \"later research revealed that specific genes made the virus particularly deadly by facilitating bacterial pneumonia,\" rather than face masks.\n*   **Dr. Anthony Fauci:** There is no mention of Dr. Anthony Fauci or his knowledge regarding the 1918 pandemic in the provided evidence.",
+      "url": "https://www.history.com/articles/1918-flu-pandemic",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.cidrap.umn.edu/influenza-vaccines/study-bacterial-pneumonia-was-main-killer-1918-flu-pandemic",
+      "date": "2008-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://respiratory-therapy.com/disorders-diseases/infectious-diseases/other-infections/bacterial-pneumonia-to-blame-for-most-1918-flu-pandemic-deaths/",
+      "date": "2008-08-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/2020/05/05/health/dr-fauci-thomas-tuttle-1918-influenza-wellness-trnd",
+      "date": "2020-05-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.chicagotribune.com/2020/04/24/how-the-1918-flu-pandemic-mirrors-todays-coronavirus-crisis/",
+      "date": "2020-04-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fox13news.com/news/we-have-a-serious-situation-here-fauci-calls-covid-19-like-1918-flu-pandemic-of-historic-proportions",
+      "date": "2020-07-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.history.com/articles/1918-spanish-flu-mask-wearing-resistance",
+      "date": "2020-05-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.medicalnewstoday.com/articles/the-flu-pandemic-of-1918-and-early-conspiracy-theories",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.history.com/articles/1918-flu-pandemic",
+      "date": "2010-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.history.com/articles/spanish-flu-second-wave-resurgence",
+      "date": "2020-03-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theconversation.com/10-misconceptions-about-the-1918-flu-the-greatest-pandemic-in-history-133994",
+      "date": "2020-03-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pfizer.com/news/articles/flashback_spanish_flu_mask",
+      "date": "2017-01-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://archive.cdc.gov/www_cdc_gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm",
+      "date": "2019-01-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 12,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "there is no evidence this happened in 1918, and no evidence that mask wearing causes bacterial pneumonia. ",
+   "questions": [
+    {
+     "question": "Is wearing a mask an increasing factor or a direct cause of secondary bacterial pneumonia?",
+     "answers": [
+      {
+       "answer": "there is no evidence to support this and it has not been mentioned in any studies.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20201215165742/https://pubmed.ncbi.nlm.nih.gov/22021918/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did the National Institute of Allergy and Infectious Diseases undertake a study linking masks to bacterial pneumonia?",
+     "answers": [
+      {
+       "answer": "NIAID told AFP in a statement: “The 2008 study does not mention masks and had nothing to do with masks” Instead, the study “analyzed data from fatal 1918 infections and showed that the majority of cases were associated with secondary bacterial pneumonias,”",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20210613090038/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2599911/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210608095140/https://factcheck.afp.com/bacterial-pneumonia-complication-influenza-not-linked-mask-wearing",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The 2008 study co-authored by Dr. Anthony Fauci, which was conducted to improve pandemic preparedness by focusing on prevention of secondary bacterial pneumonia and stockpiling antibiotics and vaccines, analyzed fatal 1918 infections and found most cases were associated with secondary bacterial pneumonias, but it did not mention or link mask-wearing to bacterial pneumonia and had nothing to do with masks.",
+     "support_span": "the 2008 study referred to in the tweet, and which Fauci co-authored, aimed to help plan for future pandemics and made no link to mask-wearing. | NIAID told AFP in a statement: “The 2008 study does not mention masks and had nothing to do with masks” Instead, the study “analyzed data from fatal 1918 infections and showed that the majority of cases were associated with secondary bacterial pneumonias,” NIAID added. | The study was conducted to better prepare for future pandemics, concluding that prevention and other measures against secondary bacterial pneumonia, along with antibiotic and bacterial vaccine stockpiling, should be high priorities."
+    },
+    {
+     "statement": "Scientific literature confirms that secondary bacterial pneumonia is a long-known complication of severe influenza in both humans and animals, and there are no reputable studies that connect the use of face masks with an increase in bacterial pneumonia, especially as the 1918 influenza pandemic was particularly deadly because antibiotics were not yet available to treat complications like pneumonia.",
+     "support_span": "“This association of secondary bacterial pneumonias has long been associated with severe influenza in human and animal studies. There are several published references to this,” NIAID told AFP. | Dr Taison Bell... added that “there is no reputable study that has connected mask use with an increase in bacterial pneumonia.” | In 1918, antibiotics were not available. The availability of antibiotics during later influenza pandemics of the 20th century was probably a key factor in the lower number of worldwide deaths during those outbreaks"
+    }
+   ],
+   "justification": "The evidence indicates that while a 2008 study co-authored by Dr. Anthony Fauci did find that most deaths in the 1918 influenza pandemic were associated with secondary bacterial pneumonia, the study made no mention of or link to face masks. Instead, the study focused on improving pandemic preparedness through the stockpiling of antibiotics and vaccines. Furthermore, scientific literature and experts state that there are no reputable studies connecting mask use to an increase in bacterial pneumonia, and that the high mortality in 1918 was largely due to the lack of available antibiotics at the time.",
+   "article_url": "https://web.archive.org/web/20210608095140/https://factcheck.afp.com/bacterial-pneumonia-complication-influenza-not-linked-mask-wearing",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

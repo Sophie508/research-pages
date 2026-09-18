@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseline 复现进度</title>
+<meta name="description" content="六个 shared-task fact-checking 系统在实时 web 检索设定下的 adapted reproduction：进度、已确认结果与剩余工作。">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{ /* MCFC Bench tokens (shared with the site home) + aliases used by this page */
+  --bg:#fafbfc; --card:#ffffff; --ink:#101828; --ink2:#475467; --ink3:#98a2b3; --line:#eaecf0; --accent:#e8590c; --info:#175cd3; --info-soft:#eff8ff;
+  --shadow:0 1px 3px rgba(16,24,40,.07),0 1px 2px rgba(16,24,40,.04);
+  --ink-soft:var(--ink2); --ink-light:var(--ink3); --paper:var(--bg); --paper-warm:var(--card); --rule:var(--line);
+  --ikb:var(--info); --citron:#dc6803; --leaf:#079455; --hl:#fef0c7; --code-bg:#f2f4f7; --white:#ffffff;
+  /* status palette: each state always carries a text label; color is never the only signal */
+  --st-ok:#079455; --st-noev:#175cd3; --st-fail:#d92d20; --st-notrun:#e4e7ec;
+}
+[data-theme="dark"]{
+  --bg:#0c111d; --card:#161b26; --ink:#f5f5f6; --ink2:#94969c; --ink3:#61646c; --line:#1f242f; --accent:#ff692e; --info:#84adff; --info-soft:#0e1f3d;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+  --citron:#fdb022; --leaf:#47cd89; --hl:#3d2a06; --code-bg:#1c2130; --white:#161b26;
+  --st-ok:#47cd89; --st-noev:#84adff; --st-fail:#f97066; --st-notrun:#1f242f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-size:15px;line-height:1.75;
+  font-family:"DM Sans",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+a{color:var(--ikb);text-decoration:none}
+a:hover{text-decoration:underline}
+h1{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-weight:700;letter-spacing:-0.02em;line-height:1.08;font-size:42px}
+h2{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-weight:700;letter-spacing:-0.01em;font-size:32px;margin:0 0 8px}
+h3{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-weight:700;font-size:20px;border-left:3px solid var(--accent);padding-left:12px;margin:26px 0 12px}
+h4{font-family:"DM Sans",sans-serif;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin:14px 0 8px}
+h6{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-light);font-weight:600;margin-bottom:6px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.sec-num{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase}
+.sec-lead{color:var(--ink-soft);max-width:760px;margin-bottom:22px}
+.muted{color:var(--ink-light)}
+.small{font-size:13px}
+code{background:var(--code-bg);padding:2px 6px;border-radius:2px;font-family:"JetBrains Mono",monospace;font-size:12.5px}
+
+header.hero{background:var(--paper-warm);border-bottom:1px solid var(--rule);padding:64px 0 40px}
+.hero .en{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-size:19px;color:var(--ink-soft);margin-top:10px}
+.hero .lead{margin-top:22px;font-size:15px;color:var(--ink-soft);border-left:3px solid var(--accent);padding-left:18px;max-width:760px}
+.hero .meta{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.hero .meta div{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-light);line-height:1.5}
+.hero .meta b{display:block;color:var(--ink);font-weight:700;font-size:13px;margin-top:2px;font-family:"DM Sans",sans-serif}
+
+nav.top{display:flex;align-items:center;gap:22px;padding:0 40px;height:64px;border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:20}
+nav.top .brand{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
+nav.top .section-name{font-weight:600;color:var(--ink2);font-size:14.5px;padding-left:22px;border-left:1px solid var(--line)}
+nav.top .navlinks{display:flex;gap:22px;margin-left:auto;font-weight:500;color:var(--ink2);font-size:14.5px;flex-wrap:wrap}
+nav.top .navlinks a{color:inherit} nav.top .navlinks a.on{color:var(--ink);border-bottom:2px solid var(--accent)} nav.top .navlinks a:hover{text-decoration:none;color:var(--ink)}
+#themeBtn{margin-left:4px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink2)}
+nav.bar{position:sticky;top:64px;z-index:10;background:var(--card);border-bottom:1px solid var(--rule);padding:11px 0}
+nav.bar .wrap{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+nav.bar a{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:0.03em;border:1px solid var(--rule);border-radius:3px;padding:6px 11px;color:var(--ink-soft);transition:all .2s}
+nav.bar a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+section{border-bottom:1px solid var(--rule);padding:56px 0}
+.banner{padding:12px 18px;border-left:4px solid var(--citron);background:rgba(230,194,0,0.10);font-size:14px;margin-bottom:18px}
+.banner.bad{border-left-color:var(--accent);background:rgba(193,74,29,0.06)}
+.banner.ok{border-left-color:var(--leaf);background:rgba(90,140,58,0.05)}
+
+.panel{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--ikb);padding:14px 18px;font-size:13.5px}
+.panel.warm{border-left-color:var(--accent);background:rgba(193,74,29,0.03)}
+.panel.leaf{border-left-color:var(--leaf);background:rgba(90,140,58,0.04)}
+.panel.citron{border-left-color:var(--citron);background:rgba(230,194,0,0.06)}
+.panel.dark{border-left-color:var(--ink);background:rgba(0,0,0,0.03)}
+
+/* headline stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.tile{background:var(--white);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;border-top:3px solid var(--accent)}
+.tile h6{margin-bottom:10px}
+.tile .num{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-size:40px;line-height:1;font-weight:700;letter-spacing:-0.02em}
+.tile .num small{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--ink-light);font-weight:400;letter-spacing:0;margin-left:6px}
+.tile .sub{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);margin-top:10px;line-height:1.6}
+.tile .def{font-size:12.5px;color:var(--ink-light);margin-top:8px;line-height:1.5}
+
+/* badges */
+.badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.04em;padding:2px 8px;border-radius:2px;border:1px solid var(--rule);color:var(--ink-soft);background:var(--white);white-space:nowrap;vertical-align:middle}
+.badge.done,.badge.completed{border-color:var(--leaf);color:var(--leaf)}
+.badge.running{border-color:var(--ikb);color:var(--ikb)}
+.badge.failed,.badge.stopped,.badge.blocked_search_credits{border-color:var(--accent);color:var(--accent)}
+.badge.completed_with_failures,.badge.label_only{border-color:var(--citron);color:#7a6400}
+.badge.planned,.badge.queued,.badge.not_started{border-color:var(--rule);color:var(--ink-light)}
+.badge.incomplete,.badge.unknown{border-color:var(--citron);color:#7a6400}
+.badge.fill{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* system cards */
+.facet{margin-top:30px}
+.facet-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.facet-head .ds{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-light)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--white);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px}
+.card .name{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-size:21px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card .bb{font-size:12.5px;color:var(--ink-light);margin:4px 0 12px;line-height:1.5}
+.stage{border-top:1px dashed var(--rule);padding:10px 0 8px}
+.stage .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.stage .lbl{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
+.stage .counts{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.7}
+.stage .note{font-size:12.5px;color:var(--ink-light);margin-top:4px;line-height:1.5}
+.bar{display:flex;height:14px;margin-top:8px;background:var(--st-notrun);border-radius:2px;overflow:hidden;gap:2px;
+  background-image:repeating-linear-gradient(135deg,transparent 0 5px,rgba(0,0,0,0.05) 5px 6px)}
+.bar span{display:block;height:100%}
+.bar .ok{background:var(--st-ok)} .bar .noev{background:var(--st-noev)} .bar .fail{background:var(--st-fail)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);margin:10px 0 0}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border-radius:2px}
+.legend .notrun i{background:var(--st-notrun);background-image:repeating-linear-gradient(135deg,transparent 0 3px,rgba(0,0,0,0.12) 3px 4px)}
+
+/* timeline */
+.tl{list-style:none;border-left:2px solid var(--rule);margin:8px 0 0 8px;padding-left:26px}
+.tl li{position:relative;padding:0 0 22px}
+.tl li::before{content:"";position:absolute;left:-33px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-light)}
+.tl li.done::before{background:var(--leaf);border-color:var(--leaf)}
+.tl li.failed::before{background:var(--accent);border-color:var(--accent)}
+.tl li.running::before{background:var(--ikb);border-color:var(--ikb)}
+.tl .when{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-light);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tl .ttl{font-weight:600;font-size:15.5px;margin-top:2px}
+.tl .dtl{font-size:13.5px;color:var(--ink-soft);margin-top:3px;max-width:820px}
+.tl .src{font-family:"JetBrains Mono",monospace;font-size:11.5px;margin-top:4px}
+
+/* results */
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.hbar .track span.silver{background:var(--accent)}
+.empty{background:var(--white);border:1px dashed var(--rule);padding:22px 24px}
+.empty .big{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-size:22px;font-weight:700;margin-bottom:8px}
+.kv{font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.9;color:var(--ink-soft)}
+.kv b{color:var(--ink)}
+.placeholder{margin-top:14px;border:1px dashed var(--rule);padding:14px 16px;color:var(--ink-light);font-size:13px;background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(0,0,0,0.02) 8px 9px)}
+.hbar{display:grid;grid-template-columns:200px 1fr 90px;align-items:center;gap:10px;font-size:13px;padding:5px 0}
+.hbar .track{height:12px;background:var(--st-notrun);border-radius:2px;overflow:hidden}
+.hbar .track span{display:block;height:100%;background:var(--ikb);border-radius:0 2px 2px 0}
+.hbar .val{font-family:"JetBrains Mono",monospace;font-size:12px;text-align:right;color:var(--ink-soft)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+table th{text-align:left;background:var(--paper-warm);border-bottom:2px solid var(--ink);padding:9px 12px;font-size:11.5px;text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+table td{border-bottom:1px solid var(--rule);padding:9px 12px;vertical-align:top}
+table tr:hover td{background:rgba(255,243,168,0.15)}
+.tbl-wrap{overflow-x:auto}
+
+/* deviations */
+details{background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--accent);margin-bottom:10px}
+details summary{cursor:pointer;padding:12px 18px;font-weight:600;font-size:14.5px;list-style:none;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";font-family:"JetBrains Mono",monospace;color:var(--accent);font-weight:700;width:14px}
+details[open] summary::before{content:"−"}
+details .body{padding:0 18px 16px 44px;font-size:13.5px;color:var(--ink-soft)}
+details .body p{margin-bottom:8px}
+details .body b{color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;margin-right:8px}
+ul.lim{padding-left:20px;font-size:14px;color:var(--ink-soft)}
+ul.lim li{margin-bottom:8px}
+
+footer{padding:34px 0 60px;font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-light);line-height:1.8}
+
+@media (max-width:860px){
+  .cards,.grid-2{grid-template-columns:1fr}
+  .hero .meta{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){nav.top{height:auto;padding:10px 16px;flex-wrap:wrap;gap:10px 16px}nav.top .navlinks{margin-left:0;width:100%;gap:14px}nav.top .section-name{padding-left:0;border-left:0}nav.bar{top:0}}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  h1{font-size:32px} h2{font-size:26px}
+  header.hero{padding:44px 0 30px}
+  .tiles{grid-template-columns:1fr}
+  .hero .meta{grid-template-columns:1fr}
+  section{padding:40px 0}
+  .hbar{grid-template-columns:120px 1fr 70px}
+  details .body{padding-left:18px}
+}
+</style>
+</head>
+<body>
+
+<nav class="top"><a class="brand" href="../">MCFC Bench</a><a class="section-name" href="index.html#/">Baseline Reproduce</a>
+  <div class="navlinks"><a href="../">Home</a><a href="index.html#/">Claims</a><a href="index.html#/compare">Compare</a><a href="index.html#/results">Results</a><a class="on" href="progress.html">Progress</a></div>
+  <button id="themeBtn">🌙</button></nav>
+<header class="hero">
+  <div class="wrap">
+    <div class="sec-num">Baseline reproduction · progress board</div>
+    <h1 id="h-title" style="margin-top:10px">六个 fact-checking 系统的实时检索适配复现</h1>
+    <div class="en" id="h-en">Adapted reproduction of six shared-task fact-checking systems with live web search</div>
+    <div class="lead" id="h-goal"></div>
+    <div class="meta">
+      <div>实验数据最后更新<b id="m-observed">—</b></div>
+      <div>快照生成时间<b id="m-generated">—</b></div>
+      <div>本页刷新时间<b id="m-refreshed">—</b></div>
+      <div>数据状态<b id="m-state">加载中…</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="bar"><div class="wrap">
+  <a href="#now">当前进度</a><a href="#systems">六系统总览</a><a href="#timeline">时间线</a><a href="#results">结果</a><a href="#methods">方法与偏差</a><a href="#sources">数据来源</a>
+</div></nav>
+
+<div class="wrap" style="margin-top:22px"><div id="banner"></div></div>
+
+<section id="now">
+  <div class="wrap">
+    <div class="sec-num">01 · Current state</div>
+    <h2>当前进度</h2>
+    <p class="sec-lead">三项进度彼此独立，页面不合成“总体完成百分比”。分母是固定计划，不是已产出的记录数。</p>
+    <div class="panel" id="activity"></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</section>
+
+<section id="systems">
+  <div class="wrap">
+    <div class="sec-num">02 · Six systems</div>
+    <h2>六系统总览</h2>
+    <p class="sec-lead">文本与图文分面显示，不互相比较。进度条分母固定为计划样本数；<b>ok 只表示系统跑通并产出结构合规的输出，不表示判决或证据正确。</b></p>
+    <div class="legend">
+      <span><i style="background:var(--st-ok)"></i>ok（跑通）</span>
+      <span><i style="background:var(--st-noev)"></i>无证据（no_evidence）</span>
+      <span><i style="background:var(--st-fail)"></i>系统失败</span>
+      <span class="notrun"><i></i>未运行</span>
+    </div>
+    <div id="facets"></div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-num">03 · Timeline</div>
+    <h2>实验时间线</h2>
+    <p class="sec-lead">每个事件标注日期（UTC）、状态与证据来源。日期缺失的事件是计划项，不猜日期。</p>
+    <ul class="tl" id="tl"></ul>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="sec-num">04 · Results</div>
+    <h2>结果</h2>
+    <p class="sec-lead" id="results-note"></p>
+    <div class="grid-2" id="results-grid"></div>
+  </div>
+</section>
+
+<section id="methods">
+  <div class="wrap">
+    <div class="sec-num">05 · Methods &amp; deviations</div>
+    <h2>方法与偏差</h2>
+    <p class="sec-lead">每条偏差：改了什么、为何改、可能影响什么。完整登记表在实验目录的 DEVIATIONS.md。</p>
+    <div id="devs"></div>
+    <h3>实质限制</h3>
+    <ul class="lim" id="lims"></ul>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="wrap">
+    <div class="sec-num">06 · Data provenance</div>
+    <h2>数据来源</h2>
+    <p class="sec-lead">本页只读取一个脱敏、版本化的快照文件 <code>data/status.json</code>。快照由只读脚本从本地实验证据文件生成；页面自动刷新不代表服务器数据已同步。</p>
+    <div class="tbl-wrap"><table id="ev"><thead><tr><th>证据 ID</th><th>文件（相对项目根）</th><th>观测时间（UTC）</th><th>说明</th><th>SHA-256</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script>
+(function(){
+  const $ = (s)=>document.querySelector(s);
+  const btn=$('#themeBtn'); function setTheme(t){document.documentElement.setAttribute('data-theme',t);btn.textContent=t==='dark'?'☀️':'🌙';try{localStorage.setItem('mcfc_theme',t);}catch(e){}}
+  let t0='light'; try{t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}catch(e){}
+  setTheme(t0); btn.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+  const STORE_KEY='mcfc_progress_snapshot_v1';
+  const STATE_ZH={completed:'已完成',completed_with_failures:'已完成（含失败）',running:'运行中',queued:'排队中',not_started:'未开始',incomplete:'未完成',stopped:'中途停止',label_only:'仅标签评估',unknown:'未核实',done:'已完成',failed:'失败/中止',planned:'计划中',not_completed:'尚未完成',partial:'部分完成',blocked_search_credits:'已停止 · 搜索额度耗尽'};
+  const DS_ZH={text:'文本',multimodal:'图文'};
+  const esc=(s)=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const nz=(v,alt='未核实')=>(v===null||v===undefined)?`<span class="muted">${alt}</span>`:esc(v);
+  function fmt(iso){ if(!iso) return '<span class="muted">未核实</span>';
+    const d=new Date(iso); if(isNaN(d)) return esc(iso);
+    const p=n=>String(n).padStart(2,'0');
+    const utc=`${d.getUTCFullYear()}-${p(d.getUTCMonth()+1)}-${p(d.getUTCDate())} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`;
+    const loc=`${p(d.getHours())}:${p(d.getMinutes())} 本地`;
+    return `${utc}<span class="muted small">（${loc}）</span>`; }
+  function badge(state){ return `<span class="badge ${esc(state)}">${esc(STATE_ZH[state]||state||'未核实')}</span>`; }
+
+  function bar(counts, planned){
+    if(!counts || counts.ok===null) return `<div class="bar" title="未核实"></div>`;
+    const seg=(n,cls,label)=> n>0?`<span class="${cls}" style="width:${(100*n/planned).toFixed(2)}%" title="${label} ${n}"></span>`:'';
+    return `<div class="bar" role="img" aria-label="ok ${counts.ok}，无证据 ${counts.no_evidence}，系统失败 ${counts.system_failed}，未运行 ${counts.not_run}，计划 ${planned}">${seg(counts.ok,'ok','ok')}${seg(counts.no_evidence,'noev','无证据')}${seg(counts.system_failed,'fail','系统失败')}</div>`;
+  }
+  function countsLine(c, planned){
+    if(!c || c.ok===null) return `<span class="muted">计数未核实 / 计划 ${planned}</span>`;
+    return `ok <b>${c.ok}</b> · 无证据 <b>${c.no_evidence}</b> · 系统失败 <b>${c.system_failed}</b> · 未运行 <b>${c.not_run}</b> · 计划 <b>${planned}</b>`;
+  }
+  function verdictLine(vc){ if(!vc) return ''; const ks=Object.keys(vc); if(!ks.length) return '';
+    return `<div class="note">系统输出的判决分布（不是正确率）：${ks.map(k=>`${esc(k)} ${vc[k]}`).join('，')}</div>`; }
+
+  function render(snap, meta){
+    // hero
+    $('#h-title').textContent=snap.project.title_zh; $('#h-en').textContent=snap.project.title_en;
+    $('#h-goal').innerHTML=`${esc(snap.project.goal_zh)}<div class="small muted" style="margin-top:8px">口径：${esc(snap.project.framing)}。LLM：${esc(snap.project.llm)}。检索：${esc(snap.project.retrieval)}。</div>`;
+    $('#m-observed').innerHTML=fmt(snap.data_observed_at);
+    $('#m-generated').innerHTML=fmt(snap.generated_at);
+    $('#m-refreshed').innerHTML=fmt(new Date().toISOString());
+    const ageH=(Date.now()-new Date(snap.generated_at).getTime())/36e5;
+    const stale=ageH>(snap.freshness?.stale_after_hours??24);
+    let state, ban='';
+    if(meta.fromCache){ state='同步失败 · 显示旧快照'; ban=`<div class="banner bad"><b>快照同步失败。</b>当前显示的是本浏览器上次成功加载的快照（生成于 ${fmt(snap.generated_at)}），不是最新状态。</div>`; }
+    else if(stale){ state=`可能过期（${ageH.toFixed(0)} 小时前生成）`; ban=`<div class="banner"><b>数据可能过期。</b>快照生成于 ${fmt(snap.generated_at)}，超过 ${snap.freshness.stale_after_hours} 小时未更新。实验仍在进行时，本页数字可能落后于服务器。</div>`; }
+    else { state=`快照 ${ageH<1?'不到 1 小时':ageH.toFixed(0)+' 小时'}前生成`; }
+    $('#m-state').textContent=state; $('#banner').innerHTML=ban;
+
+    // activity
+    const a=snap.current_activity||{};
+    $('#activity').innerHTML=`<h6>当前状态 · ${badge(a.phase||a.state||'unknown')}</h6>
+      <div>${nz(a.summary,'当前活动未核实')}</div>
+      ${a.needs_user?`<div class="small" style="margin-top:8px"><b>需要的动作：</b>${esc(a.needs_user)}</div>`:''}
+      <div class="small muted" style="margin-top:6px">记录时间 ${fmt(a.observed_at)} · ${esc(a.note||'')}${a.live_verified===false?' 服务器实时状态：<b>未核实</b>。':''}</div>`;
+
+    // tiles
+    const h=snap.headline;
+    const fp=h.formal_processed;
+    $('#tiles').innerHTML=`
+      <div class="tile"><h6>真实小样运行覆盖</h6><div class="num">${nz(h.smoke_systems_covered.value)}<small>/ ${h.smoke_systems_covered.denominator} 系统</small></div><div class="def">${esc(h.smoke_systems_covered.definition)}</div></div>
+      <div class="tile"><h6>正式样本已处理 / 计划</h6><div class="num">${nz(fp.text.processed)}<small>/ ${fp.text.planned} 文本</small></div><div class="sub">图文 ${nz(fp.multimodal.processed)} / ${fp.multimodal.planned}</div><div class="def">${esc(fp.definition)}</div></div>
+      <div class="tile"><h6>正式评估已完成</h6><div class="num">${nz(h.evaluated_systems.value)}<small>/ ${h.evaluated_systems.denominator} 系统</small></div>${h.evaluated_systems.label_only?`<div class="sub">另有 ${h.evaluated_systems.label_only} 个系统只做了离线标签 accuracy</div>`:''}<div class="def">${esc(h.evaluated_systems.definition)}</div></div>`;
+    // budget: secondary, conservative basis
+    const bg=snap.budget; if(bg){ const el=document.createElement('div'); el.className='panel dark'; el.style.marginTop='18px'; el.innerHTML=`<h6>费用口径（次级信息）</h6><div class="small">授权上限 <b>USD ${nz(bg.global_cap_usd)}</b> · 累计保守费用 <b>USD ${bg.conservative_total_usd!=null?bg.conservative_total_usd.toFixed(2):'未核实'}</b> · 余额 <b>USD ${bg.remaining_usd!=null?bg.remaining_usd.toFixed(2):'未核实'}</b>（其中 USD ${nz(bg.evaluation_protected_usd)} 预留给评估） · 本轮正式运行 USD ${bg.formal_r2_run_usd!=null?bg.formal_r2_run_usd.toFixed(2):'未核实'} · 搜索账户 credits 余额 <b>${nz(bg.search_credits_balance)}</b></div><div class="small muted" style="margin-top:4px">${esc(bg.basis)} 记录时间 ${fmt(bg.observed_at)}。</div>`; $('#tiles').after(el); }
+
+    // systems facets
+    const facets={};
+    snap.systems.forEach(s=>{(facets[s.dataset]=facets[s.dataset]||[]).push(s);});
+    $('#facets').innerHTML=Object.keys(facets).map(dk=>{
+      const ds=snap.datasets[dk]||{};
+      const cards=facets[dk].map(s=>{
+        const sm=s.stages.smoke, fo=s.stages.formal, ev=s.stages.evaluation;
+        const silver=ev.silver||{}, gold=ev.gold||{};
+        return `<div class="card">
+          <div class="name"><span>${esc(s.name_en)}</span><span class="badge">${esc(DS_ZH[s.modality]||s.modality)} · ${esc(ds.name||dk)}</span></div>
+          <div class="bb">原骨干 ${esc(s.original_backbone)} → 适配后 ${esc(s.adapted_backbone)}</div>
+          <div class="stage"><div class="row"><span class="lbl">小样 · ${sm.planned_n} 条</span>${badge(sm.state)}${sm.audit_passed===true?'<span class="badge done">结构审计通过</span>':(sm.audit_passed===false?'<span class="badge failed">审计未通过</span>':'')}</div>
+            ${bar(sm.counts,sm.planned_n)}<div class="counts">${countsLine(sm.counts,sm.planned_n)}</div>${verdictLine(sm.verdict_counts)}
+            <div class="note">运行 ${esc(sm.run_id||'未核实')} · 观测 ${fmt(sm.observed_at)}</div></div>
+          <div class="stage"><div class="row"><span class="lbl">正式 · 计划 ${fo.planned_n} 条</span>${badge(fo.state)}</div>
+            ${bar(fo.counts,fo.planned_n)}<div class="counts">${countsLine(fo.counts,fo.planned_n)}</div>${verdictLine(fo.verdict_counts)}
+            <div class="note">${fo.run_id?`运行 ${esc(fo.run_id)} · `:''}观测 ${fmt(fo.observed_at)}${fo.mirror_note?` · ${esc(fo.mirror_note)}`:''}${fo.stop_reason?`<br><b>停止原因：</b>${esc(fo.stop_reason)}`:''}</div></div>
+          <div class="stage"><div class="row"><span class="lbl">正式评估</span>${badge(ev.state)}</div>
+            <div class="counts">gold 参照 <b>${nz(gold.n_reference)}</b> 条${gold.qa_total?`（${gold.qa_total} 个 gold 问答）`:''} · silver 参照可用 <b>${nz(silver.n_available)}</b> / ${nz(silver.n_planned)}${silver.missing_ids&&silver.missing_ids.length?`，缺 ${silver.missing_ids.join(', ')}`:''}</div>
+            <div class="counts">标签 accuracy ${ev.metrics?.label_accuracy?`<b>${ev.metrics.label_accuracy.value.toFixed(2)}</b>（${ev.metrics.label_accuracy.numerator}/${ev.metrics.label_accuracy.denominator}，回退 ${ev.metrics.label_accuracy.n_verdict_fallback}）`:'<span class="muted">待评估</span>'} · 证据评分 gold/silver <span class="muted">待评估</span> · judge 失败 ${nz(ev.counts?.judge_failed,'—')}</div>
+            <div class="note">${ev.state==='label_only'?'只做了离线标签比对（不是官方榜单成绩）；证据评分与排名尚未开始。':'参照已冻结（哈希登记），评估调用尚未执行。'}</div></div>
+        </div>`;}).join('');
+      const cc=ds.class_counts?Object.keys(ds.class_counts).map(k=>`${k} ${ds.class_counts[k]}`).join('，'):'未核实';
+      return `<div class="facet"><div class="facet-head"><h3 style="margin:0">${esc(DS_ZH[ds.modality]||'')}系统 · ${esc(ds.name||dk)}</h3><span class="ds">${esc(ds.index_range||'')} · 计划 ${ds.planned_n} 条 · 标签分布 ${esc(cc)} · 多数类基线 accuracy ${ds.majority_accuracy!=null?ds.majority_accuracy.toFixed(2):'未核实'}</span></div><div class="cards">${cards}</div></div>`;
+    }).join('');
+
+    // timeline
+    $('#tl').innerHTML=snap.timeline.map(t=>`<li class="${esc(t.status)}">
+      <div class="when"><span>${t.date?esc(t.date)+(t.time_utc?' '+esc(t.time_utc)+' UTC':''):'日期待定'}</span>${badge(t.status)}</div>
+      <div class="ttl">${esc(t.title)}</div><div class="dtl">${esc(t.detail)}</div>
+      <div class="src">证据：${t.source?`<a href="#ev-${esc(t.source)}">${esc(t.source)}</a>`:'<span class="muted">无（计划项）</span>'}</div></li>`).join('');
+
+    // results
+    const r=snap.results;
+    $('#results-note').innerHTML=`<b>${esc(STATE_ZH[r.status]||r.status)}。</b>${esc(r.note||'')} 详细表格见 <a href="index.html#/results">评估结果</a> 页。`;
+    $('#results-grid').innerHTML=['text','multimodal'].map(mod=>{
+      const blk=r[mod]||{}; const dk=mod==='text'?'averitec_dev':'averimatec_val'; const ds=snap.datasets[dk]||{};
+      const sil=ds.silver_reference||{};
+      const head=`<h3 style="margin-top:0">${DS_ZH[mod]}系统 · ${esc(ds.name||'')}</h3>
+        <div class="kv">计划样本 <b>${nz(blk.n_planned)}</b> · gold 参照 <b>${nz(ds.gold_reference?.n)}</b> · silver 参照可用 <b>${nz(sil.n_available)}</b>${sil.missing_ids&&sil.missing_ids.length?`（缺 ${sil.missing_ids.join(', ')}）`:''}<br>多数类基线 accuracy <b>${ds.majority_accuracy!=null?ds.majority_accuracy.toFixed(2):'未核实'}</b>（只猜多数类就能达到，accuracy 单独不说明能力）</div>`;
+      if(!blk.per_system){
+        return `<div class="empty">${head}<div class="big" style="margin-top:12px">正式评估尚未完成</div>
+          <div class="small muted">此处不用小样结果或虚构分数填图。评估完成后将显示：</div>
+          <div class="placeholder">标签 accuracy（全样本口径 / 仅评分口径，各带分母）</div>
+          <div class="placeholder">证据评分（gold 参照 vs silver 参照），并列出 system_failed、no_evidence、no_reference、judge_failed、not_run 计数</div>
+          <div class="placeholder">gold 排名 vs silver 排名对照（共同可用 ID；并列保留）</div></div>`;
+      }
+      // real-metrics path (used once results.<mod>.per_system is non-null)
+      const rows=blk.per_system;
+      const hb=(label,val,den,max,cls='')=>`<div class="hbar"><span>${esc(label)}</span><div class="track"><span class="${cls}" style="width:${val==null?0:(100*val/(max||1)).toFixed(1)}%"></span></div><span class="val">${val==null?'—':val.toFixed(3)}${den?` <span class="muted">n=${den}</span>`:''}</span></div>`;
+      const acc=rows.map(x=>hb(x.name_en+(x.generation_state&&x.generation_state!=='completed'?'（'+(STATE_ZH[x.generation_state]||x.generation_state)+'）':''),x.label_accuracy?.value,x.label_accuracy?.denominator,1)).join('')+`<div class="small muted" style="margin-top:4px">多数类基线 ${ds.majority_accuracy!=null?ds.majority_accuracy.toFixed(2):'未核实'}；“—”= 待评估或本轮未生成。</div>`;
+      const anyEv=rows.some(x=>x.evidence_gold||x.evidence_silver);
+      const evg=anyEv?`<div class="legend" style="margin:0 0 6px"><span><i style="background:var(--ikb)"></i>gold 参照</span><span><i style="background:var(--accent)"></i>silver 参照</span></div>`+
+        rows.map(x=>hb(x.name_en+' · gold',x.evidence_gold?.value,x.evidence_gold?.denominator,1)+hb(x.name_en+' · silver',x.evidence_silver?.value,x.evidence_silver?.denominator,1,'silver')).join(''):'<div class="placeholder">证据评分（gold / silver）待评估</div>';
+      const cnt=`<div class="tbl-wrap"><table><thead><tr><th>系统</th><th>scored</th><th>system_failed</th><th>no_evidence</th><th>no_reference</th><th>judge_failed</th><th>not_run</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${esc(x.name_en)}</td>${['scored','system_failed','no_evidence','no_reference','judge_failed','not_run'].map(k=>`<td>${nz(x.counts?.[k],'—')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+      const rk=blk.ranking?`<div class="tbl-wrap"><table><thead><tr><th>系统</th><th>gold 排名</th><th>silver 排名</th></tr></thead><tbody>${blk.ranking.rows.map(x=>`<tr><td>${esc(x.name_en)}</td><td>${nz(x.gold_rank)}</td><td>${nz(x.silver_rank)}</td></tr>`).join('')}</tbody></table><div class="small muted" style="margin-top:6px">共同可用 ID ${nz(blk.ranking.common_ids_n)} 条；排除 ${nz(blk.ranking.excluded_n)} 条。${esc(blk.ranking.note||'')}</div></div>`:'<div class="placeholder">排名对照待评估完成</div>';
+      return `<div class="card">${head}<h4>标签 accuracy</h4>${acc}<h4>证据评分</h4>${evg}<h4>评估分母</h4>${cnt}<h4>gold vs silver 排名</h4>${rk}</div>`;
+    }).join('');
+
+    // deviations
+    $('#devs').innerHTML=snap.deviations.map(d=>`<details><summary><span class="mono" style="color:var(--accent)">${esc(d.id)}</span><span>${esc(d.systems)}</span><span class="badge">${esc(d.status)}</span></summary>
+      <div class="body"><p><b>改了什么</b>${esc(d.changed)}</p><p><b>为何改</b>${esc(d.why)}</p><p><b>可能影响</b>${esc(d.impact)}</p></div></details>`).join('');
+    $('#lims').innerHTML=snap.limitations.map(l=>`<li>${esc(l)}</li>`).join('');
+
+    // evidence index
+    const ev=snap.evidence_index||{};
+    $('#ev tbody').innerHTML=Object.keys(ev).map(k=>{const e=ev[k];return `<tr id="ev-${esc(k)}"><td class="mono">${esc(k)}</td><td class="mono small">${esc(e.path)}</td><td class="mono small">${fmt(e.observed_at)}</td><td class="small">${esc(e.note||'')}</td><td class="mono small" title="${esc(e.sha256||'')}">${e.sha256?esc(e.sha256.slice(0,12))+'…':'<span class="muted">目录</span>'}</td></tr>`;}).join('');
+
+    $('#foot').innerHTML=`schema_version ${esc(snap.schema_version)} · generator ${esc(snap.generator?.name)} ${esc(snap.generator?.version)} · mode ${esc(snap.generator?.mode)}${snap.generator?.evidence_missing?.length?` · 缺失证据 ${esc(snap.generator.evidence_missing.join(', '))}`:''}<br>本页只读取快照文件，不连接实验服务器；页面刷新时间 ≠ 实验数据更新时间。`;
+  }
+
+  async function load(){
+    let snap=null, meta={fromCache:false};
+    try{
+      const res=await fetch('data/status.json?t='+Date.now(),{cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      snap=await res.json();
+      try{ localStorage.setItem(STORE_KEY, JSON.stringify(snap)); }catch(e){}
+    }catch(err){
+      try{ const old=localStorage.getItem(STORE_KEY); if(old){ snap=JSON.parse(old); meta.fromCache=true; } }catch(e){}
+      if(!snap){
+        $('#m-state').textContent='加载失败';
+        $('#banner').innerHTML=`<div class="banner bad"><b>无法加载快照 data/status.json</b>（${esc(err.message)}）。本页需要通过 HTTP 访问（例如 <code>python3 -m http.server</code>），直接双击打开时浏览器会阻止读取本地 JSON。</div>`;
+        return;
+      }
+    }
+    try{ render(snap, meta); }
+    catch(e){ $('#banner').innerHTML=`<div class="banner bad"><b>快照渲染失败：</b>${esc(e.message)}。请检查 data/status.json 是否符合 schema（运行 build_snapshot.py --check）。</div>`; console.error(e); }
+  }
+  load();
+})();
+</script>
+</body>
+</html>

@@ -38,14 +38,19 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a><a href="url-grounding-review/">URL Grounding</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a><a href="url-grounding-review/">URL Grounding</a><a href="baseline-reproduce/">Baseline Reproduce</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
 <div class="tagline">Multi-culture fact-checking — interactive reports and benchmark reviews</div>
-<span class="pill">3 pages</span>
+<span class="pill">4 pages</span>
 </div>
 <div class="list">
+<a class="card" href="baseline-reproduce/">
+<h2>Baseline Reproduce</h2>
+<p><b>Six shared-task systems, live web search instead of the knowledge store.</b> InFact, HerO2, SANCTUARY and AIC CTU on AVeriTeC dev 0–99; VILLAIN and AIC CTU on AVerImaTeC val 0–79, all on Gemma via OpenRouter as an adapted reproduction. Browse every frozen claim, open a system's questions, answers, sources and verdict, compare two systems side by side, and check the run progress. Formal generation is currently stopped on exhausted search credits; only HerO2 has a label accuracy so far and no evidence scores or rankings exist yet.</p>
+<div class="meta"><span>2026-09-18</span><span class="chip">180 claims · 105 with outputs</span><span class="chip">HerO2 100/100 · label acc 0.48</span><span class="chip">stopped: search credits</span></div>
+</a>
 <a class="card" href="veritas-intake-review/">
 <h2>VeriTaS Intake Review</h2>
 <p><b>Their claims, their articles, our pipeline.</b> Claims and fact-checking article links come from the VeriTaS export; everything downstream is ours: decontextualization, evidence extraction, and URL recovery under the strict temporal policy, where an evidence item is kept only if it carries an article-embedded URL or an externally recovered one whose date we could verify against the claim date.</p>

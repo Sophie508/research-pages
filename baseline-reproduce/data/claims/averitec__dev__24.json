@@ -1,0 +1,544 @@
+{
+ "key": "averitec/dev/24",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 24,
+ "claim": "Germany’s Foreign Minister Heiko Maas said that Thailand’s King Maha Vajiralongkorn didn’t do anything illegal while at his German residence.",
+ "claim_date": "2020-10-27",
+ "speaker": null,
+ "reporting_source": null,
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that German Foreign Minister Heiko Maas explicitly stated that King Maha Vajiralongkorn \"didn't do anything illegal\" while at his German residence.\n\n2.  **Evaluate Evidence regarding Heiko Maas's statements:**\n    *   **A1 & A2:** These answers state that Maas's actual stance was that the King \"should not conduct political affairs/business from German soil.\" This is a directive/rebuke regarding the *nature* of his activities, not a declaration of their legality.\n    *   **A4:** This explicitly states, \"there is no mention of Heiko Maas stating that King Maha Vajiralongkorn had not committed any illegal acts.\" It notes he rebuked the King for conducting state business, which implies a concern over the appropriateness of his actions.\n    *   **A6 & A8:** These answers directly address the claim, stating there is \"no mention of Germany’s Foreign Minister Heiko Maas or any statements made by him regarding the legality of King Maha Vajiralongkorn’s stay.\"\n    *   **A7:** This clarifies that Germany's stance was that there would be \"immediate consequences\" *if* the King violates German law, which is a conditional warning rather than a statement that he has not done so.\n\n3.  **Synthesize Findings:** The evidence consistently shows that while Maas addressed the King's conduct (specifically regarding political business), he never made a statement declaring the King's actions to be legal or that he had not committed any illegal acts. In fact, the evidence suggests the German government was monitoring the situation for potential violations.\n\n4.  **Conclusion:** Since the evidence explicitly denies the existence of the statement mentioned in the claim, the claim cannot be supported. Because the evidence is provided to show that such a statement was never made, the claim is not merely \"unproven\" but is contradicted by the lack of such a record in the official stance described. However, looking at the specific labels, since the evidence states there is \"no mention\" of him saying this, we cannot confirm the claim is true.\n\n**Label: Not Enough Evidence** (Note: While the evidence suggests the statement was never made, in strict logical verification tasks, if the evidence explicitly states \"there is no mention of [X] stating [Y],\" it confirms the claim",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What was the actual stance taken by German Foreign Minister Heiko Maas regarding King Maha Vajiralongkorn's conduct while in Germany?",
+      "answer": "German Foreign Minister Heiko Maas stated that King Maha Vajiralongkorn should not conduct political affairs from German soil. While German lawmakers have suggested freezing free trade talks with Thailand to pressure the government regarding the king's behavior, Maas indicated that halting such negotiations remains an option but should be discussed with Thailand first.",
+      "url": "https://www.smh.com.au/world/asia/unusual-if-not-illegal-germany-says-thai-king-cannot-rule-from-there-20201009-p563kd.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was Heiko Maas's stance regarding the King of Thailand conducting political business from German soil?",
+      "answer": "Heiko Maas stated that Thailand’s King Maha Vajiralongkorn should not conduct political business from German soil.",
+      "url": "https://clubofmozambique.com/news/unusual-if-not-illegal-germany-says-thai-king-cannot-rule-from-there/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did the German Foreign Ministry find that King Maha Vajiralongkorn's activities in Germany violated his visa status or involved conducting state affairs?",
+      "answer": "Based on the provided evidence, the German Foreign Ministry has not made a formal finding that King Maha Vajiralongkorn's activities violated his visa status or involved conducting state affairs. \n\nThe evidence states that while German lawmakers have expressed concerns regarding potential violations of visa regulations, the German Foreign Ministry has instead maintained that it communicated to the Thai government that state affairs should not be conducted on German soil. In response to these concerns, the ministry received assurances that the King's stays in Germany are for private reasons.",
+      "url": "https://www.dw.com/en/thailands-king-should-not-reign-from-german-soil-berlin-says/a-55304033",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Heiko Maas state that King Maha Vajiralongkorn had not committed any illegal acts while residing in Germany?",
+      "answer": "Based on the provided evidence, there is no mention of Heiko Maas stating that King Maha Vajiralongkorn had not committed any illegal acts. The evidence only states that Maas rebuked the King for his tendency to conduct state business from German soil while residing in the Bavarian Alps.",
+      "url": "https://thediplomat.com/2020/10/berlin-says-thailands-king-cannot-reign-from-german-soil/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What has prompted the increased journalistic and political scrutiny regarding King Maha Vajiralongkorn's activities in Germany?",
+      "answer": "The increased journalistic and political scrutiny regarding King Maha Vajiralongkorn's activities in Germany has been prompted by reports concerning his lifestyle and activities in the Bavarian Alps. These reports, which have transitioned from tabloid gossip to serious news coverage, highlight his presence at a secretive residence in the German lake region for over a decade, marked by eccentric public behavior and the renting of entire luxury Alpine hotels for his entourage.",
+      "url": "https://www.scmp.com/week-asia/people/article/3106641/germany-about-lose-patience-thai-king-maha-vajiralongkorn",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Germany’s Foreign Minister Heiko Maas state that King Maha Vajiralongkorn’s stay at a German residence was legal?",
+      "answer": "Based on the provided evidence, there is no mention of Germany’s Foreign Minister Heiko Maas or any statements made by him regarding the legality of King Maha Vajiralongkorn’s stay at a German residence. The text focuses on the criticism the King has faced for his absence from Thailand and the political tensions surrounding the monarchy, but it does not contain information to confirm or deny the claim.",
+      "url": "https://www.dw.com/en/thailands-king-living-in-luxury-quarantine-while-his-country-suffers/a-53303644",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was Germany's stance regarding King Maha Vajiralongkorn's legal status during his stays in Germany amidst the protests in Thailand?",
+      "answer": "Based on the provided evidence, Germany's stance was that there would be \"immediate consequences\" if King Maha Vajiralongkorn violates German law during his stays in the country. The evidence does not mention any statement from Foreign Minister Heiko Maas regarding the King's legal status.",
+      "url": "https://indianexpress.com/article/world/germany-warns-of-consequences-if-thai-king-breached-law-6896466/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Germany’s Foreign Minister Heiko Maas state that King Maha Vajiralongkorn's stay at his German residence was legal?",
+      "answer": "Based on the evidence provided, there is no mention of any statement made by Germany’s Foreign Minister Heiko Maas regarding the legality of King Maha Vajiralongkorn's stay at his German residence. The evidence only notes that the King has reportedly been staying at his second home in Germany since February and includes various social media reactions to his lifestyle.",
+      "url": "https://www.facebook.com/legitngbreakingnews/posts/king-of-thailand-maha-vajiralongkorn-was-also-reported-to-have-booked-out-the-wh/1116746482028982/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the context surrounding the protests in Germany involving King Maha Vajiralongkorn?",
+      "answer": "The context surrounding the protests in Germany involves exiled activists staging demonstrations to demand the abolition of the monarchy and an end to repressive legal protections. These protests have included actions such as projecting messages onto the King's hotel.\n\nThese international demonstrations are part of a broader movement fueled by growing anti-monarchy sentiment, driven by criticisms of King Maha Vajiralongkorn's perceived passivity and lavish lifestyle abroad while he remained absent from Thailand during his 68th birthday celebrations.",
+      "url": "https://www.dw.com/en/thai-protesters-call-for-end-of-monarchy-on-kings-birthday/a-54367300",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the nature of the public and political scrutiny surrounding King Maha Vajiralongkorn's residence in Germany?",
+      "answer": "The public and political scrutiny surrounding King Maha Vajiralongkorn's residence in Germany stems from his tendency to spend a significant amount of his time there. This situation has drawn criticism from two primary groups:\n\n*   **Pro-democracy demonstrators in Thailand:** They have directed scrutiny toward the Thai monarchy.\n*   **Pro-tax politicians in Germany:** They have raised concerns regarding the use of tax money for royal travel and have demanded greater financial transparency.\n\nPublic reaction, as reflected in social media, is polarized; some argue for the abolition of the monarchy or demand transparency, while others defend the institution or criticize media coverage of the matter.",
+      "url": "https://www.facebook.com/nikkeiasia/posts/thai-monarchy-the-king-of-thailand-spends-most-of-his-time-in-the-scenic-mountai/3828135593939025/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/zenjournalist/posts/confirmedthailands-king-vajiralongkorn-didnt-even-bother-to-come-home-for-his-bi/10155273610241154/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dw.com/en/thailands-king-living-in-luxury-quarantine-while-his-country-suffers/a-53303644",
+      "date": "2020-05-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hindustantimes/posts/thailands-king-maha-vajiralongkorn-stripped-his-royal-noble-consort-of-her-title/10157314949078580/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nikkeiasia/posts/thai-monarchy-the-king-of-thailand-spends-most-of-his-time-in-the-scenic-mountai/3828135593939025/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dw.com/en/thai-protesters-call-for-end-of-monarchy-on-kings-birthday/a-54367300",
+      "date": "2020-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/zenjournalist/posts/this-photograph-has-been-circulating-on-social-media-some-thai-royalists-are-sha/10154158817451154/",
+      "date": "2015-07-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/officialmetronome/posts/hes-maha-vajiralongkorn-the-king-of-thailand-and-hes-self-isolated-himself-in-a-/3150494608314492/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nytimes/posts/the-thai-king-stripped-his-royal-consort-of-her-title-months-after-awarding-it-b/10152056158769999/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://chindia-alert.org/in-closing/ten-forces-forging-chinas-future/",
+      "date": "2013-08-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/FRANCE24.English/posts/thai-king-maha-vajiralongkorn-was-crowned-rama-x-during-an-elaborate-coronation-/10157455718404434/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nikkeiasia/posts/constitutional-monarchy-the-thai-king-spends-most-of-his-time-in-the-mountains-o/3827593250659926/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ChannelNewsAsia/posts/an-episode-of-madam-secretary-presented-the-thai-monarchy-in-a-misleading-manner/10156019290057934/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://chindia-alert.org/why-is-chindia-a-big-deal/",
+      "date": "2012-02-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/scmp/posts/perceived-as-someone-lacking-moral-authority-and-who-could-be-a-weak-king-vajira/10156990634724820/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thediplomat.com/2020/10/berlin-says-thailands-king-cannot-reign-from-german-soil/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dw.com/en/thailands-king-should-not-reign-from-german-soil-berlin-says/a-55304033",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scmp.com/week-asia/people/article/3106641/germany-about-lose-patience-thai-king-maha-vajiralongkorn",
+      "date": "2020-10-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://indianexpress.com/article/world/germany-warns-of-consequences-if-thai-king-breached-law-6896466/",
+      "date": "2020-10-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://clubofmozambique.com/news/unusual-if-not-illegal-germany-says-thai-king-cannot-rule-from-there/",
+      "date": "2020-10-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.smh.com.au/world/asia/unusual-if-not-illegal-germany-says-thai-king-cannot-rule-from-there-20201009-p563kd.html",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheStarOnline/posts/the-public-disgrace-of-a-royal-consort-is-uncharted-territory-in-thailand/10156025862007255/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nikkeiasia/posts/the-thai-king-stripped-his-consort-of-her-royal-and-military-titles-over-her-dis/2927287497357177/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/zenjournalist/posts/exclusiveking-bhumibol-of-thailand-died-a-few-hours-ago-according-to-several-sen/10154384759866154/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/legitngbreakingnews/posts/king-of-thailand-maha-vajiralongkorn-was-also-reported-to-have-booked-out-the-wh/1116746482028982/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dkinthailand/posts/last-week-the-ambassador-mikael-hemniti-winther-was-interviewed-by-the-host-stef/1072615526111934/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 25,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that on or around October 27, 2020, German Foreign Minister Heiko Maas stated that Thailand’s King Maha Vajiralongkorn had not committed any illegal acts while residing in Germany.\n2. The evidence provided shows that Heiko Maas did indeed address the issue of the King's presence in Germany in the Bundestag and at news conferences. However, his actual statements were the opposite of a blanket exoneration. According to Q1/A1, A5, and A13, Maas stated that \"politics concerning Thailand should not be conducted from German soil\" and that Germany \"would always oppose having guests in our country who run their state affairs from here.\" Crucially, Q1/A13 explicitly quotes him saying, \"If there are things we consider to be illegal, that will have immediate consequences.\"\n3. There is a significant contradiction between the claim and the evidence. The claim suggests Maas provided a statement of innocence/legality (\"didn't do anything illegal\"), whereas the evidence shows Maas issued a warning and a conditional stance: he stated that the German government was looking into the behavior and would act if illegalities were found. The evidence indicates the German government was actually pressuring the Thai side regarding the King's political activities from German soil, rather than declaring him innocent of illegal acts.\n4. The claim misrepresents the Foreign Minister's position by turning a conditional warning (\"if illegal, there will be consequences\") into a definitive statement of legality (\"he didn't do anything illegal\").\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Heiko Maas, the German Foreign Minister, officially state that King Maha Vajiralongkorn of Thailand committed no illegal acts during his stay in Germany?",
+      "answer": "In an intriguing new twist to Thailand’s ongoing political drama, Germany’s foreign minister has said that King Maha Vajiralongkorn should not be engaging in politics from inside the country, where he spends the majority of his time. Foreign Minister Heiko Maas made the comments in the Germany Bundestag on October 7, responding to a question from a Greens lawmaker about the rising calls for democratic reform within Thailand. “We have made it clear that politics concerning Thailand should not be conducted from German soil,” Maas told the Bundestag. Berlin has said it would be unacceptable for King Maha Vajiralongkorn to conduct politics in Germany and Foreign Minister Heiko Mass said the European country continued to look into his behaviour during long sojourns in Bavaria. Because he is ruling his country from Bavaria: Now the Thai king is an issue for German politics Will there soon be tough measures by Heiko Maas instead of soft harem massages? For years, Thai king Maha Vajiralongkorn (68), also known as Rama X, has been ruling his people at will from a luxury hotel in Garmisch. This could soon be over. On Wednesday, Greens Member of Parliament Frithjof Schmidt (67) wanted to know from Foreign Minister Heiko Maas (54, SPD): why does the government tolerate the Thai king conducting his policies from German soil? 21 全部13条回复 Haskel Eisenberg Thai Ministry of Foreign Affairs spokesman says he has “no information” on whether Germany has raised the issue of King Vajiralongkorn making political decisions from German soil. But Germany's foreign minister Heiko Maas says he has raised this issue with the Thai ambassador many times. \" Responding to a question posed by Schmidt in the German Parliament, Foreign Minister Heiko Maas said the government had made clear that \"politics concerning Thailand is not to be done from German soil.\" He added Germany \"would always oppose having guests in our country who run their state affairs from here.\" A spokesperson from the Foreign Ministry said this position had been communicated to the Thai ambassador on several occasions, and that the Thai side had given assurances that government business in Thailand is conducted by the prime minister, while the king is in Germany for private reasons. Private or official? It's not only Thai protesters who are concerned about the king's status in Germany. German lawmaker Friethjof Schmidt of the Green Party told DW that King Vajiralongkorn has a visa for Germany as a private person, but that he also has diplomatic status through the Thai embassy. While in Germany, the king forbade his sister to run with a political party before the last elections, and he receives visits from Thai officials and dignitaries, activities Schmidt believes should be considered political. King of Thailand, Maha Vajiralongkorn was also reported to have booked out the whole hotel. King Maha has a second home in Germany and is said not to have been in his home country since February. 所有心情： 6条评论 58次分享 赞 评论 最相关 Adetunji Tiwalola King Solomon please remember me too Akin Victor Ogunsanya The king must have wished COVID-19 isolation never ends. Fusi Judith 20 ? 5 min readOct 27, 2020 12:28 PM IST First published on: Oct 27, 2020 at 12:28 PM IST Germany warned of “immediate consequences” if Thailand’s King Maha Vajiralongkorn broke the law on its soil as thousands of protesters gathered outside its embassy in Bangkok on Monday, stepping up the pressure in their campaign for changes to the monarchy. The demonstrators submitted a letter questioning the king’s legal status in the European country and requesting Germany to probe whether he has exercised royal authority during his time there in violation of the country’s law. “If politics is good, there would be no protests today,” the Thammasat group said on Facebook. The protesters also asked Germany to clarify if King Vajiralongkorn will be liable to pay inheritance tax given his long stay in the European country and investigate the human rights record of the monarch and his courtiers, a copy of the letter released by the pro-democracy groups show. Frithjof Schmidt, a Green party lawmaker on the parliament’s foreign affairs committee, urged Chancellor Angela Merkel’s administration to take a tougher line against the Thai government. CONFIRMED—Thailand's King Vajiralongkorn didn't even bother to come home for his birthday ceremonies on July 27/28. He had been expected to return, but cancelled his plans at the last minute and remained in Germany, where he is notorious for his bizarre antics, peculiar clothing, fake tattoos, and naked cycling. Thailand has a mad absentee monarch. 所有心情： 20条评论 14次分享 赞 评论 最相关 Bee Porpiang Changing the atmosphere to celebrate the birthday anniversary. The current king, Maha Vajiralongkorn, ascended to the throne in 2016 and has since sought to increase his direct control over the country's institutions. He ordered two army units to be put under the authority of the palace and was given control of the crown's multi-billion-dollar holdings by the legislative assembly. But one thing that is also sparking the protesters' anger is the king's decision to spend most of his time not in Bangkok, but in Germany. BANGKOK — A few years ago, a Facebook video went viral and revealed to the world why many people in Thailand were anxious over the prospect of Maha Vajiralongkorn, then the country’s crown prince, becoming king. The film showed the then-64-year-old Vajiralongkorn roaming a shopping mall in Munich, Germany, where he lived most of the time, accompanied not by his wife but his mistress. The petition is meant to help Thailand return “to the path of truthful constitutional monarchy,” according to a joint statement issued by protest organizers. “We have not only been looking into that in recent weeks, but on a regular basis,” German Foreign Minister Heiko Maas said at a news conference. “If there are things we consider to be illegal, that will have immediate consequences. ” Vajiralongkorn spends the majority of his time at a retreat in the Bavarian alps, and only returns to Thailand for brief visits. Shortly after taking the throne, he demanded that the new Thai constitution be written so as to allow him to spend time outside Thailand without appointing a regent in his absence, allowing him to reign from abroad. The German rebuke comes as the Thai monarchy weathers unprecedented calls for reform from a rising protest movement that has culminated in a series of public demonstrations in the capital Bangkok. The king's presence in the region is often reported on in German tabloids, and photos of the monarch riding his bicycle in the area have surfaced online. Thai protesters have criticized both his absence from Thailand and the cost of his stays in Germany. Call for German action Junya Yimprasert left Thailand in 2010 and now lives in Europe. She has been campaigning to showcase what she sees as the monarchy's grave failings for years. She told DW that as Thailand's head of state, King Vajiralongkorn shouldn't be conducting official business from abroad. \"The Thai Embassy has also been informed about this by the German government in the past,\" he told DW. \"The Thai king often violates his visa regulations, in my opinion, and the German government should enforce them. After being in Germany for almost six months during the height of the coronavirus pandemic, King Vajiralongkorn recently returned to Thailand, where he is expected to stay for a few weeks. His return was marked by the protests — a new sight for Thailand in recent years, and a sign that the tide in the country may be turning.",
+      "url": "https://thediplomat.com/2020/10/berlin-says-thailands-king-cannot-reign-from-german-soil/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context regarding King Maha Vajiralongkorn's presence in Germany during the period mentioned in the claim?",
+      "answer": "BANGKOK — A few years ago, a Facebook video went viral and revealed to the world why many people in Thailand were anxious over the prospect of Maha Vajiralongkorn, then the country’s crown prince, becoming king. The film showed the then-64-year-old Vajiralongkorn roaming a shopping mall in Munich, Germany, where he lived most of the time, accompanied not by his wife but his mistress. Berlin has said it would be unacceptable for King Maha Vajiralongkorn to conduct politics in Germany and Foreign Minister Heiko Mass said the European country continued to look into his behaviour during long sojourns in Bavaria. King of Thailand, Maha Vajiralongkorn was also reported to have booked out the whole hotel. King Maha has a second home in Germany and is said not to have been in his home country since February. 所有心情： 6条评论 58次分享 赞 评论 最相关 Adetunji Tiwalola King Solomon please remember me too Akin Victor Ogunsanya The king must have wished COVID-19 isolation never ends. Fusi Judith 20 ? ” Vajiralongkorn spends the majority of his time at a retreat in the Bavarian alps, and only returns to Thailand for brief visits. Shortly after taking the throne, he demanded that the new Thai constitution be written so as to allow him to spend time outside Thailand without appointing a regent in his absence, allowing him to reign from abroad. The German rebuke comes as the Thai monarchy weathers unprecedented calls for reform from a rising protest movement that has culminated in a series of public demonstrations in the capital Bangkok. Because he is ruling his country from Bavaria: Now the Thai king is an issue for German politics Will there soon be tough measures by Heiko Maas instead of soft harem massages? For years, Thai king Maha Vajiralongkorn (68), also known as Rama X, has been ruling his people at will from a luxury hotel in Garmisch. This could soon be over. On Wednesday, Greens Member of Parliament Frithjof Schmidt (67) wanted to know from Foreign Minister Heiko Maas (54, SPD): why does the government tolerate the Thai king conducting his policies from German soil? In an intriguing new twist to Thailand’s ongoing political drama, Germany’s foreign minister has said that King Maha Vajiralongkorn should not be engaging in politics from inside the country, where he spends the majority of his time. Foreign Minister Heiko Maas made the comments in the Germany Bundestag on October 7, responding to a question from a Greens lawmaker about the rising calls for democratic reform within Thailand. “We have made it clear that politics concerning Thailand should not be conducted from German soil,” Maas told the Bundestag. After being in Germany for almost six months during the height of the coronavirus pandemic, King Vajiralongkorn recently returned to Thailand, where he is expected to stay for a few weeks. His return was marked by the protests — a new sight for Thailand in recent years, and a sign that the tide in the country may be turning. 5 min readOct 27, 2020 12:28 PM IST First published on: Oct 27, 2020 at 12:28 PM IST Germany warned of “immediate consequences” if Thailand’s King Maha Vajiralongkorn broke the law on its soil as thousands of protesters gathered outside its embassy in Bangkok on Monday, stepping up the pressure in their campaign for changes to the monarchy. The demonstrators submitted a letter questioning the king’s legal status in the European country and requesting Germany to probe whether he has exercised royal authority during his time there in violation of the country’s law. Private or official? It's not only Thai protesters who are concerned about the king's status in Germany. German lawmaker Friethjof Schmidt of the Green Party told DW that King Vajiralongkorn has a visa for Germany as a private person, but that he also has diplomatic status through the Thai embassy. While in Germany, the king forbade his sister to run with a political party before the last elections, and he receives visits from Thai officials and dignitaries, activities Schmidt believes should be considered political. The current king, Maha Vajiralongkorn, ascended to the throne in 2016 and has since sought to increase his direct control over the country's institutions. He ordered two army units to be put under the authority of the palace and was given control of the crown's multi-billion-dollar holdings by the legislative assembly. But one thing that is also sparking the protesters' anger is the king's decision to spend most of his time not in Bangkok, but in Germany. The king's presence in the region is often reported on in German tabloids, and photos of the monarch riding his bicycle in the area have surfaced online. Thai protesters have criticized both his absence from Thailand and the cost of his stays in Germany. Call for German action Junya Yimprasert left Thailand in 2010 and now lives in Europe. She has been campaigning to showcase what she sees as the monarchy's grave failings for years. She told DW that as Thailand's head of state, King Vajiralongkorn shouldn't be conducting official business from abroad.",
+      "url": "https://www.vox.com/2020/1/24/21075149/king-thailand-maha-vajiralongkorn-facebook-video-tattoos",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence from German media or government archives to support the claim made on October 27, 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the official stance of the German government regarding the residency of foreign heads of state?",
+      "answer": "Yet in principle, this applies to all German citizens, given that they are subject to the personal jurisdiction of the Federal Republic of Germany, even if they live abroad for a longer period of time; they are also dependent on contact with German authorities – at least to fulfil their obligations under the law relating to identification and identity cards –, and it can be assumed that most of them will have closer ties to Germany and enter the country more often than foreign citizens. \" Responding to a question posed by Schmidt in the German Parliament, Foreign Minister Heiko Maas said the government had made clear that \"politics concerning Thailand is not to be done from German soil.\" He added Germany \"would always oppose having guests in our country who run their state affairs from here.\" A spokesperson from the Foreign Ministry said this position had been communicated to the Thai ambassador on several occasions, and that the Thai side had given assurances that government business in Thailand is conducted by the prime minister, while the king is in Germany for private reasons.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/2020/05/rs20200519_1bvr283517en.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who was the German Foreign Minister at the time the claim was made in October 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.dw.com/en/thailands-king-should-not-reign-from-german-soil-berlin-says/a-55304033",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thediplomat.com/2020/10/berlin-says-thailands-king-cannot-reign-from-german-soil/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nikkeiasia/posts/thailand-crisis-the-monarchyin-one-of-our-most-read-stories-of-the-month-we-repo/3851618421590742/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://indianexpress.com/article/world/germany-warns-of-consequences-if-thai-king-breached-law-6896466/",
+      "date": "2020-10-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aljazeera.com/news/2020/10/26/thai-parliament-opens-to-discuss-pro-democracy-protests",
+      "date": "2020-10-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.telegraph.co.uk/news/2020/10/09/germany-warns-thai-king-not-govern-soil/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bild.de/bild-plus/unterhaltung/royals/royals/rama-x-now-the-thai-king-is-an-issue-for-german-politics-73344972.bild.html",
+      "date": "2020-10-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hindustantimes/posts/thailands-king-maha-vajiralongkorn-stripped-his-royal-noble-consort-of-her-title/10157314949078580/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/legitngbreakingnews/posts/king-of-thailand-maha-vajiralongkorn-was-also-reported-to-have-booked-out-the-wh/1116746482028982/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/2020/1/24/21075149/king-thailand-maha-vajiralongkorn-facebook-video-tattoos",
+      "date": "2020-01-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/zenjournalist/posts/confirmedthailands-king-vajiralongkorn-didnt-even-bother-to-come-home-for-his-bi/10155273610241154/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://apjjf.org/2020/15/chachavalpongpun",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://freedomhouse.org/country/germany/freedom-net/2020",
+      "date": "2019-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://policyreview.info/articles/analysis/platform-ad-archives-promises-and-pitfalls",
+      "date": "2019-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/HSA.Archive/posts/927159170996541/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://cjil.uchicago.edu/print-archive/enforcement-through-network-network-enforcement-act-and-article-10-european",
+      "date": "2019-07-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/2020/05/rs20200519_1bvr283517en.html",
+      "date": "2020-05-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://nsarchive.gwu.edu/briefing-book/russia-programs/2017-12-12/nato-expansion-what-gorbachev-heard-western-leaders-early",
+      "date": "2017-12-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://text-message.blogs.archives.gov/2016/03/29/miriam-and-me-the-beginnings-of-an-archival-adventure-and-friendship-in-1996/",
+      "date": "2016-03-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.migrationpolicy.org/journal/country-profile/germany-immigration-transition",
+      "date": "2004-07-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NZBerlin/posts/ambassador-rupert-holborow-had-the-honour-of-presenting-his-credentials-to-feder/1779682322106977/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.germany.info/us-en/service/09-taxes/taxes-income-913924",
+      "date": "1997-07-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html",
+      "date": "1996-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Annalena_Baerbock",
+      "date": "2018-01-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/GermanyInAfrica/videos/we-are-pleased-to-share-that-former-german-foreign-minister-annalena-baerbock-ha/739669548497695/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 469,
+     "n_urls_after_bm25": 21,
+     "n_chunks": 1816
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "This claim is refuted. According to the QA pairs, Germany's Foreign Minister Heiko Maas stated that they are \"watching what the Thai king gets up to in Germany\" as \"politics concerning Thailand should not be conducted from German soil\". The Thai King is accused of conducting politics from Germany. However, the claim states that Maas said that the King \"didn't do anything illegal\" which is not proven to be true. Therefore, this claim is refuted.",
+   "questions": [
+    {
+     "question": "What is Thailand’s King Maha Vajiralongkorn accused of doing while at his German residence?",
+     "answers": [
+      {
+       "answer": "He is accused of conducting politics from the European country, where he spends much of his time.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.smh.com.au/world/asia/unusual-if-not-illegal-germany-says-thai-king-cannot-rule-from-there-20201009-p563kd.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has Germany’s Foreign Minister Heiko Maas made any comments on Thailand’s King Maha Vajiralongkorn conducting business within Germany?",
+     "answers": [
+      {
+       "answer": "Maas told parliament. \"We have made it clear that politics concerning Thailand should not be conducted from German soil,\"",
+       "answer_type": "Extractive",
+       "source_url": "https://www.smh.com.au/world/asia/unusual-if-not-illegal-germany-says-thai-king-cannot-rule-from-there-20201009-p563kd.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did Germany’s Foreign Minister Heiko Maas say that the king has done nothing illegal?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20201107142547/https://www.dw.com/en/german-foreign-minister-heiko-maas-i-am-also-watching-what-the-thai-king-gets-up-to-in-germany/av-55399648",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201107130020/https://factcheck.afp.com/german-foreign-ministers-comments-about-thailands-anti-government-protests-misrepresented-social",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "In a press conference on October 26, 2020, Heiko Maas stated that his office was still examining the Thai king's movements and activities in Germany, and indicated that the German government would take immediate action if the royal leader was found to have broken the law.",
+     "support_span": "in the October 26 press conference pictured in the posts, Maas said his office was still examining the Thai king’s movements in Germany | the government would “act immediately” if the royal leader was found to have broken the law. | Heiko Maas replied: “Yes, we follow the developments in Thailand closely, there are people taking to the streets for their rights and of course I have an eye on what the king of Thailand has been doing in Germany we are looking into that and if there are things that we feel have broken the law… this will have immediate consequences of course.” | During a press conference on October 26, Maas said German authorities were still investigating whether the Thai king had broken any laws during his time in Germany."
+    },
+    {
+     "statement": "On October 7, 2020, Maas had previously stated in a federal parliamentary session that the Thai king should not be conducting Thai politics from Germany, but by October 29, 2020, Germany reported that it did not believe the Thai king had breached the ban on conducting politics while staying in Germany.",
+     "support_span": "On October 7, 2020, Maas said during the federal parliamentary session that the Thai king should not be conducting Thai politics from Germany | Since the misleading claim circulated, Germany has said it does not believe Thailand’s king has breached its ban on conducting politics while staying there, Reuters reported"
+    }
+   ],
+   "justification": "The evidence indicates that while Heiko Maas initially stated on October 26, 2020, that the German government was still examining the Thai king's movements and would act if laws were broken, a subsequent report from October 29, 2020, clarified that Germany did not believe the king had breached the ban on conducting politics while in Germany. Therefore, while the claim that he 'didn't do anything illegal' aligns with the later reported stance of the German government, the evidence shows a progression from an active investigation to a conclusion that no breach was believed to have occurred.",
+   "article_url": "https://web.archive.org/web/20201107130020/https://factcheck.afp.com/german-foreign-ministers-comments-about-thailands-anti-government-protests-misrepresented-social",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

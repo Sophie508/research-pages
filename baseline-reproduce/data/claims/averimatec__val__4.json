@@ -1,0 +1,542 @@
+{
+ "key": "averimatec/val/4",
+ "dataset": "averimatec",
+ "split": "val",
+ "original_index": 4,
+ "claim": "A new study proves 8,000 more ballots were counted than voters who actually voted in Arizona during the 2022 midterm election.",
+ "claim_date": "2023-06-25",
+ "speaker": "@BehizyTweets",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://x.com/BehizyTweets/status/1673384270616997890?t=4PlsRFZ9xKMHeintNW1Puw&s=03",
+ "images": [
+  {
+   "file": "6787eaf9e2f02e5f4981c66a#CLAIM#0.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787eaf9e2f02e5f4981c66a%23CLAIM%230.jpg"
+  }
+ ],
+ "outputs": {
+  "smoke_campaign_mm_20260917_rog_cpu_r2": {
+   "aic_ctu_averimatec": {
+    "status": "ok",
+    "verdict": "Conflicting Evidence/Cherrypicking",
+    "verdict_fallback": false,
+    "justification": "The claim is a slight exaggeration and a misinterpretation of the AFPI report. The report identifies a 'potential' discrepancy of 8,241 votes, but it explicitly states that this could be due to inaccurate record-keeping (not knowing exactly who voted) rather than extra ballots being cast. The user's claim presents one possible interpretation (extra ballots) as a proven fact, ignoring the report's alternative explanation, which constitutes cherrypicking the conclusion of the study.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What was the potential discrepancy found between the number of registered voters and the total number of ballots counted in the 2022 Arizona general election according to the AFPI report?",
+      "answer": "A potential 8,241-vote discrepancy was discovered between the total number of registered voters listed as voting and the total number of ballots counted in the 2022 Arizona general election.",
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "images": [
+       "https://www.americafirstpolicy.com/assets/uploads/Fact_Sheet_-_What’s_on_Your_Ballot.png"
+      ],
+      "evidence_text": "A potential 8,241-vote discrepancy was discovered between the total number of registered voters listed as voting and the total number of ballots counted in the 2022 Arizona general election, which is about 29.4 times the 280-vote difference in the attorney general race. [IMG_1]"
+     },
+     {
+      "question": "Does the AFPI report conclude that 8,000 more ballots were counted than voters who actually voted?",
+      "answer": "The report states that a potential 8,241-vote discrepancy was discovered between the total number of registered voters listed as voting and the total number of ballots counted, but it does not explicitly state that 8,000 more ballots were counted than actual voters; it notes the discrepancy could mean either more votes were counted than registered voters or that counties failed to keep accurate records.",
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "images": [
+       "https://www.americafirstpolicy.com/assets/uploads/Fact_Sheet_-_What’s_on_Your_Ballot.png"
+      ],
+      "evidence_text": "The report states that a potential 8,241-vote discrepancy was discovered between the total number of registered voters listed as voting and the total number of ballots counted, noting that this could mean either more votes were counted than registered voters or that counties failed to keep accurate records. [IMG_1]"
+     },
+     {
+      "question": "What was the margin of victory in the Arizona attorney general race mentioned in the report?",
+      "answer": "The margin of victory in the attorney general race was 280 votes.",
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "images": [],
+      "evidence_text": "The margin of victory in the attorney general race was 280 votes."
+     },
+     {
+      "question": "According to the report, what were the possible reasons for the discrepancies in Pinal County?",
+      "answer": "The inconsistencies were attributed to human error, including misfiled provisional ballots, poorly trained poll workers, and improper tabulation.",
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "images": [],
+      "evidence_text": "Nearly all inconsistencies were the result of mistakes made by election officials: misfiled provisional ballots, poorly trained poll workers, and improper tabulation were to blame, according to a report from the county."
+     },
+     {
+      "question": "Did the recount in Pinal County confirm a victory for Democrat Kris Mayes?",
+      "answer": "Yes, the recount confirmed Democrat Kris Mayes' victory.",
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "images": [],
+      "evidence_text": "The final recount results... confirmed Democrat Kris Mayes’ victory."
+     },
+     {
+      "question": "How many more votes were included in Pinal County's recount total compared to its original canvass?",
+      "answer": "Pinal County included 507 more votes in its recount total than in its original canvass.",
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "images": [],
+      "evidence_text": "Pinal County... included 507 more votes in its recount total than in its original canvass."
+     },
+     {
+      "question": "What did the AFPI report suggest regarding the cause of the discrepancy?",
+      "answer": "The report suggests that either more votes were counted than registered voters who voted, or that Arizona counties failed to keep accurate records of who voted.",
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "images": [
+       "https://www.americafirstpolicy.com/assets/uploads/Fact_Sheet_-_What’s_on_Your_Ballot.png"
+      ],
+      "evidence_text": "The results indicate that there were either more votes counted than registered voters who voted in the 2022 Arizona general election or that Arizona counties have failed to keep accurate records of who voted in the election. [IMG_1]"
+     },
+     {
+      "question": "Is the claim that '8,000 more ballots were counted than voters who actually voted' a proven fact according to the provided sources?",
+      "answer": "No, the source states it is a 'potential' discrepancy and offers an alternative explanation (inaccurate records) rather than proving the claim that 8,000 extra ballots were counted.",
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "images": [
+       "https://www.americafirstpolicy.com/assets/uploads/Fact_Sheet_-_What’s_on_Your_Ballot.png"
+      ],
+      "evidence_text": "The report describes a 'potential 8,241-vote discrepancy' and notes it could be due to inaccurate record-keeping rather than extra ballots being counted. [IMG_1]"
+     },
+     {
+      "question": "What was the net change in the margin for Maricopa County in the attorney general race?",
+      "answer": "The net change in the margin for Maricopa County was zero.",
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "images": [],
+      "evidence_text": "Maricopa County... found a discrepancy of five votes for each candidate, for a net change of zero in the margin."
+     },
+     {
+      "question": "Did the AFPI report find evidence of widespread voter fraud?",
+      "answer": "The report identifies a potential discrepancy but does not explicitly conclude that widespread fraud occurred, offering the possibility of inaccurate record-keeping as an alternative.",
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "images": [
+       "https://www.americafirstpolicy.com/assets/uploads/Fact_Sheet_-_What’s_on_Your_Ballot.png"
+      ],
+      "evidence_text": "The report states the results indicate there were either more votes counted than registered voters who voted or that Arizona counties have failed to keep accurate records. [IMG_1]"
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.pbs.org/newshour/politics/printing-malfunction-in-arizona-polls-slows-vote-count-fuels-conspiracy-theories",
+      "date": "2022-11-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NPR/posts/about-1-out-of-every-3-american-adults-think-a-foreign-country-is-likely-to-chan/10157290685616756/",
+      "date": "2018-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2022/11/ballot-processing-continues-in-closely-watched-states-amid-unfounded-claims-of-fraud/",
+      "date": "2022-11-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "date": "2022-12-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/financing-races-offices-oversee-elections-january-2022",
+      "date": "2022-01-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "date": "2022-11-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://m.facebook.com/vivote.gov/photos/october-6-2024-is-the-last-day-to-register-to-be-eligible-to-vote-in-the-2024-ge/855844919984672/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/vivote.gov/posts/elections-system-voter-registration-deadline-extended-hours/1335008705401622/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1575418045967266/posts/3177034482472273/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2061989747254970/posts/26311911465169460/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     }
+    ],
+    "stats": {
+     "n_text_chunks": 7,
+     "n_image_sources": 5,
+     "lens_skipped_no_public_url": 0,
+     "label_confidences": [
+      0.04453665240837586,
+      0.04453665240837586,
+      0.01638411879964008,
+      0.8945425763836081
+     ],
+     "llm_verdict_field": "Conflicting Evidence/Cherrypicking"
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "villain": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is refuted because it misrepresents the source material and ignores official recount data. While the claimant uses an AFPI report to 'prove' that 8,000 extra ballots were counted, the report itself only identifies a 'potential discrepancy' and suggests it may stem from poor record-keeping rather than extra ballots. Furthermore, the 8,000-vote figure is directly contradicted by official county recounts in Arizona, which found much smaller discrepancies (ranging from 0 to 507 votes) and attributed them to human error rather than fraud. The claimant's use of the word 'proves' converts a speculative statistical observation into a false certainty.",
+    "evidence_repr": "answer_only",
+    "qa_pairs": [
+     {
+      "question": "What is the exact source and figure cited in the claimant's image?",
+      "answer": "The image is a Research Report from the America First Policy Institute (AFPI) dated June 22, 2023, which identifies a 'potential 8,241-vote discrepancy' between the number of registered voters and the total number of ballots counted in the 2022 Arizona general election.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the AFPI report conclude that this discrepancy is definitive proof of illegal or fraudulent ballots being counted?",
+      "answer": "No. The report characterizes the finding as a 'potential discrepancy' and suggests two possibilities: either more votes were counted than registered voters, or counties failed to keep accurate records. It presents the issue as a matter of record-keeping and reconciliation rather than definitive proof of fraud.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the AFPI report's own language support the claimant's assertion that the discrepancy 'proves' extra ballots were counted?",
+      "answer": "No. The report explicitly uses the term 'potential 8,241-vote discrepancy' and offers two possible explanations: either more votes were counted than registered voters, or counties failed to keep accurate records. By presenting it as a 'potential' issue regarding record-keeping, the report stops short of 'proving' the presence of extra ballots.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How do the findings of specific county recounts compare to the 8,000-vote figure mentioned in the claim?",
+      "answer": "The specific recount data from various counties shows much smaller discrepancies: Pinal County showed 507 additional votes due to human error, Maricopa County had a negligible net change of zero, and Apache and La Paz counties reported minor increases of 72 and 18 votes respectively. None of these specific counts approach the 8,000-vote scale.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the scale of the 8,000-vote claim compare to the actual discrepancies found in individual Arizona county recounts?",
+      "answer": "There is a massive scale discrepancy. While the AFPI report claims an 8,241-vote discrepancy, detailed investigative reporting from sources like Votebeat shows that actual county-level discrepancies were much smaller: Pinal County reported 507 additional votes, Apache County reported 72, La Paz County reported 18, and Maricopa County reported a net change of zero. The 8,000 figure is not substantiated by the localized recount data.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the official cause attributed to the discrepancies found in individual county recounts, such as Pinal County?",
+      "answer": "Investigative reports and election officials attributed the discrepancies found during recounts to 'human error,' including issues such as misfiled ballots, training deficiencies, and improper tabulator settings, rather than systemic fraudulent voting.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the claimant's use of the word 'proves' impact the accuracy of the statement?",
+      "answer": "The claim is a misleading interpretation because it uses the word 'proves'—a high evidentiary standard—to present a 'potential discrepancy' regarding administrative record-keeping as a settled fact of illegal ballot injection.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claimant's assertion align with the evidentiary standard of the source material?",
+      "answer": "No. The claim uses the word 'proves' to present a 'potential discrepancy' regarding data reconciliation as a settled fact of election fraud. This is a highly simplified and misleading interpretation of a report that describes a data gap as a 'concerning issue' for record-keeping, not as proof of illegal voting.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a methodological gap in the evidence provided to support the claim?",
+      "answer": "Yes. The provided evidence lacks the underlying methodology used by AFPI to arrive at the 8,241 figure. Without knowing if this calculation accounts for legitimate factors like provisional ballots or same-day registration, and given that actual county recounts show significantly lower numbers, the claim's primary evidentiary pillar is unverified and contradicted by specific recount results.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there a methodological consensus between the AFPI report and official election data regarding this discrepancy?",
+      "answer": "No. There is a significant disconnect. The AFPI report's 8,241 figure lacks transparent methodology (such as how it accounts for provisional or same-day ballots) and is fundamentally at odds with the specific, much lower numbers reported by investigative news outlets and election officials during the reconciliation process.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.pbs.org/newshour/politics/officials-counting-all-ballots-after-voting-malfunction-in-arizona",
+      "date": "2022-11-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NPR/posts/about-1-out-of-every-3-american-adults-think-a-foreign-country-is-likely-to-chan/10157290685616756/",
+      "date": "2018-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2022/11/ballot-processing-continues-in-closely-watched-states-amid-unfounded-claims-of-fraud/",
+      "date": "2022-11-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.votebeat.org/arizona/2022/12/29/23531652/arizona-recount-discrepancy-pinal-county/",
+      "date": "2022-12-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.americafirstpolicy.com/issues/20221103-whats-on-your-ballot",
+      "date": "2022-11-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://m.facebook.com/vivote.gov/photos/october-6-2024-is-the-last-day-to-register-to-be-eligible-to-vote-in-the-2024-ge/855844919984672/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/vivote.gov/posts/elections-system-voter-registration-deadline-extended-hours/1335008705401622/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1575418045967266/posts/3177034482472273/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2061989747254970/posts/26311911465169460/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/308449278042282/posts/986273223593214/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/vivote.gov/photos/2026-primary-election-early-voting-kicks-off/1351405507095275/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/655184474603247/posts/5445629492225364/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.oscepa.org/en/documents/election-observation/election-observation-statements/belarus/statements-4/1386-2006-presidential",
+      "date": "2006-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/CTUIR/photos/attention-tribal-voters-the-ctuir-general-election-is-nov-4-2025nomination-petit/1163737735790486/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2132099863497239/posts/33562231936723955/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/nwitimes/posts/this-is-a-plan-to-get-out-of-it-its-not-a-study-its-a-plan-how-we-can-petition-t/1104559831712956/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/vivote.gov/posts/2026-primary-election-absentee-ballot-applications/1308731821362644/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://m.facebook.com/vivote.gov/photos/join-us-for-our-2024-national-voter-registration-expo-on-september-21st-st-thoma/845367767699054/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/473015396994149/posts/1470870243875321/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://m.facebook.com/vivote.gov/photos/voters-registration-drive-and-machine-demonstration-for-sunday-february-18th-fro/722503903318775/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/nytimes/posts/state-representative-alexander-kolodin-an-ivy-league-educated-lawyer-who-has-ech/1435832845065841/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/maricopacountyaz/posts/new-bos-sets-a-227-deadline-for-recorder-to-say-if-he-intends-to-partner-with-ma/1340184828138251/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/greenvillecountyrepublicanstrulyuncensored/posts/1565417978929351/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/bishoppaiutetribe/posts/please-see-the-flyer-below-for-information-regarding-the-upcoming-2026-election-/1450922210395439/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.academia.edu/33343029/STATUS_OF_MUSLIMS_IN_KENYAN_POLITICS_AND_THE_ELECTION_PHOBIA_OF_POST_ELECTION_VIOLENCE_IN_THE_2017_GENERAL_ELECTION",
+      "date": "2017-06-05",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/ArizonaGOP/posts/chair-gina-swoboda-had-the-privilege-of-meeting-with-border-czar-tom-homan-durin/1075845474588608/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/754126754686589/posts/4036811393084759/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/557034710993039/posts/28758279283775204/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/thecolumbian/posts/kennewick-the-embattled-chairman-of-the-benton-county-republican-party-and-faile/1104287428371731/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/leagueofwomenvoters/posts/we-are-excited-to-have-our-ceo-celina-stewart-join-lulacs-fireside-chat-with-sec/1421603743341176/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.savannahtribune.com/articles/publishers-note-the-savannah-tribune-3/",
+      "date": "2022-08-24",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/683825944428522/posts/790540693757046/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.votebeat.org/arizona/2022/6/9/23160377/arizona-mail-early-voting-republicans-support-ban/",
+      "date": "2022-06-09",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Voter_turnout_in_United_States_presidential_elections",
+      "date": "2008-11-04",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     }
+    ],
+    "stats": {
+     "n_a1": 10,
+     "n_a2": 10,
+     "n_a3": 2,
+     "lens_skipped_no_public_url": 0,
+     "n_qa_generated": 20,
+     "n_qa_selected": 10,
+     "image_embedder": "_Lazy"
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Not Enough Evidence",
+   "justification": "The information provided only states the source of the study. There is no evidence whatsoever that the claim is accurate, unbiased, or based on fact.",
+   "questions": [
+    {
+     "question": "How many voters were there in Arizona during the 2022 midterm election?",
+     "answers": [
+      {
+       "answer": "No answer could be found.",
+       "answer_type": "Unanswerable",
+       "source_url": null,
+       "source_medium": null
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    },
+    {
+     "question": "What is the name of the  report mentioned in the claim?",
+     "answers": [
+      {
+       "answer": "It is a report released by an organization called America First Policy Institute. One of the authors is John Lott.",
+       "answer_type": "Abstractive",
+       "source_url": "https://americafirstpolicy.com/issues/voter-discrepancies-found-in-the-arizona-2022-general-election",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20240822171903/https://leadstories.com/hoax-alert/2023/07/fact-check-no-evidence-massive-vote-discrepancy-found-in-2022-arizona-midterm-election.html",
+   "source": "datasets/averimatec/val.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The claim that a massive vote discrepancy was found in the 2022 Arizona midterm election is false, as the America First Policy Institute (AFPI) report, which the claim is based on, did not provide evidence of voter fraud and only noted a \"potential\" discrepancy, and election expert David J. Becker stated that the AFPI analysis was tainted because it did not accurately analyze how voter data is stored.",
+     "support_span": "Was there a massive vote discrepancy found in the 2022 Arizona midterm election? No, that's not true: An election expert told Lead Stories the claims of vote discrepancy were \"100% false.\" | The article had no definitive conclusion that voter fraud had occurred, provided no evidence that it occurred and specifically noted that it was a \"potential\" vote discrepancy without offering any proof that it verified the existence of election fraud. | \"AFPI's claim is 100% false,\" David J. Becker, executive director and founder of the nonpartisan Center for Election Innovation and Research, told Lead Stories via email on June 29, 2023. Becker noted that the AFPI did not accurately analyze how voter data is stored or whether or not Arizona is legally required to maintain voter data, saying that their entire analysis was tainted."
+    },
+    {
+     "statement": "The claim of a vote discrepancy falsely used a static voter registration list instead of an accurate, updated list, and the AFPI study used a sample of only six Arizona counties, which failed to account for voters who relocated within the state.",
+     "support_span": "The Arizona Secretary of State spokesperson said the claim falsely used a \"static\" voter registration list versus a list that showed accurate updates from election day that provides information about who actually voted and where they voted throughout the state. | The AFPI study used samples from six counties in Arizona, a method that Smith-Leonard said did not give an accurate representation of the election because it did not show voters who had relocated and voted in another area of the state:"
+    },
+    {
+     "statement": "Maricopa County officials stated that the AFPI report did not use official Maricopa County data in its analysis.",
+     "support_span": "Matt Roberts, spokesperson for Maricopa County Elections Department, told Lead Stories via email on June 30, 2023, that AFPI \"did not use official Maricopa County data in its analysis,\" and said they were unaware of where the \"third-party data originated.\""
+    }
+   ],
+   "justification": "The claim that a new study proves 8,000 more ballots were counted than voters in the 2022 Arizona midterm election is factually incorrect and misrepresents the findings of the document shown in CLAIM_IMG_0. While CLAIM_IMG_0, a report from the America First Policy Institute (AFPI), does mention a 'potential 8,241-vote discrepancy,' the evidence shows this claim is based on flawed methodology rather than proof of fraud. Specifically, election experts and officials have stated that the AFPI analysis was '100% false' and 'tainted' because it used a 'static' voter registration list instead of an accurate, updated list that accounts for real-time changes (Evidence 2, 4). Furthermore, the study's methodology was limited to a sample of only six counties, failing to account for voters who relocated within the state (Evidence 5), and Maricopa County officials noted that AFPI did not even use official Maricopa County data in its analysis (Evidence 6). Finally, the AFPI report itself did not provide definitive evidence of voter fraud, only noting a 'potential' discrepancy (Evidence 3). Therefore, the claim's assertion of 'proof' is a mischaracterization of a flawed analysis that failed to use accurate, official data.",
+   "article_url": "https://web.archive.org/web/20240822171903/https://leadstories.com/hoax-alert/2023/07/fact-check-no-evidence-massive-vote-discrepancy-found-in-2022-arizona-midterm-election.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t2_mm_merge_val_t3_n80_gemma4_26b_20260622_163428.json"
+  }
+ }
+}

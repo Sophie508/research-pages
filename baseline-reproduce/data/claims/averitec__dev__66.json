@@ -1,0 +1,510 @@
+{
+ "key": "averitec/dev/66",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 66,
+ "claim": "Hunter Biden was chairman of the Nobel Peace Prize winning World Food Program.",
+ "claim_date": "2020-10-20",
+ "speaker": "Left Action",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://archive.vn/ssfb8",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"Hunter Biden was chairman of the Nobel Peace Prize winning World Food Program,\" we evaluate the provided evidence as follows:\n\n1.  **Analyze the Claim:** The claim asserts a specific leadership role (Chairman) held by Hunter Biden for a specific organization (the Nobel Peace Prize winning World Food Program).\n2.  **Evaluate Evidence for the Claim:**\n    *   **Q1** states that Hunter Biden is the **Board Chair of World Food Program USA**. It is important to distinguish between \"World Food Program USA\" (a domestic non-profit) and the \"World Food Program\" (the international UN agency that won the Nobel Peace Prize).\n    *   **Q2** explicitly addresses the claim, stating: \"No, Hunter Biden did not serve as the chairman of the World Food Program.\" It clarifies that his involvement was through a fundraising initiative (\"Live Below the Line\") where he and Beau Biden raised money for the organization.\n    *   **Q5, Q6, Q7, Q8, and Q10** all confirm that the provided evidence does not support the claim and, in several instances, explicitly state that there is no mention of him holding such a leadership role in the World Food Program.\n3.  **Identify Contradictions/Refutations:** The evidence provided in **Q2** directly contradicts the claim by stating he did not serve as the chairman of the World Food Program, but rather participated in a fundraising campaign for it. While **Q1** mentions he is the Board Chair of \"World Food Program USA,\" this is a different entity than the Nobel Prize-winning \"World Food Program\" mentioned in the claim.\n4.  **Conclusion:** Since the evidence explicitly denies the specific role in the specific organization mentioned in the claim (as seen in Q2), the claim is refuted.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is Hunter Biden's role at World Food Program USA?",
+      "answer": "Based on the provided evidence, Hunter Biden is the **Board Chair** of World Food Program USA.",
+      "url": "https://soundcloud.com/user-486346131/behind-the-lens-with-hunter-biden-feeding-a-child-on-14month?in=user-486346131%2Fsets%2Fbehind-the-lens",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Hunter Biden serve as the chairman of the Nobel Peace Prize winning World Food Program?",
+      "answer": "No, Hunter Biden did not serve as the chairman of the World Food Program. According to the evidence, he participated in the \"Live Below the Line\" initiative launched by the Global Poverty Project, through which he and Beau Biden raised over $10,000 for the World Food Program.",
+      "url": "https://www.nbcnews.com/id/wbna51738275",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the relationship between Hunter Biden and the World Food Program USA?",
+      "answer": "Based on the provided evidence, there is no mention of a relationship between Hunter Biden and the World Food Program USA. The text focuses on the organization's McGovern-Dole School Meals Fund, its leadership awards honoring Senators George McGovern and Bob Dole, and an event attended by Vice President Joe Biden.",
+      "url": "https://wfpusa.org/news/vice-president-joe-biden-and-world-food-program-usa-honor-former-senator-bob-dole-for-his-leadership-in-the-fight-against-hunger/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What role does Hunter Biden hold in relation to the World Food Program?",
+      "answer": "Based on the provided evidence, there is no mention of Hunter Biden or any role he may hold in relation to the World Food Program. The text only discusses Vice President Joe Biden's remarks at a World Food Program USA award ceremony.",
+      "url": "https://williamlambers.com/2011/10/30/biden-optimistic-global-hunger-struggle-can-be-won/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that Hunter Biden was chairman of the World Food Program?",
+      "answer": "No, the provided evidence does not support the claim that Hunter Biden was chairman of the World Food Program. The evidence focuses on Hunter Biden's business dealings in China and his involvement with firms like BHR, but it contains no mention of the World Food Program or any leadership role held by Hunter Biden within such an organization.",
+      "url": "https://politifact.com/article/2020/oct/19/fact-checking-claims-about-hunter-biden-joe-biden/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Hunter Biden serve as the chairman of the Nobel Peace Prize winning World Food Program?",
+      "answer": "Based on the provided evidence, there is no mention of Hunter Biden serving as the chairman of the World Food Program. The text focuses on his position on the board of the Ukrainian energy firm Burisma and his connections to foreign interests in Ukraine and China. Therefore, the evidence does not support the claim that he was the chairman of the World Food Program.",
+      "url": "https://www.bbc.com/news/election-us-2020-54268887",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence mention Hunter Biden as a chairman of the World Food Program or any other organization?",
+      "answer": "No, the provided evidence does not mention Hunter Biden as a chairman of the World Food Program or any other organization. The text lists various Nobel Peace Prize laureates and prominent figures in sports, but Hunter Biden is not mentioned.",
+      "url": "https://www.gettyimages.com/photos/the-chairman-award",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence provided to support the claim that Hunter Biden served as the chairman of the World Food Program?",
+      "answer": "No, the provided evidence does not contain any information to support the claim that Hunter Biden served as the chairman of the World Food Program. The text focuses on a letter signed by former intelligence officials regarding the authenticity of emails reported by the *New York Post* and potential Russian involvement in a \"laptop op.\"",
+      "url": "https://www.politico.com/news/2020/10/19/hunter-biden-story-russian-disinfo-430276",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: What was Hunter Biden's involvement with the \"Live Below the Line\" challenge and the World Food Program USA?",
+      "answer": "Hunter Biden participated in the 2013 \"Live Below the Line\" challenge, a fundraising and awareness campaign organized by The Global Poverty Project. As part of this initiative, he committed to living on just $1.50 for food and drink for at least one day between April 29 and May 2 to highlight the struggles of people living in extreme poverty. The campaign aimed to raise funds for ten partner nonprofit organizations, one of which was the World Food Program USA.",
+      "url": "https://wfpusa.org/news/josh-groban-sophia-bush-hunter-biden-and-debi-mazar-gabriele-corcos-commit-to-live-below-the-line/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that Hunter Biden was chairman of the Nobel Peace Prize winning World Food Program?",
+      "answer": "No, the evidence provided does not support the claim. The text discusses a documentary film titled *An Unfinished Symphony* about the Miagi Orchestra and the impact of apartheid in South Africa; it contains no mention of Hunter Biden or the World Food Program.",
+      "url": "https://www.facebook.com/nobelprize/videos/celebration-after-being-awarded-the-2020-peace-prize/2668190396765823/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://wfpusa.org/news/vice-president-joe-biden-and-world-food-program-usa-honor-former-senator-bob-dole-for-his-leadership-in-the-fight-against-hunger/",
+      "date": "2013-12-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nobelprize/videos/celebration-after-being-awarded-the-2020-peace-prize/2668190396765823/",
+      "date": "2017-06-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/id/wbna51738275",
+      "date": "2013-05-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://wfpusa.org/news/josh-groban-sophia-bush-hunter-biden-and-debi-mazar-gabriele-corcos-commit-to-live-below-the-line/",
+      "date": "2013-04-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gettyimages.com/photos/the-chairman-award",
+      "date": "2009-12-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://williamlambers.com/2011/10/30/biden-optimistic-global-hunger-struggle-can-be-won/",
+      "date": "2011-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://soundcloud.com/user-486346131/behind-the-lens-with-hunter-biden-feeding-a-child-on-14month?in=user-486346131%2Fsets%2Fbehind-the-lens",
+      "date": "2016-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/2020/10/19/hunter-biden-story-russian-disinfo-430276",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/article/2020/oct/19/fact-checking-claims-about-hunter-biden-joe-biden/",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/maltatoday/posts/amazon-founder-jeff-bezos-has-accused-the-national-enquirers-owner-of-trying-to-/10157163534461941/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/PMAbiyAhmedAli/posts/over-the-last-thousands-of-years-humankind-has-dealt-with-many-strains-of-endemi/219235819491089/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://archive.org/stream/Crusader-Vol_34_Nos_1-20_Sept_1992-April_1993/Crusader-Vol_34_Nos_1-20_Sept_1992-April_1993_djvu.txt",
+      "date": "2016-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/PMAbiyAhmedAli/posts/over-the-last-thousands-of-years-humankind-has-dealt-with-many-strains-of-endemi/219236099491061/?locale=hi_IN",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/election-us-2020-54268887",
+      "date": "2020-09-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Channel4News/posts/presidential-it-was-not-was-it-even-a-debate-last-nights-bickering-between-donal/10158234260486939/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KamalaHarris/posts/trump-has-spent-full-time-spewing-hate-and-division-its-time-to-end-the-pain-end/10159363146842923/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 16,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by \"Left Action\" on Facebook in October 2020, asserts that Hunter Biden served as the chairman of the Nobel Peace Prize-winning World Food Program (WFP).\n2. The evidence distinguishes between two different organizations: the **World Food Programme (WFP)**, which is a United Nations agency and the recipient of the 2020 Nobel Peace Prize, and **World Food Program USA (WFP USA)**, which is a private sector non-profit group that works on hunger issues on behalf of the UN agency. Evidence (Q1, A1, A2, A3, A4, A7) confirms that Hunter Biden served as the Board Chair of **World Food Program USA**, not the UN agency itself.\n3. There is a significant distinction between the two entities. The UN WFP is an international intergovernmental organization, while WFP USA is a private fundraising partner. The claim conflates the two, implying Hunter Biden held a leadership role in the specific organization that won the Nobel Prize.\n4. The claim is factually incorrect regarding the specific entity that won the Nobel Peace Prize. While Hunter Biden did hold a chairmanship in a related organization (WFP USA), he was not the chairman of the Nobel-winning UN agency (WFP).\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Hunter Biden serve as the chairman of the World Food Programme (WFP)?",
+      "answer": "He’s chairman of the World Food Program USA, and he's going there out in the field, like so many of you did. I'm so incredibly proud of him and the tens of thousands of young people around the world who either went or wanted to.\" But Hunter Biden wasn't exactly going \"out in the fields\" in the same way a naive 20-something might travel to the developing world to dig wells and build schools. Vice President Joe Biden presented the award to Dole on behalf of WFP USA, a private sector group that works on hunger issues on behalf of the World Food Program, the United Nations agency that distributes food aid, and the State Department Office of Global Food Security. WFP USA Chairman Hunter Biden noted that since his father was a senator, “I had the great fortune to grow up knowing Sen. Biden’s son, Hunter Biden – who serves as Board Chair of WFP USA – introduced his father. “Because of my father’s many years of service in the Senate, I had the great fortune to grow up knowing Senator Dole as a true hero and leader,” said Hunter Biden. “This is why I am so honored to be a part of WFP USA. Behind the Lens with Hunter Biden: One Family, Six Stories by World Food Program USA published on 2016-05-17T18:00:51Z As part of his trip to Jordan and Lebanon with World Food Program USA to better understand the hopes and aspirations of Syrian refugees, WFP USA Board Chair Hunter Biden talks about his time spent with a Syrian family living in the Al Zaatari refugee camp in Jordan in January 2016. Genre Storytelling. A wonderful twist. The current Chair of WPS USA is Randy Russell, president and partner of The Russell Group, an agricultural and food consulting firm. But do you know why preceded him? Hunter Biden. Skittering around the Internet, I’m finding that he was the Chair from 2013-2019, IOW the time that the WPS was doing all the good stuff that won them the Nobel Prize. Most of the commentary is coming from fairly weird sites but the evidence is clear and Joe Biden has talked about it. Hunter Biden deserves credit for the Nobel Prize more than Trump. Expenditures related to Hunter Biden's trips to the Phillippines are filed under \"WFP,\" which stands for World Food Program USA, the nonprofit group that Joe Biden told the South Korean students about. But while Hunter Biden snapped pictures of himself as a man-of-the-people mingling with the disaster-struck children of the Philippines, that did not stop him and his Secret Service guards from checking into rooms at the St. Regis Doha in Qatar, a luxury hotel that cost taxpayers roughly $11,000. World Food Program USA launches The McGovern-Dole School Meals Fund At the event, WFP USA was joined by Vice President Joe Biden to honor former Senator Bob Dole for his leadership in alleviating global hunger. For the past eleven years, WFP USA has hosted an annual award ceremony to recognize leaders who have played a critical role in solving global hunger. The award is named after former Senator George McGovern in recognition of his commitment to advancing U.S. government efforts to address hunger worldwide. He was Chairman of the Board of Directors for World Food Programme USA, a fundraising feeder program to the World Food Programme, which is what won the Nobel Prize. As much as I’d love to shove that down 45’s throat, sadly it’s not what I had hoped.",
+      "url": "https://freebeacon.com/elections/hunter-bidens-foreign-visits-cost-taxpayers-200000/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the status of the World Food Programme regarding the Nobel Peace Prize?",
+      "answer": "UN World Food Programme wins 2020 Nobel Peace Prize, as hunger mounts The UN World Food Programme (WFP), which provides lifesaving food assistance to millions across the world – often in extremely dangerous and hard-to-access conditions – has been awarded the 2020 Nobel Peace Prize. The agency was recognized “for its efforts to combat hunger, for its contribution to bettering conditions for peace in conflict-affected areas and for acting as a driving force to prevent the use of hunger as a weapon of war and conflict”, said Berit Reiss-Andersen, chair of the Norwegian Nobel Committee. The U.N.’s World Food Program was awarded the 2020 Nobel Peace Prize on Friday, with the Norwegian Nobel Committee praising the agency’s “impressive ability to intensify its efforts” during the COVID-19 pandemic. The WFP is the world’s largest humanitarian agency focused on hunger. It seeks to tackle both chronic food insecurity—the long-term lack of access to enough food, suffered by 690 million people in the world—and acute insecurity—periods of extreme hunger over a defined period of time. World Food Programme Speed read The World Food Programme was awarded the Nobel Peace Prize for its efforts to combat hunger, for its contribution to bettering conditions for peace in conflict-affected areas and for acting as a driving force in efforts to prevent the use of hunger as a weapon of war and conflict. World Food Programme awarded Nobel Peace Prize Statement by WFP Executive Director David Beasley Every one of the 690 million hungry people in the world today has the right to live peacefully and without hunger. Today, the Norwegian Nobel Committee has turned the global spotlight on them and on the devastating consequences of conflict. Climate shocks and economic pressures have further compounded their plight. The Nobel Committee emphasised the need for international cooperation and financial support for the WFP and other aid organisations. The World Food Program mobilises all 193 UN member states in the fight for global food security. Through its work around the world, the WFP contributes to the “fellowship among nations”, one of the criteria for the peace prize that Alfred Nobel referred to in his will. \"You can’t build peace on empty stomachs. Today, the United Nations World Food Programme (WFP) was awarded the Nobel Peace Prize for its efforts to combat hunger and improve conditions for peace. “I warmly congratulate WFP, its past and present staff and retirees who have contributed to combat food insecurity worldwide, leading to this well-deserved recognition,” said Ms. Rosemarie McClean, Chief Executive of Pension Administration. “The Fund is proud to support the WFP and its staff through its pension plan,” Ms. McClean added. WFP staff participated in the UN Joint Staff Pension Fund since WFP’s establishment in 1961. ” The head of WFP added that the award was a “humbling, moving recognition.” “The Nobel Peace Prize … is a humbling, moving recognition of the work of WFP staff who lay their lives on the line every day to bring food and assistance for close to 100 million hungry children, women and men across the world”, he said, “people whose lives are often brutally torn apart by instability, insecurity and conflict.” Headquartered in Rome, WFP was established in 1961. By — Associated Press Associated Press Leave a comment 0comments Share Copy URL https://www.pbs.org/newshour/world/world-food-program-wins-nobel-peace-prize Email Facebook Twitter LinkedIn Pinterest Tumblr Share on Facebook Share on Twitter World Food Program wins Nobel Peace Prize World Oct 9, 2020 9:54 AM EDT NIAMEY, Niger — The World Food Program won the Nobel Peace Prize on Friday for its efforts to combat hunger in regions facing conflict and hardship and at a time when the coronavirus pandemic has driven millions more people to the brink of starvation. And now, a global pandemic with its brutal impact on economies and communities, is pushing millions more to the brink of starvation. The Nobel Peace Prize is not WFP’s alone. We work closely with government, organizations and private sector partners whose passion for helping the hungry and vulnerable equals ours. WFP estimates that the pandemic could more than double the number of individuals at risk of experiencing “life-threatening levels of food insecurity,” with up to 265 million people potentially falling into this category. The announcement of this Nobel Peace Prize, therefore, comes at a crucial time for the organization and will serve to spread awareness of the important work they do in a globally difficult time. Donate now By — Associated Press Associated Press NIAMEY, Niger — The World Food Program won the Nobel Peace Prize on Friday for its efforts to combat hunger in regions facing conflict and hardship and at a time when the coronavirus pandemic has driven millions more people to the brink of starvation. The Rome-based United Nations agency has long specialized in getting assistance to some of the world's most dangerous and precarious places, from air-dropping food in South Sudan and Syria to creating an emergency delivery service that kept aid flowing even as antivirus restrictions grounded commercial flights. 1 deadline. The Norwegian Nobel Committee maintains absolute secrecy about whom it favors before the announcement of arguably the world's most prestigious prize, but WFP had been on the shortlist of Dan Smith, the director of the Stockholm International Peace Research Institute \"The global problem of hunger is increasing and so is the global problem of violent conflict,\" Smith said. \"The World Food Program works at the intersection of those two problems (and) it's going to face an increasing workload in the coming years.\" The award comes with a gold medal and a 10-milion krona ($1. It’s got “technically true” written all over it, and that’s a lot closer to an actual fact that most of what we read these days. The World Food Program won the Novel Peace Prize. It’s run by the United Nations, but has offices in 80 countries, each with its own board and committee of VIPs. Today is a reminder that food security, peace and stability go together. Without peace, we cannot achieve our global goal of zero hunger; and while there is hunger, we will never have a peaceful world. # # # The United Nations World Food Programme is the world’s largest humanitarian organization, saving lives in emergencies, building prosperity and supporting a sustainable future for people recovering from conflict, disasters and the impact of climate change. Follow us on Twitter @wfp_media. ” Amongst the other nominees that were up for the Nobel Peace Prize this year were the World Health Organization for its response to the COVID-19 pandemic, and Greta Thunberg for her work as a climate activist. The WFP was established almost 60 years ago in 1961, in response to President Eisenhower’s push for the introduction of a UN scheme with a focus on providing food to those in need. The New York Times reported that the WFP is the largest humanitarian organization in the world targeting hunger and its causes. ‘A humbling, moving recognition’ The announcement by the Norwegian Nobel Committee “turned the global spotlight” on the 690 million people suffering hunger globally, David Beasley, WFP Executive Director, said after the announcement. “Every one of [them] has the right to live peacefully and without hunger”, he said, adding that climate shocks and economic pressures have further compounded their plight. “And now, a global pandemic with its brutal impact on economies and communities, is pushing millions more to the brink of starvation. \"With this year's award, the (committee) wishes to turn the eyes of the world to the millions of people who suffer from or face the threat of hunger,\" said Berit Reiss-Andersen, the chair of the Norwegian Nobel Committee, announcing the award in Oslo. \"The World Food Program plays a key role in multilateral cooperation on making food security an instrument of peace.\" In honoring the U.",
+      "url": "https://news.un.org/en/story/2020/10/1075012",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who are the actual leaders or associated figures of the World Food Programme according to official records?",
+      "answer": "Full name: World Food Programme (WFP) Native name: World Food Programme (WFP) Founded: 1961 Date awarded: 9 October 2020 Without food, no peace The World Food Program (WFP) was started in 1961, as an experiment to see if food could be distributed efficiently throughout the world using the United Nations (UN) system. There was no shortage of places in need of food aid, and the WFP took on the task of securing food supplies to those in need around the globe. Their task was to continue until the day such work was no longer necessary, and this day has yet to come.",
+      "url": "https://www.nobelprize.org/prizes/peace/2020/wfp/speedread/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence to support the claim made by 'Left Action' on Facebook regarding Hunter Biden's role in the WFP?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context of the claim made on October 20, 2020, regarding Hunter Biden and the Nobel Peace Prize?",
+      "answer": "Skittering around the Internet, I’m finding that he was the Chair from 2013-2019, IOW the time that the WPS was doing all the good stuff that won them the Nobel Prize. Most of the commentary is coming from fairly weird sites but the evidence is clear and Joe Biden has talked about it. Hunter Biden deserves credit for the Nobel Prize more than Trump. I thought I made that clear in the OP, but perhaps I was being too sarcastic for the point to come through. I just love the irony that Hunter Biden has a closer connection to this year’s actual Nobel Peace Prize than Trump has outside his dreams. We should applaud anybody who is responsible for doing this good work, even if in a figurehead position. That Trump has been crowing about his meaningless nomination (tens of thousands of people are eligible to nominate) is as odious as everything else he does and even a figurative comeuppance like this is reason to smile.",
+      "url": "https://boards.straightdope.com/t/hunter-biden-wins-nobel-prize/922755",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://wfpusa.org/news/vice-president-joe-biden-and-world-food-program-usa-honor-former-senator-bob-dole-for-his-leadership-in-the-fight-against-hunger/",
+      "date": "2013-12-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-50059139",
+      "date": "2019-10-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/01/22/hunter-biden-ordered-to-arkansas-court-for-paternity-case.html",
+      "date": "2020-01-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WFPUSA/photos/chef-dimitri-moshovitis-with-wfp-usa-chairman-hunter-biden-and-his-two-daughters/907095605972382/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://freebeacon.com/elections/hunter-bidens-foreign-visits-cost-taxpayers-200000/",
+      "date": "2020-03-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hagstromreport.com/2013news_files/2013_1212_dole-accepts-wfp-usa-award.html",
+      "date": "2013-12-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://soundcloud.com/user-486346131/hunterbidenbtl2",
+      "date": "2016-05-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.un.org/en/story/2020/10/1075012",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nobelprize.org/prizes/peace/2020/wfp/speedread/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://time.com/5898641/nobel-peace-prize-covid-19-hunger-crisis/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldFoodProgramme/videos/2020-nobel-peace-prize/703024366976777/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/world/world-food-program-wins-nobel-peace-prize",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wfp.org/news/world-food-programme-awarded-nobel-peace-prize-statement-wfp-executive-director-david-beasley",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theowp.org/united-nations-world-food-programme-wins-101st-nobel-peace-prize/",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wfp.org/support-us",
+      "date": "2019-10-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Oil-for-Food_Programme",
+      "date": "2003-03-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.unjspf.org/newsroom/unjspf-chief-executive-of-pension-administration-congratulates-world-food-programme-for-its-nobel-prize/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KavangoWestRC/posts/world-food-programme-country-director-george-fedha-paid-a-courtesy-visit-on-the-/183209849973688/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.today.com/video/facebook-and-twitter-slammed-for-restricting-hunter-biden-story-93885509701",
+      "date": "2020-10-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.foxbusiness.com/technology/facebook-reducing-distribution-of-hunter-biden-story-in-new-york-post",
+      "date": "2020-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://enewspaper.latimes.com/infinity/article_share.aspx?guid=921b51e8-f499-47b3-b226-abfedb095735",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/news/2020/10/19/hunter-biden-story-russian-disinfo-430276",
+      "date": "2020-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/tristatenewscenter/posts/results-with-27-of-41-polling-places-reportingrepublican-president-congressional/1022213827859802/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/eyewitnessnewsbah/posts/foreign-affair-minister-darren-henfield-addressed-the-matter-and-said-he-is-taki/1865948350380954/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2018-10.html",
+      "date": "2018-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/2018_Georgia_gubernatorial_election",
+      "date": "2014-11-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/todayinsey/posts/thursday-16-august-2018pesticidesmonsantos-cancerous-weedkiller-roundup-used-in-/1799844193386716/",
+      "date": "2018-08-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/100044294416448/posts/beautiful-zimbabwe-big-men-and-12-cents-a-daydear-family-and-friendsits-that-tim/10157814437986305/",
+      "date": "2020-10-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABCNews/posts/heres-a-look-at-where-trump-and-biden-differ-on-the-issue-of-racial-justice-and-/10160280332508812/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldNewsTonight/posts/chris-christie-and-rahm-emanuel-weigh-in-on-what-trump-and-biden-need-to-do-toni/10158386624829818/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://georgetownsecuritystudiesreview.org/2020/10/04/where-are-the-women-and-where-are-they-not-why-its-important/",
+      "date": "2020-10-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KUTV2News/videos/president-trump-im-a-young-vibrant-man/589992254838214/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://boards.straightdope.com/t/hunter-biden-wins-nobel-prize/922755",
+      "date": "2020-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 149,
+     "n_urls_after_bm25": 31,
+     "n_chunks": 1009
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "Hunter Biden served as chairman from 2011 to 2015, according to the nonprofit’s annual reports.",
+   "questions": [
+    {
+     "question": "Who is the chairman of World Food Program at time of claim?",
+     "answers": [
+      {
+       "answer": "Randy Russel",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20210506211312/https://www.wfpusa.org/about-us/board-of-directors/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has Hunter Biden ever been Chairman of World Food Program?",
+     "answers": [
+      {
+       "answer": "Hunter Biden, son of Democratic presidential nominee Joe Biden, was on the World Food Program USA board of directors from 2011 to 2017 and served as chairman from 2011 to 2015, according to the nonprofit’s annual reports.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210506220717/https://www.wfpusa.org/about-us/financial-information/annual-reports/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210605170751/https://www.politifact.com/factchecks/2020/oct/21/left-action/fact-checking-claims-about-charities-linked-hunter/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The 2020 Nobel Peace Prize was awarded to the World Food Programme, which is a United Nations-affiliated humanitarian organization, and World Food Program USA and the World Food Programme are separate entities; Hunter Biden is not a former chairman of the Nobel Prize-winning World Food Programme.",
+     "support_span": "The World Food Programme won the 2020 Nobel Peace Prize — not World Food Program USA. ... World Food Program USA is a 501(c)(3) charity ... Its mission is to support the World Food Programme, a United Nations-affiliated humanitarian organization | While the two organizations share a common mission, and the U.S. group frequently donates to the international one, they are separate entities, as evidenced by public tax records | So Hunter Biden is not a former chairman of a Nobel Prize-winning humanitarian organization, as the Facebook post claims."
+    },
+    {
+     "statement": "Hunter Biden served as the chairman of the board for World Food Program USA from 2011 to 2015.",
+     "support_span": "Hunter Biden, son of Democratic presidential nominee Joe Biden, was on the World Food Program USA board of directors from 2011 to 2017 and served as chairman from 2011 to 2015, according to the nonprofit’s annual reports."
+    }
+   ],
+   "justification": "The evidence indicates that Hunter Biden served as the chairman of the board for World Food Program USA from 2011 to 2015. However, the evidence distinguishes World Food Program USA from the Nobel Peace Prize-winning World Food Programme (a United Nations-affiliated organization), noting that they are separate entities. Therefore, while Biden held a chairmanship at the U.S.-based charity, he was not the chairman of the Nobel Prize-winning international organization.",
+   "article_url": "https://web.archive.org/web/20210605170751/https://www.politifact.com/factchecks/2020/oct/21/left-action/fact-checking-claims-about-charities-linked-hunter/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

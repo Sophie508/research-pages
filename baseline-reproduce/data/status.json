@@ -1,0 +1,1380 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-18T00:23:05+00:00",
+  "generator": {
+    "name": "progress_site/scripts/build_snapshot.py",
+    "version": "2026-09-18.1",
+    "mode": "local_mirror_extract",
+    "evidence_missing": []
+  },
+  "data_observed_at": "2026-09-18T00:16:34+00:00",
+  "freshness": {
+    "stale_after_hours": 24
+  },
+  "project": {
+    "title_zh": "六个 fact-checking 系统的实时检索适配复现",
+    "title_en": "Adapted reproduction of six shared-task fact-checking systems with live web search",
+    "goal_zh": "把六个 shared-task 事实核查系统从官方 knowledge store 适配到实时 web 检索、统一 Gemma 骨干，在冻结样本上比较 gold 与 silver 两种参照下的系统排名是否一致。",
+    "framing": "adapted reproduction — 不是原系统原样复现，不能对照官方排行榜",
+    "llm": "google/gemma-4-26b-a4b-it via OpenRouter",
+    "retrieval": "Serper web / images / lens + 自建抓页；日期政策 v2-revision-exclusion-20260916",
+    "plan": {
+      "text": "InFact、HerO2、SANCTUARY、AIC CTU 各跑 AVeriTeC dev 原始下标 0–99",
+      "multimodal": "VILLAIN、AIC CTU 各跑 AVerImaTeC val 原始下标 0–79",
+      "evaluation": "对固定输出做标签 accuracy 与 gold / silver 证据评估，比较两种参照下的排名；文本与图文分开比较"
+    }
+  },
+  "current_activity": {
+    "phase": "blocked_search_credits",
+    "state": "stopped",
+    "summary": "实验已停止：正式文本运行 r2 在 SANCTUARY / AIC CTU 阶段遇到搜索服务额度耗尽（Serper 余额 -2），人工中断。HerO2 已完成 100 条生成，SANCTUARY 83 条成功、17 条崩溃，AIC CTU 5 条成功、28 条崩溃、67 条未运行，InFact 本轮未开始。自动跟进已暂停，等待恢复搜索额度后按原 ID 续跑。",
+    "needs_user": "Restore credits on the existing Serper account, or supply a legitimately available funded key via local credential file. No credit purchase or provider replacement authorized.",
+    "experiment_running": false,
+    "observed_at": "2026-09-18T00:16:34.974274+00:00",
+    "source": "search_credit_blocker",
+    "live_verified": false,
+    "note": "来自实验 agent 写入的阻塞记录；不是服务器故障，也不是 USD 20 授权用尽。"
+  },
+  "budget": {
+    "basis": "保守口径：LLM 按最高端点价对 usage 估算、失败与未知计费按预留额计入、搜索按次数推算；不是服务商实际账单。搜索账户 credits 与美元预算是两个概念。",
+    "global_cap_usd": 20,
+    "conservative_total_usd": 7.99591825,
+    "remaining_usd": 12.004081750000001,
+    "evaluation_protected_usd": 2,
+    "formal_r2_run_usd": 2.9358294000000003,
+    "search_credits_balance": -2,
+    "observed_at": "2026-09-18T00:14:24.573017+00:00",
+    "source": "budget_auth_v2"
+  },
+  "headline": {
+    "smoke_systems_covered": {
+      "value": 6,
+      "denominator": 6,
+      "definition": "完成真实 5 条小样并通过最终结构审计的系统数"
+    },
+    "formal_processed": {
+      "text": {
+        "processed": 233,
+        "planned": 400
+      },
+      "multimodal": {
+        "processed": 0,
+        "planned": 160
+      },
+      "definition": "正式冻结切片中已落盘记录数（ok + no_evidence + system_failed）/ 计划数；文本与图文不相加"
+    },
+    "evaluated_systems": {
+      "value": 0,
+      "denominator": 6,
+      "label_only": 1,
+      "definition": "完成正式运行且 gold 与 silver 证据评估均已完成的系统数；另计只做了离线标签 accuracy 的系统"
+    }
+  },
+  "datasets": {
+    "averitec_dev": {
+      "name": "AVeriTeC dev",
+      "modality": "text",
+      "planned_n": 100,
+      "index_range": "original index 0–99",
+      "manifest": "manifests/averitec_dev_first100.summary.json",
+      "class_counts": {
+        "Refuted": 63,
+        "Supported": 19,
+        "Not Enough Evidence": 7,
+        "Conflicting Evidence/Cherrypicking": 11
+      },
+      "majority_accuracy": 0.63,
+      "gold_reference": {
+        "n": 100,
+        "qa_total": 240
+      },
+      "silver_reference": {
+        "n_available": 94,
+        "missing_ids": [
+          4,
+          31,
+          53,
+          84,
+          85,
+          98
+        ]
+      },
+      "source": "frozen_class_counts"
+    },
+    "averimatec_val": {
+      "name": "AVerImaTeC val",
+      "modality": "multimodal",
+      "planned_n": 80,
+      "index_range": "original index 0–79",
+      "manifest": "manifests/averimatec_val_first80.summary.json",
+      "class_counts": {
+        "Refuted": 72,
+        "Not Enough Evidence": 5,
+        "Supported": 2,
+        "Conflicting Evidence/Cherrypicking": 1
+      },
+      "majority_accuracy": 0.9,
+      "gold_reference": {
+        "n": 80,
+        "qa_total": 247
+      },
+      "silver_reference": {
+        "n_available": 80,
+        "missing_ids": []
+      },
+      "source": "frozen_class_counts"
+    }
+  },
+  "systems": [
+    {
+      "id": "infact",
+      "name_en": "InFact",
+      "dataset": "averitec_dev",
+      "modality": "text",
+      "original_backbone": "GPT-4o",
+      "adapted_backbone": "google/gemma-4-26b-a4b-it via OpenRouter",
+      "stages": {
+        "smoke": {
+          "state": "completed",
+          "run_id": "smoke_campaign_text_20260917_cpu",
+          "planned_n": 5,
+          "counts": {
+            "ok": 4,
+            "no_evidence": 1,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 3,
+            "Not Enough Evidence": 2
+          },
+          "verdict_fallback_n": 0,
+          "audit_passed": true,
+          "observed_at": "2026-09-17T02:58:28.305599+00:00",
+          "source": "text_smoke_audit"
+        },
+        "formal": {
+          "planned_n": 100,
+          "counts": {
+            "ok": 0,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 100
+          },
+          "verdict_counts": {},
+          "verdict_fallback_n": 0,
+          "run_id": "smoke_formal_text_20260917_rog_cpu_r2",
+          "observed_at": "2026-09-18T00:14:24.573017+00:00",
+          "source": "formal_r2_terminal_audit",
+          "mirror_note": "本轮在此系统之前停止，一条也没跑。",
+          "stop_reason": "搜索额度耗尽（Serper 账户余额 -2）后人工停止；不是服务器故障，也不是预算用尽。",
+          "audit_counts": {
+            "recorded": 0,
+            "statuses": {},
+            "not_run_n": 100
+          },
+          "state": "not_started",
+          "date_policy": null
+        },
+        "evaluation": {
+          "state": "not_started",
+          "gold": {
+            "status": "frozen",
+            "n_reference": 100,
+            "qa_total": 240
+          },
+          "silver": {
+            "status": "frozen",
+            "n_available": 94,
+            "missing_ids": [
+              4,
+              31,
+              53,
+              84,
+              85,
+              98
+            ],
+            "n_planned": 100
+          },
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          },
+          "metrics": {
+            "label_accuracy": null,
+            "evidence_score": null
+          },
+          "observed_at": "2026-09-17T06:57:04+00:00",
+          "source": "eval_ref_preflight"
+        }
+      }
+    },
+    {
+      "id": "hero2",
+      "name_en": "HerO2",
+      "dataset": "averitec_dev",
+      "modality": "text",
+      "original_backbone": "Llama-3.1-8B + Qwen3-8B + fine-tuned Qwen3-32B",
+      "adapted_backbone": "google/gemma-4-26b-a4b-it via OpenRouter",
+      "stages": {
+        "smoke": {
+          "state": "completed",
+          "run_id": "smoke_campaign_text_20260917_cpu",
+          "planned_n": 5,
+          "counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 3,
+            "Not Enough Evidence": 1,
+            "Supported": 1
+          },
+          "verdict_fallback_n": 0,
+          "audit_passed": true,
+          "observed_at": "2026-09-17T02:58:28.305599+00:00",
+          "source": "text_smoke_audit"
+        },
+        "formal": {
+          "planned_n": 100,
+          "counts": {
+            "ok": 100,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 47,
+            "Not Enough Evidence": 25,
+            "Supported": 17,
+            "Conflicting Evidence/Cherrypicking": 11
+          },
+          "verdict_fallback_n": 0,
+          "run_id": "smoke_formal_text_20260917_rog_cpu_r2",
+          "observed_at": "2026-09-18T00:14:24.573017+00:00",
+          "source": "formal_r2_terminal_audit",
+          "mirror_note": "全部计划 ID 都成功生成；这只说明生成完成，不是准确率。",
+          "stop_reason": null,
+          "audit_counts": {
+            "recorded": 100,
+            "statuses": {
+              "ok": 100
+            },
+            "not_run_n": 0
+          },
+          "state": "completed",
+          "date_policy": "v2-revision-exclusion-20260916"
+        },
+        "evaluation": {
+          "state": "label_only",
+          "gold": {
+            "status": "frozen",
+            "n_reference": 100,
+            "qa_total": 240
+          },
+          "silver": {
+            "status": "frozen",
+            "n_available": 94,
+            "missing_ids": [
+              4,
+              31,
+              53,
+              84,
+              85,
+              98
+            ],
+            "n_planned": 100
+          },
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": 0,
+            "judge_failed": null,
+            "not_run": 0
+          },
+          "metrics": {
+            "label_accuracy": {
+              "value": 0.48,
+              "numerator": 48,
+              "denominator": 100,
+              "basis": "full_sample",
+              "valid_only": 0.48,
+              "n_valid": 100,
+              "n_verdict_fallback": 0,
+              "per_label": {
+                "Supported": {
+                  "n_gold": 19,
+                  "recall_full_sample": 0.42105263157894735
+                },
+                "Refuted": {
+                  "n_gold": 63,
+                  "recall_full_sample": 0.5555555555555556
+                },
+                "Not Enough Evidence": {
+                  "n_gold": 7,
+                  "recall_full_sample": 0.42857142857142855
+                },
+                "Conflicting Evidence/Cherrypicking": {
+                  "n_gold": 11,
+                  "recall_full_sample": 0.18181818181818182
+                }
+              }
+            },
+            "evidence_score": null
+          },
+          "observed_at": "2026-09-18T00:15:35+00:00",
+          "source": "hero2_label_metrics",
+          "scope": "Fixed dev0-99 label accuracy only; evidence gold/silver evaluation pending. Do not tune future runs using these labels."
+        }
+      }
+    },
+    {
+      "id": "sanctuary",
+      "name_en": "SANCTUARY",
+      "dataset": "averitec_dev",
+      "modality": "text",
+      "original_backbone": "Qwen2.5-7B + Phi-4 GPTQ",
+      "adapted_backbone": "google/gemma-4-26b-a4b-it via OpenRouter",
+      "stages": {
+        "smoke": {
+          "state": "completed",
+          "run_id": "smoke_campaign_text_20260917_cpu",
+          "planned_n": 5,
+          "counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 4,
+            "Not Enough Evidence": 1
+          },
+          "verdict_fallback_n": 0,
+          "audit_passed": true,
+          "observed_at": "2026-09-17T02:58:28.305599+00:00",
+          "source": "text_smoke_audit"
+        },
+        "formal": {
+          "planned_n": 100,
+          "counts": {
+            "ok": 83,
+            "no_evidence": 0,
+            "system_failed": 17,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 49,
+            "Not Enough Evidence": 11,
+            "Conflicting Evidence/Cherrypicking": 7,
+            "Supported": 16
+          },
+          "verdict_fallback_n": 0,
+          "run_id": "smoke_formal_text_20260917_rog_cpu_r2",
+          "observed_at": "2026-09-18T00:14:24.573017+00:00",
+          "source": "formal_r2_terminal_audit",
+          "mirror_note": "全部计划 ID 都有记录，其中部分为搜索失败导致的崩溃。",
+          "stop_reason": null,
+          "audit_counts": {
+            "recorded": 100,
+            "statuses": {
+              "ok": 83,
+              "crashed": 17
+            },
+            "not_run_n": 0
+          },
+          "state": "completed_with_failures",
+          "date_policy": "v2-revision-exclusion-20260916"
+        },
+        "evaluation": {
+          "state": "not_started",
+          "gold": {
+            "status": "frozen",
+            "n_reference": 100,
+            "qa_total": 240
+          },
+          "silver": {
+            "status": "frozen",
+            "n_available": 94,
+            "missing_ids": [
+              4,
+              31,
+              53,
+              84,
+              85,
+              98
+            ],
+            "n_planned": 100
+          },
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          },
+          "metrics": {
+            "label_accuracy": null,
+            "evidence_score": null
+          },
+          "observed_at": "2026-09-17T06:57:04+00:00",
+          "source": "eval_ref_preflight"
+        }
+      }
+    },
+    {
+      "id": "aic_ctu_averitec",
+      "name_en": "AIC CTU (AVeriTeC)",
+      "dataset": "averitec_dev",
+      "modality": "text",
+      "original_backbone": "qwen3:14b via Ollama",
+      "adapted_backbone": "google/gemma-4-26b-a4b-it via OpenRouter",
+      "stages": {
+        "smoke": {
+          "state": "completed",
+          "run_id": "smoke_campaign_text_20260917_cpu",
+          "planned_n": 5,
+          "counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 5
+          },
+          "verdict_fallback_n": 0,
+          "audit_passed": true,
+          "observed_at": "2026-09-17T02:58:28.305599+00:00",
+          "source": "text_smoke_audit"
+        },
+        "formal": {
+          "planned_n": 100,
+          "counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 28,
+            "not_run": 67
+          },
+          "verdict_counts": {
+            "Refuted": 5
+          },
+          "verdict_fallback_n": 0,
+          "run_id": "smoke_formal_text_20260917_rog_cpu_r2",
+          "observed_at": "2026-09-18T00:14:24.573017+00:00",
+          "source": "formal_r2_terminal_audit",
+          "mirror_note": "本轮跑到一半停止；已落盘记录与终态审计一致。",
+          "stop_reason": "搜索额度耗尽（Serper 账户余额 -2）后人工停止；不是服务器故障，也不是预算用尽。",
+          "audit_counts": {
+            "recorded": 33,
+            "statuses": {
+              "ok": 5,
+              "crashed": 28
+            },
+            "not_run_n": 67
+          },
+          "state": "stopped",
+          "date_policy": "v2-revision-exclusion-20260916"
+        },
+        "evaluation": {
+          "state": "not_started",
+          "gold": {
+            "status": "frozen",
+            "n_reference": 100,
+            "qa_total": 240
+          },
+          "silver": {
+            "status": "frozen",
+            "n_available": 94,
+            "missing_ids": [
+              4,
+              31,
+              53,
+              84,
+              85,
+              98
+            ],
+            "n_planned": 100
+          },
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          },
+          "metrics": {
+            "label_accuracy": null,
+            "evidence_score": null
+          },
+          "observed_at": "2026-09-17T06:57:04+00:00",
+          "source": "eval_ref_preflight"
+        }
+      }
+    },
+    {
+      "id": "villain",
+      "name_en": "VILLAIN",
+      "dataset": "averimatec_val",
+      "modality": "multimodal",
+      "original_backbone": "Gemini-2.5-Pro",
+      "adapted_backbone": "google/gemma-4-26b-a4b-it via OpenRouter",
+      "stages": {
+        "smoke": {
+          "state": "completed",
+          "run_id": "smoke_campaign_mm_20260917_rog_cpu_r2",
+          "planned_n": 5,
+          "counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 5
+          },
+          "verdict_fallback_n": 0,
+          "audit_passed": true,
+          "observed_at": "2026-09-17T06:49:55+00:00",
+          "source": "mm_trace_audit"
+        },
+        "formal": {
+          "planned_n": 80,
+          "counts": {
+            "ok": 0,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 80
+          },
+          "verdict_counts": null,
+          "verdict_fallback_n": null,
+          "run_id": null,
+          "observed_at": "2026-09-18T00:14:24+00:00",
+          "source": "budget_auth_v2",
+          "mirror_note": "图文正式运行尚未分配或启动。",
+          "stop_reason": null,
+          "audit_counts": null,
+          "state": "not_started"
+        },
+        "evaluation": {
+          "state": "not_started",
+          "gold": {
+            "status": "frozen",
+            "n_reference": 80,
+            "qa_total": 247
+          },
+          "silver": {
+            "status": "frozen",
+            "n_available": 80,
+            "missing_ids": [],
+            "n_planned": 80
+          },
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          },
+          "metrics": {
+            "label_accuracy": null,
+            "evidence_score": null
+          },
+          "observed_at": "2026-09-17T06:57:04+00:00",
+          "source": "eval_ref_preflight"
+        }
+      }
+    },
+    {
+      "id": "aic_ctu_averimatec",
+      "name_en": "AIC CTU (AVerImaTeC)",
+      "dataset": "averimatec_val",
+      "modality": "multimodal",
+      "original_backbone": "GPT-5.1 (Batch API)",
+      "adapted_backbone": "google/gemma-4-26b-a4b-it via OpenRouter",
+      "stages": {
+        "smoke": {
+          "state": "completed",
+          "run_id": "smoke_campaign_mm_20260917_rog_cpu_r2",
+          "planned_n": 5,
+          "counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "verdict_counts": {
+            "Refuted": 4,
+            "Conflicting Evidence/Cherrypicking": 1
+          },
+          "verdict_fallback_n": 0,
+          "audit_passed": true,
+          "observed_at": "2026-09-17T06:49:55+00:00",
+          "source": "mm_trace_audit"
+        },
+        "formal": {
+          "planned_n": 80,
+          "counts": {
+            "ok": 0,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 80
+          },
+          "verdict_counts": null,
+          "verdict_fallback_n": null,
+          "run_id": null,
+          "observed_at": "2026-09-18T00:14:24+00:00",
+          "source": "budget_auth_v2",
+          "mirror_note": "图文正式运行尚未分配或启动。",
+          "stop_reason": null,
+          "audit_counts": null,
+          "state": "not_started"
+        },
+        "evaluation": {
+          "state": "not_started",
+          "gold": {
+            "status": "frozen",
+            "n_reference": 80,
+            "qa_total": 247
+          },
+          "silver": {
+            "status": "frozen",
+            "n_available": 80,
+            "missing_ids": [],
+            "n_planned": 80
+          },
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          },
+          "metrics": {
+            "label_accuracy": null,
+            "evidence_score": null
+          },
+          "observed_at": "2026-09-17T06:57:04+00:00",
+          "source": "eval_ref_preflight"
+        }
+      }
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-09-16",
+      "time_utc": null,
+      "status": "done",
+      "source": "deviations_md",
+      "title": "适配方案定调：官方 knowledge store 换成实时 web 检索",
+      "detail": "六个系统的检索算法、切块参数与 prompt 从原仓库移植，检索源改为 Serper web/images/lens 加自建抓页，LLM 统一 Gemma-4-26B via OpenRouter（D-00、D-07）。"
+    },
+    {
+      "date": "2026-09-16",
+      "time_utc": null,
+      "status": "done",
+      "source": "smoke_text_20260916_dir",
+      "title": "首次 InFact / AIC 文本诊断运行，发现引号查询几乎零命中",
+      "detail": "原版 InFact 在模型查询外再包一层双引号做精确短语搜索，135 次搜索 134 次零命中。该运行仅作诊断保留（D-18）。"
+    },
+    {
+      "date": "2026-09-16",
+      "time_utc": null,
+      "status": "done",
+      "source": "infact_ab_report",
+      "title": "InFact 检索修复的受控对照（A/B）",
+      "detail": "同一批 10 条查询：带外层引号 0 命中，去引号 50 命中、27 页日期合格。适配版默认去掉代码外加的引号，模型自写的引号保留。"
+    },
+    {
+      "date": "2026-09-16",
+      "time_utc": null,
+      "status": "done",
+      "source": "eval_protocol_md",
+      "title": "日期政策 v2：排除带截止后修订标记的页面",
+      "detail": "v1 只看提取的发布日期 ≤ claim 日期；审计发现 v1 放行了带截止后 updated/revised 标记的页面。v2 增加修订日期检测并单独记录排除原因（D-19）。v1 运行不与 v2 混算。"
+    },
+    {
+      "date": "2026-09-16",
+      "time_utc": null,
+      "status": "done",
+      "source": "codex_takeover_dir",
+      "title": "接手校正：嵌入归一化、SANCTUARY 运行时、评估入口",
+      "detail": "HerO2 与两个 AIC 适配器改回原始未归一化向量；SANCTUARY 原 Arctic 权重改用 CPU eager attention（D-20）；固定输出评估入口串行落盘、严格校验 judge 输出。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "00:45",
+      "status": "done",
+      "source": "image_publication",
+      "title": "AVerImaTeC claim 图片以固定版本公开托管",
+      "detail": "109 张图片发布到 Hugging Face 数据集并锁定 revision，逐张 SHA-256 与本地一致；不含标签、私有上下文或凭据。图文系统的反向图搜依赖公开 URL。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "00:48",
+      "status": "failed",
+      "source": "smoke_interruption",
+      "title": "文本小样首次启动因 API 凭据失效中止",
+      "detail": "21 次 OpenRouter 401 后人工停止，0 条成功生成；该运行不构成任何结果，但费用按保守口径保留。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "01:34",
+      "status": "failed",
+      "source": "gte_failure",
+      "title": "HerO2 GTE 嵌入在 MPS 上申请 39 GiB 缓冲失败",
+      "detail": "改为 CPU、batch size 1，权重与 8192 token 上限不变（D-21）；已保存的真实响应以缓存方式带入新目录。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "02:58",
+      "status": "done",
+      "source": "text_smoke_audit",
+      "title": "文本四系统真实小样完成并通过结构审计",
+      "detail": "HerO2 / SANCTUARY / AIC CTU 各 5 条 ok；InFact 4 条 ok、1 条 no_evidence。审计只检查结构、痕迹留存与解析，不代表内容正确或与原方法等价。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "03:13",
+      "status": "done",
+      "source": "mm_first_record",
+      "title": "图文首条试点：图片确实进入模型请求",
+      "detail": "两系统首条 claim 各自完成；9 次 LLM 请求全部含图像部分，Lens 返回图片来源匹配，无静默跳过图片分支。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "03:25",
+      "status": "failed",
+      "source": "mm_memory_failure",
+      "title": "VILLAIN 重排模型在本机 MPS 上内存溢出",
+      "detail": "保留 mxbai reranker 权重与输入对，改为 CPU、batch size 1（D-22）；随后把执行迁移到用户授权的 CPU 服务器隔离环境。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "04:15",
+      "status": "failed",
+      "source": "remote_cpu_smoke_audit",
+      "title": "服务器首次图文小样因缺少依赖失败",
+      "detail": "7 次崩溃全部来自 HTML 回退解析器缺少 beautifulsoup4；安装与本地相同的固定版本后同一离线测试通过，算法与 prompt 未改。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "06:49",
+      "status": "done",
+      "source": "mm_trace_audit",
+      "title": "图文两系统真实小样完成，痕迹审计通过",
+      "detail": "VILLAIN、AIC CTU（AVerImaTeC）各 5 条 ok；10 条痕迹全部通过图像解码、解析器复现与来源日期结构检查。结果已完整备份并逐文件哈希校验。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "06:51",
+      "status": "failed",
+      "source": "formal_stall_audit",
+      "title": "正式文本运行首次启动，在 HTTPS 读响应阶段卡住",
+      "detail": "HerO2 HyDE 请求在 SDK 超时 180 秒之外仍挂起超过 17 分钟；人工停止，账本按未知计费保守结算。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "06:57",
+      "status": "done",
+      "source": "eval_ref_preflight",
+      "title": "冻结评估参照：gold / silver 文件哈希与可用 ID",
+      "detail": "文本 silver 参照 100 条中 94 条可用（缺 6 条），图文 80/80。缺失参照单列，排名比较只用各系统共同可用的 ID。评估调用尚未开始。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "07:15",
+      "status": "done",
+      "source": "formal_r2_alloc",
+      "title": "正式文本运行 r2 重启（加 180 秒总耗时截止，D-23）",
+      "detail": "同一冻结 dev 0–99、同模型 / prompt / 检索 / 日期政策，四系统串行：HerO2 → SANCTUARY → AIC CTU → InFact。复用已验证的真实缓存，预算不重置。"
+    },
+    {
+      "date": "2026-09-17",
+      "time_utc": "17:35",
+      "status": "done",
+      "source": "hero2_output_manifest",
+      "title": "HerO2 正式生成完成：100 / 100 条 ok",
+      "detail": "无重复或缺失 ID，结构与日期来源审计无问题，输出文件哈希已登记。这只说明生成完成，不是准确率，也不是复现完成。"
+    },
+    {
+      "date": "2026-09-18",
+      "time_utc": "00:04",
+      "status": "failed",
+      "source": "formal_r2_terminal_audit",
+      "title": "SANCTUARY 正式生成结束：83 条 ok、17 条崩溃",
+      "detail": "崩溃全部是搜索请求 HTTP 400（搜索额度耗尽期间），记录为 crashed 并保留在计划分母里，不用历史输出补数。"
+    },
+    {
+      "date": "2026-09-18",
+      "time_utc": "00:16",
+      "status": "failed",
+      "source": "search_credit_blocker",
+      "title": "搜索额度耗尽，实验人工停止",
+      "detail": "AIC CTU 文本版跑到 5 条 ok、28 条崩溃、67 条未运行时中断；InFact 本轮未开始。Serper 账户余额 -2。账本与请求日志完全对账，11,650 个备份文件哈希核验通过。不是服务器故障，也不是 USD 20 授权用尽。"
+    },
+    {
+      "date": "2026-09-18",
+      "time_utc": null,
+      "status": "done",
+      "source": "deviations_md",
+      "title": "D-24：搜索账户耗尽时 fail-closed",
+      "detail": "付费阶段前增加免费的账户余额预检；搜索返回 HTTP 400/401/402/403 时停止本条并让后续 claim 保持未运行，不再逐条重试。离线反例修复前 2/3 失败、修复后 3/3 通过；未用任何付费请求测试。"
+    },
+    {
+      "date": "2026-09-18",
+      "time_utc": null,
+      "status": "done",
+      "source": "hero2_label_metrics",
+      "title": "HerO2 离线标签 accuracy：48 / 100",
+      "detail": "固定 dev 0–99 上判决标签与 gold 标签比对，48 条正确，无解析回退；低于全猜多数类的 0.63。证据 gold/silver 评分与排名尚未开始，不据此调参。"
+    },
+    {
+      "date": null,
+      "time_utc": null,
+      "status": "planned",
+      "source": "search_credit_blocker",
+      "title": "恢复搜索额度后续跑 SANCTUARY / AIC CTU / InFact 未完成 ID",
+      "detail": "需要用户恢复 Serper 额度或提供可用密钥；预检通过后按原 ID 续跑，HerO2 输出保持不变，旧失败费用保留。"
+    },
+    {
+      "date": null,
+      "time_utc": null,
+      "status": "planned",
+      "source": null,
+      "title": "图文两系统正式运行（val 0–79）",
+      "detail": "待文本正式运行结束后在同一全局预算内分配；尚未启动。"
+    },
+    {
+      "date": null,
+      "time_utc": null,
+      "status": "planned",
+      "source": "eval_protocol_md",
+      "title": "固定输出的 gold / silver 证据评估与排名对照",
+      "detail": "对冻结输出做标签 accuracy 与证据评分，分别用 gold 与 silver 参照打分后比较系统排名；文本与图文分开比较。"
+    }
+  ],
+  "results": {
+    "status": "partial",
+    "note": "只有 HerO2 完成正式生成并做了离线标签 accuracy；证据 gold/silver 评分与跨系统排名尚未开始。这些是适配系统在固定切片上的结果，不是官方榜单成绩；小样结果不进入结果区，也不用小样给系统排名。",
+    "text": {
+      "n_planned": 100,
+      "per_system": [
+        {
+          "id": "infact",
+          "name_en": "InFact",
+          "generation_state": "not_started",
+          "generation_counts": {
+            "ok": 0,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 100
+          },
+          "label_accuracy": null,
+          "evidence_gold": null,
+          "evidence_silver": null,
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          }
+        },
+        {
+          "id": "hero2",
+          "name_en": "HerO2",
+          "generation_state": "completed",
+          "generation_counts": {
+            "ok": 100,
+            "no_evidence": 0,
+            "system_failed": 0,
+            "not_run": 0
+          },
+          "label_accuracy": {
+            "value": 0.48,
+            "numerator": 48,
+            "denominator": 100,
+            "basis": "full_sample",
+            "valid_only": 0.48,
+            "n_valid": 100,
+            "n_verdict_fallback": 0,
+            "per_label": {
+              "Supported": {
+                "n_gold": 19,
+                "recall_full_sample": 0.42105263157894735
+              },
+              "Refuted": {
+                "n_gold": 63,
+                "recall_full_sample": 0.5555555555555556
+              },
+              "Not Enough Evidence": {
+                "n_gold": 7,
+                "recall_full_sample": 0.42857142857142855
+              },
+              "Conflicting Evidence/Cherrypicking": {
+                "n_gold": 11,
+                "recall_full_sample": 0.18181818181818182
+              }
+            }
+          },
+          "evidence_gold": null,
+          "evidence_silver": null,
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": 0,
+            "judge_failed": null,
+            "not_run": 0
+          }
+        },
+        {
+          "id": "sanctuary",
+          "name_en": "SANCTUARY",
+          "generation_state": "completed_with_failures",
+          "generation_counts": {
+            "ok": 83,
+            "no_evidence": 0,
+            "system_failed": 17,
+            "not_run": 0
+          },
+          "label_accuracy": null,
+          "evidence_gold": null,
+          "evidence_silver": null,
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          }
+        },
+        {
+          "id": "aic_ctu_averitec",
+          "name_en": "AIC CTU (AVeriTeC)",
+          "generation_state": "stopped",
+          "generation_counts": {
+            "ok": 5,
+            "no_evidence": 0,
+            "system_failed": 28,
+            "not_run": 67
+          },
+          "label_accuracy": null,
+          "evidence_gold": null,
+          "evidence_silver": null,
+          "counts": {
+            "scored": null,
+            "system_failed": null,
+            "no_evidence": null,
+            "no_reference": null,
+            "judge_failed": null,
+            "not_run": null
+          }
+        }
+      ],
+      "ranking": null
+    },
+    "multimodal": {
+      "n_planned": 80,
+      "per_system": null,
+      "ranking": null
+    }
+  },
+  "deviations": [
+    {
+      "id": "D-00",
+      "systems": "全部",
+      "status": "applied",
+      "changed": "官方 knowledge store 换成实时 Serper web / images / lens 检索加自建抓页，按每系统查询规则与预算执行。",
+      "why": "导师 2026-09-16 定调：研究问题是这些系统在实时检索下的表现。",
+      "impact": "检索候选集与原系统完全不同，所有分数都不能与官方排行榜直接比较；只能称 adapted reproduction。"
+    },
+    {
+      "id": "D-07",
+      "systems": "全部",
+      "status": "applied",
+      "changed": "所有 LLM 阶段统一为 google/gemma-4-26b-a4b-it via OpenRouter，prompt 原样，采样参数尽量对齐。",
+      "why": "项目硬口径：统一骨干便于比较、控制成本。",
+      "impact": "原系统各自的骨干（GPT-4o、微调 Qwen、Gemini 等）被替换，能力来源改变；HerO2 的微调判决模型影响可能最大（D-04）。top_k / min_p 等参数未转发。"
+    },
+    {
+      "id": "D-04",
+      "systems": "HerO2",
+      "status": "applied",
+      "changed": "判决阶段不用微调的 Qwen3-32B-AWQ-HerO，同一 prompt 喂未微调的 Gemma；所有判决尝试用 temperature 0。",
+      "why": "微调权重需 GPU，且换骨干是项目硬口径。",
+      "impact": "HerO2 的判决能力来源改变，排名可能受影响最大；原版重试时的采样多样性未保留。"
+    },
+    {
+      "id": "D-06",
+      "systems": "VILLAIN",
+      "status": "applied",
+      "changed": "Agent 3 的图像排序嵌入由 7B 多模态嵌入模型换成 CLIP ViT-B/32；图→图、文→图两条策略与去重排序逻辑保留。",
+      "why": "原模型需约 15 GB 显存，本机无 NVIDIA GPU；CLIP-B/32 是最小的公开图文对齐嵌入。",
+      "impact": "这是方法改动而非接口适配，图像候选排序质量可能下降。"
+    },
+    {
+      "id": "D-18",
+      "systems": "InFact",
+      "status": "applied, verified",
+      "changed": "去掉代码在模型查询外再包的一层精确短语双引号；模型自己写的引号保留。",
+      "why": "2026-09-16 诊断运行 135 次搜索 134 次零命中；A/B 对照 10 条查询从 0 命中变为 50 命中。",
+      "impact": "召回显著提高；带引号原版结果只作诊断保留，不与适配版混算。"
+    },
+    {
+      "id": "D-12 / D-19",
+      "systems": "全部（日期）",
+      "status": "applied",
+      "changed": "统一 cutoff = claim 日期，同日保留，未知日期在严格设置下丢弃；v2 另检测 updated / revised 等修订标记日期，晚于 claim 日期则排除该页。",
+      "why": "官方 store 只含 claim 日期前的页面；v1 审计发现放行了带截止后修订标记的页面。",
+      "impact": "只是对当前页面元数据的启发式过滤，不能保证正文是截止前的历史版本；Wayback 快照本轮不做。"
+    },
+    {
+      "id": "D-13 / D-14",
+      "systems": "InFact、HerO2、SANCTUARY、AIC 文本版",
+      "status": "applied",
+      "changed": "InFact 每问题最多 3 条查询；HerO2 / SANCTUARY / AIC 原本直接对 store 检索，web 查询规则由本项目设计。",
+      "why": "原系统没有 web 查询生成步骤；需要预算上限。",
+      "impact": "查询策略是本项目的设计选择，会影响召回，属于适配层而非原算法。"
+    },
+    {
+      "id": "D-01 / D-02",
+      "systems": "AIC CTU 文本版、图文版",
+      "status": "applied",
+      "changed": "修复原切块循环丢失每篇文档末句的缺陷；解析失败时不再借用上一条 claim 的响应，改为同 claim 重试一次后记 generation_failed。",
+      "why": "末句丢失有单元测试反例；借用响应会跨 claim 污染。",
+      "impact": "与原代码逐字节行为不同，但更接近论文描述；失败以显式状态记录。"
+    },
+    {
+      "id": "D-05",
+      "systems": "HerO2",
+      "status": "applied",
+      "changed": "只对检索 top-10 文档做摘要，而不是对整个 store 做摘要。",
+      "why": "没有 store；原 retrieval 也只读取 top-k 对应的摘要。",
+      "impact": "依赖顺序保留，但随机生成的摘要不保证逐字相同。"
+    },
+    {
+      "id": "D-10 / D-17",
+      "systems": "InFact、AIC 图文版、VILLAIN",
+      "status": "applied",
+      "changed": "InFact 的 web 结果抓全文喂给回答阶段（对齐论文用 KB 全文）；抓页统一用本项目抓页器（requests + Playwright 回退 + trafilatura），不用 Firecrawl。",
+      "why": "论文成绩基于全文；不新建付费资源。",
+      "impact": "抓页成功率与正文抽取质量由本项目抓页器决定。"
+    },
+    {
+      "id": "D-16",
+      "systems": "全部",
+      "status": "applied",
+      "changed": "按 4 字符 / token 近似截断，而不是各自 tokenizer 截断。",
+      "why": "统一客户端，无各系统 tokenizer。",
+      "impact": "不能声称与原 tokenizer 截断等价。"
+    },
+    {
+      "id": "D-08",
+      "systems": "HerO2",
+      "status": "pending",
+      "changed": "用一条 assistant 前缀消息模拟原来 tokenizer 级的 prefill。",
+      "why": "OpenRouter API 不暴露 tokenizer 级前缀。",
+      "impact": "API 消息级模拟，不等于 tokenizer 级等价；冒烟只确认了续写行为。"
+    },
+    {
+      "id": "D-20 / D-21 / D-22",
+      "systems": "SANCTUARY、HerO2、VILLAIN",
+      "status": "applied（运行时）",
+      "changed": "SANCTUARY Arctic 嵌入用 CPU eager attention；HerO2 GTE 嵌入用 CPU、batch 1；VILLAIN mxbai 重排用 CPU、batch 1。权重、输入、tokenizer 上限不变。",
+      "why": "本机无 CUDA / xformers，MPS 上出现 39 GiB 与 DeBERTa 内存分配失败。",
+      "impact": "只改运行设备与批大小；与 GPU 的数值一致性未测量（重排在 55 个真实候选上 batch 1 与 2 的 top-10 一致，最大分差 2.38e-7）。"
+    },
+    {
+      "id": "D-24",
+      "systems": "全部（搜索客户端 / 运行器）",
+      "status": "applied 2026-09-18",
+      "changed": "付费阶段前增加免费的搜索账户余额预检；搜索返回 HTTP 400/401/402/403 时结算该次尝试并停止本条 claim，后续 claim 与系统保持未运行。",
+      "why": "正式 r2 在 SANCTUARY 阶段搜索额度耗尽，通用 HTTP 400 被逐条重试，产生了 17 + 28 条崩溃记录。",
+      "impact": "只改停止策略，不改检索或模型算法；已有崩溃记录保留在分母中，续跑时按原 ID 补跑。"
+    },
+    {
+      "id": "D-23",
+      "systems": "全部（客户端）",
+      "status": "applied",
+      "changed": "每次 LLM SDK 尝试加 180 秒总耗时截止；超时按未知计费保守结算，晚到响应不进缓存。",
+      "why": "正式文本首次运行在 HTTPS 读响应阶段挂起超过 17 分钟，SDK 超时未生效。",
+      "impact": "只影响挂起请求的处理，不改模型、prompt、输入或采样。"
+    }
+  ],
+  "limitations": [
+    "“100 条 ok”只表示 100 条都生成了结构合规的输出，不是 100% 准确：HerO2 的离线标签 accuracy 是 0.48（48/100），低于全猜多数类 Refuted 的 0.63。",
+    "SANCTUARY 与 AIC CTU 文本版的崩溃记录全部来自搜索额度耗尽期间的 HTTP 400，是基础设施失败而不是系统本身失败；但在续跑前它们仍按 system_failed 计入分母，不用历史输出补数。",
+    "这是 adapted reproduction：检索源、LLM 骨干、部分嵌入模型均已替换，不能宣称原系统原样复现，也不能直接对照官方排行榜成绩。",
+    "小样与正式运行中的 ok 只表示系统跑通并产出结构合规的输出，不表示判决或证据正确。",
+    "日期过滤是对当前页面元数据的启发式过滤，不能保证抓到的是 claim 日期前的历史网页版本。",
+    "图文小样审计核实了图片确实送入模型、返回可解析、来源结构正确；这不等于内容正确或与原算法完全等价。VILLAIN 没有逐 QA 的来源归属。",
+    "文本 silver 参照 100 条中缺 6 条；排名比较只用各系统共同可用的 ID，缺失参照单独计数，不用 gold 补。",
+    "评估 judge 是 Gemma 而非官方 Gemini；图文评估是带图片占位符的纯文本证据评估，不是完整官方多模态指标。",
+    "冻结切片类别极不均衡：AVeriTeC dev 0–99 多数类 Refuted 占 63%，AVerImaTeC val 0–79 占 90%，全猜 Refuted 就能拿到这一 accuracy，因此 accuracy 单独不说明能力。"
+  ],
+  "evidence_index": {
+    "frozen_class_counts": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/frozen_slice_class_counts.json",
+      "observed_at": "2026-09-17T01:44:10+00:00",
+      "note": "冻结切片的标签分布（只用于分母与多数类基线）",
+      "sha256": "c036abc6d16b3c0e8d290530cb9d1f8d3e6872649f8a9e17c99664d15728e57d",
+      "bytes": 515
+    },
+    "eval_ref_preflight": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/formal_evaluation_reference_preflight.json",
+      "observed_at": "2026-09-17T06:57:04+00:00",
+      "note": "正式评估参照预检：gold/silver 文件哈希与可用 ID",
+      "sha256": "77d33d71c3d301277e1d7821a06ec691373fab7ec3276a9d5cc058a14f50373c",
+      "bytes": 4071
+    },
+    "manifest_text": {
+      "path": "experiments/baseline_reproduction/manifests/averitec_dev_first100.summary.json",
+      "observed_at": "2026-09-16T09:54:04+00:00",
+      "note": "文本冻结清单摘要",
+      "sha256": "65dec99f88fcd3acd68666bb8aa1ae0291b710323c3eee50f28ff2a888e6147b",
+      "bytes": 443
+    },
+    "manifest_mm": {
+      "path": "experiments/baseline_reproduction/manifests/averimatec_val_first80.summary.json",
+      "observed_at": "2026-09-16T09:54:04+00:00",
+      "note": "图文冻结清单摘要（109 张图片）",
+      "sha256": "e358874964af6d46c10c1149498f8c22fc1236397307cbfca28824edd89f0cb2",
+      "bytes": 445
+    },
+    "deviations_md": {
+      "path": "experiments/baseline_reproduction/DEVIATIONS.md",
+      "observed_at": "2026-09-18T00:16:34+00:00",
+      "note": "偏差登记表（原行为 → 我们的行为 → 依据）",
+      "sha256": "41cefcb28461bf06b0c60675a788b00e0dc93dd717005bfe1d565de942cd70b9",
+      "bytes": 13826
+    },
+    "eval_protocol_md": {
+      "path": "experiments/baseline_reproduction/EVAL_PROTOCOL.md",
+      "observed_at": "2026-09-17T03:40:13+00:00",
+      "note": "评估协议（ID、转换、分母、日期、排名对齐）",
+      "sha256": "434fd1bb1821eafcc9c73d84fb7b702d36cf3b53f3d09f8ad437faa32483ec40",
+      "bytes": 11232
+    },
+    "infact_ab_report": {
+      "path": "experiments/baseline_reproduction/outputs/infact_ab_20260916/REPORT.md",
+      "observed_at": "2026-09-16T12:51:04+00:00",
+      "note": "InFact 引号查询 A/B 对照报告",
+      "sha256": "d6f57f6dc542afc52ad131c863c8559b36a359cd5b400959e117db390bb667d1",
+      "bytes": 4587
+    },
+    "codex_takeover_dir": {
+      "path": "experiments/baseline_reproduction/outputs/codex_takeover_20260916",
+      "observed_at": "2026-09-16T15:20:23+00:00",
+      "note": "2026-09-16 接手快照与校验记录目录"
+    },
+    "smoke_text_20260916_dir": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_text_smoke_20260916",
+      "observed_at": "2026-09-16T10:45:51+00:00",
+      "note": "2026-09-16 首次文本诊断运行目录（带引号查询版）"
+    },
+    "formal_stall_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/formal_text_stall_audit.json",
+      "observed_at": "2026-09-17T07:13:55+00:00",
+      "note": "",
+      "sha256": "b9ef8972503d9e6f838eb91eeb8d8c2fcb648b6b4ee672627d60d8a19ee9d4b8",
+      "bytes": 789
+    },
+    "remote_execution": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/remote_execution.json",
+      "observed_at": "2026-09-17T07:15:13+00:00",
+      "note": "",
+      "sha256": "7c6ec3b918b3f0ae55cf3cfce36f656f7c2127e5b1c758d694c0b8d1dc795459",
+      "bytes": 485
+    },
+    "smoke_interruption": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/smoke_interruption.json",
+      "observed_at": "2026-09-17T00:48:27+00:00",
+      "note": "",
+      "sha256": "80dc872212d74cae3232310b2641efc89a8afa8f5d37157eb1f87e266a823e31",
+      "bytes": 3946
+    },
+    "gte_failure": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/gte_memory_failure.json",
+      "observed_at": "2026-09-17T01:34:11+00:00",
+      "note": "",
+      "sha256": "6d05e5d0b41b5430e1fd291f56dfa271826f463a4648c3657ef94a708d9a7126",
+      "bytes": 562
+    },
+    "mm_memory_failure": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/mm_memory_failure.json",
+      "observed_at": "2026-09-17T03:25:56+00:00",
+      "note": "",
+      "sha256": "363f4f772f283955565a3430de9269b48c7896e1627a8f1406b555678b31e088",
+      "bytes": 2856
+    },
+    "remote_cpu_smoke_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/remote_cpu_smoke_audit.json",
+      "observed_at": "2026-09-17T04:15:05+00:00",
+      "note": "",
+      "sha256": "dfb7f0ddf0c53e19804ce147e0256b5d239a3d5ecab41c75894cc91ec2df9a7f",
+      "bytes": 774
+    },
+    "remote_dependency_repair": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/remote_dependency_repair.json",
+      "observed_at": "2026-09-17T04:16:47+00:00",
+      "note": "",
+      "sha256": "5509bbf9d2d572f9873ddb486e3afba368870c50a2fc4f7de6fa31c8e9c458a6",
+      "bytes": 604
+    },
+    "remote_r2_ledger_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/remote_r2_final_ledger_audit.json",
+      "observed_at": "2026-09-17T06:09:02+00:00",
+      "note": "",
+      "sha256": "fdd32869b18767584258defeba7f008f9089383b76e5234a312fa50e90bf74ef",
+      "bytes": 644
+    },
+    "remote_r2_backup": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/remote_r2_backup_verification.json",
+      "observed_at": "2026-09-17T06:49:55+00:00",
+      "note": "",
+      "sha256": "1c2cf81e871765789d435b2e76b374aa32ce5ff196483f68054078699c11a993",
+      "bytes": 56
+    },
+    "image_publication": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/image_publication.json",
+      "observed_at": "2026-09-17T00:45:43+00:00",
+      "note": "",
+      "sha256": "370a584fcc2f64358e476b9370d0b6f69e198d1ba601f2d7126456e599014bb7",
+      "bytes": 476
+    },
+    "image_publication_verified": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/image_publication_verified.json",
+      "observed_at": "2026-09-17T00:48:27+00:00",
+      "note": "",
+      "sha256": "efda15bbc08a9497e7d26d4c0ae60a7ebc5c84c8d9772a524e1d5d548764987b",
+      "bytes": 38582
+    },
+    "formal_r2_alloc": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/formal_text_r2_allocation.json",
+      "observed_at": "2026-09-17T07:13:55+00:00",
+      "note": "",
+      "sha256": "4e5de40c0d154811a35c558d6e1694692900832d8b9c6c11d40d80628ceb6116",
+      "bytes": 1410
+    },
+    "mm_first_record": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/mm_first_record_review.json",
+      "observed_at": "2026-09-17T03:13:59+00:00",
+      "note": "",
+      "sha256": "0013532727e4a139a17342e5328dd8c493c47161f1b1d332c1e4e97b47e1f162",
+      "bytes": 1295
+    },
+    "hero2_output_manifest": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/hero2_formal_output_manifest.json",
+      "observed_at": "2026-09-17T18:05:57+00:00",
+      "note": "",
+      "sha256": "e94ba7a71e6d136dbffb39a45253fc51b0b97d49cd730c954eb58a1bb52ce671",
+      "bytes": 614
+    },
+    "hero2_structural_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/hero2_formal_structural_audit.json",
+      "observed_at": "2026-09-17T18:05:33+00:00",
+      "note": "",
+      "sha256": "ec37872dd4aa7f843887ee2b96eadd38a1ef65509a02cf8c821037217bc5def5",
+      "bytes": 35014
+    },
+    "hero2_label_metrics": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/hero2_formal_label_metrics.json",
+      "observed_at": "2026-09-18T00:15:35+00:00",
+      "note": "HerO2 正式输出的离线标签 accuracy（只有标签，证据评分未做）",
+      "sha256": "4dc6a6bee55092831d80ca33c411f7ff3ad5c790f063442e8553eee3f44bde47",
+      "bytes": 1107
+    },
+    "search_credit_blocker": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/search_credit_blocker.json",
+      "observed_at": "2026-09-18T00:16:34+00:00",
+      "note": "当前阻塞：Serper 搜索额度耗尽（余额 -2），实验已停止",
+      "sha256": "2570be7329486747f1911edda695e409230cebbfa45257502a0302d81c286062",
+      "bytes": 1153
+    },
+    "formal_r2_terminal_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/formal_text_r2_terminal_audit.json",
+      "observed_at": "2026-09-18T00:14:24+00:00",
+      "note": "正式文本运行 r2 停止后的终态审计：各系统计数、账本核对、备份哈希",
+      "sha256": "1ce429e39bd9199952c9939af20e7942aeafcb5db954aab7da51ff9d31697a6e",
+      "bytes": 3173
+    },
+    "text_smoke_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/text_smoke_final_audit.json",
+      "observed_at": "2026-09-17T02:58:28+00:00",
+      "note": "文本小样最终结构审计（四系统各 5 条）",
+      "sha256": "ca893f16ff80f1866eb8328468bbf64ffd85c772c49295eac3e1bbffcdcc5abe",
+      "bytes": 60510
+    },
+    "formal_r2_hero2_out": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_formal_text_20260917_rog_cpu_r2/hero2.json",
+      "observed_at": "2026-09-17T17:35:44+00:00",
+      "note": "正式文本运行 r2 的 hero2 逐条输出（本地镜像）",
+      "sha256": "543cf392cfcf3e9c13e6c80dc2f531dcff15e17c774aaa469d1ce852b8921b0c",
+      "bytes": 2192804
+    },
+    "formal_r2_hero2_state": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_formal_text_20260917_rog_cpu_r2/hero2.run_state.json",
+      "observed_at": "2026-09-17T17:35:44+00:00",
+      "note": "正式文本运行 r2 的 hero2 运行状态（本地镜像；running 字段可能过期）",
+      "sha256": "46d1d9cecff6347f9b20ee0a7d1fee17dafaa3d9b562bae728d1d539f690dce4",
+      "bytes": 2115
+    },
+    "formal_r2_sanctuary_out": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_formal_text_20260917_rog_cpu_r2/sanctuary.json",
+      "observed_at": "2026-09-18T00:04:46+00:00",
+      "note": "正式文本运行 r2 的 sanctuary 逐条输出（本地镜像）",
+      "sha256": "44d1d6d6f6aa4743e8b86da4b641ef477efe47c7c09221b493ceebc9a00cd5b7",
+      "bytes": 4073524
+    },
+    "formal_r2_sanctuary_state": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_formal_text_20260917_rog_cpu_r2/sanctuary.run_state.json",
+      "observed_at": "2026-09-18T00:04:47+00:00",
+      "note": "正式文本运行 r2 的 sanctuary 运行状态（本地镜像；running 字段可能过期）",
+      "sha256": "19c3894ef7a05c2a6beb25fa6e1d5199b60bdfbcbea84a6fc0498a8d88e1cd72",
+      "bytes": 2104
+    },
+    "formal_r2_aic_ctu_averitec_out": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_formal_text_20260917_rog_cpu_r2/aic_ctu_averitec.json",
+      "observed_at": "2026-09-18T00:10:22+00:00",
+      "note": "正式文本运行 r2 的 aic_ctu_averitec 逐条输出（本地镜像）",
+      "sha256": "7fcfadace57a442aa8b8cd2ab5860ace502b31f2d46b4c94786756b225028649",
+      "bytes": 79834
+    },
+    "formal_r2_aic_ctu_averitec_state": {
+      "path": "experiments/baseline_reproduction/outputs/smoke_formal_text_20260917_rog_cpu_r2/aic_ctu_averitec.run_state.json",
+      "observed_at": "2026-09-18T00:10:22+00:00",
+      "note": "正式文本运行 r2 的 aic_ctu_averitec 运行状态（本地镜像；running 字段可能过期）",
+      "sha256": "45a80019e3a99a80645ce6535ba977847f334a75b89c69c7a11c01291c5cc0d2",
+      "bytes": 1743
+    },
+    "mm_trace_audit": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/mm_final_trace_audit.json",
+      "observed_at": "2026-09-17T06:49:55+00:00",
+      "note": "图文小样最终结构/图像/解析审计（两系统各 5 条）",
+      "sha256": "967350998c54b84799ecce991f64c06e969957f5120b8f8ec95a4d34ecfc09da",
+      "bytes": 5157
+    },
+    "budget_auth_v2": {
+      "path": "experiments/baseline_reproduction/outputs/campaign_text_20260917/budget_authorization_v2.json",
+      "observed_at": "2026-09-18T00:14:24+00:00",
+      "note": "预算授权 v2：历史与当前运行清单，无图文正式运行条目",
+      "sha256": "57cf2bded3b26bfb939659a82435cc99adcef424ad4bd201f71a4b9854d42718",
+      "bytes": 6537
+    }
+  }
+}

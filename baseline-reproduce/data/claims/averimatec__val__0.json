@@ -1,0 +1,411 @@
+{
+ "key": "averimatec/val/0",
+ "dataset": "averimatec",
+ "split": "val",
+ "original_index": 0,
+ "claim": "Photo shows a 101-year-old woman who has given birth to her 17th child.",
+ "claim_date": "2023-07-04",
+ "speaker": "The Love for Babies",
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [
+  {
+   "file": "67878fcce2f02e5f498136dd#CLAIM#0.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/67878fcce2f02e5f498136dd%23CLAIM%230.jpg"
+  }
+ ],
+ "outputs": {
+  "smoke_campaign_mm_20260917_rog_cpu_r2": {
+   "aic_ctu_averimatec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim that the 101-year-old woman in the photo gave birth to her 17th child is false. Fact-checking sources confirm that the woman is Rosa Camfield and the baby she is holding is her great-granddaughter, Kaylee. The viral claim misinterprets a heartwarming multi-generational photo as a medical miracle.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Who is the woman depicted in the image?",
+      "answer": "The woman in the image is Rosa Camfield. [IMG]",
+      "url": "https://www.thequint.com/news/webqoof/101-year-old-woman-gave-birth-to-a-child-fact-check",
+      "images": [],
+      "evidence_text": "The article mentions that the 101-year-old woman seen in the photo is Rosa Camfield, holding her great-granddaughter, Kaylee, and not her own child as claimed. [IMG_1]"
+     },
+     {
+      "question": "Is the baby in the photo the newborn child of the woman?",
+      "answer": "No, the baby is her great-granddaughter, Kaylee. [IMG]",
+      "url": "https://www.thequint.com/news/webqoof/101-year-old-woman-gave-birth-to-a-child-fact-check",
+      "images": [],
+      "evidence_text": "The article mentions that the 101-year-old woman seen in the photo is Rosa Camfield, holding her great-granddaughter Kaylee, and not her own child as claimed. [IMG_1]"
+     },
+     {
+      "question": "Did the woman in the image give birth to her 17th child at age 101?",
+      "answer": "No, the claim that she gave birth to her 17th child at age 101 is false; she was actually holding her great-granddaughter. [IMG]",
+      "url": "https://www.vishvasnews.com/english/health/fact-check-post-claiming-101-year-old-woman-delivered-a-baby-is-fake/",
+      "images": [],
+      "evidence_text": "The post claiming 101-year-old woman delivered a baby is fake. [IMG_1]"
+     },
+     {
+      "question": "When was the photo of Rosa Camfield originally taken?",
+      "answer": "The photo was taken on March 17, 2015. [IMG]",
+      "url": "https://www.sandiegouniontribune.com/2015/04/02/great-grandma-featured-in-facebook-photo-with-newborn-dies/",
+      "images": [
+       "https://www.sandiegouniontribune.com/wp-content/uploads/migration/2015/04/02/00000169-0cdf-dbbe-a16f-4efff9f90000.jpg?w=1200&resize=1200,900"
+      ],
+      "evidence_text": "Hamm took a picture of her newborn daughter with Camfield on March 17 and posted it to her Facebook page. [IMG_1]"
+     },
+     {
+      "question": "What is the actual relationship between the woman and the baby in the photo?",
+      "answer": "The woman is the great-grandmother of the baby. [IMG]",
+      "url": "https://www.thequint.com/news/webqoof/101-year-old-woman-gave-birth-to-a-child-fact-check",
+      "images": [],
+      "evidence_text": "The article mentions that the 101-year-old woman seen in the photo is Rosa Camfield, holding her great-granddaughter Kaylee, and not her own child as claimed. [IMG_1]"
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.thequint.com/news/webqoof/101-year-old-woman-gave-birth-to-a-child-fact-check",
+      "date": "2019-11-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vishvasnews.com/english/health/fact-check-post-claiming-101-year-old-woman-delivered-a-baby-is-fake/",
+      "date": "2019-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/lex18/posts/a-92-year-old-utah-woman-received-a-surprise-gift-wednesday-that-was-nearly-76-y/10159635267263447/",
+      "date": "2021-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-this-is-not-a-photo-of-a-101-year-old-woman-holding-her-newborn-child",
+      "date": "2023-06-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/9NewsSydney/posts/a-61-year-old-woman-has-made-history-by-giving-birth-to-her-own-grandchild-9news/910029116009452/",
+      "date": "2019-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/world/2009/jul/15/spanish-woman-ivf-dies",
+      "date": "2009-07-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MeddyBear.Net/posts/100-year-old-woman-gives-birth-to-a-baby-boyitaly-a-100-year-old-woman-anatolia-/1652128238239777/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://uk.style.yahoo.com/woman-oldest-mother-75-birth-baby-ivf-120609002.html",
+      "date": "2019-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.worldrecordacademy.com/medical/oldest_mother_Anatolia_Vertadella_broke_Guinness_World_Records_record_216178.html",
+      "date": "2016-03-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-australia-36961153",
+      "date": "2016-08-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tampabay.com/news/facebook-famous-101-year-old-great-grandmother-has-died/2223981/",
+      "date": "2015-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.sandiegouniontribune.com/2015/04/02/great-grandma-featured-in-facebook-photo-with-newborn-dies/",
+      "date": "2015-04-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     }
+    ],
+    "stats": {
+     "n_text_chunks": 7,
+     "n_image_sources": 2,
+     "lens_skipped_no_public_url": 0,
+     "label_confidences": [
+      0.9479149938275155,
+      0.01736166872416146,
+      0.01736166872416146,
+      0.01736166872416146
+     ],
+     "llm_verdict_field": "Refuted"
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   },
+   "villain": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim that a 101-year-old woman gave birth to her 17th child is a verified viral hoax. The individuals in the photograph are actually Rosa Camfield and her newborn great-granddaughter, Kaylee Rowland. The image was taken in March 2015 by Camfield's granddaughter, Sarah Hamm, to capture a family moment. The narratives involving a 17th child and a cancer diagnosis are completely fabricated details added to the image to increase social media engagement. Furthermore, multiple fact-checking organizations, including Vishvas News and VERA Files, have debunked the claim, noting that the hoax often incorrectly conflates this personal family photo with unrelated medical cases involving late-life pregnancies.",
+    "evidence_repr": "answer_only",
+    "qa_pairs": [
+     {
+      "question": "Who are the individuals in the photograph and what is their actual biological relationship?",
+      "answer": "The woman is Rosa Camfield, a 101-year-old American woman from Arizona, and the infant is Kaylee Rowland, who is her great-granddaughter.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the photograph depict a mother giving birth to her 17th child as claimed?",
+      "answer": "No. The photograph is a multi-generational family photo depicting Rosa Camfield, a 101-year-old woman, cradling her newborn great-granddaughter, Kaylee Rowland.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the original context and source of the photograph used in the claim?",
+      "answer": "The photo was taken in March 2015 by Sarah Hamm, Rosa Camfield's granddaughter, to capture a moment of the great-grandmother holding her newborn great-granddaughter as the baby was being released from the hospital.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claim that the woman gave birth to her 17th child hold any factual basis?",
+      "answer": "No. The claim is a viral hoax; the narrative involving a 17th child and a cancer diagnosis is a fabrication used to generate engagement.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the claim's narrative conflict with the verified identity of the subjects?",
+      "answer": "The claim misrepresents a multi-generational family moment (great-grandmother and great-granddaughter) as a biological event (a 101-year-old giving birth), using a heartwarming personal photo to fuel a false viral narrative.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence to support the claim that this specific woman gave birth at age 101?",
+      "answer": "No. While rare medical procedures like ovary transplants have been documented in other individuals, there is no evidence or medical record supporting the claim that Rosa Camfield gave birth.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the documented origin of the image used in the claim?",
+      "answer": "The photo was taken in March 2015 in a Phoenix suburb by Sarah Hamm, who is the granddaughter of Rosa Camfield, to capture a moment of the great-grandmother with her new great-granddaughter.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the viral narrative regarding a '17th child' and a 'cancer diagnosis' compare to the actual facts?",
+      "answer": "The narrative is a complete fabrication. There is no evidence that Rosa Camfield had 16 children or that she gave birth following a cancer diagnosis; these details were added to the image to create a viral hoax.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any confusion between this image and real-world medical cases of late-life pregnancy?",
+      "answer": "Yes. The hoax often conflates this family photo with unrelated medical cases, such as Anatolia Vertadella (who allegedly gave birth via ovary transplant), but these are entirely different individuals and events.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the consensus among professional fact-checkers regarding this specific claim?",
+      "answer": "Multiple investigative and fact-checking organizations, including Vishvas News and VERA Files, have definitively debunked the claim, confirming it is a long-running viral hoax that misrepresents a genuine family moment.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.thequint.com/news/webqoof/101-year-old-woman-gave-birth-to-a-child-fact-check",
+      "date": "2019-11-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vishvasnews.com/english/health/fact-check-post-claiming-101-year-old-woman-delivered-a-baby-is-fake/",
+      "date": "2019-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/lex18/posts/a-92-year-old-utah-woman-received-a-surprise-gift-wednesday-that-was-nearly-76-y/10159635267263447/",
+      "date": "2021-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-this-is-not-a-photo-of-a-101-year-old-woman-holding-her-newborn-child",
+      "date": "2023-06-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/9NewsSydney/posts/a-61-year-old-woman-has-made-history-by-giving-birth-to-her-own-grandchild-9news/910029116009452/",
+      "date": "2019-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/world/2009/jul/15/spanish-woman-ivf-dies",
+      "date": "2009-07-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/MeddyBear.Net/posts/100-year-old-woman-gives-birth-to-a-baby-boyitaly-a-100-year-old-woman-anatolia-/1652128238239777/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.worldrecordacademy.com/medical/oldest_mother_Anatolia_Vertadella_broke_Guinness_World_Records_record_216178.html",
+      "date": "2016-03-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-australia-36961153",
+      "date": "2016-08-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://evidencebasedbirth.com/advanced-maternal-age/",
+      "date": "2016-03-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.tampabay.com/news/facebook-famous-101-year-old-great-grandmother-has-died/2223981/",
+      "date": "2015-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.sandiegouniontribune.com/2015/04/02/great-grandma-featured-in-facebook-photo-with-newborn-dies/",
+      "date": "2015-04-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.huffpost.com/entry/photo-of-101-year-old-woman-with-baby-response_n_6948860",
+      "date": "2015-03-31",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/101-year-old-mom-gives-birth/",
+      "date": "2016-03-30",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://www.thequint.com/news/webqoof/101-year-old-woman-gave-birth-to-a-child-fact-check",
+      "date": "2019-11-29",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://medizzy.com/feed/18100162",
+      "date": "2020-01-14",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-this-is-not-a-photo-of-a-101-year-old-woman-holding-her-newborn-child",
+      "date": "2023-06-09",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     }
+    ],
+    "stats": {
+     "n_a1": 10,
+     "n_a2": 4,
+     "n_a3": 5,
+     "lens_skipped_no_public_url": 0,
+     "n_qa_generated": 20,
+     "n_qa_selected": 10,
+     "image_embedder": "_Lazy"
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The claim that the woman has given birth to her 17th child is successfully refuted because evidence shows she had only three children and was photographed holding a great-granddaughter prior to her death.",
+   "questions": [
+    {
+     "question": "Who is the lady in the photograph?",
+     "answers": [
+      {
+       "answer": "Rosa Camfield, a 101-year-old woman featured in a photo holding her great-granddaughter, has died.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.goodmorningamerica.com/news/story/101-year-grandmother-heartwarming-viral-photo-dies-30030176",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [
+      "67878fcce2f02e5f498136dd#INPUT#0#0.jpg"
+     ],
+     "answer_method": "Image-search"
+    },
+    {
+     "question": "How many children did Rosa Camfield have?",
+     "answers": [
+      {
+       "answer": "Rosa Camfield, who reportedly passed away Wednesday, lived in Chandler with her oldest daughter. She is survived by three children, five grandchildren and 10 great-grandchildren, including young Kayla Rowland.",
+       "answer_type": "Extractive",
+       "source_url": "https://ktar.com/arizona-news/photo-of-arizona-woman-with-great-granddaughter-goes-viral/99073/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20230610180155/https://verafiles.org/articles/vera-files-fact-check-this-is-not-a-photo-of-a-101-year-old-woman-holding-her-newborn-child",
+   "source": "datasets/averimatec/val.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The woman in the photo is not a 101-year-old woman who gave birth, but an American named Rosa Camfield holding her great-granddaughter Kaylee Rowland, in a photo taken by Sarah Hamm, who is the mother of Kaylee Rowland and the granddaughter of Rosa Camfield, which originally went viral in March 2015 after being posted by the Facebook page 'Life of Dad'.",
+     "support_span": "Reverse image search and cursory search results show the woman in the photo is actually an American named Rosa Camfield, caught on camera as she held her great-granddaughter Kaylee Rowland. | The photo of Camfield and Rowland became viral internationally after the FB page Life of Dad posted it on March 19, 2015. | Sarah Hamm, Rowland’s mother and Camfield’s granddaughter, took the picture"
+    },
+    {
+     "statement": "The claim that the woman is an Italian named Anatolia Vertadella who gave birth via ovary transplant is false.",
+     "support_span": "On June 5, FB page The Love for Babies posted a web article with a photo claiming that the elderly woman, said to be Italian Anatolia Vertadella, gave birth after undergoing an ovary transplant. Not true."
+    },
+    {
+     "statement": "A satirical website, World News Daily Report, published an earlier version of this hoax in January 2016.",
+     "support_span": "The now-defunct satirical website World News Daily Report published an earlier version of the hoax on Jan. 7, 2016"
+    }
+   ],
+   "justification": "The claim that the image shows a 101-year-old woman who has given birth to her 17th child is factually incorrect and uses the image out of context. While the image (CLAIM_IMG_0) does depict an elderly woman holding a baby, evidence shows that the woman is actually Rosa Camfield and the infant is her great-granddaughter, Kaylee Rowland. The photo was taken by Sarah Hamm, who is the mother of the baby and the granddaughter of the elderly woman. The claim is a fabrication; similar hoaxes involving this image have circulated previously, including false claims that the woman was an Italian named Anatolia Vertadella who gave birth via an ovary transplant. The original photo went viral in March 2015 after being posted by the Facebook page 'Life of Dad,' long before the false narratives regarding childbirth were attached to it.",
+   "article_url": "https://web.archive.org/web/20230610180155/https://verafiles.org/articles/vera-files-fact-check-this-is-not-a-photo-of-a-101-year-old-woman-holding-her-newborn-child",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t2_mm_merge_val_t3_n80_gemma4_26b_20260622_163428.json"
+  }
+ }
+}

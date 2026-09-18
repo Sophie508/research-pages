@@ -1,0 +1,513 @@
+{
+ "key": "averitec/dev/75",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 75,
+ "claim": "Joe and Jill Biden's income has increased recently.",
+ "claim_date": "2020-10-18",
+ "speaker": "Kitty Freed",
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim \"Joe and Jill Biden's income has increased recently,\" we analyze the provided evidence as follows:\n\n1.  **Identify the core claim:** The claim asserts that the income of Joe and Jill Biden has seen an increase in recent years.\n2.  **Analyze the evidence for income trends:**\n    *   **Q1** states that their adjusted gross income increased significantly between 2016 and 2018, rising from approximately $396,000 in 2016 to over $15 million in 2017 and 2018.\n    *   **Q2, Q4, and Q9** confirm that since leaving the White House/Obama administration in 2017, they have earned more than $15 million through book deals, speaking engagements, and academic salaries.\n    *   **Q7** provides specific figures for the recent period mentioned (2017 and 2018), noting earnings of $11 million and $4.6 million respectively.\n    *   **Q8** explicitly states that between 2016 and 2018, their income and wealth \"increased significantly.\"\n3.  **Evaluate the \"recent\" aspect:** While \"recent\" is relative, the evidence consistently discusses the period following Joe Biden's vice presidency (2017–2018) as a time of significant income growth compared to his previous government salary.\n4.  **Conclusion:** The evidence across multiple question-answer pairs consistently supports the fact that their income saw a massive increase following his tenure as Vice President, driven by private sector activities.\n\n**Verdict: Supported**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Joe and Jill Biden's adjusted gross income increase significantly between 2016 and 2018?",
+      "answer": "Yes, Joe and Jill Biden's adjusted gross income increased significantly between 2016 and 2018. According to the evidence, their income rose from approximately $396,000 in 2016 to more than $15 million in both 2017 and 2018. This increase was primarily driven by income from teaching positions, speaking engagements, and S-corporations related to book deals.",
+      "url": "https://www.cnbc.com/2019/07/09/joe-biden-releases-tax-returns-during-2020-democratic-primary.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Joe and Jill Biden earn in the two years after Joe Biden left government in 2017?",
+      "answer": "In the two years following his departure from government in early 2017, Joe and Jill Biden earned over $15 million. This income primarily consisted of approximately $13.2 million from book payments related to writing two books, as well as fees from various speaking engagements. Additionally, Joe Biden earned over $775,000 as a professor at the University of Pennsylvania during 2017 and 2018.",
+      "url": "https://www.voanews.com/a/usa_us-politics_biden-and-wife-made-more-15m-after-leaving-office/6171514.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Joe and Jill Biden's combined adjusted gross income exceed $400,000 in the years following the vice presidency?",
+      "answer": "After leaving the vice presidency, the Bidens' combined adjusted gross income exceeded $400,000 by the following amounts:\n\n*   **In 2017:** Their reported income was over $11 million.\n*   **In 2018:** Their reported income was over $4 million.",
+      "url": "https://politifact.com/factchecks/2020/sep/10/joe-biden/fact-checking-joe-bidens-claim-about-his-own-incom/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much income have Joe and Jill Biden earned since leaving the White House, and what were the primary sources of this income?",
+      "answer": "Since leaving the White House in 2017, Joe and Jill Biden have earned more than $15 million in income. Their primary sources of income include:\n\n*   **Book payments:** For the titles *Promise Me, Dad* and *Where the Light Enters*.\n*   **Speaking engagements:** Various engagements.\n*   **Academic salary:** Joe Biden earned approximately $776,527 as a professor at the University of Pennsylvania.\n\nMuch of this income was processed through their respective S-Corporations, CelticCapri and Giacoppa.",
+      "url": "https://abcnews.com/Politics/joe-jill-biden-reported-earning-15-million-income/story?id=64225419",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What caused the recent surge in Joe Biden's income?",
+      "answer": "Joe Biden's income surged to over $15 million in the two years following his tenure as Vice President, driven primarily by book royalties from \"Promise Me, Dad\" and lucrative speaking fees.",
+      "url": "https://www.latimes.com/politics/la-na-pol-2020-joe-biden-income-20190709-story.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Joe Biden's income exceed $400,000 in recent years?",
+      "answer": "Yes, Joe Biden's income has exceeded $400,000 in recent years. According to analysis of the Bidens' joint tax returns, their combined income surpassed the $400,000 threshold in 2013, 2017, and 2018, with significant spikes occurring in 2017 and 2018 due to book and speaking engagements. Because his actual reported incomes significantly surpassed the threshold he cited, PolitiFact rated his claim that he had never made more than that amount as \"Mostly False.\"",
+      "url": "https://www.wral.com/archive/19287826/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much did Joe and Jill Biden earn in 2017 and 2018?",
+      "answer": "In 2017 and 2018, Joe and Jill Biden earned a combined total of $15.6 million, with earnings of $11 million in 2017 and $4.6 million in 2018.",
+      "url": "https://www.cnn.com/2019/07/09/politics/joe-biden-tax-returns",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Joe and Jill Biden's income and wealth change through book deals, speaking engagements, and other sources between 2016 and 2018?",
+      "answer": "Between 2016 and 2018, Joe and Jill Biden's income and wealth increased significantly through several sources:\n\n*   **Book Deals and Speaking Engagements:** The Bidens earned millions of dollars through lucrative book deals and speaking engagements, which included $4.29 million from 47 appearances.\n*   **Other Income:** The disclosures also included a salary from the University of Pennsylvania.\n\nThe evidence notes that these earnings contributed to a significant increase in wealth since Biden left office, which also included the purchase of a $2.7 million vacation home.",
+      "url": "https://enewspaper.latimes.com/infinity/article_share.aspx?guid=7026b3ef-ca45-4562-951d-3812ee8c3541",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much have Joe and Jill Biden earned since leaving the Obama administration, and what were the primary sources of this income?",
+      "answer": "Since leaving the Obama administration, Joe and Jill Biden have earned more than $15 million. The primary sources of this income include:\n\n*   An $8 million book deal\n*   Over $4 million in speaking fees from more than 50 appearances\n*   Income from Joe Biden's role as a professor at the University of Pennsylvania",
+      "url": "https://www.pbs.org/newshour/politics/biden-earned-millions-after-leaving-white-house-financial-reports-shows",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Joe and Jill Biden's income increase due to corruption, as suggested by Donald Trump's claim about their properties?",
+      "answer": "Based on the provided evidence, there is no evidence of corruption regarding Joe and Jill Biden's income. While the evidence notes that Joe Biden earned significant income from private sector opportunities, such as book tours and speaking fees, after his term as vice president, it explicitly states that \"there is no evidence of corruption\" and clarifies that his claim of owning \"beautiful houses all over the place\" is false, as he owns only two homes.",
+      "url": "https://www.factcheck.org/2020/10/trumps-false-claims-about-biden-wealth-recovery-wishes/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://abcnews.com/Politics/joe-jill-biden-reported-earning-15-million-income/story?id=64225419",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://enewspaper.latimes.com/infinity/article_share.aspx?guid=7026b3ef-ca45-4562-951d-3812ee8c3541",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2019/07/09/joe-biden-releases-tax-returns-during-2020-democratic-primary.html",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/biden-earned-millions-after-leaving-white-house-financial-reports-shows",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/KamalaHarris/photos/i-just-wanted-to-take-a-moment-to-thank-joe-biden-and-dr-jill-biden-for-the-trus/10159184212442923/?locale=he_IL",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.voanews.com/a/usa_us-politics_biden-and-wife-made-more-15m-after-leaving-office/6171514.html",
+      "date": "2019-07-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/joebiden/videos/joe-bidens-super-tuesday/1642508145897325/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/2019/07/09/politics/joe-biden-tax-returns",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/politics/la-na-pol-2020-joe-biden-income-20190709-story.html",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/jayinslee/posts/last-month-i-released-12-years-of-my-tax-returns-then-i-went-on-fox-friends-dona/10157199307013466/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://obamawhitehouse.archives.gov/the-press-office/2016/06/28/fact-sheet-cancer-moonshot-summit-vice-president-biden-announces-new",
+      "date": "2016-06-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wral.com/archive/19287826/",
+      "date": "2020-09-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://obamawhitehouse.archives.gov/the-press-office/2016/10/17/fact-sheet-vice-president-biden-delivers-cancer-moonshot-report",
+      "date": "2016-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABCNews/posts/speaker-nancy-pelosi-tells-mary-bruce-the-law-is-very-clear-that-president-trump/10158284220408812/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/10/trumps-false-claims-about-biden-wealth-recovery-wishes/",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/factchecks/2020/sep/10/joe-biden/fact-checking-joe-bidens-claim-about-his-own-incom/",
+      "date": "2020-09-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/story/2019/07/09/bidens-earned-15-million-after-obama-administration-1404153",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/show/watch-the-full-2012-vice-presidential-debate",
+      "date": "2012-10-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/grassley/posts/today-us-senate-finance-committee-chairman-chuck-grassley-spoke-on-the-senate-fl/10157093108225797/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ElexMichaelson/videos/la-county-supervisor-kathryn-barger/2724865607727362/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 20,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by Kitty Freed on Facebook in October 2020, asserts that the income of Joe and Jill Biden had increased recently.\n2. The evidence provides a detailed breakdown of the Bidens' income from various years:\n    * In 2016 (during Joe Biden's final year as Vice President), the couple reported an income of $396,456 (Q1, A11).\n    * In 2017, their income rose significantly to approximately $11 million (Q1, A1, Q1, A11, Q1, A12).\n    * In 2018, their adjusted gross income was $4,580,437 (Q1, A15, Q2, A6).\n    * In 2019, their taxable income was $944,737, which was noted as a \"significant decrease from the previous two years\" (Q1, A2).\n    * The evidence also notes that since leaving the Obama administration in 2017, the couple earned more than $15 million in total (Q1, A1, Q1, A8, Q1, A13).\n    * The sources specify that the primary drivers for this increase were book deals and speaking engagements (Q1, A10, Q2, A7, Q3, A12).\n3. While the income in 2019 showed a decrease compared to the massive spike in 2017 and 2018, the overall trend from their time as Vice President (pre-2017) to the period immediately following (2017-2018) shows a massive increase in wealth and income. The claim \"increased recently\" relative to the 2020 claim date is supported by the data showing they went from a ~$400k annual income to millions of dollars annually in the years immediately preceding the claim.\n4. The balance of evidence clearly supports the claim that their income saw a significant upward trajectory/increase in the years leading up to the 2020 election.\n\nLabel: Supported",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What was the reported income of Joe and Jill Biden in the tax year preceding the claim made in October 2020?",
+      "answer": "Joe Biden and his wife Jill earned more than $15 million in the two years after the former vice president left the Obama administration, according to tax returns released by his presidential campaign Tuesday. The couple reported about $11 million in adjusted gross income in 2017, the documents from 2016 through 2018 show. They followed it up with another $4. WASHINGTON — Democratic presidential nominee Joe Biden and running mate Kamala Harris released their 2019 tax returns on Tuesday, just hours before Biden's first debate with President Donald Trump. The returns show that Biden and his wife, Jill, reported $944,737 in taxable income last year and paid $299,346, or a 31% tax rate, in federal income taxes. The Bidens also reported making $14,700 in charitable contributions. The Bidens' income last year represents a significant decrease from the previous two years. President Joe Biden and First Lady Jill Biden earned $620,000 before taxes last year, according to their 2023 tax return, which the White House released on Monday. That’s a 7% increase from the $580,000 the couple reported making in 2022, a difference that mostly came from a jump in their interest income. In addition to Joe Biden’s $400,000 paycheck for being president and the $86,000 Jill Biden made as a professor of English at Northern Virginia Community College, the Bidens pocketed $55,000 in Social Security benefits, $35,000 from pensions and annuities and $39,000 in interest. Joe and Jill Biden reported about $10 million in 2017 income from CelticCapri and Giacoppa, S-corporations paid for their book deals and speaking engagements. The 2017 Republican tax cuts — backed by Trump and slammed across the 2020 Democratic field — gave a new 20% tax break to owners of S corporations and other entities. The Bidens made about $3. But much of that debt has been paid off, according to the latest disclosure, which shows only two old loans — each worth no more than $15,000 — dating to the 1980s. Biden's most recent federal tax return had been released by the Obama administration in 2015. He and Jill Biden paid $85,000 in federal taxes on $390,000 in income, which include both their salaries and nearly $19,000 in rental income. The Bidens that year held less than $25,000 in investments and gave nearly $7,000 to charity. Biden and Harris release tax returns before debate US Democratic presidential nominee Joe Biden has released his tax returns just hours ahead of the first debate with President Donald Trump. Mr Biden and his wife Jill paid nearly $288,000 (£224,000) in income tax last year, according to the filings. He has called on the president to release his returns. The move follows a report by the New York Times that Mr Trump paid just $750 in income tax in 2016. Joe Biden earned $15 million since leaving office, tax returns show - Share via Reporting from Washington — Joe Biden’s income soared from less than $400,000 a year while he was vice president to more than $15 million in the two years after leaving the Obama White House, a spike in wealth due to sales of his 2017 book and speaking fees that routinely ran more than $100,000 per event. Biden’s campaign released a financial disclosure form and three years of income tax returns starting with 2016, his last year in office, and running through 2018. He had previously released his returns from earlier years. Donate now By — Stephen Braun, Associated Press Stephen Braun, Associated Press vWASHINGTON (AP) — Joe Biden released federal tax returns and a financial disclosure Tuesday showing that he and his wife, Jill, took in more than $15 million since leaving the Obama White House — newfound affluence that catapulted the Democratic presidential candidate into millionaire status and outdated the humble nickname he has used throughout his political career. Biden easily raked in the most money in the past two years among 2020 Democratic presidential candidates who have released tax returns so far. After the former vice president left the White House in January 2017, the Bidens pulled in millions from Joe Biden's speaking engagements and books written by both Joe and Jill Biden. The money Biden accumulated after his decadeslong career as an elected official clash with the image he has tried to craft as a humble champion of the working and middle class. Since leaving office, the Biden’s have paid more than $5.27 million in federal taxes, which is roughly a third of their income. According to the campaign, “the majority of the couple’s 2017 and 2018 income -- specifically, $10,048,739 (in 2017) and $3,236,764 (in 2018)--is attributable to book payments for the writing of Promise Me, Dad and Where the Light Enters and to paid speaking engagements. Overall, the documents showed the Bidens reported income of $396,456 in 2016, more than $11 million in 2017 and $4.6 million in 2018. The documents show Biden has earned far more than the rest of the 2020 presidential field, with the likely exception of billionaire Tom Steyer, who entered the race Tuesday. The Bidens' adjusted gross income for 2018 was $4.5 million. It was even higher — $11 million – in 2017. 'Middle Class Joe' No More: Biden Earned $15 Million Since Leaving Office Former Vice President Joe Biden has referred to himself as \"middle class Joe\" throughout his political career, and used to regularly joke about being the \"poorest person on Congress.\" Those terms no longer apply. Biden and his wife, Jill, have together earned more than $15 million since Biden left office. That year, Trump paid $750. The following year, the Bidens paid $3.7 million in federal income taxes on earnings of just over $11 million. The same year, Trump paid $750. The Bidens' 2019 state and federal tax returns are posted here. Here is the latest tax information from Biden and several of the other Democratic candidates who have reported it. Former Vice President Joe Biden (2018 return) Adjusted gross income: $4,580,437 Taxes paid: $1,528,208, or 33% rate Charity: $275,796, or 6% South Bend, Ind., Mayor Pete Buttigieg (2018 return) AGI: $152,643 Taxes paid: $20,136, or 13.2% Charity: $765, or 0. In 2016 and 2017, Biden paid far more in taxes than Trump did, despite making nowhere near as much money. In 2016, the Bidens paid $87,000 in federal income taxes on income of $338,000.",
+      "url": "https://www.cnbc.com/2019/07/09/joe-biden-releases-tax-returns-during-2020-democratic-primary.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did the Bidens' reported income change in the most recent tax filings available prior to October 2020?",
+      "answer": "WASHINGTON — Democratic presidential nominee Joe Biden and running mate Kamala Harris released their 2019 tax returns on Tuesday, just hours before Biden's first debate with President Donald Trump. The returns show that Biden and his wife, Jill, reported $944,737 in taxable income last year and paid $299,346, or a 31% tax rate, in federal income taxes. The Bidens also reported making $14,700 in charitable contributions. The Bidens' income last year represents a significant decrease from the previous two years. Biden has grown richer out of office Former vice president releases records that show speeches, books brought in $15 million. Biden’s campaign released a financial disclosure form and three years of income tax returns starting with 2016, his last year in office, and running through 2018. He had previously released his returns from earlier years. Overall, the documents showed the Bidens reported income of $396,456 in 2016, more than $11 million in 2017 and $4.6 million in 2018. Joe Biden earned $15 million since leaving office, tax returns show - Share via Reporting from Washington — Joe Biden’s income soared from less than $400,000 a year while he was vice president to more than $15 million in the two years after leaving the Obama White House, a spike in wealth due to sales of his 2017 book and speaking fees that routinely ran more than $100,000 per event. Biden’s campaign released a financial disclosure form and three years of income tax returns starting with 2016, his last year in office, and running through 2018. He had previously released his returns from earlier years. The documents show Biden has earned far more than the rest of the 2020 presidential field, with the likely exception of billionaire Tom Steyer, who entered the race Tuesday. The Bidens' adjusted gross income for 2018 was $4.5 million. It was even higher — $11 million – in 2017. Joe and Jill Biden reported earning more than $15 million in income since leaving the White House in 2017 The campaign says much of the money comes from book payments. Former Vice President Joe Biden and his wife, Dr. Jill Biden reported more than $15 million in income since leaving the White House in early 2017, newly released tax returns show. Tax returns, released by the Biden Campaign, show the Biden’s had an adjusted gross income of $4,580,437 in 2018, and $11,018,346 in 2017. That's according to tax returns and other financial disclosure forms released by Biden's campaign on Tuesday. The bulk of the Bidens' earnings come from book sales and paid speaking engagements – two routine sources of income for former high-ranking public officials. Biden easily raked in the most money in the past two years among 2020 Democratic presidential candidates who have released tax returns so far. After the former vice president left the White House in January 2017, the Bidens pulled in millions from Joe Biden's speaking engagements and books written by both Joe and Jill Biden. The money Biden accumulated after his decadeslong career as an elected official clash with the image he has tried to craft as a humble champion of the working and middle class. But much of that debt has been paid off, according to the latest disclosure, which shows only two old loans — each worth no more than $15,000 — dating to the 1980s. Biden's most recent federal tax return had been released by the Obama administration in 2015. He and Jill Biden paid $85,000 in federal taxes on $390,000 in income, which include both their salaries and nearly $19,000 in rental income. The Bidens that year held less than $25,000 in investments and gave nearly $7,000 to charity. Here is the latest tax information from Biden and several of the other Democratic candidates who have reported it. Former Vice President Joe Biden (2018 return) Adjusted gross income: $4,580,437 Taxes paid: $1,528,208, or 33% rate Charity: $275,796, or 6% South Bend, Ind., Mayor Pete Buttigieg (2018 return) AGI: $152,643 Taxes paid: $20,136, or 13.2% Charity: $765, or 0. The Biden campaign described the reports released Tuesday as a measure of his commitment to transparency. “Today’s releases, in combination with the 10 years of taxes he released during the campaign in 2008 and his regular release as vice president, mean that Vice President Biden has now made public the last 21 years of tax returns — more than any other candidate currently running for president,” the campaign said in a statement. The documents showed that he made 47 paid speaking appearances from January 2018 through the end of May 2019, 30 of which were on a book tour, for fees totaling $4.29 million. Biden is the latest Democrat to release tax returns and other financial information as the party’s candidates seek to draw a sharp contrast with President Trump, who has repeatedly refused to do so. Nonetheless, his sudden affluence could create some political liabilities for Biden, who is trying to make his blue-collar, middle-class roots central to his bid for the Democratic presidential nomination in 2020. In 2016 and 2017, Biden paid far more in taxes than Trump did, despite making nowhere near as much money. In 2016, the Bidens paid $87,000 in federal income taxes on income of $338,000. Donate now By — Stephen Braun, Associated Press Stephen Braun, Associated Press vWASHINGTON (AP) — Joe Biden released federal tax returns and a financial disclosure Tuesday showing that he and his wife, Jill, took in more than $15 million since leaving the Obama White House — newfound affluence that catapulted the Democratic presidential candidate into millionaire status and outdated the humble nickname he has used throughout his political career.",
+      "url": "https://www.cnbc.com/2020/09/29/joe-biden-releases-2019-tax-returns-ahead-of-presidential-debate.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the income of Joe and Jill Biden show an upward trend according to the financial disclosures available in late 2020?",
+      "answer": "Joe and Jill Biden reported earning more than $15 million in income since leaving the White House in 2017 The campaign says much of the money comes from book payments. Former Vice President Joe Biden and his wife, Dr. Jill Biden reported more than $15 million in income since leaving the White House in early 2017, newly released tax returns show. Tax returns, released by the Biden Campaign, show the Biden’s had an adjusted gross income of $4,580,437 in 2018, and $11,018,346 in 2017. But much of that debt has been paid off, according to the latest disclosure, which shows only two old loans — each worth no more than $15,000 — dating to the 1980s. Biden's most recent federal tax return had been released by the Obama administration in 2015. He and Jill Biden paid $85,000 in federal taxes on $390,000 in income, which include both their salaries and nearly $19,000 in rental income. The Bidens that year held less than $25,000 in investments and gave nearly $7,000 to charity. Donate now By — Stephen Braun, Associated Press Stephen Braun, Associated Press vWASHINGTON (AP) — Joe Biden released federal tax returns and a financial disclosure Tuesday showing that he and his wife, Jill, took in more than $15 million since leaving the Obama White House — newfound affluence that catapulted the Democratic presidential candidate into millionaire status and outdated the humble nickname he has used throughout his political career. Joe and Jill Biden reported about $10 million in 2017 income from CelticCapri and Giacoppa, S-corporations paid for their book deals and speaking engagements. The 2017 Republican tax cuts — backed by Trump and slammed across the 2020 Democratic field — gave a new 20% tax break to owners of S corporations and other entities. The Bidens made about $3. That's according to tax returns and other financial disclosure forms released by Biden's campaign on Tuesday. The bulk of the Bidens' earnings come from book sales and paid speaking engagements – two routine sources of income for former high-ranking public officials. Biden has grown richer out of office Former vice president releases records that show speeches, books brought in $15 million. Biden’s campaign released a financial disclosure form and three years of income tax returns starting with 2016, his last year in office, and running through 2018. He had previously released his returns from earlier years. Overall, the documents showed the Bidens reported income of $396,456 in 2016, more than $11 million in 2017 and $4.6 million in 2018. Biden easily raked in the most money in the past two years among 2020 Democratic presidential candidates who have released tax returns so far. After the former vice president left the White House in January 2017, the Bidens pulled in millions from Joe Biden's speaking engagements and books written by both Joe and Jill Biden. The money Biden accumulated after his decadeslong career as an elected official clash with the image he has tried to craft as a humble champion of the working and middle class. President Joe Biden and First Lady Jill Biden earned $620,000 before taxes last year, according to their 2023 tax return, which the White House released on Monday. That’s a 7% increase from the $580,000 the couple reported making in 2022, a difference that mostly came from a jump in their interest income. In addition to Joe Biden’s $400,000 paycheck for being president and the $86,000 Jill Biden made as a professor of English at Northern Virginia Community College, the Bidens pocketed $55,000 in Social Security benefits, $35,000 from pensions and annuities and $39,000 in interest. WASHINGTON — Democratic presidential nominee Joe Biden and running mate Kamala Harris released their 2019 tax returns on Tuesday, just hours before Biden's first debate with President Donald Trump. The returns show that Biden and his wife, Jill, reported $944,737 in taxable income last year and paid $299,346, or a 31% tax rate, in federal income taxes. The Bidens also reported making $14,700 in charitable contributions. The Bidens' income last year represents a significant decrease from the previous two years. Joe Biden earned $15 million since leaving office, tax returns show - Share via Reporting from Washington — Joe Biden’s income soared from less than $400,000 a year while he was vice president to more than $15 million in the two years after leaving the Obama White House, a spike in wealth due to sales of his 2017 book and speaking fees that routinely ran more than $100,000 per event. Biden’s campaign released a financial disclosure form and three years of income tax returns starting with 2016, his last year in office, and running through 2018. He had previously released his returns from earlier years. Biden's campaign points out that he's now disclosed the last 21 years of tax returns, including disclosures during his 2008 run and time as vice president. Biden's itemized financial disclosure shows that his income came mostly from his book Promise Me, Dad about his late son Beau Biden and the book tour that accompanied its release. He also made over $2 million from other paid speaking engagements, an average of over $127,000 per event. Event companies, universities, and community groups were among those who provided for Biden's paid speeches, but not major corporations or industry groups. pbs.org/newshour/politics/biden-earned-millions-after-leaving-white-house-financial-reports-shows Email Facebook Twitter LinkedIn Pinterest Tumblr Share on Facebook Share on Twitter Biden earned millions after leaving White House, financial reports shows Politics Jul 9, 2019 4:43 PM EDT vWASHINGTON (AP) — Joe Biden released federal tax returns and a financial disclosure Tuesday showing that he and his wife, Jill, took in more than $15 million since leaving the Obama White House — newfound affluence that catapulted the Democratic presidential candidate into millionaire status and outdated the humble nickname he has used throughout his political career. About $13.2 million of that was attributable to book payments. Biden earned more than $775,000 in salary as a professor at the University of Pennsylvania in 2017 and 2018. The Biden campaign released a financial disclosure form mandated for presidential candidates, which provided details of his speaking engagements and book events from Jan. 1, 2018, to May 31, 2019. The documents show Biden has earned far more than the rest of the 2020 presidential field, with the likely exception of billionaire Tom Steyer, who entered the race Tuesday. The Bidens' adjusted gross income for 2018 was $4.5 million. It was even higher — $11 million – in 2017. Biden's last financial disclosure, filed in 2016 during his final year as vice president, showed that even after eight years at his $230,000-a-year government salary, Biden held significant personal debt. The 2016 disclosure revealed financial assets worth more than $273,000— including a $150,000 rental property — and more than $750,000 in debt. Those liabilities included a recent mortgage worth more than $500,000 on the rental property and a recent $250,000 home equity loan.",
+      "url": "https://abcnews.com/Politics/joe-jill-biden-reported-earning-15-million-income/story?id=64225419",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What specific sources contributed to the increase in the Bidens' income leading up to the claim date?",
+      "answer": "— have reported recent spikes in income as they run for president. In a statement Tuesday, Biden campaign spokesman Andrew Bates disputed that Biden's newfound wealth would affect his goals. He said the former vice president \"grew up in a blue collar family that was forced to move away from home in order to make ends meet.\" \"Fighting for working families has been the defining cause of Joe Biden's life and the first event of his campaign was hosted at a Pennsylvania union hall where he blasted Donald Trump's tax breaks for the rich and big corporations,\" Bates said. The documents show Biden has earned far more than the rest of the 2020 presidential field, with the likely exception of billionaire Tom Steyer, who entered the race Tuesday. The Bidens' adjusted gross income for 2018 was $4.5 million. It was even higher — $11 million – in 2017.",
+      "url": "https://www.cnbc.com/2019/07/09/joe-biden-releases-tax-returns-during-2020-democratic-primary.html",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there evidence to support the claim that the Bidens' income increased recently relative to the 2020 claim date?",
+      "answer": "The documents show Biden has earned far more than the rest of the 2020 presidential field, with the likely exception of billionaire Tom Steyer, who entered the race Tuesday. The Bidens' adjusted gross income for 2018 was $4.5 million. It was even higher — $11 million – in 2017. Overall, the documents showed the Bidens reported income of $396,456 in 2016, more than $11 million in 2017 and $4.6 million in 2018.",
+      "url": "https://www.npr.org/2019/07/09/740020635/middle-class-joe-no-more-biden-earned-15-million-since-leaving-office",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/forbes/posts/president-joe-biden-and-first-lady-jill-biden-earned-620000-before-taxes-last-ye/813548140635178/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2019/07/09/joe-biden-releases-tax-returns-during-2020-democratic-primary.html",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.crfb.org/papers/understanding-joe-bidens-2020-tax-plan",
+      "date": "2020-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/09/29/joe-biden-releases-2019-tax-returns-ahead-of-presidential-debate.html",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://poole.ncsu.edu/thought-leadership/article/taxation-and-representation-how-a-biden-presidency-could-affect-federal-income-taxes/",
+      "date": "2020-09-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/joebiden/posts/ive-released-21-years-of-my-tax-returns-why-havent-you-released-any-of-yours-mr-/10156540601601104/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/election-us-2020-54349151",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ibramxkendi/posts/when-is-biden-going-to-bring-up-trumps-taxes-again-it-was-barely-discussed-i-don/1100837630314478/",
+      "date": "2005-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/politics/la-na-pol-2020-joe-biden-income-20190709-story.html",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/joe-jill-biden-reported-earning-15-million-income/story?id=64225419",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/biden-earned-millions-after-leaving-white-house-financial-reports-shows",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.politico.com/story/2019/07/09/bidens-earned-15-million-after-obama-administration-1404153",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.voanews.com/a/usa_us-politics_biden-and-wife-made-more-15m-after-leaving-office/6171514.html",
+      "date": "2019-07-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2019/07/09/740020635/middle-class-joe-no-more-biden-earned-15-million-since-leaving-office",
+      "date": "2019-07-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/09/posts-mislead-on-bidens-role-in-social-security-taxes/",
+      "date": "2020-09-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ssa.gov/history/briefhistory3.html",
+      "date": "1996-08-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/theoregonian/posts/claim-democratic-presidential-candidate-joe-bidens-plan-for-capital-gains-tax-me/10158192620216973/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://obamawhitehouse.archives.gov/the-press-office/vice-president-biden-announces-recovery-act-putting-more-money-back-middle-class-ta",
+      "date": "2010-03-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.brennancenter.org/our-work/research-reports/citizens-united-explained",
+      "date": "2019-12-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://journalofethics.ama-assn.org/article/how-fda-failures-contributed-opioid-crisis/2020-08",
+      "date": "2020-08-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/ap-fact-check-trump-skews-record-on-biden-harris-economy",
+      "date": "2020-08-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://enewspaper.latimes.com/infinity/article_share.aspx?guid=7026b3ef-ca45-4562-951d-3812ee8c3541",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dol.gov/agencies/owcp/dcmwc/regs/compliance/blbenact",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 111,
+     "n_urls_after_bm25": 23,
+     "n_chunks": 697
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "The answers show that the couples income in recent years had increased so it is supported.",
+   "questions": [
+    {
+     "question": "What was Joe and Jill Biden's income in 2017?",
+     "answers": [
+      {
+       "answer": "$11 million",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201223113926/https://www.businessinsider.com/personal-finance/bidens-earned-156-million-from-book-deals-speeches-since-2017-2019-7?r=US&IR=T",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What was Joe and Jill Biden's income in 2018?",
+     "answers": [
+      {
+       "answer": "$4.5 million",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201223113926/https://www.businessinsider.com/personal-finance/bidens-earned-156-million-from-book-deals-speeches-since-2017-2019-7?r=US&IR=T",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What was Joe and Jill Biden's income in 2019?",
+     "answers": [
+      {
+       "answer": "$944,000",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201223113926/https://www.businessinsider.com/personal-finance/bidens-earned-156-million-from-book-deals-speeches-since-2017-2019-7?r=US&IR=T",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What was Joe and Jill Biden's annual earnings when he was Vice President?",
+     "answers": [
+      {
+       "answer": "$230,000 annually",
+       "answer_type": "Extractive",
+       "source_url": "https://www.theguardian.com/us-news/2016/jan/12/joe-biden-barack-obama-money-house-beau-family",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What led to Joe and Jill Biden's annual earnings increasing between 2017 and 2019?",
+     "answers": [
+      {
+       "answer": "The new tax returns, combined with previously released tax returns and financial disclosures made public in 2019, show that since 2017, both Bidens signed lucrative book deals. Joe Biden earned anywhere from $8,000 to $90,000 for book-tour stops to promote his 2017 memoir, \"Promise Me, Dad,\" and continued to earn royalties from his New York Times bestselling 2008 book, \"Promises to Keep.\"\n\nIn addition to a position at the University of Pennsylvania that paid over $400,000 over the course of several years, Biden regularly brought in six figures from a single paid speech, earning between $66,000 and $182,679 per speech for 18 speeches he gave in 2017 and 2018.\n\nJill Biden's disclosures released in 2019 showed she earned $90,000 a year for her position teaching English at Northern Virginia Community College, in addition to royalties from her 2012 children's book, \"Don't Forget, God Bless Our Troops,\" and an advance for her memoir, \"Where the Light Enters,\" which was released in May 2019.\n\nJill Biden also reported income from 17 speaking engagements in 2017 and 2018, earning between $25,000 and $46,000 per speech.",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201223113926/https://www.businessinsider.com/personal-finance/bidens-earned-156-million-from-book-deals-speeches-since-2017-2019-7?r=US&IR=T",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201227070142/https://leadstories.com/hoax-alert/2020/10/fact-check-Joe-jill-biden-income-did-go-from-396456-in-2016-to-16596979-total-in-2017-2019-its-public-record.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Joe and Jill Biden's income increased from $396,456 in 2016 to a total of $16,596,979 for the period of 2017-2019, with reported earnings of $11 million in 2017, $4.5 million in 2018, and $944,000 in 2019, as documented in their public tax returns.",
+     "support_span": "Did Joe and Jill Biden's income go from $396,456 in 2016 to a three-year total of $16,596,979 for 2017-2019? Yes, that's true and it is all public record. | $11 million in 2017, immediately after leaving the White House $4.5 million in 2018 $944,000 in 2019 | Their income increase was reported on their 2019 tax returns which were made public in September 2020 https://joebiden.com/wp-content/uploads/2020/09/2019-Biden-Delaware-Virginia-Federal-3.pdf"
+    },
+    {
+     "statement": "The Bidens' income increase was derived from book deals, speaking engagements, and educational salaries, including Joe Biden's income from his 2017 memoir 'Promise Me, Dad' and royalties from his 2008 book 'Promises to Keep', and both Joe and Jill Biden reported income from their salaries as professors.",
+     "support_span": "The tax returns show the former vice president and his wife earned the income from book deals, speaking engagements and educational salaries. | Joe Biden's book tour for his 2017 memoir, \"Promise Me, Dad,\" earned several thousands of dollars, and he continued to earn royalties from his 2008 book, \"Promises to Keep.\" | They each reported income from their salaries as professors -- Joe Biden had an affiliation with the Ivy League school the University of Pennsylvania and Jill Biden had her long-time job as a community college professor in Virginia."
+    }
+   ],
+   "justification": "Public tax records indicate that Joe and Jill Biden's income increased significantly from $396,456 in 2016 to a total of $16,596,979 for the 2017-2019 period. This increase was driven by book deals, speaking engagements, and salaries from their roles as professors. While the total for the three-year period was high, the annual breakdown shows a downward trend within that window, with earnings of $11 million in 2017, $4.5 million in 2018, and $944,000 in 2019.",
+   "article_url": "https://web.archive.org/web/20201227070142/https://leadstories.com/hoax-alert/2020/10/fact-check-Joe-jill-biden-income-did-go-from-396456-in-2016-to-16596979-total-in-2017-2019-its-public-record.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

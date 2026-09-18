@@ -1,0 +1,284 @@
+{
+ "key": "averitec/dev/87",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 87,
+ "claim": "Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering 1kg bleaching powder, chlorine tablets to people’s doorsteps",
+ "claim_date": "2020-10-16",
+ "speaker": null,
+ "reporting_source": null,
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering 1kg of bleaching powder and chlorine tablets directly to people's doorsteps.\n\n2.  **Evaluate the Evidence (Q&A Pairs):**\n    *   **Q1, Q3, Q5, Q8, Q9, and Q10:** These responses explicitly state that there is no information in the provided evidence to confirm or support the claim. They note that the evidence discusses unrelated topics such as the Delhi Jal Board, health risks of chlorination, industrial bleach dangers, or initiatives in East Africa, but nothing regarding HMWSSB's delivery practices.\n    *   **Q2:** This response clarifies that while health officials in Jalore and Sirohi are distributing these items, there is no mention of HMWSSB doing so.\n    *   **Q4:** This is a critical piece of evidence. It states that the claim regarding HMWSSB delivering these items is actually part of a **water bill scam** reported by the Cyberabad Police Commissionerate. This implies the claim is fraudulent rather than a legitimate service.\n\n3.  **Synthesize Findings:** The evidence does not support the claim. Furthermore, Q4 provides context that the claim is associated with a reported scam, which effectively contradicts the legitimacy of the claim. However, looking strictly at whether the evidence *proves* the claim is true or false: the majority of the evidence states there is \"no information to confirm or deny\" (Not Enough Evidence), but Q4 provides specific information that the claim is a known scam. In the context of fact-checking, when a claim is identified as a scam/fraud by official sources (Cyberabad Police), the claim is considered false.\n\n4.  **Conclusion:** Since the evidence identifies the claim as a component of a reported scam (Q4) and all other evidence fails to provide any support for the claim, the claim is factually incorrect based on the provided context.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering bleaching powder and chlorine tablets to residents' doorsteps?",
+      "answer": "Based on the evidence provided, there is no information to confirm or deny whether the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering bleaching powder and chlorine tablets to residents' doorsteps. The provided text focuses on the board's crackdown on the misuse of potable water and the fines imposed on residents for using drinking water for non-essential purposes.",
+      "url": "https://www.facebook.com/Wirally/videos/the-hyderabad-metropolitan-water-supply-and-sewerage-board-hmwssb-fined-a-jubile/2038334137042925/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering bleaching powder and chlorine tablets to people's doorsteps?",
+      "answer": "Based on the provided evidence, there is no information regarding the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) or its activities. The evidence only states that health officials in the Jalore and Sirohi districts are distributing chlorine tablets and bleaching powder to panchayats to prevent the spread of water-borne diseases following recent floods. Therefore, the evidence does not support the claim that HMWSSB is delivering these items to people's doorsteps.",
+      "url": "https://reliefweb.int/report/india/government-distributes-chlorine-tablets-flood-hit-areas",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering bleaching powder and chlorine tablets to people's doorsteps?",
+      "answer": "Based on the provided evidence, there is no mention of the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering bleaching powder or chlorine tablets to people's doorsteps. \n\nThe evidence focuses on the Delhi government and the Delhi Jal Board (DJB), stating that they have decided to distribute free chlorine tablets through hospitals, dispensaries, and DJB outlets as a precautionary measure.",
+      "url": "https://www.thehindu.com/news/cities/Delhi/Delhi-govt-to-distribute-free-chlorine-tablets/article14681868.ece",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim that HMWSSB is delivering bleaching powder and chlorine tablets to doorsteps actually a part of a water bill scam reported by the Cyberabad Police Commissionerate?",
+      "answer": "Yes, the claim is part of a water bill scam. According to the evidence provided, the Cyberabad Police Commissionerate has issued an alert regarding a new water bill scam where fraudulent calls or messages claim to be from the HMWSSB to threaten citizens with the disconnection of their water supply.",
+      "url": "https://www.facebook.com/cyberabadpolice/posts/-cyberabad-police-alert-new-water-bill-scam-hyderabad-residents-beware-do-not-fa/1031025756115220/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering bleaching powder and chlorine tablets to doorsteps for water disinfection?",
+      "answer": "Based on the evidence provided, there is no information available to confirm or deny whether the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering bleaching powder or chlorine tablets to people's doorsteps. The provided text discusses the historical and general utility of liquid sodium hypochlorite and chlorine for water disinfection, but it does not mention the HMWSSB or its specific delivery practices.",
+      "url": "https://hasa.com/blog/chlorine-the-unsung-hero-in-times-of-crisis",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the potential health risks associated with the chlorination process used in water disinfection?",
+      "answer": "The potential health risks associated with the chlorination process stem from the generation of organic chemical by-products, which are created when chlorine reacts with natural substances in the water such as amino acids and humic acids. \n\nSpecific risks and findings mentioned in the evidence include:\n*   **Chemical By-products:** The process can produce trihalomethanes, halogenated acetic acids, and mutagenic compounds (such as MX).\n*   **Biological/Toxicological Effects:** Animal studies have provided varying evidence regarding the potential for **carcinogenicity** (cancer-causing potential), **mutagenicity**, and **reproductive toxicity**.\n\nThe evidence notes that while chlorination is essential for preventing waterborne diseases, the exact level of risk to humans is difficult to determine because human epidemiological studies face challenges in measuring individual exposure and controlling for confounding variables.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK506911/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the distribution of chlorine-based disinfectants by the HMWSSB pose health risks due to the creation of toxic byproducts during the chlorination process?",
+      "answer": "Based on the provided evidence, the study suggests that the chlorination process used to disinfect drinking water can indeed pose health risks. Researchers discovered that when chlorine reacts with naturally occurring phenols, it produces highly toxic and previously unidentified byproducts, including the known carcinogen 2-butene-1,4-dial (BDA). \n\nWhile the evidence acknowledges that chlorination provides life-saving benefits by preventing diseases like cholera, it highlights that these harmful compounds are currently undetectable by standard analytical methods, which leaves regulators unable to monitor them. Consequently, the findings suggest a need to reevaluate disinfection methods and consider safer alternatives such as UV treatment, ozone, or filtration.",
+      "url": "https://hub.jhu.edu/2020/01/29/toxic-chlorinated-water-649-em1-art1-rel-science/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) actually delivering bleaching powder and chlorine tablets to doorsteps as a cure for COVID-19?",
+      "answer": "Based on the provided evidence, there is no information to confirm or deny whether the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering bleaching powder or chlorine tablets to doorsteps.\n\nThe evidence focuses on the dangers of consuming industrial bleach (such as chlorine dioxide or \"Miracle Mineral Solution\") as a COVID-19 cure, noting that health agencies like the FDA warn that ingesting such substances can cause severe medical issues, including nausea, vomiting, dehydration, and liver failure. However, the text does not mention the HMWSSB or any specific doorstep delivery programs.",
+      "url": "https://www.factcheck.org/2020/02/fake-coronavirus-cures-part-1-mms-is-industrial-bleach/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering bleaching powder and chlorine tablets to doorsteps through a model similar to Evidence Action’s Dispensers for Safe Water initiative?",
+      "answer": "Based on the provided evidence, there is no information available to confirm or deny whether the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is delivering bleaching powder and chlorine tablets to doorsteps.\n\nThe evidence focuses exclusively on **Evidence Action’s Dispensers for Safe Water initiative**, describing its use of chlorine dispensers in East Africa and its service-delivery business model. The text does not mention the HMWSSB or any specific delivery programs implemented by them.",
+      "url": "https://www.evidenceaction.org/insights/chlorineevidence",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the evidence provided support the claim that HMWSSB is delivering bleaching powder and chlorine tablets to people's doorsteps?",
+      "answer": "No, the provided evidence does not support the claim. The evidence discusses the technical safety requirements and potential risks associated with using specific types of chlorine tablets (Calcium Hypochlorite vs. Tri-Chlor) in boat water systems; it contains no information regarding the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) or any doorstep delivery services for bleaching powder or chlorine tablets.",
+      "url": "https://www.samsmarine.com/threads/chlorine-tablets-or-how-i-nearly-killed-me-and-maybe-us.15120/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.worldbank.org/en/brief/2020/04/06/wash-water-sanitation-hygiene-and-covid-19",
+      "date": "2020-04-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.who.int/publications/i/item/WHO-2019-nCoV-IPC-WASH-2020.4",
+      "date": "2020-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.regionalh2o.org/COVID-19",
+      "date": "2020-04-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wateronline.com/doc/coronavirus-and-the-water-cycle-here-is-what-treatment-professionals-need-to-know-0001",
+      "date": "2020-03-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.red-on-line.com/blog/cdc-issues-coronavirus-guidance-for-drinking-water-and-wastewater-treatment-systems/",
+      "date": "2020-03-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.samsmarine.com/threads/chlorine-tablets-or-how-i-nearly-killed-me-and-maybe-us.15120/",
+      "date": "2010-05-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reliefweb.int/report/india/government-distributes-chlorine-tablets-flood-hit-areas",
+      "date": "2017-08-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.evidenceaction.org/insights/chlorineevidence",
+      "date": "2014-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thehindu.com/news/cities/Delhi/Delhi-govt-to-distribute-free-chlorine-tablets/article14681868.ece",
+      "date": "2011-04-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cyberabadpolice/posts/-cyberabad-police-alert-new-water-bill-scam-hyderabad-residents-beware-do-not-fa/1031025756115220/",
+      "date": "2016-02-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Wirally/videos/the-hyderabad-metropolitan-water-supply-and-sewerage-board-hmwssb-fined-a-jubile/2038334137042925/",
+      "date": "2001-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK506911/",
+      "date": "2009-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://spectrumlocalnews.com/nyc/all-boroughs/news/2017/12/05/kroger-recalls-water-for-babies-due-to-mold",
+      "date": "2017-12-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/02/fake-coronavirus-cures-part-1-mms-is-industrial-bleach/",
+      "date": "2020-02-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ewg.org/news-insights/news/tap-water-chemical-risky-pregnant",
+      "date": "2009-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations",
+      "date": "2015-11-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://hasa.com/blog/chlorine-the-unsung-hero-in-times-of-crisis",
+      "date": "2020-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://hub.jhu.edu/2020/01/29/toxic-chlorinated-water-649-em1-art1-rel-science/",
+      "date": "2020-01-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 18,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "Seems that chlorine is indeed being handed out. Therefore the claim is supported ",
+   "questions": [
+    {
+     "question": "Is the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) delivering 1kg bleaching powder & chlorine tablets to people’s doorsteps?",
+     "answers": [
+      {
+       "answer": "The claim was confirmed by the official Twitter account of HMWSSB. It said the HMWSSB staff are distributing one kg bleaching powder and are also demonstrating how to clean the sump. Apart from this, they are also giving chlorine tablets which will be delivered at people’s doorsteps.",
+       "answer_type": "Abstractive",
+       "source_url": "https://twitter.com/HMWSSBOnline/status/1316990400146464768?ref_src=twsrc%5Etfw",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Why are they handing out Bleaching powder and chlorine tablets?",
+     "answers": [
+      {
+       "answer": "To undertake comprehensive sanitation work to prevent the spread of seasonal and communicable diseases caused by rain water entering water storage tanks.",
+       "answer_type": "Abstractive",
+       "source_url": "https://www.thehansindia.com/news/cities/hyderabad/ktr-inspects-relief-ops-in-hyderabad-651438",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201028192252/https://newsmeter.in/fact-check-yes-hmwssb-delivering-1kg-bleaching-powder-chlorine-tablets-to-peoples-doorsteps/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is distributing one kg bleaching powder and chlorine tablets to people's doorsteps, with Minister K.T. Rama Rao noting that HMWSSB has started the distribution of chlorine tablets, staff demonstrating how to clean sumps in households where rainwater entered, and users reporting receiving chlorine tablets at their doorsteps and sharing photos of staff delivering them.",
+     "support_span": "The tweet further claimed that the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is distributing one kg bleaching powder and chlorine tablets to people’s doorsteps. | “Minister KTR stated that the HMWSSB has increased testing of water samples and also started distribution of chlorine tablets,” the report stated. | Another article by Telangana Today said the HMWSSB is distributing chlorine tablets to households and asking people to mix them with water for consumption. | This claim was also confirmed by the official Twitter account of HMWSSB. It said the HMWSSB staff are distributing one kg bleaching powder and are also demonstrating how to clean the sump. Apart from this, they are also giving chlorine tablets which will be delivered at people’s doorsteps. | In all households where rain water entered & stayed for sometime HMWSSB staff are distributing 1 kg Bleaching powder & demo how to clean the sumps & chlorine tablets are distributed to mix | Many people who faced issues regarding the home delivery of chlorine tablets contacted HMWSSB and were told it would be delivered to their doorsteps. Further, many users also posted pictures of the staff delivering the tablets to their homes."
+    },
+    {
+     "statement": "HMWSSB staff were observed distributing bleaching powder packets for cleaning sumps in the Sai Chitra Nagar area.",
+     "support_span": "Sir, Distribution of Bleaching powder packets by HMWSSB staff for cleaning of sumps in areas where rain water receded ( sai Chitra nagar) under Habsiguda section, O&M Div.14 Uppal."
+    }
+   ],
+   "justification": "The evidence consistently supports the claim that the Hyderabad Metropolitan Water Supply and Sewerage Board (HMWSSB) is distributing 1kg bleaching powder and chlorine tablets directly to households. This is confirmed by official HMWSSB social media communications, reports from news outlets like The Hans India and Telangana Today, and statements from Minister K.T. Rama Rao. Furthermore, the evidence includes reports of staff demonstrating sump cleaning techniques and user accounts, including photographic evidence, showing the delivery of these items to doorsteps, particularly in areas affected by rainwater entry.",
+   "article_url": "https://web.archive.org/web/20201028192252/https://newsmeter.in/fact-check-yes-hmwssb-delivering-1kg-bleaching-powder-chlorine-tablets-to-peoples-doorsteps/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

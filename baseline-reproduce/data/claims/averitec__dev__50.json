@@ -1,0 +1,572 @@
+{
+ "key": "averitec/dev/50",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 50,
+ "claim": "Twitter now putting warnings on tweets that are just unedited clips of Biden saying he would end fracking",
+ "claim_date": "2020-10-23",
+ "speaker": "Zach Parkinson",
+ "reporting_source": "Twitter",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim asserts that Twitter is applying warning labels to \"unedited clips\" of Joe Biden specifically regarding his stance on fracking.\n2.  **Evaluate Evidence regarding Twitter's labeling behavior:** The provided evidence (Q1, Q2, Q3, Q4) clarifies that when Twitter *does* apply \"manipulated media\" labels, it does so because the video was **edited** to remove context or create a misleading narrative (e.g., the clip regarding the \"circular firing squad\"). The evidence explicitly states that Twitter's labels are a response to \"deceptive synthetic or manipulated media,\" which contradicts the idea of them labeling \"unedited\" clips.\n3.  **Evaluate Evidence regarding Fracking:** The evidence (Q5, Q7, Q8, Q9, Q10) addresses the topic of fracking. It notes that while there is a debate about Biden's stance on fracking and that a Republican super PAC used an \"abbreviated clip\" to suggest a ban, there is **no mention** of Twitter applying any warnings to unedited clips about fracking.\n4.  **Identify Contradictions:** The claim states the clips are \"unedited,\" whereas the evidence shows Twitter's policy is to label media that is *not* unedited (i.e., manipulated). Furthermore, the evidence specifically states there is no information to support the occurrence of Twitter labeling fracking-related clips.\n5.  **Conclusion:** Since the evidence shows that Twitter labels *edited/manipulated* media (not unedited) and provides no evidence of any warnings being applied to fracking clips, the claim is directly contradicted by the nature of Twitter's labeling process described in the text.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Was the video of Joe Biden that Twitter tagged as \"manipulated media\" an unedited clip, or was it edited to remove context?",
+      "answer": "The video was edited to remove context. According to the evidence, the footage was edited in a way that made it appear as though Biden was calling for the re-election of Trump, rather than warning against a \"circular firing squad.\" While Dan Scavino defended the clip by stating it was \"merely shortened rather than manipulated,\" Twitter applied its \"manipulated media\" tag to the video because it was significantly altered.",
+      "url": "https://www.bbc.com/news/world-us-canada-51799366",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Twitter putting warnings on unedited clips of Biden saying he would end fracking, or was the warning actually applied to a deceptively edited video that omitted the full context of his speech?",
+      "answer": "Based on the evidence provided, the warning was applied to a **deceptively edited video that omitted the full context of his speech**. \n\nThe evidence states that Twitter labeled the video as \"manipulated media\" because it \"falsely appeared to show Biden endorsing Trump by omitting the full context of his speech.\" The provided text does not mention any warnings being applied to unedited clips regarding fracking.",
+      "url": "https://www.cnn.com/2020/03/09/tech/scavino-trump-biden-twitter-video",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Twitter applying warning labels to unedited clips of Joe Biden regarding fracking, or is it applying them to misleadingly edited videos?",
+      "answer": "Based on the provided evidence, Twitter is applying warning labels to **misleadingly edited videos** rather than unedited clips. \n\nThe evidence specifies that Twitter applied a warning label to a video because it was \"edited to make Biden appear to say\" something different than what the full footage showed, identifying the clip as a \"deliberate presentation of a false account of events.\" While the evidence does not explicitly mention clips regarding fracking, it clarifies that the labels are used in response to \"deceptive synthetic or manipulated media\" where the editing creates a misleading narrative.",
+      "url": "https://mashable.com/article/twitter-manipulated-media-dan-scavino-joe-biden",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Twitter apply a warning label to a video of Joe Biden because it was an unedited clip about fracking, or because it was a deceptively edited clip regarding the re-election of Donald Trump?",
+      "answer": "Twitter applied the \"manipulated media\" warning label to the video because it was a deceptively edited clip regarding the re-election of Donald Trump. According to the evidence, the video was manipulated by cutting off the end of a sentence to make it appear as though Biden said, \"We can only re-elect Donald Trump,\" when he was actually warning that the party could only re-elect Trump if they engaged in a \"circular firing squad.\"",
+      "url": "https://www.wdsu.com/article/fact-check-viral-biden-video-is-deceptively-edited/31295847",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Twitter place warnings on unedited clips of Joe Biden regarding his stance on fracking?",
+      "answer": "Based on the provided evidence, there is no mention of Twitter placing warnings on unedited clips of Joe Biden regarding his stance on fracking. The evidence focuses on the political debate between Donald Trump and Mike Pence regarding the Biden-Harris campaign's position on fracking and the conflicting statements made by the candidates.",
+      "url": "https://www.newsweek.com/video-resurfaces-kamala-harris-saying-she-wants-ban-fracking-after-saying-biden-will-not-during-1537304",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does Joe Biden intend to abolish the fracking industry?",
+      "answer": "Based on the provided evidence, Joe Biden does not intend to abolish the fracking industry. While he previously made a verbal error regarding the subject during a primary debate, his campaign has corrected that statement. His actual policy focuses on banning new oil and gas permits on federal lands rather than implementing a total ban on the industry.",
+      "url": "https://www.witf.org/2020/10/14/ap-fact-check-trump-falsifies-biden-stance-on-fracking/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Twitter place warnings on unedited clips of Joe Biden regarding fracking because his claim about wanting to \"grow the industry\" was deemed misleading by fact-checkers?",
+      "answer": "Based on the provided evidence, it cannot be determined whether Twitter placed warnings on unedited clips of Joe Biden regarding fracking.\n\nWhile the evidence confirms that fact-checkers (specifically ABC News) deemed Biden's claim that he wants to \"grow the industry\" to be misleading because he intends to move away from fossil fuels, the text contains no information regarding Twitter's actions or whether the platform applied warnings to specific clips.",
+      "url": "https://abcnews.com/Politics/joe-biden-town-hall-fact-checking-democratic-nominees/story?id=73062846",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Twitter placing warnings on unedited clips of Biden regarding fracking, or is the claim referring to a Republican super PAC advertisement that uses an abbreviated clip to suggest a total ban on fossil fuels?",
+      "answer": "The claim refers to a Republican super PAC advertisement rather than unedited clips. According to the evidence, the Republican super PAC America First Action released a television advertisement in Pennsylvania that uses an \"abbreviated debate clip\" to inaccurately suggest that Joe Biden intends to implement a complete ban on fossil fuels and fracking.",
+      "url": "https://www.factcheck.org/2020/06/misleading-ad-targets-biden-on-fossil-fuels-fracking/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is Twitter putting warnings on unedited clips of Biden regarding fracking?",
+      "answer": "Based on the provided evidence, there is no information available to confirm or deny whether Twitter is putting warnings on unedited clips of Biden regarding fracking. The evidence focuses on the polarized debate surrounding Kamala Harris's support for banning fracking and the discussions regarding the Biden-Harris administration's policy intentions, but it does not mention Twitter's moderation practices or the use of warnings on specific video clips.",
+      "url": "https://www.facebook.com/Newsweek/posts/theres-no-question-im-in-favor-of-banning-fracking-kamala-harris-said-in-video-f/10158627433286101/?locale=es_LA",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that Twitter is applying warnings to unedited clips of Joe Biden regarding fracking?",
+      "answer": "No, the evidence does not support the claim. While the provided text mentions that energy policies like fracking were a topic of discussion during the presidential debate between Joe Biden and Donald Trump, it contains no information regarding Twitter applying warnings to unedited clips of Biden.",
+      "url": "https://www.nbcnews.com/politics/2020-election/debate-fact-check-trump-biden-face-final-debate-n1244367",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.factcheck.org/2020/06/misleading-ad-targets-biden-on-fossil-fuels-fracking/",
+      "date": "2020-06-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newsweek.com/video-resurfaces-kamala-harris-saying-she-wants-ban-fracking-after-saying-biden-will-not-during-1537304",
+      "date": "2020-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-51799366",
+      "date": "2020-03-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Newsweek/posts/theres-no-question-im-in-favor-of-banning-fracking-kamala-harris-said-in-video-f/10158627433286101/?locale=es_LA",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/Politics/joe-biden-town-hall-fact-checking-democratic-nominees/story?id=73062846",
+      "date": "2020-09-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nbcnews.com/politics/2020-election/debate-fact-check-trump-biden-face-final-debate-n1244367",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cgtnamerica/posts/democratic-presidential-nominee-joe-biden-has-promised-a-return-to-normalcy-in-t/3387814064647175/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/821996051153745/posts/1810095379010469/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/ctmurealitytheory/posts/10158326293562486/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.witf.org/2020/10/14/ap-fact-check-trump-falsifies-biden-stance-on-fracking/",
+      "date": "2020-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.houstonpublicmedia.org/articles/news/2020/10/22/384562/live-trump-biden-final-presidential-debate/",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hawaiienergy/posts/please-join-brian-kealoha-executive-director-of-hawaii-energy-in-a-special-onlin/4015894681784572/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://github.com/dropbox/zxcvbn/blob/master/src/frequency_lists.coffee",
+      "date": "2012-02-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://users.tricity.wsu.edu/~bobl/cpts481/u06_functions/notes.html",
+      "date": "2020-09-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://github.com/officialpm/Natural-Language-Processing-in-TensorFlow/blob/master/Week%201/Week_1_Lesson_3_%28Sarcasm%29.ipynb",
+      "date": "2020-05-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dailycrow.com/daily-update-archives/2020-2/",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESpgEB6zswFYLYpx2Ea98GKdDsro_p5B4yxPvZ7Oau8Rgi8_84EukM9GCtTnRanP8Gc4htRJ_yR8sP1L-2QPoY52QXKpA4oIcroisfvkVhv6s03G5Fj2jvzgu3RxSW2FXN_tBfrF4mLu16Ge-AlER6pRxMQQDW5DyBYZcdSxXQv_mFdqtMqcpOYpZENo5BEPeIYDbOurzE6KB_oUI082PSph0GxN_YIg1z&ust=1789646907847318&usg=AOvVaw3gCYwSuMR044H95HxRgpwA",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESwgEB6zswFb7IwSCdP-OQxZXrUxqllwVDtbFtFymS3ev_jsYllVgo2BlU509YauKtGWwKE55RgvtMIjeJ1Ci79ZraF1ASSPunfmVLaKw_Lp9hla7jcDuzVnEDylmALAzDP_mYmTwQp1x0Adke5dbzR0ODHr_KOmpKQeNTfl_WYAOK5OvJ9UvxMG2qkwFOOgxS1gChEhyze8rwb_dbWH5KC3aOZC2WadBImxQV-ZF8bLenI9IhtAy_17-VI1JAZ-NL63Q1Fw&ust=1789646907847001&usg=AOvVaw26BElDp_iskj5561QNxgJq",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEShwEB6zswFdaLV434o_KqCtJ6vzmMgIivOGnaRlE0MY7RvHnhvYvmNb14PvB2xbXgkxh_GCotrjDprxC1ECDpIUF23XM1QewxzPjFNJ15Kw1LAoad1f3DteqMnLvBDQBN_hOGjTW7A5_BK6u6UBM2SazUXpat7zfVSIry5jKRuCzIshoFan48iB4&ust=1789646907847626&usg=AOvVaw1CyCJ1569sl4jGtkXHZm5m",
+      "date": "2016-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/2020/03/09/tech/scavino-trump-biden-twitter-video",
+      "date": "2020-03-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://mashable.com/article/twitter-manipulated-media-dan-scavino-joe-biden",
+      "date": "2020-03-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wdsu.com/article/fact-check-viral-biden-video-is-deceptively-edited/31295847",
+      "date": "2020-03-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 22,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by Zach Parkinson on October 23, 2020, asserts that Twitter began applying warning labels to tweets containing unedited clips of Joe Biden that were used to suggest he would end fracking.\n2. The evidence shows that Twitter did indeed use its \"manipulated media\" label for the first time on an edited video of Joe Biden (Q1, A2). This video, shared by Dan Scavino, was an edited clip that misrepresented Biden's position (Q1, A2, Q1, A3). The evidence further clarifies that Twitter's policy for these labels includes content that has been \"substantially edited in a manner that fundamentally alters its composition, sequence, timing, or framing\" (Q1, A1). While the claim specifically mentions \"unedited clips,\" the evidence clarifies that the clips being labeled were actually \"edited\" or \"manipulated\" to create a false impression (lying by omission) (Q1, A3).\n3. There is a slight technical nuance: the claim describes the clips as \"just unedited,\" whereas the evidence states the clips were \"edited\" or \"manipulated\" to change the context/sequence (Q1, A1, Q1, A2). However, the core of the claim—that Twitter was applying warnings to Biden-related content regarding his stance on fracking due to the way the clips were presented—is directly supported by the fact that Twitter used its new \"manipulated media\" tag on such a video (Q1, A2).\n4. The evidence confirms that Twitter expanded its policy to include labels on quote tweets sharing manipulated media and specifically applied the label to a Biden video that was being used to spread misinformation regarding his policy positions (Q1, A5, Q1, A2).\n\nLabel: Supported",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What specific action was Twitter taking regarding tweets containing unedited clips of Joe Biden discussing fracking?",
+      "answer": "You owe the entire disability community an apology,\" Barkan said. Biden retweeted Barkan's comment saying the doctored video was \"a flagrant attempt to spread misinformation at the expense of a man who uses assistive technology.\" Twitter's manipulated media policy defines manipulated media as content that has been \"substantially edited in a manner that fundamentally alters its composition, sequence, timing, or framing\"; content that has been edited to remove or alter audio; and content that depicts deepfakes, or a simulated person that appears to be real. Twitter labels edited Biden video 'manipulated tweet' Twitter has used its new \"manipulated media\" tag for the first time on an edited video of a speech by Joe Biden. The tag, introduced on 5 March, tells readers when a picture or video has been \"significantly altered or fabricated\". The footage of Mr Biden, posted by Dan Scavino, White House director of social media, claimed to show the Democrat calling for people to vote for President Donald Trump, a Republican. The video was shared by Mr Trump twice. At first glance, the application of the “manipulated media” label to the Biden video seems promising: It shows that Twitter is willing to clamp down on a more nuanced and mundane form of deception—in this case, lying by omission. (Scavino has since argued that it was “NOT manipulated” since he didn’t technically edit it, and his supporters are up in arms over Twitter supposedly setting a “dangerous precedent,” whereby all “clips” could be considered manipulated. Greg Schultz, Joe Biden's campaign manager, called Facebook's lack of action in labelling manipulated footage a \"national crisis\", in a statement to CNN. What are the new rules? Twitter uses these factors to consider whether a tweet should be labelled or removed: - Has the content been edited in a manner that alters its composition, sequence, timing or framing? Twitter expands 'manipulated media' label policy after uproar over Biden clip Twitter will now add labels to quote tweets that share manipulated media Twitter said Monday that it has expanded its \"manipulated media\" label policy, and the changes should be deployed to all users by the end of Tuesday. The announcement comes after two high-profile Twitter users shared altered video clips featuring 2020 Democratic presidential nominee Joe Biden as the website prepares to combat misinformation nearly two months ahead of the Nov. 3 election. During Wednesday's vice-presidential debate, President Donald Trump tweeted a video of Democratic vice-presidential candidate Kamala Harris affirming that she would ban fracking. While discussing energy policies during the debate with Vice President Mike Pence, Harris indicated that Biden would not put an end to the practice of fracking. Fracking is a means of obtaining oil and natural gas by shooting jets of water, chemicals and sand into the earth. Supporters of fracking tout the method's efficiency. Critics say fracking is an environmental hazard that has the potential of poisoning groundwater. Trump has claimed that Democratic presidential candidate Joe Biden would stop fracking, endangering industries that rely on fossil fuels. \"Joe Biden and Kamala Harris BOTH want to BAN FRACKING,\" Trump tweeted. Embedded in the tweet was footage of Harris from a September 2019 town hall meeting saying, \"There's no question I'm in favor of banning fracking.\" Newsweek reached out to the Biden campaign for comment.",
+      "url": "https://www.foxbusiness.com/technology/twitter-expands-manipulated-media-label-policy-after-uproar-over-biden-clip",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context behind Zach Parkinson's claim regarding Twitter's moderation of Biden-related content in October 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did Twitter justify the use of warning labels on clips of Joe Biden's statements about fracking?",
+      "answer": "Twitter expands 'manipulated media' label policy after uproar over Biden clip Twitter will now add labels to quote tweets that share manipulated media Twitter said Monday that it has expanded its \"manipulated media\" label policy, and the changes should be deployed to all users by the end of Tuesday. The announcement comes after two high-profile Twitter users shared altered video clips featuring 2020 Democratic presidential nominee Joe Biden as the website prepares to combat misinformation nearly two months ahead of the Nov. 3 election. At first glance, the application of the “manipulated media” label to the Biden video seems promising: It shows that Twitter is willing to clamp down on a more nuanced and mundane form of deception—in this case, lying by omission. (Scavino has since argued that it was “NOT manipulated” since he didn’t technically edit it, and his supporters are up in arms over Twitter supposedly setting a “dangerous precedent,” whereby all “clips” could be considered manipulated. Greg Schultz, Joe Biden's campaign manager, called Facebook's lack of action in labelling manipulated footage a \"national crisis\", in a statement to CNN. What are the new rules? Twitter uses these factors to consider whether a tweet should be labelled or removed: - Has the content been edited in a manner that alters its composition, sequence, timing or framing? A spokesperson for Facebook told the BBC: \"Fact-checkers rated this video as partly false, so we are reducing its distribution and showing warning labels with more context for people who see it, try to share it, or already have. \"As we announced last year, the same applies if a politician shares the video, if it was otherwise fact checked when shared by others on Facebook.\" Did the Twitter warning work? Twitter labels edited Biden video 'manipulated tweet' Twitter has used its new \"manipulated media\" tag for the first time on an edited video of a speech by Joe Biden. The tag, introduced on 5 March, tells readers when a picture or video has been \"significantly altered or fabricated\". The footage of Mr Biden, posted by Dan Scavino, White House director of social media, claimed to show the Democrat calling for people to vote for President Donald Trump, a Republican. The video was shared by Mr Trump twice. Then, as the tweet was making the rounds Sunday, a baby blue warning appeared beneath it. This is the first time Twitter has used its “manipulated media” label, the Washington Post reported, since it was introduced last Thursday. The label is part of Twitter’s new synthetic and manipulated media policy, which the company announced on Feb. 4 amid growing concern over fake news and deepfakes, or A.I.-generated fake images and videos that look highly realistic, this election cycle.",
+      "url": "https://www.foxbusiness.com/technology/twitter-expands-manipulated-media-label-policy-after-uproar-over-biden-clip",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the claim regarding Twitter's warnings on Biden's fracking comments verified by platform activity in late October 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Twitter's intervention apply only to clips about fracking, or was it a broader policy?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-51799366",
+      "date": "2020-03-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.foxbusiness.com/technology/twitter-expands-manipulated-media-label-policy-after-uproar-over-biden-clip",
+      "date": "2020-09-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newsweek.com/video-resurfaces-kamala-harris-saying-she-wants-ban-fracking-after-saying-biden-will-not-during-1537304",
+      "date": "2020-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/bloombergoriginals/videos/biden-and-trump-spar-over-fracking-at-final-presidential-debate/696672950951363/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.eenews.net/articles/wind-fumes-and-ending-oil-roil-final-trump-biden-debate/",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.facebook.com/frontline/photos/in-this-country-race-is-a-shorthand-for-a-set-of-life-probabilities-said-writer-/10157458467421641/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://millercenter.org/the-presidency/presidential-oral-histories/karl-rove-oral-history-part-ii",
+      "date": "2019-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CRECB-2014-pt5/html/CRECB-2014-pt5-issue-2014-04-10.htm",
+      "date": "2014-04-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.capradio.org/news/insight/2019/03/18/insight-special-coverage-one-year-after-the-stephon-clark-shooting/",
+      "date": "2019-03-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://americanjournalnews.com/donald-trump-crime-joe-biden-gun-control-cities-1968-2020-election/",
+      "date": "2020-07-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESjwEB6zswFWa6X742WY-sZtOr_YUEWszL6eQpX63aaCpOCpsOlzaSuMvn2tWTYqgKw8Jev3gdshyQn8DlA7uNlF6jBIBV622XFhNTvU7UlUW-1P3pdeoRBpjRxcOIz9Js3_yr2dT_Edpwl6TeSMofNbkg3Hz9gAddz4l1hbltDECBcC0F4vvIBPq3ngkmbBd5FA&ust=1789679550571863&usg=AOvVaw10Q2TMSVsDbcHJhrKpGlBX",
+      "date": "2020-06-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESlwEB6zswFalFrULFj35FzBtslgHYQOTTWRLWdBAxw-lydppIlzDJEbFWJYf2xK6P208HvRlQYCyiAgwFoXJ-oMrOriJcm09kUHFH9V_PpQcWkKQtt8GIx9f77_NigYrvqlOAQ5JyzGlvO7bT3yDDof1u3-U33BM3Int634MNiMnXy9OS4qWAvPmLQVhoBGhHS8oCeEfWF3E_&ust=1789679550583142&usg=AOvVaw1zywJ9-biABN3K4ReJ_-EU",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEShQEB6zswFSGPQ-pu-q5YYRX7h87vSqP9c73lQ9YfQIYyZ8SrwmzcmFJvkdnbzHt9UZ5o7XgyGmpnhdHPYR5MokGq_Gsiwa6cys-2V5NAmPmDUESVO8I0caiBubyRrIOFryDSN9jMA573i3PBSA84WYcgaqxIPYWfE6EghzbKHhvi_EOuecLJ&ust=1789679550579854&usg=AOvVaw27X9HEjI6Z360kJbJBoi8g",
+      "date": "2020-03-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESsgEB6zswFa9tdwXcMmaqGfvqS4W8WjZqABwPhyTP_S1pjek8tjoZECWn-Otd_-VO_Ba8OahMOCE29yCa8ATes2DQGV51AMTMmo_tn-qAUcDAWk8htbcxol2dPsaQvX32Ckf3it3DtXD_KJVN5qWu3LIvn_dyAW62eLkPwO8YBGFA9PvQt3JP0USyZJ08huMagPGlaEOhmyWZalw6mOogvuMa__gWVw7REXq7gdO4LsDwEXZV&ust=1789679550584238&usg=AOvVaw0_803v7gVOEk2msdkvQ7i3",
+      "date": "2020-05-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESgwEB6zswFfr2wOrvv6-nMpLTTWQHD0Aj8r0nVazfm7QwuTIR1Bk1y4mxG1rpKZgpTkp69L_V7slurCy8Vcf8UJ6HsQDsHKlIxX4mRg6K7rtP_nwH9D1ypbyBWJ1yyNx9msUmgfvHFS4DX68tIKJyujbU33k8GZfu2sWc_3RLfbhlvf7NcA&ust=1789679550587522&usg=AOvVaw1jA_yQORtEy4BqLnd57hmI",
+      "date": "2020-06-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAES8wEB6zswFcM0O_SAyHB3z8epWta4Rkgj2Oi5P-ATeoUCOjY5SiQYoEiIWW50SfYrlTqQe9M0jTWuVPxhsNL_0vCzECP70JD8hydIUtqGyAAq3ghQpXbkI8GKXEhXlgZMFJxievJD_J0HVjGhOHtAlaJu_xJPUfUTmNkAQOHdX-VoDKoeHCXlhtmxu8w0AaeH-UVDCqc1y4anaZp3_ThYHUMzANgmZn0rcb3OZiGE0QK8d5vPBaUsAqesy88yzl2LpOFhF06QzgQmZpR8Zt8hvNgwiQWqcva5iw8Me8mK-W_NmUu38vX18rYmt1Qew659HxFK9jM&ust=1789679550589088&usg=AOvVaw1NphbbzmIr010xRsIctYBp",
+      "date": "2020-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESqwEB6zswFX5fg5IiyJtyJ-ui3Y1e6PRSLEx8hOnb85glxuJWI7v2DTiETqPQbPBEghViaiDParKSMy4sPF1YiwBNQIsPucUQL1vYtgvgA-Jj24NU1cu8V6by8ZUJx3n_ACfskqVStMMaonRwsKM0ANUhF0Ym1Ny-yKdOvsKlWpQM5MRmtAIbXJTZZqLgpH-O6gDsbqx3l_SdJiZqOax2aECuxusiNa5Vzp48IeA&ust=1789679550591813&usg=AOvVaw2A58R12HaoelnWIcrvs74k",
+      "date": "2020-09-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESmgEB6zswFaasclcLeuf6HEymp2meLFnfkLGHShDcPHUdOr_As5Bv4C8of5hDEFQiHI1VoX3V321HznziZktk-Mhc07B1LNMXl99hQRSytsnYZtKIjUjap55ZL2KhM1S_yo73zQhwNE9VrmLwuP8-rVvQAIoJYknbX27Iog0MWyAMfALGnVF70amnsluaSFFS_N3Mu8zMcU8bIaWc&ust=1789679550603857&usg=AOvVaw24CsnyctzWO57jiw2AkYrm",
+      "date": "2020-10-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESnwEB6zswFScYcmCrwvwqBNHp0lAWLIlXPg8DOgBJyvbtI5vuggbxJGj2w0oQgFtwe4mk7SDgeC6u5zZMIB7A1ttNk6tqZHpOw6PtGWYV-On3GFAY_kt-10IJ1TkGEg4HcaAddqzToxM8WHRs5BU-amAZ3dgelb_ofsgUjrB3E-YvkxSMcB1excV9WIeI9wBIAfoPXQfW1ITAFqYzRZgtCuo&ust=1789679550603936&usg=AOvVaw0U05VtX7_Nrk1wQkgoo9gY",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/06/misleading-ad-targets-biden-on-fossil-fuels-fracking/",
+      "date": "2020-06-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2020/10/14/923766097/facebook-and-twitter-limit-sharing-new-york-post-story-about-joe-biden",
+      "date": "2020-10-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/2020/10/23/politics/biden-fracking-fact-check",
+      "date": "2020-10-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Newsweek/posts/theres-no-question-im-in-favor-of-banning-fracking-kamala-harris-said-in-video-f/10158627433286101/?locale=es_LA",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/10/15/joe-biden-says-trump-lies-will-continue-after-hunter-biden-articles.html",
+      "date": "2020-10-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/technology-54568785",
+      "date": "2020-10-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/watch-biden-says-nations-that-meddle-in-elections-will-pay",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://grist.org/climate-energy/is-a-fracking-ban-a-good-idea/",
+      "date": "2016-08-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nrdc.org/posts/standing-up-to-fracking-operations-may-feel-impossible-its-not-on-earth-day-and-/10157065776029454/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/UniversityofVirginia/videos/uva-move-in-weekend-with-president-jim-ryan/2375917942624582/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.sciencefriday.com/segments/california-fracking-permits/",
+      "date": "2019-12-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.resources.org/common-resources/the-economics-of-the-economic-argument-for-environmental-protection/",
+      "date": "2016-04-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theconversation.com/learning-from-others-michigan-considers-best-options-for-future-fracking-45278",
+      "date": "2015-10-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://truthout.org/articles/two-towns-battle-colorado-for-freedom-to-ban-fracking/",
+      "date": "2016-08-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 276,
+     "n_urls_after_bm25": 26,
+     "n_chunks": 1530
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Conflicting Evidence/Cherrypicking",
+   "justification": "Twitter put those warning on tweets about Biden's speech because they were misleading but the tags were not only on the Biden's tweet",
+   "questions": [
+    {
+     "question": "Have Twitter started putting warnings on tweets that are just unedited clips of Biden saying he would end fracking?",
+     "answers": [
+      {
+       "answer": "Twitter automatically warns when the user has not opened and read the item to be re-tweeted. \"Headlines don't tell the whole story,\" the Twitter message says. \"You can read the article on Twitter before Retweeting.\"\n\nTwitter announced a set of changes to try to stem the spread of misinformation ahead of the November 3, 2020 presidential election. Among the most significant is a request that users add their own content before retweeting someone else's:\n\n(W)e will encourage people to add their own commentary prior to amplifying content by prompting them to Quote Tweet instead of Retweet. People who go to Retweet will be brought to the Quote Tweet composer where they'll be encouraged to comment before sending their Tweet.",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20201101032342/https://blog.twitter.com/en_us/topics/company/2020/2020-election-changes.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Had Twitter been putting warnings on un-edited tweets about Biden saying he would end fracking at the time of the claim (October 2020)?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20201101024709/https://blog.twitter.com/en_us/topics/company/2020/2020-election-changes.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Why was Twitter putting warnings on Tweets about Biden's fracking stance?",
+     "answers": [
+      {
+       "answer": "Among the most significant reasons is a request that users add their own content before retweeting someone else's:",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201101024709/https://blog.twitter.com/en_us/topics/company/2020/2020-election-changes.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did it only apply to tweets about Bidens fracking stance?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20201101024709/https://blog.twitter.com/en_us/topics/company/2020/2020-election-changes.html",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201101032342/https://leadstories.com/hoax-alert/2020/10/fact-check-warning-not-just-for-biden-tweets-new-policy-applies-to-all-users.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Twitter's new warning system is not exclusive to Joe Biden or fracking-related content; it applies to all Twitter users, automatically issuing a warning when a user attempts to retweet an item they have not yet opened and read, and encouraging users to use the 'Quote Tweet' function instead of a standard 'Retweet' to ensure they add commentary.",
+     "support_span": "The new warnings are being added for all Twitter users, not just Biden critics. | Twitter automatically warns when the user has not opened and read the item to be re-tweeted. | We will encourage people to add their own commentary prior to amplifying content by prompting them to Quote Tweet instead of Retweet."
+    },
+    {
+     "statement": "As of October 9, 2020, Twitter implemented changes to provide a special look at all election-related material, and applies warning labels to tweets containing misinformation about COVID-19, elections, voting, or manipulated media such as deepfakes or misleading edited videos.",
+     "support_span": "As of October 9, 2020, all election-related material on Twitter is getting a special look. | Twitter applies these labels to tweets that spread misinformation about COVID-19, elections and voting, and anything that contains manipulated media, like deepfakes or otherwise misleading edited videos."
+    }
+   ],
+   "justification": "The evidence indicates that Twitter's warning systems are not specifically targeted at unedited clips of Joe Biden regarding fracking, but rather part of broader policies. Warnings are applied to all users for various reasons, including when a user attempts to retweet an item they have not yet opened, and for content involving misinformation related to COVID-19, elections, or manipulated media such as deepfakes and misleadingly edited videos. While the evidence confirms that Twitter uses labels for misleadingly edited videos and election-related material, it does not specifically confirm or deny the existence of warnings on the exact unedited Biden clips mentioned in the claim, instead framing the warnings as part of a wider systemic approach to content moderation.",
+   "article_url": "https://web.archive.org/web/20201101032342/https://leadstories.com/hoax-alert/2020/10/fact-check-warning-not-just-for-biden-tweets-new-policy-applies-to-all-users.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

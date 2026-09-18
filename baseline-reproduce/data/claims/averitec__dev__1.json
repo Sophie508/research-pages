@@ -1,0 +1,1326 @@
+{
+ "key": "averitec/dev/1",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 1,
+ "claim": "Trump Administration claimed songwriter Billie Eilish Is Destroying Our Country In Leaked Documents",
+ "claim_date": "2020-10-31",
+ "speaker": null,
+ "reporting_source": "Instagram",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did the Trump administration claim in a leaked document that Billie Eilish was 'destroying our country and everything we care about'?",
+      "answer": "No, the Trump administration did not make that claim; the document was actually quoting Billie Eilish's own previous comments about Trump made at the Democratic National Convention.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the actual source of the quote 'destroying our country and everything we care about' found in the leaked documents?",
+      "answer": "The quote was a statement previously made by Billie Eilish herself at the Democratic National Convention (or in a Bustle interview, according to some reports).",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the purpose of the $250 million advertising campaign mentioned in the documents?",
+      "answer": "The campaign was designed to 'defeat despair and inspire hope' amid the coronavirus pandemic.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "According to the leaked documents, why was Billie Eilish excluded from the advertising campaign?",
+      "answer": "The documents noted that she was 'not a Trump supporter'.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who suggested that the advertising campaign should focus on the theme 'Helping The President Help The Country'?",
+      "answer": "Michael Caputo, Trump's Assistant Secretary for Public Affairs.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How many celebrities were ultimately approved for the advertising program?",
+      "answer": "Only 10 celebrities were approved.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the original report by The Washington Post regarding the administration's quote about Eilish accurate?",
+      "answer": "No, the report was erroneous and inaccurately attributed the quote to the administration instead of Eilish.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nzherald.co.nz/entertainment/not-a-trump-supporter-billie-eilish-britney-spears-and-other-celebrities-targeted-in-new-white-house-documents/BO5ECYMZIQ2OKUGX4L7HL2W5KQ/",
+      "date": "2020-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_sources": 6,
+     "label_confidences": [
+      0.9479149938275155,
+      0.01736166872416146,
+      0.01736166872416146,
+      0.01736166872416146
+     ],
+     "llm_verdict_field": "Refuted",
+     "n_retrieved_chunks": 9
+    },
+    "error": null,
+    "n_evidence_statements": 7
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step Justification:**\n\n1.  **Analyze the Claim:** The claim asserts that leaked documents from the Trump Administration explicitly stated that songwriter Billie Eilish is \"destroying our country.\"\n2.  **Evaluate Evidence from Q1 & Q4:** The evidence confirms that the Trump administration did indeed use leaked documents to vet celebrities for a $250 million pandemic advertising campaign and that Billie Eilish was among those blocked/vetoed due to her political leanings and criticism of the President.\n3.  **Evaluate Evidence from Q2, Q3, & Q6:** These answers directly address the specific wording of the claim. They clarify that while Billie Eilish was mentioned in the documents, the administration was actually quoting *her own words* (her criticism of Trump) rather than making a claim that *she* was destroying the country. \n4.  **Identify the Source of Error:** Q3 specifically notes that an initial report by *The Washington Post* inaccurately attributed the phrase \"destroying our country and everything we care about\" to the administration, but the publication later corrected this error, noting the quote originated from Eilish herself.\n5.  **Conclusion:** Since the evidence explicitly states that the administration did not make that claim and that the phrase was a misattribution of Eilish's own words, the claim is factually incorrect based on the provided text.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: How did the Trump administration's alleged changes to the pandemic advertising campaign affect the inclusion of certain celebrities like Billie Eilish?",
+      "answer": "Based on the provided evidence, the Trump administration's alleged changes to the $250 million pandemic advertising campaign involved making politically motivated shifts to the campaign's theme. Specifically, Assistant Secretary for Public Affairs Michael Caputo suggested changing the theme to \"Helping The President Help The Country.\"\n\nThese changes resulted in the omission of several celebrities deemed critical of the President or politically liberal. As a result, **Billie Eilish** was among the celebrities blocked from the campaign, along with Jennifer Lopez, Christina Aguilera, Adam Levine, and Justin Timberlake. The final approved list of ten celebrities instead featured figures such as Marc Anthony, Enrique Iglesias, and various country music stars.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Trump administration's leaked documents actually claim that Billie Eilish was destroying the country?",
+      "answer": "No, the leaked documents did not claim that Billie Eilish was destroying the country. \n\nAccording to the evidence, the documents revealed that the Trump administration planned an ad campaign that selected celebrities based on their political alignment. While Billie Eilish was mentioned in the documents, a correction noted that the administration was actually quoting her **criticism of Trump** rather than attributing a sentiment about \"destroying the country\" to her. The documents showed that she was rejected for the campaign because she was not a Trump supporter.",
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Trump administration actually claim in leaked documents that Billie Eilish was \"destroying our country\"?",
+      "answer": "No, the Trump administration did not claim in leaked documents that Billie Eilish was \"destroying our country.\" \n\nWhile an initial report by *The Washington Post* inaccurately attributed the quote \"destroying our country and everything we care about\" to the administration, the publication later corrected this error. The evidence clarifies that the quote actually originated from an interview with Billie Eilish herself.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did the Trump administration attempt to veto Billie Eilish from participating in a pandemic-related advertising campaign due to her perceived political leanings?",
+      "answer": "Yes, according to leaked documents, the Trump administration attempted to veto Billie Eilish from participating in a $250 million advertising campaign intended to combat pandemic-related despair. The administration implemented strict vetting processes for celebrity participants and vetoed numerous figures, including Eilish, based on their perceived political leanings, support for LGBTQ+ rights, or criticism of Trump.",
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did leaked documents from the Trump administration claim that Billie Eilish is destroying the country?",
+      "answer": "Based on the provided evidence, there is no mention of leaked documents from the Trump administration claiming that Billie Eilish is \"destroying our country.\" \n\nThe evidence states that leaked internal documents from the *Washington Post* regarding a proposed $250 million public service announcement campaign included a list of celebrities considered for the project (such as Meryl Streep and Lady Gaga) and noted that the administration's selections or exclusions were based on \"perceived demographics and political affiliations.\" However, the text does not contain any claim regarding Billie Eilish or the specific phrase \"destroying our country.\"",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context behind the claim that the Trump administration's leaked documents described Billie Eilish as \"destroying our country\"?",
+      "answer": "The claim that leaked documents described Billie Eilish as \"destroying our country\" was a misunderstanding of the context. While initial reports suggested she was singled out for that reason, a clarification revealed that the administration was actually quoting Eilish's own speech regarding Donald Trump's impact on the nation.",
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided text contain any leaked documents from the Trump Administration regarding Billie Eilish?",
+      "answer": "No, the provided text does not contain any leaked documents from the Trump Administration regarding Billie Eilish. The evidence describes a list of historical events, political policies, and social issues that the author claims have been misrepresented by the media, but it does not mention Billie Eilish or any leaked documents concerning her.",
+      "url": "https://www.facebook.com/groups/DennisPragerFansUnite/posts/10156450694552690/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that the Trump Administration released leaked documents claiming Billie Eilish is destroying the country?",
+      "answer": "No, the evidence does not support the claim. The provided text discusses criticisms of the Biden-Harris administration's policies regarding India-US relations and political tactics, but it contains no mention of the Trump Administration, leaked documents, or songwriter Billie Eilish.",
+      "url": "https://www.facebook.com/EconomicTimes/posts/presumptive-democratic-party-presidential-nominee-joe-biden-on-tuesday-named-55-/10157443822152694/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Trump Administration claim in leaked documents that Billie Eilish is destroying the country?",
+      "answer": "No, based on the provided evidence, there is no mention of the Trump Administration or any claims regarding Billie Eilish. The evidence consists of a compilation of humorous anecdotes, jokes, and short stories.",
+      "url": "https://www.facebook.com/groups/178038479054614/posts/708084819383308/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/EconomicTimes/posts/presumptive-democratic-party-presidential-nominee-joe-biden-on-tuesday-named-55-/10157443822152694/",
+      "date": "2016-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/178038479054614/posts/708084819383308/",
+      "date": "2017-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/DennisPragerFansUnite/posts/10156450694552690/",
+      "date": "2019-02-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 9,
+     "n_top_k": 9,
+     "n_qa_after_rewrite": 9
+    },
+    "error": null,
+    "n_evidence_statements": 9
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that leaked documents from the Trump Administration stated that songwriter Billie Eilish is \"destroying our country.\" This occurred around October 31, 2020, in the US.\n2. Multiple pieces of evidence (Q1, A1; Q1, A2; Q1, A3; Q1, A8; Q1, A10) clarify that while a leaked document from the Trump administration did contain the phrase \"destroying our country and everything we care about\" in relation to Billie Eilish, the administration did not *make* the claim. Instead, the document was quoting Eilish herself. The document was a vetting list for a $250 million COVID-19 advertising campaign, and it included her previous comments (made at the Democratic National Convention and in a Bustle interview) to justify why she was not a \"Trump supporter\" and should be excluded from the campaign.\n3. There is a clear distinction between the administration *stating* the phrase as their own opinion and the administration *quoting* the phrase to document her political stance. The initial reporting by The Washington Post was corrected by various outlets (NME, Complex, Stereogum, The Fader) because it inaccurately attributed the quote to the administration's own voice rather than identifying it as a quote from Eilish.\n4. Because the claim states the administration \"claimed\" (implying the sentiment originated from them) that she is destroying the country, and the evidence proves the administration was actually just quoting her own words to categorize her political leanings, the claim is factually incorrect.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is there any evidence that the Trump Administration released leaked documents claiming Billie Eilish is destroying the country?",
+      "answer": "Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project. Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context of the claim regarding Billie Eilish and the Trump Administration on October 31, 2020?",
+      "answer": "Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. A leading Trump administration official reportedly tainted a $250 million advertising contract originally intended to \"defeat despair and inspire hope\" amid the pandemic by, among other sadly unsurprising things, excluding public figures they believed were not aligned with Trump or his widely panned policy attempts. A peculiar amount of ire, per the Washington Post, was reserved for Grammy winner Billie Eilish. What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”. \" Trump, his political appointees, and the consultants that they hired also attempted to vet the celebrities who would be used in the ad campaign, omitting anyone who had been critical of Trump or his policies. It looks like they were especially apoplectic about the idea of Billie Eilish being involved. According to a document obtained by the Post, Eilish was vetoed because she's \"not a Trump supporter\" and also because she is \"destroying our country and everything we care about. The brains behind the campaign, Trump’s Assistant Secretary for Public Affairs Michael Caputo, is currently on a 60-day leave after a Facebook Live broadcast in which he baselessly told Trump supporters to prepare for an armed insurrection led by left-wing groups. For her part, Billie Eilish performed \"my future\" at the 2020 Democratic National Convention, so it's unlikely that she would have participated even if the Trump administration asked. The memo included notes to veto hyper-popular Gen-Z singer Billie Eilish, citing that she is “not a Trump supporter” and that she is “destroying our country and everything we care about.” You know it, baby! The administration also vetoed any musicians deemed as Obama liberals, LGBTQ+ supporters, or anyone who had been critical of Trump's campaign, which nixed options like Jennifer Lopez, Christina Aguilera, Adam Levin, and Justin Timberlake from participating. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project. Billie Eilish sparked instant controversy at the MLK Jr. Awards after calling out the Trump administration over ICE raids, civil rights issues, and climate cuts. Some called it brave. Billie Eilish and Jennifer Lopez ‘blacklisted by Trump administration for ad campaign’ None of the celebrities agreed to participate and the campaign has been put on hold - Bookmark Billie Eilish, Jennifer Lopez, and more celebrities were reportedly blacklisted from an ad campaign by the Trump administration. According to The Washington Post, Eilish and Lopez are among multiple celebrities mentioned in documents pertaining to a $250m advertising contract.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did any official government agency or spokesperson from the Trump Administration release statements attacking Billie Eilish?",
+      "answer": "UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? A leading Trump administration official reportedly tainted a $250 million advertising contract originally intended to \"defeat despair and inspire hope\" amid the pandemic by, among other sadly unsurprising things, excluding public figures they believed were not aligned with Trump or his widely panned policy attempts. A peculiar amount of ire, per the Washington Post, was reserved for Grammy winner Billie Eilish. Billie Eilish defended her propensity for making public political statements against the Trump administration, ICE and billionaires like Elon Musk, asking Elle magazine, “Why is it controversial?” All reactions: 177 comments 2 shares Like Comment Most relevant YAHOO.COM Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied?’ Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied? A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the nature of the source 'Instagram' in relation to this specific claim?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the claim regarding Billie Eilish compare to documented political rhetoric from the Trump Administration during 2020?",
+      "answer": "UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project. A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. A leading Trump administration official reportedly tainted a $250 million advertising contract originally intended to \"defeat despair and inspire hope\" amid the pandemic by, among other sadly unsurprising things, excluding public figures they believed were not aligned with Trump or his widely panned policy attempts. A peculiar amount of ire, per the Washington Post, was reserved for Grammy winner Billie Eilish. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. Billie Eilish defended her propensity for making public political statements against the Trump administration, ICE and billionaires like Elon Musk, asking Elle magazine, “Why is it controversial?” All reactions: 177 comments 2 shares Like Comment Most relevant YAHOO.COM Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied?’ Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied? \" Trump, his political appointees, and the consultants that they hired also attempted to vet the celebrities who would be used in the ad campaign, omitting anyone who had been critical of Trump or his policies. It looks like they were especially apoplectic about the idea of Billie Eilish being involved. According to a document obtained by the Post, Eilish was vetoed because she's \"not a Trump supporter\" and also because she is \"destroying our country and everything we care about. The memo included notes to veto hyper-popular Gen-Z singer Billie Eilish, citing that she is “not a Trump supporter” and that she is “destroying our country and everything we care about.” You know it, baby! The administration also vetoed any musicians deemed as Obama liberals, LGBTQ+ supporters, or anyone who had been critical of Trump's campaign, which nixed options like Jennifer Lopez, Christina Aguilera, Adam Levin, and Justin Timberlake from participating. Billie Eilish sparked instant controversy at the MLK Jr. Awards after calling out the Trump administration over ICE raids, civil rights issues, and climate cuts. Some called it brave. The brains behind the campaign, Trump’s Assistant Secretary for Public Affairs Michael Caputo, is currently on a 60-day leave after a Facebook Live broadcast in which he baselessly told Trump supporters to prepare for an armed insurrection led by left-wing groups. For her part, Billie Eilish performed \"my future\" at the 2020 Democratic National Convention, so it's unlikely that she would have participated even if the Trump administration asked.",
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.the-independent.com/arts-entertainment/music/news/billie-eilish-donald-trump-administration-document-country-b1431478.html",
+      "date": "2020-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mic.com/p/what-did-billie-eilish-do-for-the-trump-team-to-hate-her-so-much-40969011",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://link.springer.com/article/10.1007/s42087-020-00149-z",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nature.com/articles/s41598-017-18007-4",
+      "date": "2017-12-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reutersinstitute.politics.ox.ac.uk/types-sources-and-claims-covid-19-misinformation",
+      "date": "2020-04-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.openpsychologyjournal.com/VOLUME/12/PAGE/216/FULLTEXT/",
+      "date": "2019-12-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7222052/",
+      "date": "2019-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/yahooentertainment/posts/billie-eilish-defended-her-propensity-for-making-public-political-statements-aga/1337800804887110/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/awesomeitv/videos/billie-eilish-sparked-instant-controversy-at-the-mlk-jr-awards-after-calling-out/1208678661468389/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 141,
+     "n_urls_after_bm25": 15,
+     "n_chunks": 946
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  },
+  "smoke_campaign_text_20260917_cpu": {
+   "aic_ctu_averitec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did the Trump administration claim in a leaked document that Billie Eilish was 'destroying our country and everything we care about'?",
+      "answer": "No, the Trump administration did not make that claim; the document was actually quoting Billie Eilish's own previous comments about Trump made at the Democratic National Convention.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the actual source of the quote 'destroying our country and everything we care about' found in the leaked documents?",
+      "answer": "The quote was a statement previously made by Billie Eilish herself at the Democratic National Convention (or in a Bustle interview, according to some reports).",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the purpose of the $250 million advertising campaign mentioned in the documents?",
+      "answer": "The campaign was designed to 'defeat despair and inspire hope' amid the coronavirus pandemic.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "According to the leaked documents, why was Billie Eilish excluded from the advertising campaign?",
+      "answer": "The documents noted that she was 'not a Trump supporter'.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who suggested that the advertising campaign should focus on the theme 'Helping The President Help The Country'?",
+      "answer": "Michael Caputo, Trump's Assistant Secretary for Public Affairs.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How many celebrities were ultimately approved for the advertising program?",
+      "answer": "Only 10 celebrities were approved.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the original report by The Washington Post regarding the administration's quote about Eilish accurate?",
+      "answer": "No, the report was erroneous and inaccurately attributed the quote to the administration instead of Eilish.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nzherald.co.nz/entertainment/not-a-trump-supporter-billie-eilish-britney-spears-and-other-celebrities-targeted-in-new-white-house-documents/BO5ECYMZIQ2OKUGX4L7HL2W5KQ/",
+      "date": "2020-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_sources": 6,
+     "label_confidences": [
+      0.9479149938275155,
+      0.01736166872416146,
+      0.01736166872416146,
+      0.01736166872416146
+     ],
+     "llm_verdict_field": "Refuted",
+     "n_retrieved_chunks": 9
+    },
+    "error": null,
+    "n_evidence_statements": 7
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step Justification:**\n\n1.  **Analyze the Claim:** The claim asserts that leaked documents from the Trump Administration explicitly stated that songwriter Billie Eilish is \"destroying our country.\"\n2.  **Evaluate Evidence from Q1 & Q4:** The evidence confirms that the Trump administration did indeed use leaked documents to vet celebrities for a $250 million pandemic advertising campaign and that Billie Eilish was among those blocked/vetoed due to her political leanings and criticism of the President.\n3.  **Evaluate Evidence from Q2, Q3, & Q6:** These answers directly address the specific wording of the claim. They clarify that while Billie Eilish was mentioned in the documents, the administration was actually quoting *her own words* (her criticism of Trump) rather than making a claim that *she* was destroying the country. \n4.  **Identify the Source of Error:** Q3 specifically notes that an initial report by *The Washington Post* inaccurately attributed the phrase \"destroying our country and everything we care about\" to the administration, but the publication later corrected this error, noting the quote originated from Eilish herself.\n5.  **Conclusion:** Since the evidence explicitly states that the administration did not make that claim and that the phrase was a misattribution of Eilish's own words, the claim is factually incorrect based on the provided text.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: How did the Trump administration's alleged changes to the pandemic advertising campaign affect the inclusion of certain celebrities like Billie Eilish?",
+      "answer": "Based on the provided evidence, the Trump administration's alleged changes to the $250 million pandemic advertising campaign involved making politically motivated shifts to the campaign's theme. Specifically, Assistant Secretary for Public Affairs Michael Caputo suggested changing the theme to \"Helping The President Help The Country.\"\n\nThese changes resulted in the omission of several celebrities deemed critical of the President or politically liberal. As a result, **Billie Eilish** was among the celebrities blocked from the campaign, along with Jennifer Lopez, Christina Aguilera, Adam Levine, and Justin Timberlake. The final approved list of ten celebrities instead featured figures such as Marc Anthony, Enrique Iglesias, and various country music stars.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Trump administration's leaked documents actually claim that Billie Eilish was destroying the country?",
+      "answer": "No, the leaked documents did not claim that Billie Eilish was destroying the country. \n\nAccording to the evidence, the documents revealed that the Trump administration planned an ad campaign that selected celebrities based on their political alignment. While Billie Eilish was mentioned in the documents, a correction noted that the administration was actually quoting her **criticism of Trump** rather than attributing a sentiment about \"destroying the country\" to her. The documents showed that she was rejected for the campaign because she was not a Trump supporter.",
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Trump administration actually claim in leaked documents that Billie Eilish was \"destroying our country\"?",
+      "answer": "No, the Trump administration did not claim in leaked documents that Billie Eilish was \"destroying our country.\" \n\nWhile an initial report by *The Washington Post* inaccurately attributed the quote \"destroying our country and everything we care about\" to the administration, the publication later corrected this error. The evidence clarifies that the quote actually originated from an interview with Billie Eilish herself.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Did the Trump administration attempt to veto Billie Eilish from participating in a pandemic-related advertising campaign due to her perceived political leanings?",
+      "answer": "Yes, according to leaked documents, the Trump administration attempted to veto Billie Eilish from participating in a $250 million advertising campaign intended to combat pandemic-related despair. The administration implemented strict vetting processes for celebrity participants and vetoed numerous figures, including Eilish, based on their perceived political leanings, support for LGBTQ+ rights, or criticism of Trump.",
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did leaked documents from the Trump administration claim that Billie Eilish is destroying the country?",
+      "answer": "Based on the provided evidence, there is no mention of leaked documents from the Trump administration claiming that Billie Eilish is \"destroying our country.\" \n\nThe evidence states that leaked internal documents from the *Washington Post* regarding a proposed $250 million public service announcement campaign included a list of celebrities considered for the project (such as Meryl Streep and Lady Gaga) and noted that the administration's selections or exclusions were based on \"perceived demographics and political affiliations.\" However, the text does not contain any claim regarding Billie Eilish or the specific phrase \"destroying our country.\"",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context behind the claim that the Trump administration's leaked documents described Billie Eilish as \"destroying our country\"?",
+      "answer": "The claim that leaked documents described Billie Eilish as \"destroying our country\" was a misunderstanding of the context. While initial reports suggested she was singled out for that reason, a clarification revealed that the administration was actually quoting Eilish's own speech regarding Donald Trump's impact on the nation.",
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided text contain any leaked documents from the Trump Administration regarding Billie Eilish?",
+      "answer": "No, the provided text does not contain any leaked documents from the Trump Administration regarding Billie Eilish. The evidence describes a list of historical events, political policies, and social issues that the author claims have been misrepresented by the media, but it does not mention Billie Eilish or any leaked documents concerning her.",
+      "url": "https://www.facebook.com/groups/DennisPragerFansUnite/posts/10156450694552690/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that the Trump Administration released leaked documents claiming Billie Eilish is destroying the country?",
+      "answer": "No, the evidence does not support the claim. The provided text discusses criticisms of the Biden-Harris administration's policies regarding India-US relations and political tactics, but it contains no mention of the Trump Administration, leaked documents, or songwriter Billie Eilish.",
+      "url": "https://www.facebook.com/EconomicTimes/posts/presumptive-democratic-party-presidential-nominee-joe-biden-on-tuesday-named-55-/10157443822152694/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Trump Administration claim in leaked documents that Billie Eilish is destroying the country?",
+      "answer": "No, based on the provided evidence, there is no mention of the Trump Administration or any claims regarding Billie Eilish. The evidence consists of a compilation of humorous anecdotes, jokes, and short stories.",
+      "url": "https://www.facebook.com/groups/178038479054614/posts/708084819383308/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/EconomicTimes/posts/presumptive-democratic-party-presidential-nominee-joe-biden-on-tuesday-named-55-/10157443822152694/",
+      "date": "2016-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/178038479054614/posts/708084819383308/",
+      "date": "2017-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/DennisPragerFansUnite/posts/10156450694552690/",
+      "date": "2019-02-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 9,
+     "n_top_k": 9,
+     "n_qa_after_rewrite": 9
+    },
+    "error": null,
+    "n_evidence_statements": 9
+   },
+   "infact": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is refuted because leaked internal documents obtained by [The Washington Post](https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6) do not contain any accusations that Billie Eilish is \"destroying our country.\" Instead, the documents revealed an exhaustive list of celebrities the Trump administration approached for a $250 million PSA campaign intended to \"inspire hope\" during the coronavirus pandemic. While the documents noted she was omitted from the campaign because she was \"not a Trump supporter,\" the specific phrase regarding \"destroying our country\" was actually a quote from Eilish herself regarding Trump, not an accusation from the administration.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Do any leaked documents from the Trump Administration exist that mention the songwriter Billie Eilish?",
+      "answer": "No, there are no leaked documents from the Trump Administration that claim Billie Eilish is \"destroying our country\"; rather, leaked internal documents obtained by the Washington Post contained an \"exhaustive list of celebrities who were approached to participate in an ad campaign\" to \"inspire hope\" during the coronavirus pandemic.",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Do the leaked documents from the Trump Administration contain the specific phrase or sentiment that Billie Eilish is \"destroying our country\"?",
+      "answer": "No, the leaked documents do not contain that phrase; rather, the documents were an \"exhaustive list of celebrities who were approached to participate in an ad campaign\" to \"inspire hope\" during the pandemic, and the claim that the administration accused her of \"destroying our country\" is false.",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the original source of the report claiming that the Trump Administration made these statements?",
+      "answer": "The original source of the report regarding the leaked documents was *The Washington Post*.",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did any official spokesperson for the Trump Administration make public statements regarding Billie Eilish in 2020?",
+      "answer": "No, the Trump administration did not make any public statements accusing Billie Eilish of \"destroying our country\"; rather, leaked documents revealed she was simply included on a list of celebrities the administration had approached for a $250 million PSA campaign to \"inspire hope\" during the coronavirus pandemic.",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence in official government archives or leaked databases that links the Trump Administration to criticisms of Billie Eilish?",
+      "answer": "No, there is no evidence in the leaked documents to support this claim; rather, the documents revealed a list of celebrities the administration intended to recruit for a $250 million PSA campaign to \"inspire hope\" during the pandemic. While the leaked documents included notes on celebrities' political leanings—such as ruling out Christina Aguilera because she \"is a gay-rights supporting liberal\"—there is no mention of the administration accusing Billie Eilish of \"destroying our country.\"",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was the claim that Billie Eilish is \"destroying our country\" published by a credible news organization or a known misinformation site?",
+      "answer": "The provided search result does not contain information regarding the specific source or credibility of the original claim that Billie Eilish is \"destroying our country\"; it only serves to debunk the claim by stating that \"the Trump administration didn’t accuse Billie Eilish of 'destroying our country'\" based on leaked documents obtained by the Washington Post.",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the text of the alleged leaked documents contain any specific policy or political reasoning for why Billie Eilish would be considered a threat to the country?",
+      "answer": "No, the leaked documents do not contain policy or political reasoning for why Billie Eilish is a threat; rather, the phrase \"destroying our country and everything we care about\" was actually a quote from Eilish herself regarding Trump, which she made at the Democratic National Convention. The documents instead noted that she was omitted from an advertising campaign because she was \"not a Trump supporter.\"",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Was there any specific event or political context in October 2020 that prompted rumors regarding the Trump Administration and Billie Eilish?",
+      "answer": "The rumors were prompted by leaked internal documents obtained by the Washington Post, which revealed that the Trump administration had attempted to set up a $250 million PSA campaign to \"inspire hope\" during the coronavirus pandemic and had compiled an exhaustive list of celebrities to participate in the outreach.",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Can the specific \"leaked documents\" referenced in the claim be identified and verified by independent fact-checkers?",
+      "answer": "No, the specific \"leaked documents\" referenced in the claim cannot be identified as containing such an accusation because the actual leaked internal documents, obtained by the Washington Post, merely contained an \"exhaustive list of celebrities who were approached to participate in the ad campaign\" for a $250 million PSA. The documents provided insights into which celebrities the administration thought could reach certain demographics, but they did not contain any claim that Billie Eilish was \"destroying our country.\"",
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Gothamist/posts/because-silicon-valley-bros-are-now-disrupting-sourdough-check-out-todays-end-of/10161318449005492/",
+      "date": "2018-11-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2020-01.html",
+      "date": "2020-01-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mic.com/p/what-did-billie-eilish-do-for-the-trump-team-to-hate-her-so-much-40969011",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NomasOrg/posts/creative-resistance-joan-baez-protest-singer-of-the-peace-and-civil-rights-movem/2146596865468340/",
+      "date": "2019-08-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rapplerdotcom/posts/today-on-rappler-nba-legend-kobe-bryant-killed-in-helicopter-crash-doh-investiga/3153372391350189/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/enews/posts/as-protests-continue-celebs-are-are-using-their-platforms-and-resources-to-to-pa/10157181319945736/",
+      "date": "2020-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/scientistsforeu/posts/while-taylor-swift-is-speaking-out-against-trumps-republicans-ed-sheeran-and-a-w/1542746515827352/",
+      "date": "2018-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ellemagazine/posts/as-november-3rd-looms-vice-presidential-nominee-kamala-harris-is-urging-american/10157535343951301/",
+      "date": "2016-02-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ajplusenglish/posts/heres-what-angela-davis-had-to-say-about-kamala-harris-becoming-the-democratic-v/1908166915991473/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/peoplefor/posts/right-wing-conspiracy-theorists-chris-mcdonald-and-mark-taylor-attacked-pastor-j/10163438622585648/",
+      "date": "2020-06-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mic.com/p/what-did-billie-eilish-do-for-the-trump-team-to-hate-her-so-much-40969011",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NomasOrg/posts/creative-resistance-joan-baez-protest-singer-of-the-peace-and-civil-rights-movem/2146596865468340/",
+      "date": "2019-08-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rapplerdotcom/posts/today-on-rappler-nba-legend-kobe-bryant-killed-in-helicopter-crash-doh-investiga/3153372391350189/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rapplerdotcom/posts/today-on-rappler-nba-legend-kobe-bryant-killed-in-helicopter-crash-doh-investiga/3153372391350189/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Gothamist/posts/because-silicon-valley-bros-are-now-disrupting-sourdough-check-out-todays-end-of/10161318449005492/",
+      "date": "2018-11-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/culturacolectivaplus/posts/billie-eilish-is-making-her-voice-heard-and-speaking-out-against-president-trump/3953770207973746/",
+      "date": "2020-08-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.the-independent.com/arts-entertainment/music/news/billie-eilish-donald-trump-administration-document-country-b1431478.html",
+      "date": "2020-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Gothamist/posts/because-silicon-valley-bros-are-now-disrupting-sourdough-check-out-todays-end-of/10161318449005492/",
+      "date": "2018-11-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rapplerdotcom/posts/today-on-rappler-nba-legend-kobe-bryant-killed-in-helicopter-crash-doh-investiga/3153372391350189/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2019-12.html",
+      "date": "2019-12-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://variety.com/2020/music/news/billie-eilish-anti-trump-speech-dnc-democratic-national-convention-watch-video-1234740733/",
+      "date": "2020-08-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/election-us-2020-53844118",
+      "date": "2020-08-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.buzzfeed.com/benhenry/billie-eilish-grammys-please-dont-be-me-video",
+      "date": "2020-10-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/music/video/2020/aug/20/billie-eilish-dnc-trump-is-destroying-our-country-video",
+      "date": "2020-08-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Billboard/videos/2020-dnc-recap-kamala-harris-jennifer-hudson-billie-eilish-and-prince-royce-bill/307765787110049/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.hotpress.com/music/billie-eilish-addresses-urban-controversy-after-republic-records-drops-the-term-22818053",
+      "date": "2020-06-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/commentisfree/2019/jul/01/billie-eilish-embodies-the-angsty-spider-eating-teenage-girl-in-all-of-us",
+      "date": "2019-07-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Variety/posts/billieeilish-slams-the-trump-administration-over-ice-violencewere-seeing-our-nei/1241902394467253/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/culturacolectivaplus/posts/billie-eilish-is-making-her-voice-heard-and-speaking-out-against-president-trump/3953770207973746/",
+      "date": "2020-08-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2019-7.html",
+      "date": "2019-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/feminawoman/posts/a-global-entertainment-and-law-firm-handling-sensitive-data-of-top-celebrities-s/3571952592821702/",
+      "date": "2020-05-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.buzzfeed.com/jennaguillaume/guest-stars",
+      "date": "2017-05-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Gothamist/posts/because-silicon-valley-bros-are-now-disrupting-sourdough-check-out-todays-end-of/10161318449005492/",
+      "date": "2018-11-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2020-01.html",
+      "date": "2020-01-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.worldradiohistory.com/Archive-All-Music/Billboard/00s/2020/Billboard-2020-01-25.pdf",
+      "date": "2020-01-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/culturacolectivaplus/posts/billie-eilish-is-making-her-voice-heard-and-speaking-out-against-president-trump/3953770207973746/",
+      "date": "2020-08-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://deadline.com/2020/10/donald-trump-coroanvirus-celebrities-1234605942/",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nzherald.co.nz/entertainment/not-a-trump-supporter-billie-eilish-britney-spears-and-other-celebrities-targeted-in-new-white-house-documents/BO5ECYMZIQ2OKUGX4L7HL2W5KQ/",
+      "date": "2020-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnn.com/article/sitemap-2019-7.html",
+      "date": "2019-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/feminawoman/posts/a-global-entertainment-and-law-firm-handling-sensitive-data-of-top-celebrities-s/3571952592821702/",
+      "date": "2020-05-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.buzzfeed.com/jennaguillaume/guest-stars",
+      "date": "2017-05-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_questions": 10,
+     "n_search_calls": 29,
+     "n_admitted_page_occurrences": 67,
+     "n_admitted_unique_urls": 31,
+     "n_answered": 9
+    },
+    "error": null,
+    "n_evidence_statements": 9
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that leaked documents from the Trump Administration stated that songwriter Billie Eilish is \"destroying our country.\" This occurred around October 31, 2020, in the US.\n2. Multiple pieces of evidence (Q1, A1; Q1, A2; Q1, A3; Q1, A8; Q1, A10) clarify that while a leaked document from the Trump administration did contain the phrase \"destroying our country and everything we care about\" in relation to Billie Eilish, the administration did not *make* the claim. Instead, the document was quoting Eilish herself. The document was a vetting list for a $250 million COVID-19 advertising campaign, and it included her previous comments (made at the Democratic National Convention and in a Bustle interview) to justify why she was not a \"Trump supporter\" and should be excluded from the campaign.\n3. There is a clear distinction between the administration *stating* the phrase as their own opinion and the administration *quoting* the phrase to document her political stance. The initial reporting by The Washington Post was corrected by various outlets (NME, Complex, Stereogum, The Fader) because it inaccurately attributed the quote to the administration's own voice rather than identifying it as a quote from Eilish.\n4. Because the claim states the administration \"claimed\" (implying the sentiment originated from them) that she is destroying the country, and the evidence proves the administration was actually just quoting her own words to categorize her political leanings, the claim is factually incorrect.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Is there any evidence that the Trump Administration released leaked documents claiming Billie Eilish is destroying the country?",
+      "answer": "Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project. Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the context of the claim regarding Billie Eilish and the Trump Administration on October 31, 2020?",
+      "answer": "Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. A leading Trump administration official reportedly tainted a $250 million advertising contract originally intended to \"defeat despair and inspire hope\" amid the pandemic by, among other sadly unsurprising things, excluding public figures they believed were not aligned with Trump or his widely panned policy attempts. A peculiar amount of ire, per the Washington Post, was reserved for Grammy winner Billie Eilish. What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”. \" Trump, his political appointees, and the consultants that they hired also attempted to vet the celebrities who would be used in the ad campaign, omitting anyone who had been critical of Trump or his policies. It looks like they were especially apoplectic about the idea of Billie Eilish being involved. According to a document obtained by the Post, Eilish was vetoed because she's \"not a Trump supporter\" and also because she is \"destroying our country and everything we care about. The brains behind the campaign, Trump’s Assistant Secretary for Public Affairs Michael Caputo, is currently on a 60-day leave after a Facebook Live broadcast in which he baselessly told Trump supporters to prepare for an armed insurrection led by left-wing groups. For her part, Billie Eilish performed \"my future\" at the 2020 Democratic National Convention, so it's unlikely that she would have participated even if the Trump administration asked. The memo included notes to veto hyper-popular Gen-Z singer Billie Eilish, citing that she is “not a Trump supporter” and that she is “destroying our country and everything we care about.” You know it, baby! The administration also vetoed any musicians deemed as Obama liberals, LGBTQ+ supporters, or anyone who had been critical of Trump's campaign, which nixed options like Jennifer Lopez, Christina Aguilera, Adam Levin, and Justin Timberlake from participating. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project. Billie Eilish sparked instant controversy at the MLK Jr. Awards after calling out the Trump administration over ICE raids, civil rights issues, and climate cuts. Some called it brave. Billie Eilish and Jennifer Lopez ‘blacklisted by Trump administration for ad campaign’ None of the celebrities agreed to participate and the campaign has been put on hold - Bookmark Billie Eilish, Jennifer Lopez, and more celebrities were reportedly blacklisted from an ad campaign by the Trump administration. According to The Washington Post, Eilish and Lopez are among multiple celebrities mentioned in documents pertaining to a $250m advertising contract.",
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did any official government agency or spokesperson from the Trump Administration release statements attacking Billie Eilish?",
+      "answer": "UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? A leading Trump administration official reportedly tainted a $250 million advertising contract originally intended to \"defeat despair and inspire hope\" amid the pandemic by, among other sadly unsurprising things, excluding public figures they believed were not aligned with Trump or his widely panned policy attempts. A peculiar amount of ire, per the Washington Post, was reserved for Grammy winner Billie Eilish. Billie Eilish defended her propensity for making public political statements against the Trump administration, ICE and billionaires like Elon Musk, asking Elle magazine, “Why is it controversial?” All reactions: 177 comments 2 shares Like Comment Most relevant YAHOO.COM Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied?’ Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied? A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project.",
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the nature of the source 'Instagram' in relation to this specific claim?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the claim regarding Billie Eilish compare to documented political rhetoric from the Trump Administration during 2020?",
+      "answer": "UPDATE: The Washington Post misrepresented the Trump administration's mention of Billie Eilish in the original document tracking the political views of celebrities as part of an effort to rule them out for ad campaigns. The document was quoting the speech that Eilish made at the Democratic National Convention in August in which she said that Trump was \"destroying our country and everything we care about,\" not that Eilish was. // It appears that the Trump administration recently made politically motivated changes to a planned $250 million advertising campaign that was intended to \"defeat despair and inspire hope\" amidst the coronavirus pandemic. Editor’s Note: A previous version of this story stated that the Trump administration said in a leaked document that Billie Eilish was “destroying our country and everything we care about”. The document had actually quoted Eilish’s own comments about Trump, made at the Democratic National Convention. This story has been amended to remove this inaccuracy. A leaked document has revealed that Billie Eilish was among a number of celebrities and musicians blocked by the Trump administration from an advertising campaign aiming to raise spirits amid the coronavirus pandemic. UPDATED 10/30, 10:15 p.m. ET: An erroneous report from The Washington Post held that the Trump administration described Billie Eilish as someone who is \"destroying our country and everything we care about.\" The quote was pulled from a document compiled by the administration listing several celebrities who were being considered for inclusion in a public health campaign. Correctively, the publication has stated that the report inaccurately attributed the quote to the administration. But it was, in fact, an earlier quote from Eilish, who shared the sentiments in a Bustle interview from August. What did Billie Eilish do for the Trump team to hate her so much? The Trump administration, with its immense power and minimal Hollywood cachet, reportedly aimed to recruit some marquee celebrities for a $250 million COVID-19 advertising campaign. The pricey contract, which the Washington Post reports was aimed to “defeat despair and inspire hope,” put entertainers through a highly politicized vetting process to see if they’d be considered. Grammy-winning superstar Billie Eilish didn’t pass muster, with leaked documents deducing that she isn’t a Trump supporter. Update: Thursday, October 29, 2020, 6:16 pm EST: This post has been corrected after an error emerged in The Washington Post's original reporting. The Trump administration did not say Billie Eilish was \"destroying our country and everything we care about,\" but was quoting her speech at the 2020 Democratic National Convention. Today, the Washington Post reported that a $250 ad campaign ostensibly designed to \"defeat despair\" caused by the coronavirus pandemic was tailored boost Trump's re-election chances. Little surprise there, right? Member-only story No, the Trump administration didn’t accuse Billie Eilish of “destroying our country” The dangers of aggregate journalism in the age of “fake news” Earlier today, news broke in the Washington Post that the Trump administration had been attempting to set up a $250 million PSA campaign to “inspire hope” amid the ongoing coronavirus pandemic, an attempt which now seems to have fallen apart. Trump and a series of political appointees are then said to have omitted anyone who was critical of the President – including Eilish. A document obtained by the Post and Politico compiling artists under consideration for the advertising campaign noted that Eilish was “not a Trump supporter”. The document also noted a statement the singer previously made at the Democratic National Convention, where she said that Trump was “destroying our country and everything we care about”. Entertainment Billie Eilish Is \"Destroying Our Country,\" Leaked Trump Memo Says \"And everything we care about.\" The Trump administration seems to have made some politically motivated changes to a $250 million advertising campaign with hopes to “defeat despair and inspire hope” amidst the coronavirus pandemic. As reported by the Washington Post, Trump’s Assistant Secretary for Public Affairs Michael Caputo proposed that the campaign's theme should be “Helping The President Help The Country,” according to documents obtained from a contractor working on the project. A document detailing the administration's problems with an assortment of \"at least\" 274 artists and celebrities who were being considered for the public health campaign pointed out that Eilish is, in fact, \"not a Trump supporter.\" Furthermore, in the words of the document, the Trump team is convinced the 18-year-old megastar is \"destroying our country and everything we care about. A leading Trump administration official reportedly tainted a $250 million advertising contract originally intended to \"defeat despair and inspire hope\" amid the pandemic by, among other sadly unsurprising things, excluding public figures they believed were not aligned with Trump or his widely panned policy attempts. A peculiar amount of ire, per the Washington Post, was reserved for Grammy winner Billie Eilish. As Trump's appointees and contractors proposed different celebrities to ask to star in the ads, candidates were considered based on their political beliefs and support of Trump. According to leaked documents published by CNBC, the Trump administration asked Billie Eilish to participate. The documents describe Eilish as “not a Trump Supporter” and quote her as saying “[Trump is] destroying our country and everything we care about.\" Out of 274 celebrities considered, 10 were approved. Billie Eilish defended her propensity for making public political statements against the Trump administration, ICE and billionaires like Elon Musk, asking Elle magazine, “Why is it controversial?” All reactions: 177 comments 2 shares Like Comment Most relevant YAHOO.COM Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied?’ Billie Eilish Defends Political Activism: ‘Why Is It Controversial to Step In When Someone’s Getting Bullied? \" Trump, his political appointees, and the consultants that they hired also attempted to vet the celebrities who would be used in the ad campaign, omitting anyone who had been critical of Trump or his policies. It looks like they were especially apoplectic about the idea of Billie Eilish being involved. According to a document obtained by the Post, Eilish was vetoed because she's \"not a Trump supporter\" and also because she is \"destroying our country and everything we care about. The memo included notes to veto hyper-popular Gen-Z singer Billie Eilish, citing that she is “not a Trump supporter” and that she is “destroying our country and everything we care about.” You know it, baby! The administration also vetoed any musicians deemed as Obama liberals, LGBTQ+ supporters, or anyone who had been critical of Trump's campaign, which nixed options like Jennifer Lopez, Christina Aguilera, Adam Levin, and Justin Timberlake from participating. Billie Eilish sparked instant controversy at the MLK Jr. Awards after calling out the Trump administration over ICE raids, civil rights issues, and climate cuts. Some called it brave. The brains behind the campaign, Trump’s Assistant Secretary for Public Affairs Michael Caputo, is currently on a 60-day leave after a Facebook Live broadcast in which he baselessly told Trump supporters to prepare for an armed insurrection led by left-wing groups. For her part, Billie Eilish performed \"my future\" at the 2020 Democratic National Convention, so it's unlikely that she would have participated even if the Trump administration asked.",
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://medium.com/everythings-interesting/no-the-trump-administration-didnt-accuse-billie-eilish-of-destroying-our-country-3771ad9361b6",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.thefader.com/2020/10/29/report-trump-admin-document-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.complex.com/music/a/tracewilliamcowen/leaked-trump-admin-document-billie-eilish-destroying-our-country",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nylon.com/entertainment/billie-eilish-trump-covid-ad",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nme.com/news/music/trump-admin-says-billie-eilish-is-destroying-our-country-and-everything-we-care-about-2803852",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://stereogum.com/2104276/billie-eilish-is-destroying-our-country-and-everything-we-care-about-according-to-leaked-trump-admin-doc/news",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.the-independent.com/arts-entertainment/music/news/billie-eilish-donald-trump-administration-document-country-b1431478.html",
+      "date": "2020-10-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.mic.com/p/what-did-billie-eilish-do-for-the-trump-team-to-hate-her-so-much-40969011",
+      "date": "2020-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://link.springer.com/article/10.1007/s42087-020-00149-z",
+      "date": "2020-10-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nature.com/articles/s41598-017-18007-4",
+      "date": "2017-12-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reutersinstitute.politics.ox.ac.uk/types-sources-and-claims-covid-19-misinformation",
+      "date": "2020-04-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.openpsychologyjournal.com/VOLUME/12/PAGE/216/FULLTEXT/",
+      "date": "2019-12-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7222052/",
+      "date": "2019-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/yahooentertainment/posts/billie-eilish-defended-her-propensity-for-making-public-political-statements-aga/1337800804887110/",
+      "date": "2016-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/awesomeitv/videos/billie-eilish-sparked-instant-controversy-at-the-mlk-jr-awards-after-calling-out/1208678661468389/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 141,
+     "n_urls_after_bm25": 15,
+     "n_chunks": 946
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "Seems that the Wzshington post accused the singer wrong lyrics. Therefore the claim is refuted",
+   "questions": [
+    {
+     "question": "Has the Trump administration voiced that Billie Eilish was destroying the country",
+     "answers": [
+      {
+       "answer": "A Washington Post story wrongly claimed the Trump administration accused Billie Eilish of “destroying our country",
+       "answer_type": "Extractive",
+       "source_url": "https://web.archive.org/web/20201101145631/https://nypost.com/2020/10/30/washington-post-wrongly-claims-trump-officials-criticized-billie-eilish/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201103001419/https://leadstories.com/hoax-alert/2020/11/fact-check-trump-administration-did-not-claim-songwriter-billie-eilish-was-destroying-country-in-leaked-documents.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The claim that the Trump administration described Billie Eilish as 'destroying our country' is false; the quote was actually made by Eilish herself regarding Trump, and the actual leaked documents described Billie Eilish as a person who stated that Trump is destroying the country, rather than the administration calling her that, which The Washington Post initially published in a report that incorrectly attributed Billie Eilish's comments about Trump to the administration's vetting team.",
+     "support_span": "Eilish was the one who said that Trump was ruining the nation and America's values during August's Democratic National Convention -- not the other way around. | The Washington Post, which initially made the mix-up on October 29, 2020... An earlier version of this report incorrectly attributed Billie Eilish's comment about Trump \"destroying our country and everything we care about,\" to the team vetting her, rather than to her own remarks. | The doc actually says Billie \"stated he 'is destroying our country and everything we care about'\" ... according to Vice. In other words, the doc was just summing up Billie's views on Trump."
+    },
+    {
+     "statement": "The New York Post identified and reported on the error made by The Washington Post regarding the misattributed quote, while the misinformation was spread on social media by the website Baller Alert, which claimed the Trump administration's documents described Eilish as 'destroying our country'.",
+     "support_span": "The New York Post noted in its story that The Washington Post corrected the error. ... A Washington Post story wrongly claimed the Trump administration accused Billie Eilish of \"destroying our country\" -- then spread like wildfire among the entertainment industry. | The claim appears in a post... published to Instagram by the website Baller Alert on October 31, 2020. The post read: Trump Administration Document Claims Billie Eilish Is \"Destroying Our Country And Everything We Care About\""
+    }
+   ],
+   "justification": "The evidence indicates that the claim is a misattribution resulting from a reporting error. While leaked documents did mention the phrase 'destroying our country,' they did so to summarize Billie Eilish's own criticisms of Donald Trump, rather than as a description of Eilish by the Trump administration. The Washington Post initially misattributed these comments to the administration's vetting team, a mistake that was later corrected and subsequently spread via social media platforms like Baller Alert.",
+   "article_url": "https://web.archive.org/web/20201103001419/https://leadstories.com/hoax-alert/2020/11/fact-check-trump-administration-did-not-claim-songwriter-billie-eilish-was-destroying-country-in-leaked-documents.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

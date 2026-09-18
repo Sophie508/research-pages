@@ -1,0 +1,280 @@
+{
+ "key": "averitec/dev/93",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 93,
+ "claim": "US Judge Amy Coney Barrett graduated at the top of her law school class at Notre Dame Law School",
+ "claim_date": "2020-10-14",
+ "speaker": null,
+ "reporting_source": "facebook user post",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Conflicting Evidence/Cherrypicking",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim, I will evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that US Judge Amy Coney Barrett graduated at the top of her law school class at Notre Dame Law School.\n\n2.  **Evaluate the Evidence:**\n    *   **Q1, Q2, Q3, Q5, Q6, Q7, Q8, Q9:** These nine question-answer pairs consistently state that the provided evidence **does not contain specific information** regarding her exact class ranking. While they mention she is a graduate, a \"brilliant legal scholar,\" and has \"numerous academic honors,\" they explicitly note that her specific rank (whether she was #1 or at the top) is not mentioned.\n    *   **Q4:** This answer provides a specific detail: \"Amy Coney Barrett graduated **summa cum laude** from Notre Dame Law School, where she also received the school's highest honor.\" While *summa cum laude* denotes high academic achievement, it does not inherently mean she was at the very top of the class (which would be a specific rank).\n    *   **Q10:** This answer directly supports the claim, stating: \"Yes, Amy Coney Barrett graduated at the top of her class at Notre Dame Law School. According to the evidence, her academic achievements include being a 'top graduate of Notre Dame Law School.'\"\n\n3.  **Synthesize and Resolve Conflicts:** There is a direct conflict between the majority of the evidence (Q1-Q3, Q5-Q9), which states the information is **not provided**, and the specific answers (Q4 and Q10), which claim she was a \"top graduate\" or \"graduated at the top.\" \n\n    In fact, the evidence is highly inconsistent. Most answers state the information is missing, while Q10 explicitly confirms the claim using a phrase (\"top graduate\") that is not corroborated by the other answers. Because the evidence provided is contradictory—with the vast majority of the Q&A pairs stating the information is unavailable while one specifically claims it is true—the most accurate assessment is that the evidence is conflicting.\n\n**Verdict: Conflicting Evidence/Cherrypicking**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did Amy Coney Barrett graduate at the top of her class at Notre Dame Law School?",
+      "answer": "Based on the provided evidence, it is not mentioned whether Amy Coney Barrett graduated at the top of her class at Notre Dame Law School. The text states that she is a 1997 graduate and that the law school's dean described her as a \"brilliant legal scholar,\" but it does not provide specific details regarding her class ranking.",
+      "url": "https://www.instagram.com/p/CFnZaKHJ2iO/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What academic achievements or distinctions are mentioned regarding Amy Coney Barrett's time at Notre Dame Law School?",
+      "answer": "Based on the provided evidence, the text mentions that Amy Coney Barrett is a graduate of Notre Dame Law School and that her career is marked by \"numerous academic honors.\" However, the evidence does not specifically state that she graduated at the top of her class.",
+      "url": "https://trumpwhitehouse.archives.gov/scotus/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is Amy Coney Barrett's academic background regarding her graduation from Notre Dame Law School?",
+      "answer": "Based on the provided evidence, Amy Coney Barrett is a 1997 graduate of the Notre Dame Law School. While the text notes that she has earned high praise from the Law School Dean for her intellect and scholarship, it does not specifically state whether she graduated at the top of her class.",
+      "url": "https://news.nd.edu/news/notre-dame-law-school-professor-barrett-nominated-to-us-supreme-court/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was Amy Coney Barrett's academic standing upon graduating from Notre Dame Law School?",
+      "answer": "Amy Coney Barrett graduated **summa cum laude** from Notre Dame Law School, where she also received the school's highest honor.",
+      "url": "https://www.facebook.com/groups/1225816981709582/posts/1915594019398538/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence confirm that Amy Coney Barrett graduated at the top of her class at Notre Dame Law School?",
+      "answer": "No, the provided evidence does not confirm that Amy Coney Barrett graduated at the top of her class at Notre Dame Law School. While the text mentions her \"academic success\" and notes that she was named \"Distinguished Professor of the Year\" at Notre Dame Law School, it does not contain specific information regarding her class ranking upon graduation.",
+      "url": "https://www.presidency.ucsb.edu/documents/fact-sheet-judge-amy-coney-barretts-exceptional-legal-experience-expertise-and-judicial",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Amy Coney Barrett graduate at the top of her class at Notre Dame Law School?",
+      "answer": "Based on the provided evidence, it is not mentioned whether Amy Coney Barrett graduated at the top of her class at Notre Dame Law School. The text confirms that she is an alumna (class of ’97 J.D.) and a professor at the school, but it does not provide details regarding her specific class ranking.",
+      "url": "https://law.nd.edu/news-events/news/nd-law-school-hosts-investiture-of-judge-amy-coney-barrett/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Amy Coney Barrett graduate at the top of her class at Notre Dame Law School?",
+      "answer": "Based on the evidence provided, it is confirmed that Amy Coney Barrett is a graduate of Notre Dame Law School; however, the text does not contain information regarding whether she graduated at the top of her class.",
+      "url": "https://en.wikipedia.org/wiki/Amy_Coney_Barrett",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Amy Coney Barrett graduate at the top of her class at Notre Dame Law School?",
+      "answer": "Based on the provided evidence, there is no information regarding Amy Coney Barrett's academic ranking or whether she graduated at the top of her class at Notre Dame Law School. The text focuses on the circumstances surrounding her Supreme Court nomination and the dismissal of social media claims regarding the reasons for her selection.",
+      "url": "https://www.snopes.com/fact-check/trump-barrett-looks-nominated/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Amy Coney Barrett graduate at the top of her class at Notre Dame Law School?",
+      "answer": "Based on the provided evidence, it is not possible to determine if Amy Coney Barrett graduated at the top of her class at Notre Dame Law School. While the text describes her as a \"highly decorated scholar\" with a \"distinguished academic background\" and a former Notre Dame professor, it does not explicitly state her specific class ranking or whether she graduated at the top of her class.",
+      "url": "https://www.scotusblog.com/2020/09/profile-of-a-potential-nominee-amy-coney-barrett/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Amy Coney Barrett graduate at the top of her class at Notre Dame Law School?",
+      "answer": "Yes, Amy Coney Barrett graduated at the top of her class at Notre Dame Law School. According to the evidence, her academic achievements include being a \"top graduate of Notre Dame Law School.\"",
+      "url": "https://www.facebook.com/TheCenlaReport/posts/judge-amy-coney-barrettborn-and-raised-in-new-orleanswill-be-the-first-mother-of/3115232595271439/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://news.nd.edu/news/notre-dame-law-school-professor-barrett-nominated-to-us-supreme-court/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheCenlaReport/posts/judge-amy-coney-barrettborn-and-raised-in-new-orleanswill-be-the-first-mother-of/3115232595271439/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.scotusblog.com/2020/09/profile-of-a-potential-nominee-amy-coney-barrett/",
+      "date": "2020-09-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://law.nd.edu/news-events/news/nd-law-school-hosts-investiture-of-judge-amy-coney-barrett/",
+      "date": "2018-02-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.instagram.com/p/CFnZaKHJ2iO/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://trumpwhitehouse.archives.gov/scotus/",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.presidency.ucsb.edu/documents/fact-sheet-judge-amy-coney-barretts-exceptional-legal-experience-expertise-and-judicial",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1225816981709582/posts/1915594019398538/",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cbsnews.com/news/amy-coney-barrett-letter-concern-rhodes-college-alumni/",
+      "date": "2020-10-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Amy_Coney_Barrett",
+      "date": "2017-05-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/mitchmcconnell/posts/i-had-the-opportunity-to-meet-with-judge-barrett-earlier-today-i-left-our-discus/3462236900481643/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/camanpour/posts/gloria-steinem-reacts-to-the-nomination-of-amy-coney-barrett-its-like-having-phy/10164298543585370/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://apnews.com/article/election-2020-ruth-bader-ginsburg-chicago-us-supreme-court-courts-547b7de5b6ebabedee46b08b5bb37141",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/us-news/2020/sep/26/amy-coney-barrett-supreme-court-donald-trump-people-of-praise",
+      "date": "2020-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/watch-after-bitter-debate-trump-and-biden-speak-at-charity-event",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ABCNewsLive/videos/professor-nicole-garnett-friend-and-colleague-of-judge-amy-coney-barrett-talks-a/368411930880001/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wral.com/archive/19309386/",
+      "date": "2020-09-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/trump-barrett-looks-nominated/",
+      "date": "2020-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 18,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "Judge Amy Coney Barrett graduated at the top of her law school class",
+   "questions": [
+    {
+     "question": "Which School of Law did US Judge Amy Coney Barrett graduate from?",
+     "answers": [
+      {
+       "answer": "Notre Dame Law School.",
+       "answer_type": "Extractive",
+       "source_url": "https://www.wicker.senate.gov/2020/9/wicker-welcomes-nomination-of-judge-amy-coney-barrett-to-u-s-supreme-court",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did US Judge Amy Coney Barrett do well in Notre Dame Law School?",
+     "answers": [
+      {
+       "answer": "Amy Coney Barrett graduated first in her class in law school.",
+       "answer_type": "Abstractive",
+       "source_url": "https://www.politico.com/news/2020/09/20/amy-coney-barrett-supreme-court-419219",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210416111205/https://www.usatoday.com/story/news/factcheck/2020/10/18/fact-check-claim-harris-barrett-legal-backgrounds-true/3669109001/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Amy Coney Barrett graduated at the top of her class at Notre Dame Law School, and the claim that Amy Coney Barrett graduated at the top of her law school class is rated as true.",
+     "support_span": "It's also true that Barrett graduated at the top of her class at Notre Dame Law School, per Politico | Based on our research, the claims about both Harris and Barrett are TRUE. ... Amy Coney Barrett graduated law school at the top of her class."
+    }
+   ],
+   "justification": "Multiple sources confirm that Amy Coney Barrett graduated at the top of her class at Notre Dame Law School, with reports from Politico and other research explicitly validating this claim.",
+   "article_url": "https://web.archive.org/web/20210416111205/https://www.usatoday.com/story/news/factcheck/2020/10/18/fact-check-claim-harris-barrett-legal-backgrounds-true/3669109001/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

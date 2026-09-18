@@ -1,0 +1,392 @@
+{
+ "key": "averitec/dev/65",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 65,
+ "claim": "Someone who couldn't afford health care under Barack Obama's Affordable Care Act gets penalized $10,000",
+ "claim_date": "2020-10-20",
+ "speaker": "Capitalism",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://web.archive.org/web/20210116144247/https://www.facebook.com/Capitalists/photos/a.226491315514/10164464788875515",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that individuals who cannot afford health care under the Affordable Care Act (ACA) are penalized a specific amount: $10,000.\n\n2.  **Evaluate Evidence for Specificity and Accuracy:**\n    *   **Q1 & Q2:** These answers explain how the penalty (Individual Shared Responsibility Payment) was actually calculated. It was based on Modified Adjusted Gross Income (MAGI) and family size, and was capped at the national average premium for a bronze-level plan. The average household penalty in 2016 was estimated at **$969**, which is significantly lower than $10,000.\n    *   **Q5, Q6, Q7, Q8, and Q10:** These answers explicitly state that the ACA does **not** specify a fixed $10,000 penalty. They confirm that the provided evidence contains no mention of a $10,000 fine for those unable to afford healthcare.\n    *   **Exemptions:** Q1 notes that \"unaffordable coverage\" is actually a qualifying **exemption** to avoid the penalty, directly contradicting the claim that those who cannot afford it are penalized.\n\n3.  **Determine the Verdict:**\n    *   The claim states a specific figure ($10,000) that is not supported by the evidence.\n    *   The evidence provides the actual mechanism of the penalty (based on income/family size) and provides a much lower average figure ($969).\n    *   Crucially, the evidence states that being unable to afford coverage is an exemption, meaning those people would not be penalized at all.\n    *   Since the evidence provides information that directly contradicts the specific amount and the logic of the claim (that unaffordability leads to a penalty), the claim is refuted.\n\n**Verdict: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Question: How was the penalty for not having health insurance under the Affordable Care Act calculated and what were the potential exemptions?",
+      "answer": "Under the Affordable Care Act's Individual Mandate (officially the Individual Shared Responsibility Payment), the penalty was calculated based on an individual's **modified adjusted gross income (MAGI) and family size**. The penalty was applied as either a flat dollar amount or a percentage of income, with the amount capped at the national average premium for a bronze-level health plan.\n\nTo avoid this penalty, individuals could qualify for several **exemptions**, including:\n*   **Unaffordable coverage:** When health insurance was deemed unaffordable.\n*   **Low income:** For individuals meeting certain income thresholds.\n*   **Religious affiliations:** For those with specific religious exemptions.\n*   **Short coverage gaps:** For gaps in coverage lasting less than three consecutive months.",
+      "url": "https://obamacarefacts.com/obamacare-individual-mandate/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How much is the average penalty for those who do not have health insurance under the Affordable Care Act?",
+      "answer": "Based on the provided evidence, the average household penalty for those who are uninsured and do not meet specific exemptions was estimated to be **$969** in 2016.",
+      "url": "https://www.kff.org/private-insurance/the-cost-of-the-individual-mandate-penalty-for-the-remaining-uninsured/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the impact of eliminating the Affordable Care Act's individual mandate penalty on health insurance enrollment and premiums?",
+      "answer": "Based on the provided evidence, the impact of eliminating the Affordable Care Act's individual mandate penalty is uncertain due to nonfinancial factors like political beliefs, inertia, and a \"taste for compliance.\" However, the study estimates the following potential outcomes:\n\n*   **Health Insurance Enrollment:** Enrollment could decrease by between **2.8 million and 13 million people**.\n*   **Premiums:** Premiums for bronze plans may rise by **3% to 13%**.",
+      "url": "https://www.commonwealthfund.org/publications/fund-reports/2018/jul/eliminating-individual-mandate-penalty-behavioral-factors",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the criticism regarding the impact of the health insurance mandate fine on low-income individuals?",
+      "answer": "The criticism regarding the impact of the health insurance mandate fine on low-income individuals is that it is impractical to fine them when they are unable to afford the insurance premiums.",
+      "url": "https://www.facebook.com/ValleyNewsLive/posts/the-repeal-of-an-unpopular-fine-for-people-without-health-insurance-has-had-litt/10157347183452326/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the Affordable Care Act impose a $10,000 penalty on individuals who cannot afford health insurance?",
+      "answer": "Based on the provided evidence, the Affordable Care Act (ACA) does not specify a fixed $10,000 penalty for individuals who cannot afford health insurance. \n\nThe evidence states that individuals \"may face tax penalties for failing to maintain coverage unless they qualify for specific exemptions,\" and it mentions that there are \"various hardship exemptions for those unable to obtain insurance.\" However, the text does not mention a specific dollar amount of $10,000.",
+      "url": "https://apps.npr.org/affordable-care-act-questions/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that individuals who cannot afford healthcare under the Affordable Care Act are penalized $10,000?",
+      "answer": "No, the provided evidence does not support the claim. The evidence discusses a social media post regarding a Florida resident's struggle with high premiums and rising deductibles, as well as the polarized debate surrounding the Affordable Care Act. However, the text contains no mention of a $10,000 penalty for individuals who cannot afford healthcare.",
+      "url": "https://www.facebook.com/DrNealDunnFL2/posts/just-heard-from-another-floridian-who-is-being-hurt-by-obamacare-she-and-her-hus/356948454752417/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the Affordable Care Act impose a $10,000 penalty on individuals who cannot afford health care?",
+      "answer": "Based on the provided evidence, there is no mention of a $10,000 penalty imposed on individuals who cannot afford health care. The document addresses claims regarding employment, premium costs, medical care, and various conspiracy theories, but it does not contain information to support or refute the specific claim regarding a $10,000 penalty for those unable to afford coverage.",
+      "url": "https://www.factcheck.org/2013/09/obamacare-myths/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that individuals unable to afford healthcare under the Affordable Care Act face a $10,000 penalty?",
+      "answer": "No, the provided evidence does not support the claim. The text discusses the legislative debates surrounding healthcare reform in 2009, the tension between incremental reform and single-payer systems, and the criticisms regarding rising costs and mortality rates for the uninsured. It contains no mention of specific financial penalties or a $10,000 fine for individuals unable to afford healthcare under the Affordable Care Act.",
+      "url": "http://www.pnhp.org/news/categories/Articles%20of%20Interest/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence address the claim regarding penalties for those unable to afford health care under the Affordable Care Act?",
+      "answer": "No, the provided evidence does not address the claim. The evidence focuses exclusively on misconceptions regarding Veterans Affairs (VA) health care eligibility and benefits; it does not contain any information regarding the Affordable Care Act or penalties for individuals unable to afford health care under that specific legislation.",
+      "url": "https://news.va.gov/586/busting-myths-about-va-health-care/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence support the claim that individuals unable to afford healthcare under the Affordable Care Act are subject to a $10,000 penalty?",
+      "answer": "No, the provided evidence does not support the claim. The text focuses on Joe Biden's commitment to the Affordable Care Act (ACA) and summarizes various public opinions regarding its effectiveness, such as debates over \"Medicare for All,\" the high cost of premiums, and the financial stability of Medicare. There is no mention of a $10,000 penalty for individuals unable to afford healthcare under the ACA.",
+      "url": "https://www.facebook.com/joebiden/posts/the-aca-was-and-is-a-big-deal-it-took-generations-of-presidents-trying-to-expand/10156373865466104/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/DrNealDunnFL2/posts/just-heard-from-another-floridian-who-is-being-hurt-by-obamacare-she-and-her-hus/356948454752417/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/prageru/posts/obamacare-could-never-have-worked-heres-why/2525318267511014/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/joebiden/posts/the-aca-was-and-is-a-big-deal-it-took-generations-of-presidents-trying-to-expand/10156373865466104/",
+      "date": "2003-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://apps.npr.org/affordable-care-act-questions/",
+      "date": "2013-06-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/azpublicmedia/videos/would-universal-healthcare-really-work-in-the-us/125054485396531/",
+      "date": "2001-09-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://obamacarefacts.com/obamacare-individual-mandate/",
+      "date": "2020-08-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://obamawhitehouse.archives.gov/the-press-office/2012/01/24/remarks-President-state-union-address",
+      "date": "2012-01-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ValleyNewsLive/posts/the-repeal-of-an-unpopular-fine-for-people-without-health-insurance-has-had-litt/10157347183452326/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://cga.ct.gov/2019/pub/chap_700c.htm",
+      "date": "2010-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/berniesanders/posts/watch-this-canadian-capitalist-make-the-case-for-why-the-free-market-doesnt-work/2655901807798140/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2013/09/obamacare-myths/",
+      "date": "2013-09-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/payingtillithurts/posts/2662906580647840/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.kff.org/private-insurance/the-cost-of-the-individual-mandate-penalty-for-the-remaining-uninsured/",
+      "date": "2015-12-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.pnhp.org/news/categories/Articles%20of%20Interest/",
+      "date": "2006-06-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://news.va.gov/586/busting-myths-about-va-health-care/",
+      "date": "2010-11-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.presidency.ucsb.edu/documents/2012-democratic-party-platform",
+      "date": "2012-09-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.commonwealthfund.org/publications/fund-reports/2018/jul/eliminating-individual-mandate-penalty-behavioral-factors",
+      "date": "2018-07-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 17,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that under Barack Obama's Affordable Care Act (ACA), individuals who could not afford health care were penalized $10,000. The claim was made on October 20, 2020, in the US.\n2. The evidence shows that while the ACA did include an \"individual mandate\" penalty (the shared responsibility payment), it was not a flat $10,000 fine. The penalty was calculated as the greater of a percentage of income or a specific dollar amount (e.g., $695 per adult in 2017). Crucially, the evidence states that the ACA included specific exemptions for those who could not afford coverage (e.g., if coverage cost more than 8% of income). Furthermore, the penalty was capped at the national average cost of a \"bronze\" plan; while a family of three or more might have seen a cap around $12,420 in 2015, the penalty was not a $10,000 fine for \"someone who couldn't afford it.\" In fact, the law specifically exempted those who couldn't afford it. Additionally, the federal penalty was reduced to $0 starting in the 2019 tax year.\n3. The claim contains several inaccuracies: it misstates the penalty amount as a flat $10,000, ignores the existence of affordability exemptions (which directly contradicts the \"couldn't afford\" part of the claim), and fails to account for the fact that the federal penalty was eliminated by 2019.\n4. The evidence directly refutes the claim. The penalty was not a flat $10,000, and the law specifically provided exemptions for those who could not afford health insurance, meaning they would not be penalized for that specific reason.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the Affordable Care Act (ACA) impose a $10,000 penalty on individuals who cannot afford health insurance?",
+      "answer": "The Cost of the Individual Mandate Penalty for the Remaining Uninsured The Affordable Care Act (ACA) expands health insurance coverage by offering both penalties and incentives. Low and middle income households who earn too much to qualify for Medicaid can purchase subsidized coverage on the health insurance marketplaces using premium assistance tax credits. Individuals who do not obtain coverage, through any source, are subject to a tax penalty unless they meet certain exemptions. Not everyone was subject to the no health insurance penalty. The ACA built in a series of exemptions recognizing that coverage was not accessible or affordable for all taxpayers. For the years the penalty was in effect, individuals could qualify for an exemption if they met any of the following criteria: - Income below the filing threshold. If household income fell below the federal income tax return filing threshold, no penalty applied. - Coverage was unaffordable. The federal individual mandate remains part of the ACA statute, but the penalty has been $0 since the 2019 tax year. You will not owe a federal tax for being uninsured. Several states, including California, Massachusetts, and New Jersey, enforce their own mandates with active financial penalties. What was the penalty for not having health insurance under the ACA? The no health insurance penalty was the greater of two calculations: a percentage of household income above the filing threshold (2. In terms of the dollar-amount prong of the penalty, the applicable dollar amount for each uninsured household member is $695 for 2017. For a household member who’s under age 18, the applicable dollar amounts are cut by 50%, to $347.50. The maximum penalty under this prong for 2017 is $2,085 (300% of $695). The final penalty amount per person can’t exceed the national average cost of “bronze coverage” (the cheapest category of ACA-compliant coverage) for your household. The no health insurance penalty under the Affordable Care Act (ACA) was one of the most consequential tax provisions in modern U.S. health care policy. Officially called the “individual shared responsibility payment,” this penalty required most Americans to maintain minimum essential health insurance coverage or face a tax on their federal return. The federal penalty was effectively eliminated starting in 2019, but understanding how it worked, and whether state-level penalties may still apply, remains important for taxpayers, employers, and anyone making health coverage decisions. The penalty can be no more than the national average premium for a bronze plan (the minimum coverage available in the individual insurance market under the ACA), which was $2,484 in 2015 for single coverage and $12,420 for a family of three or more children. The penalty is pro-rated for people who are uninsured for a portion of the year and waived for people who have a period without insurance of less than three months. As the table below shows, the penalty amounts have increased substantially since 2014. ” Known as the “individual mandate,” the Affordable Care Act (ACA) requires most Americans who can afford coverage to buy insurance or pay the tax. About six million people will chose to pay a penalty each year instead of purchasing coverage, federal officials estimate. Foregoing coverage means consumers take the risk of being saddled with high health care bills, one of the primary reasons people declare personal bankruptcy. The statutory framework for this calculation appears in Section 5000A of the Internal Revenue Code, which establishes the requirement to maintain minimum essential coverage and the shared responsibility payment. Penalty Amounts by Year The ACA tax penalty escalated during its active years: - 2014: The greater of 1% of income above the filing threshold or $95 per adult ($47.50 per child), capped at $285. - 2015: The greater of 2% of income or $325 per adult ($162. The mandate remains on the books, but the penalty is zero. Is the Individual Mandate Still in Effect? The federal individual mandate technically still exists in the ACA statute. Since the Tax Cuts and Jobs Act of 2017 set the penalty to $0 beginning in 2019, there is no federal financial consequence for going without health insurance today. You will not owe a federal tax for being uninsured. Several states have enacted their own individual mandates with enforceable penalties. Employers: Be aware (or beware) of a harsh payroll tax penalty If federal income tax and employment taxes (including Social Security) are withheld from employees’ paychecks and not handed over to the IRS, a harsh... 2 min read Marketing 8/1/17 12:00 AM Now that Affordable Care Act (ACA) repeal and replacement efforts appear to have collapsed, at least for the time being, it’s a good time for a refresher on the tax penalty the ACA imposes on individuals who fail to have “minimum essential” health insurance coverage for any month of the year. The goal is to treat ACA compliance as a year-round process rather than a filing-season scramble. Key Takeaways on the No Health Insurance Penalty The ACA’s individual mandate reshaped how Americans think about health insurance and taxes. The federal penalty for no health insurance was active from 2014 through 2018, peaking at 2. 1 We estimate that 78% of people who are uninsured and marketplace eligible would be subject to the individual mandate penalty if they remain uninsured in 2016, including 75% of people who are eligible for premium subsidies and 84% of people who are not. Among individuals who were uninsured in early 2015 and eligible to enroll in the marketplace, the average household penalty in 2016 is $969. This is up 47% from the average estimated penalty this year of $661. How the Individual Mandate Works People are generally required to be covered by a health insurance policy which meets minimum standards or pay a tax penalty. Some individuals are exempt from the penalty, including undocumented immigrants, those whose incomes are so low that they are not required to file taxes, people with incomes below 138% of poverty in the “Medicaid gap” in states that have not expanded eligibility for Medicaid under the ACA, people who have to pay more than 8. Abstract - Issue: The Affordable Care Act’s individual mandate requires most Americans to enroll in health insurance. In 2017, Congress eliminated financial penalties associated with failing to comply with the mandate, which becomes effective in 2019. - Goal: To review the evidence for how individual mandates affect enrollment decisions, and to assess the effect of eliminating the penalty on enrollment, premiums, and the federal deficit. - Methods: We reviewed the literature on health insurance mandates and conducted analysis using the RAND COMPARE microsimulation model. The taxpayer owed whichever prong produced the higher number. There was also an overall ceiling: the final penalty could never exceed the national average annual premium for a “bronze” plan, the lowest tier of ACA-compliant marketplace coverage, for the taxpayer’s household size. This cap protected high-income individuals from owing a penalty greater than what coverage would have actually cost. If coverage existed for part of the year, the penalty was prorated on a monthly basis using one-twelfth of the annual figures for each uncovered month. Affordable Care Act [edit]In the United States, the Affordable Care Act (ACA) signed in 2010 by President Barack Obama imposed a health insurance mandate which took effect in 2014. Under this law, insurance companies are restricted in their ability to alter insurance rates based on the current health of the individual buying the insurance. Without incentives or a mandate, healthier individuals would tend to opt out of the system, since they make fewer claims and their premiums support the claims of the less-healthy, for the time being. Individuals with financial hardships do not face the penalty, including those with incomes so low they don’t need to file a tax return or whose coverage would cost more than 8 percent of their income. “Some people who think they may be liable for a payment may qualify for an exemption because they cannot find affordable coverage,” said Flores. Do any states still have a health insurance penalty? Yes. California, Massachusetts, New Jersey, Rhode Island, and the District of Columbia all have active individual mandates with enforceable penalties. Each state sets its own rules for exemptions and penalty calculations, so residents should check their state’s specific requirements. What qualifies as minimum essential coverage under the ACA? Congress reduced the federal penalty amount to $0 starting with the 2019 tax year as part of the Tax Cuts and Jobs Act, but the mandate language itself remains in the statute. The IRS guidance on the individual shared responsibility provision continues to document how the rule applied during its active years. Who Was Exempt From the Affordable Care Act Penalty? Those who are eligible for premium subsidies will face an average household penalty of $738 in 2016, while the average household penalty totals $1,450 for uninsured individuals not eligible for any financial assistance. About 7 million uninsured people are eligible for marketplace premium subsidies and are a key target group for increasing marketplace enrollment. Almost half (48%) of them could, in fact, buy a bronze plan for a zero premium contribution or for less than the penalty they would owe for remaining uninsured, including 28% who could buy a bronze plan using their premium subsidy for a zero premium. In other words, 3.",
+      "url": "https://www.kff.org/private-insurance/the-cost-of-the-individual-mandate-penalty-for-the-remaining-uninsured/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the actual penalty for not having health insurance under the ACA individual mandate?",
+      "answer": "The federal individual mandate remains part of the ACA statute, but the penalty has been $0 since the 2019 tax year. You will not owe a federal tax for being uninsured. Several states, including California, Massachusetts, and New Jersey, enforce their own mandates with active financial penalties. What was the penalty for not having health insurance under the ACA? The no health insurance penalty was the greater of two calculations: a percentage of household income above the filing threshold (2. The mandate remains on the books, but the penalty is zero. Is the Individual Mandate Still in Effect? The federal individual mandate technically still exists in the ACA statute. Since the Tax Cuts and Jobs Act of 2017 set the penalty to $0 beginning in 2019, there is no federal financial consequence for going without health insurance today. You will not owe a federal tax for being uninsured. Several states have enacted their own individual mandates with enforceable penalties. If an individual or family member went without qualifying coverage for any month and did not qualify for an exemption, they owed a penalty for no health insurance when filing their federal tax return. The mandate was designed to expand the insurance pool, keeping premiums more stable by ensuring healthier individuals participated in the market alongside those with higher medical costs. The individual mandate took effect in 2014 and carried escalating penalties through 2018. The no health insurance penalty under the Affordable Care Act (ACA) was one of the most consequential tax provisions in modern U.S. health care policy. Officially called the “individual shared responsibility payment,” this penalty required most Americans to maintain minimum essential health insurance coverage or face a tax on their federal return. The federal penalty was effectively eliminated starting in 2019, but understanding how it worked, and whether state-level penalties may still apply, remains important for taxpayers, employers, and anyone making health coverage decisions. The Cost of the Individual Mandate Penalty for the Remaining Uninsured The Affordable Care Act (ACA) expands health insurance coverage by offering both penalties and incentives. Low and middle income households who earn too much to qualify for Medicaid can purchase subsidized coverage on the health insurance marketplaces using premium assistance tax credits. Individuals who do not obtain coverage, through any source, are subject to a tax penalty unless they meet certain exemptions. The goal is to treat ACA compliance as a year-round process rather than a filing-season scramble. Key Takeaways on the No Health Insurance Penalty The ACA’s individual mandate reshaped how Americans think about health insurance and taxes. The federal penalty for no health insurance was active from 2014 through 2018, peaking at 2. Individual mandate penalties are assessed during the annual tax filing process; payments are made the year after the coverage lapse occurred. Per the Tax Cut and Jobs Act of 2017, the penalty will be eliminated beginning in 2019 although the act did not change the legal requirement to hold minimum essential health insurance coverage. It also left other components of the ACA, including regulations in the individual market, in place. The ACA allowed several exemptions to the individual mandate penalty payments. Abstract - Issue: The Affordable Care Act’s individual mandate requires most Americans to enroll in health insurance. In 2017, Congress eliminated financial penalties associated with failing to comply with the mandate, which becomes effective in 2019. - Goal: To review the evidence for how individual mandates affect enrollment decisions, and to assess the effect of eliminating the penalty on enrollment, premiums, and the federal deficit. - Methods: We reviewed the literature on health insurance mandates and conducted analysis using the RAND COMPARE microsimulation model. The penalty can be no more than the national average premium for a bronze plan (the minimum coverage available in the individual insurance market under the ACA), which was $2,484 in 2015 for single coverage and $12,420 for a family of three or more children. The penalty is pro-rated for people who are uninsured for a portion of the year and waived for people who have a period without insurance of less than three months. As the table below shows, the penalty amounts have increased substantially since 2014. Not everyone was subject to the no health insurance penalty. The ACA built in a series of exemptions recognizing that coverage was not accessible or affordable for all taxpayers. For the years the penalty was in effect, individuals could qualify for an exemption if they met any of the following criteria: - Income below the filing threshold. If household income fell below the federal income tax return filing threshold, no penalty applied. - Coverage was unaffordable. 1 We estimate that 78% of people who are uninsured and marketplace eligible would be subject to the individual mandate penalty if they remain uninsured in 2016, including 75% of people who are eligible for premium subsidies and 84% of people who are not. Among individuals who were uninsured in early 2015 and eligible to enroll in the marketplace, the average household penalty in 2016 is $969. This is up 47% from the average estimated penalty this year of $661. If you live in one of these states, you may still face a no health insurance penalty on your state tax return: - California requires residents to maintain qualifying coverage or pay a penalty calculated similarly to the original federal formula. - Massachusetts has maintained its own individual mandate since before the ACA, with penalties administered through the state tax system. - New Jersey imposes a shared responsibility payment on uninsured residents. - Rhode Island and the District of Columbia also have active mandate requirements. - Vermont has a reporting requirement but does not currently impose a financial penalty. Whether an exemption applied was critical because even a single uninsured month without a valid exemption triggered a prorated penalty calculation. Taxpayers claimed exemptions on Form 8965, attaching it to the federal return for the year in question. How Was the ACA Tax Penalty Calculated? The penalty for no health insurance was not a flat fee for everyone. Do any states still have a health insurance penalty? Yes. California, Massachusetts, New Jersey, Rhode Island, and the District of Columbia all have active individual mandates with enforceable penalties. Each state sets its own rules for exemptions and penalty calculations, so residents should check their state’s specific requirements. What qualifies as minimum essential coverage under the ACA? ” Known as the “individual mandate,” the Affordable Care Act (ACA) requires most Americans who can afford coverage to buy insurance or pay the tax. About six million people will chose to pay a penalty each year instead of purchasing coverage, federal officials estimate. Foregoing coverage means consumers take the risk of being saddled with high health care bills, one of the primary reasons people declare personal bankruptcy. How the Individual Mandate Works People are generally required to be covered by a health insurance policy which meets minimum standards or pay a tax penalty. Some individuals are exempt from the penalty, including undocumented immigrants, those whose incomes are so low that they are not required to file taxes, people with incomes below 138% of poverty in the “Medicaid gap” in states that have not expanded eligibility for Medicaid under the ACA, people who have to pay more than 8. The Tax Cuts and Jobs Act of 2017 reduced the individual mandate penalty to zero, while keeping the requirement on the books, raising the question of whether the requirement itself has bearing on enrollment, even if the penalty is zero. In its November 2017 report, the CBO assumed that “with no penalty at all, only a small number of people who enroll in insurance because of the mandate under current law would continue to do so solely because of a willingness to comply with the law.”25 Knowledge of the penalty. Other groups exempted from the individual mandate include undocumented immigrants, Indian tribe members, individuals whose religion objects to health insurance, Americans living abroad, members of a health care sharing ministry and people in prison. How Much Is The Tax? The penalty for not having health insurance involves a flat fee based on the size of your household or a percentage of your taxable income, whichever is greater. The individual mandate was phased-in over a three-year period from 2014 through 2016, and had two distinct components: a requirement to hold minimum essential health insurance coverage, and a “shared-responsibility” payment (i.e., penalty) for those who failed to comply with the requirement. Under the shared-responsibility payment, individuals who lacked qualifying coverage were required to pay the greater of two amounts: one based on a percentage of income and another based on an inflation-adjusted dollar value (Exhibit 1). The U.S. Supreme Court ruled that the mandate was constitutional in 2012, but in December 2017, Congress passed the Tax Cuts and Jobs Act, which eliminated the individual mandate penalty, effective January 1, 2019. The Congressional Budget Office (CBO) estimated that eliminating the individual mandate penalty would reduce health insurance enrollment by 3 million to 6 million between 2019 and 2021, while increasing premiums on the individual market by around 10 percent.3 CBO made a point in its analysis of highlighting the inherent uncertainty of its results.",
+      "url": "https://www.peasebell.com/insights/a-refresher-on-the-aca-s-tax-penalty-on-individuals-without-health-insurance/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the ACA handle individuals who cannot afford health insurance?",
+      "answer": "” Known as the “individual mandate,” the Affordable Care Act (ACA) requires most Americans who can afford coverage to buy insurance or pay the tax. About six million people will chose to pay a penalty each year instead of purchasing coverage, federal officials estimate. Foregoing coverage means consumers take the risk of being saddled with high health care bills, one of the primary reasons people declare personal bankruptcy. The Cost of the Individual Mandate Penalty for the Remaining Uninsured The Affordable Care Act (ACA) expands health insurance coverage by offering both penalties and incentives. Low and middle income households who earn too much to qualify for Medicaid can purchase subsidized coverage on the health insurance marketplaces using premium assistance tax credits. Individuals who do not obtain coverage, through any source, are subject to a tax penalty unless they meet certain exemptions. Not everyone was subject to the no health insurance penalty. The ACA built in a series of exemptions recognizing that coverage was not accessible or affordable for all taxpayers. For the years the penalty was in effect, individuals could qualify for an exemption if they met any of the following criteria: - Income below the filing threshold. If household income fell below the federal income tax return filing threshold, no penalty applied. - Coverage was unaffordable. These practices prohibited some individuals from getting coverage at all and left others with unaffordable premiums. The ACA required individual market insurers in every state to offer comprehensive coverage to all applicants at premiums that do not vary with health status and without restrictions on coverage for preexisting conditions. These changes aimed to expand access to health insurance for sick people who might previously have been denied coverage or priced out of the market. Overview The Affordable Care Act (ACA) includes a mandate for every person to obtain health insurance to guard against adverse selection in the markets. This occurs when enrollees are disproportionately older and sicker than the general population and can lead to high insurance premiums overall.1 Before the ACA, individual market insurers in most states could protect themselves against this kind of scenario by denying coverage to applicants at risk for high spending, charging sicker and older people higher premiums, excluding coverage for specific preexisting conditions, and not covering specific benefits such as mental health treatment and prescription drugs. How the Individual Mandate Works People are generally required to be covered by a health insurance policy which meets minimum standards or pay a tax penalty. Some individuals are exempt from the penalty, including undocumented immigrants, those whose incomes are so low that they are not required to file taxes, people with incomes below 138% of poverty in the “Medicaid gap” in states that have not expanded eligibility for Medicaid under the ACA, people who have to pay more than 8. The goal of the individual mandate was to encourage young and healthy people to get or stay insured, which would help spread out the cost of sicker people who would enroll and use more services because of the ACA’s rule changes. The ACA further encouraged enrollment by offering tax credits to people who purchased insurance on the individual market and had low to moderate incomes (100% to 400% of the federal poverty level, or roughly between $25,000 and $98,000 for a family of four) and no other affordable source of coverage. The law also allowed states to expand Medicaid to all residents with incomes below 138 percent of poverty.",
+      "url": "https://c-hit.org/2013/09/09/should-you-take-the-health-care-tax-hit/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any provision in the Affordable Care Act that mandates a $10,000 fine for lack of coverage?",
+      "answer": "The Cost of the Individual Mandate Penalty for the Remaining Uninsured The Affordable Care Act (ACA) expands health insurance coverage by offering both penalties and incentives. Low and middle income households who earn too much to qualify for Medicaid can purchase subsidized coverage on the health insurance marketplaces using premium assistance tax credits. Individuals who do not obtain coverage, through any source, are subject to a tax penalty unless they meet certain exemptions. The penalty can be no more than the national average premium for a bronze plan (the minimum coverage available in the individual insurance market under the ACA), which was $2,484 in 2015 for single coverage and $12,420 for a family of three or more children. The penalty is pro-rated for people who are uninsured for a portion of the year and waived for people who have a period without insurance of less than three months. As the table below shows, the penalty amounts have increased substantially since 2014. The federal individual mandate remains part of the ACA statute, but the penalty has been $0 since the 2019 tax year. You will not owe a federal tax for being uninsured. Several states, including California, Massachusetts, and New Jersey, enforce their own mandates with active financial penalties. What was the penalty for not having health insurance under the ACA? The no health insurance penalty was the greater of two calculations: a percentage of household income above the filing threshold (2. ” Known as the “individual mandate,” the Affordable Care Act (ACA) requires most Americans who can afford coverage to buy insurance or pay the tax. About six million people will chose to pay a penalty each year instead of purchasing coverage, federal officials estimate. Foregoing coverage means consumers take the risk of being saddled with high health care bills, one of the primary reasons people declare personal bankruptcy. The no health insurance penalty under the Affordable Care Act (ACA) was one of the most consequential tax provisions in modern U.S. health care policy. Officially called the “individual shared responsibility payment,” this penalty required most Americans to maintain minimum essential health insurance coverage or face a tax on their federal return. The federal penalty was effectively eliminated starting in 2019, but understanding how it worked, and whether state-level penalties may still apply, remains important for taxpayers, employers, and anyone making health coverage decisions. In terms of the dollar-amount prong of the penalty, the applicable dollar amount for each uninsured household member is $695 for 2017. For a household member who’s under age 18, the applicable dollar amounts are cut by 50%, to $347.50. The maximum penalty under this prong for 2017 is $2,085 (300% of $695). The final penalty amount per person can’t exceed the national average cost of “bronze coverage” (the cheapest category of ACA-compliant coverage) for your household. The mandate remains on the books, but the penalty is zero. Is the Individual Mandate Still in Effect? The federal individual mandate technically still exists in the ACA statute. Since the Tax Cuts and Jobs Act of 2017 set the penalty to $0 beginning in 2019, there is no federal financial consequence for going without health insurance today. You will not owe a federal tax for being uninsured. Several states have enacted their own individual mandates with enforceable penalties. Massachusetts had never stopped its penalty for not carrying coverage, and maintained it post-ACA, in addition to the federal penalty associated with the ACA. After the 2018 dropping of the federal penalty, the state penalty continues to exist in Massachusetts. [18] New Jersey and the District of Columbia passed legislation to penalize individuals for not having health insurance starting from 2019. California, Rhode Island, and Vermont also passed similar legislation that would apply to years 2020 and onward. Other states that considered similar measures include Connecticut, Hawaii, Maryland, Minnesota, and Washington. Do any states still have a health insurance penalty? Yes. California, Massachusetts, New Jersey, Rhode Island, and the District of Columbia all have active individual mandates with enforceable penalties. Each state sets its own rules for exemptions and penalty calculations, so residents should check their state’s specific requirements. What qualifies as minimum essential coverage under the ACA? Individual mandate penalties are assessed during the annual tax filing process; payments are made the year after the coverage lapse occurred. Per the Tax Cut and Jobs Act of 2017, the penalty will be eliminated beginning in 2019 although the act did not change the legal requirement to hold minimum essential health insurance coverage. It also left other components of the ACA, including regulations in the individual market, in place. The ACA allowed several exemptions to the individual mandate penalty payments.",
+      "url": "https://www.kff.org/private-insurance/the-cost-of-the-individual-mandate-penalty-for-the-remaining-uninsured/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "When was the claim regarding the $10,000 penalty made and what was the context?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.commonwealthfund.org/publications/fund-reports/2018/jul/eliminating-individual-mandate-penalty-behavioral-factors",
+      "date": "2018-07-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://c-hit.org/2013/09/09/should-you-take-the-health-care-tax-hit/",
+      "date": "2013-09-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.baldwincpas.com/insights/content/refresher-acas-tax-penalty-individuals-without-health-insurance",
+      "date": "2017-01-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.kff.org/private-insurance/the-cost-of-the-individual-mandate-penalty-for-the-remaining-uninsured/",
+      "date": "2015-12-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Individual_mandate",
+      "date": "2009-09-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/monmouthnews/posts/2316329068379454/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.peasebell.com/insights/a-refresher-on-the-aca-s-tax-penalty-on-individuals-without-health-insurance/",
+      "date": "2017-08-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ssa.gov/OP_Home/ssact/title11/1128A.htm",
+      "date": "2010-03-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.dol.gov/agencies/oalj/PUBLIC/LONGSHORE/REFERENCES/REFERENCE_WORKS/2002_LHWCA_TOPIC_31",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act",
+      "date": "2011-03-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://statutes.capitol.texas.gov/Docs/BC/htm/BC.17.htm",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 69,
+     "n_urls_after_bm25": 11,
+     "n_chunks": 364
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The 2nd Q&A pair point out that from 2019 there was no more penalty for having no health insurance in the US, whilst the claim was made in 2020.",
+   "questions": [
+    {
+     "question": "When was the claim made",
+     "answers": [
+      {
+       "answer": "20/10/2020",
+       "answer_type": "Extractive",
+       "source_url": "Metadata",
+       "source_medium": "Metadata"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What is the penalty for not having a health insurance in 2020",
+     "answers": [
+      {
+       "answer": "From 2019, there was no more penalty for not having a health insurance",
+       "answer_type": "Abstractive",
+       "source_url": "https://web.archive.org/web/20210119152541/https://www.healthforcalifornia.com/covered-california/uninsured-penalty",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210116144247/https://leadstories.com/hoax-alert/2020/10/fact-check-trump-congress-did-end-theft-of-tax-penalty-for-non-insured-but-10000-penalty-not-likely.html",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "To face a $10,000 penalty under the ACA, an individual would likely need to have earned approximately $400,000 in a single year, and an individual earning $400,000 in a single year would be unlikely to be unable to afford health insurance or qualify for ACA financial assistance.",
+     "support_span": "For someone to be penalized $10,000 under ACA, they would have to have earned upward of $400,000 in a single year | which means they would be unlikely to be unable to afford health insurance. ... They could still get health coverage through the marketplace, but they wouldn't qualify for the Affordable Care Act because their income would be too high."
+    },
+    {
+     "statement": "The tax penalty for being uninsured under the Affordable Care Act was rescinded by President Trump and Congress starting January 1, 2019.",
+     "support_span": "President Donald Trump with the help of Congress has rescinded the penalty of the Affordable Care Act beginning on January 1, 2019."
+    },
+    {
+     "statement": "The ACA penalty is calculated using two methods: as a percentage of yearly household income or a per-person fee, whichever is higher.",
+     "support_span": "The fee is calculated 2 different ways -- as a percentage of your yearly household income, and per person. You'll pay whichever is higher."
+    },
+    {
+     "statement": "Under the ACA, individuals could avoid the penalty through valid exemptions, such as being part of a Federally-recognized American-Indian tribe or being enrolled in a Health Care Sharing Ministry.",
+     "support_span": "To avoid a penalty for no health insurance, you must have either a valid exemption ... You may also be exempt from a penalty if you are part of a Federally-recognized American-Indian tribe, are enrolled on a grandfathered plan *, or are enrolled in a Health Care Sharing Ministry (HCSM)"
+    }
+   ],
+   "justification": "The evidence indicates that while the Affordable Care Act (ACA) did include a tax penalty for being uninsured, the penalty amount is tied to income; specifically, a $10,000 penalty would likely only apply to individuals earning approximately $400,000 or more per year, a group unlikely to be unable to afford health care. Furthermore, the penalty was rescinded starting January 1, 2019, and various exemptions existed to avoid it. Therefore, the claim that someone unable to afford health care would be penalized $10,000 is contradicted by the income-based nature of the penalty calculation and the fact that the penalty is no longer in effect.",
+   "article_url": "https://web.archive.org/web/20210116144247/https://leadstories.com/hoax-alert/2020/10/fact-check-trump-congress-did-end-theft-of-tax-penalty-for-non-insured-but-10000-penalty-not-likely.html",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

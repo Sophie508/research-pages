@@ -1,0 +1,489 @@
+{
+ "key": "averitec/dev/36",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 36,
+ "claim": "Speaker Robin Vos lost a Republican-held seat in the 2018 election for the first time.",
+ "claim_date": "2020-10-25",
+ "speaker": "Robyn Vining",
+ "reporting_source": "WISN-TV’s \"UpFront\" episode",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim \"Speaker Robin Vos lost a Republican-held seat in the 2018 election for the first time,\" we evaluate the provided evidence as follows:\n\n1.  **Analyze the Claim:** The claim asserts a specific historical fact: that Robin Vos lost his seat during the 2018 election cycle.\n2.  **Evaluate the Evidence:**\n    *   **Q1** provides direct contradictory evidence, stating that Robin Vos \"has consistently won re-election to his assembly seat,\" which directly refutes the idea that he lost in 2018.\n    *   **Q2 and Q3** discuss the broader Republican performance in the 2018 Wisconsin State Assembly elections, noting that the party maintained its majority (63 seats), which provides context for the political environment but does not directly address Vos's personal seat.\n    *   **Q5, Q6, Q7, Q8, and Q10** all conclude that the provided text segments do not contain information confirming he lost his seat; rather, they focus on the discrepancy between the popular vote and seat distribution or general political sentiments.\n    *   **Crucially, Q1** explicitly states that the evidence contradicts the claim by noting his consistent re-election record.\n3.  **Synthesize Findings:** While several Q&A pairs (Q5-Q10) suggest a lack of information regarding his personal seat, **Q1** provides a specific piece of evidence that contradicts the claim by stating he has \"consistently won re-election.\" In the context of evaluating a claim against provided evidence, a statement that explicitly contradicts the claim (as seen in A1) moves the verdict from \"Not Enough Evidence\" to \"Refuted.\"\n\n**Conclusion:** The evidence in A1 directly contradicts the claim by stating he has consistently won re-election.\n\n**Label: Refuted**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the evidence support the claim that Robin Vos lost his seat in the 2018 election?",
+      "answer": "No, the evidence does not support the claim. On the contrary, the evidence states that Robin Vos \"has consistently won re-election to his assembly seat,\" which contradicts the claim that he lost his seat in the 2018 election.",
+      "url": "https://ballotpedia.org/Robin_Vos",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Republican Party lose its majority in the 2018 Wisconsin State Assembly elections?",
+      "answer": "No, the Republican Party did not lose its majority in the 2018 Wisconsin State Assembly elections. According to the evidence, the Republican Party maintained its majority with 63 seats, even though the Democratic Party won a majority of the popular vote at 52.99%.",
+      "url": "https://en.wikipedia.org/wiki/2018_Wisconsin_State_Assembly_election",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the Republican Party lose any seats in the 2018 Wisconsin State Assembly elections?",
+      "answer": "No, the Republican Party did not lose any seats in the 2018 Wisconsin State Assembly elections; rather, they maintained their majority. According to the evidence, the Republican Party won 63 of the 99 available seats, which reduced their previous margin from 64-35 to 63-36.",
+      "url": "https://ballotpedia.org/Wisconsin_State_Assembly_elections,_2018",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Who is Robin Vos?",
+      "answer": "Based on the provided evidence, Robin Vos is the Speaker who has the authority to allow or block Senate Bill 435 from reaching the Assembly. The text also notes that he is a small business owner.",
+      "url": "https://www.facebook.com/wisconsincottagefood/posts/i-have-been-trying-hard-not-to-point-at-any-specific-person-and-putting-blame-on/760227103989605/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Robin Vos lose a seat in the 2018 election?",
+      "answer": "Based on the provided evidence, there is no mention of whether Speaker Robin Vos personally lost his seat in the 2018 election. The text focuses on the overall results of the Wisconsin Assembly election, noting that Republicans maintained a supermajority of 63 out of 99 seats despite Democrats receiving 54 percent of the total votes.",
+      "url": "https://isthmus.com/news/news/dems-sweep-statewide-offices-in-midterms-but-remain-underrepresented-in-assembly/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Speaker Robin Vos lose a Republican-held seat in the 2018 election?",
+      "answer": "Based on the provided evidence, there is no mention of Speaker Robin Vos losing a seat in the 2018 election. The text states that while Democrats won a majority of the popular vote for the State Assembly, they secured only 36% of the seats, resulting in a split government. The evidence notes that Speaker Vos defended the outcome, but it does not indicate that he personally lost his seat.",
+      "url": "http://www.milwaukeeindependent.com/syndicated/wisconsins-undemocratic-result-from-a-democratic-election/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence support the claim that Speaker Robin Vos lost a Republican-held seat in the 2018 election?",
+      "answer": "No, the provided evidence does not support the claim. The text discusses the criticisms made by Republican leaders, including Robin Vos, regarding the influence of urban voters in Wisconsin, but it contains no information regarding the outcome of Robin Vos's own election or whether he lost a seat in 2018.",
+      "url": "https://urbanmilwaukee.com/2018/12/26/vos-and-fitzgerald-trash-urban-voters/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that Speaker Robin Vos lost a Republican-held seat in the 2018 election?",
+      "answer": "No, the provided evidence does not support the claim. The text discusses social media reactions to allegations regarding Governor Walker and Republican fears of losing seats following special elections, but it contains no mention of Speaker Robin Vos or any specific details regarding his performance or election results in 2018.",
+      "url": "https://www.facebook.com/NPR/posts/democrats-say-walker-is-dragging-his-feet-because-republicans-fear-losing-the-se/10156771720966756/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does gerrymandering in Wisconsin affect the relationship between the popular vote and the number of legislative seats held by political parties?",
+      "answer": "Gerrymandering in Wisconsin creates significant discrepancies between the popular vote and the number of legislative seats held by political parties. By drawing districts to favor a specific party—often through \"packing\" opposing voters into a few concentrated areas—the practice allows Republicans to maintain substantial majorities in the state legislature even when they lose statewide races.",
+      "url": "https://thebadgerproject.org/2019/10/07/redistricting-in-wisconsin-where-were-at/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that Speaker Robin Vos lost a Republican-held seat in the 2018 election?",
+      "answer": "No, the provided evidence does not support the claim. The text focuses on sentiments expressed by James W. Schumacher regarding the unresponsiveness of Wisconsin's U.S. representatives and general concerns about democracy and political indifference; it contains no information regarding Speaker Robin Vos or the results of the 2018 election.",
+      "url": "https://www.facebook.com/wisconsinwatch/posts/we-watch-a-lot-of-news-and-we-know-whats-happening-but-the-ability-to-impact-wha/2522602981086858/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://ballotpedia.org/Robin_Vos",
+      "date": "2012-11-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://urbanmilwaukee.com/2018/12/26/vos-and-fitzgerald-trash-urban-voters/",
+      "date": "2018-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/2018_Wisconsin_State_Assembly_election",
+      "date": "2018-12-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NPR/posts/democrats-say-walker-is-dragging-his-feet-because-republicans-fear-losing-the-se/10156771720966756/",
+      "date": "2018-03-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://isthmus.com/news/news/dems-sweep-statewide-offices-in-midterms-but-remain-underrepresented-in-assembly/",
+      "date": "2018-11-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/Wisconsin_State_Assembly_elections,_2018",
+      "date": "2014-04-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.milwaukeeindependent.com/syndicated/wisconsins-undemocratic-result-from-a-democratic-election/",
+      "date": "2018-11-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thebadgerproject.org/2019/10/07/redistricting-in-wisconsin-where-were-at/",
+      "date": "2019-10-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/realsharpton/posts/wisconsin-is-at-the-center-of-partisan-divide-due-to-covid19-lgmandelabarnes-ela/10163449904470231/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/journalsentinel/posts/watchdog-columnist-dan-bice-digs-into-who-were-the-big-winners-and-losers-in-wis/10158406655543816/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wlukfox11/posts/just-two-days-after-the-election-theres-more-political-back-and-forth-between-re/2533969633310279/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/realsharpton/posts/republican-strategist-susan-del-persio-breaks-down-the-current-state-of-the-nati/10163529380760231/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/policy-and-politics/2018/12/17/18092210/republican-gop-trump-2020-democracy-threat",
+      "date": "2018-12-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.legis.iowa.gov/committees/publicHearings?meetingID=24398&action=viewComments",
+      "date": "2017-03-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wisconsinwatch/posts/we-watch-a-lot-of-news-and-we-know-whats-happening-but-the-ability-to-impact-wha/2522602981086858/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wisconsincottagefood/posts/i-have-been-trying-hard-not-to-point-at-any-specific-person-and-putting-blame-on/760227103989605/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 16,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that Speaker Robin Vos (a Republican in Wisconsin) lost a Republican-held seat in the 2018 election for the first time.\n2. Evidence assessment:\n    - Q1 and Q2 establish that Robin Vos is a Republican member of the Wisconsin State Assembly and the Speaker of the Assembly.\n    - Q2, A3 and Q3, A3 explicitly state that in the 2018 general election for District 63, incumbent Robin Vos defeated his challenger, Joel Jacobsen, receiving 61% of the vote.\n    - Q2, A5 shows that in the 2018 Wisconsin State Assembly election, Republicans won 63 seats, which was a net change of +1 seat (meaning they gained a seat, not lost one).\n    - Q5, A8 confirms Vos was re-elected in previous years (2012, etc.) and specifically notes his victory in the 2018 cycle.\n3. Contradictions/Gaps: The claim states he \"lost a Republican-held seat,\" but the evidence shows he personally won his seat and the Republican party actually gained a seat in the Assembly during that specific election cycle. There is no evidence provided to suggest he lost a seat or that his party lost a seat in 2018.\n4. The evidence directly contradicts the claim. Robin Vos won his election in 2018, and the Republican party in the Wisconsin State Assembly saw a seat increase, not a loss.\n\nLabel: Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Who is Robin Vos and what is his political affiliation?",
+      "answer": "Republican State Representative Robin Vos is no stranger to politics, but he is largely unknown by the people of Wisconsin. As Speaker of the State Assembly, Vos is wielding his power to protect his special interest patrons and to stand in the way of progress for the people of Wisconsin on the issues that are important to them. Robin Vos has gone to great lengths to try to keep his dealings hidden from public view. But we believe the public has a right to know about who is in power, how they got there and what they intend to do. Robin Vos Robin Vos (Republican Party) is a member of the Wisconsin State Assembly, representing District 33. He assumed office on January 6, 2025. His current term ends on January 4, 2027. Vos is Wisconsin's Assembly Speaker and was first elected to that office in 2013. He is the longest-serving Speaker of the Assembly in Wisconsin history[1] Vos was born in Burlington, Wisconsin in 1968. [2][1] He received a bachelor's degree from the University of Wisconsin-Whitewater and served as a Universities of Wisconsin Board of Regents student member from 1989 to 1991. But Robin Vos is not just a Republican. While 16 other states and one US territory pushed back their Election Day or switched to voting by mail with extended deadlines, Vos led the effort to force the people of Wisconsin to choose between their civic duty and their health, nay, their lives. Need I say more?” JoCasta Zamarripa Robin Vos via Facebook.",
+      "url": "https://onewisconsinnow.org/robin-vos/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did Robin Vos lose a Republican-held seat in the 2018 election?",
+      "answer": "\"[12] In the 2022 Republican primary for Wisconsin State Assembly District 63, Vos defeated Trump-backed Adam Steen 51.3% to 48.7%. The results have been beneficial for Vos as evidenced by his Assembly Republicans winning 63 of the 99 seats in the Assembly despite, in sum, winning only 46 percent of the votes cast in the 2018 November election.As Assembly Speaker, Vos was a key leader in the 2015 efforts by the Republican-controlled legislature and outgoing Gov. Campaign finance 2018 - See also: Wisconsin State Assembly elections, 2018 General election General election for Wisconsin State Assembly District 63 Incumbent Robin Vos defeated Joel Jacobsen in the general election for Wisconsin State Assembly District 63 on November 6, 2018. Democratic primary election Democratic primary for Wisconsin State Assembly District 63 Joel Jacobsen advanced from the Democratic primary for Wisconsin State Assembly District 63 on August 14, 2018. Republican primary election Republican primary for Wisconsin State Assembly District 63 Incumbent Robin Vos advanced from the Republican primary for Wisconsin State Assembly District 63 on August 14, 2018. Robin Vos Robin Vos (Republican Party) is a member of the Wisconsin State Assembly, representing District 33. He assumed office on January 6, 2025. His current term ends on January 4, 2027. Vos is Wisconsin's Assembly Speaker and was first elected to that office in 2013. He is the longest-serving Speaker of the Assembly in Wisconsin history[1] Vos was born in Burlington, Wisconsin in 1968. [2][1] He received a bachelor's degree from the University of Wisconsin-Whitewater and served as a Universities of Wisconsin Board of Regents student member from 1989 to 1991. From Wikipedia, the free encyclopedia 2018 Wisconsin State Assembly election Majority party Minority party Leader Robin Vos Gordon Hintz Party Republican Democratic Leader since January 7, 2013 October 1, 2017 Leader's seat 63rd –Rochester 54th –Oshkosh Last election 64 seats, 51.69% 35 seats, 45.45% Seats won 63 36 Seat change 1 1 Popular vote 1,103,505 1,306,878 Percentage 44. [26][27] Incumbent Robin Vos ran unopposed in the Wisconsin State Assembly District 63 Republican primary. [26][27] 2014 - See also: Wisconsin State Assembly elections, 2014 Elections for all 99 seats in the Wisconsin State Assembly took place in 2014. A primary election took place on August 12, 2014.",
+      "url": "https://ballotpedia.org/Robin_Vos",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the outcome of Robin Vos's 2018 election campaign?",
+      "answer": "Campaign finance 2018 - See also: Wisconsin State Assembly elections, 2018 General election General election for Wisconsin State Assembly District 63 Incumbent Robin Vos defeated Joel Jacobsen in the general election for Wisconsin State Assembly District 63 on November 6, 2018. Democratic primary election Democratic primary for Wisconsin State Assembly District 63 Joel Jacobsen advanced from the Democratic primary for Wisconsin State Assembly District 63 on August 14, 2018. Republican primary election Republican primary for Wisconsin State Assembly District 63 Incumbent Robin Vos advanced from the Republican primary for Wisconsin State Assembly District 63 on August 14, 2018. Campaign finance Endorsements Ballotpedia did not identify endorsements for Vos in this election. 2022 See also: Wisconsin State Assembly elections, 2022 General election General election for Wisconsin State Assembly District 63 Incumbent Robin Vos defeated Joel Jacobsen and Adam Steen in the general election for Wisconsin State Assembly District 63 on November 8, 2022. Republican primary election Republican primary for Wisconsin State Assembly District 63 Incumbent Robin Vos defeated Adam Steen in the Republican primary for Wisconsin State Assembly District 63 on August 9, 2022. Vos received 61 percent of the vote in 2018, defeating challenger Joel Jacobsen. I understand people are stressed because of the virus and not sure exactly how to react. \"[12] In the 2022 Republican primary for Wisconsin State Assembly District 63, Vos defeated Trump-backed Adam Steen 51.3% to 48.7%. The results have been beneficial for Vos as evidenced by his Assembly Republicans winning 63 of the 99 seats in the Assembly despite, in sum, winning only 46 percent of the votes cast in the 2018 November election.As Assembly Speaker, Vos was a key leader in the 2015 efforts by the Republican-controlled legislature and outgoing Gov.",
+      "url": "https://ballotpedia.org/Robin_Vos",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim made by Robyn Vining regarding Robin Vos's 2018 election accurate?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "In which state did the election involving Speaker Robin Vos take place?",
+      "answer": "Robin Vos Robin Vos (Republican Party) is a member of the Wisconsin State Assembly, representing District 33. He assumed office on January 6, 2025. His current term ends on January 4, 2027. Vos is Wisconsin's Assembly Speaker and was first elected to that office in 2013. He is the longest-serving Speaker of the Assembly in Wisconsin history[1] Vos was born in Burlington, Wisconsin in 1968. [2][1] He received a bachelor's degree from the University of Wisconsin-Whitewater and served as a Universities of Wisconsin Board of Regents student member from 1989 to 1991. Republican State Representative Robin Vos is no stranger to politics, but he is largely unknown by the people of Wisconsin. As Speaker of the State Assembly, Vos is wielding his power to protect his special interest patrons and to stand in the way of progress for the people of Wisconsin on the issues that are important to them. Robin Vos has gone to great lengths to try to keep his dealings hidden from public view. But we believe the public has a right to know about who is in power, how they got there and what they intend to do. [26][27] Incumbent Robin Vos ran unopposed in the Wisconsin State Assembly District 63 Republican primary. [26][27] 2014 - See also: Wisconsin State Assembly elections, 2014 Elections for all 99 seats in the Wisconsin State Assembly took place in 2014. A primary election took place on August 12, 2014. Campaign finance Endorsements Ballotpedia did not identify endorsements for Vos in this election. 2022 See also: Wisconsin State Assembly elections, 2022 General election General election for Wisconsin State Assembly District 63 Incumbent Robin Vos defeated Joel Jacobsen and Adam Steen in the general election for Wisconsin State Assembly District 63 on November 8, 2022. Republican primary election Republican primary for Wisconsin State Assembly District 63 Incumbent Robin Vos defeated Adam Steen in the Republican primary for Wisconsin State Assembly District 63 on August 9, 2022. The results have been beneficial for Vos as evidenced by his Assembly Republicans winning 63 of the 99 seats in the Assembly despite, in sum, winning only 46 percent of the votes cast in the 2018 November election.As Assembly Speaker, Vos was a key leader in the 2015 efforts by the Republican-controlled legislature and outgoing Gov. \"[12] In the 2022 Republican primary for Wisconsin State Assembly District 63, Vos defeated Trump-backed Adam Steen 51.3% to 48.7%. Challenger to Robin Vos Drops Out Vos gets dog feces in the mail, and Democrat Robert Prailes suffers \"ugly\" personal attacks. Robert Prailes was set to challenge Assembly Speaker Robin Vos for his legislative seat. But just over a week after announcing his campaign, Prailes called things off. “Unfortunately, my family has also been the target of some really ugly and personal attacks. Vos faced Mitchell in the general election. [28][29][30] Incumbent Vos defeated Mitchell in the general election, and was re-elected for another term. [31] 2012 - See also: Wisconsin State Assembly elections, 2012 Vos won re-election in the 2012 election for Wisconsin State Assembly District 63. Vos ran unopposed in the Republican primary on August 14 and defeated Kelley Albrecht (D) in the general election on November 6, 2012. [32][33] 2010 - See also: Wisconsin State Assembly elections, 2010 Vos was re-elected to Wisconsin State Assembly District 63. I have been trying hard not to point at any specific person and putting blame on them. But at this point I feel as if I have no other option to share what is being told to me from Madison. After speaking with MANY different Representatives from both sides of the aisle, the hold up is Speaker Wisconsin State Representative Robin Vos. I have tried numerous times to speak with Speaker Vos to verify this, but have not been successful. So at this point I feel that what I am hearing IS true.",
+      "url": "https://ballotpedia.org/Robin_Vos",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://ballotpedia.org/Robin_Vos",
+      "date": "2012-11-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://onewisconsinnow.org/robin-vos/",
+      "date": "1999-06-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/SpeakerVos/posts/working-the-polls-in-racine-county-today-an-impressive-amount-of-planning-and-or/2864610826921333/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.milwaukeeindependent.com/special/covid-19/state-lawmaker-calls-removal-speaker-robin-vos-ncsl-president-pandemic-election-disaster/",
+      "date": "2020-04-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TND/videos/wisconsin-state-assembly-speaker-tells-voters-its-incredibly-safe-to-go-out/519791292264353/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://urbanmilwaukee.com/pressrelease/robin-vos-the-secrecy-speaker/",
+      "date": "2019-01-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://profs.wisc.edu/?p=6924",
+      "date": "2014-12-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/2018_Wisconsin_State_Assembly_election",
+      "date": "2018-12-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://urbanmilwaukee.com/2018/12/26/vos-and-fitzgerald-trash-urban-voters/",
+      "date": "2018-12-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/NPR/posts/democrats-say-walker-is-dragging-his-feet-because-republicans-fear-losing-the-se/10156771720966756/",
+      "date": "2018-03-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/Wisconsin_State_Assembly_elections,_2018",
+      "date": "2014-04-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://smartpolitics.lib.umn.edu/2020/04/15/wisconsins-2020-state-supreme-court-election-by-the-numbers/",
+      "date": "2020-04-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://thebadgerproject.org/2019/10/07/redistricting-in-wisconsin-where-were-at/",
+      "date": "2019-10-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/policy-and-politics/2018/12/4/18123784/gop-legislature-wisconsin-michigan-power-grab-lame-duck",
+      "date": "2018-12-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://wisconsinexaminer.com/2020/08/19/complaint-questions-omissions-in-vos-ethics-filings/",
+      "date": "2020-08-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wlukfox11/posts/just-two-days-after-the-election-theres-more-political-back-and-forth-between-re/2533969633310279/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://urbanmilwaukee.com/2020/05/09/challenger-to-robin-vos-drops-out/",
+      "date": "2020-05-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://racinecountyeye.com/2018/11/06/breaking-general-election-2018-results/",
+      "date": "2018-11-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/2018_United_States_House_of_Representatives_elections_in_Wisconsin",
+      "date": "2016-11-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/newshour/posts/the-case-is-important-for-both-sides-ahead-of-the-2020-presidential-race-in-narr/10158020110608675/",
+      "date": "2018-11-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/article/2020/may/18/does-voting-mail-lead-higher-turnout-red-blue-and/",
+      "date": "2020-05-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/realsharpton/posts/wisconsin-is-at-the-center-of-partisan-divide-due-to-covid19-lgmandelabarnes-ela/10163449904470231/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://politifact.com/article/2012/nov/06/election-and-voter-id-claims-get-examined/",
+      "date": "2012-11-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/emersonforassembly/posts/dont-tell-me-that-gerrymandering-doesnt-exist-in-wisconsin/2142394229346397/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/wisconsincottagefood/posts/i-have-been-trying-hard-not-to-point-at-any-specific-person-and-putting-blame-on/760227103989605/",
+      "date": "2016-02-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wpr.org/politics/once-symbol-bipartisanship-government-accountability-board-targeted-overhaul",
+      "date": "2015-10-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.courthousenews.com/wisconsin-governor-seeks-mail-only-primary-election/",
+      "date": "2020-03-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.wispolitics.com/2019/vos-rounds-out-office-staff-with-14-now-under-his-direction/",
+      "date": "2019-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 105,
+     "n_urls_after_bm25": 28,
+     "n_chunks": 664
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "True",
+   "questions": [
+    {
+     "question": "Is Robin Vos a Republican?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://www.fox6now.com/news/boss-vos-as-walker-exits-robin-vos-ready-to-become-most-powerful-republican-in-wisconsin",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Did Robin Vos lose a Republican-held seat in the 2018 election?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://www.cbs58.com/news/vos-emerges-as-wisconsin-republican-leader-as-walker-gets-ready-to-step-down",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Was it a first loss whilst vos was speaker?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://www.cbs58.com/news/vos-emerges-as-wisconsin-republican-leader-as-walker-gets-ready-to-step-down",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201227070829/https://www.politifact.com/factchecks/2020/oct/29/robyn-vining/yes-because-gerrymandering-only-one-republican-ass/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Since Robin Vos became Speaker of the Wisconsin Assembly in 2013, only one Assembly seat has flipped from Republican to Democrat, which was when Democrat Robyn Vining won the District 14 seat in 2018 previously held by Republican Dale Kooyenga by defeating Republican Matt Adamczyk by 138 votes; the Republican majority in the Assembly has remained largely stable since 2013 with only minor fluctuations, as Republicans held 63 seats after the 2014 election, picked up one in the 2016 election, then dropped back to 63 with Vining’s victory in 2018, and most Democratic victories in the Wisconsin Assembly during this period involved candidates filling seats previously held by other Democrats.",
+     "support_span": "State election records confirm only one Assembly seat has flipped from a Republican to a Democrat since 2013, when Robin Vos took over as Speaker. | That handed Vining, D-Wauwatosa, the District 14 seat previously held by Republican Dale Kooyenga, who ran for the state Senate that year. | she beat Republican Matt Adamczyk by 138 votes in 2018. | Republicans held 63 seats after the 2014 election, picked up one in the 2016 election, then dropped back to 63 with Vining’s victory in 2018. | For all but Vining, however, those lawmakers were filling a seat previously held by another Democrat."
+    }
+   ],
+   "justification": "The evidence indicates that since Robin Vos became Speaker in 2013, only one Assembly seat has flipped from Republican to Democrat. This single flip occurred in the 2018 election, when Democrat Robyn Vining won the District 14 seat previously held by Republican Dale Kooyenga. This specific event aligns with the claim that the 2018 election marked the first time a Republican-held seat was lost during his tenure as Speaker.",
+   "article_url": "https://web.archive.org/web/20201227070829/https://www.politifact.com/factchecks/2020/oct/29/robyn-vining/yes-because-gerrymandering-only-one-republican-ass/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

@@ -1,0 +1,242 @@
+{
+ "key": "averitec/dev/99",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 99,
+ "claim": "New Zealand's Abortion Legislation Act (2020) does not make it a legal requirement that babies born alive after an abortion are given medical support.",
+ "claim_date": "2020-10-14",
+ "speaker": "Right To Life UK",
+ "reporting_source": "Facebook",
+ "original_claim_url": "https://web.archive.org/web/20201204210013/https://perma.cc/CU7H-NQ83?type=image",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "**Step-by-step justification:**\n\n1.  **Analyze the Claim:** The claim states that the New Zealand Abortion Legislation Act (2020) does *not* make it a legal requirement to provide medical support to babies born alive after an abortion.\n2.  **Evaluate Evidence from Q1:** Q1 explicitly states that the Act \"does not mandate that medical care be provided to infants born alive following an abortion.\" It provides specific context: an amendment proposed by MP Simon O’Connor to require such care was rejected by Parliament (with Prime Minister Jacinda Ardern voting against it).\n3.  **Evaluate Evidence from Q2:** Q2 reinforces this, stating the Bill contains \"no legal requirements to provide medical support to babies born alive following a failed abortion.\"\n4.  **Evaluate Evidence from Q3 and Q4:** These answers confirm that the Act does not contain provisions regarding medical support for babies born alive, focusing instead on decriminalization and access protocols.\n5.  **Address Conflicting Information in Q6, Q8, and Q10:** While some answers (Q6, Q8, Q10) suggest that the provided text in those specific instances did not mention the topic, the overall body of evidence provided in the Q&A set (specifically Q1 and Q2) directly addresses the claim and confirms its accuracy.\n6.  **Conclusion:** The evidence provided in Q1 and Q2 directly supports the claim that the legislation lacks a mandate for medical care for infants born alive following an abortion.\n\n**Label: Supported**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the New Zealand Abortion Legislation Act (2020) mandate that medical care be provided to infants born alive following an abortion?",
+      "answer": "No, the New Zealand Abortion Legislation Act (2020) does not mandate that medical care be provided to infants born alive following an abortion. \n\nAccording to the evidence, an amendment proposed by MP Simon O’Connor—which would have required health practitioners to provide medical care to any baby born alive following a failed abortion, treating them the same as any other newborn—was rejected. Prime Minister Jacinda Ardern was among the politicians who voted against this amendment.",
+      "url": "https://righttolife.org.uk/news/nz-pm-jacinda-ardern-votes-against-born-alive-amendment",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the New Zealand Abortion Legislation Bill include a legal requirement to provide medical support to babies born alive following a failed abortion?",
+      "answer": "No, the New Zealand Abortion Legislation Bill does not include a legal requirement to provide medical support to babies born alive following a failed abortion. According to the evidence, the Bill contains \"no legal requirements to provide medical support to babies born alive following a failed abortion.\"",
+      "url": "https://bothlivesmatter.org.nz/the-law-in-detail/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the Abortion Legislation Act 2020 in New Zealand include provisions regarding medical support for babies born alive after an abortion?",
+      "answer": "Based on the provided evidence, the Abortion Legislation Act 2020 does not contain any provisions regarding medical support for babies born alive after an abortion. The text focuses on the Act's role in repealing restrictions from the 1977 Act, moving abortion from the Crimes Act to a framework for qualified health practitioners, and establishing protocols for procedures after 20 weeks and handling ideological objections. The evidence further notes that claims regarding \"full-term abortions\" are characterized as misinformation spread by anti-choice influencers.",
+      "url": "https://emilywrites.substack.com/p/part-3-conspiracy-theories-and-abortion",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the specific provisions of New Zealand's Abortion Legislation Act 2020 regarding the medical support of babies born alive after an abortion?",
+      "answer": "Based on the provided evidence, the Abortion Legislation Act 2020 does not contain any specific provisions regarding the medical support of babies born alive after an abortion.\n\nThe evidence focuses on the following aspects of the Act:\n*   The decriminalization of abortion by removing it from the Crimes Act.\n*   The alignment of abortion regulation with the Health and Disability Commissioner Act 1994.\n*   Access rules (unrestricted within the first 20 weeks, with health assessments required after 20 weeks).\n*   Provisions for the conscientious objection of medical practitioners.\n*   The replacement of the previous legal framework that required a \"fiction\" of mental illness.\n*   The establishment of \"safe zones\" around clinics (via subsequent 2022 legislation).",
+      "url": "https://en.wikipedia.org/wiki/Abortion_Legislation_Act_2020",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What does the New Zealand's Abortion Legislation Act (2020) change regarding the legal classification and access to abortion services?",
+      "answer": "The New Zealand Abortion Legislation Act (2020) changes the legal classification of abortion by decriminalizing the procedure, removing it from the Crimes Act and transitioning it to a health issue. \n\nRegarding access to services, the legislation replaces the 1977 law—which required two doctors to approve a termination based on a \"serious danger\" to the woman's health—with a system where women can access abortion services up to 20 weeks into a pregnancy by referring themselves to a provider. Under this new framework, women no longer require a prior assessment for mental or physical wellbeing, although they must still be informed of counseling services.",
+      "url": "https://www.bbc.com/news/world-asia-51955148",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the New Zealand's Abortion Legislation Act (2020) include provisions regarding medical support for babies born alive after an abortion?",
+      "answer": "Based on the provided evidence, it is not possible to determine whether the Abortion Legislation Act (2020) includes provisions regarding medical support for babies born alive. The text focuses on the legislation's aim to decriminalize abortion, remove it from the criminal code, and treat it as a health service, but it does not mention any provisions or lack thereof concerning medical support for infants born alive.",
+      "url": "https://abcnews.com/International/zealands-abortion-legislation-passes-read-parliament/story?id=64854337",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the current state of abortion legislation in New Zealand and why has reform been proposed?",
+      "answer": "Based on the provided evidence, the current state of abortion legislation in New Zealand is governed by the 1977 Contraception, Sterilisation and Abortion Act and the Crimes Act. Under these laws, abortion is technically treated as a criminal offense unless specific grounds are met; however, nearly 99 percent of cases are performed through a \"benevolent interpretation\" of the mental health ground.\n\nReform has been proposed because the current legislation is considered outdated and disconnected from modern social attitudes and medical practices. Specifically, the discrepancy between the law and actual practice has led to several issues:\n* **Legal risks** for medical professionals.\n* **Delays in accessing care**, which increase health risks.\n* **Inequities** for women in low-income or rural areas due to the limited number of certifying consultants.\n\nBecause advancements in medical technology have made abortion a safer, non-invasive procedure, there are calls to transition abortion from a criminal matter to a regulated medical decision. The matter has been referred to the New Zealand Law Commission to modernize the legislation to better reflect contemporary healthcare delivery.",
+      "url": "https://www.ogmagazine.org.au/20/2-20/nzs-abortion-law-time-for-change/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the New Zealand Abortion Legislation Act (2020) include provisions regarding medical support for babies born alive after an abortion?",
+      "answer": "Based on the provided evidence, there is no mention of provisions regarding medical support for babies born alive after an abortion. The text focuses on the decriminalization of abortion, its reclassification as a health matter, the removal of restrictions from the Crimes Act, and the updated regulations regarding access up to 20 weeks.",
+      "url": "https://www.theguardian.com/world/2020/mar/18/new-zealand-passes-landmark-law-decriminalise-abortion",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the \"Born-Alive Abortion Survivors Protection Act\" (S. 311) in the United States relate to the requirements of New Zealand's Abortion Legislation Act (2020)?",
+      "answer": "Based on the provided evidence, there is no relationship between the \"Born-Alive Abortion Survivors Protection Act\" (S. 311) and New Zealand's Abortion Legislation Act (2020).\n\nThe evidence focuses exclusively on the \"Born-Alive Abortion Survivors Protection Act\" (S. 311) in the United States, detailing its intent to amend the U.S. federal criminal code regarding medical care for infants born alive during abortion attempts. The evidence contains no information regarding New Zealand's legislation or its specific requirements.",
+      "url": "https://www.factcheck.org/2019/03/the-facts-on-the-born-alive-debate/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the New Zealand Abortion Legislation Act (2020) include a legal requirement for medical support for babies born alive after an abortion?",
+      "answer": "Based on the provided evidence, it is not possible to determine whether the New Zealand Abortion Legislation Act (2020) includes a legal requirement for medical support for babies born alive after an abortion. The evidence focuses exclusively on a parliamentary vote regarding an amendment to make sex-selective abortions illegal and does not mention provisions regarding medical support for infants.",
+      "url": "https://www.facebook.com/SimeonBrownMP/posts/instead-of-focusing-on-the-coronavirus-situation-parliament-is-voting-on-amendme/1089213768123361/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.factcheck.org/2019/03/the-facts-on-the-born-alive-debate/",
+      "date": "2019-03-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://righttolife.org.uk/news/nz-pm-jacinda-ardern-votes-against-born-alive-amendment",
+      "date": "2020-03-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-asia-51955148",
+      "date": "2020-03-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://bothlivesmatter.org.nz/the-law-in-detail/",
+      "date": "2020-03-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/SimeonBrownMP/posts/instead-of-focusing-on-the-coronavirus-situation-parliament-is-voting-on-amendme/1089213768123361/",
+      "date": "2016-02-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abcnews.com/International/zealands-abortion-legislation-passes-read-parliament/story?id=64854337",
+      "date": "2019-08-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/world/2020/mar/18/new-zealand-passes-landmark-law-decriminalise-abortion",
+      "date": "2020-03-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/tekareremaorinews/posts/abortion-is-the-only-medical-procedure-that-is-still-a-crime-in-new-zealand-its-/2590236514374030/",
+      "date": "2016-02-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ogmagazine.org.au/20/2-20/nzs-abortion-law-time-for-change/",
+      "date": "2018-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Abortion_Legislation_Act_2020",
+      "date": "2019-08-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://emilywrites.substack.com/p/part-3-conspiracy-theories-and-abortion",
+      "date": "2020-09-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 11,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The answer and source show that the claim is not correct so it is refuted.",
+   "questions": [
+    {
+     "question": "Are babies born alive after an abortion in NZ entitled to  medical support?",
+     "answers": [
+      {
+       "answer": "Yes",
+       "answer_type": "Boolean",
+       "source_url": "https://advocacy.org.nz/wp-content/uploads/2019/04/code-of-rights.pdf",
+       "source_medium": "PDF"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Does NZ  Abortion Legislation Act (2020) makes it a legal requirement that babies born alive after an abortion are given medical support ?",
+     "answers": [
+      {
+       "answer": "False , as per the New Zealand's Abortion Legislation Act (2020),  proposed amendment was voted down by 80 to 37 votes, so will not be part of the Bill.  If it was passed, then The amendment would have required that if a baby was born alive following a failed abortion, a qualified health practitioner or any other health practitioner present at the time the child is born, would have a duty to provide the child with appropriate medical care and treatment.",
+       "answer_type": "Extractive",
+       "source_url": "https://bothlivesmatter.org.nz/the-law-in-detail/#About-section7-born-alive",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20201204210013/https://factcheck.afp.com/british-pro-life-group-propagates-viral-misinformation-about-new-zealands-abortion-laws",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The claim that there is no legal requirement to provide medical support to babies born alive after an abortion in New Zealand is false.",
+     "support_span": "This is false."
+    },
+    {
+     "statement": "According to the New Zealand Ministry of Health, a neonate that is alive and living outside the mother's womb is a legal person with the same rights as any other person, requiring health care to be provided in the same way, and health practitioners in New Zealand have a general duty of care to any baby born alive, in accordance with the Code of Health and disability consumers' rights and other criminal and common law principles.",
+     "support_span": "The New Zealand Ministry of Health told AFP in an August 8 email: “Once alive and living outside the mother's womb, the neonate is a legal person and has the same rights as any other person, and there is a requirement to provide health care in the same way as for any other neonate.” | Holly Hedley, health law expert at Buddle and Findlay lawyers, also said the claim at this point in the video was incorrect. “Every health practitioner in New Zealand is obligated to follow New Zealand's general law, and that includes a general duty to care as is clinically appropriate for any baby born alive, pursuant to the Code of Health and disability consumers' rights and also to other criminal and common law principles,” she said."
+    }
+   ],
+   "justification": "The evidence directly contradicts the claim, stating that the assertion regarding a lack of legal requirement is false. According to the New Zealand Ministry of Health, a neonate born alive and living outside the womb is considered a legal person with the same rights as any other person, necessitating the provision of healthcare. Furthermore, legal experts note that health practitioners have a general duty of care to any baby born alive under the Code of Health and Disability Consumers' Rights, as well as through criminal and common law principles.",
+   "article_url": "https://web.archive.org/web/20201204210013/https://factcheck.afp.com/british-pro-life-group-propagates-viral-misinformation-about-new-zealands-abortion-laws",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

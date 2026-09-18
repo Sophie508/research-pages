@@ -1,0 +1,546 @@
+{
+ "key": "averimatec/val/3",
+ "dataset": "averimatec",
+ "split": "val",
+ "original_index": 3,
+ "claim": "An image shows the missing submersible Titan near the wreckage of the Titanic.",
+ "claim_date": "2023-06-21",
+ "speaker": "@Santa_Hustler",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://x.com/Santa_Hustler/status/1671787050448703488?ref_src=twsrc%5Etfw",
+ "images": [
+  {
+   "file": "6787e7eee2f02e5f4981c2b7#CLAIM#0.jpg",
+   "public_url": "https://huggingface.co/datasets/Sophie508/averimatec-claim-images-reproduction/resolve/f4947ad8cb83842309163d8fd9e2788cf9f0c025/images/6787e7eee2f02e5f4981c2b7%23CLAIM%230.jpg"
+  }
+ ],
+ "outputs": {
+  "smoke_campaign_mm_20260917_rog_cpu_r2": {
+   "aic_ctu_averimatec": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim states that the image shows the missing submersible Titan near the Titanic wreckage. However, the provided sources and context indicate that the image is a known photograph of the Titanic wreckage itself, not a photo of the Titan submersible. Furthermore, the Titan was confirmed to have suffered a catastrophic implosion, and its debris was found 1,600 feet away from the Titanic wreck, not as a visible object alongside it in a single photograph like the one provided.",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What does the image show?",
+      "answer": "The image shows a piece of wreckage on the ocean floor, which appears to be part of the Titanic shipwreck [IMG].",
+      "url": "https://www.facebook.com/100095642827885/posts/before-and-after-titanic-bowthe-titanics-stern-suffered-catastrophic-destruction/664008640130558/",
+      "images": [
+       "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=664006550130767"
+      ],
+      "evidence_text": "The Titanic's stern suffered catastrophic destruction as it broke apart and fell to the seafloor. Torn violently from the bow, it spiraled downward, collapsing inward as..."
+     },
+     {
+      "question": "Is the object circled in red in the image the missing Titan submersible?",
+      "answer": "No, the image shows the Titanic wreckage, and while the Titan submersible is a real vessel, the image itself is a depiction of the Titanic wreck site [IMG].",
+      "url": "https://www.newsweek.com/fact-check-does-image-show-missing-titanic-submersible-1807914",
+      "images": [],
+      "evidence_text": "The image shared on Reddit appears on the website and is the missing submersible, owned by OceanGate... Although there does not appear to be any suggestion that it might be the case, the photo is not taken from this expedition. It has been published online since at least 2019."
+     },
+     {
+      "question": "What was the fate of the Titan submersible according to the U.S. Coast Guard?",
+      "answer": "The U.S. Coast Guard stated that the submersible suffered a 'catastrophic implosion' and the five people onboard are believed to have died.",
+      "url": "https://time.com/6288253/titanic-tourist-missing/",
+      "images": [],
+      "evidence_text": "The search for the missing Titan vessel has ended after officials said the sub suffered a “catastrophic implosion,” and that the five people onboard are believed to have died, the U.S. Coast Guard (USCG) said during a Thursday afternoon press conference."
+     },
+     {
+      "question": "Where was the debris field of the Titan found?",
+      "answer": "The debris field was found 1600 feet from the wreck of the Titanic.",
+      "url": "https://time.com/6288253/titanic-tourist-missing/",
+      "images": [],
+      "evidence_text": "Officials said that the location of the debris field was found 1600 feet from the wreck of the Titanic and matched “the location of last communication” of the submersible."
+     },
+     {
+      "question": "How many people were on board the Titan submersible?",
+      "answer": "There were five people on board the Titan.",
+      "url": "https://www.npr.org/2023/06/21/1183417735/missing-sub-titan-titanic-rescue",
+      "images": [],
+      "evidence_text": "Experts involved in the search say that the sub, which is carrying five people, contains an oxygen supply that may run out early Thursday morning."
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-65957990",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nbcnightlynews/videos/as-the-search-continues-for-the-submersible-that-went-missing-while-on-a-trip-to/1520190861719429/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://time.com/6288253/titanic-tourist-missing/",
+      "date": "2023-06-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newsweek.com/fact-check-does-image-show-missing-titanic-submersible-1807914",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/natgeo/posts/the-oceangate-submersible-titan-has-been-missing-near-the-titanic-wreck-site-in-/813129890184443/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2023/06/21/1183417735/missing-sub-titan-titanic-rescue",
+      "date": "2023-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hillary.ambani/posts/is-this-a-real-image-of-the-titanic-grave-or-a-computer-generated-illustration-i/10230448815908677/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100095642827885/posts/before-and-after-titanic-bowthe-titanics-stern-suffered-catastrophic-destruction/664008640130558/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2715575432081559/posts/3252356631736767/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/crashclark/posts/april-15th-pay-your-taxes-and-the-titanic-sunk-114-years-ago/10164448351125071/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.tiktok.com/discover/how-deep-is-the-titanic-shipwreck-with-pressure",
+      "date": "2010-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     }
+    ],
+    "stats": {
+     "n_text_chunks": 7,
+     "n_image_sources": 5,
+     "lens_skipped_no_public_url": 0,
+     "label_confidences": [
+      0.8309526605439513,
+      0.015219428864155926,
+      0.11245721367093255,
+      0.04137069692096015
+     ],
+     "llm_verdict_field": "Refuted"
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   },
+   "villain": {
+    "status": "ok",
+    "verdict": "Refuted",
+    "verdict_fallback": false,
+    "justification": "The claim is refuted by multiple official sources and fact-checking investigations. The image shows an intact submersible, which directly contradicts the verified reports from the US Coast Guard and major news outlets that the Titan submersible suffered a 'catastrophic implosion' and was destroyed. Furthermore, the actual debris field (including the nose cone and pressure hull) was found approximately 1,600 feet from the Titanic, not as an intact vessel. Investigations by outlets like Newsweek have also confirmed that images frequently used to claim 'new sightings' are actually old photographs of the Titan from successful missions dating back to 2019.",
+    "evidence_repr": "answer_only",
+    "qa_pairs": [
+     {
+      "question": "Does the image show the missing Titan submersible in its current state?",
+      "answer": "No. The image depicts an intact, functional submersible near the Titanic wreckage, which directly contradicts official reports from the US Coast Guard and major news outlets stating that the Titan suffered a 'catastrophic implosion' during its dive.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the actual origin of images similar to the one in the claim?",
+      "answer": "Fact-checking reports indicate that images being circulated as 'sightings' of the missing sub are actually older, pre-existing photographs of the OceanGate Titan from previous successful missions, dating back to at least 2019.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Where was the actual debris from the Titan found?",
+      "answer": "The debris field from the Titan, which included the nose cone and pressure hull, was discovered by a remotely operated vehicle (ROV) approximately 1,600 feet from the Titanic wreckage, not as an intact vessel.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any official evidence confirming the object in the red circle is the Titan?",
+      "answer": "No. There is no official photographic or descriptive evidence from the search-and-rescue mission that identifies the specific object circled in the image as the Titan submersible.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Why is the claim considered misleading?",
+      "answer": "The claim is misleading because it uses a real object (the Titan) and a real location (the Titanic wreckage) to create a false narrative of a recent discovery, whereas the vessel was actually destroyed in an implosion and the image used is either old or misidentified.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the visual evidence in the image match the known fate of the Titan submersible?",
+      "answer": "No. The image shows an intact and functional-looking submersible near the Titanic wreckage, which directly contradicts the verified reports from the US Coast Guard and major news outlets (Time, BBC, NPR) stating that the vessel suffered a 'catastrophic implosion' during its dive.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the documented timeline regarding the circulation of images of the Titan?",
+      "answer": "Fact-checking by Newsweek has confirmed that images of the Titan being circulated as 'new sightings' are actually older, pre-existing photographs from previous successful missions that have been available online since at least 2019.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Where was the Titan's debris actually located according to official search results?",
+      "answer": "The debris field, containing the nose cone and pressure hull fragments, was discovered by a remotely operated vehicle (ROV) approximately 1,600 feet from the Titanic wreckage, rather than an intact vessel sitting near the wreck as the claim suggests.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the condition of the submersible in the image contradict official findings regarding the Titan?",
+      "answer": "The image depicts an intact and functional submersible, whereas the US Coast Guard and major news outlets confirmed that the Titan suffered a 'catastrophic implosion,' meaning it was destroyed rather than remaining as a whole vessel.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the discrepancy between the claim's narrative and the scientific reality of the site?",
+      "answer": "The claim implies a real-time sighting of a missing vessel, but the image uses a real object (the Titan) and a real location (the Titanic) to create a false narrative, ignoring the fact that the vessel was destroyed and that the image itself is either a misidentified piece of equipment or an outdated photo from a different mission.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-65957990",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nbcnightlynews/videos/as-the-search-continues-for-the-submersible-that-went-missing-while-on-a-trip-to/1520190861719429/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://time.com/6288253/titanic-tourist-missing/",
+      "date": "2023-06-19",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newsweek.com/fact-check-does-image-show-missing-titanic-submersible-1807914",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/natgeo/posts/the-oceangate-submersible-titan-has-been-missing-near-the-titanic-wreck-site-in-/813129890184443/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/2023/06/21/1183417735/missing-sub-titan-titanic-rescue",
+      "date": "2023-06-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/hillary.ambani/posts/is-this-a-real-image-of-the-titanic-grave-or-a-computer-generated-illustration-i/10230448815908677/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100095642827885/posts/before-and-after-titanic-bowthe-titanics-stern-suffered-catastrophic-destruction/664008640130558/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/2715575432081559/posts/3252356631736767/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/crashclark/posts/april-15th-pay-your-taxes-and-the-titanic-sunk-114-years-ago/10164448351125071/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.tiktok.com/discover/how-deep-is-the-titanic-shipwreck-with-pressure",
+      "date": "2010-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/371368279065178/posts/793483063520362/",
+      "date": "1998-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/shipsworld/posts/1684285122053572/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1799976770086366/posts/23927779813546078/",
+      "date": "2016-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/maricel.torres.278603/posts/the-image-shows-the-wreckage-of-the-rms-titanic-in-three-different-states-of-dec/4085112831733604/",
+      "date": "1999-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1799976770086366/posts/9522755291141770/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100095469072608/posts/beneath-the-waters-of-okinawa-lies-a-forgotten-wwii-warshipand-a-deadly-secret-f/1210918712100420/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61552531735600/posts/the-only-u-boat-ever-lost-in-the-gulf-of-mexico-was-found-by-a-pipeline-surveyon/122278222142084391/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.pinterest.com/robertharris370/sunken-warships/",
+      "date": "2018-10-12",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61552531735600/posts/the-wreck-of-sms-scharnhorst-sits-upright-on-the-seabed-about-2950-feet-down-sou/122245810106084391/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100095642827885/posts/the-forward-hatch-cover-of-titanic-was-first-spotted-by-james-cameron-in-mir-1-d/409687908895967/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/1799976770086366/posts/25344684288522283/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/rms.titanic.club764610/posts/654987027970537/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/PopSci/posts/researchers-were-baffled-to-spot-the-uss-yorktown-replete-with-a-jeep-like-vehic/1044147824253723/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.tumblr.com/magnificenttitanic/104124568997/im-confused-i-read-something-that-the-olympic",
+      "date": "2014-12-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/titanicandhersisterscommunity/posts/707660767148222/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61558892500272/videos/the-2023-discovery-of-the-wreck-of-the-united-states-submarine-uss-harder-ss-257/1421599626385356/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.pinterest.com/pin/sunken-wrecks--259097784792844080/",
+      "date": "2017-01-05",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.encyclopedia-titanica.org/community/threads/the-jack-grimm-propeller-photo-or-image.38279/page-5",
+      "date": "2018-02-18",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/61552531735600/posts/andrea-doria-rests-240-feet-deep-off-nantucket-slowly-collapsing-into-herself-af/122238728192084391/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/100095082087938/posts/its-the-kedge-anchor-with-part-of-a-steam-waste-pipe-laying-over-it-a-tangled-in/631834236662640/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.mirror.co.uk/news/world-news/titanic-cut-open-first-time-21325901",
+      "date": "2020-01-21",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/groups/shipsworld/posts/2329068684241876/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.facebook.com/whitestarsblacksea/photos/314646557939830/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "lens"
+     },
+     {
+      "url": "https://www.nbcnews.com/news/world/live-blog/titanic-missing-submersible-live-updates-rcna90103",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://www.geekwire.com/2021/new-videos-oceangate-sub-dives-titanic-reports-ship-wreckage-rapidly-deteriorating/",
+      "date": "2021-08-03",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://newschecker.in/fact-check/viral-photo-claiming-to-show-debris-of-the-titan-submersible-is-from-2004",
+      "date": "2020-10-18",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://www.popularmechanics.com/adventure/a44267899/missing-titanic-submersible-what-we-know-so-far/",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-us-canada-65965665",
+      "date": "2023-06-20",
+      "date_class": "strict_ok",
+      "endpoint": "images"
+     }
+    ],
+    "stats": {
+     "n_a1": 10,
+     "n_a2": 10,
+     "n_a3": 5,
+     "lens_skipped_no_public_url": 0,
+     "n_qa_generated": 20,
+     "n_qa_selected": 10,
+     "image_embedder": "_Lazy"
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The claim is refuted initially by proving that the Titan imploded and, secondly, by proving that the image shows the Alvin during an exploration dive to the Titanic.",
+   "questions": [
+    {
+     "question": "What happened to the submersible Titan?",
+     "answers": [
+      {
+       "answer": "As search and rescue teams continue to comb the North Atlantic for a missing submersible that vanished on a trip to the Titanic wreck site, \"CBS Sunday Morning\" correspondent David Pogue gave insight as to what might have happened to the vessel.\n\nPogue, who was aboard the Titan for a story last year, said the vessel should be bobbing on the ocean's surface given that features allow it to rise from the depths of the sea without electricity, even if everyone aboard is passed out.\n\nBut if it isn't floating, he said, that \"could only mean two things: either they got snagged on something on the bottom of the sea, which is pretty unlikely. There's nothing there but the Titanic. Or there was a breach in the hull and it instantly imploded.\"",
+       "answer_type": "Extractive",
+       "source_url": "https://www.cbsnews.com/news/what-happened-to-missing-titanic-submarine-david-pogue-oceangate-possible-scenarios/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    },
+    {
+     "question": "Was the missing submersible Titan ever found?",
+     "answers": [
+      {
+       "answer": "Martine Industry News reports that pieces of the missing submersible Titan have been found approximately 500m from the bow of the Titanic, including its titanium nose cone and its tail piece. The pattern of the debris is said to be consistent with “a catastrophic implosion”. The US Coast Guard says it will continue to investigate the site of the debris field, but has not confirmed if it will be possible to locate and recover the bodies of the five victims.",
+       "answer_type": "Extractive",
+       "source_url": "https://powerboatandrib.com/general-news/pieces-of-the-missing-submersible-titan-have-been-found/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": "Text-search"
+    },
+    {
+     "question": "What famous painting is this?",
+     "answers": [
+      {
+       "answer": "The website shows the image with the following description: The stern section of Titanic and surrounding debris, with the submersible Alvin under the fantail, as they appeared during the 1986 Ballard/WHOI exploration.",
+       "answer_type": "Abstractive",
+       "source_url": "http://www.kenmarschall.com/wreck.html#Num5",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [
+      "6787e7eee2f02e5f4981c2b7#INPUT#2#0.jpg"
+     ],
+     "answer_method": "Image-search"
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20240723112024/https://checkyourfact.com/2023/07/03/fact-check-image-titan-ocean-floor/",
+   "source": "datasets/averimatec/val.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The image used in the claim is not a photograph of the Titan submersible, but a cropped version of an oil painting by artist Ken Marschall depicting the 1986 voyage of the submersible Alvin to the Titanic.",
+     "support_span": "The image is a cropped version of an oil painting from the artist Ken Marschall | The painting depicts the 1986 voyage of the submersible Alvin, which travelled to the Titanic."
+    },
+    {
+     "statement": "The claim that the Titan submersible was found near the Titanic wreckage is inaccurate, as there is no credible news report that suggests this image is authentic.",
+     "support_span": "The claim is inaccurate. There is no credible news report that suggests this image is authentic."
+    }
+   ],
+   "justification": "The claim that CLAIM_IMG_0 shows the missing Titan submersible near the Titanic wreckage is factually incorrect and uses a manipulated image. The image provided in CLAIM_IMG_0 is not a photograph of the Titan submersible, but rather a cropped version of an oil painting by artist Ken Marschall. Furthermore, the subject of the original painting is the 1986 voyage of the submersible Alvin to the Titanic, not the Titan. There are no credible reports to support the assertion that the Titan submersible was found in this manner, making the textual claim and the use of the image both inaccurate.",
+   "article_url": "https://web.archive.org/web/20240723112024/https://checkyourfact.com/2023/07/03/fact-check-image-titan-ocean-floor/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t2_mm_merge_val_t3_n80_gemma4_26b_20260622_163428.json"
+  }
+ }
+}

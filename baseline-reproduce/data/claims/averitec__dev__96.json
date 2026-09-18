@@ -1,0 +1,197 @@
+{
+ "key": "averitec/dev/96",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 96,
+ "claim": "Commission on Human Rights (CHR) Chairman Chito Gascon called a “surprise military attack” by the Philippine Army,  conducted on members of the New People’s Army (NPA) a “violation of human rights.”",
+ "claim_date": "2020-10-14",
+ "speaker": "Pinoy News Center",
+ "reporting_source": "Blog",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that CHR Chairman Chito Gascon labeled a \"surprise military attack\" by the Philippine Army against the NPA as a \"violation of human rights.\"\n2.  **Evaluate Q1 Evidence:** This discusses social media skepticism toward the CHR but does not mention Chito Gascon or the specific \"surprise military attack\" statement.\n3.  **Evaluate Q2 Evidence:** This details complaints filed *by* the Army *against* the CPP-NPA, which is the opposite direction of the claim's subject matter.\n4.  **Evaluate Q3 Evidence:** This explicitly states that the evidence does not contain any information regarding a statement made by Chito Gascon regarding a \"surprise military attack.\"\n5.  **Evaluate Q4 Evidence:** This states the evidence focuses on the interment of Ferdinand Marcos and contains no information regarding Chito Gascon's statements.\n6.  **Evaluate Q5 Evidence:** This states the evidence discusses the Nigerian Senate and contains no mention of the CHR, Gascon, or the Philippine Army.\n7.  **Evaluate Q6 Evidence:** This states the evidence consists only of Facebook login page interface elements and contains no information regarding the claim.\n8.  **Evaluate Q7 Evidence:** This discusses Standards for Criminal Justice for prosecutors, which is irrelevant to the claim.\n\n**Conclusion:** After reviewing all provided question-answer pairs, there is no mention of Chito Gascon, his specific words, or his stance on a \"surprise military attack\" by the Philippine Army. Since the evidence is entirely silent on the specific subject of the claim, the claim cannot be verified or refuted.\n\n**Label: Not Enough Evidence**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "How have social media users reacted to the Commission on Human Rights (CHR) following claims of human rights violations by the Philippine Army?",
+      "answer": "Social media users have reacted with skepticism toward human rights organizations. Specifically, commenters have accused the Commission on Human Rights (CHR) of being a front for communist interests and have suggested that allegations regarding military abuse are used as propaganda for selfish motives.",
+      "url": "https://www.facebook.com/pnagovph/posts/presidential-human-rights-committee-secretariat-severo-catura-said-there-is-no-t/3228861183862966/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What specific allegations of human rights violations did the 10th Infantry Division of the Philippine Army submit against the CPP-NPA?",
+      "answer": "The 10th Infantry Division of the Philippine Army submitted 19 formal complaints against the CPP-NPA for gross violations of the Comprehensive Agreement on Respect for Human Rights and International Law (CARHRIHL). These specific allegations include:\n\n*   **15 incidents targeting civilians and their property:** These include the murder of a civilian, the harassment of a truck driver, the burning of nine civilian vehicles, and attacks on the equipment and facilities of four companies.\n*   **4 violations against soldiers and a CAFGU auxiliary:** These involve the mutilation of remains and the killing of off-duty, unarmed personnel wearing civilian attire.",
+      "url": "https://www.facebook.com/Agiladivision/posts/10id-files-19-complaints-vs-cpp-npa-for-violations-of-carhrihl-the-10th-infantry/1519458081407137/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim regarding the Commission on Human Rights (CHR) Chairman's statement on a \"surprise military attack\" supported by the provided evidence?",
+      "answer": "Based on the provided evidence, it is **not possible to determine** if the claim is true or false, as the evidence does not contain any information regarding a statement made by Commission on Human Rights (CHR) Chairman Chito Gascon.\n\nThe provided text focuses on the spread of a misleading, five-year-old news report concerning burned trucks in Bukidnon and the inaccuracies regarding their cargo and the alleged motives behind the incident. It does not mention Chito Gascon or any comments he made regarding a \"surprise military attack.\"",
+      "url": "https://verafiles.org/articles/vera-files-fact-check-fb-pages-mislead-old-report-npa-burnin",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain information regarding Chito Gascon's statement on the Philippine Army's military attacks against the New People's Army (NPA)?",
+      "answer": "No, the provided evidence does not contain information regarding Chito Gascon's statement on the Philippine Army's military attacks against the New People's Army (NPA). The evidence focuses exclusively on the Supreme Court's decision regarding the interment of former President Ferdinand E. Marcos at the Libingan Ng Mga Bayani (LNMB).",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/62526",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim regarding the Commission on Human Rights' stance on the Philippine Army's actions?",
+      "answer": "No, the provided evidence does not support the claim. The evidence discusses the Nigerian Senate adopting recommendations to improve national security and address killings in Nigeria, and it contains no mention of the Commission on Human Rights (CHR), Chito Gascon, the Philippine Army, or the New People's Army (NPA).",
+      "url": "https://www.facebook.com/legitngnews/posts/hopefully-the-recommendations-will-help-the-presidency-to-find-lasting-solutions/2006903256073228/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence contain any information regarding whether CHR Chairman Chito Gascon viewed the Philippine Army's attack on the NPA as a violation of human rights?",
+      "answer": "No, the provided evidence does not contain any information regarding whether CHR Chairman Chito Gascon viewed the Philippine Army's attack on the NPA as a violation of human rights. The evidence consists solely of descriptions of user interface elements and navigational links for a Facebook login page.",
+      "url": "https://m.facebook.com/alanpetercayetano/photos/human-rights-is-basically-loving-god-and-loving-our-neighbors-as-we-love-ourselv/1613657465393695/?locale=es_LA",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the Standards for Criminal Justice designed to guide?",
+      "answer": "The Standards for Criminal Justice serve as aspirational best practices designed to guide the professional conduct of prosecutors. As administrators of justice and officers of the court, prosecutors are guided by these standards to fulfill their primary duty of seeking justice rather than merely seeking convictions.",
+      "url": "https://www.americanbar.org/groups/criminal_justice/resources/standards/prosecution-function/",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-fb-pages-mislead-old-report-npa-burnin",
+      "date": "2020-04-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.americanbar.org/groups/criminal_justice/resources/standards/prosecution-function/",
+      "date": "2010-01-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Agiladivision/posts/10id-files-19-complaints-vs-cpp-npa-for-violations-of-carhrihl-the-10th-infantry/1519458081407137/",
+      "date": "2016-02-07",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/62526",
+      "date": "2010-02-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://m.facebook.com/alanpetercayetano/photos/human-rights-is-basically-loving-god-and-loving-our-neighbors-as-we-love-ourselv/1613657465393695/?locale=es_LA",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pnagovph/posts/presidential-human-rights-committee-secretariat-severo-catura-said-there-is-no-t/3228861183862966/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/legitngnews/posts/hopefully-the-recommendations-will-help-the-presidency-to-find-lasting-solutions/2006903256073228/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 7,
+     "n_top_k": 7,
+     "n_qa_after_rewrite": 7
+    },
+    "error": null,
+    "n_evidence_statements": 7
+   },
+   "sanctuary": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The answers show that the page is a fake news site so the claim is refuted.",
+   "questions": [
+    {
+     "question": "Where was the claim made initially",
+     "answers": [
+      {
+       "answer": "It was published on pinoynewscenter.blogspot.com",
+       "answer_type": "Extractive",
+       "source_url": "Metadata",
+       "source_medium": "Metadata"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "What kind of website is pinoynewscenter.blogpost.com",
+     "answers": [
+      {
+       "answer": "It is a website known for publishing false claims",
+       "answer_type": "Abstractive",
+       "source_url": "Metadata",
+       "source_medium": "Metadata"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210124060536/https://verafiles.org/articles/vera-files-fact-check-chrs-gascon-condemning-surprise-milita",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The claim that CHR Chairman Chito Gascon condemned a 'surprise military attack' on the NPA as a human rights violation is fake, a recycled story previously debunked by MemeBuster.net in February 2018; while the Pinoy News Center article attributed the statement to an anonymous 'CHR top official' rather than Gascon despite its headline, there is no record of any statement from the CHR or Chito Gascon denouncing the alleged military attack.",
+     "support_span": "A dubious blog... has revived an old, fake claim about Commission on Human Rights (CHR) Chairman Chito Gascon calling a “surprise military attack” conducted on members of the New People’s Army (NPA) a “violation of human rights.” | Despite claiming in its headline that it was Gascon who condemned the supposed military activity, the report’s body attributed the statement to a “CHR top official” who “didn’t want to reveal his identity.” | More, there is no record of any statement made by the CHR or Gascon denouncing the said “attack.” | MemeBuster.net... has fact-checked an identical fake report in February 2018 https://memebuster.net/chr-slammed-surprise-military-attack-npa/"
+    },
+    {
+     "statement": "There are no official records or credible news reports regarding a military operation that killed 21 NPA members as described by the blog, and the individual named 'Roberto Dulango,' reported to have been killed in Bohol while in police custody, appears to be a fictional person.",
+     "support_span": "searches... did not turn up official records nor reports from credible sources about what the blog described as the “most successful military operation” conducted under the Duterte administration, that supposedly killed 21 NPA members. | Another NPA member, named “Roberto Dulango,” who the article claimed to have been killed in Bohol “on May 4” while under police custody, and whose death the CHR sought to investigate, also appears to be fictional."
+    }
+   ],
+   "justification": "The evidence indicates that the claim is a recycled and debunked report. Investigations show no official records or credible news reports of the described military operation, nor any statement from Chito Gascon or the CHR denouncing such an attack. Furthermore, the report contains inconsistencies, such as attributing statements to an anonymous official despite the headline, and includes details about individuals, like 'Roberto Dulango,' who appear to be fictional. The claim was previously fact-checked and identified as fake in 2018.",
+   "article_url": "https://web.archive.org/web/20210124060536/https://verafiles.org/articles/vera-files-fact-check-chrs-gascon-condemning-surprise-milita",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

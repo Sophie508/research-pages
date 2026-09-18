@@ -1,0 +1,437 @@
+{
+ "key": "averitec/dev/51",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 51,
+ "claim": "People who do not vote for the Bharatiya Janata Party (BJP) in the 2020 elections will not get the COVID vaccine free of cost.",
+ "claim_date": "2020-10-22",
+ "speaker": "Firoz Khan ",
+ "reporting_source": "Twitter",
+ "original_claim_url": "https://twitter.com/sirfirozkhan/status/1319360671729922048",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim: **\"People who do not vote for the Bharatiya Janata Party (BJP) in the 2020 elections will not get the COVID vaccine free of cost,\"** we evaluate the provided evidence as follows:\n\n**Step-by-Step Justification:**\n\n1.  **Analyze the Claim:** The claim asserts a specific conditional policy: that access to free COVID-19 vaccines is contingent upon voting for the BJP in the 2020 elections.\n2.  **Evaluate Q1 & Q2:** The evidence confirms that the BJP's manifesto for Bihar included a promise to provide free COVID-19 vaccines. It also notes that this promise sparked political controversy and accusations of \"vaccine politics,\" but it **does not** state that the vaccines are conditional upon voting for the party.\n3.  **Evaluate Q3:** This is the most direct piece of evidence. It explicitly states that there is **no factual confirmation** that the BJP made such a promise. It characterizes the idea as a subject of social media commentary, sarcasm, and political rhetoric rather than a verified policy or statement.\n4.  **Evaluate Q5, Q8, Q9, and Q10:** Multiple pieces of evidence (Q5, Q8, Q9, Q10) consistently state that there is no evidence in the provided documents to support a connection between vaccine access and voting behavior for the BJP.\n5.  **Synthesize Findings:** While the BJP did promise free vaccines in their manifesto (which caused political friction), there is no evidence to support the specific allegation that they tied this benefit to voting for them. The claim appears to be a misinterpretation or a piece of political misinformation/rhetoric rather than a documented policy.\n\n**Conclusion:**\nSince the evidence explicitly states that there is no factual confirmation of this promise and that the claim is a subject of social media commentary rather than a verified statement, the claim is not supported by the evidence. However, because the evidence does not provide a direct \"refutation\" (i.e., a statement from the BJP explicitly saying \"We will not give vaccines to non-voters\"), but rather states that the claim is unverified and lacks factual basis, the most accurate assessment based on the provided text is that the claim is not supported.\n\n**Verdict: Not Enough Evidence** (Note: In many fact-checking contexts, if a claim is proven to be a falsehood, it is 'Refuted",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the BJP's manifesto promise to provide free COVID-19 vaccines only to those who vote for them?",
+      "answer": "Based on the provided evidence, the BJP's manifesto includes a promise to provide free COVID-19 vaccines to the people of Bihar once cleared by the Indian Council of Medical Research. \n\nWhile the evidence does not explicitly state that the vaccines are conditional upon voting for the party, it notes that the pledge has sparked controversy, with opposition leaders accusing the party of engaging in \"vaccine politics\" and using the public health crisis to gain political advantage. Critics have expressed concern that the promise turns the vaccine into a \"vote bank\" issue.",
+      "url": "https://www.newsclick.in/Bihar-Elections-BJP-Promises-Free-COVID-19-Vaccines-Opposition-%23-VaccinePolitics",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the BJP's election manifesto promise free COVID-19 vaccinations, and how has the public responded to these claims?",
+      "answer": "Yes, the BJP's election manifesto for Bihar includes a promise of free COVID-19 vaccinations. \n\nPublic response to these claims has been highly critical and skeptical. According to the evidence, commenters have characterized the promises as \"jumlas\" (falsehoods) or deceptive tactics, comparing them to previous unfulfilled campaign claims. Additionally, critics have argued that the vaccine offer is politically motivated, expressed doubt regarding the actual implementation and accessibility of the benefit, and suggested that the party should instead prioritize issues such as crime, women's safety, and agriculture.",
+      "url": "https://www.facebook.com/MirrorNow/posts/bjp-promises-19-lakh-jobs-free-covid-vaccination-in-bihar-manifestobjp-bjpbiharm/2113705925430883/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Did the BJP promise that people who do not vote for them in the 2020 elections will not receive COVID vaccines free of cost?",
+      "answer": "Based on the provided evidence, there is no factual confirmation that the BJP made such a promise. The evidence describes a social media post containing a cartoon and user comments that reflect reactions such as sarcasm, mockery, disbelief, and cynicism regarding the claim that the BJP promised COVID vaccines to voters during the 2020 Bihar elections. The document characterizes the claim as a subject of political rhetoric and social media commentary rather than a verified statement or policy.",
+      "url": "https://www.facebook.com/cartoonistsatish/posts/bjp-promises-covid-vaccine-for-voters-in-bihar-biharelections2020sify-cartoon/10157194080736924/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the legality of mandatory vaccinations allow for political conditions, such as voting for a specific party, to determine access to free COVID-19 vaccines?",
+      "answer": "Based on the provided evidence, there is no information regarding the legality of linking COVID-19 vaccine access to political voting behavior or specific claims regarding the Bharatiya Janata Party (BJP).\n\nThe evidence focuses exclusively on the legality of mandatory vaccinations in the United States, noting that states have the authority to impose fines or penalties for refusing vaccination under the \"police power\" doctrine. This authority is supported by the 1905 Supreme Court case *Jacobson v. Massachusetts*, which allows for the limitation of individual liberties to protect public health. However, the text does not address whether political conditions, such as voting for a specific party, can legally determine access to free vaccines.",
+      "url": "https://www.snopes.com/fact-check/states-fine-prison-covid-vaccine/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Question: Does the provided evidence support the claim that COVID-19 vaccine access is tied to voting for the BJP?",
+      "answer": "No, the provided evidence does not support the claim. The text discusses the political rise of the Bharatiya Janata Party (BJP), its ideology of Hindu nationalism, and its impact on Indian politics and governance, but it contains no information regarding COVID-19 vaccines or any connection between vaccine access and voting behavior.",
+      "url": "https://carnegieendowment.org/research/2019/04/the-bjp-in-power-indian-democracy-and-religious-nationalism",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the Facebook video from The Times of India address the claim that people who do not vote for the BJP in the 2020 elections will not receive free COVID-19 vaccines?",
+      "answer": "No, the Facebook video from The Times of India does not address the claim. According to the evidence, the video was published on September 3, 2019, and investigates a viral photo regarding \"Hindu terrorists\" and Rohingya Muslims, rather than addressing COVID-19 vaccines or voting for the BJP.",
+      "url": "https://www.facebook.com/TimesofIndia/posts/a-photo-has-gone-viral-on-social-media-with-two-different-narratives-while-one-n/10157829429292139/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence address the claim regarding the BJP and free COVID-19 vaccines?",
+      "answer": "No, the provided evidence does not address the claim regarding the BJP and free COVID-19 vaccines. The evidence focuses on a fact-check report concerning Barack Obama, Dr. Anthony Fauci, and Melinda Gates' alleged visit to a laboratory in Wuhan, China, as well as user comments regarding the bias of the fact-checking outlet. There is no mention of the Bharatiya Janata Party (BJP) or vaccine distribution policies in the text.",
+      "url": "https://www.facebook.com/logical.indian/posts/the-logical-indian-fact-check-team-investigates-the-claim-that-barack-obama-dr-a/3040845142711851/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence in the provided document to support the claim that COVID-19 vaccine access is being tied to voting for the BJP?",
+      "answer": "No, there is no evidence in the provided document to support the claim that COVID-19 vaccine access is being tied to voting for the BJP. The provided evidence focuses exclusively on concerns regarding \"paid news\" in Jharkhand and the decline of press independence and journalism quality.",
+      "url": "https://www.facebook.com/nationalheraldindia/posts/presscouncilofindia-and-journalists-bodies-have-been-silent-on-a-brazen-attempt-/763276484115045/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any evidence or official connection between the claim regarding COVID-19 vaccine distribution and the police complaint filed by DMK Organizing Secretary R.S. Bharathi regarding fraudulent Twitter accounts?",
+      "answer": "No, there is no evidence or official connection between the claim regarding COVID-19 vaccine distribution and the police complaint filed by DMK Organizing Secretary R.S. Bharathi.\n\nAccording to the provided evidence, R.S. Bharathi's complaint filed on June 16, 2020, pertains specifically to the creation of **fraudulent Twitter accounts** that impersonate DMK leaders (such as Perarignar Anna, Kanimozhi, Senthilkumar, and Udhayanidhi Stalin) to post abusive and provocative content. The evidence makes no mention of the BJP, election voting, or the distribution of COVID-19 vaccines.",
+      "url": "https://www.facebook.com/arivalayam/posts/%E0%AE%95%E0%AE%B4%E0%AE%95-%E0%AE%85%E0%AE%AE%E0%AF%88%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81-%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AE%B2%E0%AE%BE%E0%AE%B3%E0%AE%B0%E0%AF%8D-%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81-%E0%AE%86%E0%AE%B0%E0%AF%8D%E0%AE%8E%E0%AE%B8%E0%AF%8D%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AE%A4%E0%AE%BF-mp-%E0%AE%85%E0%AE%B5%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D-%E0%AE%A4%E0%AE%BF%E0%AE%AE%E0%AF%81%E0%AE%95%E0%AE%B4%E0%AE%95%E0%AE%AE%E0%AF%8D-%E0%AE%95%E0%AE%B4%E0%AE%95-%E0%AE%A8%E0%AE%BF%E0%AE%B0%E0%AF%8D%E0%AE%B5%E0%AE%BE%E0%AE%95%E0%AE%BF%E0%AE%95%E0%AE%B3%E0%AF%8D-%E0%AE%AE%E0%AE%B1%E0%AF%8D%E0%AE%B1%E0%AF%81/3264012646962864/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the connection between the BJP's political actions and the allegations regarding COVID-19 vaccine distribution to non-BJP voters?",
+      "answer": "Based on the provided evidence, there is no mention of a connection between the BJP's political actions and allegations that non-BJP voters would be denied free COVID-19 vaccines.\n\nThe evidence focuses on how the COVID-19 pandemic has been used to fuel violence and discrimination against India's Muslim minority through allegations of \"corona jihad\" or \"corona terrorism,\" and notes that the ruling BJP singled out a religious gathering by the Tablighi Jamaat. However, the text does not contain information regarding vaccine distribution policies based on political voting patterns.",
+      "url": "https://www.theguardian.com/world/2020/apr/13/coronavirus-conspiracy-theories-targeting-muslims-spread-in-india",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/MirrorNow/posts/bjp-promises-19-lakh-jobs-free-covid-vaccination-in-bihar-manifestobjp-bjpbiharm/2113705925430883/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newsclick.in/Bihar-Elections-BJP-Promises-Free-COVID-19-Vaccines-Opposition-%23-VaccinePolitics",
+      "date": "2020-10-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/FayeDSouzaOfficial/posts/ahead-of-bihar-elections-bjp-promises-free-covid-19-vaccine-in-its-manifesto-i-h/3309541732433860/",
+      "date": "2001-09-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cartoonistsatish/posts/bjp-promises-covid-vaccine-for-voters-in-bihar-biharelections2020sify-cartoon/10157194080736924/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theguardian.com/world/2020/apr/13/coronavirus-conspiracy-theories-targeting-muslims-spread-in-india",
+      "date": "2020-04-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pen.org/report/freedom-to-write-index-2019/",
+      "date": "2019-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/airnewsalerts/posts/top-ten-news-of-the-day-1-yaume-ashura-or-10th-day-of-muharram-observed-with-utm/787970351344364/",
+      "date": "2016-02-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/logical.indian/posts/the-logical-indian-fact-check-team-investigates-the-claim-that-barack-obama-dr-a/3040845142711851/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/arivalayam/posts/%E0%AE%95%E0%AE%B4%E0%AE%95-%E0%AE%85%E0%AE%AE%E0%AF%88%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81-%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AE%B2%E0%AE%BE%E0%AE%B3%E0%AE%B0%E0%AF%8D-%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81-%E0%AE%86%E0%AE%B0%E0%AF%8D%E0%AE%8E%E0%AE%B8%E0%AF%8D%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AE%A4%E0%AE%BF-mp-%E0%AE%85%E0%AE%B5%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D-%E0%AE%A4%E0%AE%BF%E0%AE%AE%E0%AF%81%E0%AE%95%E0%AE%B4%E0%AE%95%E0%AE%AE%E0%AF%8D-%E0%AE%95%E0%AE%B4%E0%AE%95-%E0%AE%A8%E0%AE%BF%E0%AE%B0%E0%AF%8D%E0%AE%B5%E0%AE%BE%E0%AE%95%E0%AE%BF%E0%AE%95%E0%AE%B3%E0%AF%8D-%E0%AE%AE%E0%AE%B1%E0%AF%8D%E0%AE%B1%E0%AF%81/3264012646962864/",
+      "date": "2020-06-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TheCaravanMagazine/posts/the-media-issuerajeev-chandrasekhars-mission-to-secure-a-place-of-power-the-many/1562995943767309/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/thirumaofficial/posts/we-shall-not-be-afraid-of-repressionwe-shall-protect-peoples-freedomsindependenc/3064645153794831/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nationalheraldindia/posts/presscouncilofindia-and-journalists-bodies-have-been-silent-on-a-brazen-attempt-/763276484115045/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/freethinker/posts/watch-the-link-between-the-director-of-a-gujarat-based-it-firm-a-fake-news-facto/10156646569573609/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://carnegieendowment.org/research/2019/04/the-bjp-in-power-indian-democracy-and-religious-nationalism",
+      "date": "2019-04-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/IndiaToday/posts/what-is-the-truth-behind-vk-srinivas-v-p-bharat-biotech-taking-the-first-dose-of/10159988150907119/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ndtv/posts/tonight-on-reality-check-we-discuss-the-growing-resentment-within-people-towards/10158461141540798/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.snopes.com/fact-check/states-fine-prison-covid-vaccine/",
+      "date": "2020-08-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TimesofIndia/posts/a-photo-has-gone-viral-on-social-media-with-two-different-narratives-while-one-n/10157829429292139/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 18,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Not Enough Evidence",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by Firoz Khan on Twitter on October 22, 2020, in India, asserts that individuals who do not vote for the Bharatiya Janata Party (BJP) in the 2020 elections will be denied free COVID-19 vaccines.\n2. The provided evidence for all five queries (Q1 through Q5) is \"No evidence.\" This means there is no documentation provided to confirm the existence of the claim's content, no official policy linking voting to vaccines, no information on vaccine distribution status at that time, no fact-check results, and no official health guidelines.\n3. There is a total absence of information. While the claim itself is a serious allegation of political discrimination, the evidence provided does not offer any data to either prove the claim is true or to prove it is false (such as citing official Indian government health policies that mandate universal vaccine access regardless of political affiliation).\n4. Because the evidence provided is entirely empty (\"No evidence\" for every query), it is impossible to verify the truthfulness of the claim or find a contradiction to it. According to the guidelines, when the evidence is insufficient to either support or refute the claim, the label must be \"Not Enough Evidence.\"\n\nLabel:\nNot Enough Evidence",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "What is the core allegation made by Firoz Khan regarding the 2020 elections and COVID-19 vaccines in India?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is there any official government policy in India that links vaccine eligibility to political affiliation or voting behavior?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the status of COVID-19 vaccine distribution in India during October 2020 when this claim was made?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the claim that voting for the BJP is a prerequisite for free vaccines been verified by any credible news or fact-checking organization?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the actual criteria for receiving COVID-19 vaccines in India according to official health guidelines?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.facebook.com/ferozkhaninc/posts/those-nations-which-were-way-ahead-of-india-in-the-number-of-cases-during-lockdo/3402878033064736/",
+      "date": "2016-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://docs.lib.purdue.edu/dissertations/",
+      "date": "2016-07-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/freethinker/posts/watch-the-link-between-the-director-of-a-gujarat-based-it-firm-a-fake-news-facto/10156646569573609/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://scholarworks.utep.edu/dissertations/",
+      "date": "2016-07-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/TOLOnews/posts/the-afghan-senate-sent-a-complaint-to-the-attorney-generals-office-about-public-/3977251718982206/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEScwHrOzAV14ghdySOEAaM5orGEgRiXAjr_BXGtPUsimiSfyq5tf7Ar9JukOA3Tqa_wcxLDAcz1EtEkDUulles4riWDKH__TjDh4zCLxvRyX_b_4L16XkjIDsiquHs8s57Bn5pwYNh-kNTpRtX3-ORmycx4qo&ust=1789680076836258&usg=AOvVaw0KR-MmTkGIB-ZUi4D2AubT",
+      "date": "2019-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESagHrOzAVKhsKLFc1DNrmTfLFpOeM7gaWbyoOg5tE6D4pgGcNI-sUReuMNbt1v-u93w8Fl3YrLrjxpYQxbWGfNb_wUQ8UuC_NLE2Wm4W-Ub2vAjy7_aBVwlNDqwzV-RltlA3I7gDhzko4kNw&ust=1789680076844611&usg=AOvVaw0tV-OkWVy36rQXXKURkFfj",
+      "date": "2010-03-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAEScQHrOzAVKaHmYX5kfavB6irVBzX1wEeHP_gkvWuRgKxcnNxkkUfoF196gVPttEk09kctFaYzYr7QrUGi4gjBrd7YGE5G8fsCmUDTNhtwtxDOezXzr41r4LE9P3RzsVFxIqc0pUEeTmSM2RNv53wWqigf&ust=1789680076845638&usg=AOvVaw3CB--rmaZvYPLafLPFjqfJ",
+      "date": "2014-11-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.google.com.hk/url?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https://www.google.com.hk/goto%3Furl%3DCAESXgHrOzAVn1rs51jKs3QR4PZ7OQme919bLOdOnc5EMs7DPpzwebgl0IS8Lw-i3sL5NVWilUfZg1da5fzpHIiFy9EP_H9Nojgd8aTlybg1xRL-2SXg62a5DuOqrX6A2nc&ust=1789680076849283&usg=AOvVaw0oAs4qIv8oIUZqgyQI930k",
+      "date": "2019-02-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/mobilemagzter/posts/in-what-form-will-the-covid-vaccine-reach-you-find-out-here-the-times-of-india-c/3538890026161566/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.healthaffairs.org/doi/10.1377/hlthaff.2020.02012",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Timesnow/videos/opposition-leaders-take-to-twitter-to-target-bjp-for-its-free-covid-19-vaccine-t/649637755919930/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/brutindia/posts/its-the-very-first-promise-on-the-bjps-manifesto-for-the-bihar-state-elections-b/1035609436920195/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.altnews.in/viral-audio-false-conspiracy-theory-about-modi-govt-introducing-vaccine-to-kill-muslims/",
+      "date": "2020-04-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.theatlantic.com/international/archive/2019/04/india-misinformation-election-fake-news/586123/",
+      "date": "2019-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/53525002",
+      "date": "2020-07-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/rishibagree/posts/this-is-not-the-first-time-bjp-party-is-promising-free-vaccine-in-its-manifesto-/1239843886376192/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CPRT-108JPRT20429/html/CPRT-108JPRT20429.htm",
+      "date": "2002-03-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.who.int/health-topics/vaccines-and-immunization",
+      "date": "2019-10-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "http://www.travelvax.com.au/holiday-traveller/vaccination-requirements/india",
+      "date": "2018-09-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/indiainbrazil/posts/covid-19-advisory-for-indian-nationals-in-brazil/3697055677002523/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 327,
+     "n_urls_after_bm25": 17,
+     "n_chunks": 717
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Refuted",
+   "justification": "The answer shows that the claim is false and so the claim is refuted.",
+   "questions": [
+    {
+     "question": "What did the BJP party say concerning the claims of them giving vaccines to olny those who vote for them",
+     "answers": [
+      {
+       "answer": "A senior BJP leader denied the claims and said the party had plans according to their manifesto to vaccinate everyone",
+       "answer_type": "Abstractive",
+       "source_url": "https://web-archive-org.translate.goog/web/20210121222119/https://www.jagran.com/elections/bihar-vidhan-sabha-nirmala-sitharaman-said-the-promise-of-free-covid-vaccine-in-bihar-election-manifesto-is-absolutely-correct-20947267.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210301174114/https://www.vishvasnews.com/english/politics/fact-check-posts-claiming-about-no-vote-no-covid-vaccine-is-misleading/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "Finance Minister Nirmala Sitharaman announced in the BJP's Bihar election manifesto that free Covid vaccines would be provided to all people in Bihar once large-scale production begins.",
+     "support_span": "Union Finance Minister Nirmala Sitharaman has made a big announcement today in Patna on 22 October, Thursday… Once the production of Covid vaccines starts on a large scale, it will be given free to all the people in Bihar. She made this announcement releasing the BJP’s manifesto in Patna ahead of Bihar Legislative Assembly elections."
+    },
+    {
+     "statement": "The claim that people who do not vote for the BJP will not receive free Covid vaccines is misleading, as BJP spokesperson Tajinder Pal Singh Bagga clarified that voting is not a requirement for receiving Covid vaccines and noted that a Union Minister had announced free Covid vaccines for all Indians, specifically Union Minister Pratap Sarangi announced that all Indian citizens would receive the free Covid-19 vaccine.",
+     "support_span": "Vishvas News contacted BJP spokesperson Tajinder Pal Singh Bagga to verify the claim. He clarified to us that voting has nothing to do with Covid vaccines. “Sitharaman Ji had announced that as the State BJP leader. However today, Union Minister had announced free Covid vaccine for all Indians,” said Bagga. | An article in the Jagran Josh had quoted Union Minister Pratap Sarangi announcing free Covid vaccine for all Indians. | Vishvas News investigation revealed the claim is misleading. BJP spokesperson clarified that Union Minister had announced free Covid vaccine for all Indians."
+    }
+   ],
+   "justification": "The evidence indicates that while Finance Minister Nirmala Sitharaman announced free COVID-19 vaccines for all people in Bihar as part of the BJP's election manifesto, a BJP spokesperson explicitly clarified that voting for the party is not a requirement for receiving the vaccine. Furthermore, Union Minister Pratap Sarangi stated that free vaccines would be provided to all Indian citizens, and investigations have characterized the claim that non-BJP voters would be denied free vaccines as misleading.",
+   "article_url": "https://web.archive.org/web/20210301174114/https://www.vishvasnews.com/english/politics/fact-check-posts-claiming-about-no-vote-no-covid-vaccine-is-misleading/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

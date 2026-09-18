@@ -1,0 +1,512 @@
+{
+ "key": "averitec/dev/11",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 11,
+ "claim": "The U.S. surgeon general and the Centers for Disease Control both previously said that ‘masks are not effective in preventing [the] general public from catching coronavirus.’",
+ "claim_date": "2020-10-29",
+ "speaker": "Yinon Weiss",
+ "reporting_source": "The Federalist",
+ "original_claim_url": "https://thefederalist.com/2020/10/29/these-12-graphs-show-mask-mandates-do-nothing-to-stop-covid/",
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "aic_ctu_averitec": {
+    "status": "crashed",
+    "verdict": null,
+    "verdict_fallback": false,
+    "justification": null,
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [],
+    "sources": [],
+    "stats": null,
+    "error": {
+     "reason": "搜索服务返回 HTTP 400：发生在 Serper 搜索额度耗尽期间（基础设施失败，不是系统本身的算法失败）。",
+     "raw_head": "RuntimeError('Serper search failed after 3 attempts: 400 Client Error: Bad Request for url: https://google.serper.dev/search')"
+    },
+    "n_evidence_statements": 0
+   },
+   "hero2": {
+    "status": "ok",
+    "verdict": "Conflicting Evidence/Cherrypicking",
+    "verdict_fallback": false,
+    "justification": "To determine the verdict for the claim, we evaluate the provided evidence step by step:\n\n1.  **Analyze the Claim:** The claim asserts that the U.S. Surgeon General and the CDC previously made statements claiming that masks are not effective in preventing the general public from catching the coronavirus.\n\n2.  **Evaluate the Evidence (Q1-Q5):** \n    *   **Q2** explicitly states: \"While those officials [U.S. Surgeon General and CDC] previously stated that masks are not effective in preventing the general public from catching the coronavirus, the BYU report concludes that there is 'convincing evidence' that masks... effectively reduce virus transmission...\"\n    *   **Q1** explains that this guidance changed due to new scientific understandings regarding asymptomatic spread.\n    *   **Q4** confirms a \"significant policy shift,\" noting that the CDC now recommends cloth face coverings, implying their previous position was different.\n\n3.  **Address Conflicting Evidence in the Dataset (Q8 & Q10):**\n    *   **Q8** and **Q10** claim the evidence does *not* support the claim and suggest the evidence is about PolitiFact or an AP fact-check. However, these answers directly contradict the information provided in **Q2**, which explicitly confirms the content of the claim. In a multi-part evidence set, Q2 provides the direct factual confirmation required to verify the claim.\n\n4.  **Conclusion:** Based on the specific information in **Q2**, the claim is directly addressed and confirmed. The evidence states that these officials *did* previously make those statements, which were later contradicted by new scientific findings.\n\n**Verdict: Supported**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Why did the guidance from the U.S. Surgeon General and the CDC regarding the effectiveness of masks for the general public change?",
+      "answer": "The guidance from the U.S. Surgeon General and the CDC changed due to new scientific understandings that asymptomatic individuals can spread the virus, which makes it difficult to identify who might be infectious.",
+      "url": "https://time.com/5815251/should-you-wear-a-mask-coronavirus/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the scientific evidence reviewed by Brigham Young University regarding the efficacy of masks compare to previous statements made by the U.S. Surgeon General and the CDC?",
+      "answer": "The scientific evidence reviewed by Brigham Young University contradicts the previous statements made by the U.S. Surgeon General and the CDC. While those officials previously stated that masks are not effective in preventing the general public from catching the coronavirus, the BYU report concludes that there is \"convincing evidence\" that masks—specifically multi-layer cloth, surgical, and N95 respirators—effectively reduce virus transmission by acting as \"source control\" to trap respiratory droplets. Furthermore, the report notes that universal masking has been linked to lower infection and mortality rates globally.",
+      "url": "https://pws.byu.edu/covid-19-and-masks",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What factors contributed to the initial guidance from health organizations regarding mask effectiveness, and how does recent research regarding respiratory droplets and source control address those earlier claims?",
+      "answer": "The initial guidance from health organizations regarding mask effectiveness was influenced by several key factors:\n*   **Focus on Personal Protective Equipment (PPE):** There was a focus on masks being used as personal protective equipment rather than as a method of \"source control.\"\n*   **Reliance on Specific Study Types:** There was an over-reliance on the necessity of randomized controlled trials to establish efficacy.\n*   **Resource Concerns:** There were concerns regarding shortages of medical masks.\n\nRecent research addresses these earlier claims by demonstrating that the virus is primarily transmitted through respiratory droplets, which cloth masks effectively block. Furthermore, evidence from laser-scattering experiments and studies on asymptomatic transmission supports the idea that universal mask-wearing is a vital tool for slowing the spread of COVID-19 through source control.",
+      "url": "https://theconversation.com/masks-help-stop-the-spread-of-coronavirus-the-science-is-simple-and-im-one-of-100-experts-urging-governors-to-require-public-mask-wearing-138507",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How has the CDC's stance on the effectiveness of mask-wearing for the general public changed?",
+      "answer": "The CDC has undergone a significant policy shift regarding mask-wearing. While the evidence implies a change from previous positions, it specifically states that the CDC now recommends that the general public wear cloth face coverings in public settings where social distancing is difficult (such as grocery stores and pharmacies) to help combat the spread of COVID-19. \n\nThis updated guidance is based on the understanding that masks can reduce the transmission of respiratory droplets from both symptomatic and asymptomatic individuals. Additionally, the CDC is advising the public to use cloth or homemade masks rather than medical-grade PPE (like N95 respirators) to ensure that essential supplies remain available for healthcare workers.",
+      "url": "https://www.vox.com/2020/4/3/21202792/coronavirus-masks-n95-trump-white-house-cdc-ppe-shortage",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How do the functions and effectiveness of face masks relate to the previous statements made by the U.S. surgeon general and the CDC?",
+      "answer": "Based on the provided evidence, the relationship between the functions of face masks and the previous statements made by the U.S. surgeon general and the CDC is characterized by a distinction between individual protection and community protection.\n\nWhile the evidence states that masks can reduce the likelihood of an individual contracting SARS-CoV-2, their **primary function** is to protect others from an infected individual, especially those who are asymptomatic. The evidence notes that despite this guidance, there has been significant public disagreement, confusion, and skepticism regarding mask efficacy and mandates.",
+      "url": "https://www.facebook.com/nih.gov/posts/face-masks-can-reduce-your-chances-of-getting-sars-cov-2-but-their-primary-purpo/10158284721011830/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the comparison of COVID-19 outcomes between Sweden and the unspecified location support the previous statements made by the U.S. surgeon general and the CDC regarding the effectiveness of masks?",
+      "answer": "Based on the provided evidence, it is not possible to determine if the comparison supports the statements made by the U.S. surgeon general and the CDC.\n\nThe evidence notes that Sweden experienced fewer deaths per million people (583) than the unspecified location (647) despite having no mask mandates or lockdowns. While the author uses these figures to express confusion regarding COVID-19 outcomes and suggests Sweden may have achieved herd immunity, the text does not provide a definitive conclusion or a direct logical link that validates or invalidates the effectiveness of masks. Therefore, the evidence presents a comparison of death rates but does not explicitly support or refute the previous statements made by the U.S. surgeon general and the CDC.",
+      "url": "https://www.facebook.com/cnn/posts/this-is-a-mask-not-a-political-statement-please-wear-a-mask-factsfirst/10161342283731509/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What challenges do fact-checkers face when attempting to identify and correct misinformation?",
+      "answer": "Fact-checkers face several significant challenges when attempting to identify and correct misinformation:\n\n*   **Platform Accessibility:** In many global contexts, misinformation spreads on encrypted or \"walled garden\" social media platforms (such as WhatsApp and WeChat), which are difficult to monitor and often require fact-checkers to rely on user reports.\n*   **Data and Resource Limitations:** Fact-checkers often lack access to reliable, structured data, particularly in corrupt or opaque governance systems. Additionally, there is a shortage of essential resources, such as licensed software or natural language processing tools for local languages.\n*   **Regional and Political Obstacles:** Challenges intensify in regions affected by underdevelopment, conflict, or authoritarianism. In these areas, fact-checkers may face severe political pressure or be forced to operate from abroad.\n*   **High Stakes and Credibility Risks:** In conflict zones or areas with ethnic tensions, misinformation can incite violence. This creates a difficult environment where fact-checkers may have to take stances against blatant propaganda to maintain their domestic credibility.",
+      "url": "https://akademie.dw.com/en/fact-checking-under-challenging-conditions-problems-with-technology-resources-conflict-and-repression/a-54012616",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided support the claim that the U.S. surgeon general and the CDC previously stated that masks are ineffective in preventing the general public from catching coronavirus?",
+      "answer": "No, the provided evidence does not support the claim. The evidence focuses on an Associated Press fact-check regarding President Donald Trump's statements on various public policy areas (such as Ethiopian peace negotiations, factory closures, and the Iran nuclear deal), but it contains no mention of the U.S. surgeon general, the CDC, or statements regarding the effectiveness of masks in preventing the spread of coronavirus.",
+      "url": "https://www.pbs.org/newshour/politics/ap-fact-check-trumps-distortions-are-across-the-board",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How can one submit a question to FactCheck regarding the claim that the U.S. surgeon general and the CDC previously stated that masks are ineffective?",
+      "answer": "To submit a question to FactCheck regarding this claim, you should email **Editor@FactCheck.org**. \n\nWhen submitting your inquiry, you must include the following:\n*   Your full name, city, and state.\n*   Information regarding where you first encountered the claim.\n*   Since the inquiry concerns the coronavirus pandemic, you should include **“COVID-19”** in the subject line.\n\nBefore emailing, it is recommended that you search the Ask FactCheck archives, the Debunking False Stories page, or the Viral Spiral section to see if your question has already been addressed.",
+      "url": "https://www.factcheck.org/ask-factcheck/ask-us-a-question/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provided confirm whether the U.S. surgeon general and the CDC previously stated that masks are ineffective in preventing the general public from catching coronavirus?",
+      "answer": "No, the provided evidence does not confirm whether the U.S. surgeon general and the CDC previously stated that masks are ineffective in preventing the general public from catching coronavirus. The evidence focuses entirely on the mission, structure, and methodology of the fact-checking organization PolitiFact and does not contain any information regarding public health statements or mask efficacy.",
+      "url": "https://2009-2017-fpc.state.gov/196978.htm",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://time.com/5815251/should-you-wear-a-mask-coronavirus/",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://theconversation.com/masks-help-stop-the-spread-of-coronavirus-the-science-is-simple-and-im-one-of-100-experts-urging-governors-to-require-public-mask-wearing-138507",
+      "date": "2020-05-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/nih.gov/posts/face-masks-can-reduce-your-chances-of-getting-sars-cov-2-but-their-primary-purpo/10158284721011830/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnn/posts/this-is-a-mask-not-a-political-statement-please-wear-a-mask-factsfirst/10161342283731509/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pws.byu.edu/covid-19-and-masks",
+      "date": "2020-04-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/2020/4/3/21202792/coronavirus-masks-n95-trump-white-house-cdc-ppe-shortage",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://utopia.ut.edu/FakeNews/factcheck",
+      "date": "2017-02-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2009-2017-fpc.state.gov/196978.htm",
+      "date": "2012-08-28",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnn/videos/fact-checking-the-2020-state-of-the-union/554271771846255/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://reutersinstitute.politics.ox.ac.uk/our-research/understanding-promise-and-limits-automated-fact-checking",
+      "date": "2016-11-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://datajournalism.com/read/handbook/verification-1/additional-materials/verification-and-fact-checking",
+      "date": "2020-05-24",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://akademie.dw.com/en/fact-checking-under-challenging-conditions-problems-with-technology-resources-conflict-and-repression/a-54012616",
+      "date": "2020-07-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/politics/ap-fact-check-trumps-distortions-are-across-the-board",
+      "date": "2020-01-11",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/ask-factcheck/ask-us-a-question/",
+      "date": "2020-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/What_is_fact-checking",
+      "date": "2012-12-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 15,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim asserts that both the U.S. Surgeon General (Jerome Adams) and the CDC previously stated that masks are \"not effective in preventing [the] general public from catching coronavirus.\" The claim is dated October 29, 2020, and refers to statements made earlier in the pandemic.\n2. The evidence confirms that in the early stages of the pandemic (specifically February and March 2020), both officials held this position. Q1, A1 states CDC Director Robert Redfield said there was \"no role for these masks in the community.\" Q1, A2 and Q1, A7 confirm Surgeon General Jerome Adams stated masks were \"not effective\" for the general public and famously tweeted \"STOP BUYING MASKS!\" Q1, A10 and Q1, A18 further confirm that the CDC initially deemed public mask-wearing unnecessary.\n3. The evidence also shows that this position changed. By early April 2020, both the CDC and the Surgeon General updated their guidance to recommend cloth face coverings for the general public due to new evidence regarding asymptomatic transmission (Q1, A14, Q1, A15, Q2, A5).\n4. The claim is a historical statement about what these officials *previously* said. The evidence provided directly supports that these specific statements were made by both the Surgeon General and the CDC during the early months of the COVID-19 pandemic.\n\nLabel: Supported",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Did the U.S. Surgeon General and the CDC ever state that masks are ineffective for the general public?",
+      "answer": "On February 27, CDC director Robert Redfield said, “There is no role for these masks in the community,” adding, “These masks need to be prioritized for health care professionals that as part of their job are taking care of individuals.” In a February 29 tweet, US Surgeon General Jerome Adams further downplayed the utility of masks for the public: While officials’ concern that the public would hoard medical masks was warranted given the limited supply, completely dismissing public mask-wearing went against existing pandemic recommendations and scientific studies. America's top doctor appears to have softened his stance over the effectiveness of face masks when it comes to preventing the spread of the coronavirus. U.S. Surgeon General Jerome Adams had initially advised against the general public wearing face masks, saying they were \"not effective\" in preventing people from contracting COVID-19 and amplified the risk of health-care providers being unable to get them. \"Seriously people — STOP BUYING MASKS!\" Adams said via Twitter on Feb. Masks aren’t a cure-all — and doctors and nurses need them more The federal government, particularly through the CDC, had for months rejected calls for the general public to wear masks. Before the government announced its updated guidance, I tried to find out why — and the CDC didn’t seem like it was budging on the issue anytime soon. Why shouldn’t the public use masks if they provide some protection? ” ‘We may be moving gently at this point toward the Asian culture,’ one health expert says of everyday mask-wearing. Surgeon General Jerome Adams acknowledged that government advice about masks has been “confusing to the American people.” Until now, the CDC has said that healthy people do not need a mask unless they are working in a healthcare setting or caring for an infected person. “The best available evidence” did not suggest that wearing a mask would do much to protect a healthy person from contracting COVID-19, Adams said. “CDC does not recommend that people who are well wear a face mask to protect themselves from respiratory illnesses, including Covid-19,” CDC spokesperson Arleen Porcell responded. Okay, but why? “The science says that surgical masks won’t stop the wearer from inhaling small airborne particles, which can cause infection. The United States Surgeon General Dr. Jerome Adams didn't explicitly warn against using face coverings but said they cannot be worn \"at the expense of social distancing.\" Speaking on \"Good Morning America\" Wednesday, Dr. Adams said his office, the Centers for Disease Control and Prevention and the World Health Organization all originally agreed that healthy people did not need to wear masks based on the best available science. \"Folks who don't know how to wear them properly tend to touch their faces a lot and actually can increase the spread of coronavirus,\" he added. Adams' comments Monday reiterate his blaring tweet from the weekend, urging people to \"STOP BUYING MASKS.\" He said that they were \"NOT effective\" to the general public and noted that the increased demand in masks puts medical professionals at risk. The surgeon general's comments over the past couple of days came after the US confirmed its second coronavirus death — a person in Washington state. Data lacking to recommend broad mask use We do not recommend requiring the general public who do not have symptoms of COVID-19-like illness to routinely wear cloth or surgical masks because: - There is no scientific evidence they are effective in reducing the risk of SARS-CoV-2 transmission - Their use may result in those wearing the masks to relax other distancing efforts because they have a sense of protection - We need to preserve the supply of surgical masks for at-risk healthcare workers. Reasons have included: (1) we don’t truly know that cloth masks (face coverings) are not effective, since the data are so limited, (2) wearing a cloth mask or face covering is better than doing nothing, (3) the article is being used by individuals and groups to support non-mask wearing where mandated and (4) there are now many modeling studies suggesting that cloth masks or face coverings could be effective at flattening the curve and preventing many cases of infection. If the data are limited, how can we say face coverings are likely not effective? How the US muddled masks early in the pandemic When the first case of person-to-person transmission was reported in the US on January 30, the CDC said it didn’t recommend the public use of face masks. US officials were focused on securing masks for health care workers. But in the process, they made contradictory and premature statements that masks were not effective for the public. Universal mask use could stop these asymptomatic carriers — many of whom might not even know they’re sick — from inadvertently infecting other people. The CDC guidance stated that masks are primarily meant to prevent the spread of disease from the wearer to others. Some members of the general public would also benefit more. People who know they’re sick or interacting with someone who’s sick were already advised to use a mask. Leaving aside the fact that they are ineffective, telling the public to wear cloth or surgical masks could be interpreted by some to mean that people are safe to stop isolating at home. It's too late now for anything but stopping as much person-to-person interaction as possible. Masks may confuse that message and give people a false sense of security. Masks should be worn by all except infants “in public settings where other social distancing measures are difficult to maintain,” such as grocery stores and pharmacies, CDC guidance reads. Masks are especially recommended in areas where Covid-19, the disease caused by the SARS-CoV-2 coronavirus, has shown significant spread from person to person. The new guidance is a big shift for the federal government, which previously declined, through the Centers for Disease Control and Prevention and surgeon general, to recommend that most of the public wear a mask. On April 3, the CDC recommended that the general public wear cloth masks, rather than medical-grade masks — N95 respirator masks, which filter a higher percentage or particles, and surgical masks. Explaining why it shifted the guidance, the CDC cited new research showing asymptomatic people can transmit the virus. US Surgeon General Jerome Adams explained at the White House coronavirus briefing on April 3 that the recommendation changed because so many people with COVID-19 don't show symptoms or aren't showing symptoms yet, but they can still spread the disease to other people. \"In light of this new evidence, CDC recommends and the task force recommends wearing cloth face coverings in public settings where other social distancing measures are difficult to maintain,\" Adams said. \"These include places like grocery stores and pharmacies. For example, it’s helpful to know that public masking was widely considered ineffective before the COVID-19 pandemic based on studies done with other diseases in very different contexts. This explains why many medical experts and agencies recommend against mass masking initially—that was the state of the available science in December 2019 and January 2020. For our report, we focus heavily on the COVID-19-specific studies for one very important reason: COVID-19 is the disease causing this pandemic. Findings from previous outbreaks and community studies are helpful as a starting place, especially in the absence of more directly pertinent evidence. \"We can't say if face masks are ineffective, but we presume they have some effect because that's the protection we give to healthcare workers,\" said Benjamin Cowling, an epidemiologist with Hong Kong University. \"If face masks are used on a lot of people in crowded areas, I think it would have some effect on public transmission, and at the moment we're looking for every small measure we can to reduce transmission - it adds up.\" But there are down sides of course. In contrast, the US, which had little experience with mask-wearing, took a wait-and-see approach. For more than five weeks after community spread was first documented in the US, the Centers for Disease Control and Prevention (CDC) deemed public mask-wearing unnecessary. In early April, it finally reversed its position and advised the public to wear cloth masks in public spaces. In sum, given the paucity of information about their performance as source control in real-world settings, along with the extremely low efficiency of cloth masks as filters and their poor fit, there is no evidence to support their use by the public or healthcare workers to control the emission of particles from the wearer. Surgical masks as source control We were able to identify only two household studies in which surgical masks were worn by the index patient only, as source control.24,25 Neither of these found a significant impact on secondary disease transmission, although both studies had important limitations.",
+      "url": "https://www.vox.com/2020/5/29/21273625/coronavirus-masks-required-virginia-china-hong-kong",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How did the CDC's guidance on mask usage evolve between February and October 2020?",
+      "answer": "How the US muddled masks early in the pandemic When the first case of person-to-person transmission was reported in the US on January 30, the CDC said it didn’t recommend the public use of face masks. US officials were focused on securing masks for health care workers. But in the process, they made contradictory and premature statements that masks were not effective for the public. In contrast, the US, which had little experience with mask-wearing, took a wait-and-see approach. For more than five weeks after community spread was first documented in the US, the Centers for Disease Control and Prevention (CDC) deemed public mask-wearing unnecessary. In early April, it finally reversed its position and advised the public to wear cloth masks in public spaces. Masks should be worn by all except infants “in public settings where other social distancing measures are difficult to maintain,” such as grocery stores and pharmacies, CDC guidance reads. Masks are especially recommended in areas where Covid-19, the disease caused by the SARS-CoV-2 coronavirus, has shown significant spread from person to person. The new guidance is a big shift for the federal government, which previously declined, through the Centers for Disease Control and Prevention and surgeon general, to recommend that most of the public wear a mask. Editor's note (April 13, 2020): Since this story's publication, the US Centers for Disease Control and Prevention has recommended that Americans wear cloth masks or face coverings when in public to try to limit the spread of the coronavirus. You can find our full breakdown on the science behind wearing masks, how to wear them, and how to make them, here. CDC recommends wearing face masks during coronavirus pandemic - Share via WASHINGTON — The Centers for Disease Control and Prevention is now advising Americans to voluntarily wear a basic cloth or fabric face mask when they go out to help curb the spread of the new coronavirus. These non-medical masks can be either purchased online or simply made at home, the CDC says. - MacIntyre, C. R. et al. Face Mask Use and Control of Respiratory Virus Transmission in Households - Volume 15, Number 2—February 2009 - Emerging Infectious Diseases journal - CDC. doi:10.3201/eid1502.081167. - Timeline of WHO’s response to COVID-19. The members were hesitant to advise against the use of cloth masks because of high mask demand during pandemics (16). As a result of the shortage of masks during the recent COVID-19 pandemic, CDC developed strategies for optimizing the supply of masks and recommended using homemade cloth masks when no medical masks are available (1). On April 3, the CDC recommended that the general public wear cloth masks, rather than medical-grade masks — N95 respirator masks, which filter a higher percentage or particles, and surgical masks. Explaining why it shifted the guidance, the CDC cited new research showing asymptomatic people can transmit the virus.",
+      "url": "https://www.vox.com/2020/5/29/21273625/coronavirus-masks-required-virginia-china-hong-kong",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Is the claim that masks are 'not effective' an accurate representation of the current scientific consensus held by US health agencies in late 2020?",
+      "answer": "Executive summary: - In the first few months of the pandemic, there was scientific uncertainty about the usefulness of public masking. Conflicting guidance was given by several official sources1–4. For example, it’s helpful to know that public masking was widely considered ineffective before the COVID-19 pandemic based on studies done with other diseases in very different contexts. This explains why many medical experts and agencies recommend against mass masking initially—that was the state of the available science in December 2019 and January 2020. For our report, we focus heavily on the COVID-19-specific studies for one very important reason: COVID-19 is the disease causing this pandemic. Findings from previous outbreaks and community studies are helpful as a starting place, especially in the absence of more directly pertinent evidence. In this study, we have deliberately allowed parameters in our models to vary across the full range of potential values due to the uncertainty in true mask effectiveness. A recent modeling study used effectiveness parameters of 50%, though noted the limited evidence available in setting these values35. Further studies are required to obtain improved estimates for mask effectiveness among the public during the COVID-19 pandemic. Although personal protection is a leading motivator for mask wearing36, it is generally thought that face masks are more effective in providing containment, limiting onward transmission from infectious carriers. First, the study is on different diseases in different conditions (see last two paragraphs). Second, the study tested the effectiveness of masks at protecting the wearer (in this case healthcare workers), rather than source control, which is the primary purpose of masks in the COVID-19 pandemic. Third, the study did not have a \"no mask\" control, so they have no way of comparing cloth mask with no mask. The authors make this clear in the \"Strengths and limitations\" section of their paper, which appears adjacent to the abstract when you download the PDF. 01 to 2.94) remained significantly higher in the cloth masks group compared with the medical masks group. It would appear that despite two decades of pandemic preparedness, there is considerable uncertainty as to the value of wearing masks. For instance, high rates of infection with cloth masks could be due to harms caused by cloth masks, or benefits of medical masks. The numerous systematic reviews that have been recently published all include the same evidence base so unsurprisingly broadly reach the same conclusions. 2 However, recent reviews using lower quality evidence found masks to be effective. Reasons have included: (1) we don’t truly know that cloth masks (face coverings) are not effective, since the data are so limited, (2) wearing a cloth mask or face covering is better than doing nothing, (3) the article is being used by individuals and groups to support non-mask wearing where mandated and (4) there are now many modeling studies suggesting that cloth masks or face coverings could be effective at flattening the curve and preventing many cases of infection. If the data are limited, how can we say face coverings are likely not effective? The CDC failed to reference the National Academies of Sciences Rapid Expert Consultation on the Effectiveness of Fabric Masks for the COVID-19 Pandemic (NAS 2020), which concludes, “The evidence from…laboratory filtration studies suggests that such fabric masks may reduce the transmission of larger respiratory droplets. There is little evidence regarding the transmission of small aerosolized particulates of the size potentially exhaled by asymptomatic or presymptomatic individuals with COVID-19. Masking lack of evidence with politics July 23, 2020 Tom Jefferson, Carl Heneghan The increasing polarised and politicised views 1 on whether to wear masks in public during the current COVID-19 crisis hides a bitter truth on the state of contemporary research and the value we pose on clinical evidence to guide our decisions. In 2010, at the end of the last influenza pandemic, there were six published randomised controlled trials with 4,147 participants focusing on the benefits of different types of masks. 2 Two were done in healthcare workers and four in family or student clusters. One specific study is worth mentioning here, because of how often it is brought up in discussions of masks: MacIntyre and others 2015, \"Facemasks for the prevention of infection in healthcare and community settings. \"40 This study is often brought up as evidence that masks (especially cloth masks) don't work, and that they might actually cause harm (increase risk of infection). On first read of the abstract, it is easy to get this impression. However, this is a completely incorrect interpretation of this research for several reasons. 6. Why do you claim there are controlled experiments when there haven’t been any randomized controlled trials of public masking? One of the most common arguments made against masking is that there aren’t any randomized controlled trials (RCTs) showing effectiveness of public masking. This is not true. A very recent systematic review by Macintyre and Chughtai7 of public masking studies (including many RCTs) concluded that masks are effective at slowing the spread of many respiratory diseases. Additional RCTs on this subject are coming out frequently55. S. and the world13,16,58,59, supported by quantitative simulations60 and randomized controlled trials from other diseases7. There is also recent evidence that masking is effective at state and national levels. Data lacking to recommend broad mask use We do not recommend requiring the general public who do not have symptoms of COVID-19-like illness to routinely wear cloth or surgical masks because: - There is no scientific evidence they are effective in reducing the risk of SARS-CoV-2 transmission - Their use may result in those wearing the masks to relax other distancing efforts because they have a sense of protection - We need to preserve the supply of surgical masks for at-risk healthcare workers. Since the COVID-19 pandemic, this research group has done a systematic review of the effectiveness of masks7, including their 2015 study. They conclude: “community mask use by well people could be beneficial, particularly for COVID-19, where transmission may be pre-symptomatic. The studies of masks as source control also suggest a benefit, and may be important during the COVID-19 pandemic in universal community face mask use as well as in health care settings. They emphasized that other preventative measures such as physical distancing, washing hands, and staying home would be more effective than purely relying on masks136. In the current pandemic, the consensus is growing that public masking should be used in combination with other efforts rather than not at all1,5,7,10,126,133,136. Despite the current limited scientific data detailing their effectiveness, we support the wearing of face coverings by the public when mandated and when in close contact with people whose infection status they don't know. However, we also encourage everyone to continue to limit their time spent indoors near potentially infectious people and to not count on or expect a cloth mask or face covering to protect them or the people around them. The pandemic is not over and will not likely be over for some time. ” The scientific debate over cloth masks Trump’s resistance to masks may be more about optics than anything else, but the use of cloth masks has stoked debate, not just about their efficacy, but also about how high the bar for scientific evidence should be during a pandemic. Was enough known about the costs and benefits of recommending public cloth mask-wearing for the CDC to do it earlier in the pandemic? Scientific studies have evaluated surgical and N95 masks, but relatively few have looked at whether cloth masks can stop virus transmission. Clin Infect Dis 2020 (published online Jul 6) National Academies of Sciences, Engineering, and Medicine. 2020. Rapid expert consultation on the effectiveness of fabric masks for the COVID-19 pandemic. Washington, DC, National Academies Press. Apr 8, 2020 Rengasamy S, Eimer B, Szalajda J. Even the cautious and consensus-driven World Health Organization, which initially recommended against masks, now encourages their use in areas of widespread COVID-19 transmission137, in light of new information on the disease and the results of large-scale comparative studies135. Frequently asked questions (FAQs): 1. Surgical masks were estimated to significantly reduce detection of coronavirus RNA in aerosols31, and can reduce influenza viral aerosol shedding more than threefold32. Generally, however, the theoretical protective effect of masks may be diminished by a number of factors. Compliance and effective use may be inadequate25, masks may not be replaced frequently enough to prevent contamination33, and finally, COVID-19 infection may even occur via alternative routes, such as ocular transmission34. Effectiveness of masks and respirators against respiratory infections in healthcare workers: a systematic review and meta-analysis. Clin Infect Dis 2017 Aug 7;65(11):1934-42 - Long Y, Hu T, Liu L, et al. Effectiveness of N95 respirators versus surgical masks against influenza: A systematic review and meta‐analysis. J Evid Based Med 2020 (published online Mar 13) - MacIntyre CR, Chughtai AA, Rahman B, et al.",
+      "url": "https://pws.byu.edu/covid-19-and-masks",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What was the primary reason cited by health officials for the initial discouragement of mask use in the United States?",
+      "answer": "We learned more.\" Adams said there was also a concern about people hoarding personal protective equipment, which compounded shortages in hospitals and other medical facilities. But the \"primary reason\" for the recommendation not to wear masks \"was because that's what the science said.\" \"We follow the science and when we learn more, our recommendations change,\" he said. How the US muddled masks early in the pandemic When the first case of person-to-person transmission was reported in the US on January 30, the CDC said it didn’t recommend the public use of face masks. US officials were focused on securing masks for health care workers. But in the process, they made contradictory and premature statements that masks were not effective for the public. \" Initial CDC guidelines advised Americans against wearing masks unless they were medical professionals or were infected with the virus. The White House has been urging people without symptoms not to buy N95 or medical masks, fearing it would lead to further shortages. The expected advisory, officials say, is aimed at reducing the risk of spread by people who are infected but are not showing symptoms. President Donald Trump said earlier Thursday that he did not think masks would be required. I can’t explain the motives behind the federal government’s original stance and shift. But based on my conversations with other experts and officials, it seems many people are afraid of saying anything that could exacerbate the PPE shortage for health care workers or get members of the general public to think — incorrectly — that they could ease on social distancing if they just wear a mask. The members were hesitant to advise against the use of cloth masks because of high mask demand during pandemics (16). As a result of the shortage of masks during the recent COVID-19 pandemic, CDC developed strategies for optimizing the supply of masks and recommended using homemade cloth masks when no medical masks are available (1). For example, it’s helpful to know that public masking was widely considered ineffective before the COVID-19 pandemic based on studies done with other diseases in very different contexts. This explains why many medical experts and agencies recommend against mass masking initially—that was the state of the available science in December 2019 and January 2020. For our report, we focus heavily on the COVID-19-specific studies for one very important reason: COVID-19 is the disease causing this pandemic. Findings from previous outbreaks and community studies are helpful as a starting place, especially in the absence of more directly pertinent evidence. “The primary purpose of wearing a mask is not to prevent a healthy person from getting sick, but rather to prevent people already infected from contaminating others through casual contact”79. Unfortunately, the 1918 pandemic took the lives of 675,000 Americans, and another 50 million worldwide80. As the United States approaches 140,000 deaths from COVID-19, we should consider all the available evidence on this subject, including context from past pandemics. \" As the pandemic began its rapid spread across the United States in March, Adams and other administration officials advised against wearing masks, a recommendation that came as hospitals faced drastic shortages of personal protective equipment. In an earlier interview with \"Face the Nation\" on March 8, Adams said \"masks do not work for the general public and preventing them from getting coronavirus.\" But on Sunday, Adams appeared on the program donning a mask and urged viewers to wear face coverings when they are in public.",
+      "url": "https://www.cbsnews.com/news/coronavirus-surgeon-general-jerome-adams-wearing-masks-face-the-nation/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the claim accurately reflect the official position of the CDC on October 29, 2020?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://www.nbcnews.com/news/us-news/u-s-expected-recommend-masks-americans-coronavirus-hotspots-n1175596",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cnbc.com/2020/04/02/coronavirus-us-surgeon-general-asks-cdc-to-see-if-face-masks-are-effective.html",
+      "date": "2020-04-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.businessinsider.com/americans-dont-need-masks-pence-says-as-demand-increases-2020-2",
+      "date": "2020-03-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cnn/posts/us-surgeon-general-dr-jerome-adams-not-only-wants-people-to-stop-buying-facemask/10160523535286509/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/2020/4/3/21202792/coronavirus-masks-n95-trump-white-house-cdc-ppe-shortage",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://abc7.com/post/surgeon-general-weighs-in-on-general-public-wearing-face-masks/6067977/",
+      "date": "2020-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/UCSDHealth/videos/how-to-properly-wear-a-face-mask/798060257398328/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6940e3.htm",
+      "date": "2020-10-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/vcuhealth/posts/have-questions-about-the-cdc-recommendation-of-wearing-a-face-mask-in-public-get/10156636214441529/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.latimes.com/science/story/2020-04-03/cdc-recommends-wearing-face-masks-during-coronavirus-pandemic",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.npr.org/sections/coronavirus-live-updates/2020/04/03/826219824/president-trump-says-cdc-now-recommends-americans-wear-cloth-masks-in-public",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.nature.com/articles/s41467-020-17922-x",
+      "date": "2020-08-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://ballotpedia.org/State-level_mask_requirements_in_response_to_the_coronavirus_(COVID-19)_pandemic,_2020-2022",
+      "date": "2020-08-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://stacks.cdc.gov/view/cdc/86440",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/cdc/posts/wearing-a-mask-can-help-slow-the-spread-of-covid-19-cdcs-dr-paige-armstrong-show/10158342793836026/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cidrap.umn.edu/covid-19/commentary-masks-all-covid-19-not-based-sound-data",
+      "date": "2020-04-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://pws.byu.edu/covid-19-and-masks",
+      "date": "2020-04-06",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/JerseyShoreHurricaneNews/posts/-if-everyone-wore-a-mask-covid-19-could-be-brought-under-control-cdc-director-ur/3453211251365029/",
+      "date": "2020-07-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://wwwnc.cdc.gov/eid/article/26/10/20-0948_article",
+      "date": "2020-07-22",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cebm.net/covid-19/masking-lack-of-evidence-with-politics/",
+      "date": "2020-07-23",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.bbc.com/news/world-52015486",
+      "date": "2020-03-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/DrJenCaudle/posts/coronavirus-why-arent-masks-recommended-for-the-general-population-i-discussed-o/2794533203916312/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pbs.org/newshour/show/what-dr-fauci-wants-you-to-know-about-face-masks-and-staying-home-as-virus-spreads",
+      "date": "2020-04-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/uchicago/posts/face-masksa-cornerstone-of-the-public-health-guidance-to-stem-the-spread-of-covi/10164666093190650/",
+      "date": "2020-10-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.vox.com/2020/5/29/21273625/coronavirus-masks-required-virginia-china-hong-kong",
+      "date": "2020-05-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/WorldNewsTonight/videos/can-masks-help-prevent-covid-19-for-healthy-people/2714678095327294/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cbsnews.com/news/coronavirus-surgeon-general-jerome-adams-wearing-masks-face-the-nation/",
+      "date": "2020-07-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://wwwnc.cdc.gov/eid/article/26/10/20-1315_article",
+      "date": "2020-07-16",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.propublica.org/article/inside-the-fall-of-the-cdc",
+      "date": "2020-10-15",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/Maher/posts/trump-said-he-had-a-hunch-that-the-virus-wasnt-as-bad-as-the-world-health-organi/10157257029547297/",
+      "date": "2000-02-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK564091/",
+      "date": "2020-10-02",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cms.gov/medicare/health-plans/medicareadvtgspecratestats/downloads/announcement2020.pdf",
+      "date": "2020-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/tttliveonline/posts/disaggregation-of-covid-19-cases-as-at-september-18-2020/10158470565315610/",
+      "date": "2020-09-18",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/gisgrenada/posts/national-report-tuesday-september-29th-2020/3387169988175037/",
+      "date": "2020-09-29",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 283,
+     "n_urls_after_bm25": 25,
+     "n_chunks": 1203
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Conflicting Evidence/Cherrypicking",
+   "justification": "There is a 79% reduction made in certain situations. But not effective in certain other situations. ",
+   "questions": [
+    {
+     "question": "Are masks effective in preventing people from catching coronavirus?",
+     "answers": [
+      {
+       "answer": "The effectiveness of face masks is dependent on how they are used. Face mask use was 79% effective in reducing transmission in certain situations. But not effective in certain other situations.",
+       "answer_type": "Extractive",
+       "source_url": "https://dx.doi.org/10.1136/bmjgh-2020-002794",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210711073635/https://healthfeedback.org/claimreview/wearing-face-masks-helps-reduce-the-spread-of-covid-19-but-it-only-confers-partial-protection-and-should-be-combined-with-additional-public-health-measures/",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "U.S. Surgeon-General Jerome Adams issued a tweet on February 29, 2020, urging people not to buy masks to ensure healthcare workers had sufficient supplies, as public health authorities initially discouraged the general public from wearing face masks due to concerns regarding the shortage of protective equipment for frontline healthcare workers.",
+     "support_span": "This message is evident in this 29 February 2020 tweet by U.S. Surgeon-General Jerome Adams, who urged people to stop buying masks to ensure that healthcare workers had a sufficient supply. | public health authorities initially discouraged the public from wearing face masks due to concerns over a shortage of protective equipment, like surgical and N95 masks, for healthcare workers at the frontlines of the COVID-19 pandemic response."
+    },
+    {
+     "statement": "Following new scientific evidence regarding asymptomatic transmission, the CDC updated its guidance to recommend that the public use cloth face masks in shared spaces.",
+     "support_span": "This development prompted the World Health Organization and the U.S. Centers for Disease Control and Prevention to recommend that the public use cloth face masks in shared spaces to reduce the spread of COVID-19."
+    }
+   ],
+   "justification": "The evidence confirms that U.S. Surgeon General Jerome Adams issued a statement in February 2020 urging the public not to buy masks to preserve supplies for healthcare workers, and that public health authorities generally discouraged mask use early in the pandemic due to equipment shortages. However, the evidence does not explicitly state that these officials claimed masks were 'not effective' in preventing infection; rather, it suggests the discouragement was driven by supply concerns. Furthermore, the CDC later updated its guidance to recommend cloth masks following new evidence on asymptomatic transmission, indicating a shift in policy over time.",
+   "article_url": "https://web.archive.org/web/20210711073635/https://healthfeedback.org/claimreview/wearing-face-masks-helps-reduce-the-spread-of-covid-19-but-it-only-confers-partial-protection-and-should-be-combined-with-additional-public-health-measures/",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}

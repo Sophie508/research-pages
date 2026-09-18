@@ -1,0 +1,509 @@
+{
+ "key": "averitec/dev/34",
+ "dataset": "averitec",
+ "split": "dev",
+ "original_index": 34,
+ "claim": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+ "claim_date": "2020-10-26",
+ "speaker": "Jonathan Malaya",
+ "reporting_source": "Facebook",
+ "original_claim_url": null,
+ "images": [],
+ "outputs": {
+  "smoke_formal_text_20260917_rog_cpu_r2": {
+   "hero2": {
+    "status": "ok",
+    "verdict": "Conflicting Evidence/Cherrypicking",
+    "verdict_fallback": false,
+    "justification": "To predict the verdict for the claim, we must evaluate the provided question-answer evidence to see if it supports, refutes, or provides no information regarding the claim.\n\n**Step-by-step Justification:**\n\n1.  **Analyze the Claim:** The claim states that the United States, New Zealand, U.K., Australia, and the EU **have not** included the NDF in their official list of terrorist groups.\n2.  **Evaluate Q1, Q2, Q3, Q5, Q7, Q8, and Q10:** These questions specifically ask about the NDF's status in the lists of the mentioned entities. The answers consistently state that the provided evidence **does not contain information** to confirm or deny whether these specific entities have designated the NDF as a terrorist organization.\n3.  **Evaluate Q4 and Q9:** These provide procedural information regarding U.S. and EU designation processes but do not mention the NDF.\n4.  **Evaluate Q6:** This answer states that the CPP-NPA-NDF **has been** officially designated as a terrorist organization by the United States, European Union, United Kingdom, Australia, Canada, and New Zealand.\n5.  **Identify Conflict:** We have a direct contradiction within the provided evidence. \n    *   **Q6** explicitly states that the NDF **has been** designated by the United States, EU, UK, Australia, and New Zealand.\n    *   **Q7, Q8, and Q10** state that the evidence **does not contain information** regarding the NDF's status in those lists.\n6.  **Conclusion:** Because Q6 provides a direct assertion that contradicts the premise of the claim (the claim says they have *not* included them, while Q6 says they *have*), and other parts of the evidence claim no information is available, the evidence is contradictory. However, in the context of assessing the *claim* against the *evidence provided*, Q6 acts as a direct refutation of the claim, while the other answers claim a lack of evidence. When one part of the evidence explicitly states the opposite of the claim, it constitutes conflicting/contradictory information within the provided dataset.\n\n**Verdict: Conflicting Evidence/Cherrypicking**",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Does the lack of a legal mechanism for designating domestic groups as terrorist organizations explain why the NDF has not been included on the official terrorist lists of the United States, New Zealand, U.K., Australia, and the EU?",
+      "answer": "Based on the provided evidence, it is not possible to determine if the lack of a legal mechanism for designating domestic groups explains why the NDF has not been included on the official terrorist lists of the United States, New Zealand, U.K., Australia, and the EU.\n\nThe evidence discusses the legal limitations regarding the designation of **antifa** (a domestic movement) as a terrorist organization, noting that there is currently no official federal process or legal authority for designating domestic groups as terrorist organizations in the United States. However, the text contains no information regarding the **NDF** or its status in the United States, New Zealand, U.K., Australia, or the EU.",
+      "url": "https://www.factcheck.org/2020/06/trump-cant-designate-antifa-or-any-movement-domestic-terrorist-organization/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the NDF been designated as a terrorist organization by the United States, New Zealand, U.K., Australia, or the EU?",
+      "answer": "Based on the provided evidence, it is not possible to determine whether the United States, New Zealand, U.K., Australia, or the EU have designated the NDF as a terrorist organization.\n\nThe evidence states that the NDF is designated as a terrorist organization by the **Philippine government** and \"**several international entities**,\" but it does not specify which countries or entities those are. Therefore, the text does not confirm or deny the claim regarding the specific involvement of the United States, New Zealand, U.K., Australia, or the EU.",
+      "url": "https://www.facebook.com/ntfelcac/posts/read-statement-of-the-national-task-force-to-end-local-communist-armed-conflict-/357033615735029/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the New Zealand list of designated terrorist entities include the NDF?",
+      "answer": "Based on the provided evidence, it is not possible to determine whether the New Zealand list of designated terrorist entities includes the NDF. The evidence lists several groups included on the list (such as Al-Shabaab, Hamas, the Proud Boys, and the Kurdistan Workers' Party), but it does not mention the NDF.",
+      "url": "https://en.wikipedia.org/wiki/Outlawed_terror_organisations_in_New_Zealand",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What are the criteria and legal processes required for the U.S. government to designate an organization as a Foreign Terrorist Organization (FTO)?",
+      "answer": "To designate an organization as a Foreign Terrorist Organization (FTO), the U.S. government follows these criteria and legal processes:\n\n**Criteria for Designation**\nUnder Section 219 of the Immigration and Nationality Act, an organization may be designated if it:\n*   Engages in, or retains the capability and intent to engage in, terrorist activities; and\n*   The activities threaten U.S. national security or the safety of U.S. nationals.\n\n**Legal Process**\n*   **Consultation:** The Secretary of State must consult with the Attorney General and the Secretary of the Treasury.\n*   **Administrative Record:** The designation must be processed through a formal administrative record.\n*   **Congressional Review:** The designation is subject to a seven-day congressional review period.\n*   **Publication:** Once processed, the designation is published in the Federal Register.\n*   **Duration:** The designation remains effective for two years unless it is renewed, revoked by the Secretary, or set aside by a court or Act of Congress.",
+      "url": "https://www.aila.org/library/dos-fact-sheet-on-foreign-terrorist-organizations",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the NDF been officially designated as a terrorist group by the United States, New Zealand, U.K., Australia, or the EU?",
+      "answer": "Based on the provided evidence, there is no information available to confirm or deny whether the NDF has been officially designated as a terrorist group by the United States, New Zealand, U.K., Australia, or the EU. The text focuses on statements made by Lt. Gen. Antonio Parlade Jr. regarding the Philippine Anti-Terrorism Law and accusations against the CPP-NPA-NDF, but it does not mention the official terrorist designations of those specific foreign entities.",
+      "url": "https://www.facebook.com/ntfelcac/posts/read-lt-gen-antonio-parlade-jrs-message-to-the-filipinos-in-europe-regarding-the/320008492770875/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Which international entities have officially designated the CPP-NPA-NDF as a terrorist organization?",
+      "answer": "Based on the evidence provided, the CPP-NPA-NDF has been officially designated as a terrorist organization by the following international entities:\n\n*   United States\n*   European Union\n*   United Kingdom\n*   Australia\n*   Canada\n*   New Zealand",
+      "url": "https://www.facebook.com/pnagovph/posts/persona-non-grata-a-tarpaulin-which-declares-the-terrorist-cpp-npa-ndf-as-person/3385495118199571/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Has the NDF been included in the official lists of terrorist groups by the United States, New Zealand, U.K., Australia, and the EU?",
+      "answer": "Based on the provided evidence, it is impossible to determine whether the NDF has been included in the official lists of terrorist groups by the United States, New Zealand, U.K., Australia, and the EU. The evidence provided focuses exclusively on social media debates regarding the designation of the Indigenous People of Biafra (IPOB) and does not contain any information regarding the NDF or the official terrorist designations of the countries mentioned.",
+      "url": "https://www.facebook.com/aljazirahnewsng/posts/is-the-designation-of-ipob-a-terrorist-organization-right/10155705395439659/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the provided evidence mention whether the NDF is included on the official terrorist group lists of the United States, New Zealand, the U.K., Australia, or the EU?",
+      "answer": "No, the provided evidence does not mention whether the NDF is included on the official terrorist group lists of the United States, New Zealand, the U.K., Australia, or the EU. The text focuses on counterterrorism efforts in East Asian nations following the 2002 Bali bombings and does not contain information regarding the NDF or the specific lists of the countries mentioned in the claim.",
+      "url": "https://2009-2017.state.gov/j/ct/rls/crt/2002/html/19983.htm",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the EU's process for identifying and listing terrorist groups work?",
+      "answer": "The EU's process for identifying and listing terrorist groups involves the following elements:\n\n*   **Purpose and Scope:** The Council maintains a terrorist list that identifies specific persons, groups, and entities. This list is used to implement restrictive measures, such as prohibiting EU operators from providing funds or economic resources to listed entities and freezing their financial assets within the EU.\n*   **Review Process:** The list is reviewed at least every six months, utilizing information exchanged between EU member states.\n*   **Legal Context:** The regime was originally established to implement UNSC Resolution 1373/2001 following the September 11 attacks.\n*   **Autonomy:** This specific sanctions regime operates independently from the EU's implementation of various UN Security Council resolutions, although the EU maintains its own autonomous sanctioning capabilities against groups such as Al-Qaida, ISIL/Da’esh, and their associates.",
+      "url": "https://www.pubaffairsbruxelles.eu/eu-institution-news/eu-renews-its-terrorist-list-of-persons-and-organisations-subject-to-sanctions/",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the evidence provide information regarding whether the United States, New Zealand, U.K., Australia, and the EU have included the NDF in their official lists of terrorist groups?",
+      "answer": "No, the provided evidence does not contain information regarding whether the United States, New Zealand, U.K., Australia, and the EU have included the NDF in their official lists of terrorist groups. The text focuses on terrorist activity trends in the East Asia and Pacific region, specific extremist groups in Indonesia, the Philippines, and Malaysia, and regional cooperation efforts.",
+      "url": "https://2009-2017.state.gov/j/ct/rls/crt/2011/195542.htm",
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://2009-2017.state.gov/j/ct/rls/crt/2002/html/19983.htm",
+      "date": "2003-04-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pnagovph/posts/persona-non-grata-a-tarpaulin-which-declares-the-terrorist-cpp-npa-ndf-as-person/3385495118199571/",
+      "date": "2016-02-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Outlawed_terror_organisations_in_New_Zealand",
+      "date": "2017-01-25",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/PulisyaNgArayat/posts/no-to-cpp-npa-ndfno-to-terrorism/760244134384545/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.pubaffairsbruxelles.eu/eu-institution-news/eu-renews-its-terrorist-list-of-persons-and-organisations-subject-to-sanctions/",
+      "date": "2020-01-14",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2009-2017.state.gov/j/ct/rls/crt/2011/195542.htm",
+      "date": "2012-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.cftc.gov/LawRegulation/FederalRegister/FinalRules/2012-18003.html",
+      "date": "2012-08-13",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/anti-terrorism-act-2020-foreign-borrowings-and-local-hacks",
+      "date": "2020-06-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ntfelcac/posts/read-lt-gen-antonio-parlade-jrs-message-to-the-filipinos-in-europe-regarding-the/320008492770875/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/ntfelcac/posts/read-statement-of-the-national-task-force-to-end-local-communist-armed-conflict-/357033615735029/",
+      "date": "2020-10-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/aljazirahnewsng/posts/is-the-designation-of-ipob-a-terrorist-organization-right/10155705395439659/",
+      "date": "2000-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aila.org/library/dos-fact-sheet-on-foreign-terrorist-organizations",
+      "date": "2002-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.factcheck.org/2020/06/trump-cant-designate-antifa-or-any-movement-domestic-terrorist-organization/",
+      "date": "2020-06-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/pnagovph/posts/look-anti-communist-groups-stage-a-protest-in-front-of-the-dutch-embassy-in-maka/2719499608132462/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "n_hyde_docs": 8,
+     "n_candidates": 14,
+     "n_top_k": 10,
+     "n_qa_after_rewrite": 10
+    },
+    "error": null,
+    "n_evidence_statements": 10
+   },
+   "sanctuary": {
+    "status": "ok",
+    "verdict": "Supported",
+    "verdict_fallback": false,
+    "justification": "Reasoning:\n1. The claim, made by Jonathan Malaya on October 26, 2020, in the Philippines, asserts that the United States, New Zealand, the U.K., Australia, and the EU have not included the National Democratic Front (NDF) in their official lists of terrorist groups.\n2. The evidence provided (specifically Q1, A1) clarifies a distinction between the CPP-NPA (Communist Party of the Philippines - New People's Army) and the NDF (National Democratic Front). While the CPP-NPA is designated as a terrorist organization by the U.S., U.K., New Zealand, Australia, and Canada, the NDF itself has not been declared a terrorist organization by the Philippine government or the other countries mentioned in the claim.\n3. There are no contradictions found in the evidence regarding the specific status of the NDF versus the CPP-NPA. The evidence explicitly supports the distinction that while the armed wing (NPA) is listed, the NDF is not.\n4. Since the claim specifically names the \"NDF\" and the evidence confirms that the NDF has not been included in those official lists (distinguishing it from the CPP-NPA which *has* been included), the claim is fully backed by the provided evidence.\n\nLabel: Supported",
+    "evidence_repr": "qa_concat",
+    "qa_pairs": [
+     {
+      "question": "Which specific entities were mentioned by Jonathan Malaya as not having included the NDF in their official lists of terrorist groups?",
+      "answer": "Badoy’s claim, however, is partly wrong: the NDFP has been declared a terrorist organization neither by the Philippine government nor by the other countries she mentioned. Watch this video. VERA FILES FACT CHECK: Badoy errs in claiming NDF tagged as terror group by PH, other countries from VERA Files on Vimeo. The CPP-NPA (excluding NDFP) has been included in the official list of terrorist groups of the U.S, the U.K., New Zealand, Australia, and Canada.",
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-errs-claiming-ndf-tagged-terror",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "Does the official terrorist designation list of the United States include the New People's Army (NPA) or the NDF?",
+      "answer": "State Department: CPP-NPA still on US foreign terror organization list WASHINGTON, DC — The Communist Party of the Philippines (CPP) and its armed wing, the New People’s Army (NPA), remain on the list of foreign terrorist organizations (FTOs) of the United States government. “The CPP-NPA is a designated FTO and it continues to meet the criteria for such a designation,” State Department spokesperson Mark Toner said on a brief statement on Thursday morning (late Thursday, Philippine time). Badoy’s claim, however, is partly wrong: the NDFP has been declared a terrorist organization neither by the Philippine government nor by the other countries she mentioned. Watch this video. VERA FILES FACT CHECK: Badoy errs in claiming NDF tagged as terror group by PH, other countries from VERA Files on Vimeo. The CPP-NPA (excluding NDFP) has been included in the official list of terrorist groups of the U.S, the U.K., New Zealand, Australia, and Canada. 113 OG No. 51, 9344 (December 18, 2017) [ PROCLAMATION NO. 374, December 05, 2017 ] DECLARING THE COMMUNIST PARTY OF THE PHILIPPINES (CPP) - NEW PEOPLE'S ARMY (NPA) AS A DESIGNATED/IDENTIFIED TERRORIST ORGANIZATION UNDER REPUBLIC ACT NO. 10168 WHEREAS, RA No. And still... The CPP-NPA was first designated as a terrorist organization in August 9, 2002. According to the U.S. State Department, the NPA is a Maoist group formed in 1969 with the aim of overthrowing the government through protracted guerrilla warfare. When the US declared a “war on terror” after 9/11, states around the World began reconceptualising long standing insurgent groups as “terrorists”, including those with no record of organising random mass casualty attacks on civilians. The US designated the Communist Party of the Philippines (CPP) and its armed wing, the New People’s Army (NPA) as a terrorist organisation in 2002. The European Union (EU) and New Zealand followed suit, while Australia implemented financial sanctions but it has not designated the movement as a terrorist organisation. C. August 9, 2002 Today we are taking another important step in our continuing efforts to combat global terrorism. I am announcing the designation of the Communist Party of the Philippines/New People¡¦s Army (CPP/NPA) as a Foreign Terrorist Organization, as defined under U.S. law. I made this decision in consultation with the Attorney General and the Secretary of the Treasury after an exhaustive review of this group's violent activities. The CPP, a Maoist group, was founded in 1969 with the aim of overthrowing the Philippine government through guerilla warfare. 2) 2019 - United Nations Office of Drugs and Crime, Security Council Resolution 1373 (2001) - United States State Department, Foreign Terrorist Organizations, Accessed March 11, 2020 - New Zealand Police, Lists associated with Resolution 1373, Accessed March 5, 2020 - Public Safety of Canada, Regulations Implementing the United Nations Resolutions on the Suppression of Terrorism, Accessed March 11, 2020 - United Kingdom official government website, CONSOLIDATED LIST OF FINANCIAL SANCTIONS TARGETS IN THE UK, Accessed March 11, 2020 Presidential Communications Operations Office, Duterte declares CPP-NPA a terrorist group, Dec.",
+      "url": "https://globalnation.inquirer.net/152307/state-department-cpp-npa-still-on-us-foreign-terror-organization-list",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "What is the status of the NDF regarding official terrorist designations by major Western powers as of October 2020?",
+      "answer": "Badoy’s claim, however, is partly wrong: the NDFP has been declared a terrorist organization neither by the Philippine government nor by the other countries she mentioned. Watch this video. VERA FILES FACT CHECK: Badoy errs in claiming NDF tagged as terror group by PH, other countries from VERA Files on Vimeo. The CPP-NPA (excluding NDFP) has been included in the official list of terrorist groups of the U.S, the U.K., New Zealand, Australia, and Canada.",
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-errs-claiming-ndf-tagged-terror",
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "How does the classification of the NDF by the EU differ from the classification of the NPA?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     },
+     {
+      "question": "In the context of the claim made by Jonathan Malaya, which international bodies were cited for their lack of NDF designation?",
+      "answer": "No Evidence.",
+      "url": null,
+      "images": [],
+      "evidence_text": null
+     }
+    ],
+    "sources": [
+     {
+      "url": "https://2009-2017.state.gov/j/ct/rls/crt/45394.htm",
+      "date": "2005-04-27",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://unis.unvienna.org/unis/en/pressrels/2004/sc8102.html",
+      "date": "2004-05-26",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/dilg.philippines/posts/the-department-of-the-interior-and-local-government-said-that-they-see-nothing-w/1506023319586257/",
+      "date": "2016-02-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://verafiles.org/articles/vera-files-fact-check-badoy-errs-claiming-ndf-tagged-terror",
+      "date": "2020-03-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://usinfo.org/wf-archive/2001/011005/epf505.htm",
+      "date": "2001-10-05",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/62526",
+      "date": "2010-02-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://2001-2009.state.gov/secretary/former/powell/remarks/2002/12542.htm",
+      "date": "2002-09-08",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/7/80243",
+      "date": "2019-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.federalregister.gov/documents/2016/10/20/2016-25422/review-of-the-designation-as-a-foreign-terrorist-organization-of-the-communist-party-of-the",
+      "date": "2016-10-20",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/New_People%27s_Army",
+      "date": "2004-12-10",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://globalnation.inquirer.net/152307/state-department-cpp-npa-still-on-us-foreign-terror-organization-list",
+      "date": "2017-02-03",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/CivilRelationsServiceAFP/posts/president-duterte-yesterday-signed-a-proclamation-classifying-the-communist-part/1740921022593281/",
+      "date": "1997-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://usinfo.org/wf-archive/2002/020809/epf503.htm",
+      "date": "2002-08-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.newmandala.org/encouraging-abuse-foreign-terrorist-designations-of-the-cpp-npa/",
+      "date": "2020-09-17",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.aila.org/library/dos-fact-sheet-on-foreign-terrorist-organizations",
+      "date": "2002-07-31",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.gov.uk/government/publications/proscribed-terror-groups-or-organisations--2",
+      "date": "2013-07-12",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://cepr.org/voxeu/columns/same-different-comparing-non-performing-asset-measures-across-countries",
+      "date": "2019-09-30",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.elibrary.imf.org/view/journals/001/2020/179/article-A001-en.xml",
+      "date": "2020-09-04",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.facebook.com/groups/rpdefense/posts/1210744049011440/",
+      "date": "2002-08-09",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://www.rappler.com/features/newsbreak/in-depth/238150-creating-marcos-reviving-anti-subversion-law-under-duterte/index.html",
+      "date": "2019-08-21",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     },
+     {
+      "url": "https://publishing.cdlib.org/ucpressebooks/public/book/muslim-rulers-and-rebels-everyday-politics-and-armed-separatism-in-the-southern-philippines.html",
+      "date": "1998-01-01",
+      "date_class": "strict_ok",
+      "endpoint": "search"
+     }
+    ],
+    "stats": {
+     "chunker_fallback": false,
+     "n_questions": 5,
+     "n_paragraphs": 370,
+     "n_urls_after_bm25": 20,
+     "n_chunks": 1491
+    },
+    "error": null,
+    "n_evidence_statements": 5
+   }
+  }
+ },
+ "reference": {
+  "gold": {
+   "kind": "human",
+   "label": "Supported",
+   "justification": "NDF is not listed on any of the official lists of terrorist groups. ",
+   "questions": [
+    {
+     "question": "Has the USA included the NDF in their official list of terrorist groups?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210116025723/https://www.state.gov/foreign-terrorist-organizations/",
+       "source_medium": "Web text"
+      },
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210116025723/https://www.state.gov/foreign-terrorist-organizations/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has the UK  included the NDF in their official list of terrorist groups?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210124041112/https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
+       "source_medium": "PDF"
+      },
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210124041112/https://ofsistorage.blob.core.windows.net/publishlive/ConList.pdf",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has Australia included the NDF in their official list of terrorist groups?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://www.legislation.gov.au/Details/C2019G00862",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has the EU included the NDF in their official list of terrorist groups?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210120070334/https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX:32020D1132",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has New Zealand included the NDF in their official list of terrorist groups?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://www.police.govt.nz/sites/default/files/publications/designated-entities-12-october-2020.pdf",
+       "source_medium": "PDF"
+      },
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://www.police.govt.nz/sites/default/files/publications/designated-entities-12-october-2020.pdf",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has Australia  included the NDF in their official list of terrorist groups?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://web.archive.org/web/20210116025723/https://www.state.gov/foreign-terrorist-organizations/",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    },
+    {
+     "question": "Has EU included NDF on the list of terrorists?",
+     "answers": [
+      {
+       "answer": "No",
+       "answer_type": "Boolean",
+       "source_url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32020D1132",
+       "source_medium": "Web text"
+      }
+     ],
+     "input_images": [],
+     "answer_method": null
+    }
+   ],
+   "fact_checking_article": "https://web.archive.org/web/20210115235946/https://verafiles.org/articles/vera-files-fact-check-dilg-usec-malaya-wrongly-claims-ndf-li",
+   "source": "datasets/averitec/dev.json"
+  },
+  "silver": {
+   "kind": "auto",
+   "available": true,
+   "statements": [
+    {
+     "statement": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups, but have designated the CPP and NPA as terrorist entities.",
+     "support_span": "the United States, New Zealand, U.K., Australia, and the EU have also not included the NDF in their official list of terrorist groups. | The aforementioned countries and the EU, meanwhile, have designated the CPP and NPA, singly or separately, as terrorist entities in accordance with their local laws"
+    },
+    {
+     "statement": "Proclamation 374, issued by President Rodrigo Duterte in December 2017, declared the CPP and NPA as a terrorist organization but does not mention the NDF, which is the political arm of the CPP and an organization that includes at least 17 allied organizations, two of which are the CPP and NPA.",
+     "support_span": "while it did declare the Communist Party of the Philippines (CPP) and its military wing, the New People’s Army -- as one entity -- a terrorist organization, Proclamation 374... does not mention the NDF. | the NDF, the political arm of the CPP | the CPP-NPA -- two of at least 17 allied organizations in the NDF"
+    }
+   ],
+   "justification": "The evidence indicates that while the United States, New Zealand, U.K., Australia, and the EU have designated the Communist Party of the Philippines (CPP) and the New People’s Army (NPA) as terrorist entities, they have not included the National Democratic Front (NDF) on their official lists. This distinction is further supported by Philippine Proclamation 374, which declared the CPP and NPA as terrorist organizations but omitted any mention of the NDF. Although the NDF is described as the political arm of the CPP and an umbrella organization containing the CPP and NPA among its members, the specific legal designations by these international entities and the Philippine government have focused on the CPP and NPA rather than the NDF itself.",
+   "article_url": "https://web.archive.org/web/20210115235946/https://verafiles.org/articles/vera-files-fact-check-dilg-usec-malaya-wrongly-claims-ndf-li",
+   "model": "google/gemma-4-26b-a4b-it",
+   "note": "由本项目 pipeline 用 Gemma 从事实核查文章自动抽取并合并的证据，不是人工标注，也不是系统输出。",
+   "source": "results/experiments/evidence_atomicity/merge/t1_merge_dev_t2_n94_gemma4_26b_20260622_163427.json"
+  }
+ }
+}
