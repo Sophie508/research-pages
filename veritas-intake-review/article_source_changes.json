@@ -1,0 +1,2349 @@
+{
+  "version": "article-source-review-2026-09-20",
+  "changed_evidence": 139,
+  "changes": [
+    {
+      "claim_id": 105348,
+      "evidence_index": 0,
+      "statement": "There is no clinical evidence showing that a tea made of coriander, arjun bark, and curry leaves can prevent heart attacks.",
+      "previous_url": "https://www.ebsco.com/research-starters/nutrition-and-dietetics/arjun-dietary-supplement",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10220854/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5198828/",
+        "https://magazine.thip.media"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10220854/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5198828/",
+        "https://magazine.thip.media"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105348,
+      "evidence_index": 4,
+      "statement": "Curry leaves may help reduce oxidative stress and support cholesterol regulation, but they are not powerful enough to prevent heart attacks on their own.",
+      "previous_url": "https://www.healthline.com/nutrition/curry-leaves-benefits",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10220854/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5198828/",
+        "https://magazine.thip.media"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10220854/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5198828/",
+        "https://magazine.thip.media"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104545,
+      "evidence_index": 0,
+      "statement": "Number 10 confirmed that Prime Minister Keir Starmer did not make the comments regarding a potential lockdown due to meningitis cases.",
+      "previous_url": "https://x.com/FullFact/status/2034938851697803643",
+      "displayed_article_urls": [
+        "https://www.gov.uk/government/news/cases-of-invasive-meningococcal-disease-confirmed-in-kent",
+        "https://ukhsa.blog.gov.uk/2026/03/18/meningitis-b-outbreak-what-you-need-to-know/"
+      ],
+      "all_article_candidates": [
+        "https://www.gov.uk/government/news/cases-of-invasive-meningococcal-disease-confirmed-in-kent",
+        "https://ukhsa.blog.gov.uk/2026/03/18/meningitis-b-outbreak-what-you-need-to-know/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104545,
+      "evidence_index": 2,
+      "statement": "Social media posts falsely claimed the Prime Minister said the UK may need to go into lockdown as early as May if meningitis cases continue to escalate.",
+      "previous_url": "https://x.com/FullFact/status/2034938851697803643",
+      "displayed_article_urls": [
+        "https://ukhsa.blog.gov.uk/2026/03/18/meningitis-b-outbreak-what-you-need-to-know/",
+        "https://www.gov.uk/government/news/cases-of-invasive-meningococcal-disease-confirmed-in-kent"
+      ],
+      "all_article_candidates": [
+        "https://ukhsa.blog.gov.uk/2026/03/18/meningitis-b-outbreak-what-you-need-to-know/",
+        "https://www.gov.uk/government/news/cases-of-invasive-meningococcal-disease-confirmed-in-kent"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103979,
+      "evidence_index": 0,
+      "statement": "A Calgary middle school issued an advisory designating the cafeteria and lunchroom as 'no food' zones at specific times to support students observing Ramadan.",
+      "previous_url": "https://nypost.com/2026/03/16/world-news/canadian-school-sparks-controversy-over-no-food-zones-to-serve-muslim-students-fasting-for-ramadan/",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260414182805/https://perma.cc/2LSB-CUJW",
+        "http://web.archive.org/web/20260414182805/https://perma.cc/Q69K-UZ4K",
+        "http://web.archive.org/web/20260414182805/https://factcheck.afp.com/doc.afp.com.84NM7KJ"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260414182805/https://perma.cc/2LSB-CUJW",
+        "http://web.archive.org/web/20260414182805/https://perma.cc/Q69K-UZ4K",
+        "http://web.archive.org/web/20260414182805/https://factcheck.afp.com/doc.afp.com.84NM7KJ"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103979,
+      "evidence_index": 1,
+      "statement": "The Calgary Board of Education (CBE) stated that these accommodations did not change the school's normal lunch areas and did not bar students from eating on campus.",
+      "previous_url": "https://calgaryherald.com/news/fairview-school",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260414182805/https://perma.cc/2LSB-CUJW",
+        "http://web.archive.org/web/20260414182805/https://perma.cc/Q69K-UZ4K",
+        "http://web.archive.org/web/20260414182805/https://factcheck.afp.com/doc.afp.com.84NM7KJ"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260414182805/https://perma.cc/2LSB-CUJW",
+        "http://web.archive.org/web/20260414182805/https://perma.cc/Q69K-UZ4K",
+        "http://web.archive.org/web/20260414182805/https://factcheck.afp.com/doc.afp.com.84NM7KJ"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104563,
+      "evidence_index": 0,
+      "statement": "The video claiming PM Modi announced free LPG cylinders under the Ujjwala scheme is a digitally altered deepfake.",
+      "previous_url": "https://x.com/boomlive_in/status/2033519447776837792",
+      "displayed_article_urls": [
+        "https://www.business-standard.com/markets/commodities/india-lpg-shortage-west-asia-war-hormuz-shipping-disruption-126031100779_1.html",
+        "https://pmujjwalayojana.com/hindi/free-gas-cylinder-yojana/",
+        "https://mopng.gov.in/hi"
+      ],
+      "all_article_candidates": [
+        "https://www.business-standard.com/markets/commodities/india-lpg-shortage-west-asia-war-hormuz-shipping-disruption-126031100779_1.html",
+        "https://pmujjwalayojana.com/hindi/free-gas-cylinder-yojana/",
+        "https://mopng.gov.in/hi"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104563,
+      "evidence_index": 2,
+      "statement": "AI detection tools have flagged the video's audio and lip-syncing as highly likely to be artificial/deepfake.",
+      "previous_url": "https://www.resemble.ai/resources/how-to-tell-if-a-video-is-ai-generated",
+      "displayed_article_urls": [
+        "https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/report_index_dynamic/deepfakewatch@boomlive.in_2026-03-16-02:36:35?has_audio_stream=False",
+        "https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/report_detail_dynamic/deepfakewatch@boomlive.in_2026-03-16-02:36:55/LIPINC",
+        "https://mopng.gov.in/hi"
+      ],
+      "all_article_candidates": [
+        "https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/report_index_dynamic/deepfakewatch@boomlive.in_2026-03-16-02:36:35?has_audio_stream=False",
+        "https://zinc.cse.buffalo.edu/ubmdfl/deep-o-meter/report_detail_dynamic/deepfakewatch@boomlive.in_2026-03-16-02:36:55/LIPINC",
+        "https://mopng.gov.in/hi"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103921,
+      "evidence_index": 0,
+      "statement": "The £2.6 billion figure refers to a projected overspend for the 2025/26 year, rather than a budget cut.",
+      "previous_url": "https://ifs.org.uk/publications/annual-report-education-spending-england-2025-26",
+      "displayed_article_urls": [
+        "https://www.telegraph.co.uk/politics/2025/10/23/revealed-mod-faces-2bn-budget-black-hole-defence-cuts-uk/",
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)",
+        "https://www.gov.uk/government/news/red-tape-to-be-slashed-as-mod-launches-new-team-to-back-british-small-businesses#:~:text=That%20will%20see%20%C2%A3270%20billion%20invested%20into%20defence%20across%20this%20Parliament."
+      ],
+      "all_article_candidates": [
+        "https://www.telegraph.co.uk/politics/2025/10/23/revealed-mod-faces-2bn-budget-black-hole-defence-cuts-uk/",
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)",
+        "https://www.gov.uk/government/news/red-tape-to-be-slashed-as-mod-launches-new-team-to-back-british-small-businesses#:~:text=That%20will%20see%20%C2%A3270%20billion%20invested%20into%20defence%20across%20this%20Parliament."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103921,
+      "evidence_index": 1,
+      "statement": "The £2.6 billion figure originated from a leaked MoD internal spending estimate reported by the Telegraph in October 2025.",
+      "previous_url": "https://x.com/Telegraph/status/1981440542664774098",
+      "displayed_article_urls": [
+        "https://www.telegraph.co.uk/politics/2025/10/23/revealed-mod-faces-2bn-budget-black-hole-defence-cuts-uk/",
+        "https://www.nao.org.uk/wp-content/uploads/2025/12/mod-2024-25.pdf#page=13",
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)"
+      ],
+      "all_article_candidates": [
+        "https://www.telegraph.co.uk/politics/2025/10/23/revealed-mod-faces-2bn-budget-black-hole-defence-cuts-uk/",
+        "https://www.nao.org.uk/wp-content/uploads/2025/12/mod-2024-25.pdf#page=13",
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103921,
+      "evidence_index": 2,
+      "statement": "The Ministry of Defence's budget for 2025/26 is £62.2 billion, which is an increase of approximately 3.2% in cash terms compared to 2024/25.",
+      "previous_url": "https://www.gov.uk/government/statistics/defence-departmental-resources-2025/mod-departmental-resources-2025",
+      "displayed_article_urls": [
+        "https://www.nao.org.uk/wp-content/uploads/2025/12/mod-2024-25.pdf#page=13",
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)",
+        "https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2025-en.pdf#page=7"
+      ],
+      "all_article_candidates": [
+        "https://www.nao.org.uk/wp-content/uploads/2025/12/mod-2024-25.pdf#page=13",
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)",
+        "https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2025-en.pdf#page=7"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103921,
+      "evidence_index": 4,
+      "statement": "The MoD's budget is projected to increase by an average of 3.8% a year in real terms between 2025/26 and 2028/29.",
+      "previous_url": "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html",
+      "displayed_article_urls": [
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)",
+        "https://www.nao.org.uk/wp-content/uploads/2025/12/mod-2024-25.pdf#page=13",
+        "https://www.gov.uk/government/news/red-tape-to-be-slashed-as-mod-launches-new-team-to-back-british-small-businesses#:~:text=That%20will%20see%20%C2%A3270%20billion%20invested%20into%20defence%20across%20this%20Parliament."
+      ],
+      "all_article_candidates": [
+        "https://www.gov.uk/government/publications/spending-review-2025-document/spending-review-2025-html#:~:text=Table%205.1%3A%20Total%20Departmental%20Expenditure%20Limits%20(DEL)(1)",
+        "https://www.nao.org.uk/wp-content/uploads/2025/12/mod-2024-25.pdf#page=13",
+        "https://www.gov.uk/government/news/red-tape-to-be-slashed-as-mod-launches-new-team-to-back-british-small-businesses#:~:text=That%20will%20see%20%C2%A3270%20billion%20invested%20into%20defence%20across%20this%20Parliament."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103885,
+      "evidence_index": 4,
+      "statement": "Pope Leo XIV did not mention the United States or Israel by name in his March 2026 remarks regarding the conflict.",
+      "previous_url": "https://apnews.com/article/vatican-pope-mideast-war-0156c759d1bbdf1cadc0cd8f48cc8c82",
+      "displayed_article_urls": [
+        "https://www.vatican.va/content/leo-xiv/en/angelus/2026/documents/20260308-angelus.html",
+        "https://www.vatican.va/content/leo-xiv/en/prayers/documents/20260305-popesprayer-marzo.html ",
+        "https://www.vaticannews.va/en/pope/news/2025-10/pope-leo-xiv-peace-meeting-rome-colosseum-sant-egidio.html "
+      ],
+      "all_article_candidates": [
+        "https://www.vatican.va/content/leo-xiv/en/angelus/2026/documents/20260308-angelus.html",
+        "https://www.vatican.va/content/leo-xiv/en/prayers/documents/20260305-popesprayer-marzo.html ",
+        "https://www.vaticannews.va/en/pope/news/2025-10/pope-leo-xiv-peace-meeting-rome-colosseum-sant-egidio.html "
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102445,
+      "evidence_index": 0,
+      "statement": "The United Nations Security Council had not released any resolutions, presidential statements, or news releases labeling Donald Trump as a war criminal at the time of the article's publication.",
+      "previous_url": "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-united-nations-security-council-briefing-counterproliferation-new-york-ny/",
+      "displayed_article_urls": [
+        "https://main.un.org/securitycouncil/en/content/resolutions-0",
+        "https://news.un.org/en/story/2026/02/1167060",
+        "https://main.un.org/securitycouncil/en/content/presidential-statements"
+      ],
+      "all_article_candidates": [
+        "https://main.un.org/securitycouncil/en/content/resolutions-0",
+        "https://news.un.org/en/story/2026/02/1167060",
+        "https://main.un.org/securitycouncil/en/content/presidential-statements"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102445,
+      "evidence_index": 1,
+      "statement": "No reputable news outlets reported that the UN Security Council declared Trump a war criminal.",
+      "previous_url": "https://ca.news.yahoo.com/trump-labeled-war-criminal-no-160450615.html",
+      "displayed_article_urls": [
+        "https://media.snopes.com/2026/03/trump_war_criminal_security_council.pdf",
+        "https://main.un.org/securitycouncil/en/content/resolutions-0",
+        "https://news.un.org/en/story/2026/02/1167060"
+      ],
+      "all_article_candidates": [
+        "https://media.snopes.com/2026/03/trump_war_criminal_security_council.pdf",
+        "https://main.un.org/securitycouncil/en/content/resolutions-0",
+        "https://news.un.org/en/story/2026/02/1167060"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102489,
+      "evidence_index": 0,
+      "statement": "The false claim about celebrity donations was created and distributed by a spam factory in Vietnam using AI tools to publish fake articles.",
+      "previous_url": "https://www.yahoo.com/entertainment/celebrity/articles/prebunk-beware-fake-fan-pages-184921955.html",
+      "displayed_article_urls": [
+        "https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301224941/https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301113717/https://www.facebook.com/search/top/?q=%22provide%20emergency%20relief%20and%20medical%20aid%20following%20the%20tragic%20elementary%20school%20strike%20in%20southern%20Iran%22"
+      ],
+      "all_article_candidates": [
+        "https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301224941/https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301113717/https://www.facebook.com/search/top/?q=%22provide%20emergency%20relief%20and%20medical%20aid%20following%20the%20tragic%20elementary%20school%20strike%20in%20southern%20Iran%22"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102489,
+      "evidence_index": 2,
+      "statement": "The Facebook pages hosting these false posts are linked to Vietnam, a known source of AI-generated false stories.",
+      "previous_url": "https://www.nbcnews.com/tech/tech-news/facebook-says-pro-trump-media-outlet-used-artificial-intelligence-create-n1105951",
+      "displayed_article_urls": [
+        "https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301224941/https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301113717/https://www.facebook.com/search/top/?q=%22provide%20emergency%20relief%20and%20medical%20aid%20following%20the%20tragic%20elementary%20school%20strike%20in%20southern%20Iran%22"
+      ],
+      "all_article_candidates": [
+        "https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301224941/https://www.google.com/search?q=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&sca_esv=90fa01944a1e10fb&sxsrf=ANbL-n67WJHkuSMA2-n8FifvA4LenmBCOA%3A1772399636553&ei=FKykadW8IZXL0PEP0vWQoQw&biw=1402&bih=633&ved=0ahUKEwjVlvKVz_-SAxWVJTQIHdI6JMQQ4dUDCBE&uact=5&oq=%22provide+emergency+relief+and+medical+aid+following+the+tragic+elementary+school+strike+in+southern+Iran%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiaSJwcm92aWRlIGVtZXJnZW5jeSByZWxpZWYgYW5kIG1lZGljYWwgYWlkIGZvbGxvd2luZyB0aGUgdHJhZ2ljIGVsZW1lbnRhcnkgc2Nob29sIHN0cmlrZSBpbiBzb3V0aGVybiBJcmFuIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQL4AQGYAgCgAgCYAwDiAwUSATEgQJIHAKAHALIHALgHAMIHAMgHAIAIAA&sclient=gws-wiz-serp",
+        "https://web.archive.org/web/20260301113717/https://www.facebook.com/search/top/?q=%22provide%20emergency%20relief%20and%20medical%20aid%20following%20the%20tragic%20elementary%20school%20strike%20in%20southern%20Iran%22"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104024,
+      "evidence_index": 0,
+      "statement": "The Butterfly Foundation is not named in the Epstein Files.",
+      "previous_url": "https://www.latimes.com/opinion/story/2025-09-07/epstein-survivors",
+      "displayed_article_urls": [
+        "https://www.google.com/search?q=%22tehran+files%22+epstein&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n5VilYcdIA532ttv9ON8bUX8DDATA%3A1772753538609&ei=ghKqaYT4JIeo5NoPuM244Q4&ved=0ahUKEwiEwcXH9YmTAxUHFFkFHbgmLuwQ4dUDCA4&uact=5&oq=%22tehran+files%22+epstein&gs_lp=Egxnd3Mtd2l6LW5ld3MiFiJ0ZWhyYW4gZmlsZXMiIGVwc3RlaW4yCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIvQxQtQNYpQdwAHgAkAEAmAGCAaAB7AOqAQMzLjK4AQPIAQD4AQGYAgWgAvkDwgIIECEYoAEYwwTCAgoQIRgKGKABGMMEmAMAiAYBkgcDMi4zoAfaD7IHAzIuM7gH-QPCBwMwLjXIBwmACAE&sclient=gws-wiz-news",
+        "https://web.archive.org/web/20260305233304/https://www.google.com/search?q=%22tehran+files%22+epstein&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n5VilYcdIA532ttv9ON8bUX8DDATA%3A1772753538609&ei=ghKqaYT4JIeo5NoPuM244Q4&ved=0ahUKEwiEwcXH9YmTAxUHFFkFHbgmLuwQ4dUDCA4&uact=5&oq=%22tehran+files%22+epstein&gs_lp=Egxnd3Mtd2l6LW5ld3MiFiJ0ZWhyYW4gZmlsZXMiIGVwc3RlaW4yCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIvQxQtQNYpQdwAHgAkAEAmAGCAaAB7AOqAQMzLjK4AQPIAQD4AQGYAgWgAvkDwgIIECEYoAEYwwTCAgoQIRgKGKABGMMEmAMAiAYBkgcDMi4zoAfaD7IHAzIuM7gH-QPCBwMwLjXIBwmACAE&sclient=gws-wiz-news",
+        "https://www.justice.gov/epstein"
+      ],
+      "all_article_candidates": [
+        "https://www.google.com/search?q=%22tehran+files%22+epstein&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n5VilYcdIA532ttv9ON8bUX8DDATA%3A1772753538609&ei=ghKqaYT4JIeo5NoPuM244Q4&ved=0ahUKEwiEwcXH9YmTAxUHFFkFHbgmLuwQ4dUDCA4&uact=5&oq=%22tehran+files%22+epstein&gs_lp=Egxnd3Mtd2l6LW5ld3MiFiJ0ZWhyYW4gZmlsZXMiIGVwc3RlaW4yCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIvQxQtQNYpQdwAHgAkAEAmAGCAaAB7AOqAQMzLjK4AQPIAQD4AQGYAgWgAvkDwgIIECEYoAEYwwTCAgoQIRgKGKABGMMEmAMAiAYBkgcDMi4zoAfaD7IHAzIuM7gH-QPCBwMwLjXIBwmACAE&sclient=gws-wiz-news",
+        "https://web.archive.org/web/20260305233304/https://www.google.com/search?q=%22tehran+files%22+epstein&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n5VilYcdIA532ttv9ON8bUX8DDATA%3A1772753538609&ei=ghKqaYT4JIeo5NoPuM244Q4&ved=0ahUKEwiEwcXH9YmTAxUHFFkFHbgmLuwQ4dUDCA4&uact=5&oq=%22tehran+files%22+epstein&gs_lp=Egxnd3Mtd2l6LW5ld3MiFiJ0ZWhyYW4gZmlsZXMiIGVwc3RlaW4yCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIvQxQtQNYpQdwAHgAkAEAmAGCAaAB7AOqAQMzLjK4AQPIAQD4AQGYAgWgAvkDwgIIECEYoAEYwwTCAgoQIRgKGKABGMMEmAMAiAYBkgcDMi4zoAfaD7IHAzIuM7gH-QPCBwMwLjXIBwmACAE&sclient=gws-wiz-news",
+        "https://www.justice.gov/epstein"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104024,
+      "evidence_index": 3,
+      "statement": "The Department of Justice's 'Epstein Library' contains no results for 'Horizon Bridge LLC'.",
+      "previous_url": "https://www.brennancenter.org/our-work/research-reports/2020-annual-report",
+      "displayed_article_urls": [
+        "https://www.justice.gov/epstein",
+        "https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news",
+        "https://web.archive.org/web/20260305233849/https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news"
+      ],
+      "all_article_candidates": [
+        "https://www.justice.gov/epstein",
+        "https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news",
+        "https://web.archive.org/web/20260305233849/https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104024,
+      "evidence_index": 4,
+      "statement": "There is no evidence supporting the existence of 'Project Looking Glass' or its alleged purpose.",
+      "previous_url": "https://x.com/grok/status/1969608438704718098",
+      "displayed_article_urls": [
+        "https://www.justice.gov/epstein",
+        "https://web.archive.org/web/20260305233849/https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news",
+        "https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news"
+      ],
+      "all_article_candidates": [
+        "https://www.justice.gov/epstein",
+        "https://web.archive.org/web/20260305233849/https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news",
+        "https://www.google.com/search?q=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&sca_esv=4cca1bafe5d3c697&rlz=1C5CHFA_enUS932US932&biw=1551&bih=707&tbm=nws&sxsrf=ANbL-n4FtNfB1HKd_qlEc7LGq7ruIfMleQ%3A1772753896632&ei=6BOqadSaJs6y5NoPjdTlWA&ved=0ahUKEwjUrqHy9omTAxVOGVkFHQ1qGQsQ4dUDCA4&uact=5&oq=%22Mark+Zuckerberg%22+subpoenaed+Bondi+Epstein+Horizon+Bridge+LLC&gs_lp=Egxnd3Mtd2l6LW5ld3MiPSJNYXJrIFp1Y2tlcmJlcmciIHN1YnBvZW5hZWQgQm9uZGkgRXBzdGVpbiBIb3Jpem9uIEJyaWRnZSBMTENIu3BQpQJYgW1wAHgAkAEAmAGRAaABlgqqAQQxMi4zuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoAe1DrIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz-news"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104485,
+      "evidence_index": 0,
+      "statement": "The claim that Trump ended eight wars is false because many of the listed conflicts remain unresolved and his role as a peace broker is disputed.",
+      "previous_url": "https://www.bbc.com/news/articles/c5y3599gx4qo",
+      "displayed_article_urls": [
+        "https://www.bbc.com/news/articles/c0q5je8048xo",
+        "https://www.csis.org/blogs/latest-southeast-asia/latest-southeast-asia-2nd-cambodia-thailand-ceasefire",
+        "https://www.reuters.com/world/asia-pacific/cambodian-pm-says-thailand-occupying-territory-after-trump-brokered-ceasefire-2026-02-18/"
+      ],
+      "all_article_candidates": [
+        "https://www.bbc.com/news/articles/c0q5je8048xo",
+        "https://www.csis.org/blogs/latest-southeast-asia/latest-southeast-asia-2nd-cambodia-thailand-ceasefire",
+        "https://www.reuters.com/world/asia-pacific/cambodian-pm-says-thailand-occupying-territory-after-trump-brokered-ceasefire-2026-02-18/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104485,
+      "evidence_index": 2,
+      "statement": "India has repeatedly rejected Trump's claim of ending the war against Pakistan.",
+      "previous_url": "https://www.bbc.com/news/articles/c5y204pmrp2o",
+      "displayed_article_urls": [
+        "https://www.bbc.com/news/articles/c0q5je8048xo",
+        "https://www.reuters.com/world/asia-pacific/cambodian-pm-says-thailand-occupying-territory-after-trump-brokered-ceasefire-2026-02-18/",
+        "https://www.csis.org/blogs/latest-southeast-asia/latest-southeast-asia-2nd-cambodia-thailand-ceasefire"
+      ],
+      "all_article_candidates": [
+        "https://www.bbc.com/news/articles/c0q5je8048xo",
+        "https://www.reuters.com/world/asia-pacific/cambodian-pm-says-thailand-occupying-territory-after-trump-brokered-ceasefire-2026-02-18/",
+        "https://www.csis.org/blogs/latest-southeast-asia/latest-southeast-asia-2nd-cambodia-thailand-ceasefire"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104485,
+      "evidence_index": 3,
+      "statement": "Serbia and Kosovo were not in an open state of war, and they have never signed a final peace treaty.",
+      "previous_url": "https://www.lawfaremedia.org/article/deal-or-no-deal-international-influence-and-serbia-kosovo-conflict",
+      "displayed_article_urls": [
+        "https://www.congress.gov/crs-product/IF13032",
+        "https://www.theguardian.com/world/2025/jun/21/trump-us-nuclear-strikes-iran",
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/08/peace-deal-between-armenia-and-azerbaijan"
+      ],
+      "all_article_candidates": [
+        "https://www.congress.gov/crs-product/IF13032",
+        "https://www.theguardian.com/world/2025/jun/21/trump-us-nuclear-strikes-iran",
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/08/peace-deal-between-armenia-and-azerbaijan"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104485,
+      "evidence_index": 5,
+      "statement": "Egypt and Ethiopia were never at war during Trump's presidency, and the dispute over the Grand Renaissance Dam continues.",
+      "previous_url": "https://www.justsecurity.org/123615/trump-egypt-ethiopia-dam-conflict/",
+      "displayed_article_urls": [
+        "https://www.congress.gov/crs-product/IF13032",
+        "https://www.theguardian.com/world/2025/jun/21/trump-us-nuclear-strikes-iran",
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/08/peace-deal-between-armenia-and-azerbaijan"
+      ],
+      "all_article_candidates": [
+        "https://www.congress.gov/crs-product/IF13032",
+        "https://www.theguardian.com/world/2025/jun/21/trump-us-nuclear-strikes-iran",
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/08/peace-deal-between-armenia-and-azerbaijan"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104485,
+      "evidence_index": 7,
+      "statement": "Fighting in the Democratic Republic of Congo and Rwanda continued even after a peace deal was signed in June 2025.",
+      "previous_url": "https://www.gicj.org/positions-opinons/gicj-positions-and-opinions/4355-will-the-rwanda-drc-peace-deal-end-decades-of-conflict",
+      "displayed_article_urls": [
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/12/signing-of-the-washington-accords-for-peace-and-prosperity-between-the-democratic-republic-of-the-congo-and-rwanda",
+        "https://www.washingtonpost.com/world/2026/02/24/congo-goma-m23-rebels-official-killed/cd2c7d40-1194-11f1-8e8d-fe91db44677b_story.html",
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/08/peace-deal-between-armenia-and-azerbaijan"
+      ],
+      "all_article_candidates": [
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/12/signing-of-the-washington-accords-for-peace-and-prosperity-between-the-democratic-republic-of-the-congo-and-rwanda",
+        "https://www.washingtonpost.com/world/2026/02/24/congo-goma-m23-rebels-official-killed/cd2c7d40-1194-11f1-8e8d-fe91db44677b_story.html",
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/08/peace-deal-between-armenia-and-azerbaijan"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104485,
+      "evidence_index": 8,
+      "statement": "The conflict in Gaza is still ongoing despite a ceasefire document signed by Trump in October 2025.",
+      "previous_url": "https://www.bbc.com/news/articles/ckgk4x5ze3mo",
+      "displayed_article_urls": [
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/12/signing-of-the-washington-accords-for-peace-and-prosperity-between-the-democratic-republic-of-the-congo-and-rwanda",
+        "https://www.washingtonpost.com/world/2026/02/24/congo-goma-m23-rebels-official-killed/cd2c7d40-1194-11f1-8e8d-fe91db44677b_story.html",
+        "https://www.congress.gov/crs-product/IF13032"
+      ],
+      "all_article_candidates": [
+        "https://www.state.gov/releases/office-of-the-spokesperson/2025/12/signing-of-the-washington-accords-for-peace-and-prosperity-between-the-democratic-republic-of-the-congo-and-rwanda",
+        "https://www.washingtonpost.com/world/2026/02/24/congo-goma-m23-rebels-official-killed/cd2c7d40-1194-11f1-8e8d-fe91db44677b_story.html",
+        "https://www.congress.gov/crs-product/IF13032"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104888,
+      "evidence_index": 0,
+      "statement": "Recent large-scale drug seizures in Ukraine do not prove that the center of global drug trade is located in that country.",
+      "previous_url": "https://globalinitiative.net/wp-content/uploads/2023/07/Ruggero-Scaturro-Disruption-or-displacement-Impact-of-the-Ukraine-war-on-drug-markets-in-SE-Europe-GI-TOC-17-July.pdf",
+      "displayed_article_urls": [
+        "https://megalodon.jp/2026-0223-2237-14/https://www.facebook.com:443/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02kC8MLAX9sEFro1yxHM3Kyp5oZgSAXgYTXgtHqtMTVcbE7ywxuynikMEytV6evKHCl%26id%3D100067844997065&show_text=true&",
+        "http://ocindex.net/country/ukraine#:~:text=Heroin%20trafficking%20in,of%20these%20substances.",
+        "https://www.brusselstimes.com/1983296/coordinated-raids-dismantle-drug-labs-across-eastern-europe-103-arrested"
+      ],
+      "all_article_candidates": [
+        "https://megalodon.jp/2026-0223-2237-14/https://www.facebook.com:443/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02kC8MLAX9sEFro1yxHM3Kyp5oZgSAXgYTXgtHqtMTVcbE7ywxuynikMEytV6evKHCl%26id%3D100067844997065&show_text=true&",
+        "http://ocindex.net/country/ukraine#:~:text=Heroin%20trafficking%20in,of%20these%20substances.",
+        "https://www.brusselstimes.com/1983296/coordinated-raids-dismantle-drug-labs-across-eastern-europe-103-arrested"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104746,
+      "evidence_index": 0,
+      "statement": "Hair fall is influenced by complex factors including genetics, hormonal changes, nutritional deficiencies, and underlying medical conditions.",
+      "previous_url": "https://www.isdin.com/us/blog/beauty/hair-and-nails/what-causes-hair-loss-top-7-reasons/",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9710406/"
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/10580289_Hair_loss_Diagnosis_and_management",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9710406/",
+        "https://link.springer.com/article/10.1007/s10341-022-00759-7"
+      ],
+      "selection_basis": "MODEL_PROPOSAL"
+    },
+    {
+      "claim_id": 104746,
+      "evidence_index": 2,
+      "statement": "Dr. Rema Devi T J, a dermatologist, states that rubbing mango seed is not a proven scientific method for hair fall, though mango seed oil or butter might be beneficial for hair health due to fatty acids and vitamins.",
+      "previous_url": "https://glammednaturallyoil.com/blogs/news/mango-oil-for-hair-growth?srsltid=AfmBOooIcPt6UoOcVpyRfBg8pwuhXQSqHEYAmq7iabKWeLbzFQqop2xG",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12168231/#fsn370390-sec-0046",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9710406/",
+        "https://link.springer.com/article/10.1007/s10341-022-00759-7"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12168231/#fsn370390-sec-0046",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9710406/",
+        "https://link.springer.com/article/10.1007/s10341-022-00759-7"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105145,
+      "evidence_index": 0,
+      "statement": "The World Health Organisation (WHO) has classified both sunbeds and smoking as Group 1 cancer-causing hazards.",
+      "previous_url": "https://cansa.org.za/sunbed-use-causes-cancer/",
+      "displayed_article_urls": [
+        "https://monographs.iarc.who.int/wp-content/uploads/2019/07/Preamble-2019.pdf#page=38",
+        "https://www.sciencemediacentre.org/expert-reaction-to-iarc-and-jefca-summary-on-aspartame/#:~:text=%E2%80%9CIn%20the%20past,to%20some%20extent.",
+        "https://monographs.iarc.who.int/list-of-classifications/"
+      ],
+      "all_article_candidates": [
+        "https://monographs.iarc.who.int/wp-content/uploads/2019/07/Preamble-2019.pdf#page=38",
+        "https://www.sciencemediacentre.org/expert-reaction-to-iarc-and-jefca-summary-on-aspartame/#:~:text=%E2%80%9CIn%20the%20past,to%20some%20extent.",
+        "https://monographs.iarc.who.int/list-of-classifications/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105145,
+      "evidence_index": 4,
+      "statement": "Smoking increases the risk of lung cancer by an estimated 1,400% to 2,900%.",
+      "previous_url": "https://www.cdc.gov/tobacco/about/cigarettes-and-cancer.html",
+      "displayed_article_urls": [
+        "https://www.cdc.gov/lung-cancer/risk-factors/index.html#:~:text=People%20who%20smoke,risk%20goes%20up.",
+        "https://www.bhf.org.uk/informationsupport/risk-factors/smoking",
+        "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/causes/#:~:text=Smoking,prevent%20COPD%20from%20getting%20worse."
+      ],
+      "all_article_candidates": [
+        "https://www.cdc.gov/lung-cancer/risk-factors/index.html#:~:text=People%20who%20smoke,risk%20goes%20up.",
+        "https://www.bhf.org.uk/informationsupport/risk-factors/smoking",
+        "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/causes/#:~:text=Smoking,prevent%20COPD%20from%20getting%20worse."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105145,
+      "evidence_index": 5,
+      "statement": "Smoking is linked to a much wider variety of cancers and non-cancer health risks than sunbed use.",
+      "previous_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2913608/",
+      "displayed_article_urls": [
+        "https://www.nhs.uk/better-health/quit-smoking/why-quit-smoking/understanding-the-true-impact-of-smoking/#:~:text=from%20our%20guide.-,How%20smoking%20impacts%20your%20body,-Most%20people%20know",
+        "https://www.bhf.org.uk/informationsupport/risk-factors/smoking",
+        "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/causes/#:~:text=Smoking,prevent%20COPD%20from%20getting%20worse."
+      ],
+      "all_article_candidates": [
+        "https://www.nhs.uk/better-health/quit-smoking/why-quit-smoking/understanding-the-true-impact-of-smoking/#:~:text=from%20our%20guide.-,How%20smoking%20impacts%20your%20body,-Most%20people%20know",
+        "https://www.bhf.org.uk/informationsupport/risk-factors/smoking",
+        "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/causes/#:~:text=Smoking,prevent%20COPD%20from%20getting%20worse."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105145,
+      "evidence_index": 6,
+      "statement": "Cancer Research UK states that while both are Group 1 carcinogens, tobacco has a much bigger impact on cancer cases.",
+      "previous_url": "https://news.cancerresearchuk.org/2024/07/09/smoking-cancers-reach-all-time-high/",
+      "displayed_article_urls": [
+        "https://www.nhs.uk/better-health/quit-smoking/why-quit-smoking/understanding-the-true-impact-of-smoking/#:~:text=from%20our%20guide.-,How%20smoking%20impacts%20your%20body,-Most%20people%20know",
+        "https://www.bhf.org.uk/informationsupport/risk-factors/smoking",
+        "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/causes/#:~:text=Smoking,prevent%20COPD%20from%20getting%20worse."
+      ],
+      "all_article_candidates": [
+        "https://www.nhs.uk/better-health/quit-smoking/why-quit-smoking/understanding-the-true-impact-of-smoking/#:~:text=from%20our%20guide.-,How%20smoking%20impacts%20your%20body,-Most%20people%20know",
+        "https://www.bhf.org.uk/informationsupport/risk-factors/smoking",
+        "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/causes/#:~:text=Smoking,prevent%20COPD%20from%20getting%20worse."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105019,
+      "evidence_index": 0,
+      "statement": "Vladislav Heraskevych's helmet is a memorial object featuring portraits of 22 Ukrainian athletes who died during the Russian-Ukrainian war.",
+      "previous_url": "https://www.nbcnews.com/sports/olympics/ukraine-winter-olympics-helmet-banned-ioc-war-dead-skeleton-rcna258301",
+      "displayed_article_urls": [
+        "https://www.radiosvoboda.org/a/olimpiada-skeleton-heraskevych-sholom-pamyati-dyskvalifikatsiya/33676052.html"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260212122442/https:/life.ru/p/1840174",
+        "https://www.radiosvoboda.org/a/olimpiada-skeleton-heraskevych-sholom-pamyati-dyskvalifikatsiya/33676052.html",
+        "https://suspilne.media/sport/1238262-ne-bulo-rozasneno-comu-ne-mozu-vistupati-u-solomi-geraskevic-pro-rankovu-zustric-z-prezidentkou-mok-pered-banom/"
+      ],
+      "selection_basis": "MODEL_PROPOSAL"
+    },
+    {
+      "claim_id": 105019,
+      "evidence_index": 1,
+      "statement": "The helmet does not contain terrorist symbols, calls for violence, political slogans, or military symbols like unit chevrons.",
+      "previous_url": "https://protectiongroupdenmark.us/blog/are-there-civilian-alternatives-to-u-s-army-ballistic-helmets/",
+      "displayed_article_urls": [
+        "http://5-tv.ru",
+        "https://web.archive.org/web/20260212122442/https:/life.ru/p/1840174",
+        "https://noc-ukr.org/news/nok-ukrayini-zvernuvsya-do-mok-shhodo-dozvolu-vikoristannya-sholoma-pam-yati-vladislavom-geraskevichem"
+      ],
+      "all_article_candidates": [
+        "http://5-tv.ru",
+        "https://web.archive.org/web/20260212122442/https:/life.ru/p/1840174",
+        "https://noc-ukr.org/news/nok-ukrayini-zvernuvsya-do-mok-shhodo-dozvolu-vikoristannya-sholoma-pam-yati-vladislavom-geraskevichem"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105019,
+      "evidence_index": 2,
+      "statement": "The portraits on the helmet include athletes who died in missile attacks or during the full-scale invasion, as well as those who died defending their country.",
+      "previous_url": "https://www.businessinsider.com/8-ukrainian-athletes-who-died-russia-ukraine-war-2024-1",
+      "displayed_article_urls": [
+        "https://noc-ukr.org/news/nok-ukrayini-zvernuvsya-do-mok-shhodo-dozvolu-vikoristannya-sholoma-pam-yati-vladislavom-geraskevichem"
+      ],
+      "all_article_candidates": [
+        "https://www.radiosvoboda.org/a/olimpiada-skeleton-heraskevych-sholom-pamyati-dyskvalifikatsiya/33676052.html",
+        "https://noc-ukr.org/news/nok-ukrayini-zvernuvsya-do-mok-shhodo-dozvolu-vikoristannya-sholoma-pam-yati-vladislavom-geraskevichem",
+        "https://suspilne.media/sport/1238262-ne-bulo-rozasneno-comu-ne-mozu-vistupati-u-solomi-geraskevic-pro-rankovu-zustric-z-prezidentkou-mok-pered-banom/"
+      ],
+      "selection_basis": "MODEL_PROPOSAL"
+    },
+    {
+      "claim_id": 105019,
+      "evidence_index": 4,
+      "statement": "Vladislav Heraskevych was disqualified from the 2026 Winter Olympics after refusing to follow the IOC's suggestion to wear a black ribbon instead of the memorial helmet.",
+      "previous_url": "https://www.cbc.ca/sports/olympics/winter/skeleton/olympics-skeleton-ukrain-heraskevych-helmet-banned-ioc-9.7082352",
+      "displayed_article_urls": [
+        "https://suspilne.media/sport/1238262-ne-bulo-rozasneno-comu-ne-mozu-vistupati-u-solomi-geraskevic-pro-rankovu-zustric-z-prezidentkou-mok-pered-banom/",
+        "https://noc-ukr.org/news/nok-ukrayini-zvernuvsya-do-mok-shhodo-dozvolu-vikoristannya-sholoma-pam-yati-vladislavom-geraskevichem",
+        "https://www.radiosvoboda.org/a/olimpiada-skeleton-heraskevych-sholom-pamyati-dyskvalifikatsiya/33676052.html"
+      ],
+      "all_article_candidates": [
+        "https://suspilne.media/sport/1238262-ne-bulo-rozasneno-comu-ne-mozu-vistupati-u-solomi-geraskevic-pro-rankovu-zustric-z-prezidentkou-mok-pered-banom/",
+        "https://noc-ukr.org/news/nok-ukrayini-zvernuvsya-do-mok-shhodo-dozvolu-vikoristannya-sholoma-pam-yati-vladislavom-geraskevichem",
+        "https://www.radiosvoboda.org/a/olimpiada-skeleton-heraskevych-sholom-pamyati-dyskvalifikatsiya/33676052.html"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104958,
+      "evidence_index": 0,
+      "statement": "The claim that the visuals are from the Epstein files is false.",
+      "previous_url": "https://www.bbc.com/news/articles/c5yj4yvx80do",
+      "displayed_article_urls": [
+        "https://letterboxd.com/film/thanksgiving-2007/",
+        "https://wiki.tarantino.info/index.php/Thanksgiving"
+      ],
+      "all_article_candidates": [
+        "https://letterboxd.com/film/thanksgiving-2007/",
+        "https://wiki.tarantino.info/index.php/Thanksgiving"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104958,
+      "evidence_index": 1,
+      "statement": "The film 'Thanksgiving' (2007) was featured in Quentin Tarantino's film 'Grindhouse'.",
+      "previous_url": "https://awfj.org/blog/2023/11/15/thanksgiving-review-by-maitland-mcdonagh/",
+      "displayed_article_urls": [
+        "https://letterboxd.com/film/thanksgiving-2007/",
+        "https://wiki.tarantino.info/index.php/Thanksgiving"
+      ],
+      "all_article_candidates": [
+        "https://letterboxd.com/film/thanksgiving-2007/",
+        "https://wiki.tarantino.info/index.php/Thanksgiving"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104958,
+      "evidence_index": 2,
+      "statement": "There is no mention of these specific photos in the documents released by the U.S. Department of Justice regarding the Epstein files.",
+      "previous_url": "https://www.nbcnews.com/politics/justice-department/live-blog/epstein-files-live-updates-doj-release-documents-rcna250208",
+      "displayed_article_urls": [
+        "https://wiki.tarantino.info/index.php/Thanksgiving",
+        "https://letterboxd.com/film/thanksgiving-2007/"
+      ],
+      "all_article_candidates": [
+        "https://wiki.tarantino.info/index.php/Thanksgiving",
+        "https://letterboxd.com/film/thanksgiving-2007/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103592,
+      "evidence_index": 0,
+      "statement": "The claim that AI chatbots prove the existence of 'chemtrails' is based on social media posts that misinterpret or manipulate AI responses.",
+      "previous_url": "https://edmo.eu/thematic-areas/elections/european-elections/eu-elections-disinfo-bulletin/",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/4KYY-3N38",
+        "http://web.archive.org/web/20260826110002/https://factcheck.afp.com/afp-usa",
+        "http://web.archive.org/web/20260826110002/https://perma.cc/5SAS-ESMZ?type=image"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/4KYY-3N38",
+        "http://web.archive.org/web/20260826110002/https://factcheck.afp.com/afp-usa",
+        "http://web.archive.org/web/20260826110002/https://perma.cc/5SAS-ESMZ?type=image"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103592,
+      "evidence_index": 5,
+      "statement": "AFP was unable to replicate the conspiratorial ChatGPT responses using the prompts shared in the viral posts.",
+      "previous_url": "https://www.npr.org/2026/01/20/nx-s1-5591473/ai-delusions-spiral-support-group-chatgpt",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/ES8Q-UEA8",
+        "http://web.archive.org/web/20260826110002/https://research.qut.edu.au/dmrc/people/kate-fitzgerald/",
+        "http://web.archive.org/web/20260826110002/https://factcheck.afp.com/fact-checking-search-results?search_api_fulltext=chemtrails"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/ES8Q-UEA8",
+        "http://web.archive.org/web/20260826110002/https://research.qut.edu.au/dmrc/people/kate-fitzgerald/",
+        "http://web.archive.org/web/20260826110002/https://factcheck.afp.com/fact-checking-search-results?search_api_fulltext=chemtrails"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103592,
+      "evidence_index": 6,
+      "statement": "Experts warn that AI chatbots can 'hallucinate' information, use unreliable sources, or be manipulated by specific prompts to bypass safety guardrails.",
+      "previous_url": "https://coralogix.com/ai-blog/ai-chatbot-hallucinations-understanding-and-mitigating-risks/",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/4KYY-3N38",
+        "http://web.archive.org/web/20260826110002/https://factcheck.afp.com/afp-usa",
+        "http://web.archive.org/web/20260826110002/https://perma.cc/5SAS-ESMZ?type=image"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/4KYY-3N38",
+        "http://web.archive.org/web/20260826110002/https://factcheck.afp.com/afp-usa",
+        "http://web.archive.org/web/20260826110002/https://perma.cc/5SAS-ESMZ?type=image"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103592,
+      "evidence_index": 7,
+      "statement": "Large Language Models (LLMs) can present claims with high confidence even when they are incorrect or lack proper verification.",
+      "previous_url": "https://www.nature.com/articles/s42256-024-00976-7",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/U6ZB-AT7A?type=image",
+        "http://web.archive.org/web/20260826110002/https://perma.cc/86T5-FS9W?type=image",
+        "http://web.archive.org/web/20260826110002/https://www.talhagin.com/"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260826110002/https://perma.cc/U6ZB-AT7A?type=image",
+        "http://web.archive.org/web/20260826110002/https://perma.cc/86T5-FS9W?type=image",
+        "http://web.archive.org/web/20260826110002/https://www.talhagin.com/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103619,
+      "evidence_index": 0,
+      "statement": "The claim that a drink made of shakkar, sesame seeds, and sonth can regularize menstrual periods in 21 days is false and not supported by scientific or clinical evidence.",
+      "previous_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12461132/",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733621/#:~:text=Normal%20menstruation%20lasts%202%20to,(RA)%20%5B11%5D.",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0924224424004163",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6943436/"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733621/#:~:text=Normal%20menstruation%20lasts%202%20to,(RA)%20%5B11%5D.",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0924224424004163",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6943436/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103619,
+      "evidence_index": 1,
+      "statement": "Menstrual irregularities are typically caused by underlying hormonal imbalances, medical conditions, or lifestyle factors, rather than something that can be corrected by home remedies in a fixed timeframe.",
+      "previous_url": "https://www.pihealthcancerhospital.com/blog/managing-irregular-periods-causes-and-treatment-options/",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733621/#:~:text=Normal%20menstruation%20lasts%202%20to,(RA)%20%5B11%5D.",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0924224424004163",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7019938/"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733621/#:~:text=Normal%20menstruation%20lasts%202%20to,(RA)%20%5B11%5D.",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0924224424004163",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7019938/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103619,
+      "evidence_index": 2,
+      "statement": "While sesame seeds contain nutrients like lignans that have antioxidant and anti-inflammatory effects, research suggests any potential impact on hormones would require weeks or months, not 21 days.",
+      "previous_url": "https://www.healthline.com/nutrition/sesame-seeds",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6943436/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3665023/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10933899/#abstract1"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6943436/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3665023/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10933899/#abstract1"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103619,
+      "evidence_index": 3,
+      "statement": "Sesame seeds, sonth (dry ginger), and shakkar (jaggery) have nutritional benefits, such as anti-inflammatory properties and mineral content, but they are not substitutes for medical treatment for irregular periods.",
+      "previous_url": "https://pharmeasy.in/blog/ayurveda-uses-benefits-side-effects-of-sesame-seeds/",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6943436/",
+        "https://www.researchgate.net/publication/344921769_Jaggery_A_natural_sweetener",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10933899/#abstract1"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6943436/",
+        "https://www.researchgate.net/publication/344921769_Jaggery_A_natural_sweetener",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10933899/#abstract1"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104558,
+      "evidence_index": 0,
+      "statement": "Soleus Push-Ups and regular physical activity can help manage blood sugar levels over time, but they are not a quick fix for immediate reduction.",
+      "previous_url": "https://diatribe.org/exercise/4-exercises-lower-blood-sugar",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/339043440_Diabetes_and_the_Nutrition_and_Diets_for_Its_Prevention_and_Treatment_A_Systematic_Review_and_Dietetic_Perspective",
+        "https://medschool.ucla.edu/news-article/can-diabetes-be-reversed#:~:text=There's%20no%20cure%20for%20diabetes,routine%20of%20diet%20and%20exercise.",
+        "https://www.biorxiv.org/content/10.1101/2024.11.14.623602v1.full"
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/339043440_Diabetes_and_the_Nutrition_and_Diets_for_Its_Prevention_and_Treatment_A_Systematic_Review_and_Dietetic_Perspective",
+        "https://medschool.ucla.edu/news-article/can-diabetes-be-reversed#:~:text=There's%20no%20cure%20for%20diabetes,routine%20of%20diet%20and%20exercise.",
+        "https://www.biorxiv.org/content/10.1101/2024.11.14.623602v1.full"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103962,
+      "evidence_index": 0,
+      "statement": "Timothée Chalamet appeared safely on the 2026 Oscars red carpet wearing a white Givenchy suit.",
+      "previous_url": "https://wwd.com/pop-culture/celebrity-news/timothee-chalamet-givenchy-suit-2026-oscars-red-carpet-1238665184/",
+      "displayed_article_urls": [
+        "https://www.hindustantimes.com/entertainment/others/jason-derulos-staircase-tumble-at-met-gala-2023-is-just-a-meme-from-2015-101682997597365.html",
+        "https://www.gettyimages.in/detail/news-photo/security-man-grabs-a-guest-who-tired-to-perform-a-stunt-on-news-photo/114948689?adpp",
+        "https://www.latimes.com/entertainment/lat-photos-cannes-film-festival-2011-20110511-photogallery.html"
+      ],
+      "all_article_candidates": [
+        "https://www.hindustantimes.com/entertainment/others/jason-derulos-staircase-tumble-at-met-gala-2023-is-just-a-meme-from-2015-101682997597365.html",
+        "https://www.gettyimages.in/detail/news-photo/security-man-grabs-a-guest-who-tired-to-perform-a-stunt-on-news-photo/114948689?adpp",
+        "https://www.latimes.com/entertainment/lat-photos-cannes-film-festival-2011-20110511-photogallery.html"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103962,
+      "evidence_index": 1,
+      "statement": "The image circulating is an old meme that has been surfacing online frequently since 2015.",
+      "previous_url": "https://asistdl.onlinelibrary.wiley.com/doi/10.1002/asi.24900",
+      "displayed_article_urls": [
+        "https://www.hindustantimes.com/entertainment/others/jason-derulos-staircase-tumble-at-met-gala-2023-is-just-a-meme-from-2015-101682997597365.html",
+        "https://www.latimes.com/entertainment/lat-photos-cannes-film-festival-2011-20110511-photogallery.html",
+        "https://www.gettyimages.in/detail/news-photo/security-man-grabs-a-guest-who-tired-to-perform-a-stunt-on-news-photo/114948689?adpp"
+      ],
+      "all_article_candidates": [
+        "https://www.hindustantimes.com/entertainment/others/jason-derulos-staircase-tumble-at-met-gala-2023-is-just-a-meme-from-2015-101682997597365.html",
+        "https://www.latimes.com/entertainment/lat-photos-cannes-film-festival-2011-20110511-photogallery.html",
+        "https://www.gettyimages.in/detail/news-photo/security-man-grabs-a-guest-who-tired-to-perform-a-stunt-on-news-photo/114948689?adpp"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103962,
+      "evidence_index": 2,
+      "statement": "The viral image actually depicts an incident from the 64th Cannes Film Festival on May 17, 2011.",
+      "previous_url": "https://en.wikipedia.org/wiki/2011_Cannes_Film_Festival",
+      "displayed_article_urls": [
+        "https://www.gettyimages.in/detail/news-photo/security-man-grabs-a-guest-who-tired-to-perform-a-stunt-on-news-photo/114948689?adpp",
+        "https://www.hindustantimes.com/entertainment/others/jason-derulos-staircase-tumble-at-met-gala-2023-is-just-a-meme-from-2015-101682997597365.html",
+        "https://www.latimes.com/entertainment/lat-photos-cannes-film-festival-2011-20110511-photogallery.html"
+      ],
+      "all_article_candidates": [
+        "https://www.gettyimages.in/detail/news-photo/security-man-grabs-a-guest-who-tired-to-perform-a-stunt-on-news-photo/114948689?adpp",
+        "https://www.hindustantimes.com/entertainment/others/jason-derulos-staircase-tumble-at-met-gala-2023-is-just-a-meme-from-2015-101682997597365.html",
+        "https://www.latimes.com/entertainment/lat-photos-cannes-film-festival-2011-20110511-photogallery.html"
+      ],
+      "selection_basis": "HUMAN_REVIEWED"
+    },
+    {
+      "claim_id": 103594,
+      "evidence_index": 0,
+      "statement": "The SAVE America Act does not require all currently registered voters to re-register to vote.",
+      "previous_url": "https://www.rockthevote.org/explainers/the-save-act/",
+      "displayed_article_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://ballotpedia.org/Partisan_affiliations_of_registered_voters"
+      ],
+      "all_article_candidates": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://ballotpedia.org/Partisan_affiliations_of_registered_voters"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103594,
+      "evidence_index": 1,
+      "statement": "The bill requires individuals seeking to register to vote in federal elections to present documentary proof of U.S. citizenship in person to an election official.",
+      "previous_url": "https://www.whitehouse.gov/saveamerica/",
+      "displayed_article_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://www.americanprogress.org/article/the-save-america-act-explained-how-the-new-show-your-papers-voting-bill-is-even-more-extreme-than-the-save-act/"
+      ],
+      "all_article_candidates": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://www.americanprogress.org/article/the-save-america-act-explained-how-the-new-show-your-papers-voting-bill-is-even-more-extreme-than-the-save-act/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103594,
+      "evidence_index": 2,
+      "statement": "The bill requires documentary proof of citizenship such as a passport or birth certificate.",
+      "previous_url": "https://bipartisanpolicy.org/article/do-documentary-proof-of-citizenship-requirements-disadvantage-one-party-more-than-the-other/",
+      "displayed_article_urls": [
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+        "https://www.americanprogress.org/article/the-save-america-act-explained-how-the-new-show-your-papers-voting-bill-is-even-more-extreme-than-the-save-act/"
+      ],
+      "all_article_candidates": [
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+        "https://www.americanprogress.org/article/the-save-america-act-explained-how-the-new-show-your-papers-voting-bill-is-even-more-extreme-than-the-save-act/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103594,
+      "evidence_index": 3,
+      "statement": "Most state driver's licenses and REAL IDs do not contain the citizenship information required by the bill.",
+      "previous_url": "https://responsivegov.org/research/real-id-an-overview/",
+      "displayed_article_urls": [
+        "https://www.dhs.gov/enhanced-drivers-licenses-what-are-they",
+        "https://www.archives.gov/veterans/military-service-records/about-service-records",
+        "https://mvdmt.gov/citizenship-marker/"
+      ],
+      "all_article_candidates": [
+        "https://www.dhs.gov/enhanced-drivers-licenses-what-are-they",
+        "https://www.archives.gov/veterans/military-service-records/about-service-records",
+        "https://mvdmt.gov/citizenship-marker/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103594,
+      "evidence_index": 4,
+      "statement": "Certain groups, such as people who move (even within a state), change their party registration, or change their name, would likely need to update their registration and thus comply with the new requirements.",
+      "previous_url": "https://www.rockthevote.org/explainers/the-save-act/",
+      "displayed_article_urls": [
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://ballotpedia.org/Partisan_affiliations_of_registered_voters",
+        "https://www.northamerican.com/relocation-moving-statistics"
+      ],
+      "all_article_candidates": [
+        "https://truthsocial.com/@realDonaldTrump/posts/116275668825285445",
+        "https://ballotpedia.org/Partisan_affiliations_of_registered_voters",
+        "https://www.northamerican.com/relocation-moving-statistics"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103594,
+      "evidence_index": 5,
+      "statement": "Any registration update would require the voter to comply with the bill's proof of citizenship requirement.",
+      "previous_url": "https://ballotpedia.org/Proof_of_citizenship_requirements_for_voter_registration_by_state",
+      "displayed_article_urls": [
+        "https://www.americanprogress.org/article/the-save-america-act-explained-how-the-new-show-your-papers-voting-bill-is-even-more-extreme-than-the-save-act/",
+        "https://www.eac.gov/sites/default/files/2023-06/2022_EAVS_Report_508c.pdf",
+        "https://ballotpedia.org/Partisan_affiliations_of_registered_voters"
+      ],
+      "all_article_candidates": [
+        "https://www.americanprogress.org/article/the-save-america-act-explained-how-the-new-show-your-papers-voting-bill-is-even-more-extreme-than-the-save-act/",
+        "https://www.eac.gov/sites/default/files/2023-06/2022_EAVS_Report_508c.pdf",
+        "https://ballotpedia.org/Partisan_affiliations_of_registered_voters"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103947,
+      "evidence_index": 0,
+      "statement": "There is no scientific evidence or medical consensus to support the claim that consuming a drink made with ghee, turmeric, and black pepper can prevent or cure PCOD.",
+      "previous_url": "https://www.clairepettitt.com/blog/turmeric-for-pcos-fact-or-fiction",
+      "displayed_article_urls": [
+        "https://www.unicef.org/india/stories/do-pcod-and-pcos-mean-same-thing-or-are-they-different#:~:text=PCOD%20(Polycystic%20Ovarian%20Disease)%20is,be%2Dfertilized%20eggs%20each%20month.",
+        "https://health.medicaldialogues.in/health-topics/women-health/managing-pcos-and-pcod-through-dietary-and-lifestyle-changes-dr-megha-garg-155099",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9964744/"
+      ],
+      "all_article_candidates": [
+        "https://www.unicef.org/india/stories/do-pcod-and-pcos-mean-same-thing-or-are-they-different#:~:text=PCOD%20(Polycystic%20Ovarian%20Disease)%20is,be%2Dfertilized%20eggs%20each%20month.",
+        "https://health.medicaldialogues.in/health-topics/women-health/managing-pcos-and-pcod-through-dietary-and-lifestyle-changes-dr-megha-garg-155099",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9964744/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103947,
+      "evidence_index": 3,
+      "statement": "While turmeric may have anti-inflammatory properties and black pepper may aid absorption, they cannot address the underlying hormonal issues of PCOD.",
+      "previous_url": "https://rootfunctionalmedicine.com/turmeric-for-pcos",
+      "displayed_article_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/30740986/",
+        "https://www.researchgate.net/publication/339499398_Ghee_Its_Properties_Importance_and_Health_Benefits",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9646792/"
+      ],
+      "all_article_candidates": [
+        "https://pubmed.ncbi.nlm.nih.gov/30740986/",
+        "https://www.researchgate.net/publication/339499398_Ghee_Its_Properties_Importance_and_Health_Benefits",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9646792/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103947,
+      "evidence_index": 4,
+      "statement": "PCOD is a complex hormonal and metabolic condition that cannot be reversed through a single home remedy.",
+      "previous_url": "http://www.nawcare.com/blog/pcos-cure-tips",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9646792/",
+        "https://www.researchgate.net/publication/349007207_Review_Black_Pepper_Piper_Nigrum_L_Botanical_Aspects_Chemical_Content_Pharmacological_Activities",
+        "https://www.sciencedirect.com/science/article/abs/pii/S1098882324000960"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9646792/",
+        "https://www.researchgate.net/publication/349007207_Review_Black_Pepper_Piper_Nigrum_L_Botanical_Aspects_Chemical_Content_Pharmacological_Activities",
+        "https://www.sciencedirect.com/science/article/abs/pii/S1098882324000960"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102286,
+      "evidence_index": 0,
+      "statement": "Manfred Weber's proposal for a mandatory service was specifically directed at German youth, not Hungarian youth.",
+      "previous_url": "https://manfredweber.eu/en/manfred-weber-about-me/",
+      "displayed_article_urls": [
+        "https://mvau.lt/media/d7490d00-fcad-42c1-a93e-b94c35363d46",
+        "https://web.archive.org/web/20260305131802/https://www.facebook.com/reel/1940340046551287",
+        "https://www.br.de/nachrichten/bayern/manfred-weber-brauchen-die-europaeische-atomwaffe,UCCOqyF"
+      ],
+      "all_article_candidates": [
+        "https://mvau.lt/media/d7490d00-fcad-42c1-a93e-b94c35363d46",
+        "https://web.archive.org/web/20260305131802/https://www.facebook.com/reel/1940340046551287",
+        "https://www.br.de/nachrichten/bayern/manfred-weber-brauchen-die-europaeische-atomwaffe,UCCOqyF"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104029,
+      "evidence_index": 0,
+      "statement": "Skin pigmentation develops due to excess melanin production and is a gradual process that cannot disappear within two or three days, especially through home remedies.",
+      "previous_url": "https://www.sunshinestatederm.com/blog/113-understanding-hyperpigmentation-causes-treatments-and-prevention",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4756872/#:~:text=Introduction,condition%20encountered%20in%20dermatology%20practice."
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4756872/#:~:text=Introduction,condition%20encountered%20in%20dermatology%20practice."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104029,
+      "evidence_index": 1,
+      "statement": "While turmeric contains curcumin which has anti-inflammatory and antioxidant properties, neither turmeric nor nutmeg can produce rapid skin-lightening or pigmentation reversal.",
+      "previous_url": "https://skinkraft.com/blogs/articles/benefits-of-turmeric-for-glowing-skin",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://www.researchgate.net/publication/362817571_Medicinal_Plants_Used_as_an_Alternative_to_Treat_Gingivitis_and_Periodontitis"
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://www.researchgate.net/publication/362817571_Medicinal_Plants_Used_as_an_Alternative_to_Treat_Gingivitis_and_Periodontitis"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104029,
+      "evidence_index": 2,
+      "statement": "Applying raw kitchen ingredients like nutmeg and turmeric directly to the skin may cause irritation, allergic reactions, or contact dermatitis, which can actually worsen pigmentation.",
+      "previous_url": "https://www.medicalnewstoday.com/articles/turmeric-face-mask",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://www.researchgate.net/publication/362817571_Medicinal_Plants_Used_as_an_Alternative_to_Treat_Gingivitis_and_Periodontitis"
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://www.researchgate.net/publication/362817571_Medicinal_Plants_Used_as_an_Alternative_to_Treat_Gingivitis_and_Periodontitis"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104029,
+      "evidence_index": 3,
+      "statement": "Medical treatments for pigmentation, such as topical depigmenting agents or laser therapy, typically take weeks to months to show visible improvement.",
+      "previous_url": "https://jcasonline.com/lasers-for-treatment-of-melasma-and-post-inflammatory-hyperpigmentation/",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4756872/#:~:text=Introduction,condition%20encountered%20in%20dermatology%20practice."
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4756872/#:~:text=Introduction,condition%20encountered%20in%20dermatology%20practice."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104029,
+      "evidence_index": 4,
+      "statement": "Pigmentation conditions like melasma or post-inflammatory hyperpigmentation typically take weeks to months to improve, even with medical treatment.",
+      "previous_url": "https://www.getharley.com/knowledge/post-inflammatory-hyperpigmentation",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4756872/#:~:text=Introduction,condition%20encountered%20in%20dermatology%20practice."
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/336825717_Nutmeg_A_review_on_uses_and_biological_properties",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10304091/#sec1-molecules-28-04839",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4756872/#:~:text=Introduction,condition%20encountered%20in%20dermatology%20practice."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102331,
+      "evidence_index": 0,
+      "statement": "The viral photo does not show the USS Abraham Lincoln; it actually shows repair work on the damaged deck of the USS Forrestal in 1967.",
+      "previous_url": "https://en.wikipedia.org/wiki/USS_Forrestal",
+      "displayed_article_urls": [
+        "https://www.gettyimages.com/detail/news-photo/repair-crews-working-to-fix-the-damaged-deck-of-the-uss-news-photo/53369847",
+        "https://web.archive.org/web/20260304210028/https://www.gettyimages.com/detail/news-photo/repair-crews-working-to-fix-the-damaged-deck-of-the-uss-news-photo/53369847",
+        "https://www.history.com/this-day-in-history/july-29/rocket-causes-deadly-fire-on-aircraft-carrier"
+      ],
+      "all_article_candidates": [
+        "https://www.gettyimages.com/detail/news-photo/repair-crews-working-to-fix-the-damaged-deck-of-the-uss-news-photo/53369847",
+        "https://web.archive.org/web/20260304210028/https://www.gettyimages.com/detail/news-photo/repair-crews-working-to-fix-the-damaged-deck-of-the-uss-news-photo/53369847",
+        "https://www.history.com/this-day-in-history/july-29/rocket-causes-deadly-fire-on-aircraft-carrier"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102331,
+      "evidence_index": 2,
+      "statement": "CENTCOM released footage from February 28 and March 1, 2026, which did not show the extensive damage claimed in the viral photo.",
+      "previous_url": "https://understandingwar.org/research/middle-east/iran-update-evening-special-report-march-1-2026/",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260302213645/https://x.com/CENTCOM/status/2028510305920143434",
+        "https://www.centcom.mil/MEDIA/IMAGERY/igphoto/2003882196/",
+        "https://web.archive.org/web/20260302215017/https://www.centcom.mil/MEDIA/IMAGERY/igphoto/2003882196/"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260302213645/https://x.com/CENTCOM/status/2028510305920143434",
+        "https://www.centcom.mil/MEDIA/IMAGERY/igphoto/2003882196/",
+        "https://web.archive.org/web/20260302215017/https://www.centcom.mil/MEDIA/IMAGERY/igphoto/2003882196/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104634,
+      "evidence_index": 0,
+      "statement": "A single yoga posture like the butterfly pose is not a shortcut to normal glucose levels, especially for those with insulin resistance, long-standing diabetes, or other medical factors.",
+      "previous_url": "https://diabetessisters.org/resources/balancing-blood-glucose-and-mind-the-healing-power-of-yoga-for-women-with-diabetes/",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145966/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334310/",
+        "https://www.ncbi.nlm.nih.gov/books/NBK549816/"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145966/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334310/",
+        "https://www.ncbi.nlm.nih.gov/books/NBK549816/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104634,
+      "evidence_index": 1,
+      "statement": "Butterfly pose primarily stretches the hips and inner thighs and encourages calm breathing, but it lacks the sustained muscle work required to consistently use up glucose, unlike brisk walking or cycling.",
+      "previous_url": "https://www.artofliving.org/us-en/yoga/poses/butterfly-pose",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145966/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334310/",
+        "https://magazine.thip.media"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145966/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5334310/",
+        "https://magazine.thip.media"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104634,
+      "evidence_index": 4,
+      "statement": "The claim is medically vague because it does not specify whether 'normal blood sugar' refers to fasting levels, post-meal levels, or HbA1c.",
+      "previous_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9009294/",
+      "displayed_article_urls": [
+        "https://diabetes.org/about-diabetes/devices-technology/cgm-time-in-range",
+        "https://www.ncbi.nlm.nih.gov/books/NBK549816/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145966/"
+      ],
+      "all_article_candidates": [
+        "https://diabetes.org/about-diabetes/devices-technology/cgm-time-in-range",
+        "https://www.ncbi.nlm.nih.gov/books/NBK549816/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145966/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102532,
+      "evidence_index": 0,
+      "statement": "Claims that Rupert Lowe demanded Keir Starmer surrender £95 million in profits linked to NHS reform legislation are false.",
+      "previous_url": "https://x.com/ScaryEurope/status/2024042311185797300",
+      "displayed_article_urls": [
+        "https://www.independent.co.uk/news/uk/politics/rupert-lowe-new-party-restore-britain-reform-uk-b2920257.html",
+        "https://members.parliament.uk/member/5158/contact",
+        "https://hansard.parliament.uk/search/MemberContributions?memberId=5158&type=Spoken&page=1"
+      ],
+      "all_article_candidates": [
+        "https://www.independent.co.uk/news/uk/politics/rupert-lowe-new-party-restore-britain-reform-uk-b2920257.html",
+        "https://members.parliament.uk/member/5158/contact",
+        "https://hansard.parliament.uk/search/MemberContributions?memberId=5158&type=Spoken&page=1"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102532,
+      "evidence_index": 1,
+      "statement": "There is no evidence to support the allegation that Keir Starmer made profits from NHS reform legislation.",
+      "previous_url": "https://www.bbc.com/news/articles/c3w6g0gzw40o",
+      "displayed_article_urls": [
+        "https://hansard.parliament.uk/search/MemberContributions?memberId=5158&type=Spoken&page=1",
+        "https://www.independent.co.uk/news/uk/politics/rupert-lowe-new-party-restore-britain-reform-uk-b2920257.html",
+        "https://members.parliament.uk/member/5158/contact"
+      ],
+      "all_article_candidates": [
+        "https://hansard.parliament.uk/search/MemberContributions?memberId=5158&type=Spoken&page=1",
+        "https://www.independent.co.uk/news/uk/politics/rupert-lowe-new-party-restore-britain-reform-uk-b2920257.html",
+        "https://members.parliament.uk/member/5158/contact"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104267,
+      "evidence_index": 0,
+      "statement": "The report that eight Ukrainian athletes did not return from the 2026 Milan Olympics is unconfirmed by both Ukraine’s National Olympic Committee and the Youth and Sports Ministry.",
+      "previous_url": "https://en.interfax.com.ua/news/sport/1146300.html",
+      "displayed_article_urls": [
+        "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+        "https://noc-ukr.org/news/xxv-zimovi-olimpijski-igri-2026-oficzijno-zaversheno-rekordne-predstavnicztvo-ukrayini-ta-visim-potraplyan-u-top-10",
+        "https://cpd.gov.ua/international-direction/yevropa/fejk-pro-nepovernennya-z-italiyi-vosmy-chleniv-ukrayinskoyi-olimpijskoyi-delegacziyi/"
+      ],
+      "all_article_candidates": [
+        "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+        "https://noc-ukr.org/news/xxv-zimovi-olimpijski-igri-2026-oficzijno-zaversheno-rekordne-predstavnicztvo-ukrayini-ta-visim-potraplyan-u-top-10",
+        "https://cpd.gov.ua/international-direction/yevropa/fejk-pro-nepovernennya-z-italiyi-vosmy-chleniv-ukrayinskoyi-olimpijskoyi-delegacziyi/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104267,
+      "evidence_index": 2,
+      "statement": "The Center for Countering Disinformation identified the claim about athletes fleeing to avoid conscription as a fake news item and part of a Russian information operation.",
+      "previous_url": "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+      "displayed_article_urls": [
+        "https://cpd.gov.ua/international-direction/yevropa/fejk-pro-nepovernennya-z-italiyi-vosmy-chleniv-ukrayinskoyi-olimpijskoyi-delegacziyi/",
+        "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+        "https://noc-ukr.org/news/xxv-zimovi-olimpijski-igri-2026-oficzijno-zaversheno-rekordne-predstavnicztvo-ukrayini-ta-visim-potraplyan-u-top-10"
+      ],
+      "all_article_candidates": [
+        "https://cpd.gov.ua/international-direction/yevropa/fejk-pro-nepovernennya-z-italiyi-vosmy-chleniv-ukrayinskoyi-olimpijskoyi-delegacziyi/",
+        "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+        "https://noc-ukr.org/news/xxv-zimovi-olimpijski-igri-2026-oficzijno-zaversheno-rekordne-predstavnicztvo-ukrayini-ta-visim-potraplyan-u-top-10"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104267,
+      "evidence_index": 3,
+      "statement": "There is no legal basis or evidence in Ukrainian law that links an athlete's performance (such as winning medals) to military service or conscription.",
+      "previous_url": "https://www.gov.uk/government/publications/ukraine-country-policy-and-information-notes/country-policy-and-information-note-military-service-ukraine-june-2022-accessible",
+      "displayed_article_urls": [
+        "https://noc-ukr.org/news/xxv-zimovi-olimpijski-igri-2026-oficzijno-zaversheno-rekordne-predstavnicztvo-ukrayini-ta-visim-potraplyan-u-top-10",
+        "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+        "https://cpd.gov.ua/international-direction/yevropa/fejk-pro-nepovernennya-z-italiyi-vosmy-chleniv-ukrayinskoyi-olimpijskoyi-delegacziyi/"
+      ],
+      "all_article_candidates": [
+        "https://noc-ukr.org/news/xxv-zimovi-olimpijski-igri-2026-oficzijno-zaversheno-rekordne-predstavnicztvo-ukrayini-ta-visim-potraplyan-u-top-10",
+        "https://www.france24.com/en/live-news/20260212-ukraine-says-russia-behind-fake-posts-targeting-winter-olympics-team",
+        "https://cpd.gov.ua/international-direction/yevropa/fejk-pro-nepovernennya-z-italiyi-vosmy-chleniv-ukrayinskoyi-olimpijskoyi-delegacziyi/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104906,
+      "evidence_index": 0,
+      "statement": "There is no federal 'Born In America' act currently under consideration in Congress.",
+      "previous_url": "https://forumtogether.org/article/birthright-citizenship-act-of-2025-bill-summary/",
+      "displayed_article_urls": [
+        "https://www.congress.gov/search?q=%7B%22congress%22%3A%5B%22119%22%5D%2C%22source%22%3A%22all%22%2C%22search%22%3A%22%5C%22Born+in+America%5C%22%22%2C%22crSenateMemberRemarks%22%3A%22Kennedy%2C+John+%5BR-LA%5D%22%7D",
+        "https://www.snopes.com/fact-check/born-in-america-act/",
+        "https://web.archive.org/web/20260225084839/https://www.facebook.com/search/top/?q=%22born%20in%20america%20act%22%20folder"
+      ],
+      "all_article_candidates": [
+        "https://www.congress.gov/search?q=%7B%22congress%22%3A%5B%22119%22%5D%2C%22source%22%3A%22all%22%2C%22search%22%3A%22%5C%22Born+in+America%5C%22%22%2C%22crSenateMemberRemarks%22%3A%22Kennedy%2C+John+%5BR-LA%5D%22%7D",
+        "https://www.snopes.com/fact-check/born-in-america-act/",
+        "https://web.archive.org/web/20260225084839/https://www.facebook.com/search/top/?q=%22born%20in%20america%20act%22%20folder"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104906,
+      "evidence_index": 1,
+      "statement": "A search of the Google News index yielded no real reports regarding a 'Born in America Act'.",
+      "previous_url": "https://www.whitehouse.gov/saveamerica/",
+      "displayed_article_urls": [
+        "https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://web.archive.org/web/20260226001753/https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://www.congress.gov/search?q=%7B%22congress%22%3A%5B%22119%22%5D%2C%22source%22%3A%22all%22%2C%22search%22%3A%22%5C%22Born+in+America%5C%22%22%2C%22crSenateMemberRemarks%22%3A%22Kennedy%2C+John+%5BR-LA%5D%22%7D"
+      ],
+      "all_article_candidates": [
+        "https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://web.archive.org/web/20260226001753/https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://www.congress.gov/search?q=%7B%22congress%22%3A%5B%22119%22%5D%2C%22source%22%3A%22all%22%2C%22search%22%3A%22%5C%22Born+in+America%5C%22%22%2C%22crSenateMemberRemarks%22%3A%22Kennedy%2C+John+%5BR-LA%5D%22%7D"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104906,
+      "evidence_index": 3,
+      "statement": "The claims involving various celebrities and politicians are part of a template used by an international network of websites to generate traffic.",
+      "previous_url": "https://reutersinstitute.politics.ox.ac.uk/journalism-media-and-technology-trends-and-predictions-2024",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260225084839/https://www.facebook.com/search/top/?q=%22born%20in%20america%20act%22%20folder",
+        "https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://web.archive.org/web/20260226001753/https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260225084839/https://www.facebook.com/search/top/?q=%22born%20in%20america%20act%22%20folder",
+        "https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://web.archive.org/web/20260226001753/https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104906,
+      "evidence_index": 4,
+      "statement": "The fake stories are being promoted by a website based in Vietnam.",
+      "previous_url": "https://nbcuacademy.com/cookie-duong-vietnamese-fake-news-online/",
+      "displayed_article_urls": [
+        "https://dailyus.oedn.net/terms-of-service",
+        "https://web.archive.org/web/20260225233012/https://dailyus.oedn.net/terms-of-service",
+        "https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "all_article_candidates": [
+        "https://dailyus.oedn.net/terms-of-service",
+        "https://web.archive.org/web/20260225233012/https://dailyus.oedn.net/terms-of-service",
+        "https://news.google.com/search?q=%22Born%20in%20America%20Act%22%2C%20Congress%2C%20Kennedy&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103587,
+      "evidence_index": 0,
+      "statement": "Experts dispute the claim that Iran could 'soon' have missiles capable of reaching the United States.",
+      "previous_url": "https://www.iranwatch.org/library/government/united-states/congress/legislation-reports/irans-long-range-missile-capabilities",
+      "displayed_article_urls": [
+        "https://rollcall.com/factbase/trump/transcript/donald-trump-vlog-iran-attack-announcement-february-28-2026/",
+        "https://rollcall.com/factbase/trump/transcript/donald-trump-vlog-iran-attack-update-march-1-2026/",
+        "https://www.whitehouse.gov/articles/2026/03/74-times-president-trump-has-made-clear-that-iran-cannot-have-a-nuclear-weapon/"
+      ],
+      "all_article_candidates": [
+        "https://rollcall.com/factbase/trump/transcript/donald-trump-vlog-iran-attack-announcement-february-28-2026/",
+        "https://rollcall.com/factbase/trump/transcript/donald-trump-vlog-iran-attack-update-march-1-2026/",
+        "https://www.whitehouse.gov/articles/2026/03/74-times-president-trump-has-made-clear-that-iran-cannot-have-a-nuclear-weapon/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103587,
+      "evidence_index": 1,
+      "statement": "Recent estimates suggest Iran lacks intercontinental ballistic missile (ICBM) capability and appears to maintain a self-imposed missile range limit of 2,000 km.",
+      "previous_url": "http://iranprimer.usip.org/resource/irans-ballistic-missile-program",
+      "displayed_article_urls": [
+        "https://www.defensepriorities.org/people/rosemary-kelanic/",
+        "https://www.dia.mil/Portals/110/Documents/News/golden_dome.pdf",
+        "https://transcripts.cnn.com/show/sotu/date/2026-03-01/segment/04"
+      ],
+      "all_article_candidates": [
+        "https://www.defensepriorities.org/people/rosemary-kelanic/",
+        "https://www.dia.mil/Portals/110/Documents/News/golden_dome.pdf",
+        "https://transcripts.cnn.com/show/sotu/date/2026-03-01/segment/04"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103587,
+      "evidence_index": 2,
+      "statement": "A Defense Intelligence Agency (DIA) report from May 2025 projected that Iran could develop a militarily-viable ICBM by 2035 if it chose to pursue the capability.",
+      "previous_url": "https://www.everycrsreport.com/reports/IF13035.html",
+      "displayed_article_urls": [
+        "https://www.dia.mil/Portals/110/Documents/News/golden_dome.pdf",
+        "https://www.foxnews.com/video/6390221096112",
+        "https://transcripts.cnn.com/show/sotu/date/2026-03-01/segment/04"
+      ],
+      "all_article_candidates": [
+        "https://www.dia.mil/Portals/110/Documents/News/golden_dome.pdf",
+        "https://www.foxnews.com/video/6390221096112",
+        "https://transcripts.cnn.com/show/sotu/date/2026-03-01/segment/04"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103587,
+      "evidence_index": 3,
+      "statement": "Iranian Foreign Minister Abbas Araghchi denied that Iran is developing long-range missiles, stating they intentionally limit range to below 2,000 kilometers.",
+      "previous_url": "https://www.iranintl.com/en/202510081527",
+      "displayed_article_urls": [
+        "https://www.reuters.com/business/aerospace-defense/trump-iranian-missile-claim-unsupported-by-us-intelligence-say-sources-2026-02-27/",
+        "https://www.c-span.org/program/news-conference/secretary-of-state-rubio-speaks-to-reporters-about-iran/674666",
+        "https://www.wsj.com/world/middle-east/trumps-case-for-war-with-iran-faces-growing-scrutiny-96648cb9"
+      ],
+      "all_article_candidates": [
+        "https://www.reuters.com/business/aerospace-defense/trump-iranian-missile-claim-unsupported-by-us-intelligence-say-sources-2026-02-27/",
+        "https://www.c-span.org/program/news-conference/secretary-of-state-rubio-speaks-to-reporters-about-iran/674666",
+        "https://www.wsj.com/world/middle-east/trumps-case-for-war-with-iran-faces-growing-scrutiny-96648cb9"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104842,
+      "evidence_index": 0,
+      "statement": "The photos circulating on social media that claim to show Austin Tucker Martin are mislabeled and depict an unidentified person who does not resemble Martin.",
+      "previous_url": "https://www.ftc.gov/system/files/ftc_gov/pdf/Combatting%20Online%20Harms%20Through%20Innovation%3B%20Federal%20Trade%20Commission%20Report%20to%20Congress.pdf",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260222233402/https://www.youtube.com/watch?v=4w7QrEH4tA8",
+        "https://web.archive.org/web/20260223195259/https://www.facebook.com/MCSheriffOffice/posts/pfbid02dFUENATComFTrb5dzNM4votnPmRVM4aUoUpfyTVqJC5qhVqfqQo5kiJpAX5FoxHBl",
+        "https://www.thesun.co.uk/news/38309168/bizarre-texts-shotgun-man-trump-mar-a-lago-epstein/#:~:text=Martin%20pictured%20with%20his%20family%20members%20Josh%2C%20Jacob%20and%20Melissa%20(left%20to%20right).%20Blue%20shirt%20Facebook%20%E2%80%93%20Melissa%20Martin"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260222233402/https://www.youtube.com/watch?v=4w7QrEH4tA8",
+        "https://web.archive.org/web/20260223195259/https://www.facebook.com/MCSheriffOffice/posts/pfbid02dFUENATComFTrb5dzNM4votnPmRVM4aUoUpfyTVqJC5qhVqfqQo5kiJpAX5FoxHBl",
+        "https://www.thesun.co.uk/news/38309168/bizarre-texts-shotgun-man-trump-mar-a-lago-epstein/#:~:text=Martin%20pictured%20with%20his%20family%20members%20Josh%2C%20Jacob%20and%20Melissa%20(left%20to%20right).%20Blue%20shirt%20Facebook%20%E2%80%93%20Melissa%20Martin"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104764,
+      "evidence_index": 0,
+      "statement": "California paid the Coalition for Humane Immigrant Rights (CHIRLA) approximately $115 million for the 2019-2025 fiscal years.",
+      "previous_url": "https://www.chirla.org/what-we-do/programs-initiatives/policy-advocacy/state-work/",
+      "displayed_article_urls": [
+        "https://open.fiscal.ca.gov/transparency.html",
+        "https://web.archive.org/web/20260223151153/https://open.fiscal.ca.gov/transparency.html",
+        "https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf"
+      ],
+      "all_article_candidates": [
+        "https://open.fiscal.ca.gov/transparency.html",
+        "https://web.archive.org/web/20260223151153/https://open.fiscal.ca.gov/transparency.html",
+        "https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104764,
+      "evidence_index": 1,
+      "statement": "98% of the funds paid to CHIRLA by the state ($113 million out of $115 million) came from California's Department of Social Services.",
+      "previous_url": "https://www.chirla.org/news-category/chirla-celebrates-gov-newsoms-commitment-to-immigrant-wellbeing-in-proposed-2022-budget/",
+      "displayed_article_urls": [
+        "https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf",
+        "https://web.archive.org/web/20260223182436/https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf",
+        "https://open.fiscal.ca.gov/transparency.html"
+      ],
+      "all_article_candidates": [
+        "https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf",
+        "https://web.archive.org/web/20260223182436/https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf",
+        "https://open.fiscal.ca.gov/transparency.html"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104764,
+      "evidence_index": 2,
+      "statement": "State budget records show no evidence that funds were used to pay or organize protesters, nor are there line items for activist stipends or demonstration organizing.",
+      "previous_url": "https://www.newsnationnow.com/politics/compensated-activist-majority-protesters-paid/",
+      "displayed_article_urls": [
+        "https://open.fiscal.ca.gov/transparency.html",
+        "https://web.archive.org/web/20260223151153/https://open.fiscal.ca.gov/transparency.html",
+        "https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf"
+      ],
+      "all_article_candidates": [
+        "https://open.fiscal.ca.gov/transparency.html",
+        "https://web.archive.org/web/20260223151153/https://open.fiscal.ca.gov/transparency.html",
+        "https://ebudget.ca.gov/2024-25/pdf/GovernorsBudget/4000/5180.pdf"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104143,
+      "evidence_index": 0,
+      "statement": "There is no evidence that the Seattle Seahawks have been invited to the White House or have refused an invitation.",
+      "previous_url": "https://www.marca.com/en/nfl/seattle-seahawks/2026/02/19/69967371268e3e5d348b45de.html",
+      "displayed_article_urls": [
+        "https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://web.archive.org/web/20260219162037/https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "all_article_candidates": [
+        "https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://web.archive.org/web/20260219162037/https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104143,
+      "evidence_index": 2,
+      "statement": "The White House has not responded to inquiries regarding whether an invitation was extended to the Seahawks.",
+      "previous_url": "https://x.com/seattletimes/status/2024294595723477159",
+      "displayed_article_urls": [
+        "https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://web.archive.org/web/20260219162037/https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "all_article_candidates": [
+        "https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://web.archive.org/web/20260219162037/https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/",
+        "https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104143,
+      "evidence_index": 3,
+      "statement": "Championship teams typically visit the White House a few months after winning, often in the spring or summer.",
+      "previous_url": "https://abcnews.com/Sports/white-house-visits-champions-us-tradition/story?id=37305752",
+      "displayed_article_urls": [
+        "https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://web.archive.org/web/20260219193127/https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/"
+      ],
+      "all_article_candidates": [
+        "https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://web.archive.org/web/20260219193127/https://news.google.com/search?q=Seattle%20Seahawks%2C%20invitation%2C%20White%20House&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://www.seattletimes.com/seattle-news/politics/seahawks-havent-received-a-white-house-invitation/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102648,
+      "evidence_index": 0,
+      "statement": "The claim that Adam Sandler introduced a bill to block George Soros from bankrolling protests is a viral narrative that lacks verified evidence.",
+      "previous_url": "https://www.theatlantic.com/magazine/archive/2024/04/us-anti-semitism-jewish-american-safety/677469/",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260215122501/https://www.facebook.com/profile.php?id=61585489964425",
+        "https://web.archive.org/web/20260215120928/https://www.facebook.com/search/top/?q=moves%20to%20block%20George%20Soros%20from%20allegedly%20secretly%20bankrolling%20protests%20across%20America",
+        "https://news.google.com/search?q=%22Soros%22%20%22RICO%20Act%22&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260215122501/https://www.facebook.com/profile.php?id=61585489964425",
+        "https://web.archive.org/web/20260215120928/https://www.facebook.com/search/top/?q=moves%20to%20block%20George%20Soros%20from%20allegedly%20secretly%20bankrolling%20protests%20across%20America",
+        "https://news.google.com/search?q=%22Soros%22%20%22RICO%20Act%22&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102648,
+      "evidence_index": 1,
+      "statement": "The viral claim has been spread through Facebook posts that are part of a network of foreign websites and pages, including some run by people in Vietnam.",
+      "previous_url": "https://restofworld.org/2023/force-47-vietnam-military-group-facebook/",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260215122501/https://www.facebook.com/profile.php?id=61585489964425",
+        "https://web.archive.org/web/20260215120928/https://www.facebook.com/search/top/?q=moves%20to%20block%20George%20Soros%20from%20allegedly%20secretly%20bankrolling%20protests%20across%20America",
+        "https://news.google.com/search?q=%22Soros%22%20%22RICO%20Act%22&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260215122501/https://www.facebook.com/profile.php?id=61585489964425",
+        "https://web.archive.org/web/20260215120928/https://www.facebook.com/search/top/?q=moves%20to%20block%20George%20Soros%20from%20allegedly%20secretly%20bankrolling%20protests%20across%20America",
+        "https://news.google.com/search?q=%22Soros%22%20%22RICO%20Act%22&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102679,
+      "evidence_index": 0,
+      "statement": "The airspace closure in El Paso, Texas, and Santa Teresa, New Mexico, was lifted within hours, not for 10 days.",
+      "previous_url": "https://www.kob.com/new-mexico/southeast-new-mexico/faa-imposes-then-lifts-10-day-restriction-on-airspace-around-el-paso/",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260211144138/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260211093940/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497",
+        "https://web.archive.org/web/20260211144138/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497",
+        "https://tfr.faa.gov/tfr3/?page=detail_6_2231"
+      ],
+      "selection_basis": "MODEL_PROPOSAL"
+    },
+    {
+      "claim_id": 102679,
+      "evidence_index": 1,
+      "statement": "The Temporary Flight Restriction (TFR) in New Orleans was issued for Mardi Gras festivities and was not related to the El Paso airspace closure.",
+      "previous_url": "https://nbaa.org/aircraft-operations/airspace/alerts/notams-and-tfrs/temporary-flight-restrictions/",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260211093940/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497",
+        "https://web.archive.org/web/20260211144138/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497",
+        "https://web.archive.org/web/20260211153818/https://tfr.faa.gov/tfr3/?page=detail_6_2231"
+      ],
+      "all_article_candidates": [
+        "https://web.archive.org/web/20260211093940/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497",
+        "https://web.archive.org/web/20260211144138/https://www.nbcnews.com/news/us-news/flights-el-paso-airport-texas-halted-10-days-security-reasons-faa-rcna258497",
+        "https://web.archive.org/web/20260211153818/https://tfr.faa.gov/tfr3/?page=detail_6_2231"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102411,
+      "evidence_index": 0,
+      "statement": "Dutch tap water is of high quality, clean, and safe to drink.",
+      "previous_url": "https://mooiwater.nl/dutch-tap-water-3/",
+      "displayed_article_urls": [
+        "https://perma.cc/Q5AJ-HLJR",
+        "https://web.archive.org/web/20260303143228/https://scontent-waw2-2.cdninstagram.com/o1/v/t16/f2/m69/AQOTzadJUArjYtUGwjKSfOMPn8D6f2Gtqh3_omWee62aQ_U3b_HcJ5BKWGzD_Ncg9KVZ8hPBgkv66p_smmyz5H6J.mp4?strext=1&_nc_cat=102&_nc_sid=5e9851&_nc_ht=scontent-waw2-2.cdninstagram.com&_nc_ohc=OCHJJ-CHu4UQ7kNvwGB7xnC&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTgzMTI2NTI0MTEyNTM0MjUsImFzc2V0X2FnZV9kYXlzIjoxNywidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjI1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ZQufenFvAdAdqsyvwuze4Q&_nc_ss=8&_nc_zt=28&vs=469b6e90f52bf12b&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HRDIzNENXNmU1a251NElFQUdteWJ1VXNGalFCYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyL0RENDUwMTA2NjdENjM1MUQ3MTUyMEZCRkM1OTQwQUEzX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbiyvHd1NCHQRUCKAJDMywXQDkAAAAAAAAYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfyK5zce3PH9EHyIGpWZnLLcNCMzL2N1v10fJUL02T2Org&oe=69ACD366",
+        "https://www.rivm.nl/drinkwater/drinkwater-en-regelgeving"
+      ],
+      "all_article_candidates": [
+        "https://perma.cc/Q5AJ-HLJR",
+        "https://web.archive.org/web/20260303143228/https://scontent-waw2-2.cdninstagram.com/o1/v/t16/f2/m69/AQOTzadJUArjYtUGwjKSfOMPn8D6f2Gtqh3_omWee62aQ_U3b_HcJ5BKWGzD_Ncg9KVZ8hPBgkv66p_smmyz5H6J.mp4?strext=1&_nc_cat=102&_nc_sid=5e9851&_nc_ht=scontent-waw2-2.cdninstagram.com&_nc_ohc=OCHJJ-CHu4UQ7kNvwGB7xnC&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTgzMTI2NTI0MTEyNTM0MjUsImFzc2V0X2FnZV9kYXlzIjoxNywidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjI1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ZQufenFvAdAdqsyvwuze4Q&_nc_ss=8&_nc_zt=28&vs=469b6e90f52bf12b&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HRDIzNENXNmU1a251NElFQUdteWJ1VXNGalFCYnNwVEFRQUYVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyL0RENDUwMTA2NjdENjM1MUQ3MTUyMEZCRkM1OTQwQUEzX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbiyvHd1NCHQRUCKAJDMywXQDkAAAAAAAAYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&oh=00_AfyK5zce3PH9EHyIGpWZnLLcNCMzL2N1v10fJUL02T2Org&oe=69ACD366",
+        "https://www.rivm.nl/drinkwater/drinkwater-en-regelgeving"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105095,
+      "evidence_index": 0,
+      "statement": "White House Press Secretary Karoline Leavitt did not make the statement that Donald Trump would revoke the passports of Olympic athletes who criticize him.",
+      "previous_url": "https://www.them.us/story/donald-trump-administration-executive-order-trans-girls-womens-sports",
+      "displayed_article_urls": [
+        "https://www.pbs.org/newshour/nation/watch-trump-signs-executive-order-on-2028-olympic-task-force",
+        "https://news3lv.com/news/nation-world/leavitt-calls-on-congress-to-codify-trumps-order-on-womens-sports-donald-trump-white-house-trans-lgbt",
+        "https://www.whitehouse.gov/presidential-actions/2025/08/establishing-the-white-house-task-force-on-the-2028-summer-olympics/"
+      ],
+      "all_article_candidates": [
+        "https://www.pbs.org/newshour/nation/watch-trump-signs-executive-order-on-2028-olympic-task-force",
+        "https://news3lv.com/news/nation-world/leavitt-calls-on-congress-to-codify-trumps-order-on-womens-sports-donald-trump-white-house-trans-lgbt",
+        "https://www.whitehouse.gov/presidential-actions/2025/08/establishing-the-white-house-task-force-on-the-2028-summer-olympics/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102690,
+      "evidence_index": 0,
+      "statement": "There are no nationwide government schemes offering electric cycles or scooters to women or students.",
+      "previous_url": "https://metroev.pk/prime-ministers-e-bike-scheme-2025/",
+      "displayed_article_urls": [
+        "https://schooleducation.karnataka.gov.in/242/bicycles/en",
+        "https://sje.gujarat.gov.in/ddcw/schemes/1516?lang=english",
+        "https://khargone.nic.in/en/scheme/free-cycle-supply-scheme/"
+      ],
+      "all_article_candidates": [
+        "https://schooleducation.karnataka.gov.in/242/bicycles/en",
+        "https://sje.gujarat.gov.in/ddcw/schemes/1516?lang=english",
+        "https://khargone.nic.in/en/scheme/free-cycle-supply-scheme/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102690,
+      "evidence_index": 3,
+      "statement": "The video claiming to offer free scooters to women was identified as AI-generated with 75.8 percent certainty.",
+      "previous_url": "https://www.nbcnews.com/news/us-news/electric-scooter-scam-lightning-shared-scooter-co-investors-rcna226832",
+      "displayed_article_urls": [
+        "https://schooleducation.karnataka.gov.in/242/bicycles/en",
+        "https://sje.gujarat.gov.in/ddcw/schemes/1516?lang=english",
+        "https://khargone.nic.in/en/scheme/free-cycle-supply-scheme/"
+      ],
+      "all_article_candidates": [
+        "https://schooleducation.karnataka.gov.in/242/bicycles/en",
+        "https://sje.gujarat.gov.in/ddcw/schemes/1516?lang=english",
+        "https://khargone.nic.in/en/scheme/free-cycle-supply-scheme/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102690,
+      "evidence_index": 4,
+      "statement": "The video claiming to offer free electric cycles to students was identified as AI-generated with 89.7 percent certainty.",
+      "previous_url": "https://mededu.jmir.org/2025/1/e80084/",
+      "displayed_article_urls": [
+        "https://schooleducation.karnataka.gov.in/242/bicycles/en",
+        "https://sje.gujarat.gov.in/ddcw/schemes/1516?lang=english",
+        "https://khargone.nic.in/en/scheme/free-cycle-supply-scheme/"
+      ],
+      "all_article_candidates": [
+        "https://schooleducation.karnataka.gov.in/242/bicycles/en",
+        "https://sje.gujarat.gov.in/ddcw/schemes/1516?lang=english",
+        "https://khargone.nic.in/en/scheme/free-cycle-supply-scheme/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103497,
+      "evidence_index": 0,
+      "statement": "The Bukit Mertajam Hospital is not being relocated; instead, there are plans for a new building at the existing site to accommodate increasing patients.",
+      "previous_url": "https://www.thestar.com.my/news/true-or-not/2026/03/23/quickcheck-is-it-true-the-bukit-mertajam-hospital-will-be-relocated",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260521202634/https://perma.cc/X9TA-BT3Z",
+        "http://web.archive.org/web/20260521202634/https://perma.cc/CT9C-WRQM",
+        "http://web.archive.org/web/20260521202634/https://www.bernama.com/en/news.php?id=2467425"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260521202634/https://perma.cc/X9TA-BT3Z",
+        "http://web.archive.org/web/20260521202634/https://perma.cc/CT9C-WRQM",
+        "http://web.archive.org/web/20260521202634/https://www.bernama.com/en/news.php?id=2467425"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103544,
+      "evidence_index": 0,
+      "statement": "A Thai immigration official stated that there has been no mass arrival of hundreds of thousands of Israelis in Thailand.",
+      "previous_url": "https://www.mnhs.org/hmong/hmong-timeline",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260823041522/https://web.archive.org/web/20260327031508/https://www.arabnews.com/node/2637715/middle-east",
+        "http://web.archive.org/web/20260823041522/https://www.arabnews.com/node/2637715/middle-east",
+        "http://web.archive.org/web/20260823041522/https://perma.cc/P4S7-QZR2"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260823041522/https://web.archive.org/web/20260327031508/https://www.arabnews.com/node/2637715/middle-east",
+        "http://web.archive.org/web/20260823041522/https://www.arabnews.com/node/2637715/middle-east",
+        "http://web.archive.org/web/20260823041522/https://perma.cc/P4S7-QZR2"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103544,
+      "evidence_index": 1,
+      "statement": "The figure of 425,000 is approximately the number of Israeli visitors to Thailand in the year 2025.",
+      "previous_url": "https://www.nationthailand.com/blogs/news/general/40063758",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260823041522/https://perma.cc/5G5J-YWHV",
+        "http://web.archive.org/web/20260823041522/https://www.facebook.com/permalink.php?story_fbid=pfbid0Vb5n8XE5pD77faVttJgfEWsaid9VpyrvxJjtgneTaXQuqm84P7sZyd5PkCsuge1l&id=100068925981064",
+        "http://web.archive.org/web/20260823041522/https://www.khaosodenglish.com/news/2026/03/10/thais-should-be-upset-with-iran-for-oil-price-hike-says-israeli-envoy/#:~:text=Fisher%2DKamm%20said%20in%202025%2C%20some%20425%2C000%20Israeli%20citizens%20visited%20Thailand%2C%20constituting%205%20per%20cent%20of%20Israel%E2%80%99s%20population.%20%E2%80%9CThis%20is%20something%20really%20amazing."
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260823041522/https://perma.cc/5G5J-YWHV",
+        "http://web.archive.org/web/20260823041522/https://www.facebook.com/permalink.php?story_fbid=pfbid0Vb5n8XE5pD77faVttJgfEWsaid9VpyrvxJjtgneTaXQuqm84P7sZyd5PkCsuge1l&id=100068925981064",
+        "http://web.archive.org/web/20260823041522/https://www.khaosodenglish.com/news/2026/03/10/thais-should-be-upset-with-iran-for-oil-price-hike-says-israeli-envoy/#:~:text=Fisher%2DKamm%20said%20in%202025%2C%20some%20425%2C000%20Israeli%20citizens%20visited%20Thailand%2C%20constituting%205%20per%20cent%20of%20Israel%E2%80%99s%20population.%20%E2%80%9CThis%20is%20something%20really%20amazing."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103544,
+      "evidence_index": 2,
+      "statement": "As of the end of March 2026, officials estimate that approximately 30,000 Israeli nationals were in Thailand.",
+      "previous_url": "https://x.com/ThaiEnquirer/status/2031970988683116661",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260823041522/https://perma.cc/P4S7-QZR2",
+        "http://web.archive.org/web/20260823041522/https://factcheck.afp.com/afp-thailand",
+        "http://web.archive.org/web/20260823041522/https://factcheck.afp.com/chayanit-itthipongmaetee"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260823041522/https://perma.cc/P4S7-QZR2",
+        "http://web.archive.org/web/20260823041522/https://factcheck.afp.com/afp-thailand",
+        "http://web.archive.org/web/20260823041522/https://factcheck.afp.com/chayanit-itthipongmaetee"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103544,
+      "evidence_index": 4,
+      "statement": "Between January 1 and March 11, officials recorded 84,238 arrivals and 80,171 departures from Israel, indicating no unusual accumulation of visitors.",
+      "previous_url": "https://www.dhs.gov/sites/default/files/2024-10/24_1011_CBP-Entry-Exit-Overstay-Report-FY23-Data.pdf",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260823041522/https://perma.cc/5G5J-YWHV",
+        "http://web.archive.org/web/20260823041522/https://www.facebook.com/permalink.php?story_fbid=pfbid0Vb5n8XE5pD77faVttJgfEWsaid9VpyrvxJjtgneTaXQuqm84P7sZyd5PkCsuge1l&id=100068925981064",
+        "http://web.archive.org/web/20260823041522/https://perma.cc/2TNY-X3ZT"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260823041522/https://perma.cc/5G5J-YWHV",
+        "http://web.archive.org/web/20260823041522/https://www.facebook.com/permalink.php?story_fbid=pfbid0Vb5n8XE5pD77faVttJgfEWsaid9VpyrvxJjtgneTaXQuqm84P7sZyd5PkCsuge1l&id=100068925981064",
+        "http://web.archive.org/web/20260823041522/https://perma.cc/2TNY-X3ZT"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103726,
+      "evidence_index": 1,
+      "statement": "There is no clinical evidence that turmeric-ghee shots can enhance or speed up the body's natural detoxification process.",
+      "previous_url": "https://timesofindia.indiatimes.com/life-style/food-news/what-happens-when-you-add-ghee-and-turmeric-to-water/articleshow/120123827.cms",
+      "displayed_article_urls": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK279393/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7144558/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9881416/"
+      ],
+      "all_article_candidates": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK279393/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7144558/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9881416/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103726,
+      "evidence_index": 4,
+      "statement": "Consuming concentrated daily shots of turmeric and ghee may lead to unwanted effects like stomach upset, acid reflux, or increased calorie intake.",
+      "previous_url": "https://www.healthline.com/nutrition/turmeric-side-effects",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7144558/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9881416/",
+        "https://magazine.thip.media"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7144558/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9881416/",
+        "https://magazine.thip.media"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103652,
+      "evidence_index": 0,
+      "statement": "The link shared in social media posts urging users to sign up for the National Fuel Pass is not the government's official registration website.",
+      "previous_url": "https://srilanka.factcrescendo.com/english/fraudulent-site-falsely-claiming-to-be-the-official-platform-for-obtaining-fuel-permits/",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260324074945/https://perma.cc/9RCG-H6WA?type=image",
+        "http://web.archive.org/web/20260324074945/https://factcheck.afp.com/afp-sri-lanka",
+        "http://web.archive.org/web/20260324074945/https://factcheck.afp.com/harshana-silva"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260324074945/https://perma.cc/9RCG-H6WA?type=image",
+        "http://web.archive.org/web/20260324074945/https://factcheck.afp.com/afp-sri-lanka",
+        "http://web.archive.org/web/20260324074945/https://factcheck.afp.com/harshana-silva"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103652,
+      "evidence_index": 1,
+      "statement": "The imposter website lacks the official 'gov.lk' domain and differs in visual style from the official site, which features the national emblem.",
+      "previous_url": "https://www.digicert.com/blog/how-to-identify-fake-websites",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260324074945/https://fuelpass.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://web.archive.org/web/20260318065941/https://fuelpass.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://energymin.gov.lk/index.php/2026/03/15/news-07-15-03/"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260324074945/https://fuelpass.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://web.archive.org/web/20260318065941/https://fuelpass.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://energymin.gov.lk/index.php/2026/03/15/news-07-15-03/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103652,
+      "evidence_index": 2,
+      "statement": "Information technology officials warned that the imposter site is used by scammers to steal personal information, such as vehicle chassis numbers.",
+      "previous_url": "https://www.in.gov/bmv/resources/consumer-scam-alerts",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260324074945/https://perma.cc/9RCG-H6WA?type=image",
+        "http://web.archive.org/web/20260324074945/https://perma.cc/723F-TM7B",
+        "http://web.archive.org/web/20260324074945/https://factcheck.afp.com/afp-sri-lanka"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260324074945/https://perma.cc/9RCG-H6WA?type=image",
+        "http://web.archive.org/web/20260324074945/https://perma.cc/723F-TM7B",
+        "http://web.archive.org/web/20260324074945/https://factcheck.afp.com/afp-sri-lanka"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 103652,
+      "evidence_index": 3,
+      "statement": "The Sri Lanka Computer Emergency Readiness Team (CERT) has taken down five fake websites related to this scheme.",
+      "previous_url": "https://adaderana.lk/news/119680",
+      "displayed_article_urls": [
+        "http://web.archive.org/web/20260324074945/https://www.cert.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://web.archive.org/web/20260318121304/https://www.cert.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://ceypetco.gov.lk/lebuild_team/dr-mayura-neththikumarage/"
+      ],
+      "all_article_candidates": [
+        "http://web.archive.org/web/20260324074945/https://www.cert.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://web.archive.org/web/20260318121304/https://www.cert.gov.lk/",
+        "http://web.archive.org/web/20260324074945/https://ceypetco.gov.lk/lebuild_team/dr-mayura-neththikumarage/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104031,
+      "evidence_index": 2,
+      "statement": "A search of the released Epstein government files for 'SpongeBob' yielded only seven references, none of which linked the show to Epstein's crimes; one was an advertisement for a screensaver.",
+      "previous_url": "https://www.yahoo.com/lifestyle/nickelodeon-jeffrey-epstein-conspiracy-theory-163511305.html",
+      "displayed_article_urls": [
+        "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01696301.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00789738.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00623759.pdf"
+      ],
+      "all_article_candidates": [
+        "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01696301.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00789738.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00623759.pdf"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104031,
+      "evidence_index": 3,
+      "statement": "There are no references to the creator of SpongeBob, Stephen Hillenburg, in the Epstein files.",
+      "previous_url": "https://forward.com/culture/film-tv/414892/the-secret-jewish-history-of-spongebob-squarepants/",
+      "displayed_article_urls": [
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00789738.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01696301.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00414089.pdf"
+      ],
+      "all_article_candidates": [
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00789738.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01696301.pdf",
+        "https://www.justice.gov/epstein/files/DataSet%209/EFTA00414089.pdf"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102466,
+      "evidence_index": 0,
+      "statement": "There is no scientific evidence or medical consensus to support the claim that a mixture of ajwain, saunf, and gud can cure PCOD or regulate periods within 7 days.",
+      "previous_url": "https://ask-ayurveda.com/wiki/article/4208-natural-period--pcos-relief-with-ajwain",
+      "displayed_article_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733621/#:~:text=Normal%20menstruation%20lasts%202%20to,(RA)%20%5B11%5D.",
+        "https://www.researchgate.net/publication/262001210_An_Overview_on_Ajwain_Trachyspermum_ammi_Pharmacological_Effects_Modern_and_Traditional",
+        "https://www.semanticscholar.org/paper/Pharmaceutical-Benefits-and-Multidimensional-uses-Shahrajabian-Sun/5cb83bede6c9972aca3fb6e72a71f79b818f08c0"
+      ],
+      "all_article_candidates": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733621/#:~:text=Normal%20menstruation%20lasts%202%20to,(RA)%20%5B11%5D.",
+        "https://www.researchgate.net/publication/262001210_An_Overview_on_Ajwain_Trachyspermum_ammi_Pharmacological_Effects_Modern_and_Traditional",
+        "https://www.semanticscholar.org/paper/Pharmaceutical-Benefits-and-Multidimensional-uses-Shahrajabian-Sun/5cb83bede6c9972aca3fb6e72a71f79b818f08c0"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102466,
+      "evidence_index": 2,
+      "statement": "While ajwain, saunf, and jaggery have general health benefits like aiding digestion or reducing menstrual pain, they cannot treat PCOD or correct hormonal imbalances.",
+      "previous_url": "https://www.apollo247.com/blog/article/6-health-benefits-of-ajwain",
+      "displayed_article_urls": [
+        "https://www.researchgate.net/publication/344921769_Jaggery_A_natural_sweetener",
+        "https://www.semanticscholar.org/paper/Pharmaceutical-Benefits-and-Multidimensional-uses-Shahrajabian-Sun/5cb83bede6c9972aca3fb6e72a71f79b818f08c0",
+        "https://www.unicef.org/india/stories/do-pcod-and-pcos-mean-same-thing-or-are-they-different#:~:text=PCOD%20(Polycystic%20Ovarian%20Disease)%20is,be%2Dfertilized%20eggs%20each%20month."
+      ],
+      "all_article_candidates": [
+        "https://www.researchgate.net/publication/344921769_Jaggery_A_natural_sweetener",
+        "https://www.semanticscholar.org/paper/Pharmaceutical-Benefits-and-Multidimensional-uses-Shahrajabian-Sun/5cb83bede6c9972aca3fb6e72a71f79b818f08c0",
+        "https://www.unicef.org/india/stories/do-pcod-and-pcos-mean-same-thing-or-are-they-different#:~:text=PCOD%20(Polycystic%20Ovarian%20Disease)%20is,be%2Dfertilized%20eggs%20each%20month."
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102495,
+      "evidence_index": 0,
+      "statement": "Russian strikes on energy infrastructure have caused frequent emergency shutdowns of high-voltage transmission lines at Ukrainian nuclear plants.",
+      "previous_url": "https://www.aljazeera.com/news/2022/12/13/can-ukraines-energy-infrastructure-withstand-the-winter",
+      "displayed_article_urls": [
+        "https://www.iaea.org/newscenter/pressreleases/update-340-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://dixigroup.org/en/over-four-years-of-full-scale-war-russia-has-launched-more-than-60-massive-attacks-on-ukraines-energy-sector/",
+        "https://news.un.org/ru/story/2026/02/1467323"
+      ],
+      "all_article_candidates": [
+        "https://www.iaea.org/newscenter/pressreleases/update-340-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://dixigroup.org/en/over-four-years-of-full-scale-war-russia-has-launched-more-than-60-massive-attacks-on-ukraines-energy-sector/",
+        "https://news.un.org/ru/story/2026/02/1467323"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102495,
+      "evidence_index": 2,
+      "statement": "At least seven incidents have forced Ukrainian nuclear units to reduce output or undergo full emergency shutdowns due to protective system triggers.",
+      "previous_url": "https://news.un.org/en/story/2026/02/1166914",
+      "displayed_article_urls": [
+        "https://dixigroup.org/en/over-four-years-of-full-scale-war-russia-has-launched-more-than-60-massive-attacks-on-ukraines-energy-sector/",
+        "https://www.iaea.org/newscenter/pressreleases/update-340-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://news.un.org/ru/story/2026/02/1467323"
+      ],
+      "all_article_candidates": [
+        "https://dixigroup.org/en/over-four-years-of-full-scale-war-russia-has-launched-more-than-60-massive-attacks-on-ukraines-energy-sector/",
+        "https://www.iaea.org/newscenter/pressreleases/update-340-iaea-director-general-statement-on-situation-in-ukraine",
+        "https://news.un.org/ru/story/2026/02/1467323"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102495,
+      "evidence_index": 4,
+      "statement": "Russian strikes have targeted distribution facilities located within the boundaries of nuclear power plants, where inaccuracies could compromise reactor protective structures.",
+      "previous_url": "https://securityanddefence.pl/Nuclear-power-plants-in-war-zones-Lessons-learned-from-the-war-in-Ukraine,174810,0,2.html",
+      "displayed_article_urls": [
+        "https://news.un.org/ru/story/2026/02/1467323",
+        "https://www.mev.gov.ua/novyna/svitlana-hrynchuk-rosiyska-okupatsiya-zaes-tse-akt-yadernoho-piratstva-shcho-zahrozhuye",
+        "https://www.iaea.org/newscenter/pressreleases/update-340-iaea-director-general-statement-on-situation-in-ukraine"
+      ],
+      "all_article_candidates": [
+        "https://news.un.org/ru/story/2026/02/1467323",
+        "https://www.mev.gov.ua/novyna/svitlana-hrynchuk-rosiyska-okupatsiya-zaes-tse-akt-yadernoho-piratstva-shcho-zahrozhuye",
+        "https://www.iaea.org/newscenter/pressreleases/update-340-iaea-director-general-statement-on-situation-in-ukraine"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102495,
+      "evidence_index": 6,
+      "statement": "Deliberate Russian attacks have led to complete external power loss at Ukrainian nuclear facilities at least 13 times as of September 2025.",
+      "previous_url": "https://en.wikipedia.org/wiki/Zaporizhzhia_Nuclear_Power_Plant_crisis",
+      "displayed_article_urls": [
+        "https://www.mev.gov.ua/novyna/svitlana-hrynchuk-rosiyska-okupatsiya-zaes-tse-akt-yadernoho-piratstva-shcho-zahrozhuye",
+        "https://news.un.org/ru/story/2026/02/1467323",
+        "https://dixigroup.org/en/over-four-years-of-full-scale-war-russia-has-launched-more-than-60-massive-attacks-on-ukraines-energy-sector/"
+      ],
+      "all_article_candidates": [
+        "https://www.mev.gov.ua/novyna/svitlana-hrynchuk-rosiyska-okupatsiya-zaes-tse-akt-yadernoho-piratstva-shcho-zahrozhuye",
+        "https://news.un.org/ru/story/2026/02/1467323",
+        "https://dixigroup.org/en/over-four-years-of-full-scale-war-russia-has-launched-more-than-60-massive-attacks-on-ukraines-energy-sector/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104421,
+      "evidence_index": 1,
+      "statement": "It is impossible to link millions of migrants to prisons and mental institutions because there is no comprehensive data documenting people's criminal or institutional history in their countries of origin.",
+      "previous_url": "https://immigrantjustice.org/research/report-a-legacy-of-injustice-the-u-s-criminalization-of-migration/",
+      "displayed_article_urls": [
+        "https://cis.org/Arthur/Breaking-Down-FY-2024-Southwest-Border-Numbers",
+        "https://www.factcheck.org/2024/09/trump-vance-wrong-about-illegal-immigrant-murderers/",
+        "https://homeland.house.gov/wp-content/uploads/2024/09/24-01143-ICEs-Signed-Response-to-Representative-Tony-Gonzales.pdf"
+      ],
+      "all_article_candidates": [
+        "https://cis.org/Arthur/Breaking-Down-FY-2024-Southwest-Border-Numbers",
+        "https://www.factcheck.org/2024/09/trump-vance-wrong-about-illegal-immigrant-murderers/",
+        "https://homeland.house.gov/wp-content/uploads/2024/09/24-01143-ICEs-Signed-Response-to-Representative-Tony-Gonzales.pdf"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104821,
+      "evidence_index": 0,
+      "statement": "The reported exchange between Angela Rayner and Suella Braverman in Parliament is fake.",
+      "previous_url": "https://www.gbnews.com/politics/angela-rayner-news-uk-politics-latest-tory",
+      "displayed_article_urls": [
+        "https://hansard.parliament.uk/search?startDate=2015-01-01&endDate=2026-02-20&searchTerm=%22embarrass%20you%20on%20national%20TV%22&partial=False&sortOrder=1",
+        "https://members.parliament.uk/member/4356/career",
+        "https://hansard.parliament.uk/search/Contributions?startDate=2015-01-01&endDate=2026-02-20&searchTerm=spokenby%3A%20Rayner%20words%3A%20embarrass&partial=False&sortOrder=1"
+      ],
+      "all_article_candidates": [
+        "https://hansard.parliament.uk/search?startDate=2015-01-01&endDate=2026-02-20&searchTerm=%22embarrass%20you%20on%20national%20TV%22&partial=False&sortOrder=1",
+        "https://members.parliament.uk/member/4356/career",
+        "https://hansard.parliament.uk/search/Contributions?startDate=2015-01-01&endDate=2026-02-20&searchTerm=spokenby%3A%20Rayner%20words%3A%20embarrass&partial=False&sortOrder=1"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104821,
+      "evidence_index": 1,
+      "statement": "The specific phrase 'embarrass you on national TV' has not been used by anyone in Parliament since Angela Rayner became an MP.",
+      "previous_url": "https://www.bbc.com/news/uk-politics-54675232",
+      "displayed_article_urls": [
+        "https://hansard.parliament.uk/search?startDate=2015-01-01&endDate=2026-02-20&searchTerm=%22embarrass%20you%20on%20national%20TV%22&partial=False&sortOrder=1",
+        "https://members.parliament.uk/member/4356/career",
+        "https://hansard.parliament.uk/search/Contributions?startDate=2015-01-01&endDate=2026-02-20&searchTerm=spokenby%3A%20Rayner%20words%3A%20embarrass&partial=False&sortOrder=1"
+      ],
+      "all_article_candidates": [
+        "https://hansard.parliament.uk/search?startDate=2015-01-01&endDate=2026-02-20&searchTerm=%22embarrass%20you%20on%20national%20TV%22&partial=False&sortOrder=1",
+        "https://members.parliament.uk/member/4356/career",
+        "https://hansard.parliament.uk/search/Contributions?startDate=2015-01-01&endDate=2026-02-20&searchTerm=spokenby%3A%20Rayner%20words%3A%20embarrass&partial=False&sortOrder=1"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104367,
+      "evidence_index": 0,
+      "statement": "Anthony Albanese has not promised to thoroughly investigate Senator Pauline Hanson over her recent comments about Muslims.",
+      "previous_url": "https://www.news24.com.au/politics/anthony-albanese-says-its-up-to-police-to-decide-if-pauline-hansons-muslim-comments-met-threshold-for-hate-speech-laws/news-story/4eb74b9a130e53c8849fd38e3387f87b",
+      "displayed_article_urls": [
+        "https://archive.md/wip/z1Ovw",
+        "https://www.pm.gov.au/media",
+        "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7422"
+      ],
+      "all_article_candidates": [
+        "https://archive.md/wip/z1Ovw",
+        "https://www.pm.gov.au/media",
+        "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7422"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104367,
+      "evidence_index": 1,
+      "statement": "The quotes attributed to the Prime Minister regarding an investigation into Senator Hanson are fake.",
+      "previous_url": "https://www.thenewdaily.com.au/life/social-media-life/2025/12/08/social-media-australian-fakes",
+      "displayed_article_urls": [
+        "https://www.pm.gov.au/media",
+        "https://archive.md/wip/z1Ovw",
+        "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7422"
+      ],
+      "all_article_candidates": [
+        "https://www.pm.gov.au/media",
+        "https://archive.md/wip/z1Ovw",
+        "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7422"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104867,
+      "evidence_index": 0,
+      "statement": "Of the 18 people pictured in the viral image, only five are currently still mayors.",
+      "previous_url": "https://www.archives.nyc/blog/2025/2/7/digitizing-the-david-n-dinkins-mayoral-photograph-collection",
+      "displayed_article_urls": [
+        "https://www.rochdale.gov.uk/mayors/profile-mayor",
+        "https://www.bbc.co.uk/news/articles/ckv7vw935zvo",
+        "https://www.solihull.gov.uk/councillors-and-democracy/mayor-solihull"
+      ],
+      "all_article_candidates": [
+        "https://www.rochdale.gov.uk/mayors/profile-mayor",
+        "https://www.bbc.co.uk/news/articles/ckv7vw935zvo",
+        "https://www.solihull.gov.uk/councillors-and-democracy/mayor-solihull"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104867,
+      "evidence_index": 1,
+      "statement": "The 18 people in the image include a mix of directly elected and civic mayors, but only three of the 27 directly elected mayors in England are confirmed to be Muslim.",
+      "previous_url": "https://theconversation.com/sadiq-khan-british-dream-now-a-reality-for-londons-first-muslim-mayor-58945",
+      "displayed_article_urls": [
+        "https://www.london.gov.uk/who-we-are/what-mayor-does#:~:text=Sadiq%20Khan%20is%20the%20current,to%20improve%20London%20for%20all.",
+        "https://www.bbc.co.uk/news/uk-england-manchester-65710180",
+        "https://www.newham.gov.uk/council/mayor-newham-1"
+      ],
+      "all_article_candidates": [
+        "https://www.london.gov.uk/who-we-are/what-mayor-does#:~:text=Sadiq%20Khan%20is%20the%20current,to%20improve%20London%20for%20all.",
+        "https://www.bbc.co.uk/news/uk-england-manchester-65710180",
+        "https://www.newham.gov.uk/council/mayor-newham-1"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104867,
+      "evidence_index": 6,
+      "statement": "The person pictured as the Mayor of Tameside is not the current mayor; the current mayor was born in Bangladesh but is a different person.",
+      "previous_url": "https://www.manchestereveningnews.co.uk/news/new-mayor-tameside-makes-history-31686760",
+      "displayed_article_urls": [
+        "https://www.tameside.gov.uk/mayor/profile",
+        "https://www.bbc.co.uk/news/uk-england-manchester-65710180",
+        "https://www.bbc.co.uk/news/articles/cn00lx50z7eo"
+      ],
+      "all_article_candidates": [
+        "https://www.tameside.gov.uk/mayor/profile",
+        "https://www.bbc.co.uk/news/uk-england-manchester-65710180",
+        "https://www.bbc.co.uk/news/articles/cn00lx50z7eo"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104802,
+      "evidence_index": 1,
+      "statement": "Marsh admitted the team was outplayed by Sri Lanka and credited Sri Lankan opener Pathum Nissanka's brilliant innings.",
+      "previous_url": "https://www.cricket.com.au/news/4451761/pathum-nissanka-century-sri-lanka-beataustralia-t20-world-cup-pallekele-stadium-kandy-marsh-reaction-quotes",
+      "displayed_article_urls": [
+        "https://www.foxsports.com.au/cricket/have-i-answered-that-twice-already-aussie-captains-awkward-presser-after-wc-disaster/news-story/fbd2fbecd5c22362f3b0f54b240e031b",
+        "https://www.aljazeera.com/sports/2026/2/16/australia-lose-to-sri-lanka-by-8-wickets-stare-at-t20-world-cup-exit",
+        "https://www.olympics.com/en/news/australia-cricket-t20-world-cup-2026-super-8-knocked-out"
+      ],
+      "all_article_candidates": [
+        "https://www.foxsports.com.au/cricket/have-i-answered-that-twice-already-aussie-captains-awkward-presser-after-wc-disaster/news-story/fbd2fbecd5c22362f3b0f54b240e031b",
+        "https://www.aljazeera.com/sports/2026/2/16/australia-lose-to-sri-lanka-by-8-wickets-stare-at-t20-world-cup-exit",
+        "https://www.olympics.com/en/news/australia-cricket-t20-world-cup-2026-super-8-knocked-out"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104916,
+      "evidence_index": 0,
+      "statement": "The three men were convicted of violent disorder, not for protesting.",
+      "previous_url": "https://barristerblogger.com/2024/08/15/why-have-the-rioters-not-been-charged-with-rioting/",
+      "displayed_article_urls": [
+        "https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/",
+        "https://web.archive.org/web/20260211192616/https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/",
+        "https://www.bbc.com/news/articles/cvgq456gey9o"
+      ],
+      "all_article_candidates": [
+        "https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/",
+        "https://web.archive.org/web/20260211192616/https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/",
+        "https://www.bbc.com/news/articles/cvgq456gey9o"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104916,
+      "evidence_index": 1,
+      "statement": "The three men were sentenced to a total of more than six years in prison.",
+      "previous_url": "https://www.justice.gov/opa/pr/two-men-sentenced-prison-role-international-human-smuggling-conspiracy-resulted-death-family",
+      "displayed_article_urls": [
+        "https://web.archive.org/web/20260211192616/https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/"
+      ],
+      "all_article_candidates": [
+        "https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/",
+        "https://web.archive.org/web/20260211192616/https://www.essex.police.uk/news/essex/news/news/2025/october/epping-violent-disorder/",
+        "https://www.reuters.com/world/uk/uk-deports-ethiopian-sex-offender-who-was-wrongly-released-prison-2025-10-29/"
+      ],
+      "selection_basis": "MODEL_PROPOSAL"
+    },
+    {
+      "claim_id": 104916,
+      "evidence_index": 2,
+      "statement": "Hadush Geberslasie Kebatu was convicted of sexual assault, not rape.",
+      "previous_url": "https://www.cps.gov.uk/east-england/news/man-who-sexually-assaulted-teenage-girl-epping-convicted",
+      "displayed_article_urls": [
+        "https://www.reuters.com/world/uk/uk-deports-ethiopian-sex-offender-who-was-wrongly-released-prison-2025-10-29/",
+        "https://web.archive.org/web/20251029173928/https://www.reuters.com/world/uk/uk-deports-ethiopian-sex-offender-who-was-wrongly-released-prison-2025-10-29/",
+        "https://www.judiciary.uk/wp-content/uploads/2025/09/R-v-Hadush-Kebatu-1.pdf"
+      ],
+      "all_article_candidates": [
+        "https://www.reuters.com/world/uk/uk-deports-ethiopian-sex-offender-who-was-wrongly-released-prison-2025-10-29/",
+        "https://web.archive.org/web/20251029173928/https://www.reuters.com/world/uk/uk-deports-ethiopian-sex-offender-who-was-wrongly-released-prison-2025-10-29/",
+        "https://www.judiciary.uk/wp-content/uploads/2025/09/R-v-Hadush-Kebatu-1.pdf"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104942,
+      "evidence_index": 0,
+      "statement": "The Labour Party used an advertisement claiming that 'only Labour can beat Reform in Gorton & Denton' based on a bar chart from a poll.",
+      "previous_url": "https://www.newstatesman.com/politics/uk-politics/2026/01/inside-labours-plan-to-win-gorton-and-denton",
+      "displayed_article_urls": [
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o",
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/"
+      ],
+      "all_article_candidates": [
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o",
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104942,
+      "evidence_index": 1,
+      "statement": "The specific figures used in the Labour Party's bar chart were based on a very small sample of only 62 respondents.",
+      "previous_url": "https://x.com/FullFact/status/2021630327664361892",
+      "displayed_article_urls": [
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o",
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/"
+      ],
+      "all_article_candidates": [
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o",
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104942,
+      "evidence_index": 3,
+      "statement": "Polling experts, including a political scientist and a head of politics at YouGov, stated that the poll is not reliable for comparing support between main parties.",
+      "previous_url": "https://undark.org/2024/06/26/trolls-polls-survey-science/",
+      "displayed_article_urls": [
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o"
+      ],
+      "all_article_candidates": [
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 104942,
+      "evidence_index": 4,
+      "statement": "There is currently no reliable polling data available for the Gorton and Denton by-election to decisively prove which party can beat Reform UK.",
+      "previous_url": "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+      "displayed_article_urls": [
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/",
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o"
+      ],
+      "all_article_candidates": [
+        "https://ukandeu.ac.uk/the-facts/what-is-an-mrp-poll/",
+        "https://findoutnow.co.uk/blog/gorton-and-denton-by-election-poll/",
+        "https://www.bbc.co.uk/news/articles/clyn5zj8750o"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105198,
+      "evidence_index": 0,
+      "statement": "There is no evidence that Annie Guthrie was in police custody at the time of the report.",
+      "previous_url": "https://www.yahoo.com/news/articles/annie-guthrie-makes-major-move-131106173.html",
+      "displayed_article_urls": [
+        "https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062838/https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062943/https://www.facebook.com/issaiiam/about"
+      ],
+      "all_article_candidates": [
+        "https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062838/https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062943/https://www.facebook.com/issaiiam/about"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 105198,
+      "evidence_index": 2,
+      "statement": "Authorities had detained a man as a 'person of interest' in the Nancy Guthrie case, but his identity was not public.",
+      "previous_url": "https://www.foxla.com/news/nancy-guthrie-derrick-callella-los-angeles-bitcoin-arrest",
+      "displayed_article_urls": [
+        "https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062838/https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062943/https://www.facebook.com/issaiiam/about"
+      ],
+      "all_article_candidates": [
+        "https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062838/https://www.google.com/search?q=%22annie+guthrie+arrested+police+custody%22&oq=%22annie+guthrie+arrested+police+custody%22&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBDTEyMDk4NTU0NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8&sei=sCCMafjtFq_dkPIPp7-WwAQ",
+        "https://web.archive.org/web/20260211062943/https://www.facebook.com/issaiiam/about"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    },
+    {
+      "claim_id": 102104,
+      "evidence_index": 0,
+      "statement": "A spokesperson for the Department of Justice stated that the quote attributed to Pam Bondi is fake and fabricated.",
+      "previous_url": "https://www.presidency.ucsb.edu/documents/press-briefing-press-secretary-karoline-leavitt-and-united-states-director-national",
+      "displayed_article_urls": [
+        "https://www.justice.gov/news/speeches?search_api_fulltext=%22If+we+prosecute+everyone+in+the+Epstein+Files+the+whole+system+collapses%22&start_date=&end_date=&sort_by=search_api_relevance",
+        "https://www.justice.gov/news/press-releases?search_api_fulltext=++%22If+we+prosecute+everyone+in+the+Epstein+Files+the+whole+system+collapses%22+&start_date=&end_date=&sort_by=search_api_relevance",
+        "https://archive.ph/WkO3L"
+      ],
+      "all_article_candidates": [
+        "https://www.justice.gov/news/speeches?search_api_fulltext=%22If+we+prosecute+everyone+in+the+Epstein+Files+the+whole+system+collapses%22&start_date=&end_date=&sort_by=search_api_relevance",
+        "https://www.justice.gov/news/press-releases?search_api_fulltext=++%22If+we+prosecute+everyone+in+the+Epstein+Files+the+whole+system+collapses%22+&start_date=&end_date=&sort_by=search_api_relevance",
+        "https://archive.ph/WkO3L"
+      ],
+      "selection_basis": "UNSELECTED_CANDIDATES"
+    }
+  ]
+}
