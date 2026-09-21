@@ -1,0 +1,21 @@
+{
+  "schema_version": "text-delivery-1.0",
+  "created_utc": "2026-09-20T18:22:02.749578+00:00",
+  "files": {
+    "DATA_SCHEMA.md": "bfc8149701d8242f176dc38b4851d8f3912326753512036ab7c4121f51b6b6ef",
+    "REPORT.md": "5a404d6bb89ed6a32f25b405a135e09e0a6662fac537fa5ac6268bf8fb1384b7",
+    "VALIDATION.json": "63392d73f4ea436404e5264841d91a17625a695344457d58e427c58f1c3448a5",
+    "WEBSITE_HANDOFF.md": "ab8010f7cae519803f1fc31bfb2211cffe003d6e0160ab511f1e5101137bc4ab",
+    "claims.json": "98aefb5a36685bd1356d69de3ddd6d844e7356ab6dcc1c76cabd8903c164e205",
+    "metrics.json": "2043fdc4fd024d47c19f0ac5e84a27f0227e7f65cff02bc8ba0307c796971766",
+    "results.csv": "90166ac9b5452022ed2557a53f798728368c9bd2330ed4d36691ae6d72e28a27"
+  },
+  "frozen_source_outputs": {
+    "hero2": "543cf392cfcf3e9c13e6c80dc2f531dcff15e17c774aaa469d1ce852b8921b0c",
+    "sanctuary": "cee621952a38e07bfb3ae1aeaa9a19f21a863fb3b9e57d34bc2a8a388973aaec",
+    "aic_ctu_averitec": "40262b925763a8029e8cda18dae35ec57f702b2a1a7463d0e305c6dea7dea430",
+    "infact": "4335b19071b58f514093d23fa8bd08b48c889bca963b6d0b8ed4ee16a5d54a2f"
+  },
+  "gold_sha256": "499793726b4a5406780928a3d9dedc48d6dd53de778f22437d129cacdb08e300",
+  "scorer_sha256": "235612fdf5354330821a1e08e445ae3f901bc480a050722eb0e46bde3725f8c4"
+}

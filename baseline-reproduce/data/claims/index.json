@@ -1,133 +1,10 @@
 {
  "schema_version": "claims-1.1",
- "exported_at": "2026-09-18T00:28:46+00:00",
- "data_observed_at": "2026-09-18T00:14:24+00:00",
- "sample_rule": "索引列出全部冻结计划样本（AVeriTeC dev 0–99、AVerImaTeC val 0–79），不隐藏未运行的样本。详情页导出规则：在任一已配置运行中至少有一个系统落盘记录的样本，全部导出，不按成功与否挑选；无记录的样本只有索引条目与输入信息。",
+ "exported_at": "2026-09-21T00:11:14+00:00",
+ "data_observed_at": "2026-09-17T05:06:23+00:00",
+ "sample_rule": "索引列出全部冻结计划样本（AVeriTeC dev 0–99、AVerImaTeC val 0–79）。本文件只配置历史小样运行；四个文本系统的正式结果不从旧运行目录读取，而是来自 text_baselines_delivery_20260921 交付包（见 build_delivery_export.py）。小样详情导出规则：任一小样运行中有记录的样本全部导出，不按成功与否挑选。",
  "image_note": "claim 输入图片来自已公开的固定版本镜像；gold 问题里的 input_images 未公开，只显示文件名。系统检索到的图片按 URL 原样列出，不做托管。",
  "runs": [
-  {
-   "run_id": "smoke_formal_text_20260917_rog_cpu_r2",
-   "role": "formal",
-   "dataset": "averitec",
-   "split": "dev",
-   "label": "正式运行 · AVeriTeC dev 0–99",
-   "note": "目录名带 smoke，但这轮是正式 100 条运行。2026-09-18 因搜索额度耗尽人工停止，尚未续跑。",
-   "terminal_audit": "outputs/campaign_text_20260917/formal_text_r2_terminal_audit.json",
-   "blocker": {
-    "type": "search_credits_exhausted",
-    "checked_utc": "2026-09-18T00:16:34.974274+00:00",
-    "experiment_running": false,
-    "needs_user": "Restore credits on the existing Serper account, or supply a legitimately available funded key via local credential file. No credit purchase or provider replacement authorized."
-   },
-   "exists": true,
-   "observed_at": "2026-09-18T00:14:24+00:00",
-   "terminal": {
-    "checked_utc": "2026-09-18T00:14:24.573017+00:00",
-    "returncode": -2,
-    "cause": "Serper free account endpoint reports balance -2; search service exhausted",
-    "cause_zh": "搜索额度耗尽（Serper 余额 -2）后人工停止；不是服务器故障，也不是预算用尽。",
-    "state": "stopped",
-    "source": "outputs/campaign_text_20260917/formal_text_r2_terminal_audit.json"
-   },
-   "systems": {
-    "aic_ctu_averitec": {
-     "n_records": 33,
-     "status_counts": {
-      "ok": 5,
-      "crashed": 28
-     },
-     "planned_n": 100,
-     "completed_n": 5,
-     "not_run_n": 67,
-     "crashed_n": 28,
-     "running": false,
-     "incomplete": true,
-     "stop_reason": null,
-     "date_policy": "v2-revision-exclusion-20260916",
-     "observed_at": "2026-09-18T00:10:22+00:00",
-     "file_sha256": "7fcfadace57a442aa8b8cd2ab5860ace502b31f2d46b4c94786756b225028649",
-     "audit": {
-      "recorded": 33,
-      "statuses": {
-       "ok": 5,
-       "crashed": 28
-      },
-      "not_run_n": 67
-     },
-     "state": "stopped"
-    },
-    "hero2": {
-     "n_records": 100,
-     "status_counts": {
-      "ok": 100
-     },
-     "planned_n": 100,
-     "completed_n": 100,
-     "not_run_n": 0,
-     "crashed_n": 0,
-     "running": false,
-     "incomplete": false,
-     "stop_reason": null,
-     "date_policy": "v2-revision-exclusion-20260916",
-     "observed_at": "2026-09-17T17:35:44+00:00",
-     "file_sha256": "543cf392cfcf3e9c13e6c80dc2f531dcff15e17c774aaa469d1ce852b8921b0c",
-     "audit": {
-      "recorded": 100,
-      "statuses": {
-       "ok": 100
-      },
-      "not_run_n": 0
-     },
-     "state": "completed"
-    },
-    "sanctuary": {
-     "n_records": 100,
-     "status_counts": {
-      "ok": 83,
-      "crashed": 17
-     },
-     "planned_n": 100,
-     "completed_n": 83,
-     "not_run_n": 0,
-     "crashed_n": 17,
-     "running": false,
-     "incomplete": false,
-     "stop_reason": null,
-     "date_policy": "v2-revision-exclusion-20260916",
-     "observed_at": "2026-09-18T00:04:47+00:00",
-     "file_sha256": "44d1d6d6f6aa4743e8b86da4b641ef477efe47c7c09221b493ceebc9a00cd5b7",
-     "audit": {
-      "recorded": 100,
-      "statuses": {
-       "ok": 83,
-       "crashed": 17
-      },
-      "not_run_n": 0
-     },
-     "state": "completed_with_failures"
-    },
-    "infact": {
-     "n_records": 0,
-     "status_counts": {},
-     "planned_n": 100,
-     "completed_n": null,
-     "not_run_n": 100,
-     "crashed_n": null,
-     "running": false,
-     "incomplete": null,
-     "stop_reason": null,
-     "date_policy": null,
-     "observed_at": null,
-     "file_sha256": null,
-     "audit": {
-      "recorded": 0,
-      "statuses": {},
-      "not_run_n": 100
-     },
-     "state": "not_started"
-    }
-   }
-  },
   {
    "run_id": "smoke_campaign_text_20260917_cpu",
    "role": "smoke",
@@ -265,12 +142,12 @@
    "name_en": "HerO2",
    "modality": "text"
   },
-  "sanctuary": {
-   "name_en": "SANCTUARY",
-   "modality": "text"
-  },
   "infact": {
    "name_en": "InFact",
+   "modality": "text"
+  },
+  "sanctuary": {
+   "name_en": "SANCTUARY",
    "modality": "text"
   },
   "aic_ctu_averimatec": {
@@ -283,7 +160,7 @@
   }
  },
  "n_claims": 180,
- "n_with_detail": 105,
+ "n_with_detail": 10,
  "claims": [
   {
    "key": "averitec/dev/0",
@@ -298,12 +175,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "ok",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": "ok",
      "hero2": "ok",
@@ -326,12 +197,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "ok",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": "ok",
      "hero2": "ok",
@@ -354,12 +219,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "ok",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": "ok",
      "hero2": "ok",
@@ -382,12 +241,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "ok",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": "ok",
      "hero2": "ok",
@@ -410,12 +263,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "ok",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": "ok",
      "hero2": "ok",
@@ -438,12 +285,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -451,7 +292,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/6",
@@ -466,12 +307,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -479,7 +314,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/7",
@@ -494,12 +329,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -507,7 +336,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/8",
@@ -522,12 +351,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -535,7 +358,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/9",
@@ -550,12 +373,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -563,7 +380,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/10",
@@ -578,12 +395,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -591,7 +402,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/11",
@@ -606,12 +417,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -619,7 +424,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/12",
@@ -634,12 +439,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -647,7 +446,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/13",
@@ -662,12 +461,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -675,7 +468,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/14",
@@ -690,12 +483,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -703,7 +490,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/15",
@@ -718,12 +505,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -731,7 +512,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/16",
@@ -746,12 +527,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -759,7 +534,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/17",
@@ -774,12 +549,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -787,7 +556,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/18",
@@ -802,12 +571,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -815,7 +578,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/19",
@@ -830,12 +593,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -843,7 +600,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/20",
@@ -858,12 +615,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -871,7 +622,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/21",
@@ -886,12 +637,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -899,7 +644,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/22",
@@ -914,12 +659,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -927,7 +666,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/23",
@@ -942,12 +681,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -955,7 +688,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/24",
@@ -970,12 +703,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -983,7 +710,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/25",
@@ -998,12 +725,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1011,7 +732,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/26",
@@ -1026,12 +747,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1039,7 +754,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/27",
@@ -1054,12 +769,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1067,7 +776,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/28",
@@ -1082,12 +791,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1095,7 +798,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/29",
@@ -1110,12 +813,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1123,7 +820,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/30",
@@ -1138,12 +835,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1151,7 +842,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/31",
@@ -1166,12 +857,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1179,7 +864,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/32",
@@ -1194,12 +879,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": "crashed",
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1207,7 +886,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/33",
@@ -1222,12 +901,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1235,7 +908,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/34",
@@ -1250,12 +923,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1263,7 +930,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/35",
@@ -1278,12 +945,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1291,7 +952,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/36",
@@ -1306,12 +967,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1319,7 +974,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/37",
@@ -1334,12 +989,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1347,7 +996,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/38",
@@ -1362,12 +1011,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1375,7 +1018,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/39",
@@ -1390,12 +1033,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1403,7 +1040,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/40",
@@ -1418,12 +1055,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1431,7 +1062,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/41",
@@ -1446,12 +1077,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1459,7 +1084,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/42",
@@ -1474,12 +1099,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1487,7 +1106,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/43",
@@ -1502,12 +1121,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1515,7 +1128,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/44",
@@ -1530,12 +1143,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1543,7 +1150,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/45",
@@ -1558,12 +1165,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1571,7 +1172,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/46",
@@ -1586,12 +1187,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1599,7 +1194,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/47",
@@ -1614,12 +1209,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1627,7 +1216,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/48",
@@ -1642,12 +1231,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1655,7 +1238,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/49",
@@ -1670,12 +1253,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1683,7 +1260,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/50",
@@ -1698,12 +1275,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1711,7 +1282,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/51",
@@ -1726,12 +1297,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1739,7 +1304,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/52",
@@ -1754,12 +1319,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1767,7 +1326,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/53",
@@ -1782,12 +1341,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1795,7 +1348,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/54",
@@ -1810,12 +1363,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1823,7 +1370,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/55",
@@ -1838,12 +1385,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1851,7 +1392,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/56",
@@ -1866,12 +1407,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1879,7 +1414,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/57",
@@ -1894,12 +1429,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1907,7 +1436,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/58",
@@ -1922,12 +1451,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1935,7 +1458,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/59",
@@ -1950,12 +1473,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1963,7 +1480,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/60",
@@ -1978,12 +1495,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -1991,7 +1502,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/61",
@@ -2006,12 +1517,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2019,7 +1524,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/62",
@@ -2034,12 +1539,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2047,7 +1546,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/63",
@@ -2062,12 +1561,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2075,7 +1568,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/64",
@@ -2090,12 +1583,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2103,7 +1590,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/65",
@@ -2118,12 +1605,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2131,7 +1612,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/66",
@@ -2146,12 +1627,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2159,7 +1634,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/67",
@@ -2174,12 +1649,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2187,7 +1656,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/68",
@@ -2202,12 +1671,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2215,7 +1678,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/69",
@@ -2230,12 +1693,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2243,7 +1700,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/70",
@@ -2258,12 +1715,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2271,7 +1722,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/71",
@@ -2286,12 +1737,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2299,7 +1744,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/72",
@@ -2314,12 +1759,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2327,7 +1766,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/73",
@@ -2342,12 +1781,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2355,7 +1788,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/74",
@@ -2370,12 +1803,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2383,7 +1810,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/75",
@@ -2398,12 +1825,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2411,7 +1832,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/76",
@@ -2426,12 +1847,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2439,7 +1854,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/77",
@@ -2454,12 +1869,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2467,7 +1876,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/78",
@@ -2482,12 +1891,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2495,7 +1898,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/79",
@@ -2510,12 +1913,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2523,7 +1920,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/80",
@@ -2538,12 +1935,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2551,7 +1942,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/81",
@@ -2566,12 +1957,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2579,7 +1964,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/82",
@@ -2594,12 +1979,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "ok",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2607,7 +1986,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/83",
@@ -2622,12 +2001,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2635,7 +2008,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/84",
@@ -2650,12 +2023,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2663,7 +2030,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/85",
@@ -2678,12 +2045,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2691,7 +2052,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/86",
@@ -2706,12 +2067,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2719,7 +2074,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/87",
@@ -2734,12 +2089,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2747,7 +2096,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/88",
@@ -2762,12 +2111,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2775,7 +2118,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/89",
@@ -2790,12 +2133,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2803,7 +2140,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/90",
@@ -2818,12 +2155,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2831,7 +2162,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/91",
@@ -2846,12 +2177,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2859,7 +2184,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/92",
@@ -2874,12 +2199,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2887,7 +2206,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/93",
@@ -2902,12 +2221,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2915,7 +2228,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/94",
@@ -2930,12 +2243,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2943,7 +2250,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/95",
@@ -2958,12 +2265,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2971,7 +2272,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/96",
@@ -2986,12 +2287,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -2999,7 +2294,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/97",
@@ -3014,12 +2309,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -3027,7 +2316,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/98",
@@ -3042,12 +2331,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -3055,7 +2338,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averitec/dev/99",
@@ -3070,12 +2353,6 @@
    "images": [],
    "has_images": false,
    "outputs": {
-    "smoke_formal_text_20260917_rog_cpu_r2": {
-     "aic_ctu_averitec": null,
-     "hero2": "ok",
-     "sanctuary": "crashed",
-     "infact": null
-    },
     "smoke_campaign_text_20260917_cpu": {
      "aic_ctu_averitec": null,
      "hero2": null,
@@ -3083,7 +2360,7 @@
      "sanctuary": null
     }
    },
-   "has_detail": true
+   "has_detail": false
   },
   {
    "key": "averimatec/val/0",

@@ -1,0 +1,30 @@
+{
+ "schema_version": "text-delivery-1.0",
+ "package": "text_baselines_delivery_20260921",
+ "package_created_utc": "2026-09-20T18:19:04.472520+00:00",
+ "package_validated_utc": "2026-09-20T18:22:02.749578+00:00",
+ "built_at": "2026-09-21T00:11:00+00:00",
+ "manifest_files_verified": 7,
+ "frozen_source_outputs": {
+  "hero2": "543cf392cfcf3e9c13e6c80dc2f531dcff15e17c774aaa469d1ce852b8921b0c",
+  "sanctuary": "cee621952a38e07bfb3ae1aeaa9a19f21a863fb3b9e57d34bc2a8a388973aaec",
+  "aic_ctu_averitec": "40262b925763a8029e8cda18dae35ec57f702b2a1a7463d0e305c6dea7dea430",
+  "infact": "4335b19071b58f514093d23fa8bd08b48c889bca963b6d0b8ed4ee16a5d54a2f"
+ },
+ "gold_sha256": "499793726b4a5406780928a3d9dedc48d6dd53de778f22437d129cacdb08e300",
+ "scorer_sha256": "235612fdf5354330821a1e08e445ae3f901bc480a050722eb0e46bde3725f8c4",
+ "status_totals": {
+  "ok": 391,
+  "retrieval_failed": 4,
+  "no_evidence": 5
+ },
+ "n_system_claims": 400,
+ "downloads": [
+  "REPORT.md",
+  "results.csv",
+  "DATA_SCHEMA.md",
+  "manifest.json",
+  "VALIDATION.json"
+ ],
+ "published": false
+}

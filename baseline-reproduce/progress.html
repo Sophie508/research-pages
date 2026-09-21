@@ -83,7 +83,8 @@ section{border-bottom:1px solid var(--rule);padding:56px 0}
 .badge.done,.badge.completed{border-color:var(--leaf);color:var(--leaf)}
 .badge.running{border-color:var(--ikb);color:var(--ikb)}
 .badge.failed,.badge.stopped,.badge.blocked_search_credits{border-color:var(--accent);color:var(--accent)}
-.badge.completed_with_failures,.badge.label_only{border-color:var(--citron);color:#7a6400}
+.badge.text_delivered{border-color:var(--leaf);color:var(--leaf)} .badge.deferred{border-color:var(--rule);color:var(--ink-light)}
+.badge.completed_with_failures,.badge.label_only,.badge.legacy_offline{border-color:var(--citron);color:#7a6400}
 .badge.planned,.badge.queued,.badge.not_started{border-color:var(--rule);color:var(--ink-light)}
 .badge.incomplete,.badge.unknown{border-color:var(--citron);color:#7a6400}
 .badge.fill{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -268,7 +269,7 @@ footer{padding:34px 0 60px;font-family:"JetBrains Mono",monospace;font-size:11.5
   let t0='light'; try{t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}catch(e){}
   setTheme(t0); btn.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
   const STORE_KEY='mcfc_progress_snapshot_v1';
-  const STATE_ZH={completed:'已完成',completed_with_failures:'已完成（含失败）',running:'运行中',queued:'排队中',not_started:'未开始',incomplete:'未完成',stopped:'中途停止',label_only:'仅标签评估',unknown:'未核实',done:'已完成',failed:'失败/中止',planned:'计划中',not_completed:'尚未完成',partial:'部分完成',blocked_search_credits:'已停止 · 搜索额度耗尽'};
+  const STATE_ZH={completed:'已完成',completed_with_failures:'已完成（含失败）',running:'运行中',queued:'排队中',not_started:'未开始',incomplete:'未完成',stopped:'中途停止',label_only:'仅标签评估',deferred:'暂缓',legacy_offline:'离线旧指标已评',text_delivered:'文本交付完成',idle:'无活动实验',unknown:'未核实',done:'已完成',failed:'失败/中止',planned:'计划中',not_completed:'尚未完成',partial:'部分完成',blocked_search_credits:'已停止 · 搜索额度耗尽'};
   const DS_ZH={text:'文本',multimodal:'图文'};
   const esc=(s)=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const nz=(v,alt='未核实')=>(v===null||v===undefined)?`<span class="muted">${alt}</span>`:esc(v);
@@ -300,10 +301,10 @@ footer{padding:34px 0 60px;font-family:"JetBrains Mono",monospace;font-size:11.5
     $('#m-generated').innerHTML=fmt(snap.generated_at);
     $('#m-refreshed').innerHTML=fmt(new Date().toISOString());
     const ageH=(Date.now()-new Date(snap.generated_at).getTime())/36e5;
-    const stale=ageH>(snap.freshness?.stale_after_hours??24);
+    const stale=ageH>(snap.freshness?.stale_after_hours??24)&&snap.current_activity?.experiment_running!==false; // a frozen delivery does not go stale by itself
     let state, ban='';
     if(meta.fromCache){ state='同步失败 · 显示旧快照'; ban=`<div class="banner bad"><b>快照同步失败。</b>当前显示的是本浏览器上次成功加载的快照（生成于 ${fmt(snap.generated_at)}），不是最新状态。</div>`; }
-    else if(stale){ state=`可能过期（${ageH.toFixed(0)} 小时前生成）`; ban=`<div class="banner"><b>数据可能过期。</b>快照生成于 ${fmt(snap.generated_at)}，超过 ${snap.freshness.stale_after_hours} 小时未更新。实验仍在进行时，本页数字可能落后于服务器。</div>`; }
+    else if(stale){ state=`可能过期（${ageH.toFixed(0)} 小时前生成）`; ban=`<div class="banner"><b>数据可能过期。</b>快照生成于 ${fmt(snap.generated_at)}，超过 ${snap.freshness.stale_after_hours} 小时未更新。之后如有新的实验交付，本页不会自动更新。</div>`; }
     else { state=`快照 ${ageH<1?'不到 1 小时':ageH.toFixed(0)+' 小时'}前生成`; }
     $('#m-state').textContent=state; $('#banner').innerHTML=ban;
 
@@ -319,10 +320,10 @@ footer{padding:34px 0 60px;font-family:"JetBrains Mono",monospace;font-size:11.5
     const fp=h.formal_processed;
     $('#tiles').innerHTML=`
       <div class="tile"><h6>真实小样运行覆盖</h6><div class="num">${nz(h.smoke_systems_covered.value)}<small>/ ${h.smoke_systems_covered.denominator} 系统</small></div><div class="def">${esc(h.smoke_systems_covered.definition)}</div></div>
-      <div class="tile"><h6>正式样本已处理 / 计划</h6><div class="num">${nz(fp.text.processed)}<small>/ ${fp.text.planned} 文本</small></div><div class="sub">图文 ${nz(fp.multimodal.processed)} / ${fp.multimodal.planned}</div><div class="def">${esc(fp.definition)}</div></div>
-      <div class="tile"><h6>正式评估已完成</h6><div class="num">${nz(h.evaluated_systems.value)}<small>/ ${h.evaluated_systems.denominator} 系统</small></div>${h.evaluated_systems.label_only?`<div class="sub">另有 ${h.evaluated_systems.label_only} 个系统只做了离线标签 accuracy</div>`:''}<div class="def">${esc(h.evaluated_systems.definition)}</div></div>`;
+      <div class="tile"><h6>文本正式终态记录 / 计划</h6><div class="num">${nz(fp.text.processed)}<small>/ ${fp.text.planned}</small></div>${fp.text.breakdown?`<div class="sub">${fp.text.breakdown.ok} ok · ${fp.text.breakdown.no_evidence} 无证据 · ${fp.text.breakdown.system_failed} 检索失败</div>`:''}<div class="sub">图文 ${nz(fp.multimodal.processed)} / ${fp.multimodal.planned}${fp.multimodal.state==='deferred'?'（正式运行暂缓）':''}</div><div class="def">${esc(fp.definition)}</div></div>
+      <div class="tile"><h6>EV2R / gold–silver 评估</h6><div class="num">${nz(h.evaluated_systems.value)}<small>/ ${h.evaluated_systems.denominator} 系统 · 本轮未执行</small></div>${h.evaluated_systems.label_only?`<div class="sub">${h.evaluated_systems.label_only} 个文本系统已有离线标签指标与旧版（legacy）Hungarian-METEOR</div>`:''}<div class="def">${esc(h.evaluated_systems.definition)}</div></div>`;
     // budget: secondary, conservative basis
-    const bg=snap.budget; if(bg){ const el=document.createElement('div'); el.className='panel dark'; el.style.marginTop='18px'; el.innerHTML=`<h6>费用口径（次级信息）</h6><div class="small">授权上限 <b>USD ${nz(bg.global_cap_usd)}</b> · 累计保守费用 <b>USD ${bg.conservative_total_usd!=null?bg.conservative_total_usd.toFixed(2):'未核实'}</b> · 余额 <b>USD ${bg.remaining_usd!=null?bg.remaining_usd.toFixed(2):'未核实'}</b>（其中 USD ${nz(bg.evaluation_protected_usd)} 预留给评估） · 本轮正式运行 USD ${bg.formal_r2_run_usd!=null?bg.formal_r2_run_usd.toFixed(2):'未核实'} · 搜索账户 credits 余额 <b>${nz(bg.search_credits_balance)}</b></div><div class="small muted" style="margin-top:4px">${esc(bg.basis)} 记录时间 ${fmt(bg.observed_at)}。</div>`; $('#tiles').after(el); }
+    const bg=snap.budget; if(bg){ const el=document.createElement('div'); el.className='panel dark'; el.style.marginTop='18px'; el.innerHTML=`<h6>费用口径（次级信息）</h6><div class="small">累计预算占用 <b>$${nz(bg.conservative_total_usd)} / $${nz(bg.global_cap_usd)}</b> · 余 <b>$${nz(bg.remaining_usd)}</b> · 活动预留 $${nz(bg.active_reservations_usd)}</div><div class="small muted" style="margin-top:4px">${esc(bg.basis)} 记录时间 ${fmt(bg.observed_at)}。</div>`; $('#tiles').after(el); }
 
     // systems facets
     const facets={};
@@ -343,8 +344,8 @@ footer{padding:34px 0 60px;font-family:"JetBrains Mono",monospace;font-size:11.5
             <div class="note">${fo.run_id?`运行 ${esc(fo.run_id)} · `:''}观测 ${fmt(fo.observed_at)}${fo.mirror_note?` · ${esc(fo.mirror_note)}`:''}${fo.stop_reason?`<br><b>停止原因：</b>${esc(fo.stop_reason)}`:''}</div></div>
           <div class="stage"><div class="row"><span class="lbl">正式评估</span>${badge(ev.state)}</div>
             <div class="counts">gold 参照 <b>${nz(gold.n_reference)}</b> 条${gold.qa_total?`（${gold.qa_total} 个 gold 问答）`:''} · silver 参照可用 <b>${nz(silver.n_available)}</b> / ${nz(silver.n_planned)}${silver.missing_ids&&silver.missing_ids.length?`，缺 ${silver.missing_ids.join(', ')}`:''}</div>
-            <div class="counts">标签 accuracy ${ev.metrics?.label_accuracy?`<b>${ev.metrics.label_accuracy.value.toFixed(2)}</b>（${ev.metrics.label_accuracy.numerator}/${ev.metrics.label_accuracy.denominator}，回退 ${ev.metrics.label_accuracy.n_verdict_fallback}）`:'<span class="muted">待评估</span>'} · 证据评分 gold/silver <span class="muted">待评估</span> · judge 失败 ${nz(ev.counts?.judge_failed,'—')}</div>
-            <div class="note">${ev.state==='label_only'?'只做了离线标签比对（不是官方榜单成绩）；证据评分与排名尚未开始。':'参照已冻结（哈希登记），评估调用尚未执行。'}</div></div>
+            <div class="counts">${ev.metrics?.label_accuracy?`标签 accuracy <b>${(ev.metrics.label_accuracy.value*100).toFixed(0)}%</b>（${ev.metrics.label_accuracy.numerator}/${ev.metrics.label_accuracy.denominator} 全样本） · Macro-F1 <b>${ev.metrics.macro_f1.toFixed(3)}</b> · 旧版 QA Hungarian-METEOR <b>${ev.metrics.legacy_qa_hu_meteor.toFixed(3)}</b>`:'<span class="muted">本轮无正式输出，未评估</span>'}</div>
+            <div class="note">${ev.state==='legacy_offline'?'离线指标，旧版（legacy）证据分不核实证据真假或历史版本；EV2R、付费 judge 与 silver/gold 排名本轮未执行。':'EV2R、付费 judge 与 silver/gold 排名本轮未执行。'}</div></div>
         </div>`;}).join('');
       const cc=ds.class_counts?Object.keys(ds.class_counts).map(k=>`${k} ${ds.class_counts[k]}`).join('，'):'未核实';
       return `<div class="facet"><div class="facet-head"><h3 style="margin:0">${esc(DS_ZH[ds.modality]||'')}系统 · ${esc(ds.name||dk)}</h3><span class="ds">${esc(ds.index_range||'')} · 计划 ${ds.planned_n} 条 · 标签分布 ${esc(cc)} · 多数类基线 accuracy ${ds.majority_accuracy!=null?ds.majority_accuracy.toFixed(2):'未核实'}</span></div><div class="cards">${cards}</div></div>`;
@@ -359,29 +360,12 @@ footer{padding:34px 0 60px;font-family:"JetBrains Mono",monospace;font-size:11.5
     // results
     const r=snap.results;
     $('#results-note').innerHTML=`<b>${esc(STATE_ZH[r.status]||r.status)}。</b>${esc(r.note||'')} 详细表格见 <a href="index.html#/results">评估结果</a> 页。`;
-    $('#results-grid').innerHTML=['text','multimodal'].map(mod=>{
-      const blk=r[mod]||{}; const dk=mod==='text'?'averitec_dev':'averimatec_val'; const ds=snap.datasets[dk]||{};
-      const sil=ds.silver_reference||{};
-      const head=`<h3 style="margin-top:0">${DS_ZH[mod]}系统 · ${esc(ds.name||'')}</h3>
-        <div class="kv">计划样本 <b>${nz(blk.n_planned)}</b> · gold 参照 <b>${nz(ds.gold_reference?.n)}</b> · silver 参照可用 <b>${nz(sil.n_available)}</b>${sil.missing_ids&&sil.missing_ids.length?`（缺 ${sil.missing_ids.join(', ')}）`:''}<br>多数类基线 accuracy <b>${ds.majority_accuracy!=null?ds.majority_accuracy.toFixed(2):'未核实'}</b>（只猜多数类就能达到，accuracy 单独不说明能力）</div>`;
-      if(!blk.per_system){
-        return `<div class="empty">${head}<div class="big" style="margin-top:12px">正式评估尚未完成</div>
-          <div class="small muted">此处不用小样结果或虚构分数填图。评估完成后将显示：</div>
-          <div class="placeholder">标签 accuracy（全样本口径 / 仅评分口径，各带分母）</div>
-          <div class="placeholder">证据评分（gold 参照 vs silver 参照），并列出 system_failed、no_evidence、no_reference、judge_failed、not_run 计数</div>
-          <div class="placeholder">gold 排名 vs silver 排名对照（共同可用 ID；并列保留）</div></div>`;
-      }
-      // real-metrics path (used once results.<mod>.per_system is non-null)
-      const rows=blk.per_system;
-      const hb=(label,val,den,max,cls='')=>`<div class="hbar"><span>${esc(label)}</span><div class="track"><span class="${cls}" style="width:${val==null?0:(100*val/(max||1)).toFixed(1)}%"></span></div><span class="val">${val==null?'—':val.toFixed(3)}${den?` <span class="muted">n=${den}</span>`:''}</span></div>`;
-      const acc=rows.map(x=>hb(x.name_en+(x.generation_state&&x.generation_state!=='completed'?'（'+(STATE_ZH[x.generation_state]||x.generation_state)+'）':''),x.label_accuracy?.value,x.label_accuracy?.denominator,1)).join('')+`<div class="small muted" style="margin-top:4px">多数类基线 ${ds.majority_accuracy!=null?ds.majority_accuracy.toFixed(2):'未核实'}；“—”= 待评估或本轮未生成。</div>`;
-      const anyEv=rows.some(x=>x.evidence_gold||x.evidence_silver);
-      const evg=anyEv?`<div class="legend" style="margin:0 0 6px"><span><i style="background:var(--ikb)"></i>gold 参照</span><span><i style="background:var(--accent)"></i>silver 参照</span></div>`+
-        rows.map(x=>hb(x.name_en+' · gold',x.evidence_gold?.value,x.evidence_gold?.denominator,1)+hb(x.name_en+' · silver',x.evidence_silver?.value,x.evidence_silver?.denominator,1,'silver')).join(''):'<div class="placeholder">证据评分（gold / silver）待评估</div>';
-      const cnt=`<div class="tbl-wrap"><table><thead><tr><th>系统</th><th>scored</th><th>system_failed</th><th>no_evidence</th><th>no_reference</th><th>judge_failed</th><th>not_run</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${esc(x.name_en)}</td>${['scored','system_failed','no_evidence','no_reference','judge_failed','not_run'].map(k=>`<td>${nz(x.counts?.[k],'—')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-      const rk=blk.ranking?`<div class="tbl-wrap"><table><thead><tr><th>系统</th><th>gold 排名</th><th>silver 排名</th></tr></thead><tbody>${blk.ranking.rows.map(x=>`<tr><td>${esc(x.name_en)}</td><td>${nz(x.gold_rank)}</td><td>${nz(x.silver_rank)}</td></tr>`).join('')}</tbody></table><div class="small muted" style="margin-top:6px">共同可用 ID ${nz(blk.ranking.common_ids_n)} 条；排除 ${nz(blk.ranking.excluded_n)} 条。${esc(blk.ranking.note||'')}</div></div>`:'<div class="placeholder">排名对照待评估完成</div>';
-      return `<div class="card">${head}<h4>标签 accuracy</h4>${acc}<h4>证据评分</h4>${evg}<h4>评估分母</h4>${cnt}<h4>gold vs silver 排名</h4>${rk}</div>`;
-    }).join('');
+    const tx=r.text||{};
+    $('#results-grid').innerHTML=`<div class="card" style="grid-column:1/-1"><h3 style="margin-top:0">文本系统 · AVeriTeC dev 0–99（固定分母 100）</h3>
+      <div class="tbl-wrap"><table><thead><tr><th>系统</th><th>终态</th><th>标签 accuracy（全样本）</th><th>Macro-F1</th><th>QA Hungarian-METEOR（旧版 / legacy）</th><th>标签正确且 QA &gt; 0.25（旧版 / legacy）</th><th>EV2R</th></tr></thead><tbody>
+      ${(tx.per_system||[]).map(x=>{const c=x.generation_counts||{}; return `<tr><td>${esc(x.name_en)}</td><td>ok ${c.ok} · 无证据 ${c.no_evidence} · 失败 ${c.system_failed}</td><td>${x.label_accuracy?`${(x.label_accuracy.value*100).toFixed(0)}%（${x.label_accuracy.numerator}/${x.label_accuracy.denominator}）`:'—'}</td><td>${x.macro_f1!=null?x.macro_f1.toFixed(3):'—'}</td><td>${x.legacy_qa_hu_meteor!=null?x.legacy_qa_hu_meteor.toFixed(3):'—'}</td><td>${x.legacy_joint_gt_0_25!=null?(x.legacy_joint_gt_0_25*100).toFixed(0)+'%':'—'}</td><td class="muted">本轮未执行</td></tr>`;}).join('')}</tbody></table></div>
+      <div class="small muted" style="margin-top:8px">恒猜 Refuted 的 accuracy 为 ${snap.datasets.averitec_dev.majority_accuracy!=null?(snap.datasets.averitec_dev.majority_accuracy*100).toFixed(0)+'%':'未核实'}。完整阈值、各类 F1、混淆矩阵与下载见 <a href="index.html#/results">Results</a>。</div></div>
+      <div class="empty" style="grid-column:1/-1"><div class="big">图文系统：正式运行暂缓</div><div class="small muted">VILLAIN 与 AIC CTU（AVerImaTeC）的正式运行按用户指示暂缓，未运行；历史小样不进入任何指标或分母。六系统总范围尚未完成。</div></div>`;
 
     // deviations
     $('#devs').innerHTML=snap.deviations.map(d=>`<details><summary><span class="mono" style="color:var(--accent)">${esc(d.id)}</span><span>${esc(d.systems)}</span><span class="badge">${esc(d.status)}</span></summary>

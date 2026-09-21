@@ -1,0 +1,426 @@
+{
+  "schema_version": "text-delivery-1.0",
+  "created_utc": "2026-09-20T18:19:04.472520+00:00",
+  "scope": {
+    "active_systems": [
+      "hero2",
+      "sanctuary",
+      "aic_ctu_averitec",
+      "infact"
+    ],
+    "deferred_systems": [
+      "villain",
+      "aic_ctu_averimatec"
+    ],
+    "planned_claims_per_system": 100,
+    "planned_system_claims": 400,
+    "terminal_system_claims": 400,
+    "original_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "ev2r_enabled": false,
+    "paid_judge_enabled": false,
+    "generation_complete": true,
+    "six_system_scope_complete": false
+  },
+  "model": "google/gemma-4-26b-a4b-it",
+  "date_policy": "v2-revision-exclusion-20260916",
+  "gold_label_counts": {
+    "Refuted": 63,
+    "Supported": 19,
+    "Not Enough Evidence": 7,
+    "Conflicting Evidence/Cherrypicking": 11
+  },
+  "majority_label_accuracy": 0.63,
+  "budget": {
+    "global_cap_usd": 20,
+    "all_history_conservative_usd": 12.19919315,
+    "unallocated_usd": 7.80080685,
+    "active_reservations_usd": 0,
+    "basis": "All historical runs, including multimodal smoke, failures and unknown billing reserves; search credits imputed. Not a provider invoice."
+  },
+  "evaluation": {
+    "evidence_metric": "Legacy AVeriTeC Hungarian-METEOR",
+    "evidence_scope": "Supplementary common text comparison; not 2025 EV2R",
+    "joint_rule": "Correct label AND QA score strictly greater than threshold",
+    "max_predicted_qa": 10,
+    "scorer_sha256": "235612fdf5354330821a1e08e445ae3f901bc480a050722eb0e46bde3725f8c4",
+    "gold_sha256": "499793726b4a5406780928a3d9dedc48d6dd53de778f22437d129cacdb08e300",
+    "paid_calls": 0,
+    "limitations": "Lexical/WordNet matching does not verify factual correctness, URLs, temporal validity, or multimodal evidence. This is not the 2025 EV2R leaderboard metric. No model judge or paid API is used."
+  },
+  "systems": {
+    "hero2": {
+      "n_planned": 100,
+      "n_terminal": 100,
+      "n_valid_verdict": 100,
+      "n_correct": 48,
+      "status_counts": {
+        "ok": 100
+      },
+      "accuracy_full_sample": 0.48,
+      "accuracy_valid_only": 0.48,
+      "macro_f1": 0.3625315656565657,
+      "class_f1": {
+        "Supported": 0.4444444444444444,
+        "Refuted": 0.6363636363636364,
+        "Not Enough Evidence": 0.1875,
+        "Conflicting Evidence/Cherrypicking": 0.18181818181818182
+      },
+      "confusion_matrix": {
+        "Supported": {
+          "Supported": 8,
+          "Refuted": 2,
+          "Not Enough Evidence": 5,
+          "Conflicting Evidence/Cherrypicking": 4,
+          "SYSTEM_FAILED": 0
+        },
+        "Refuted": {
+          "Supported": 8,
+          "Refuted": 35,
+          "Not Enough Evidence": 16,
+          "Conflicting Evidence/Cherrypicking": 4,
+          "SYSTEM_FAILED": 0
+        },
+        "Not Enough Evidence": {
+          "Supported": 0,
+          "Refuted": 3,
+          "Not Enough Evidence": 3,
+          "Conflicting Evidence/Cherrypicking": 1,
+          "SYSTEM_FAILED": 0
+        },
+        "Conflicting Evidence/Cherrypicking": {
+          "Supported": 1,
+          "Refuted": 7,
+          "Not Enough Evidence": 1,
+          "Conflicting Evidence/Cherrypicking": 2,
+          "SYSTEM_FAILED": 0
+        }
+      },
+      "question_hu_meteor": 0.47903011176917454,
+      "qa_hu_meteor": 0.3164754245029603,
+      "legacy_joint_by_threshold": {
+        "0.1": 0.47,
+        "0.2": 0.44,
+        "0.25": 0.35,
+        "0.3": 0.21,
+        "0.4": 0.11,
+        "0.5": 0.04
+      },
+      "non_ok_ids": {},
+      "qa_count": 975,
+      "qa_missing_source_url": 0,
+      "claims_with_missing_qa_url": 0,
+      "source_output_sha256": "543cf392cfcf3e9c13e6c80dc2f531dcff15e17c774aaa469d1ce852b8921b0c",
+      "verdict_fallback_count": 0
+    },
+    "sanctuary": {
+      "n_planned": 100,
+      "n_terminal": 100,
+      "n_valid_verdict": 100,
+      "n_correct": 61,
+      "status_counts": {
+        "ok": 100
+      },
+      "accuracy_full_sample": 0.61,
+      "accuracy_valid_only": 0.61,
+      "macro_f1": 0.41994949494949496,
+      "class_f1": {
+        "Supported": 0.6,
+        "Refuted": 0.7666666666666667,
+        "Not Enough Evidence": 0.09090909090909091,
+        "Conflicting Evidence/Cherrypicking": 0.2222222222222222
+      },
+      "confusion_matrix": {
+        "Supported": {
+          "Supported": 12,
+          "Refuted": 2,
+          "Not Enough Evidence": 4,
+          "Conflicting Evidence/Cherrypicking": 1,
+          "SYSTEM_FAILED": 0
+        },
+        "Refuted": {
+          "Supported": 5,
+          "Refuted": 46,
+          "Not Enough Evidence": 10,
+          "Conflicting Evidence/Cherrypicking": 2,
+          "SYSTEM_FAILED": 0
+        },
+        "Not Enough Evidence": {
+          "Supported": 0,
+          "Refuted": 4,
+          "Not Enough Evidence": 1,
+          "Conflicting Evidence/Cherrypicking": 2,
+          "SYSTEM_FAILED": 0
+        },
+        "Conflicting Evidence/Cherrypicking": {
+          "Supported": 4,
+          "Refuted": 5,
+          "Not Enough Evidence": 0,
+          "Conflicting Evidence/Cherrypicking": 2,
+          "SYSTEM_FAILED": 0
+        }
+      },
+      "question_hu_meteor": 0.4106389734616506,
+      "qa_hu_meteor": 0.2159375740655494,
+      "legacy_joint_by_threshold": {
+        "0.1": 0.59,
+        "0.2": 0.3,
+        "0.25": 0.18,
+        "0.3": 0.13,
+        "0.4": 0.02,
+        "0.5": 0.01
+      },
+      "non_ok_ids": {},
+      "qa_count": 516,
+      "qa_missing_source_url": 124,
+      "claims_with_missing_qa_url": 63,
+      "source_output_sha256": "cee621952a38e07bfb3ae1aeaa9a19f21a863fb3b9e57d34bc2a8a388973aaec",
+      "verdict_fallback_count": 0
+    },
+    "aic_ctu_averitec": {
+      "n_planned": 100,
+      "n_terminal": 100,
+      "n_valid_verdict": 96,
+      "n_correct": 53,
+      "status_counts": {
+        "ok": 96,
+        "retrieval_failed": 4
+      },
+      "accuracy_full_sample": 0.53,
+      "accuracy_valid_only": 0.5520833333333334,
+      "macro_f1": 0.37898573225419585,
+      "class_f1": {
+        "Supported": 0.5217391304347826,
+        "Refuted": 0.672566371681416,
+        "Not Enough Evidence": 0.21052631578947367,
+        "Conflicting Evidence/Cherrypicking": 0.1111111111111111
+      },
+      "confusion_matrix": {
+        "Supported": {
+          "Supported": 12,
+          "Refuted": 4,
+          "Not Enough Evidence": 2,
+          "Conflicting Evidence/Cherrypicking": 0,
+          "SYSTEM_FAILED": 1
+        },
+        "Refuted": {
+          "Supported": 11,
+          "Refuted": 38,
+          "Not Enough Evidence": 5,
+          "Conflicting Evidence/Cherrypicking": 6,
+          "SYSTEM_FAILED": 3
+        },
+        "Not Enough Evidence": {
+          "Supported": 1,
+          "Refuted": 4,
+          "Not Enough Evidence": 2,
+          "Conflicting Evidence/Cherrypicking": 0,
+          "SYSTEM_FAILED": 0
+        },
+        "Conflicting Evidence/Cherrypicking": {
+          "Supported": 3,
+          "Refuted": 4,
+          "Not Enough Evidence": 3,
+          "Conflicting Evidence/Cherrypicking": 1,
+          "SYSTEM_FAILED": 0
+        }
+      },
+      "question_hu_meteor": 0.38659271800313133,
+      "qa_hu_meteor": 0.2509612248603569,
+      "legacy_joint_by_threshold": {
+        "0.1": 0.51,
+        "0.2": 0.42,
+        "0.25": 0.29,
+        "0.3": 0.21,
+        "0.4": 0.09,
+        "0.5": 0.04
+      },
+      "non_ok_ids": {
+        "retrieval_failed": [
+          34,
+          86,
+          90,
+          96
+        ]
+      },
+      "qa_count": 529,
+      "qa_missing_source_url": 6,
+      "claims_with_missing_qa_url": 3,
+      "source_output_sha256": "40262b925763a8029e8cda18dae35ec57f702b2a1a7463d0e305c6dea7dea430",
+      "verdict_fallback_count": 0
+    },
+    "infact": {
+      "n_planned": 100,
+      "n_terminal": 100,
+      "n_valid_verdict": 100,
+      "n_correct": 61,
+      "status_counts": {
+        "ok": 95,
+        "no_evidence": 5
+      },
+      "accuracy_full_sample": 0.61,
+      "accuracy_valid_only": 0.61,
+      "macro_f1": 0.3875547246988144,
+      "class_f1": {
+        "Supported": 0.631578947368421,
+        "Refuted": 0.7704918032786885,
+        "Not Enough Evidence": 0.14814814814814814,
+        "Conflicting Evidence/Cherrypicking": 0.0
+      },
+      "confusion_matrix": {
+        "Supported": {
+          "Supported": 12,
+          "Refuted": 3,
+          "Not Enough Evidence": 2,
+          "Conflicting Evidence/Cherrypicking": 2,
+          "SYSTEM_FAILED": 0
+        },
+        "Refuted": {
+          "Supported": 3,
+          "Refuted": 47,
+          "Not Enough Evidence": 13,
+          "Conflicting Evidence/Cherrypicking": 0,
+          "SYSTEM_FAILED": 0
+        },
+        "Not Enough Evidence": {
+          "Supported": 1,
+          "Refuted": 4,
+          "Not Enough Evidence": 2,
+          "Conflicting Evidence/Cherrypicking": 0,
+          "SYSTEM_FAILED": 0
+        },
+        "Conflicting Evidence/Cherrypicking": {
+          "Supported": 3,
+          "Refuted": 5,
+          "Not Enough Evidence": 3,
+          "Conflicting Evidence/Cherrypicking": 0,
+          "SYSTEM_FAILED": 0
+        }
+      },
+      "question_hu_meteor": 0.3878193464832361,
+      "qa_hu_meteor": 0.29526508374240523,
+      "legacy_joint_by_threshold": {
+        "0.1": 0.61,
+        "0.2": 0.55,
+        "0.25": 0.43,
+        "0.3": 0.33,
+        "0.4": 0.11,
+        "0.5": 0.04
+      },
+      "non_ok_ids": {
+        "no_evidence": [
+          2,
+          20,
+          21,
+          86,
+          88
+        ]
+      },
+      "qa_count": 729,
+      "qa_missing_source_url": 0,
+      "claims_with_missing_qa_url": 0,
+      "source_output_sha256": "4335b19071b58f514093d23fa8bd08b48c889bca963b6d0b8ed4ee16a5d54a2f",
+      "verdict_fallback_count": 0
+    }
+  }
+}

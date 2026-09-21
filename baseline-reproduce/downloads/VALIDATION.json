@@ -1,0 +1,20 @@
+{
+  "checked_utc": "2026-09-20T18:22:02.749578+00:00",
+  "passed": true,
+  "n_claims": 100,
+  "n_system_claims": 400,
+  "statuses": {
+    "ok": 391,
+    "retrieval_failed": 4,
+    "no_evidence": 5
+  },
+  "all_source_hashes_unchanged": true,
+  "all_qa_text_and_urls_match_frozen_outputs": true,
+  "all_labels_and_denominators_cross_checked": true,
+  "no_fallback_verdicts": true,
+  "no_private_pattern_hits": true,
+  "public_http_url_path_exemptions": 13,
+  "privacy_scope": "Allowlisted fields plus local paths, host alias, private IP, common secret names and credential-URL scan; not a publication approval.",
+  "offline": true,
+  "new_paid_calls": 0
+}
