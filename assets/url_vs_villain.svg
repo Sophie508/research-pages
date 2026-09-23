@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#98a2b3"/></marker>
+<style>.box{fill:#fff;stroke:#d0d5dd;stroke-width:2} .t{font-size:19px;font-weight:600;fill:#101828} .s{font-size:13.5px;fill:#475467} .h{font-size:26px;font-weight:700;fill:#101828} .k{font-size:13px;fill:#98a2b3} .hi{fill:#fff4ed;stroke:#fdba74;stroke-width:2.5} .hi2{fill:#eff8ff;stroke:#84adff;stroke-width:2.5}</style></defs>
+<rect width="1920" height="1080" fill="#fff"/>
+<text x="80" y="70" font-size="40" font-weight="700" fill="#101828">Where the evidence URL comes from</text>
+<text x="80" y="105" font-size="20" fill="#475467">Our URL revision stage against VILLAIN (AVerImaTeC shared task, 1st place). Boxes in orange are where a URL gets attached to a piece of evidence.</text>
+
+<!-- ===== LEFT: ours ===== -->
+<rect x="80" y="140" width="860" height="880" rx="18" fill="#fafbfc" stroke="#eaecf0" stroke-width="2"/>
+<text x="110" y="185" class="h">Ours: revise the URL of evidence we already have</text>
+<text x="110" y="212" class="k">start from the fact-checking article; one URL per statement, bound at extraction or recovered afterwards</text>
+
+<rect x="120" y="240" width="780" height="70" rx="12" class="box"/>
+<text x="140" y="268" class="t">Fact-checking article</text>
+<text x="140" y="292" class="s">cleaned text with every hyperlink kept in place as  anchor [url]</text>
+<path d="M510 310 L510 340" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="120" y="345" width="780" height="88" rx="12" class="hi"/>
+<text x="140" y="373" class="t">Extraction (Gemma)  → evidence statements</text>
+<text x="140" y="397" class="s">each statement carries a verbatim support_span; if a link sat on that sentence, it is attached here</text>
+<text x="140" y="419" class="s">AVerImaTeC val: 397 statements · 163 image · 13 metadata (no URL by design) · 221 need a link</text>
+<path d="M510 433 L510 463" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="120" y="468" width="780" height="112" rx="12" class="hi"/>
+<text x="140" y="496" class="t">Stage 1 · shortlist from the article's own hyperlinks (top 3)</text>
+<text x="140" y="520" class="s">rank by position relative to the support_span (in span › sentence › paragraph › section); token overlap breaks ties</text>
+<text x="140" y="542" class="s">excluded after unwrapping Wayback layers: the outlet itself · social embeds · archive mirrors · page furniture</text>
+<text x="140" y="564" class="s">verifier reads each candidate and records SUPPORTED / UNSUPPORTED / UNVERIFIABLE  —  shown, not deciding</text>
+<path d="M510 580 L510 610" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="120" y="615" width="780" height="88" rx="12" class="hi"/>
+<text x="140" y="643" class="t">Stage 2 · dated external-search candidates (≤3), only if stage 1 is empty</text>
+<text x="140" y="667" class="s">the URLs the old search stage already fetched; page date must not be later than the claim date (strict temporal policy)</text>
+<text x="140" y="689" class="s">same exclusions; same verifier record</text>
+<path d="M510 703 L510 733" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="120" y="738" width="780" height="92" rx="12" class="box"/>
+<text x="140" y="766" class="t">Attach, or drop</text>
+<text x="140" y="790" class="s">attach the first admissible candidate, article link before external; keep the alternates and every verdict alongside</text>
+<text x="140" y="812" class="s">drop only when no candidate exists  →  357 of 397 kept · 40 dropped · no attached link is the outlet or a social post</text>
+
+<rect x="120" y="860" width="800" height="130" rx="12" fill="#fff" stroke="#eaecf0"/>
+<text x="140" y="888" class="t" font-size="17">What this buys and what it does not</text>
+<text x="140" y="912" class="s">URL recall against annotators' URLs 0.13 → 0.18, precision 0.15 → 0.22 (val). EV2R scores statements, not links, so it barely moves</text>
+<text x="140" y="934" class="s">(R 0.724 → 0.697, P 0.619 → 0.639 after the 40 drops). The verifier passes about 1 in 5 links; most failures are unreadable pages,</text>
+<text x="140" y="956" class="s">so the verdict is kept as a record, not used as a gate. Every evidence keeps one URL, the others stay visible as candidates.</text>
+
+<!-- ===== RIGHT: VILLAIN ===== -->
+<rect x="980" y="140" width="860" height="880" rx="18" fill="#fafbfc" stroke="#eaecf0" stroke-width="2"/>
+<text x="1010" y="185" class="h">VILLAIN: retrieve first, write the evidence afterwards</text>
+<text x="1010" y="212" class="k">start from the claim; evidence is generated from retrieved passages, sources kept as a pool</text>
+
+<rect x="1020" y="240" width="780" height="70" rx="12" class="box"/>
+<text x="1040" y="268" class="t">Claim (+ claim images)</text>
+<text x="1040" y="292" class="s">no fact-checking article; the system must find its own sources</text>
+<path d="M1410 310 L1410 340" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="1020" y="345" width="780" height="88" rx="12" class="hi2"/>
+<text x="1040" y="373" class="t">A1–A3 · three searches build a source pool</text>
+<text x="1040" y="397" class="s">A1 web search on the claim text · A2 reverse image search per claim image · A3 image↔image and text→image</text>
+<text x="1040" y="419" class="s">pages are chunked; every chunk keeps the URL of the page it came from</text>
+<path d="M1410 433 L1410 463" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="1020" y="468" width="780" height="112" rx="12" class="hi2"/>
+<text x="1040" y="496" class="t">Retrieve and rerank passages</text>
+<text x="1040" y="520" class="s">embed (mxbai) → top 100 chunks → cross-encoder rerank (mxbai-rerank-large) → top 10, with surrounding context</text>
+<text x="1040" y="542" class="s">then a VLM writes three analyses: text vs claim, image vs text, agreement across sources</text>
+<text x="1040" y="564" class="s">ranking says which passages are most relevant to the claim; nothing here says which passage supports which fact</text>
+<path d="M1410 580 L1410 610" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="1020" y="615" width="780" height="88" rx="12" class="box"/>
+<text x="1040" y="643" class="t">A4 · generate question–answer pairs from the analyses</text>
+<text x="1040" y="667" class="s">4 iterations × 5 QA, up to 20; three BM25-picked training examples as few-shots; passage URLs are visible to the model</text>
+<text x="1040" y="689" class="s">the output schema has a url field per QA; in the run we reproduced it is empty on 50 of 50 QA</text>
+<path d="M1410 703 L1410 733" stroke="#98a2b3" stroke-width="3" marker-end="url(#a)"/>
+
+<rect x="1020" y="738" width="780" height="92" rx="12" class="box"/>
+<text x="1040" y="766" class="t">A5 · select 10 QA → verdict + justification</text>
+<text x="1040" y="790" class="s">the 10 QA are the evidence submitted for EV2R</text>
+<text x="1040" y="812" class="s">sources are saved once per claim as a pool (17 URLs in our sample), not per QA</text>
+
+<rect x="1020" y="860" width="780" height="130" rx="12" fill="#fff" stroke="#eaecf0"/>
+<text x="1040" y="888" class="t" font-size="17">What we can borrow, and the gap</text>
+<text x="1040" y="912" class="s">Borrow: read the source page and rank passages against a target sentence, rather than ranking links by position.</text>
+<text x="1040" y="934" class="s">Gap: "which source supports this evidence" is never decided or stored; a reranker's first place is relevance, not support.</text>
+<text x="1040" y="956" class="s">Our stage 1 verifier is exactly that missing step, applied per candidate and kept with the evidence.</text>
+
+<text x="80" y="1050" class="k">VILLAIN stages and parameters from the adapted reproduction (systems/villain.py, cfg: reranker_fetch_k 100, top 10, 4×5 QA ≤20, select 10); QA/url counts from smoke_campaign_mm_20260917_rog_cpu_r2. Ours: results/url_revision_aug30, 2026-09-23.</text>
+</svg>
