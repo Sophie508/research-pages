@@ -38,7 +38,7 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="baseline-reproduce/">Baseline Reproduce</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="baseline-reproduce/">Baseline Reproduce</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
@@ -56,10 +56,10 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 <p><b>Their claims, their articles, our pipeline.</b> Claims and fact-checking article links come from the VeriTaS export; everything downstream is ours: decontextualization, evidence extraction, and URL recovery under the strict temporal policy, where an evidence item is kept only if it carries an article-embedded URL or an externally recovered one whose date we could verify against the claim date.</p>
 <div class="meta"><span>2026-09-14</span><span class="chip">n = 69 claims</span><span class="chip">308 evidence</span><span class="chip">strict temporal policy</span></div>
 </a>
-<a class="card" href="original-pipeline-review/">
-<h2>Original Pipeline Review</h2>
-<p><b>Our claims, dataset articles, our pipeline.</b> Claims are normalized and decontextualized by us from AVeriTeC's fact-checking articles rather than taken from the dataset's gold field, so this is the pipeline running end to end on its own output. The run itself predates the strict temporal policy, so the policy is applied at display time: 13 of the original 51 evidence items are dropped, and every item shown carries a URL on the same terms as the VeriTaS page.</p>
-<div class="meta"><span>2026-08-10</span><span class="chip">n = 20 claims · AVeriTeC train</span><span class="chip">38 evidence</span><span class="chip">strict temporal policy</span></div>
+<a class="card" href="averitec-averimatec-review/">
+<h2>AVeriTeC + AVerImaTeC Review</h2>
+<p><b>Our pipeline on the two datasets that have ground truth.</b> AVerImaTeC val, 108 claims and 379 evidence items from the 2026-08-30 run after the new URL stage: each statement keeps the link it got, article hyperlink first and dated external search second, with the verifier's verdict shown but not deciding; only statements with no candidate link at all were dropped, 18 of 397. Every card carries its own official-protocol EV2R evidence score; over the set it is R 0.733 / P 0.621, level with the run before the URL stage, because EV2R scores statements rather than links. AVeriTeC's 20 claims are the earlier text-only run and are labelled as not yet through the new URL stage.</p>
+<div class="meta"><span>2026-09-23</span><span class="chip">AVerImaTeC 108 · AVeriTeC 20</span><span class="chip">EV2R R 0.733 · P 0.621</span><span class="chip">verdict 98 / 108 correct</span></div>
 </a>
 <a class="card" href="deepfake-filter/">
 <h2>Deep Fake Filter</h2>
