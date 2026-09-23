@@ -13,6 +13,25 @@ import json
 from pathlib import Path
 HERE = Path(__file__).resolve().parent; OUT = HERE/'deepfake-filter'
 data = json.loads((OUT/'data.json').read_text(encoding='utf-8'))
+# Evidence extraction has been run on a few claims (see mcfc analysis_outputs/
+# deepfake_claims_20260923/extract3). Where it exists it is shown in the same
+# shape the intake page uses: statement, the link it ended up with, how that
+# link was obtained, and the verifier's verdict on each candidate (display only).
+EXTRACT = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/deepfake_claims_20260923/extract3/extract3_results.json')
+ext = {}
+if EXTRACT.exists():
+    for r in json.loads(EXTRACT.read_text(encoding='utf-8')):
+        if r.get('status') != 'ok': continue
+        ev = []
+        for e in (r.get('extracted') or {}).get('evidence_set') or []:
+            ev.append({'s': e.get('statement',''), 'u': e.get('source_url') or '', 'p': e.get('provenance','none'),
+                       'span': (e.get('support_span') or '')[:220],
+                       'cands': [{'u': c['url'], 'v': c['verdict'], 'why': (c.get('why') or '')[:100]} for c in (e.get('article_candidates') or [])]})
+        ext[str(r['claim_id'])] = {'ev': ev, 'just': ((r.get('extracted') or {}).get('justification') or '')[:600]}
+for d in data:
+    x = ext.get(str(d['id']))
+    if x: d['ev'] = x['ev']; d['just'] = x['just']
+n_ext = sum(1 for d in data if d.get('ev'))
 n = len(data); by_tag = {}
 for d in data:
     for t in (d['tags'] or ['untagged']): by_tag[t] = by_tag.get(t, 0) + 1
@@ -55,6 +74,12 @@ input{flex:1;min-width:220px}.count{margin-left:auto;color:var(--ink3);font-size
 .meta{font-size:12.5px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:6px 14px}
 .meta a{color:var(--info);text-decoration:none}.meta a:hover{text-decoration:underline}
 .rating{font-size:12px;color:var(--ink2)}.rating b{color:var(--ink)}
+.evblock{border-top:1px dashed var(--line);padding-top:8px}.evblock summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--ink2)}
+.evitem{padding:8px 0;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:4px}.evitem:first-of-type{border-top:none}
+.evs{font-size:13.5px;line-height:1.45}
+.tag-p{font-size:10.5px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--bg);color:var(--ink2);border:1px solid var(--line)}
+.tag-p.article,.tag-p.article-recovered{background:var(--ok-soft);color:var(--ok);border-color:transparent}.tag-p.none{background:var(--na-soft);color:var(--na);border-color:transparent}
+.cand{padding:6px 0 6px 10px;border-left:2px solid var(--line);margin-top:6px}
 .foot{margin:50px 0 80px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
 </style></head>
 <body>
@@ -68,12 +93,15 @@ input{flex:1;min-width:220px}.count{margin-left:auto;color:var(--ink3);font-size
   <div class="stat"><div class="n">__N__</div><div class="l">claims, of 197 in the export (143 with media verdicts)</div></div>
   <div class="stat"><div class="n">__AI__ / __MAN__ / __FORG__</div><div class="l">AI-generated / Manipulated / Forged (a claim can carry several)</div></div>
   <div class="stat"><div class="n">__CERT__ / __RC__ / __RU__</div><div class="l">certain / rather certain / rather uncertain</div></div>
+  <div class="stat"><div class="n">__NEXT__</div><div class="l">claims with evidence extracted so far</div></div>
 </div>
+<div class="note"><b>Evidence, where extracted.</b> For the claims marked "extracted", our pipeline read the fact-checking article and wrote out evidence statements. Each statement shows the link it ended up with and how: <span class="tag-p article">article</span> the link sat on that sentence in the article, <span class="tag-p article-recovered">article-recovered</span> the new URL stage shortlisted it from the article's hyperlinks (candidates and the verifier's verdict on each are listed; the verdict did not decide anything), <span class="tag-p none">none</span> no link in the article and external search not run for these. Statements with no link are typically the fact-checker's own findings, which have no source page by nature.</div>
 <div class="note"><b>Signals shown, and which one selected.</b> The <b>VeriTaS authenticity label</b> did the selecting: score at or below &minus;1/3 on its &minus;1..+1 scale, mapped to the three confidence tiers in the export's own convention (certain &le; &minus;0.9, rather certain &le; &minus;2/3, rather uncertain &le; &minus;1/3). Two more signals are displayed but did <b>not</b> take part in selection: the <b>publisher's own rating text</b> from the fact-checking article, and the <b>contextualization label</b>, which says whether the claim also misrepresents what the media shows. Tags follow VeriTaS's definitions: AI-generated is synthesized by AI, Manipulated is a real recording altered to change its meaning, Forged is mostly or entirely a manual invention.</div>
 <div class="controls">
   <select id="ftag"><option value="all">All tags</option><option value="AI-generated">AI-generated</option><option value="Manipulated">Manipulated</option><option value="Forged">Forged</option></select>
   <select id="fconf"><option value="all">All confidence</option><option value="certain">certain only</option><option value="rather certain">rather certain</option><option value="rather uncertain">rather uncertain</option></select>
   <select id="fctx"><option value="all">Any contextualization</option><option value="incorrect">also miscontextualized</option><option value="correct">context correct</option></select>
+  <select id="fext"><option value="all">All claims</option><option value="yes">Evidence extracted</option></select>
   <input id="q" placeholder="Search claim, publisher or rating">
   <span class="count" id="count"></span>
 </div>
@@ -84,29 +112,37 @@ input{flex:1;min-width:220px}.count{margin-left:auto;color:var(--ink3);font-size
 const DATA = __DATA__;
 const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cls = t => t==="AI-generated"?"ai":t==="Manipulated"?"man":"forg";
+const PLAB={article:"Article link",'article-recovered':"Article link (recovered)",none:"No URL",metadata:"Metadata (no URL by design)"};
+function evHTML(e){
+  const link = e.u ? `<div class="u"><a href="${esc(e.u)}" target="_blank" rel="noopener">${esc(short(e.u))}</a></div>` : `<div class="ctx">no link</div>`;
+  const cands = (e.cands||[]).length ? `<details class="alts"><summary>${e.cands.length} article candidate${e.cands.length>1?"s":""} and verdicts</summary>${e.cands.map(c=>`<div class="cand"><div class="meta2"><span class="v ${c.v==="SUPPORTED"?"ok":c.v==="UNSUPPORTED"?"no":"na"}">${esc(c.v.toLowerCase())}</span></div><div class="u"><a href="${esc(c.u)}" target="_blank" rel="noopener">${esc(short(c.u))}</a></div>${c.why?`<div class="ctx">${esc(c.why)}</div>`:""}</div>`).join("")}</details>` : "";
+  return `<div class="evitem"><div class="evs">${esc(e.s)}</div><div class="meta2"><span class="tag-p ${esc(e.p)}">${esc(PLAB[e.p]||e.p)}</span></div>${link}${e.span?`<div class="ctx">from: ${esc(e.span)}</div>`:""}${cands}</div>`;
+}
 function card(d){
   const img = d.imgs && d.imgs.length ? `<img class="img" src="media/${esc(d.imgs[0])}" loading="lazy" alt="">` : "";
+  const evb = (d.ev&&d.ev.length) ? `<details class="evblock" open><summary>Evidence (${d.ev.length}) · extracted by our pipeline</summary>${d.ev.map(evHTML).join("")}</details>` : "";
   const tags = (d.tags.length?d.tags:["untagged"]).map(t=>`<span class="tag ${cls(t)}">${esc(t)}</span>`).join("");
   const rv = (d.reviews||[]).map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.pub||"fact-check")} &#8599;</a>`).join(" ");
   const rating = (d.reviews||[]).filter(r=>r.rating).map(r=>`<b>${esc(r.rating)}</b>`).join(", ");
   const ap = (d.appearances||[]).slice(0,1).map(a=>`<a href="${esc(a)}" target="_blank" rel="noopener">original post &#8599;</a>`).join("");
   return `<div class="card">${img}<div class="body">
-    <div class="rhead"><span class="cid">claim ${esc(d.id)}${d.date?" · "+esc(d.date):""}</span>${tags}<span class="tag conf">${esc(d.conf)} · ${d.score}</span></div>
+    <div class="rhead"><span class="cid">claim ${esc(d.id)}${d.date?" · "+esc(d.date):""}</span>${tags}${(d.ev&&d.ev.length)?`<span class="tag conf">extracted</span>`:""}<span class="tag conf">${esc(d.conf)} · ${d.score}</span></div>
     <div class="claim">${esc(d.claim)}</div>
     <div class="why">${esc(d.why)}</div>
     ${rating?`<div class="rating">publisher rating: ${rating}</div>`:""}
+    ${evb}
     <div class="meta"><span>veracity: ${esc(d.veracity||"n/a")}</span><span>context: ${esc((d.ctx||[]).join(", ")||"n/a")}</span>${rv}${ap}</div>
   </div></div>`;
 }
 function render(){
-  const t=ftag.value, c=fconf.value, x=fctx.value, term=q.value.trim().toLowerCase();
-  let list = DATA.filter(d => (t==="all"||d.tags.includes(t)) && (c==="all"||d.conf===c) &&
+  const t=ftag.value, c=fconf.value, x=fctx.value, term=q.value.trim().toLowerCase(), fe=fext.value;
+  let list = DATA.filter(d => (fe==="all"||(d.ev&&d.ev.length)) && (t==="all"||d.tags.includes(t)) && (c==="all"||d.conf===c) &&
     (x==="all"||(d.ctx||[]).some(v=>v.startsWith(x))) &&
     (!term || (d.claim+" "+(d.reviews||[]).map(r=>(r.pub||"")+" "+(r.rating||"")).join(" ")).toLowerCase().includes(term)));
   count.textContent = `${list.length} / ${DATA.length} claims`;
   document.getElementById("grid").innerHTML = list.map(card).join("") || `<div class="card"><div class="body" style="color:var(--ink3)">Nothing matches.</div></div>`;
 }
-[ftag,fconf,fctx,q].forEach(el=>el.addEventListener("input",render)); render();
+[ftag,fconf,fctx,fext,q].forEach(el=>el.addEventListener("input",render)); render();
 const btn=document.getElementById("themeBtn");
 function setTheme(t){document.documentElement.setAttribute("data-theme",t);btn.textContent=t==="dark"?"☀️":"🌙";localStorage.setItem("mcfc_theme",t)}
 btn.onclick=()=>setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
@@ -116,6 +152,6 @@ setTheme(localStorage.getItem("mcfc_theme")||(matchMedia("(prefers-color-scheme:
 conf = {k: sum(1 for d in data if d['conf']==k) for k in ('certain','rather certain','rather uncertain')}
 html = (HTML.replace('__DATA__', json.dumps(data, ensure_ascii=False)).replace('__N__', str(n))
         .replace('__AI__', str(by_tag.get('AI-generated',0))).replace('__MAN__', str(by_tag.get('Manipulated',0))).replace('__FORG__', str(by_tag.get('Forged',0)))
-        .replace('__CERT__', str(conf['certain'])).replace('__RC__', str(conf['rather certain'])).replace('__RU__', str(conf['rather uncertain'])))
+        .replace('__NEXT__', str(n_ext)).replace('__CERT__', str(conf['certain'])).replace('__RC__', str(conf['rather certain'])).replace('__RU__', str(conf['rather uncertain'])))
 (OUT/'index.html').write_text(html, encoding='utf-8')
 print(f'wrote deepfake-filter/index.html  {len(html):,} bytes  n={n}  tags={by_tag}  conf={conf}')
