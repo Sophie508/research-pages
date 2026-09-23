@@ -38,7 +38,7 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a><a href="url-grounding-review/">URL Grounding</a><a href="baseline-reproduce/">Baseline Reproduce</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="original-pipeline-review/">Original Pipeline</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="baseline-reproduce/">Baseline Reproduce</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
@@ -61,10 +61,10 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 <p><b>Our claims, dataset articles, our pipeline.</b> Claims are normalized and decontextualized by us from AVeriTeC's fact-checking articles rather than taken from the dataset's gold field, so this is the pipeline running end to end on its own output. The run itself predates the strict temporal policy, so the policy is applied at display time: 13 of the original 51 evidence items are dropped, and every item shown carries a URL on the same terms as the VeriTaS page.</p>
 <div class="meta"><span>2026-08-10</span><span class="chip">n = 20 claims · AVeriTeC train</span><span class="chip">38 evidence</span><span class="chip">strict temporal policy</span></div>
 </a>
-<a class="card" href="url-grounding-review/">
-<h2>URL Grounding Review</h2>
-<p><b>Before and after, one evidence statement at a time.</b> Half the evidence in the intake batch was grounded by searching the open web, because extraction returned those statements without a source URL, while the fact-checking articles they came from still held usable hyperlinks nobody looked at. Each row puts the URL the pipeline shipped beside the article link that replaces it, picked by shortlisting the three best candidates in the article and keeping whichever one verification accepts. Open-web search stays as a fallback: across the verified rows the two sources agree only twice, and each establishes statements the other cannot.</p>
-<div class="meta"><span>2026-09-18</span><span class="chip">external 52% → 7.6%</span><span class="chip">157 of 184 re-grounded</span><span class="chip">42 verified · 11 vs 8</span></div>
+<a class="card" href="deepfake-filter/">
+<h2>Deep Fake Filter</h2>
+<p><b>The VeriTaS claims whose media VeriTaS itself judged fabricated.</b> One selection rule: the claim carries media, and at least one medium's authenticity label from the VeriTaS four-model ensemble is "fabricated" at any confidence, tagged AI-generated, Manipulated or Forged in VeriTaS's own terms. Real media in a false context is excluded; that is a contextualization failure, not a fabrication. The publisher's own rating and the contextualization label are shown alongside as independent signals but did not select. No evidence extraction has been run on this set yet; the page is for looking at what the set contains.</p>
+<div class="meta"><span>2026-09-23</span><span class="chip">83 claims · from 197</span><span class="chip">AI 41 · Manipulated 35 · Forged 16</span><span class="chip">61 certain · 13 · 9</span></div>
 </a>
 </div>
 <script>
