@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="Helvetica, Arial, sans-serif">
+<rect width="1920" height="1080" fill="#ffffff"/>
+<text x="80" y="82" font-size="44" font-weight="700" fill="#101828">VeriTaS labels</text>
+<text x="80" y="122" font-size="22" fill="#475467">Every claim is scored on 5 properties by 4 model raters. Each score is a number from −1 to +1, then cut into bins.</text>
+
+<!-- ===== Panel 1: raters -> mean ===== -->
+<rect x="80" y="170" width="430" height="820" rx="18" fill="#fafbfc" stroke="#eaecf0" stroke-width="2"/>
+<text x="110" y="215" font-size="24" font-weight="700" fill="#101828">1 · Score</text>
+<rect x="120" y="250" width="350" height="70" rx="12" fill="#ffffff" stroke="#d0d5dd" stroke-width="2"/>
+<text x="295" y="282" font-size="22" font-weight="600" fill="#101828" text-anchor="middle">one claim</text>
+<text x="295" y="306" font-size="16" fill="#475467" text-anchor="middle">text, optionally with media</text>
+<path d="M295 320 L295 360" stroke="#98a2b3" stroke-width="3" marker-end="url(#arr)"/>
+<g font-size="17" fill="#101828">
+<rect x="120" y="366" width="350" height="44" rx="10" fill="#eff8ff" stroke="#b2ddff"/><text x="295" y="394" text-anchor="middle">gpt-5.2</text>
+<rect x="120" y="418" width="350" height="44" rx="10" fill="#eff8ff" stroke="#b2ddff"/><text x="295" y="446" text-anchor="middle">claude-sonnet-4.5</text>
+<rect x="120" y="470" width="350" height="44" rx="10" fill="#eff8ff" stroke="#b2ddff"/><text x="295" y="498" text-anchor="middle">llama-4-maverick</text>
+<rect x="120" y="522" width="350" height="44" rx="10" fill="#eff8ff" stroke="#b2ddff"/><text x="295" y="550" text-anchor="middle">gemini-3.1-pro</text>
+</g>
+<text x="295" y="598" font-size="16" fill="#475467" text-anchor="middle">each rater: a number in [−1, +1] per property</text>
+<path d="M295 612 L295 652" stroke="#98a2b3" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="120" y="658" width="350" height="86" rx="12" fill="#ffffff" stroke="#d0d5dd" stroke-width="2"/>
+<text x="295" y="694" font-size="22" font-weight="600" fill="#101828" text-anchor="middle">mean of the 4</text>
+<text x="295" y="722" font-size="18" fill="#475467" text-anchor="middle">= the property's score  s ∈ [−1, +1]</text>
+<text x="295" y="790" font-size="15" fill="#98a2b3" text-anchor="middle">+ each rater's written explanation</text>
+<text x="295" y="812" font-size="15" fill="#98a2b3" text-anchor="middle">(the "individual_ratings" you see in the export)</text>
+
+<!-- ===== Panel 2: five properties ===== -->
+<rect x="540" y="170" width="720" height="820" rx="18" fill="#fafbfc" stroke="#eaecf0" stroke-width="2"/>
+<text x="570" y="215" font-size="24" font-weight="700" fill="#101828">2 · Five properties, one axis each</text>
+<g font-size="16" fill="#475467"><text x="600" y="250">negative pole  ◄──  s  ──►  positive pole</text></g>
+<g id="rows">
+  <!-- veracity -->
+  <text x="570" y="305" font-size="20" font-weight="700" fill="#101828">veracity</text>
+  <text x="570" y="328" font-size="15" fill="#475467">are the text assertions true?</text>
+  <line x1="880" y1="312" x2="1220" y2="312" stroke="#98a2b3" stroke-width="3"/>
+  <text x="880" y="340" font-size="16" fill="#b42318" text-anchor="start">false</text><text x="1220" y="340" font-size="16" fill="#067647" text-anchor="end">true</text>
+  <!-- authenticity -->
+  <rect x="558" y="365" width="686" height="118" rx="12" fill="#fff4ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="570" y="398" font-size="20" font-weight="700" fill="#101828">authenticity</text>
+  <text x="570" y="421" font-size="15" fill="#475467">is the media itself fabricated?</text>
+  <text x="570" y="443" font-size="14" fill="#c2410c">media claims only</text>
+  <line x1="880" y1="400" x2="1220" y2="400" stroke="#98a2b3" stroke-width="3"/>
+  <text x="880" y="428" font-size="16" fill="#b42318">fabricated</text><text x="1220" y="428" font-size="16" fill="#067647" text-anchor="end">pristine</text>
+  <text x="880" y="466" font-size="13" fill="#c2410c">tags when fabricated: AI-generated · Manipulated · Forged</text>
+  <!-- contextualization -->
+  <text x="570" y="530" font-size="20" font-weight="700" fill="#101828">contextualization</text>
+  <text x="570" y="553" font-size="15" fill="#475467">is the media described in its true context?</text>
+  <text x="570" y="575" font-size="14" fill="#c2410c">media claims only</text>
+  <line x1="880" y1="537" x2="1220" y2="537" stroke="#98a2b3" stroke-width="3"/>
+  <text x="880" y="565" font-size="16" fill="#b42318">incorrect</text><text x="1220" y="565" font-size="16" fill="#067647" text-anchor="end">correct</text>
+  <!-- context_coverage -->
+  <text x="570" y="640" font-size="20" font-weight="700" fill="#101828">context_coverage</text>
+  <text x="570" y="663" font-size="15" fill="#475467">true claim, but does it mislead by omission?</text>
+  <line x1="880" y1="647" x2="1220" y2="647" stroke="#98a2b3" stroke-width="3"/>
+  <text x="880" y="675" font-size="16" fill="#b42318">insufficient</text><text x="1220" y="675" font-size="16" fill="#067647" text-anchor="end">sufficient</text>
+  <!-- integrity -->
+  <text x="570" y="750" font-size="20" font-weight="700" fill="#101828">integrity</text>
+  <text x="570" y="773" font-size="15" fill="#475467">overall: did anything above go wrong?</text>
+  <line x1="880" y1="757" x2="1220" y2="757" stroke="#98a2b3" stroke-width="3"/>
+  <text x="880" y="785" font-size="16" fill="#b42318">compromised</text><text x="1220" y="785" font-size="16" fill="#067647" text-anchor="end">intact</text>
+</g>
+<rect x="570" y="835" width="660" height="120" rx="12" fill="#ffffff" stroke="#d0d5dd"/>
+<text x="590" y="866" font-size="17" font-weight="700" fill="#101828">What we actually use</text>
+<text x="590" y="892" font-size="16" fill="#475467">veracity → the verdict.   authenticity → the deepfake filter.</text>
+<text x="590" y="916" font-size="16" fill="#475467">contextualization → real media in a false context is NOT a deepfake.</text>
+<text x="590" y="940" font-size="16" fill="#475467">integrity is derived from the others; context_coverage is rarely filled.</text>
+
+<!-- ===== Panel 3: score -> bins ===== -->
+<rect x="1290" y="170" width="550" height="820" rx="18" fill="#fafbfc" stroke="#eaecf0" stroke-width="2"/>
+<text x="1320" y="215" font-size="24" font-weight="700" fill="#101828">3 · Score → label</text>
+<text x="1320" y="245" font-size="16" fill="#475467">same cut for every property; sign = pole, |s| = confidence</text>
+<!-- vertical axis with 7 bins -->
+<g font-size="16">
+  <rect x="1350" y="280" width="60" height="70" fill="#067647"/><text x="1430" y="322" fill="#101828" font-weight="600">positive (certain)</text><text x="1650" y="322" fill="#98a2b3">|s| ≥ 0.9</text>
+  <rect x="1350" y="350" width="60" height="70" fill="#17b26a"/><text x="1430" y="392" fill="#101828">positive (rather certain)</text><text x="1650" y="392" fill="#98a2b3">|s| ≥ 2/3</text>
+  <rect x="1350" y="420" width="60" height="70" fill="#abefc6"/><text x="1430" y="462" fill="#101828">positive (rather uncertain)</text><text x="1650" y="462" fill="#98a2b3">|s| ≥ 1/3</text>
+  <rect x="1350" y="490" width="60" height="70" fill="#e4e7ec"/><text x="1430" y="532" fill="#101828" font-weight="600">unknown (totally uncertain)</text><text x="1650" y="532" fill="#98a2b3">|s| &lt; 1/3</text>
+  <rect x="1350" y="560" width="60" height="70" fill="#fecdca"/><text x="1430" y="602" fill="#101828">negative (rather uncertain)</text>
+  <rect x="1350" y="630" width="60" height="70" fill="#f04438"/><text x="1430" y="672" fill="#101828">negative (rather certain)</text>
+  <rect x="1350" y="700" width="60" height="70" fill="#b42318"/><text x="1430" y="742" fill="#101828" font-weight="600">negative (certain)</text>
+</g>
+<text x="1335" y="290" font-size="15" fill="#475467" text-anchor="end">+1</text>
+<text x="1335" y="530" font-size="15" fill="#475467" text-anchor="end">0</text>
+<text x="1335" y="768" font-size="15" fill="#475467" text-anchor="end">−1</text>
+<!-- brace for 7 vs 3 -->
+<text x="1320" y="815" font-size="18" font-weight="700" fill="#101828">Seven-bin</text><text x="1420" y="815" font-size="16" fill="#475467">= all 7 rows above</text>
+<text x="1320" y="845" font-size="18" font-weight="700" fill="#101828">Three-bin</text><text x="1420" y="845" font-size="16" fill="#475467">= collapse confidence:</text>
+<rect x="1350" y="865" width="110" height="34" rx="8" fill="#067647"/><text x="1405" y="888" font-size="15" fill="#fff" text-anchor="middle">positive</text>
+<rect x="1470" y="865" width="110" height="34" rx="8" fill="#e4e7ec"/><text x="1525" y="888" font-size="15" fill="#101828" text-anchor="middle">unknown</text>
+<rect x="1590" y="865" width="110" height="34" rx="8" fill="#b42318"/><text x="1645" y="888" font-size="15" fill="#fff" text-anchor="middle">negative</text>
+<text x="1320" y="940" font-size="13" fill="#98a2b3">e.g. veracity −0.83 → "false (rather certain)"; authenticity −0.92 → "fabricated (certain)"</text>
+
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#98a2b3"/></marker></defs>
+</svg>
