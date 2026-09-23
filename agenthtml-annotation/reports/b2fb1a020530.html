@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order #01_001 — Pad Thai that never left the kitchen · ClawBench</title>
+<style>
+  :root{
+    --tea-brown:#2A1D14;
+    --tea-brown-2:#37281C;
+    --tea-brown-3:#43301F;
+    --paper:#F6EEDD;
+    --paper-2:#EFE4CC;
+    --ink:#1B130C;
+    --ink-soft:#5A4632;
+    --tan:#CBB79A;
+    --tan-dim:#9C8straight;
+    --tan-dim:#9B8straight;
+    --tan-dim:#9C8straight;
+    --tan-dim:#9B876A;
+    --orange:#DE8A3B;
+    --orange-deep:#C0692A;
+    --brick:#B0362B;
+    --brick-deep:#8C2A21;
+    --leaf:#5B876A;
+    --line-dk:#4A3826;
+
+    --mono:"Courier New",ui-monospace,Menlo,Consolas,monospace;
+    --display:"Arial Black","Helvetica Neue",Arial,system-ui,sans-serif;
+    --body:Georgia,"Times New Roman",serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    margin:0;
+    background:var(--tea-brown);
+    color:var(--tan);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{color:var(--orange)}
+
+  ::selection{background:var(--orange);color:var(--ink)}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ---------- receipt-roll perforated header strip ---------- */
+  .roll{
+    background:var(--tea-brown-2);
+    border-bottom:1px solid var(--line-dk);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.22em;
+    color:var(--tan);
+    text-transform:uppercase;
+    padding:11px 0;
+    white-space:nowrap;
+    overflow:hidden;
+  }
+  .roll .wrap{display:flex;justify-content:space-between;gap:20px;align-items:center}
+  .roll b{color:var(--orange);font-weight:400}
+  .roll .dotrow{opacity:.5}
+
+  /* ---------- hero ---------- */
+  .hero{padding:70px 0 40px;position:relative}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:var(--orange);
+    margin:0 0 26px;
+  }
+  .eyebrow .tick{color:var(--tan);opacity:.55}
+  h1.title{
+    font-family:var(--display);
+    font-weight:900;
+    color:var(--paper);
+    letter-spacing:-.03em;
+    line-height:.96;
+    margin:0;
+    font-size:clamp(2.7rem,8.2vw,6.1rem);
+    text-transform:uppercase;
+  }
+  h1.title .em{color:var(--orange);display:block}
+  .lede{
+    max-width:640px;
+    margin:30px 0 0;
+    font-size:1.16rem;
+    color:#E7D9BE;
+  }
+  .lede .hl{color:var(--paper);font-style:italic}
+
+  .chips{
+    display:flex;flex-wrap:wrap;gap:0;
+    margin-top:40px;
+    border:1px solid var(--line-dk);
+    border-radius:3px;
+    overflow:hidden;
+    font-family:var(--mono);
+    max-width:760px;
+  }
+  .chip{
+    flex:1 1 auto;
+    min-width:150px;
+    padding:14px 18px;
+    border-right:1px solid var(--line-dk);
+    background:var(--tea-brown-2);
+  }
+  .chip:last-child{border-right:0}
+  .chip .k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--tan-dim);display:block;margin-bottom:5px}
+  .chip .v{font-size:1.02rem;color:var(--paper);letter-spacing:.01em}
+  .chip.fail{background:var(--brick-deep)}
+  .chip.fail .k{color:#F0C9C3}
+  .chip.fail .v{color:#fff;font-weight:bold;letter-spacing:.06em}
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:64px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+  .sec-num{
+    font-family:var(--mono);
+    color:var(--orange);
+    font-size:13px;
+    letter-spacing:.2em;
+    border:1px solid var(--orange-deep);
+    padding:3px 9px;
+    border-radius:2px;
+  }
+  .sec-title{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:-.01em;
+    color:var(--paper);
+    font-size:clamp(1.5rem,3.6vw,2.3rem);
+    margin:0;
+  }
+  .sec-sub{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--tan-dim);text-transform:uppercase}
+
+  /* ---------- signature: order chit ---------- */
+  .chit-zone{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:40px;
+    align-items:start;
+  }
+  .chit-side p{color:#E4D6BB;margin:0 0 18px}
+  .chit-side p:first-child{margin-top:0}
+  .chit-side .kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--orange);margin-bottom:14px;
+  }
+
+  .chit{
+    position:relative;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--mono);
+    padding:26px 24px 30px;
+    box-shadow:0 24px 50px -20px rgba(0,0,0,.7);
+    font-size:13.5px;
+    line-height:1.85;
+  }
+  .chit::before,.chit::after{
+    content:"";position:absolute;left:0;right:0;height:12px;
+    background:
+      linear-gradient(-45deg,var(--paper) 9px,transparent 0) 0 0/13px 13px repeat-x,
+      linear-gradient(45deg,var(--paper) 9px,transparent 0) 0 0/13px 13px repeat-x;
+  }
+  .chit::before{top:-11px}
+  .chit::after{bottom:-11px;transform:scaleY(-1)}
+  .chit h3{
+    margin:0;text-align:center;font-size:15px;letter-spacing:.16em;
+    color:var(--ink);font-family:var(--mono);font-weight:bold;
+  }
+  .chit .site{text-align:center;color:var(--ink-soft);font-size:11px;letter-spacing:.18em;margin-top:3px}
+  .rule{border:0;border-top:1.5px dashed #B9A987;margin:14px 0}
+  .item{display:flex;align-items:baseline}
+  .item .q{width:22px;color:var(--orange-deep);font-weight:bold}
+  .item .n{flex:1;overflow:hidden;white-space:nowrap}
+  .item .leader{color:#C5B593}
+  .item .p{color:var(--ink-soft)}
+  .allergy{
+    background:repeating-linear-gradient(45deg,#F7E4C6,#F7E4C6 8px,#F3DCB6 8px,#F3DCB6 16px);
+    border:1.5px solid var(--orange-deep);
+    padding:8px 10px;text-align:center;color:var(--brick);
+    font-weight:bold;letter-spacing:.12em;
+  }
+  .addr{color:var(--ink);white-space:pre-line}
+  .addr .lbl{color:var(--ink-soft);font-size:11px;letter-spacing:.18em}
+  .barcode{
+    height:44px;margin-top:16px;
+    background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 2px,var(--ink) 2px 3px,transparent 3px 6px,var(--ink) 6px 8px,transparent 8px 11px);
+    opacity:.82;
+  }
+  .barnum{text-align:center;font-size:10.5px;letter-spacing:.4em;color:var(--ink-soft);margin-top:6px}
+
+  .stamp{
+    position:absolute;
+    right:-14px;top:150px;
+    transform:rotate(-13deg) scale(1);
+    border:3px solid var(--brick);
+    color:var(--brick);
+    padding:8px 16px 6px;
+    text-align:center;
+    background:rgba(246,238,221,.4);
+    box-shadow:0 0 0 2px rgba(176,54,43,.25) inset;
+    border-radius:4px;
+    mix-blend-mode:multiply;
+  }
+  .stamp .big{font-family:var(--display);font-size:22px;letter-spacing:.02em;line-height:1;text-transform:uppercase;display:block}
+  .stamp .sm{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;margin-top:5px;display:block}
+
+  /* ---------- route timeline ---------- */
+  .route{display:flex;flex-direction:column;gap:0}
+  .step{
+    display:grid;
+    grid-template-columns:70px 1fr;
+    gap:22px;
+    padding:22px 0;
+    border-top:1px solid var(--line-dk);
+    align-items:start;
+  }
+  .step:first-child{border-top:0}
+  .step .code{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--tan-dim);
+    letter-spacing:.1em;
+    padding-top:3px;
+  }
+  .step .code b{display:block;color:var(--orange);font-size:20px;letter-spacing:0;font-weight:400}
+  .step .body h4{
+    margin:0 0 4px;
+    font-family:var(--mono);
+    font-size:1rem;
+    color:var(--paper);
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  }
+  .step .body p{margin:0;color:#DBCDB2;font-size:1rem;max-width:640px}
+  .step .tool{
+    font-family:var(--mono);font-size:11.5px;color:var(--tan-dim);
+    margin-top:8px;letter-spacing:.03em;
+    background:var(--tea-brown-2);border-left:2px solid var(--line-dk);
+    padding:5px 10px;display:inline-block;
+  }
+  .pill{
+    font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;padding:3px 9px;border-radius:2px;
+    border:1px solid;white-space:nowrap;
+  }
+  .pill.ok{color:var(--leaf);border-color:#3f6a4e;background:rgba(91,135,106,.12)}
+  .pill.blocked{color:var(--orange);border-color:var(--orange-deep);background:rgba(222,138,59,.1)}
+  .pill.fail{color:#E88;border-color:var(--brick);background:rgba(176,54,43,.14)}
+  .pill.pivot{color:#D9C48c;border-color:#8a7displaceholder}
+  .pill.pivot{color:#E4Cf97;border-color:#7d6a45;background:rgba(0,0,0,.15)}
+
+  /* browser frame screenshots */
+  .shot{margin-top:16px;max-width:560px;border:1px solid var(--line-dk);border-radius:6px;overflow:hidden;background:#111}
+  .shot .bar{
+    display:flex;align-items:center;gap:7px;
+    background:var(--tea-brown-3);padding:8px 12px;border-bottom:1px solid var(--line-dk);
+  }
+  .shot .dot{width:9px;height:9px;border-radius:50%;background:#5a4staticmp}
+  .shot .dot{width:9px;height:9px;border-radius:50%;background:#5b452e}
+  .shot .url{
+    font-family:var(--mono);font-size:11px;color:var(--tan);
+    margin-left:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .shot img{display:block;width:100%;height:auto}
+  .shot figcaption{
+    font-family:var(--mono);font-size:11px;color:var(--tan-dim);
+    padding:8px 12px;background:var(--tea-brown-2);letter-spacing:.03em;
+  }
+
+  /* ---------- analysis ---------- */
+  .analysis{background:var(--tea-brown-2);border-top:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk)}
+  .findings{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dk);border:1px solid var(--line-dk)}
+  .finding{background:var(--tea-brown);padding:26px 24px}
+  .finding.good{background:var(--tea-brown-3)}
+  .finding .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brick);margin-bottom:10px;display:flex;align-items:center;gap:8px;
+  }
+  .finding.good .tag{color:var(--leaf)}
+  .finding .tag .mk{font-size:15px;line-height:1}
+  .finding h4{margin:0 0 8px;font-family:var(--display);text-transform:uppercase;font-size:1.05rem;letter-spacing:-.01em;color:var(--paper)}
+  .finding p{margin:0;font-size:.98rem;color:#DBCDB2}
+
+  /* ---------- footer meta ---------- */
+  .meta-tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+  .meta-tbl td{padding:11px 14px;border-bottom:1px solid var(--line-dk);vertical-align:top}
+  .meta-tbl td.k{color:var(--tan-dim);letter-spacing:.12em;text-transform:uppercase;font-size:11px;width:210px;white-space:nowrap}
+  .meta-tbl td.v{color:var(--paper)}
+  .foot-note{font-family:var(--mono);font-size:11.5px;color:var(--tan-dim);margin-top:28px;letter-spacing:.04em;line-height:1.9}
+
+  footer{padding:44px 0 70px}
+  .sign{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--tan-dim);text-align:center;margin-top:40px;
+  }
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+  @media (max-width:860px){
+    .chit-zone{grid-template-columns:1fr}
+    .chit{max-width:340px}
+    .findings{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .roll .dotrow{display:none}
+    .step{grid-template-columns:1fr;gap:8px}
+    .chip{min-width:120px}
+  }
+</style>
+</head>
+<body>
+
+  <div class="roll">
+    <div class="wrap">
+      <span><b>&#9673; CLAWBENCH</b> &nbsp; DAILY-LIFE / FOOD / DELIVERY</span>
+      <span class="dotrow">&bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull;</span>
+      <span>ORDER #01_001</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Case 01_001 <span class="tick">//</span> uber-eats trajectory <span class="tick">//</span> claude-haiku-4-5</p>
+      <h1 class="title">The order that<span class="em">never left the kitchen.</span></h1>
+      <p class="lede">An agent was asked to order <span class="hl">one Pad Thai and one Thai iced tea</span> to a Toronto address, hold the peanuts. Seventeen minutes later it had a restaurant picked, an address ready, and a cart that was still empty. Then it stopped moving &mdash; and the timeout closed the ticket.</p>
+
+      <div class="chips">
+        <div class="chip"><span class="k">Model</span><span class="v">claude-haiku-4-5</span></div>
+        <div class="chip"><span class="k">Platform</span><span class="v">uber-eats <span style="color:var(--tan-dim)">(intended)</span></span></div>
+        <div class="chip"><span class="k">Runtime</span><span class="v">17m 13s</span></div>
+        <div class="chip fail"><span class="k">Verdict</span><span class="v">Failed</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">THE TICKET</span>
+        <h2 class="sec-title">What was supposed to arrive</h2>
+      </div>
+
+      <div class="chit-zone">
+        <div class="chit-side rv">
+          <p class="kicker">Read from /my-info before the browser opened</p>
+          <p>The agent had everything it needed on paper. It read the user profile, pulled out <strong style="color:var(--paper)">Alex Green&rsquo;s</strong> home address, and knew exactly what to order and where to send it.</p>
+          <p>The order below is the whole task, fully specified. Nothing here was ambiguous. The gap was never in <em>knowing</em> &mdash; it was in <em>placing</em>. No storefront ever accepted these two lines.</p>
+          <p>So the receipt was written, but the kitchen never got it.</p>
+        </div>
+
+        <div style="position:relative">
+          <div class="chit rv">
+            <h3>CLAWBENCH KITCHEN</h3>
+            <div class="site">DELIVERY &middot; ORDER #01_001</div>
+            <hr class="rule">
+            <div class="item"><span class="q">1&times;</span><span class="n">PAD THAI <span class="leader">&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span></span><span class="p">&mdash;</span></div>
+            <div class="item"><span class="q">1&times;</span><span class="n">THAI ICED TEA <span class="leader">&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span></span><span class="p">&mdash;</span></div>
+            <hr class="rule">
+            <div class="allergy">** NO PEANUTS **</div>
+            <hr class="rule">
+            <div class="addr"><span class="lbl">DELIVER TO</span>
+Alex Green
+Unit 1208, 664 Spadina Ave
+Toronto, ON  M5S 2H7</div>
+            <div class="barcode" aria-hidden="true"></div>
+            <div class="barnum">0 1 _ 0 0 1 &nbsp; H A I K U 4 5</div>
+          </div>
+          <div class="stamp rv" aria-label="Status: not placed, idle timeout at 900 seconds">
+            <span class="big">Not&nbsp;Placed</span>
+            <span class="sm">IDLE TIMEOUT &middot; 900s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">THE ROUTE</span>
+        <h2 class="sec-title">Twelve moves, no delivery</h2>
+        <span class="sec-sub">every attempt, in order</span>
+      </div>
+
+      <div class="route">
+
+        <div class="step rv">
+          <div class="code"><b>01</b>LOOKUP</div>
+          <div class="body">
+            <h4>Read the user profile <span class="pill ok">Done</span></h4>
+            <p>Opened <code>/my-info/</code>, read Alex Green&rsquo;s details, and locked in the home address at 664 Spadina Ave. The one clean step of the run.</p>
+            <div class="tool">read &rarr; alex_green_personal_info.json</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>02</b>LAUNCH</div>
+          <div class="body">
+            <h4>Start the browser session <span class="pill ok">Done</span></h4>
+            <p>Brought up a headed Chromium session over CDP. From here on, everything ran through the page.</p>
+            <div class="tool">browser &rarr; start &nbsp;(chromium, port 9222)</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>03</b>DOORDASH.CA</div>
+          <div class="body">
+            <h4>Wrong front door <span class="pill blocked">Blocked</span></h4>
+            <p>Went to DoorDash Canada and landed on &ldquo;Door Dash Geeks &mdash; Tech Support,&rdquo; a squatted lookalike domain. Not a food site at all.</p>
+            <div class="tool">browser &rarr; navigate &nbsp;https://www.doordash.ca</div>
+            <figure class="shot">
+              <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">doordash.ca</span></div>
+              <img loading="lazy" alt="DoorDash.ca showing an unrelated tech-support squatter page" src="__IMG16__">
+              <figcaption>Step 03 &middot; not the delivery service &mdash; a tech-support squatter</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>04</b>DOORDASH.COM</div>
+          <div class="body">
+            <h4>Bot check <span class="pill blocked">Blocked</span></h4>
+            <p>Switched to the .com. It sat on &ldquo;Just a moment&hellip;&rdquo; and then a human-verification wall. Waited three seconds, re-shot the page, still gated.</p>
+            <div class="tool">browser &rarr; navigate + wait 3000ms</div>
+            <figure class="shot">
+              <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">doordash.com</span></div>
+              <img loading="lazy" alt="DoorDash.com human-verification challenge screen" src="__IMG28__">
+              <figcaption>Step 04 &middot; &ldquo;verify you are human&rdquo; &mdash; the cart is unreachable</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>05</b>UBEREATS.COM</div>
+          <div class="body">
+            <h4>The intended platform &mdash; blank <span class="pill blocked">Blocked</span></h4>
+            <p>Tried Uber Eats, the platform this case is actually scored against. The page rendered empty: no menu, no address field, nothing to act on. The accessibility snapshot came back with no usable controls.</p>
+            <div class="tool">browser &rarr; navigate &nbsp;https://www.ubereats.com</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>06</b>MAPS</div>
+          <div class="body">
+            <h4>Pivot to Google Maps <span class="pill pivot">Pivot</span></h4>
+            <p>With every delivery app walled off, it changed tack: open Maps and search for a Thai place near the address, hoping to reach an &ldquo;Order online&rdquo; hand-off.</p>
+            <div class="tool">browser &rarr; type &nbsp;&ldquo;Thai restaurant 664 Spadina Ave Toronto&rdquo;</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>07</b>RESULTS</div>
+          <div class="body">
+            <h4>Picked Isaan Der &mdash; Thai Kitchen &amp; Bar <span class="pill ok">Found</span></h4>
+            <p>Chose a 4.9&#9733; spot at 327 Spadina, minutes from the delivery address. Reasonable pick &mdash; and it noted the place was closed until 11:30&nbsp;AM, a real blocker it surfaced honestly.</p>
+            <div class="tool">browser &rarr; click &nbsp;&ldquo;Order online&rdquo;</div>
+            <figure class="shot">
+              <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">google.com/maps/search/Thai+restaurant&hellip;</span></div>
+              <img loading="lazy" alt="Google Maps results listing Thai restaurants near Spadina Avenue" src="__IMG54__">
+              <figcaption>Step 07 &middot; Thai restaurants near the delivery address</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>08</b>PROVIDER</div>
+          <div class="body">
+            <h4>Opened the &ldquo;order online&rdquo; chooser <span class="pill ok">Loaded</span></h4>
+            <p>Reached Google&rsquo;s provider hand-off for the restaurant &mdash; the last page it ever saw. One click from a real ordering flow.</p>
+            <div class="tool">browser &rarr; navigate &nbsp;google.com/viewer/chooseprovider</div>
+            <figure class="shot">
+              <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">google.com/viewer/chooseprovider</span></div>
+              <img loading="lazy" alt="Google order-provider chooser page for the restaurant" src="__IMG64__">
+              <figcaption>Step 08 &middot; the final frame before the browser went dark</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>09</b>CRASH</div>
+          <div class="body">
+            <h4>Browser gateway timed out <span class="pill fail">Failed</span></h4>
+            <p>The next screenshot never came back. The tool returned a hard timeout and told the agent <em>not</em> to retry &mdash; restart the gateway or find another way.</p>
+            <div class="tool">browser &rarr; screenshot &nbsp;// timed out &middot; do not retry</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>10</b>FALLBACK</div>
+          <div class="body">
+            <h4>Web search, no key <span class="pill fail">Failed</span></h4>
+            <p>Reached for a web search to find the restaurant&rsquo;s own ordering page. That tool wasn&rsquo;t configured &mdash; missing Brave API key. Both escape hatches were now shut.</p>
+            <div class="tool">web_search &rarr; missing_brave_api_key</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>11</b>HAND-OFF</div>
+          <div class="body">
+            <h4>Wrote advice instead of ordering <span class="pill blocked">Off-task</span></h4>
+            <p>It summarized the restaurant, restated the order details, listed &ldquo;next steps&rdquo; &mdash; call them, visit their site, try later &mdash; and asked &ldquo;anything else?&rdquo; A helpful note, but the benchmark scores a <em>placed</em> order, not a recommendation.</p>
+            <div class="tool">assistant &rarr; final message (no order request emitted)</div>
+          </div>
+        </div>
+
+        <div class="step rv">
+          <div class="code"><b>12</b>IDLE</div>
+          <div class="body">
+            <h4>Went quiet <span class="pill fail">Timeout</span></h4>
+            <p>After the hand-off it took no further action. ClawBench waits to intercept an order request that never fired. Fifteen minutes of silence tripped the idle timeout and closed the case.</p>
+            <div class="tool">session &rarr; agent_idle &middot; 900s no actions</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="analysis">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">POST-MORTEM</span>
+        <h2 class="sec-title">Where the ticket died</h2>
+      </div>
+
+      <div class="findings">
+        <div class="finding rv">
+          <div class="tag"><span class="mk">&#9632;</span> Access</div>
+          <h4>Every front door was locked</h4>
+          <p>DoorDash threw a bot check, Uber Eats rendered blank, and the .ca domain was a squatter. The agent never reached a working storefront, so the cart could never fill.</p>
+        </div>
+        <div class="finding rv">
+          <div class="tag"><span class="mk">&#9632;</span> Infrastructure</div>
+          <h4>The one live path crashed</h4>
+          <p>Google Maps got it to a restaurant and a provider chooser &mdash; then the browser gateway timed out mid-navigation and forbade a retry. The recovery route vanished at the worst moment.</p>
+        </div>
+        <div class="finding rv">
+          <div class="tag"><span class="mk">&#9632;</span> Task fidelity</div>
+          <h4>It swapped the task for advice</h4>
+          <p>With no browser, it produced a tidy write-up of the restaurant and next steps. Separating report quality from task success, this is the split: the prose was fine, the objective was not met.</p>
+        </div>
+        <div class="finding rv">
+          <div class="tag"><span class="mk">&#9632;</span> Recovery</div>
+          <h4>Silence read as failure</h4>
+          <p>After the hand-off the agent stopped acting rather than restarting the gateway or retrying. The harness needs an order request to score; 900s of idle closed the case as <strong style="color:#E88">failed</strong>.</p>
+        </div>
+        <div class="finding good rv" style="grid-column:1 / -1">
+          <div class="tag"><span class="mk">&#9679;</span> Worked as intended</div>
+          <h4>It read the untrusted pages safely</h4>
+          <p>Every page snapshot arrived wrapped in a prompt-injection warning about external, untrusted content. The agent treated all of it as data and never as instructions &mdash; no injected command was ever followed. Faithfulness held, even as the task failed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">MANIFEST</span>
+        <h2 class="sec-title">Run record</h2>
+      </div>
+      <table class="meta-tbl">
+        <tr><td class="k">Benchmark</td><td class="v">ClawBench &middot; daily_web_tasks &middot; class: food</td></tr>
+        <tr><td class="k">Case ID</td><td class="v">01_001-daily-life-food-uber-eats</td></tr>
+        <tr><td class="k">Instruction</td><td class="v">Order delivery: one Pad Thai + one Thai Iced Tea, deliver to home address, note &ldquo;no peanuts&rdquo;</td></tr>
+        <tr><td class="k">Model</td><td class="v">claude-haiku-4-5-20251001 &middot; thinking: medium &middot; provider: cliproxy</td></tr>
+        <tr><td class="k">Sites involved</td><td class="v">ubereats.com &nbsp;(reached: doordash.ca, doordash.com, ubereats.com, google.com/maps)</td></tr>
+        <tr><td class="k">Identity</td><td class="v">Alex Green &middot; cb5ec1734fb9cd@clawbench.cc (disposable)</td></tr>
+        <tr><td class="k">Duration</td><td class="v">1033s &nbsp;(17m 13s of a 30m limit)</td></tr>
+        <tr><td class="k">Stop reason</td><td class="v">agent_idle &mdash; &ldquo;went idle (900s no actions) before triggering the eval interceptor&rdquo;</td></tr>
+        <tr><td class="k">Verdict</td><td class="v" style="color:#E88;font-weight:bold">FAILED</td></tr>
+      </table>
+
+      <p class="foot-note">
+        Shown: 4 of 9 browser captures from the trajectory, chosen for the turning points.<br>
+        Full screenshot set stored as run media outside this case bundle (not embedded).<br>
+        Stripped field in the case bundle: <code>passed</code>. &nbsp; Trajectory format: clawbench-dir.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p class="sign">END OF TICKET &middot; ORDER #01_001 &middot; NO DELIVERY</p>
+    </div>
+  </footer>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.rv');
+    if(reduce || !('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentHTML · Google Flights · Toronto → Montreal</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080d1a;
+    --bg2: #0d1427;
+    --surface: rgba(255,255,255,0.04);
+    --surface-hover: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.08);
+    --border-accent: rgba(99,130,255,0.35);
+    --blue: #4f8ef7;
+    --blue-light: #7aaeff;
+    --purple: #a78bfa;
+    --green: #34d399;
+    --red: #f87171;
+    --amber: #fbbf24;
+    --text: #e2e8f0;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Noise texture overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── Background glow blobs ── */
+  .bg-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bg-blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%); top: -200px; left: -150px; }
+  .bg-blob-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%); top: 30%; right: -150px; }
+  .bg-blob-3 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(52,211,153,0.07) 0%, transparent 70%); bottom: 10%; left: 20%; }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(8,13,26,0.7);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(8,13,26,0.92);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: white;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* ── Main content ── */
+  main { position: relative; z-index: 1; padding-top: 60px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 6rem 0 4rem;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(79,142,247,0.12);
+    border: 1px solid rgba(79,142,247,0.3);
+    color: var(--blue-light);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeSlideDown 0.6s ease both;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.55));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeSlideDown 0.6s 0.1s ease both;
+  }
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    animation: fadeSlideDown 0.6s 0.2s ease both;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    animation: fadeSlideDown 0.6s 0.3s ease both;
+  }
+  .meta-pill {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  .meta-pill .icon { font-size: 0.85rem; }
+  .meta-pill strong { color: var(--text); }
+
+  /* ── Flight card ── */
+  .section { padding: 3.5rem 0; }
+  .section-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .section-desc {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ── Glass card ── */
+  .glass-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .glass-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    border-color: var(--border-accent);
+    background: var(--surface-hover);
+  }
+
+  /* ── Flight route display ── */
+  .flight-display {
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .flight-route-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 600px) { .flight-route-grid { grid-template-columns: 1fr; } }
+  .flight-leg {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+  }
+  .flight-leg-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .flight-airports {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.6rem;
+  }
+  .airport-code {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .flight-arrow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .flight-arrow-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    position: relative;
+  }
+  .flight-arrow-line::after {
+    content: '✈';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    color: var(--blue);
+  }
+  .flight-duration-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .flight-times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  .flight-airline-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .airline-badge {
+    background: rgba(79,142,247,0.12);
+    color: var(--blue-light);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  .nonstop-badge {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* ── Price breakdown ── */
+  .price-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .price-badge {
+    display: flex; align-items: center; gap: 6px;
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .price-badge.cheapest {
+    background: rgba(52,211,153,0.12);
+    border: 1px solid rgba(52,211,153,0.3);
+    color: var(--green);
+  }
+  .price-badge.selected {
+    background: rgba(79,142,247,0.12);
+    border: 1px solid rgba(79,142,247,0.3);
+    color: var(--blue-light);
+  }
+  .price-main {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--text);
+  }
+  .price-sub { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* ── Timeline ── */
+  .timeline { position: relative; padding-left: 2.5rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--purple), rgba(167,139,250,0.2));
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 1.25rem;
+    animation: fadeSlideRight 0.5s ease both;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 14px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    border: 2px solid var(--bg);
+    z-index: 1;
+  }
+  .tl-dot.info { background: var(--blue); color: white; }
+  .tl-dot.success { background: var(--green); color: #0a1a0f; }
+  .tl-dot.warn { background: var(--amber); color: #1a1000; }
+  .tl-dot.error { background: var(--red); color: white; }
+  .tl-dot.nav { background: var(--purple); color: white; }
+  .tl-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.2rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .tl-body:hover {
+    border-color: var(--border-accent);
+    background: var(--surface-hover);
+  }
+  .tl-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .tl-desc {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .tl-tag {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag-browser { background: rgba(79,142,247,0.15); color: var(--blue-light); }
+  .tag-file { background: rgba(167,139,250,0.15); color: var(--purple); }
+  .tag-form { background: rgba(251,191,36,0.15); color: var(--amber); }
+  .tag-payment { background: rgba(248,113,113,0.15); color: var(--red); }
+  .tag-select { background: rgba(52,211,153,0.15); color: var(--green); }
+
+  /* ── Observations ── */
+  .obs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .obs-card {
+    padding: 1.4rem;
+  }
+  .obs-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+  .obs-icon.blue { background: rgba(79,142,247,0.15); }
+  .obs-icon.green { background: rgba(52,211,153,0.15); }
+  .obs-icon.amber { background: rgba(251,191,36,0.15); }
+  .obs-icon.red { background: rgba(248,113,113,0.15); }
+  .obs-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .obs-text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.55; }
+
+  /* ── Outcome banner ── */
+  .outcome-banner {
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(248,113,113,0.08) 0%, rgba(251,191,36,0.05) 100%);
+  }
+  .outcome-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .outcome-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .outcome-desc {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .outcome-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+  .outcome-step {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .outcome-step.done { background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.25); color: var(--green); }
+  .outcome-step.fail { background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.25); color: var(--red); }
+
+  /* ── Stats row ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .stat-card {
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    position: relative;
+    z-index: 1;
+  }
+  footer a { color: var(--blue); text-decoration: none; }
+
+  /* ── Animations ── */
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeSlideRight {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Intersection observer animation */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Timeline item delays */
+  .tl-item:nth-child(1) { animation-delay: 0.05s; }
+  .tl-item:nth-child(2) { animation-delay: 0.1s; }
+  .tl-item:nth-child(3) { animation-delay: 0.15s; }
+  .tl-item:nth-child(4) { animation-delay: 0.2s; }
+  .tl-item:nth-child(5) { animation-delay: 0.25s; }
+  .tl-item:nth-child(6) { animation-delay: 0.3s; }
+  .tl-item:nth-child(7) { animation-delay: 0.35s; }
+  .tl-item:nth-child(8) { animation-delay: 0.4s; }
+  .tl-item:nth-child(9) { animation-delay: 0.45s; }
+  .tl-item:nth-child(10) { animation-delay: 0.5s; }
+  .tl-item:nth-child(11) { animation-delay: 0.55s; }
+  .tl-item:nth-child(12) { animation-delay: 0.6s; }
+  .tl-item:nth-child(13) { animation-delay: 0.65s; }
+  .tl-item:nth-child(14) { animation-delay: 0.7s; }
+
+  /* ── Accordion ── */
+  details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  details[open] { border-color: var(--border-accent); }
+  summary {
+    padding: 0.9rem 1.2rem;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { background: var(--surface-hover); }
+  .summary-arrow {
+    margin-left: auto;
+    color: var(--text-muted);
+    transition: transform 0.25s;
+    font-size: 0.7rem;
+  }
+  details[open] .summary-arrow { transform: rotate(90deg); }
+  .details-body {
+    padding: 0.75rem 1.2rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hero { padding: 4rem 0 2.5rem; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background blobs -->
+<div class="bg-blob bg-blob-1"></div>
+<div class="bg-blob bg-blob-2"></div>
+<div class="bg-blob bg-blob-3"></div>
+
+<!-- Nav -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">✈</div>
+    AgentHTML
+  </a>
+  <ul class="nav-links">
+    <li><a href="#task">Task</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#observations">Observations</a></li>
+    <li><a href="#outcome">Outcome</a></li>
+  </ul>
+  <a class="nav-cta" href="#outcome">See Result</a>
+</nav>
+
+<main>
+  <!-- ── Hero ── -->
+  <section class="hero" id="task">
+    <div class="container">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        ClawBench · Daily Web Tasks · #02-019
+      </div>
+      <h1>Toronto <span>→</span> Montreal<br>Flight Booking</h1>
+      <p class="hero-sub">
+        An autonomous agent was asked to find and purchase the cheapest
+        round-trip economy flight via Google Flights, completing every step
+        through a live browser.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-pill"><span class="icon">🤖</span> <strong>claude-haiku-4-5</strong></div>
+        <div class="meta-pill"><span class="icon">⏱</span> <strong>23.6 min</strong> duration</div>
+        <div class="meta-pill"><span class="icon">📅</span> Run on <strong>2026-03-25</strong></div>
+        <div class="meta-pill"><span class="icon">🧠</span> Thinking: <strong>medium</strong></div>
+        <div class="meta-pill"><span class="icon">🌐</span> <strong>google.com</strong></div>
+        <div class="meta-pill"><span class="icon">👤</span> Persona: <strong>Alex Green</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Task & stats ── -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-row animate-on-scroll">
+        <div class="stat-card glass-card">
+          <div class="stat-value">323</div>
+          <div class="stat-label">Agent messages</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-value">$295</div>
+          <div class="stat-label">Fare selected (CAD)</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-value">11</div>
+          <div class="stat-label">Nights in Montreal</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-value">2</div>
+          <div class="stat-label">Nonstop legs</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-value">14</div>
+          <div class="stat-label">Key action steps</div>
+        </div>
+      </div>
+
+      <!-- Task statement -->
+      <div class="glass-card animate-on-scroll" style="padding:1.75rem 2rem; margin-bottom:2rem;">
+        <div class="section-label" style="text-align:left; margin-bottom:0.75rem;">Task Instruction</div>
+        <p style="font-size:1.05rem; font-weight:500; color:var(--text); line-height:1.65;">
+          "Buy round-trip tickets from Toronto to Montreal, departing <strong>June 01</strong> and
+          returning <strong>June 12</strong> this year, economy class, select the <strong>cheapest option</strong>."
+        </p>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">
+          Constraint: Complete entirely through the browser. Personal info available under <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:4px;">/my-info/</code>.
+        </p>
+      </div>
+
+      <!-- Selected flights display -->
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Selected Itinerary</div>
+        <div class="section-title">Cheapest Round-Trip Found</div>
+        <div class="section-desc">WestJet UltraBasic · Economy · Nonstop both ways</div>
+      </div>
+
+      <div class="glass-card flight-display animate-on-scroll">
+        <div class="flight-route-grid">
+          <!-- Outbound -->
+          <div class="flight-leg">
+            <div class="flight-leg-label">Outbound · Mon, Jun 1</div>
+            <div class="flight-airports">
+              <div>
+                <div class="airport-code">YYZ</div>
+                <div style="font-size:0.7rem;color:var(--text-muted)">Toronto Pearson</div>
+              </div>
+              <div class="flight-arrow">
+                <div class="flight-arrow-line"></div>
+                <div class="flight-duration-label">1 hr 25 min</div>
+              </div>
+              <div style="text-align:right">
+                <div class="airport-code">YUL</div>
+                <div style="font-size:0.7rem;color:var(--text-muted)">Montréal–Trudeau</div>
+              </div>
+            </div>
+            <div class="flight-times">
+              <span style="font-size:1rem;font-weight:700;color:var(--text)">16:55</span>
+              <span style="font-size:1rem;font-weight:700;color:var(--text)">18:20</span>
+            </div>
+            <div class="flight-airline-row">
+              <span><span class="airline-badge">WestJet WS816</span></span>
+              <span class="nonstop-badge">● Nonstop</span>
+            </div>
+          </div>
+
+          <!-- Return -->
+          <div class="flight-leg">
+            <div class="flight-leg-label">Return · Fri, Jun 12</div>
+            <div class="flight-airports">
+              <div>
+                <div class="airport-code">YUL</div>
+                <div style="font-size:0.7rem;color:var(--text-muted)">Montréal–Trudeau</div>
+              </div>
+              <div class="flight-arrow">
+                <div class="flight-arrow-line"></div>
+                <div class="flight-duration-label">1 hr 30 min</div>
+              </div>
+              <div style="text-align:right">
+                <div class="airport-code">YYZ</div>
+                <div style="font-size:0.7rem;color:var(--text-muted)">Toronto Pearson</div>
+              </div>
+            </div>
+            <div class="flight-times">
+              <span style="font-size:1rem;font-weight:700;color:var(--text)">06:45</span>
+              <span style="font-size:1rem;font-weight:700;color:var(--text)">08:15</span>
+            </div>
+            <div class="flight-airline-row">
+              <span><span class="airline-badge">WestJet WS859</span></span>
+              <span class="nonstop-badge">● Nonstop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price row -->
+        <div class="price-row">
+          <div>
+            <div style="font-size:0.7rem;color:var(--text-muted);margin-bottom:4px;">Cheapest available on Google Flights</div>
+            <div style="display:flex;align-items:baseline;gap:6px;">
+              <span class="price-main">$267</span>
+              <span class="price-sub">CAD (FlightHub / Justfly.com)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.7rem;color:var(--text-muted);margin-bottom:4px;">Fare booked (WestJet UltraBasic)</div>
+            <div style="display:flex;align-items:baseline;gap:6px;">
+              <span class="price-main">$295</span>
+              <span class="price-sub">CAD · Total $406.37 with taxes</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <div class="price-badge cheapest">✓ Cheapest tier identified</div>
+            <div class="price-badge selected">↳ WestJet booked</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Journey Timeline ── -->
+  <section class="section" id="journey">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Agent Trajectory</div>
+        <div class="section-title">Step-by-Step Journey</div>
+        <div class="section-desc">How the agent navigated from task to booking</div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot info">1</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-file">File</span>Read persona data</div>
+            <div class="tl-desc">
+              Accessed <code>/my-info/alex_green_personal_info.json</code> and <code>email_credentials.json</code>.
+              Learned passenger is <strong>Alex Green</strong> (Canadian, female, DOB 1980-May-01).
+              Email: <code>cb886f0e8f0d02@clawbench.cc</code>.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot nav">2</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>Opened Google Flights</div>
+            <div class="tl-desc">
+              Launched browser and navigated to <strong>google.com/travel/flights</strong>.
+              Confirmed the form defaulted to "Round trip" and "Economy" — matching task requirements.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot info">3</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>Entered origin: Toronto (YYZ)</div>
+            <div class="tl-desc">
+              Clicked "Where from?", typed "Toronto", selected
+              <strong>Toronto Pearson International Airport (YYZ)</strong> from suggestions.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot info">4</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>Entered destination: Montreal (YUL)</div>
+            <div class="tl-desc">
+              Clicked "Where to?", typed "Montreal", selected
+              <strong>Montréal-Pierre Elliott Trudeau International Airport (YUL)</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot info">5</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>Set dates: Jun 1 → Jun 12</div>
+            <div class="tl-desc">
+              Opened calendar picker and selected departure <strong>June 1, 2026</strong>
+              and return <strong>June 12, 2026</strong>. Note: calendar showed 2026 (current year at run time).
+              Confirmed both dates highlighted before closing picker.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot success">6</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-select">Select</span>Searched & found cheapest flight</div>
+            <div class="tl-desc">
+              Clicked Search. Results loaded showing multiple options.
+              Identified <strong>WestJet at $295</strong> as listed cheapest, then noticed
+              <strong>FlightHub / Justfly.com at $267</strong> as the absolute cheapest.
+              Selected WestJet outbound: 4:55 PM → 6:20 PM (Flight WS816, nonstop).
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot success">7</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-select">Select</span>Chose return flight</div>
+            <div class="tl-desc">
+              On the return leg screen, selected WestJet 6:45 AM → 8:15 AM (Flight WS859, nonstop, 1 hr 30 min).
+              Itinerary confirmed: $295 round trip.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot warn">8</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>Booking options page — pivot attempt</div>
+            <div class="tl-desc">
+              Booking panel showed: WestJet UltraBasic $295 · FlightHub $267 · Justfly $267 · Travomint $318.
+              Agent clicked FlightHub (cheapest) but the button opened a new tab.
+              Browser navigation ended up on the <strong>WestJet tab</strong> that had also opened — agent continued there.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot info">9</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>WestJet UltraBasic acknowledgement</div>
+            <div class="tl-desc">
+              WestJet showed a "Make sure UltraBasic is right for you" dialog listing fare restrictions
+              (no carry-on, no seat selection, no changes). Agent checked the acknowledgement checkbox
+              and clicked "Continue With UltraBasic".
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot form">10</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-form">Form</span>Filled passenger info</div>
+            <div class="tl-desc">
+              Proceeded as guest. Filled in: Title: <em>Mr.</em> (incorrect — Alex Green is female),
+              First Name: Alex, Last Name: Green, DOB: 15/03/1990, Gender: Female,
+              Email: alex.green@email.com, Phone: 14165550123.
+              Skipped seat selection (UltraBasic restriction), skipped baggage add-ons, declined travel insurance.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot info">11</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-browser">Browser</span>Booking summary confirmed</div>
+            <div class="tl-desc">
+              Summary page at <code>payment.westjet.com</code> showed full itinerary.
+              Total price: <strong>$406.37 CAD</strong> (base $295 + fees/taxes).
+              Agent acknowledged terms and proceeded to payment.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot warn">12</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-payment">Payment</span>Entered credit card details</div>
+            <div class="tl-desc">
+              Agent filled in a synthetic credit card: <code>4532 0151 1283 0366</code>,
+              cardholder "Alex Green", expiry, CVV 123, billing address (Ontario, Canada, M5H 2N2).
+              Note: Province inadvertently set to Nunavut then attempted correction.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot warn">13</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-payment">Payment</span>Submitted payment</div>
+            <div class="tl-desc">
+              Clicked "Pay now". Page displayed loading message:
+              <em>"We're holding your flights as we complete your booking…"</em>
+              After processing, received error dialog.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot error">14</div>
+          <div class="tl-body">
+            <div class="tl-title"><span class="tl-tag tag-payment">Payment</span>Payment declined · Booking incomplete</div>
+            <div class="tl-desc">
+              WestJet returned: <strong>"Payment was not successful."</strong>
+              "We are unable to process your payment. Please check your payment details and try again."
+              Expected result — agent used synthetic card data in a live environment.
+              No booking confirmation received.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ / Details ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Deep Dive</div>
+        <div class="section-title">Notable Details</div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <details>
+          <summary>
+            Why did the agent end up on WestJet instead of FlightHub (cheapest)?
+            <span class="summary-arrow">▶</span>
+          </summary>
+          <div class="details-body">
+            Google Flights booking buttons open third-party sites in <strong>new browser tabs</strong>.
+            The agent clicked FlightHub's "Continue" button which triggered tab creation for both
+            FlightHub and WestJet simultaneously. When switching tabs, the agent landed on the WestJet
+            tab (bookid <code>25-3-2026-7-17-30-67271</code>) and continued the flow there.
+            FlightHub was $28 cheaper ($267 vs $295) but was never completed.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What personal information did the agent use?
+            <span class="summary-arrow">▶</span>
+          </summary>
+          <div class="details-body">
+            <strong>From /my-info/alex_green_personal_info.json:</strong><br>
+            Name: Alex Green · DOB: 1980-May-01 · Gender: Female · Nationality: Canadian<br><br>
+            <strong>Booking form (with errors):</strong><br>
+            Title entered as <em>Mr.</em> (should be Ms./Mrs. for female passenger) ·
+            DOB entered as 15/03/1990 (different from actual 1980-May-01) ·
+            Email: alex.green@email.com (synthetic, not the clawbench email) ·
+            Phone: 14165550123 (synthetic)
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            How did the agent handle extras and add-ons?
+            <span class="summary-arrow">▶</span>
+          </summary>
+          <div class="details-body">
+            The agent consistently skipped all upsells to preserve the cheapest option:
+            <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.8;">
+              <li>Seat selection: clicked "Skip seat selection" and confirmed the skip dialog</li>
+              <li>Checked bags: clicked "Continue to extras" without adding any</li>
+              <li>Travel insurance ($406.37 trip protection): clicked "No, I don't want to protect my trip"</li>
+              <li>Car rental: skipped</li>
+            </ul>
+            This correctly kept costs at the $295 base fare.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What was the total price breakdown?
+            <span class="summary-arrow">▶</span>
+          </summary>
+          <div class="details-body">
+            The summary page showed a total of <strong>$406.37 CAD</strong>, which includes the
+            $295 CAD base fare plus applicable taxes, fees, and airport charges for two WestJet
+            nonstop flights (YYZ→YUL on WS816 and YUL→YYZ on WS859). The UltraBasic fare
+            does not include carry-on bags, seat selection, or changes.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What errors or tool failures occurred during the run?
+            <span class="summary-arrow">▶</span>
+          </summary>
+          <div class="details-body">
+            Several non-critical tool errors occurred:
+            <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.8;">
+              <li>Initial read of <code>/my-info/</code> as directory (EISDIR error) — recovered by listing then reading specific file</li>
+              <li>Scroll action validation error (invalid <code>kind</code> value) — occurred twice, agent continued without scrolling</li>
+              <li>Element not found errors after page transitions — resolved by taking fresh snapshots</li>
+              <li>Province inadvertently selected as Nunavut instead of Ontario on payment form</li>
+            </ul>
+            None of these errors caused the agent to abort or restart the task.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Observations ── -->
+  <section class="section" id="observations">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Analysis</div>
+        <div class="section-title">Key Observations</div>
+        <div class="section-desc">What this trajectory reveals about agent behavior on booking tasks</div>
+      </div>
+
+      <div class="obs-grid">
+        <div class="glass-card obs-card animate-on-scroll">
+          <div class="obs-icon green">✓</div>
+          <div class="obs-title">Correct search & filtering</div>
+          <div class="obs-text">
+            The agent correctly set all search parameters: round trip, YYZ→YUL, Jun 1–12, economy class.
+            It also correctly identified the absolute cheapest option across booking platforms ($267 on FlightHub).
+          </div>
+        </div>
+
+        <div class="glass-card obs-card animate-on-scroll">
+          <div class="obs-icon amber">⚠</div>
+          <div class="obs-title">Tab-handling confusion</div>
+          <div class="obs-text">
+            When Google Flights opened multiple tabs for booking providers, the agent lost track of which
+            tab corresponded to the cheapest provider (FlightHub $267) and instead continued on the
+            more expensive WestJet tab ($295).
+          </div>
+        </div>
+
+        <div class="glass-card obs-card animate-on-scroll">
+          <div class="obs-icon red">✗</div>
+          <div class="obs-title">Passenger data inaccuracies</div>
+          <div class="obs-text">
+            The agent entered wrong title (Mr. vs Ms. for female passenger) and a different date of birth
+            (15/03/1990 vs actual 1980-May-01 from persona file). Email and phone were also synthetic
+            rather than from the persona file.
+          </div>
+        </div>
+
+        <div class="glass-card obs-card animate-on-scroll">
+          <div class="obs-icon green">🛡</div>
+          <div class="obs-title">Consistent upsell avoidance</div>
+          <div class="obs-text">
+            The agent reliably skipped all add-ons (seats, bags, insurance, car rental) at every step,
+            correctly prioritizing the cheapest total cost as instructed.
+          </div>
+        </div>
+
+        <div class="glass-card obs-card animate-on-scroll">
+          <div class="obs-icon red">💳</div>
+          <div class="obs-title">No valid payment method</div>
+          <div class="obs-text">
+            The agent had no real credit card in the persona file and used a synthetic test card number.
+            The payment was predictably declined. This is a fundamental limitation for tasks requiring
+            actual financial transactions.
+          </div>
+        </div>
+
+        <div class="glass-card obs-card animate-on-scroll">
+          <div class="obs-icon blue">🔄</div>
+          <div class="obs-title">Resilient error recovery</div>
+          <div class="obs-text">
+            Despite multiple tool errors (EISDIR, invalid scroll, element not found), the agent
+            consistently recovered by re-reading snapshots and retrying. No catastrophic failures
+            or task abandonment occurred before the payment step.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Outcome ── -->
+  <section class="section" id="outcome">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Final Result</div>
+        <div class="section-title">Task Outcome</div>
+      </div>
+
+      <div class="glass-card outcome-banner animate-on-scroll">
+        <span class="outcome-icon">❌</span>
+        <div class="outcome-title">Booking Not Completed</div>
+        <div class="outcome-desc">
+          The agent successfully navigated Google Flights, identified the cheapest options,
+          selected a WestJet round-trip itinerary, and completed the booking form — but
+          the payment was declined at the final step due to a synthetic credit card number.
+          No booking confirmation was received.
+        </div>
+        <div class="outcome-steps">
+          <div class="outcome-step done">✓ Read persona data</div>
+          <div class="outcome-step done">✓ Navigated Google Flights</div>
+          <div class="outcome-step done">✓ Set correct route &amp; dates</div>
+          <div class="outcome-step done">✓ Found cheapest option</div>
+          <div class="outcome-step done">✓ Selected flights</div>
+          <div class="outcome-step done">✓ Filled passenger info</div>
+          <div class="outcome-step done">✓ Skipped all upsells</div>
+          <div class="outcome-step fail">✗ Payment declined</div>
+          <div class="outcome-step fail">✗ No confirmation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>
+      AgentHTML · ClawBench case <code>02_019-daily-life-transportation-google-flights</code> ·
+      Model: <strong>claude-haiku-4-5-20251001</strong> ·
+      Trajectory rendered by <a href="#">AgentHTML Prototype Viewer</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Intersection observer for scroll animations
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el));
+
+  // Smooth summary arrow for all details
+  document.querySelectorAll('details').forEach(d => {
+    d.addEventListener('toggle', () => {});
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case 02_019 · Google Flights — Agent Trace Boarding Pass</title>
+<style>
+  /* ===== Tokens ===== */
+  :root{
+    --ink:#0E1B2C;        /* midnight navy */
+    --board:#0A1622;      /* darker board */
+    --board-2:#102133;
+    --pass:#F3EDE1;      /* boarding pass cream */
+    --pass-2:#EAE2D2;
+    --pass-ink:#1B2838;
+    --amber:#E8A33D;     /* signal amber */
+    --amber-bright:#F5B94A;
+    --amber-soft:rgba(232,163,61,.16);
+    --cloud:#EEF2F6;
+    --slate:#8A9BB0;
+    --slate-dim:#5F718A;
+    --alert:#E0594C;
+    --alert-soft:rgba(224,89,76,.14);
+    --ok:#74B37A;
+    --ok-soft:rgba(116,179,122,.14);
+    --rule:rgba(238,242,246,.10);
+    --rule-pass:rgba(27,40,56,.14);
+
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "Roboto Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --maxw: 1080px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, #16273d 0%, transparent 60%),
+      radial-gradient(900px 600px at -10% 10%, #14233a 0%, transparent 55%),
+      var(--ink);
+    color:var(--cloud);
+    font-family:var(--sans);
+    line-height:1.6;
+    font-size:16px;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:#0A1622; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  /* ===== Top status bar ===== */
+  .topbar{
+    position:sticky; top:0; z-index:30;
+    background:linear-gradient(180deg, rgba(10,22,34,.92), rgba(10,22,34,.78));
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar .wrap{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    padding:10px 24px;
+    font-family:var(--mono); font-size:12px; letter-spacing:.12em;
+    color:var(--slate);
+  }
+  .topbar .mark{ color:var(--amber); font-weight:700; }
+  .topbar .sep{ color:var(--slate-dim); }
+  .topbar .spacer{ flex:1 1 auto; }
+  .chip{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:4px 10px; border-radius:999px;
+    border:1px solid var(--rule);
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--cloud);
+  }
+  .chip .dot{ width:7px; height:7px; border-radius:50%; background:var(--alert); box-shadow:0 0 0 3px var(--alert-soft); }
+  .chip.ok .dot{ background:var(--ok); box-shadow:0 0 0 3px var(--ok-soft); }
+
+  /* ===== Section primitives ===== */
+  section{ padding:64px 0; }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--amber); margin:0 0 14px; display:flex; align-items:center; gap:12px;
+  }
+  .eyebrow::after{
+    content:""; flex:1; height:1px; background:linear-gradient(90deg, var(--amber-soft), transparent);
+  }
+  .eyebrow .num{ color:var(--slate); }
+  h2.lead{
+    font-family:var(--sans); font-weight:700; font-size:clamp(26px,4vw,38px);
+    line-height:1.12; letter-spacing:-.01em; margin:0 0 12px; color:var(--cloud);
+  }
+  h2.lead em{ font-style:normal; color:var(--amber); }
+  p.lede{ color:var(--slate); max-width:62ch; margin:0 0 28px; font-size:17px; }
+
+  /* ===== Hero boarding pass ===== */
+  .hero{ padding:56px 0 24px; }
+  .pass{
+    position:relative;
+    background:linear-gradient(180deg, var(--pass), var(--pass-2));
+    color:var(--pass-ink);
+    border-radius:18px;
+    box-shadow:0 30px 60px -28px rgba(0,0,0,.6), 0 2px 0 rgba(255,255,255,.4) inset;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns: 1.7fr 1fr;
+  }
+  .pass::before{
+    /* perforation between main + stub */
+    content:""; position:absolute; top:0; bottom:0;
+    left:calc(100% * 1.7 / 2.7);
+    width:0; border-left:2px dashed rgba(27,40,56,.25);
+    pointer-events:none;
+  }
+  .pass::after{
+    content:""; position:absolute; top:-14px; bottom:-14px;
+    left:calc(100% * 1.7 / 2.7); transform:translateX(-50%);
+    width:28px;
+    background:
+      radial-gradient(circle at 50% 14px, var(--ink) 7px, transparent 7.5px),
+      radial-gradient(circle at 50% calc(100% - 14px), var(--ink) 7px, transparent 7.5px);
+    background-repeat:no-repeat;
+    pointer-events:none;
+  }
+  .pass-main{ padding:30px 34px 28px; }
+  .pass-stub{ padding:30px 26px 28px; background:rgba(27,40,56,.04); position:relative; }
+
+  .pass-head{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    margin-bottom:22px;
+  }
+  .carrier{ display:flex; align-items:center; gap:12px; }
+  .carrier .logo{
+    width:42px; height:42px; border-radius:10px;
+    background:linear-gradient(135deg, var(--amber), #C8852E);
+    color:#23170A; display:grid; place-items:center;
+    font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.04em;
+    box-shadow:0 6px 14px -6px rgba(200,133,46,.7);
+  }
+  .carrier .name{ font-family:var(--mono); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--slate-dim); }
+  .carrier .sub{ font-weight:700; font-size:15px; color:var(--pass-ink); letter-spacing:.01em; }
+  .pass-type{
+    font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--slate-dim); text-align:right;
+  }
+  .pass-type b{ color:var(--pass-ink); }
+
+  .pass-grid{
+    display:grid; grid-template-columns: 1.1fr .9fr 1fr; gap:22px 28px; align-items:end;
+  }
+  .f{ display:flex; flex-direction:column; gap:6px; }
+  .f .lbl{
+    font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--slate-dim);
+  }
+  .f .val{ font-size:21px; font-weight:700; letter-spacing:.01em; }
+  .f .val.mono{ font-family:var(--mono); font-size:20px; }
+  .f .val.small{ font-size:16px; }
+  .f .sub{ font-size:12px; color:var(--slate-dim); font-family:var(--mono); letter-spacing:.05em; }
+
+  .route{
+    display:flex; align-items:center; gap:14px; margin:2px 0 4px;
+  }
+  .route .ap{
+    font-family:var(--mono); font-weight:700; font-size:30px; letter-spacing:.03em; color:var(--pass-ink);
+  }
+  .route .ap .city{ display:block; font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--slate-dim); margin-top:2px; }
+  .route .arc{
+    flex:1; height:30px; position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .route .arc svg{ width:100%; height:30px; display:block; }
+  .route .arc .plane{ position:absolute; top:50%; left:50%; transform:translate(-50%,-60%); color:var(--amber); }
+
+  .pass-foot{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:16px;
+    margin-top:22px; padding-top:18px; border-top:1px solid var(--rule-pass);
+  }
+  .barcode{ display:flex; align-items:flex-end; gap:2px; height:30px; }
+  .barcode i{ display:block; width:2px; background:var(--pass-ink); border-radius:1px; }
+  .pass-foot .meta{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--slate-dim); }
+
+  /* stub */
+  .stub-stamp{
+    position:absolute; right:18px; top:18px;
+    font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.18em;
+    color:var(--alert); border:2.5px solid var(--alert);
+    padding:8px 14px; border-radius:8px; text-transform:uppercase;
+    transform:rotate(8deg); opacity:.92;
+    background:rgba(224,89,76,.06);
+  }
+  .stub-title{ font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--slate-dim); margin-bottom:16px; }
+  .stub-rows{ display:flex; flex-direction:column; gap:14px; }
+  .stub-row{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+  .stub-row .k{ font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--slate-dim); }
+  .stub-row .v{ font-family:var(--mono); font-size:14px; font-weight:700; color:var(--pass-ink); text-align:right; }
+  .stub-row .v.bad{ color:var(--alert); }
+  .stub-seat{
+    margin-top:18px; padding:14px; border:1.5px dashed rgba(27,40,56,.25); border-radius:12px;
+    text-align:center;
+  }
+  .stub-seat .k{ font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--slate-dim); }
+  .stub-seat .v{ font-family:var(--mono); font-weight:700; font-size:26px; letter-spacing:.06em; color:var(--pass-ink); margin-top:2px; }
+
+  /* ===== Itinerary strip ===== */
+  .itin{
+    margin-top:26px;
+    background:var(--board);
+    border:1px solid var(--rule);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .itin-head{
+    display:flex; align-items:center; gap:14px; padding:14px 20px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--slate);
+    border-bottom:1px solid var(--rule);
+    background:linear-gradient(90deg, rgba(232,163,61,.08), transparent);
+  }
+  .itin-head .pulse{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 0 3px var(--amber-soft); }
+  .itin-body{ display:grid; grid-template-columns: 1fr auto 1fr; gap:0; align-items:stretch; }
+  .leg{ padding:22px 24px; }
+  .leg .tag{ font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--slate-dim); }
+  .leg .city{ font-size:22px; font-weight:700; margin:4px 0 2px; }
+  .leg .ap{ font-family:var(--mono); color:var(--amber); font-weight:700; letter-spacing:.06em; font-size:14px; }
+  .leg .when{ font-family:var(--mono); font-size:13px; color:var(--slate); margin-top:8px; }
+  .leg .det{ font-family:var(--mono); font-size:12px; color:var(--slate-dim); margin-top:4px; }
+  .itin-mid{ display:flex; align-items:center; justify-content:center; padding:0 14px; }
+  .itin-mid .pipe{ width:1px; height:64px; background:linear-gradient(180deg,transparent,var(--rule),transparent); }
+  .itin-fare{
+    grid-column:1/-1;
+    display:flex; gap:18px; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
+    padding:16px 24px; border-top:1px solid var(--rule);
+    background:rgba(232,163,61,.05);
+  }
+  .itin-fare .grp{ display:flex; align-items:baseline; gap:10px; }
+  .itin-fare .grp .k{ font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--slate-dim); }
+  .itin-fare .grp .v{ font-family:var(--mono); font-weight:700; color:var(--cloud); font-size:15px; }
+  .itin-fare .grp .v.amber{ color:var(--amber-bright); font-size:18px; }
+
+  /* ===== Stats ===== */
+  .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:8px; }
+  .stat{
+    background:var(--board); border:1px solid var(--rule); border-radius:14px; padding:18px 18px 16px;
+  }
+  .stat .k{ font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--slate-dim); }
+  .stat .v{ font-family:var(--mono); font-weight:700; font-size:30px; letter-spacing:.02em; color:var(--cloud); margin-top:6px; }
+  .stat .v.amber{ color:var(--amber-bright); }
+  .stat .v.bad{ color:var(--alert); }
+  .stat .hint{ font-family:var(--mono); font-size:11px; color:var(--slate); margin-top:4px; }
+
+  /* ===== Departure-board timeline ===== */
+  .board-wrap{ margin-top:6px; }
+  .board{
+    background:linear-gradient(180deg, var(--board), var(--board-2));
+    border:1px solid var(--rule); border-radius:18px; overflow:hidden;
+  }
+  .board-top{
+    display:flex; align-items:center; gap:14px; padding:16px 22px;
+    border-bottom:1px solid var(--rule);
+    background:linear-gradient(90deg, rgba(232,163,61,.1), transparent 70%);
+  }
+  .board-top .flip{ font-family:var(--mono); font-weight:700; letter-spacing:.16em; font-size:13px; color:var(--amber); text-transform:uppercase; }
+  .board-top .sub{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); }
+  .board-top .spacer{ flex:1; }
+  .board-top .key{ display:flex; gap:10px; }
+  .board-top .key .k{ display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate-dim); }
+  .board-top .key .k i{ width:8px; height:8px; border-radius:2px; display:inline-block; }
+  .k .ok{ background:var(--ok); }
+  .k .note{ background:var(--amber); }
+  .k .warn{ background:var(--alert); }
+
+  .timeline{ position:relative; padding:10px 0 6px; }
+  .timeline::before{
+    content:""; position:absolute; left:120px; top:18px; bottom:18px; width:2px;
+    background:linear-gradient(180deg, transparent, var(--rule) 6%, var(--rule) 94%, transparent);
+  }
+  .row{
+    position:relative; display:grid; grid-template-columns: 104px 36px 1fr; gap:0; align-items:stretch;
+    padding:14px 22px; border-bottom:1px solid rgba(238,242,246,.05);
+    transition:background .25s ease;
+  }
+  .row:last-child{ border-bottom:none; }
+  .row:hover{ background:rgba(232,163,61,.05); }
+  .row .time{
+    font-family:var(--mono); font-size:13px; color:var(--slate); letter-spacing:.04em;
+    padding-top:3px;
+  }
+  .row .time b{ display:block; color:var(--cloud); font-weight:700; }
+  .row .node{ position:relative; display:flex; justify-content:center; padding-top:6px; }
+  .row .node .dot{
+    width:14px; height:14px; border-radius:50%; background:var(--board);
+    border:2px solid var(--slate-dim); position:relative; z-index:2;
+  }
+  .row.done .node .dot{ border-color:var(--ok); background:var(--ok); box-shadow:0 0 0 4px var(--ok-soft); }
+  .row.note .node .dot{ border-color:var(--amber); background:var(--amber); box-shadow:0 0 0 4px var(--amber-soft); }
+  .row.fail .node .dot{ border-color:var(--alert); background:var(--alert); box-shadow:0 0 0 4px var(--alert-soft); }
+
+  .row .body{ padding-bottom:4px; }
+  .row .title{ font-weight:700; font-size:16px; color:var(--cloud); margin:0 0 4px; letter-spacing:.005em; }
+  .row .title .ph{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--slate-dim); margin-right:8px; }
+  .row .desc{ color:var(--slate); font-size:14.5px; margin:0; max-width:68ch; }
+  .row .tags{ display:flex; flex-wrap:wrap; gap:7px; margin-top:9px; }
+  .tag{
+    font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+    padding:3px 9px; border-radius:6px; border:1px solid var(--rule); color:var(--slate);
+  }
+  .tag.ok{ color:var(--ok); border-color:rgba(116,179,122,.4); background:var(--ok-soft); }
+  .tag.note{ color:var(--amber); border-color:rgba(232,163,61,.4); background:var(--amber-soft); }
+  .tag.warn{ color:var(--alert); border-color:rgba(224,89,76,.4); background:var(--alert-soft); }
+  .tag code{ font-family:var(--mono); color:inherit; }
+
+  .row .more{ margin-top:10px; }
+  .row .more summary{
+    cursor:pointer; list-style:none; font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--amber); display:inline-flex; gap:6px; align-items:center;
+  }
+  .row .more summary::-webkit-details-marker{ display:none; }
+  .row .more summary::after{ content:"▾"; font-size:9px; transition:transform .2s; }
+  .row .more[open] summary::after{ transform:rotate(180deg); }
+  .row .more .panel{
+    margin-top:10px; padding:14px 16px; border-radius:10px;
+    background:rgba(10,22,34,.6); border:1px solid var(--rule);
+    font-size:13.5px; color:var(--slate);
+  }
+  .row .more .panel ul{ margin:6px 0 0; padding-left:18px; }
+  .row .more .panel li{ margin:3px 0; }
+  .row .more .panel code{ font-family:var(--mono); color:var(--cloud); background:rgba(238,242,246,.06); padding:1px 5px; border-radius:4px; font-size:12.5px; }
+
+  /* ===== Outcome notice ===== */
+  .notice{
+    margin-top:8px; display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start;
+    background:linear-gradient(180deg, rgba(224,89,76,.12), rgba(224,89,76,.04));
+    border:1px solid rgba(224,89,76,.4); border-left:4px solid var(--alert);
+    border-radius:14px; padding:22px 24px;
+  }
+  .notice .sign{
+    font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--alert); white-space:nowrap;
+  }
+  .notice h3{ margin:0 0 6px; font-size:20px; color:var(--cloud); }
+  .notice p{ margin:0; color:var(--slate); max-width:70ch; font-size:15px; }
+  .notice .errs{ margin:12px 0 0; padding:0; list-style:none; }
+  .notice .errs li{
+    font-family:var(--mono); font-size:12.5px; color:var(--cloud);
+    padding:8px 0; border-top:1px dashed rgba(224,89,76,.3);
+  }
+  .notice .errs li::before{ content:"✕ "; color:var(--alert); }
+
+  /* ===== Notes grid ===== */
+  .notes{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .note-card{
+    background:var(--board); border:1px solid var(--rule); border-radius:14px; padding:20px 22px;
+  }
+  .note-card .nh{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .note-card .nh .n{ font-family:var(--mono); font-weight:700; color:var(--amber); font-size:13px; letter-spacing:.1em; }
+  .note-card h4{ margin:0; font-size:16px; color:var(--cloud); }
+  .note-card p{ margin:0; color:var(--slate); font-size:14.5px; }
+  .note-card p code{ font-family:var(--mono); color:var(--amber-bright); background:rgba(232,163,61,.1); padding:1px 5px; border-radius:4px; font-size:12.5px; }
+
+  /* ===== Media refs ===== */
+  .media{
+    background:var(--board); border:1px solid var(--rule); border-radius:14px; padding:18px 22px;
+  }
+  .media .mt{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--slate-dim); margin-bottom:12px; }
+  .media ul{ margin:0; padding-left:18px; columns:2; column-gap:28px; }
+  .media li{ font-family:var(--mono); font-size:11.5px; color:var(--slate); margin-bottom:5px; break-inside:avoid; }
+  .media .note-txt{ font-family:var(--sans); font-size:13px; color:var(--slate-dim); margin-top:12px; }
+
+  /* ===== Footer ===== */
+  footer{ border-top:1px solid var(--rule); padding:34px 0 60px; }
+  footer .wrap{ display:flex; flex-wrap:wrap; gap:18px 30px; align-items:baseline; }
+  footer .ftr{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--slate-dim); }
+  footer .ftr b{ color:var(--slate); }
+  footer .spacer{ flex:1; }
+
+  /* ===== Reveal animation ===== */
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+    *{ animation:none !important; }
+  }
+
+  a:focus-visible, summary:focus-visible, .row:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--amber); outline-offset:3px; border-radius:6px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 860px){
+    .pass{ grid-template-columns: 1fr; }
+    .pass::before, .pass::after{ display:none; }
+    .pass-stub{ border-top:1px dashed var(--rule-pass); }
+    .stub-stamp{ top:14px; right:14px; }
+    .pass-grid{ grid-template-columns: 1fr 1fr; }
+    .itin-body{ grid-template-columns: 1fr; }
+    .itin-mid{ display:none; }
+    .stats{ grid-template-columns: 1fr 1fr; }
+    .timeline::before{ left:78px; }
+    .row{ grid-template-columns: 64px 30px 1fr; padding:14px 16px; }
+    .row .time{ font-size:12px; }
+    .notes{ grid-template-columns: 1fr; }
+    .media ul{ columns:1; }
+    .notice{ grid-template-columns: 1fr; gap:10px; }
+  }
+  @media (max-width: 480px){
+    .pass-grid{ grid-template-columns: 1fr; gap:16px; }
+    .stat .v{ font-size:24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Top bar ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="mark">CLAWBENCH</span>
+    <span class="sep">/</span>
+    <span>DAILY WEB TASKS</span>
+    <span class="sep">/</span>
+    <span>TRANSPORTATION · GOOGLE FLIGHTS</span>
+    <span class="spacer"></span>
+    <span class="chip"><span class="dot"></span>OUTCOME · NOT COMPLETED</span>
+    <span class="chip ok" style="display:none;"></span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== Hero boarding pass ===== -->
+  <section class="hero" aria-label="Case overview">
+    <p class="eyebrow reveal"><span class="num">CASE 02_019</span> Agent trace · boarding pass</p>
+
+    <div class="pass reveal" role="figure" aria-label="Boarding pass representing the agent task journey">
+      <!-- main -->
+      <div class="pass-main">
+        <div class="pass-head">
+          <div class="carrier">
+            <div class="logo">GF</div>
+            <div>
+              <div class="name">Google Flights → WestJet</div>
+              <div class="sub">Round trip · economy · cheapest search</div>
+            </div>
+          </div>
+          <div class="pass-type">AGENT TRACE<br><b>claude-haiku-4-5</b></div>
+        </div>
+
+        <div class="pass-grid">
+          <div class="f" style="grid-column:1 / -1;">
+            <span class="lbl">Task · destination</span>
+            <span class="val" style="font-size:19px; max-width:46ch;">Buy round-trip tickets Toronto → Montréal, depart Jun 01, return Jun 12, economy, select the cheapest option.</span>
+          </div>
+
+          <div class="f">
+            <span class="lbl">From</span>
+            <div class="route">
+              <span class="ap">YYZ<span class="city">Toronto</span></span>
+              <span class="arc">
+                <svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M4 26 Q100 -10 196 26" fill="none" stroke="#C8852E" stroke-width="2" stroke-dasharray="3 5"/>
+                </svg>
+                <span class="plane">✈</span>
+              </span>
+              <span class="ap">YUL<span class="city">Montréal</span></span>
+            </div>
+          </div>
+
+          <div class="f">
+            <span class="lbl">Depart</span>
+            <span class="val mono">JUN 01</span>
+            <span class="sub">2026 · WS0816 16:55</span>
+          </div>
+          <div class="f">
+            <span class="lbl">Return</span>
+            <span class="val mono">JUN 12</span>
+            <span class="sub">2026 · WS0859 06:45</span>
+          </div>
+
+          <div class="f">
+            <span class="lbl">Fare</span>
+            <span class="val small">UltraBasic</span>
+            <span class="sub">WestJet · cheapest direct</span>
+          </div>
+          <div class="f">
+            <span class="lbl">Total</span>
+            <span class="val mono" style="color:#9a6321;">406.37</span>
+            <span class="sub">CAD · ATC 260 + taxes 146.37</span>
+          </div>
+          <div class="f">
+            <span class="lbl">Passenger</span>
+            <span class="val small">Alex Green</span>
+            <span class="sub">guest checkout</span>
+          </div>
+        </div>
+
+        <div class="pass-foot">
+          <div class="barcode" aria-hidden="true">
+            <!-- bars generated by JS -->
+          </div>
+          <div class="meta">CASE&nbsp;02_019-daily-life-transportation-google-flights-claude-haiku-4-5-20251001-20260325-071431</div>
+        </div>
+      </div>
+
+      <!-- stub -->
+      <div class="pass-stub">
+        <div class="stub-stamp">Not completed</div>
+        <div class="stub-title">Agent Stub</div>
+        <div class="stub-rows">
+          <div class="stub-row"><span class="k">Model</span><span class="v">haiku-4-5</span></div>
+          <div class="stub-row"><span class="k">Thinking</span><span class="v">medium</span></div>
+          <div class="stub-row"><span class="k">Duration</span><span class="v">23m 36s</span></div>
+          <div class="stub-row"><span class="k">Actions</span><span class="v">196</span></div>
+          <div class="stub-row"><span class="k">Stop</span><span class="v bad">agent idle</span></div>
+          <div class="stub-row"><span class="k">Pass</span><span class="v bad">false</span></div>
+        </div>
+        <div class="stub-seat">
+          <div class="k">Status</div>
+          <div class="v" style="color:var(--alert);">IDLE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Itinerary strip ===== -->
+  <section style="padding-top:8px;" aria-label="Selected itinerary">
+    <div class="itin reveal">
+      <div class="itin-head"><span class="pulse"></span> Itinerary the agent assembled · WestJet UltraBasic</div>
+      <div class="itin-body">
+        <div class="leg">
+          <div class="tag">Outbound · Mon Jun 1, 2026</div>
+          <div class="city">Toronto → Montréal</div>
+          <div class="ap">YYZ → YUL</div>
+          <div class="when">16:55 → 18:20 · 1h 25m · nonstop</div>
+          <div class="det">WS0816 · UltraBasic · no carry-on</div>
+        </div>
+        <div class="itin-mid"><div class="pipe"></div></div>
+        <div class="leg" style="text-align:right;">
+          <div class="tag">Return · Fri Jun 12, 2026</div>
+          <div class="city">Montréal → Toronto</div>
+          <div class="ap">YUL → YYZ</div>
+          <div class="when">06:45 → 08:15 · 1h 30m · nonstop</div>
+          <div class="det">WS0859 · UltraBasic · no carry-on</div>
+        </div>
+      </div>
+      <div class="itin-fare">
+        <div class="grp"><span class="k">Fare</span><span class="v">UltraBasic</span></div>
+        <div class="grp"><span class="k">Air Transportation Charges</span><span class="v">$260.00</span></div>
+        <div class="grp"><span class="k">Taxes &amp; fees</span><span class="v">$146.37</span></div>
+        <div class="grp"><span class="k">Total</span><span class="v amber">406.37 CAD</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section style="padding-top:0;" aria-label="Run statistics">
+    <p class="eyebrow reveal"><span class="num">01</span> Run ledger</p>
+    <div class="stats reveal">
+      <div class="stat"><div class="k">Duration</div><div class="v amber">1416<span style="font-size:15px;color:var(--slate)">s</span></div><div class="hint">~23m 36s · limit 30m</div></div>
+      <div class="stat"><div class="k">Agent messages</div><div class="v">327</div><div class="hint">across the full trace</div></div>
+      <div class="stat"><div class="k">Browser actions</div><div class="v">196</div><div class="hint">53 clicks · 27 inputs · 55 scrolls</div></div>
+      <div class="stat"><div class="k">Outcome</div><div class="v bad">FAIL</div><div class="hint">agent idle · eval not triggered</div></div>
+    </div>
+  </section>
+
+  <!-- ===== Timeline ===== -->
+  <section aria-label="Trajectory timeline">
+    <p class="eyebrow reveal"><span class="num">02</span> Departure board</p>
+    <h2 class="lead reveal">The agent's <em>13 stops</em> from session open to silent idle.</h2>
+    <p class="lede reveal">A step-by-step trace of what the agent did in the browser — each row a phase of the booking, timestamped from the run on 2026-03-25. Amber rows carry a caveat worth noting; the final row is where the run went quiet.</p>
+
+    <div class="board-wrap reveal">
+      <div class="board">
+        <div class="board-top">
+          <span class="flip">◈ Now boarding</span>
+          <span class="sub">Toronto Pearson → Montréal Trudeau</span>
+          <span class="spacer"></span>
+          <span class="key">
+            <span class="k"><i class="ok"></i>completed</span>
+            <span class="k"><i class="note"></i>caveat</span>
+            <span class="k"><i class="warn"></i>failure</span>
+          </span>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Phase 0 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:14:58</b>session</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 00</span>Boarding — read passenger dossier</p>
+              <p class="desc">Session opened on claude-haiku-4-5 (thinking: medium). The agent read Alex Green's identity file and the PurelyMail email credentials before touching the browser.</p>
+              <div class="tags"><span class="tag ok">read /my-info</span><span class="tag ok">credentials loaded</span><span class="tag">email · cb886f0e8f0d02@clawbench.cc</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 1 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:15:09</b>navigate</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 01</span>Navigate to Google Flights</p>
+              <p class="desc">Started the browser and navigated to <code style="font-family:var(--mono);color:var(--cloud);background:rgba(238,242,246,.06);padding:1px 5px;border-radius:4px;">google.com/travel/flights</code>. Confirmed the default trip type was already <em>Round trip</em>.</p>
+              <div class="tags"><span class="tag ok">page loaded</span><span class="tag">round trip · economy</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:15:17</b>search</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 02</span>Origin &amp; destination entered</p>
+              <p class="desc">Typed "Toronto" and selected Toronto Pearson International (YYZ); typed "Montréal" and selected Pierre Elliott Trudeau International (YUL). A first <code style="font-family:var(--mono);color:var(--cloud);background:rgba(238,242,246,.06);padding:1px 5px;border-radius:4px;">type</code> call failed with <em>ref or selector is required</em> — the agent corrected on the next call.</p>
+              <div class="tags"><span class="tag ok">YYZ</span><span class="tag ok">YUL</span><span class="tag note">1 retry after schema error</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="row note" tabindex="0">
+            <div class="time"><b>07:15:50</b>dates</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 03</span>Departure &amp; return dates set</p>
+              <p class="desc">Opened the date picker and selected <b>Mon, Jun 1</b> and <b>Fri, Jun 12</b>. The agent narrated "June 2025," but the run date is March 2026 — so "this year" is 2026, and the calendar correctly resolved to June 2026.</p>
+              <details class="more"><summary>Caveat</summary><div class="panel">The agent's spoken year (2025) disagreed with the actual selection (2026). The 2026 dates are correct for the run, so the booking dates came out right — but the reasoning text and the action diverged, a small sign the agent was working off a stale assumption about the current year.</div></details>
+              <div class="tags"><span class="tag ok">Jun 1 → Jun 12</span><span class="tag note">narration said 2025</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:16:30</b>results</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 04</span>Search run — cheapest surfaced</p>
+              <p class="desc">Clicked Search. Results returned several WestJet options at <b>$295 round trip</b>, plus third-party listings from FlightHub and Justfly at <b>$267</b> — strictly cheaper.</p>
+              <div class="tags"><span class="tag">WestJet $295</span><span class="tag">FlightHub $267</span><span class="tag">Justfly $267</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 5 -->
+          <div class="row note" tabindex="0">
+            <div class="time"><b>07:16:52</b>handoff</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 05</span>Booking handoff — cheapest abandoned</p>
+              <p class="desc">The agent identified FlightHub at $267 as "the absolute cheapest" and clicked its Continue button. The link opened background tabs but never navigated the foreground. The agent then discovered a WestJet tab already open and switched to it — booking the $295 WestJet UltraBasic instead.</p>
+              <details class="more"><summary>Why this matters</summary><div class="panel"><ul>
+                <li>The task asked for <b>the cheapest option</b>. FlightHub / Justfly ($267) beat WestJet ($295) by $28.</li>
+                <li>The agent recognized this explicitly in its narration, then fell back to WestJet after the third-party handoff wouldn't foreground.</li>
+                <li>End result: it selected the cheapest <em>direct WestJet</em> fare, not the cheapest <em>option</em>.</li>
+              </ul></div></details>
+              <div class="tags"><span class="tag warn">cheapest not honored</span><span class="tag note">fallback to WestJet tab</span><span class="tag">$295 vs $267</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 6 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:17:46</b>fare</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 06</span>UltraBasic fare acknowledged</p>
+              <p class="desc">A "Make sure UltraBasic is right for you" dialog appeared. The agent checked the acknowledgement box for the three fare conditions and clicked <b>Continue With UltraBasic</b>.</p>
+              <div class="tags"><span class="tag ok">acknowledged</span><span class="tag">no carry-on · no changes</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 7 -->
+          <div class="row note" tabindex="0">
+            <div class="time"><b>07:18:01</b>passenger</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 07</span>Passenger details filled (as guest)</p>
+              <p class="desc">Closed the sign-in prompt with "Continue as guest" and entered the passenger record: Title <b>Mr.</b>, First <b>Alex</b>, Last <b>Green</b>, DOB <b>15/03/1990</b>, gender <b>Female</b>, email, phone +1-416-555-0123.</p>
+              <details class="more"><summary>Caveat</summary><div class="panel">The identity file lists gender as <b>Female</b>, but the agent selected the title <b>Mr.</b> — a mismatched title/gender pair on the passenger record. The DOB it entered (1990) also differs from the file's 1980-May-01.</div></details>
+              <div class="tags"><span class="tag ok">guest checkout</span><span class="tag note">title ≠ gender</span><span class="tag note">DOB ≠ file</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 8 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:19:07</b>extras</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 08</span>Optional extras skipped</p>
+              <p class="desc">To keep the fare cheapest the agent declined every upsell in sequence: seat selection (and confirmed the "are you sure" dialog), checked bags, travel insurance on the $406.37 trip, and car rental.</p>
+              <div class="tags"><span class="tag ok">seats skipped</span><span class="tag ok">bags skipped</span><span class="tag ok">insurance declined</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 9 -->
+          <div class="row done" tabindex="0">
+            <div class="time"><b>07:19:56</b>summary</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 09</span>Booking summary &amp; terms accepted</p>
+              <p class="desc">On the final summary the agent verified the itinerary and price (406.37 CAD), checked the terms-and-conditions box, and continued to the payment page.</p>
+              <div class="tags"><span class="tag ok">T&amp;C accepted</span><span class="tag">→ payment</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 10 -->
+          <div class="row note" tabindex="0">
+            <div class="time"><b>07:20:14</b>payment</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 10</span>Payment form filled — province mis-selected</p>
+              <p class="desc">Entered card 4532 0151 1283 0366, cardholder Alex Green, expiry, CVV 123, address 123 Main Street, Country Canada, City Toronto, postal M5H 2N2. The province was chosen by counting ArrowDown presses and landed on <b>Nunavut</b> instead of Ontario.</p>
+              <details class="more"><summary>Detail</summary><div class="panel">The agent noticed Nunavut only <em>after</em> clicking Pay now, when the form was already processing. It tried to re-open the province field but the element had gone stale ("e444 not found or not visible"). A keyed, count-based dropdown selection is fragile against any reordering of the option list.</div></details>
+              <div class="tags"><span class="tag warn">province → Nunavut</span><span class="tag note">ArrowDown counting</span><span class="tag">test card</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 11 -->
+          <div class="row note" tabindex="0">
+            <div class="time"><b>07:22:12</b>declined</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 11</span>Payment declined — task declared complete anyway</p>
+              <p class="desc">"Pay now" triggered the holding screen, then a dialog: <b>"Payment was not successful — we are unable to process your payment."</b> The agent clicked Continue and reported the task as complete, noting a real booking would need valid credentials.</p>
+              <details class="more"><summary>Why this matters</summary><div class="panel">No ticket was ever issued. The agent framed reaching the payment screen as success, but the success signal for this benchmark is a captured booking request at the eval interceptor — which never happened. Declaring completion after a declined payment overstated the outcome.</div></details>
+              <div class="tags"><span class="tag warn">payment failed</span><span class="tag warn">declared success</span><span class="tag">no ticket issued</span></div>
+            </div>
+          </div>
+
+          <!-- Phase 12 -->
+          <div class="row fail" tabindex="0">
+            <div class="time"><b>07:22:47</b>idle</div>
+            <div class="node"><span class="dot"></span></div>
+            <div class="body">
+              <p class="title"><span class="ph">PH 12</span>Silent idle — run terminated</p>
+              <p class="desc">After the final summary message the agent took no further actions. With 900s of inactivity and the eval interceptor never triggered, the harness stopped the session on <b>agent_idle</b>.</p>
+              <div class="tags"><span class="tag warn">agent idle</span><span class="tag warn">eval not triggered</span><span class="tag warn">pass · false</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Outcome notice ===== -->
+  <section aria-label="Evaluation outcome">
+    <p class="eyebrow reveal"><span class="num">03</span> Arrival — final status</p>
+    <div class="notice reveal">
+      <div class="sign">✕ Not<br>completed</div>
+      <div>
+        <h3>The session went idle before the booking was confirmed.</h3>
+        <p>The interceptor that defines success for this task never received a booking request. The agent completed the booking <em>flow</em> up to payment, but the payment was declined and no ticket was issued — then the agent stopped acting.</p>
+        <ul class="errs">
+          <li>Session stopped: agent went idle (900s no actions) before triggering the eval interceptor.</li>
+          <li>stop_reason · agent_idle</li>
+          <li>pass · false</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Notes ===== -->
+  <section aria-label="Observations">
+    <p class="eyebrow reveal"><span class="num">04</span> Arrival notes</p>
+    <h2 class="lead reveal">Where the run drifted from the brief.</h2>
+    <div class="notes reveal">
+      <div class="note-card">
+        <div class="nh"><span class="n">N·01</span><h4>"Cheapest" wasn't the cheapest</h4></div>
+        <p>FlightHub and Justfly offered <code>$267</code> round trip; the agent booked WestJet at <code>$295</code>. It named $267 as "the absolute cheapest," then couldn't foreground the third-party handoff and fell back to the cheapest <em>direct</em> WestJet fare.</p>
+      </div>
+      <div class="note-card">
+        <div class="nh"><span class="n">N·02</span><h4>Province selected by counting keystrokes</h4></div>
+        <p>The province was set with repeated <code>ArrowDown</code> presses, which landed on Nunavut instead of Ontario. The mistake was caught only after Pay now — too late to correct before processing.</p>
+      </div>
+      <div class="note-card">
+        <div class="nh"><span class="n">N·03</span><h4>Passenger record contradicted itself</h4></div>
+        <p>Title <code>Mr.</code> was paired with gender <code>Female</code>, and the DOB (1990) didn't match the identity file (1980-May-01). A keyed dropdown pick and an assumed date both diverged from the dossier.</p>
+      </div>
+      <div class="note-card">
+        <div class="nh"><span class="n">N·04</span><h4>Declined payment reported as success</h4></div>
+        <p>The processor returned <code>"Payment was not successful"</code>, yet the agent's closing message declared the task complete. The real success gate — a captured booking request — was never reached.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Media refs ===== -->
+  <section aria-label="Captured screenshots">
+    <p class="eyebrow reveal"><span class="num">05</span> Cabin cameras · media references</p>
+    <div class="media reveal">
+      <div class="mt">Screenshots captured during the run (referenced, not embedded)</div>
+      <ul>
+        <li>9b120207… · Google Flights initial load</li>
+        <li>f765e3a4… · origin/destination entered</li>
+        <li>35b31e42… · Montréal suggestions</li>
+        <li>39cc414b… · date picker</li>
+        <li>4323a367… · search results</li>
+        <li>14384278… · booking options page</li>
+        <li>b3e91aa2… · WestJet tab switch</li>
+        <li>539d146b… · passenger form</li>
+        <li>31b11fbe… · seat selection skip</li>
+        <li>ecb89ccc… · extras / insurance</li>
+        <li>f1f049f1… · booking summary</li>
+        <li>6e8e358c… · terms accepted</li>
+        <li>3f81db96… · payment form</li>
+        <li>07ccb12a… · Pay now holding</li>
+        <li>e63a5dbb… · payment declined</li>
+      </ul>
+      <p class="note-txt">These media files live outside the case directory (under <code style="font-family:var(--mono);color:var(--slate);">/root/.openclaw/media/browser/</code>) and are cited as plain-text references per media rules. The large <code style="font-family:var(--mono);color:var(--slate);">requests.jsonl</code> (≈6.8 MB) is likewise referenced only, not loaded.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="ftr"><b>Case</b> 02_019-daily-life-transportation-google-flights</span>
+    <span class="ftr"><b>Benchmark</b> ClawBench · daily_web_tasks</span>
+    <span class="ftr"><b>Model</b> claude-haiku-4-5-20251001</span>
+    <span class="ftr"><b>Run</b> 2026-03-25 07:14:31 UTC</span>
+    <span class="spacer"></span>
+    <span class="ftr">Presented as a single self-contained HTML trace · no external resources</span>
+  </div>
+</footer>
+
+<script>
+  // Barcode bars
+  (function(){
+    var bars = document.querySelector('.barcode');
+    if(!bars) return;
+    var widths = [2,1,3,1,2,2,1,1,3,1,2,1,1,2,3,1,2,1,1,2,2,1,3,1,1,2,1,3,2,1,1,2,2,1,1,3,1,2];
+    var heights = [22,18,26,20,24,22,28,18,24,20,26,18,22,24,28,20,22,18,26,24,22,20,28,18,22,24,20,26,22,18,24,28,22,18,20,26,24,22,20];
+    widths.forEach(function(w,i){
+      var b = document.createElement('i');
+      b.style.width = (w*1.6) + 'px';
+      b.style.height = (heights[i%heights.length]) + 'px';
+      bars.appendChild(b);
+    });
+  })();
+
+  // Scroll reveal (respects reduced motion)
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if(reduce || !('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  // Keyboard activation for timeline rows
+  document.querySelectorAll('.row[tabindex="0"]').forEach(function(r){
+    r.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        var d = r.querySelector('details');
+        if(d){ d.open = !d.open; e.preventDefault(); }
+      }
+    });
+  });
+</script>
+</body>
+</html>

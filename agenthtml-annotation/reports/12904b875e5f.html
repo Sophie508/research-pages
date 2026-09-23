@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpotHero Parking Reservation · Agent Case Study</title>
+<style>
+/* ───────────── Reset & Base ───────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0e1a;--bg2:#0f1420;--card:rgba(255,255,255,.04);--card-bd:rgba(255,255,255,.08);
+  --text:#e8ecf4;--text-dim:#9aa4b8;--text-mute:#5d6783;
+  --accent:#00d4a0;--accent2:#0099ff;--accent3:#7c3aed;--warn:#ff6b6b;--amber:#ffb547;
+  --grad-hero:linear-gradient(135deg,#00d4a0 0%,#0099ff 50%,#7c3aed 100%);
+  --grad-soft:linear-gradient(135deg,rgba(0,212,160,.12),rgba(124,58,237,.12));
+  --radius:16px;--radius-sm:10px;
+  --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:'SF Mono','Fira Code','Cascadia Code',Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+section{padding:80px 24px;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.section-tag{font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.section-title{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:16px;line-height:1.15}
+.section-sub{font-size:1.1rem;color:var(--text-dim);max-width:600px;margin-bottom:48px}
+.gradient-text{background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ───────────── Nav ───────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .3s ease;background:transparent}
+nav.scrolled{background:rgba(10,14,26,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-bd);padding:10px 24px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem}
+.nav-logo-icon{width:36px;height:36px;border-radius:10px;background:var(--grad-hero);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-dim);font-size:.95rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{padding:8px 20px;border-radius:var(--radius-sm);background:var(--accent);color:#0a0e1a;font-weight:700;font-size:.9rem;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,212,160,.3)}
+
+/* ───────────── Hero ───────────── */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px}
+#hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,212,160,.08) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:30px;background:var(--card);border:1px solid var(--card-bd);font-size:.8rem;color:var(--text-dim);margin-bottom:24px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--warn);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-size:3.6rem;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
+.hero-sub{font-size:1.2rem;color:var(--text-dim);margin-bottom:32px;max-width:520px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{padding:14px 28px;border-radius:var(--radius-sm);background:var(--grad-hero);color:#0a0e1a;font-weight:700;font-size:1rem;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,212,160,.3)}
+.btn-secondary{padding:14px 28px;border-radius:var(--radius-sm);background:var(--card);border:1px solid var(--card-bd);color:var(--text);font-weight:600;font-size:1rem;transition:all .2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-visual{position:relative}
+.hero-card{background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--card-bd);border-radius:var(--radius);padding:28px;backdrop-filter:blur(20px);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;height:3px;background:var(--grad-hero);border-radius:var(--radius)}
+.hero-card-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-mute);margin-bottom:16px}
+.hero-card-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--card-bd)}
+.hero-card-row:last-child{border-bottom:none}
+.hero-card-key{color:var(--text-dim);font-size:.9rem}
+.hero-card-val{font-weight:600;font-size:.95rem}
+.status-badge{padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:600}
+.status-fail{background:rgba(255,107,107,.15);color:var(--warn);border:1px solid rgba(255,107,107,.3)}
+.status-ok{background:rgba(0,212,160,.15);color:var(--accent);border:1px solid rgba(0,212,160,.3)}
+
+/* ───────────── Meta Stats ───────────── */
+.meta-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:60px}
+.meta-stat{background:var(--card);border:1px solid var(--card-bd);border-radius:var(--radius-sm);padding:24px;text-align:center}
+.meta-stat-num{font-size:2rem;font-weight:800;background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta-stat-label{font-size:.8rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
+
+/* ───────────── Features (Task Steps) ───────────── */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{background:var(--card);border:1px solid var(--card-bd);border-radius:var(--radius);padding:32px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;cursor:default}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.3);border-color:rgba(0,212,160,.3)}
+.feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.feature-num{position:absolute;top:20px;right:24px;font-size:2.5rem;font-weight:800;color:rgba(255,255,255,.04);font-family:var(--font-mono)}
+.feature-card{position:relative;overflow:hidden}
+.feature-title{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.feature-desc{font-size:.92rem;color:var(--text-dim);line-height:1.6}
+
+/* ───────────── How It Works ───────────── */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:24px 0;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;left:29px;top:72px;bottom:-24px;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.step-dot{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;flex-shrink:0;z-index:1}
+.step-dot.done{background:rgba(0,212,160,.12);border:2px solid var(--accent);color:var(--accent)}
+.step-dot.fail{background:rgba(255,107,107,.12);border:2px solid var(--warn);color:var(--warn)}
+.step-dot.active{background:rgba(255,181,71,.12);border:2px solid var(--amber);color:var(--amber)}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.step-content p{color:var(--text-dim);font-size:.92rem;margin-bottom:8px}
+.step-detail{background:rgba(0,0,0,.2);border-radius:8px;padding:12px 16px;font-family:var(--font-mono);font-size:.8rem;color:var(--text-mute);margin-top:8px;border:1px solid var(--card-bd)}
+.step-detail .ok{color:var(--accent)}
+.step-detail .err{color:var(--warn)}
+
+/* ───────────── Timeline ───────────── */
+.timeline{display:flex;flex-direction:column;gap:16px}
+.timeline-item{display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:start}
+.timeline-time{font-family:var(--font-mono);font-size:.8rem;color:var(--text-mute);text-align:right;padding-top:4px}
+.timeline-body{background:var(--card);border:1px solid var(--card-bd);border-radius:var(--radius-sm);padding:16px 20px;border-left:3px solid var(--accent)}
+.timeline-body.error{border-left-color:var(--warn)}
+.timeline-body.info{border-left-color:var(--accent2)}
+.timeline-body h4{font-size:.95rem;font-weight:600;margin-bottom:4px}
+.timeline-body p{font-size:.85rem;color:var(--text-dim)}
+.timeline-body code{font-family:var(--font-mono);font-size:.8rem;background:rgba(0,0,0,.3);padding:2px 6px;border-radius:4px;color:var(--accent)}
+
+/* ───────────── Data Cards ───────────── */
+.data-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.data-card{background:var(--card);border:1px solid var(--card-bd);border-radius:var(--radius);padding:28px}
+.data-card h3{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.data-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--card-bd);font-size:.88rem}
+.data-row:last-child{border-bottom:none}
+.data-key{color:var(--text-mute)}
+.data-val{font-weight:600;font-family:var(--font-mono);font-size:.82rem}
+.data-val .redacted{color:var(--text-mute)}
+
+/* ───────────── FAQ ───────────── */
+.faq-list{max-width:760px;margin:0 auto}
+details{background:var(--card);border:1px solid var(--card-bd);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+details[open]{border-color:rgba(0,212,160,.3)}
+summary{padding:18px 24px;cursor:pointer;font-weight:600;font-size:1rem;display:flex;justify-content:space-between;align-items:center;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:1.4rem;color:var(--accent);transition:transform .2s}
+details[open] summary::after{content:'−';transform:rotate(180deg)}
+.faq-answer{padding:0 24px 18px;color:var(--text-dim);font-size:.92rem;line-height:1.7}
+
+/* ───────────── Footer ───────────── */
+footer{padding:48px 24px;border-top:1px solid var(--card-bd);text-align:center}
+.footer-logo{font-weight:800;font-size:1.1rem;margin-bottom:8px}
+.footer-text{color:var(--text-mute);font-size:.85rem;margin-bottom:16px}
+.footer-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-size:.8rem;color:var(--text-mute)}
+.footer-meta span{font-family:var(--font-mono)}
+
+/* ───────────── Animations ───────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+
+/* ───────────── Responsive ───────────── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-title{font-size:2.4rem}
+  .meta-stats{grid-template-columns:repeat(2,1fr)}
+  .feature-grid{grid-template-columns:1fr}
+  .data-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:560px){
+  .hero-title{font-size:2rem}
+  .section-title{font-size:1.8rem}
+  .meta-stats{grid-template-columns:1fr 1fr}
+  .timeline-item{grid-template-columns:60px 1fr}
+  .timeline-time{font-size:.72rem}
+  section{padding:60px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═════════ NAV ═════════ -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🅿️</div>
+    <span>SpotHero<span style="color:var(--accent)">·</span>Case</span>
+  </div>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#steps">Steps</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#data">Data</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#overview" class="nav-cta">View Case</a>
+</nav>
+
+<!-- ═════════ HERO ═════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Task Failed · Time Limit Exceeded
+        </div>
+        <h1 class="hero-title">Reserve a Parking Spot on <span class="gradient-text">SpotHero</span></h1>
+        <p class="hero-sub">An AI agent navigates SpotHero to book hourly parking in downtown Toronto — searching, selecting, filling checkout — only to hit a declined test card at the final payment step.</p>
+        <div class="hero-ctas">
+          <a href="#steps" class="btn-primary">Explore the Journey</a>
+          <a href="#timeline" class="btn-secondary">View Timeline</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-title">Reservation Summary</div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Location</span>
+            <span class="hero-card-val">63 Centre Ave. — Lot</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Destination</span>
+            <span class="hero-card-val">Downtown Toronto, ON</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Date</span>
+            <span class="hero-card-val">Mar 28, 2026 (Tomorrow)</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Time</span>
+            <span class="hero-card-val">9:00 AM → 5:00 PM</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Total</span>
+            <span class="hero-card-val">CA$9.49</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Payment</span>
+            <span class="hero-card-val"><span class="status-badge status-fail">Declined</span></span>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-card-key">Outcome</span>
+            <span class="hero-card-val"><span class="status-badge status-fail">Failed</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ OVERVIEW / META STATS ═════════ -->
+<section id="overview" style="padding-top:40px">
+  <div class="container">
+    <div class="section-tag reveal">Case Overview</div>
+    <h2 class="section-title reveal">Agent Performance at a Glance</h2>
+    <p class="section-sub reveal">A 30-minute browser automation session powered by Claude Opus 4-6, navigating SpotHero's full booking flow from search to payment.</p>
+    <div class="meta-stats">
+      <div class="meta-stat reveal">
+        <div class="meta-stat-num">1828s</div>
+        <div class="meta-stat-label">Duration</div>
+      </div>
+      <div class="meta-stat reveal">
+        <div class="meta-stat-num">210</div>
+        <div class="meta-stat-label">Messages</div>
+      </div>
+      <div class="meta-stat reveal">
+        <div class="meta-stat-num">8/9</div>
+        <div class="meta-stat-label">Steps Done</div>
+      </div>
+      <div class="meta-stat reveal">
+        <div class="meta-stat-num">FAIL</div>
+        <div class="meta-stat-label">Result</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ STEPS / FEATURES ═════════ -->
+<section id="steps">
+  <div class="container">
+    <div class="section-tag reveal">Task Breakdown</div>
+    <h2 class="section-title reveal">Nine Steps to Checkout</h2>
+    <p class="section-sub reveal">The agent completed every navigational step flawlessly — the failure was purely a payment-processing limitation with the test card.</p>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-num">01</div>
+        <div class="feature-icon" style="background:rgba(0,212,160,.12)">📄</div>
+        <h3 class="feature-title">Read Personal Info</h3>
+        <p class="feature-desc">Loaded Alex Green's profile: name, email <code style="color:var(--accent);font-family:var(--font-mono);font-size:.8rem">cb01709d163de2@clawbench.cc</code>, credit card, and credentials.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">02</div>
+        <div class="feature-icon" style="background:rgba(0,153,255,.12)">🌐</div>
+        <h3 class="feature-title">Navigate to SpotHero</h3>
+        <p class="feature-desc">Opened spothero.com in the browser via DevTools protocol. Landed on the homepage with the search widget.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">03</div>
+        <div class="feature-icon" style="background:rgba(124,58,237,.12)">🔍</div>
+        <h3 class="feature-title">Search Downtown Toronto</h3>
+        <p class="feature-desc">Typed "Downtown Toronto" in the autocomplete, selected "Downtown, Old Toronto, Toronto, ON, Canada" from the dropdown.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">04</div>
+        <div class="feature-icon" style="background:rgba(0,212,160,.12)">📅</div>
+        <h3 class="feature-title">Set Date & Time</h3>
+        <p class="feature-desc">Opened the calendar picker, selected March 28 (tomorrow), set start to 9:00 AM and end to 5:00 PM via comboboxes.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">05</div>
+        <div class="feature-icon" style="background:rgba(0,153,255,.12)">🚗</div>
+        <h3 class="feature-title">Select Parking Lot</h3>
+        <p class="feature-desc">Clicked "Book Now" on the first result: 63 Centre Ave. — Lot at CA$9.49. Navigated to the checkout/purchase page.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">06</div>
+        <div class="feature-icon" style="background:rgba(255,181,71,.12)">📋</div>
+        <h3 class="feature-title">Fill Contact Info</h3>
+        <p class="feature-desc">Entered email and phone (416) 555-1234. Required JavaScript injection to trigger React state updates properly.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">07</div>
+        <div class="feature-icon" style="background:rgba(124,58,237,.12)">💳</div>
+        <h3 class="feature-title">Enter Card Details</h3>
+        <p class="feature-desc">Struggled with the cross-origin Stripe iframe — multiple timeouts — before successfully typing card number, expiry, CVC, and name.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">08</div>
+        <div class="feature-icon" style="background:rgba(0,212,160,.12)">✅</div>
+        <h3 class="feature-title">Confirm Payment Method</h3>
+        <p class="feature-desc">Card was accepted by Stripe's frontend validation. "VISA •••• 4532" appeared in the Payment Method section.</p>
+      </div>
+      <div class="feature-card reveal" style="border-color:rgba(255,107,107,.2)">
+        <div class="feature-num">09</div>
+        <div class="feature-icon" style="background:rgba(255,107,107,.12)">❌</div>
+        <h3 class="feature-title" style="color:var(--warn)">Pay & Reserve</h3>
+        <p class="feature-desc">Clicked "Pay and Reserve." Payment declined — "Unable to process payment." The test card isn't valid for real transactions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ HOW IT WORKS / DETAILED FLOW ═════════ -->
+<section id="flow" style="padding-top:0">
+  <div class="container">
+    <div class="section-tag reveal">Step-by-Step Flow</div>
+    <h2 class="section-title reveal">The Full Agent Journey</h2>
+    <p class="section-sub reveal">Each milestone in the booking process, with key decisions, errors, and recovery actions.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Read Personal Information</h3>
+          <p>Agent listed files under <code style="color:var(--accent);font-family:var(--font-mono)">/my-info/</code> and read <code style="color:var(--accent);font-family:var(--font-mono)">alex_green_personal_info.json</code> and <code style="color:var(--accent);font-family:var(--font-mono)">email_credentials.json</code>.</p>
+          <div class="step-detail">Files: <span class="ok">alex_green_personal_info.json</span> · <span class="ok">alex_green_resume.pdf</span> · <span class="ok">email_credentials.json</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Navigate to SpotHero</h3>
+          <p>Opened a new browser tab and navigated to <code style="color:var(--accent);font-family:var(--font-mono)">https://spothero.com/</code>. Page title: "SpotHero | Get Everywhere Easier | Reserve Parking and Save".</p>
+          <div class="step-detail">targetId: <span class="ok">DA28B0F14C8D487EA4E9FC40B2DDFB26</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Type & Select "Downtown Toronto"</h3>
+          <p>Clicked the search input, typed "Downtown Toronto", waited for the autocomplete dropdown, then clicked the first suggestion: "Downtown, Old Toronto, Toronto, ON, Canada".</p>
+          <div class="step-detail">autocomplete → <span class="ok">Downtown, Old Toronto, Toronto, ON, Canada</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Set Date to March 28 & Times to 9AM–5PM</h3>
+          <p>Opened the date/time dialog, clicked the start date button, selected day "28" from the calendar, then used combobox selects for start time (9:00 AM) and end time (5:00 PM). Two initial element-not-found errors were recovered by taking fresh snapshots.</p>
+          <div class="step-detail">starts: <span class="ok">2026-03-28T09:00</span> · ends: <span class="ok">2026-03-28T17:00</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Search & Select "63 Centre Ave. — Lot"</h3>
+          <p>Clicked the "Search" button. Results loaded at <code style="color:var(--accent);font-family:var(--font-mono)">/search?kind=destination&id=73745</code>. Clicked "Book Now" on the first listing. Checkout URL: <code style="color:var(--accent);font-family:var(--font-mono)">/purchase/hourly?rid=158690&facility=86545</code>.</p>
+          <div class="step-detail">Lot: <span class="ok">63 Centre Avenue, Toronto, ON</span> · Price: <span class="ok">CA$9.49</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Adjust End Time from 6PM to 5PM</h3>
+          <p>The lot's rate block defaulted end time to 6:00 PM. Agent opened the Reservation Period dialog and changed the end time combobox to 5:00 PM. URL updated to <code style="color:var(--accent);font-family:var(--font-mono)">ends=17:00:00</code>.</p>
+          <div class="step-detail">URL: <span class="ok">ends=2026-03-28T17:00:00</span> · Note: lot gave extra time for free</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot active">⚠</div>
+        <div class="step-content">
+          <h3>Fill Contact Info (with React state workaround)</h3>
+          <p>Email and phone fields kept reverting after page reloads. Agent used JavaScript injection to set React-controlled input values, triggering synthetic events so the form state persisted. Successfully filled both fields.</p>
+          <div class="step-detail">email: <span class="ok">cb01709d163de2@clawbench.cc</span> · phone: <span class="ok">(416) 555-1234</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot active">⚠</div>
+        <div class="step-content">
+          <h3>Battle the Stripe iframe</h3>
+          <p>Cross-origin Stripe payment iframe blocked direct DOM access. Multiple Playwright selector timeouts (8s each), a gateway timeout, and an aria-refs limitation. Eventually found Stripe field refs via aria snapshot and typed card number, expiry, CVC, and name.</p>
+          <div class="step-detail"><span class="err">TimeoutError ×5</span> · <span class="err">cross-origin blocked</span> · <span class="err">gateway timeout ×2</span> → recovered via aria refs</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot done">✓</div>
+        <div class="step-content">
+          <h3>Card Accepted by Stripe Frontend</h3>
+          <p>All four fields verified: Card Number 4519 8734 2460 4532, Expiry 09/28, CVC 847, Name Alex Green. Stripe displayed "VISA •••• 4532" in the Payment Method section.</p>
+          <div class="step-detail">VISA <span class="ok">•••• 4532</span> · exp <span class="ok">09/28</span> · cvc <span class="ok">847</span> · name <span class="ok">Alex Green</span></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot fail">✕</div>
+        <div class="step-content">
+          <h3 style="color:var(--warn)">Payment Declined</h3>
+          <p>Clicked "Pay and Reserve" (ref=e501). Stripe's payment processor returned: "Unable to process payment. Please try again or select another payment method." The test card (4519 8734 2460 4532) is not a valid card for real transactions. Session then hit the 30-minute time limit.</p>
+          <div class="step-detail"><span class="err">Error: Unable to process payment</span> · stop_reason: <span class="err">time_limit_exceeded</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ TIMELINE ═════════ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-tag reveal">Key Events</div>
+    <h2 class="section-title reveal">Timeline of Critical Moments</h2>
+    <p class="section-sub reveal">From initial page load to the final declined payment — the pivotal events that shaped the outcome.</p>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:00:19</div>
+        <div class="timeline-body info">
+          <h4>Page Load — SpotHero Homepage</h4>
+          <p>Navigated to <code>spothero.com</code>. Title: "SpotHero | Get Everywhere Easier | Reserve Parking and Save"</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:00:36</div>
+        <div class="timeline-body">
+          <h4>Search Input Clicked</h4>
+          <p>Clicked the autocomplete search box (#input-autocomplete) and began typing "Downtown Toronto".</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:01:04</div>
+        <div class="timeline-body info">
+          <h4>Autocomplete Selected</h4>
+          <p>Clicked "Toronto" suggestion → Downtown, Old Toronto, Toronto, ON, Canada (destination id=73745).</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:01:18</div>
+        <div class="timeline-body">
+          <h4>Date Picker Opened</h4>
+          <p>Opened the calendar — default was Mar 27, 2026 (today). Needed to advance to tomorrow (Mar 28).</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:01:28</div>
+        <div class="timeline-body">
+          <h4>March 28 Selected</h4>
+          <p>Clicked calendar day "28" (react-datepicker__day--028). Date set to tomorrow.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:02:02</div>
+        <div class="timeline-body info">
+          <h4>Times Set: 9:00 AM & 5:00 PM</h4>
+          <p>Start time combobox → 9:00 AM. End time combobox → 5:00 PM.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:02:18</div>
+        <div class="timeline-body info">
+          <h4>Search Submitted</h4>
+          <p>Clicked "Search" button. Results page loaded with downtown Toronto parking options.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:02:45</div>
+        <div class="timeline-body info">
+          <h4>"Book Now" — 63 Centre Ave.</h4>
+          <p>Selected the first listing. Checkout page loaded at /purchase/hourly?rid=158690&facility=86545.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">15:05:42</div>
+        <div class="timeline-body error">
+          <h4>Contact Form Submission Error</h4>
+          <p>Initial Continue click failed: "fields are required". Email had not persisted — needed JavaScript injection to set React state.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">~15:12</div>
+        <div class="timeline-body error">
+          <h4>Stripe iframe — Multiple Timeouts</h4>
+          <p>5× Playwright TimeoutError (8s each) trying to locate card input fields inside cross-origin Stripe iframe. 2× gateway timeouts.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">~15:25</div>
+        <div class="timeline-body info">
+          <h4>Stripe Fields Filled via aria refs</h4>
+          <p>Recovered by using aria-snapshot refs to type directly into Stripe iframe fields: card number, expiry, CVC, and name on card.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">~15:28</div>
+        <div class="timeline-body info">
+          <h4>VISA •••• 4532 Confirmed</h4>
+          <p>Stripe accepted the card on the frontend. Payment Method section showed "VISA •••• 4532". Ready for final purchase.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-time">~15:30</div>
+        <div class="timeline-body error">
+          <h4>Payment Declined — Session Ended</h4>
+          <p>"Pay and Reserve" clicked. Error: "Unable to process payment." Test card not valid for real transactions. Time limit (1828s) reached.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ DATA / CASE DETAILS ═════════ -->
+<section id="data">
+  <div class="container">
+    <div class="section-tag reveal">Case Data</div>
+    <h2 class="section-title reveal">Agent & Task Configuration</h2>
+    <p class="section-sub reveal">The metadata, user profile, and evaluation criteria that defined this benchmark case.</p>
+    <div class="data-grid">
+      <div class="data-card reveal">
+        <h3>🤖 Agent Config</h3>
+        <div class="data-row"><span class="data-key">Model</span><span class="data-val">claude-opus-4-6</span></div>
+        <div class="data-row"><span class="data-key">Provider</span><span class="data-val">anthropic</span></div>
+        <div class="data-row"><span class="data-key">Thinking Level</span><span class="data-val">medium</span></div>
+        <div class="data-row"><span class="data-key">Benchmark</span><span class="data-val">ClawBench</span></div>
+        <div class="data-row"><span class="data-key">Domain</span><span class="data-val">daily_web_tasks</span></div>
+        <div class="data-row"><span class="data-key">Time Limit</span><span class="data-val">30 min</span></div>
+        <div class="data-row"><span class="data-key">Duration</span><span class="data-val">1828s (≈30m)</span></div>
+      </div>
+      <div class="data-card reveal">
+        <h3>📋 Task Definition</h3>
+        <div class="data-row"><span class="data-key">Task ID</span><span class="data-val">024</span></div>
+        <div class="data-row"><span class="data-key">Metaclass</span><span class="data-val">daily-life</span></div>
+        <div class="data-row"><span class="data-key">Class</span><span class="data-val">transportation</span></div>
+        <div class="data-row"><span class="data-key">Platform</span><span class="data-val">spothero.com</span></div>
+        <div class="data-row"><span class="data-key">Email Used</span><span class="data-val">cb01709d163de2@clawbench.cc</span></div>
+        <div class="data-row"><span class="data-key">Stop Reason</span><span class="data-val" style="color:var(--warn)">time_limit_exceeded</span></div>
+        <div class="data-row"><span class="data-key">Eval Pass</span><span class="data-val" style="color:var(--warn)">false</span></div>
+      </div>
+      <div class="data-card reveal">
+        <h3>👤 User Profile — Alex Green</h3>
+        <div class="data-row"><span class="data-key">Name</span><span class="data-val">Alex Green</span></div>
+        <div class="data-row"><span class="data-key">DOB</span><span class="data-val">1980-05-01</span></div>
+        <div class="data-row"><span class="data-key">Gender</span><span class="data-val">Female (she/her)</span></div>
+        <div class="data-row"><span class="data-key">Nationality</span><span class="data-val">Canadian</span></div>
+        <div class="data-row"><span class="data-key">Email</span><span class="data-val">cb01709d163de2@clawbench.cc</span></div>
+        <div class="data-row"><span class="data-key">Card</span><span class="data-val">VISA <span class="redacted">••••</span> 4532</span></div>
+        <div class="data-row"><span class="data-key">Card Exp</span><span class="data-val">09/28 · CVC 847</span></div>
+      </div>
+      <div class="data-card reveal">
+        <h3>🎯 Evaluation Criteria</h3>
+        <div class="data-row"><span class="data-key">Target URL</span><span class="data-val">spothero.com/api/v1/checkout</span></div>
+        <div class="data-row"><span class="data-key">Method</span><span class="data-val">POST</span></div>
+        <div class="data-row"><span class="data-key">item_type</span><span class="data-val">rental</span></div>
+        <div class="data-row"><span class="data-key">starts</span><span class="data-val">T09:00:00</span></div>
+        <div class="data-row"><span class="data-key">ends</span><span class="data-val">T17:00:00</span></div>
+        <div class="data-row"><span class="data-key">email</span><span class="data-val">cb01709d163de2@clawbench.cc</span></div>
+        <div class="data-row"><span class="data-key">Intercepted</span><span class="data-val" style="color:var(--warn)">No (timed out)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FAQ ═════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-tag reveal" style="text-align:center">FAQ</div>
+    <h2 class="section-title reveal" style="text-align:center">Frequently Asked Questions</h2>
+    <p class="section-sub reveal" style="text-align:center;margin-left:auto;margin-right:auto">Understanding the case, the failure, and what it reveals about agent capabilities.</p>
+    <div class="faq-list">
+      <details class="reveal">
+        <summary>Why did the task ultimately fail?</summary>
+        <div class="faq-answer">The agent completed all 8 navigational steps perfectly — search, date/time selection, lot selection, contact info, and card entry. The failure occurred at the final "Pay and Reserve" step because the test credit card (4519 8734 2460 4532) provided in the user's personal info file is not a valid card for real Stripe transactions. The payment processor declined it. Additionally, the 30-minute time limit was reached, so the evaluation interceptor never captured a successful checkout API call.</div>
+      </details>
+      <details class="reveal">
+        <summary>What was the hardest technical challenge?</summary>
+        <div class="faq-answer">The Stripe payment iframe was the biggest obstacle. It's a cross-origin iframe (js.stripe.com) that blocks direct DOM access from the parent page. The agent encountered 5 Playwright timeout errors (8 seconds each) trying to locate card input fields, 2 gateway timeouts, and an "aria refs does not support selector/frame snapshots" limitation. It eventually recovered by using aria-snapshot refs to type directly into the Stripe fields — a non-trivial workaround.</div>
+      </details>
+      <details class="reveal">
+        <summary>Why did the contact form fields keep reverting?</summary>
+        <div class="faq-answer">SpotHero uses React with controlled inputs. When the agent typed values using Playwright's fill method, the React state wasn't always updated, and page navigations/refreshes reset the fields. The agent solved this by injecting JavaScript that used the native input value setter and dispatched synthetic input/change events, which properly triggered React's state management.</div>
+      </details>
+      <details class="reveal">
+        <summary>What was the evaluation looking for?</summary>
+        <div class="faq-answer">The evaluation interceptor expected a POST request to <code style="font-family:var(--font-mono);color:var(--accent)">spothero.com/api/v1/checkout</code> with a body containing an items array (item_type: "rental", starts matching T09:00:00, ends matching T17:00:00) and the email cb01709d163de2@clawbench.cc. Since the payment was declined, this request was never made — the interceptor was never triggered, and the session timed out.</div>
+      </details>
+      <details class="reveal">
+        <summary>Was the end time correctly set to 5:00 PM?</summary>
+        <div class="faq-answer">Yes and no. The agent successfully set the end time combobox to 5:00 PM and the URL updated to ends=17:00:00. However, the parking lot's rate block enforced a minimum block of 9 AM–6 PM, so the displayed reservation showed 6:00 PM with a note "You're getting extra time for free!" The URL parameter remained at 17:00, which would have satisfied the evaluation criteria had the payment gone through.</div>
+      </details>
+      <details class="reveal">
+        <summary>What would make this task succeed?</summary>
+        <div class="faq-answer">A valid, processable credit card. The agent's workflow was correct end-to-end — the only missing piece was a payment method that Stripe's processor would accept. With a real or test-mode-valid card (e.g., Stripe's 4242 4242 4242 4242 test card in a Stripe test environment), the checkout API call would have been intercepted and the evaluation would pass.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FOOTER ═════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">🅿️ SpotHero · Agent Case Study</div>
+    <div class="footer-text">ClawBench Daily Web Tasks · Case 04_024 · Transportation</div>
+    <div class="footer-meta">
+      <span>Model: claude-opus-4-6</span>
+      <span>Duration: 1828s</span>
+      <span>Result: FAIL</span>
+      <span>Timestamp: 2026-03-27T15:00</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Stagger reveal for grid items
+document.querySelectorAll('.feature-grid .reveal, .meta-stats .reveal, .data-grid .reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3) * 0.1 + 's';
+});
+</script>
+</body>
+</html>

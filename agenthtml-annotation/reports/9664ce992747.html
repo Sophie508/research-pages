@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03_stockindex_query1 — Shenzhen Component ran the widest daily range</title>
+<style>
+  :root{
+    --ink:#0B1D22;
+    --slate:#16333A;
+    --slate-2:#1E424A;
+    --bone:#E6E8E2;
+    --bone-dim:#9FB0AE;
+    --brass:#D9A93F;
+    --jade:#4E9C86;
+    --coral:#DE6B57;
+    --rule:rgba(230,232,226,.14);
+    --rule-strong:rgba(230,232,226,.30);
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --t-hero:clamp(2.35rem,7.2vw,4.9rem);
+    --t-h2:clamp(1.3rem,2.5vw,1.85rem);
+    --t-h3:clamp(.95rem,1.5vw,1.08rem);
+    --t-body:1rem;
+    --t-mono:.74rem;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--bone);
+    font-family:var(--sans);
+    font-size:var(--t-body);
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      repeating-linear-gradient(to bottom,rgba(230,232,226,.028) 0 1px,transparent 1px 4px),
+      radial-gradient(120% 80% at 82% -10%,rgba(78,156,134,.10),transparent 60%),
+      radial-gradient(90% 70% at 0% 100%,rgba(217,169,63,.07),transparent 60%);
+  }
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 22px 96px}
+
+  a{color:var(--brass)}
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+  .skip{
+    position:absolute;left:-9999px;top:0;
+    background:var(--brass);color:var(--ink);
+    padding:10px 14px;font-family:var(--mono);font-size:var(--t-mono);
+    text-transform:uppercase;letter-spacing:.14em;z-index:50;
+  }
+  .skip:focus{left:14px;top:14px}
+
+  /* ---------- top bar ---------- */
+  .bar{
+    position:sticky;top:0;z-index:20;
+    backdrop-filter:blur(9px);
+    background:rgba(11,29,34,.86);
+    border-bottom:1px solid var(--rule);
+  }
+  .bar-in{
+    max-width:var(--maxw);margin:0 auto;padding:11px 22px;
+    display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;
+    justify-content:space-between;
+    font-family:var(--mono);font-size:var(--t-mono);
+    text-transform:uppercase;letter-spacing:.15em;color:var(--bone-dim);
+  }
+  .bar-in b{color:var(--bone);font-weight:600}
+  .bar-in .ok{color:var(--jade)}
+
+  /* ---------- eyebrow / headings ---------- */
+  .eyebrow{
+    font-family:var(--mono);font-size:var(--t-mono);
+    text-transform:uppercase;letter-spacing:.19em;
+    color:var(--bone-dim);margin:0 0 14px;
+  }
+  .eyebrow .dot{color:var(--brass)}
+
+  /* ---------- layout ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:34px;
+    padding-top:44px;
+  }
+  @media (min-width:980px){
+    .grid{grid-template-columns:236px minmax(0,1fr);gap:56px;padding-top:60px}
+  }
+  .rail{display:none}
+  @media (min-width:980px){
+    .rail{display:block;position:sticky;top:74px;align-self:start}
+  }
+  .rail h2{
+    font-family:var(--mono);font-size:var(--t-mono);text-transform:uppercase;
+    letter-spacing:.18em;color:var(--bone-dim);margin:0 0 12px;font-weight:500;
+  }
+  .facts{list-style:none;margin:0 0 26px;padding:0;border-top:1px solid var(--rule)}
+  .facts li{
+    display:flex;justify-content:space-between;gap:10px;
+    padding:7px 0;border-bottom:1px solid var(--rule);
+    font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.04em;
+  }
+  .facts .k{color:var(--bone-dim);text-transform:uppercase;letter-spacing:.13em}
+  .facts .v{color:var(--bone);text-align:right}
+  .nav{list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:var(--t-mono);
+       text-transform:uppercase;letter-spacing:.13em}
+  .nav li{border-bottom:1px solid var(--rule)}
+  .nav a{display:block;padding:9px 0;color:var(--bone-dim);text-decoration:none}
+  .nav a:hover{color:var(--brass)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    border:1px solid var(--rule-strong);
+    background:
+      linear-gradient(180deg,rgba(30,66,74,.55),rgba(11,29,34,.15));
+    padding:clamp(22px,3.4vw,40px);
+    position:relative;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),rgba(217,169,63,0));
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:var(--t-hero);line-height:1.02;
+    letter-spacing:-.018em;
+    margin:0 0 20px;max-width:17ch;
+  }
+  h1 em{font-style:italic;color:var(--brass)}
+  .lede{max-width:56ch;color:#CBD4D1;margin:0 0 26px}
+  .lede code{
+    font-family:var(--mono);font-size:.88em;color:var(--bone);
+    background:rgba(230,232,226,.09);padding:1px 5px;
+  }
+
+  .answer{
+    display:flex;flex-wrap:wrap;gap:10px 40px;align-items:flex-end;
+    border-top:1px solid var(--rule);padding-top:22px;
+  }
+  .big{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .big .num{
+    display:block;font-size:clamp(2.6rem,8vw,4.4rem);line-height:.94;
+    letter-spacing:-.03em;color:var(--brass);font-weight:600;
+  }
+  .big .cap{
+    display:block;font-size:var(--t-mono);text-transform:uppercase;
+    letter-spacing:.17em;color:var(--bone-dim);margin-top:9px;
+  }
+  .mini{min-width:120px}
+  .mini .num{
+    display:block;font-size:1.5rem;line-height:1;color:var(--bone);font-weight:600;
+  }
+  .mini .cap{
+    display:block;font-size:var(--t-mono);text-transform:uppercase;
+    letter-spacing:.15em;color:var(--bone-dim);margin-top:7px;
+  }
+
+  /* ---------- signature: ribbon ladder ---------- */
+  .ladder{margin-top:34px;border-top:1px solid var(--rule);padding-top:22px}
+  .ladder-head{
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+    align-items:center;margin-bottom:16px;
+  }
+  .ladder-head .eyebrow{margin:0}
+  .switch{display:flex;border:1px solid var(--rule-strong)}
+  .chip{
+    appearance:none;background:transparent;border:0;cursor:pointer;
+    font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.14em;
+    text-transform:uppercase;color:var(--bone-dim);padding:7px 12px;
+  }
+  .chip + .chip{border-left:1px solid var(--rule-strong)}
+  .chip:hover{color:var(--bone)}
+  .chip[aria-pressed="true"]{background:var(--bone);color:var(--ink)}
+
+  .rows{list-style:none;margin:0;padding:0}
+  .row{border-top:1px solid var(--rule)}
+  .row:last-child{border-bottom:1px solid var(--rule)}
+  .row-btn{
+    appearance:none;background:transparent;border:0;cursor:pointer;width:100%;
+    display:grid;
+    grid-template-columns:88px minmax(0,1fr) 74px;
+    grid-template-areas:"id name val" "track track track";
+    gap:4px 12px;
+    padding:12px 2px;text-align:left;color:inherit;font:inherit;
+  }
+  @media (min-width:720px){
+    .row-btn{
+      grid-template-columns:104px 190px minmax(0,1fr) 86px;
+      grid-template-areas:"id name track val";
+      align-items:center;gap:18px;
+    }
+  }
+  .row-id{
+    grid-area:id;font-family:var(--mono);font-size:var(--t-mono);
+    letter-spacing:.06em;color:var(--bone-dim);white-space:nowrap;
+  }
+  .row-name{grid-area:name;font-size:.94rem;color:var(--bone)}
+  .row-lead .row-name{color:var(--brass);font-weight:600}
+  .row-track{
+    grid-area:track;display:block;position:relative;height:12px;
+    background:rgba(230,232,226,.07);
+  }
+  .row-fill{
+    position:absolute;inset:0 auto 0 0;width:0;
+    background:linear-gradient(90deg,rgba(78,156,134,.85),rgba(78,156,134,.42));
+    transition:width .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .row-lead .row-fill{background:linear-gradient(90deg,var(--brass),rgba(217,169,63,.45))}
+  .row-val{
+    grid-area:val;font-family:var(--mono);font-variant-numeric:tabular-nums;
+    font-size:.86rem;text-align:right;color:var(--bone);
+  }
+  .row-btn:hover .row-id{color:var(--brass)}
+  .row-detail{
+    display:none;padding:0 2px 16px;
+    font-family:var(--mono);font-size:var(--t-mono);
+    letter-spacing:.03em;color:var(--bone-dim);
+    border-left:2px solid var(--rule-strong);padding-left:12px;margin-bottom:14px;
+  }
+  .row.is-open .row-detail{display:block}
+  .row-detail b{color:var(--bone);font-weight:600}
+  .row-detail .warn{color:var(--coral)}
+  @media (max-width:719px){
+    .row-detail{margin-left:0}
+  }
+
+  /* ---------- sections ---------- */
+  section{margin-top:64px;scroll-margin-top:84px}
+  h2{
+    font-family:var(--serif);font-weight:600;font-size:var(--t-h2);
+    line-height:1.15;letter-spacing:-.01em;margin:0 0 6px;max-width:26ch;
+  }
+  .sub{color:var(--bone-dim);font-size:.9rem;margin:0 0 26px;max-width:62ch}
+  h3{
+    font-family:var(--mono);font-size:var(--t-mono);font-weight:600;
+    text-transform:uppercase;letter-spacing:.16em;color:var(--brass);
+    margin:0 0 10px;
+  }
+  p{margin:0 0 16px;max-width:68ch}
+  .rule{height:1px;background:var(--rule);margin:0 0 28px}
+
+  .cols{display:grid;gap:22px}
+  @media (min-width:760px){.cols.two{grid-template-columns:1fr 1fr}}
+  .card{
+    border:1px solid var(--rule);border-left:3px solid var(--slate-2);
+    background:rgba(22,51,58,.42);padding:20px 20px 8px;
+  }
+  .card h3{color:var(--bone)}
+  .card p{font-size:.92rem;color:#C3CDCA;max-width:none}
+  .card ul{margin:0 0 16px;padding-left:18px;font-size:.92rem;color:#C3CDCA}
+  .card li{margin-bottom:7px}
+  .tag{
+    display:inline-block;font-family:var(--mono);font-size:var(--t-mono);
+    letter-spacing:.13em;text-transform:uppercase;color:var(--ink);
+    background:var(--bone-dim);padding:3px 7px;margin:0 6px 10px 0;
+  }
+  .tag.sql{background:#8FA9C4}
+  .tag.duck{background:#D9B06F}
+
+  blockquote{
+    margin:0 0 26px;padding:16px 20px;border-left:2px solid var(--brass);
+    background:rgba(217,169,63,.06);
+    font-family:var(--serif);font-size:1.12rem;line-height:1.5;color:var(--bone);
+    max-width:60ch;
+  }
+  blockquote footer{
+    font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.14em;
+    text-transform:uppercase;color:var(--bone-dim);margin-top:10px;
+  }
+
+  /* formula plaque */
+  .plaque{
+    border:1px solid var(--rule-strong);background:rgba(11,29,34,.6);
+    padding:22px 20px;margin-bottom:22px;
+  }
+  .formula{
+    font-family:var(--mono);font-size:clamp(.9rem,2.1vw,1.15rem);
+    letter-spacing:.02em;color:var(--bone);margin:0 0 14px;
+    font-variant-numeric:tabular-nums;
+  }
+  .formula .op{color:var(--brass)}
+  .plaque .note{font-size:.86rem;color:var(--bone-dim);margin:0}
+
+  /* table */
+  .tablewrap{overflow-x:auto;border:1px solid var(--rule)}
+  table{border-collapse:collapse;width:100%;min-width:560px}
+  caption{text-align:left;padding:12px 14px;color:var(--bone-dim);
+          font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.1em;
+          text-transform:uppercase;border-bottom:1px solid var(--rule)}
+  th,td{
+    padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule);
+    font-size:.9rem;
+  }
+  th{
+    font-family:var(--mono);font-size:var(--t-mono);text-transform:uppercase;
+    letter-spacing:.14em;color:var(--bone-dim);font-weight:500;
+    background:rgba(22,51,58,.5);
+  }
+  td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+  tr.lead td{background:rgba(217,169,63,.09);color:var(--bone)}
+  tr.lead td:first-child{box-shadow:inset 3px 0 0 var(--brass)}
+  td.tick{font-family:var(--mono);color:var(--bone-dim);font-size:.8rem}
+
+  /* timeline */
+  .time{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+  .time li{
+    display:grid;grid-template-columns:80px 22px minmax(0,1fr);
+    gap:0 12px;padding:13px 0;border-bottom:1px solid var(--rule);
+    align-items:start;
+  }
+  @media (min-width:640px){
+    .time li{grid-template-columns:96px 26px minmax(0,1fr)}
+  }
+  .t{font-family:var(--mono);font-size:var(--t-mono);color:var(--bone-dim);
+     letter-spacing:.04em;padding-top:2px;font-variant-numeric:tabular-nums}
+  .mark{
+    width:9px;height:9px;margin-top:6px;justify-self:center;
+    background:var(--jade);box-shadow:0 0 0 1px rgba(78,156,134,.4)
+  }
+  .fail .mark{background:var(--coral);box-shadow:0 0 0 1px rgba(222,107,87,.4)}
+  .idle .mark{background:transparent;box-shadow:inset 0 0 0 1px var(--bone-dim)}
+  .ev{font-size:.92rem;color:#C3CDCA}
+  .ev b{color:var(--bone);font-weight:600}
+  .err{
+    display:block;margin-top:7px;font-family:var(--mono);font-size:.76rem;
+    color:var(--coral);word-break:break-word;
+  }
+  .gap{
+    display:block;margin-top:7px;font-family:var(--mono);font-size:.76rem;
+    color:var(--bone-dim);border-left:2px solid var(--rule-strong);padding-left:10px;
+  }
+  .pips{margin:14px 0 26px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .pip{
+    font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.12em;
+    text-transform:uppercase;color:var(--bone-dim);display:flex;align-items:center;gap:7px;
+  }
+  .pip i{width:9px;height:9px;background:var(--jade);display:block;font-style:normal}
+  .pip.bad i{background:var(--coral)}
+  .pip.none i{background:transparent;box-shadow:inset 0 0 0 1px var(--bone-dim)}
+
+  /* open questions */
+  .open{counter-reset:q;list-style:none;margin:0;padding:0}
+  .open li{
+    counter-increment:q;position:relative;padding:0 0 20px 44px;
+    border-bottom:1px solid var(--rule);margin-bottom:20px;max-width:70ch;
+  }
+  .open li::before{
+    content:counter(q,decimal-leading-zero);
+    position:absolute;left:0;top:2px;
+    font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.1em;
+    color:var(--coral);border:1px solid rgba(222,107,87,.5);padding:2px 6px;
+  }
+  .open b{color:var(--bone)}
+  .open span{color:#C3CDCA;font-size:.93rem}
+
+  footer.foot{
+    margin-top:70px;padding-top:22px;border-top:1px solid var(--rule-strong);
+    display:grid;gap:18px;
+    font-family:var(--mono);font-size:var(--t-mono);letter-spacing:.05em;
+    color:var(--bone-dim);
+  }
+  @media (min-width:760px){footer.foot{grid-template-columns:1fr 1fr}}
+  footer.foot dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px}
+  footer.foot dt{text-transform:uppercase;letter-spacing:.13em}
+  footer.foot dd{margin:0;color:var(--bone);word-break:break-all}
+  .signoff{max-width:52ch;color:var(--bone-dim);letter-spacing:.02em;line-height:1.7}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .row-fill{transition:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the analysis</a>
+
+<div class="bar">
+  <div class="bar-in">
+    <span><b>03_stockindex_query1</b> · DataAgentBench · data_analysis</span>
+    <span>gpt-5.6-sol · codex-jsonl · <span class="ok">exit 0</span></span>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="grid">
+
+  <!-- ============ RAIL ============ -->
+  <aside class="rail" aria-label="Run facts and contents">
+    <h2>Run</h2>
+    <ul class="facts">
+      <li><span class="k">Wall</span><span class="v">4248.1 s</span></li>
+      <li><span class="k">Exec calls</span><span class="v">9</span></li>
+      <li><span class="k">Failed</span><span class="v">6</span></li>
+      <li><span class="k">Sources</span><span class="v">2</span></li>
+      <li><span class="k">Indexes</span><span class="v">6</span></li>
+      <li><span class="k">Outcome</span><span class="v" style="color:var(--jade)">answered</span></li>
+    </ul>
+    <h2>Contents</h2>
+    <ul class="nav">
+      <li><a href="#answer">The answer</a></li>
+      <li><a href="#asked">What was asked</a></li>
+      <li><a href="#data">What the data held</a></li>
+      <li><a href="#method">How the number was made</a></li>
+      <li><a href="#ranking">The ranking</a></li>
+      <li><a href="#friction">Where the run stuck</a></li>
+      <li><a href="#open">What stays open</a></li>
+    </ul>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main id="main">
+
+    <div class="hero reveal" id="answer">
+      <p class="eyebrow">Data analysis run <span class="dot">/</span> recorded 2026-07-11 <span class="dot">/</span> Asia, 2020 onward</p>
+      <h1>Shenzhen Component ran the <em>widest</em> daily range.</h1>
+      <p class="lede">
+        Asked which Asian stock index carried the highest average intraday volatility since 2020,
+        the agent measured each session as <code>(High − Low) / Open × 100</code>, averaged it per index,
+        and put the Shenzhen Component Index on top at <strong>1.8341% per session</strong>.
+        Only <strong>0.13 percentage points</strong> separate it from the Nifty 50 — and only about
+        <strong>0.51 points</strong> separate first from last.
+      </p>
+
+      <div class="answer">
+        <div class="big">
+          <span class="num">1.8341%</span>
+          <span class="cap">399001.SZ · avg intraday range</span>
+        </div>
+        <div class="mini big">
+          <span class="num">342</span>
+          <span class="cap">sessions counted</span>
+        </div>
+        <div class="mini big">
+          <span class="num">6</span>
+          <span class="cap">Asia indexes tested</span>
+        </div>
+      </div>
+
+      <!-- ===== SIGNATURE: ribbon ladder ===== -->
+      <div class="ladder" id="ladder">
+        <div class="ladder-head">
+          <p class="eyebrow" id="ladder-label">Average daily range, 2020-01-01 onward</p>
+          <div class="switch" role="group" aria-label="Encode the ribbons by">
+            <button class="chip" type="button" data-metric="vol" aria-pressed="true">Range %</button>
+            <button class="chip" type="button" data-metric="days" aria-pressed="false">Sessions</button>
+          </div>
+        </div>
+
+        <ol class="rows">
+          <li class="row row-lead" data-vol="1.8341" data-days="342">
+            <button class="row-btn" type="button" aria-expanded="false">
+              <span class="row-id">399001.SZ</span>
+              <span class="row-name">Shenzhen Component</span>
+              <span class="row-track" aria-hidden="true"><span class="row-fill"></span></span>
+              <span class="row-val">1.8341%</span>
+            </button>
+            <div class="row-detail">
+              Leader on both encodings of volatility. Likely Shenzhen Stock Exchange (CNY) —
+              <span class="warn">the databases carry no index-to-exchange key</span>, so the Asia label is the model's call.
+              Sessions: <b>342</b> · rank by session count: <b>4th of 6</b>.
+            </div>
+          </li>
+          <li class="row" data-vol="1.7072" data-days="349">
+            <button class="row-btn" type="button" aria-expanded="false">
+              <span class="row-id">NSEI</span>
+              <span class="row-name">Nifty 50</span>
+              <span class="row-track" aria-hidden="true"><span class="row-fill"></span></span>
+              <span class="row-val">1.7072%</span>
+            </button>
+            <div class="row-detail">
+              <b>0.1269 pp</b> behind the leader — inside the spread that a different volatility
+              definition could close. Likely National Stock Exchange of India (INR).
+              Sessions: <b>349</b> · the most of any index here.
+            </div>
+          </li>
+          <li class="row" data-vol="1.4932" data-days="348">
+            <button class="row-btn" type="button" aria-expanded="false">
+              <span class="row-id">HSI</span>
+              <span class="row-name">Hang Seng Index</span>
+              <span class="row-track" aria-hidden="true"><span class="row-fill"></span></span>
+              <span class="row-val">1.4932%</span>
+            </button>
+            <div class="row-detail">
+              <b>0.3409 pp</b> behind. Likely Hong Kong Stock Exchange (HKD). Sessions: <b>348</b>.
+              The first row of the price table — its earliest record is 31 Dec 1986.
+            </div>
+          </li>
+          <li class="row" data-vol="1.3781" data-days="340">
+            <button class="row-btn" type="button" aria-expanded="false">
+              <span class="row-id">000001.SS</span>
+              <span class="row-name">Shanghai Composite</span>
+              <span class="row-track" aria-hidden="true"><span class="row-fill"></span></span>
+              <span class="row-val">1.3781%</span>
+            </button>
+            <div class="row-detail">
+              <b>0.4560 pp</b> behind. Likely Shanghai Stock Exchange (CNY). Sessions: <b>340</b>.
+            </div>
+          </li>
+          <li class="row" data-vol="1.3427" data-days="344">
+            <button class="row-btn" type="button" aria-expanded="false">
+              <span class="row-id">N225</span>
+              <span class="row-name">Nikkei 225</span>
+              <span class="row-track" aria-hidden="true"><span class="row-fill"></span></span>
+              <span class="row-val">1.3427%</span>
+            </button>
+            <div class="row-detail">
+              <b>0.4914 pp</b> behind. Likely Tokyo Stock Exchange (JPY). Sessions: <b>344</b>.
+            </div>
+          </li>
+          <li class="row" data-vol="1.3225" data-days="339">
+            <button class="row-btn" type="button" aria-expanded="false">
+              <span class="row-id">TWII</span>
+              <span class="row-name">Taiwan Weighted</span>
+              <span class="row-track" aria-hidden="true"><span class="row-fill"></span></span>
+              <span class="row-val">1.3225%</span>
+            </button>
+            <div class="row-detail">
+              Last of six, <b>0.5116 pp</b> behind the leader — and also last by session count.
+              Likely Taiwan Stock Exchange (TWD). Sessions: <b>339</b>.
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ============ ASKED ============ -->
+    <section id="asked" class="reveal">
+      <p class="eyebrow">01 <span class="dot">/</span> The brief</p>
+      <h2>One question, two database files.</h2>
+      <p class="sub">Verbatim from <code style="font-family:var(--mono);font-size:.85em">workspace/prompt.txt</code>.</p>
+      <blockquote>
+        Which stock index in the Asia region has exhibited the highest average intraday
+        volatility since 2020?
+        <footer>Query <code style="font-family:var(--mono);font-size:.85em">indexInfo_query.db</code> (SQLite) and <code style="font-family:var(--mono);font-size:.85em">indextrade_query.db</code> (DuckDB), write and run Python, print the answer.</footer>
+      </blockquote>
+      <p>
+        The brief names no volatility formula, no region lookup, and no date column format — three
+        decisions the run had to make on its own. All three are visible in the transcript, and all
+        three are where the uncertainty lives.
+      </p>
+    </section>
+
+    <!-- ============ DATA ============ -->
+    <section id="data" class="reveal">
+      <p class="eyebrow">02 <span class="dot">/</span> Sources</p>
+      <h2>Neither file could answer “Asia” by itself.</h2>
+      <div class="rule"></div>
+
+      <div class="cols two">
+        <div class="card">
+          <span class="tag sql">SQLite · 8 KB</span>
+          <h3>indexInfo_query.db → index_info</h3>
+          <p>
+            One table, two columns, <strong>14 rows</strong>: <code style="font-family:var(--mono);font-size:.85em">Exchange</code>
+            and <code style="font-family:var(--mono);font-size:.85em">Currency</code>.
+          </p>
+          <ul>
+            <li>New York Stock Exchange · USD</li>
+            <li>Hong Kong Stock Exchange · HKD</li>
+            <li>Shanghai / Shenzhen Stock Exchange · CNY</li>
+            <li>Tokyo Stock Exchange · JPY</li>
+            <li>National Stock Exchange of India · INR</li>
+            <li>Korea Exchange · KRW · Taiwan Stock Exchange · TWD</li>
+            <li>…plus Euronext, Frankfurt, SIX Swiss, Toronto, Johannesburg</li>
+          </ul>
+          <p>
+            No index names, no region column, no key joining an exchange to a ticker. Currency is the
+            only regional signal in the file.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag duck">DuckDB · 4.5 MB</span>
+          <h3>indextrade_query.db → index_trade</h3>
+          <p>
+            <strong>13 tickers</strong>, 104,224 rows, columns
+            <code style="font-family:var(--mono);font-size:.85em">Index, Date, Open, High, Low, Close, Adj Close, CloseUSD</code>.
+          </p>
+          <ul>
+            <li>Asia: HSI, 000001.SS, 399001.SZ, N225, NSEI, TWII</li>
+            <li>Elsewhere: GDAXI, GSPTSE, IXIC, J203.JO, N100, NYA, SSMI</li>
+            <li><strong>Korea Exchange has no ticker at all</strong></li>
+            <li>Date is a string in at least three formats: <code style="font-family:var(--mono);font-size:.85em">1987-01-05 00:00:00</code>, <code style="font-family:var(--mono);font-size:.85em">31 Dec 1986, 00:00</code>, <code style="font-family:var(--mono);font-size:.85em">October 07, 1987 at 12:00 AM</code></li>
+          </ul>
+          <p>
+            <code style="font-family:var(--mono);font-size:.85em">Close</code>,
+            <code style="font-family:var(--mono);font-size:.85em">Adj Close</code> and
+            <code style="font-family:var(--mono);font-size:.85em">CloseUSD</code> went unused.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METHOD ============ -->
+    <section id="method" class="reveal">
+      <p class="eyebrow">03 <span class="dot">/</span> Measure</p>
+      <h2>Volatility, defined as a daily range.</h2>
+      <p class="sub">
+        The agent stated the definition in its running commentary before running the query, so the
+        transcript shows the choice being made rather than inferred after the fact.
+      </p>
+
+      <div class="plaque">
+        <p class="formula">
+          volatility<sub>day</sub> <span class="op">=</span>
+          ( High <span class="op">−</span> Low ) <span class="op">/</span> Open <span class="op">×</span> 100
+        </p>
+        <p class="note">
+          Averaged per index across every session from <strong>2020-01-01</strong> onward, keeping rows where
+          Open &gt; 0 and High and Low are both present. Percentage range rather than index points —
+          raw points would just rank index scale, not volatility.
+        </p>
+      </div>
+
+      <div class="cols two">
+        <div class="card">
+          <h3>Date parsing</h3>
+          <p>
+            Three <code style="font-family:var(--mono);font-size:.85em">try_strptime</code> patterns
+            joined by <code style="font-family:var(--mono);font-size:.85em">COALESCE</code>. The run
+            separately counted rows that matched none: <strong>0 unparsed dates</strong>.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What was left out</h3>
+          <p>
+            No alternative volatility measure was computed — close-to-close standard deviation, ATR,
+            or range over Close would each have been one more query. The run also never printed the
+            table's earliest or latest date; that check failed and was not retried.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RANKING ============ -->
+    <section id="ranking" class="reveal">
+      <p class="eyebrow">04 <span class="dot">/</span> Result</p>
+      <h2>Six indexes, eight hundredths apart at the top.</h2>
+      <div class="rule"></div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Printed by the run · order preserved</caption>
+          <thead>
+            <tr>
+              <th scope="col">Index</th>
+              <th scope="col">Ticker</th>
+              <th scope="col" class="num">Sessions</th>
+              <th scope="col" class="num">Avg intraday range</th>
+              <th scope="col" class="num">Vs. leader</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="lead">
+              <td>Shenzhen Component</td><td class="tick">399001.SZ</td>
+              <td class="num">342</td><td class="num">1.8341%</td><td class="num">—</td>
+            </tr>
+            <tr>
+              <td>Nifty 50</td><td class="tick">NSEI</td>
+              <td class="num">349</td><td class="num">1.7072%</td><td class="num">−0.1269</td>
+            </tr>
+            <tr>
+              <td>Hang Seng Index</td><td class="tick">HSI</td>
+              <td class="num">348</td><td class="num">1.4932%</td><td class="num">−0.3409</td>
+            </tr>
+            <tr>
+              <td>Shanghai Composite</td><td class="tick">000001.SS</td>
+              <td class="num">340</td><td class="num">1.3781%</td><td class="num">−0.4560</td>
+            </tr>
+            <tr>
+              <td>Nikkei 225</td><td class="tick">N225</td>
+              <td class="num">344</td><td class="num">1.3427%</td><td class="num">−0.4914</td>
+            </tr>
+            <tr>
+              <td>Taiwan Weighted</td><td class="tick">TWII</td>
+              <td class="num">339</td><td class="num">1.3225%</td><td class="num">−0.5116</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:18px">
+        The final message named the Shenzhen Component Index and the formula, reported 1.8341% across
+        342 observations, and noted that every date had parsed. It did not mention the exchange
+        mapping, the near-tie at the top, or the sample size.
+      </p>
+    </section>
+
+    <!-- ============ FRICTION ============ -->
+    <section id="friction" class="reveal">
+      <p class="eyebrow">05 <span class="dot">/</span> Execution</p>
+      <h2>Six of nine exec calls failed. None were about the data.</h2>
+      <p class="sub">
+        The agent ran inside a read-only sandbox with shell heredocs disabled and a JavaScript
+        exec host that lacked <code style="font-family:var(--mono);font-size:.85em">TextEncoder</code>
+        and <code style="font-family:var(--mono);font-size:.85em">btoa</code>. It worked around each
+        blocker by hand, then solved the task on the third working call.
+      </p>
+
+      <div class="pips">
+        <span class="pip"><i></i>3 produced output</span>
+        <span class="pip bad"><i></i>6 blocked</span>
+        <span class="pip none"><i></i>1 long silence</span>
+      </div>
+
+      <ol class="time">
+        <li class="idle">
+          <span class="t">22:16:52</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev">Session opens. Developer messages set <b>read-only filesystem</b>, restricted network, approval policy <code style="font-family:var(--mono);font-size:.82em">never</code>, and no sub-agents. Task and paths arrive at 22:16:52.</span>
+        </li>
+        <li>
+          <span class="t">22:16:53</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev">Plan stated: inspect both schemas, isolate Asia, compute average intraday volatility from 2020, make the definition explicit.</span>
+        </li>
+        <li class="fail">
+          <span class="t">22:16:59</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 1 — blocked.</b> Python heredoc.
+            <span class="err">zsh:1: can't create temp file for here document: operation not permitted</span>
+          </span>
+        </li>
+        <li>
+          <span class="t">22:17:07</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 2 — worked.</b> One-line <code style="font-family:var(--mono);font-size:.82em">python -c</code> with escaped quotes reads both schemas: SQLite <code style="font-family:var(--mono);font-size:.82em">index_info(Exchange, Currency)</code>, DuckDB <code style="font-family:var(--mono);font-size:.82em">index_trade</code> with 8 columns.</span>
+        </li>
+        <li>
+          <span class="t">22:17:16</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 3 — worked.</b> 14 exchanges listed, 13 tickers counted, date formats sampled. The three-format problem becomes visible here.</span>
+        </li>
+        <li class="idle">
+          <span class="t">22:17:21</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev">Commentary fixes the approach: six Asia indexes (HSI, 000001.SS, N225, 399001.SZ, NSEI, TWII) and <code style="font-family:var(--mono);font-size:.82em">(High − Low) / Open × 100</code>.</span>
+        </li>
+        <li class="fail">
+          <span class="t">22:17:31</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 4 — blocked.</b> Triple-quoted SQL inside the shell command string.
+            <span class="err">zsh:1: parse error near `)'</span>
+          </span>
+        </li>
+        <li class="idle">
+          <span class="t">22:17:33 → 23:26:51</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev">No recorded output for <b>69 min 18 s</b> — 97.9% of the run's 4248 s wall time. The transcript gives no reason for the gap.
+            <span class="gap">Last event before it: a failed exec. First event after it: another exec attempt on the same query.</span>
+          </span>
+        </li>
+        <li class="fail">
+          <span class="t">23:26:51</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 5 — blocked.</b> Tries base64-encoding the script in the exec host.
+            <span class="err">ReferenceError: TextEncoder is not defined</span>
+          </span>
+        </li>
+        <li class="fail">
+          <span class="t">23:27:01</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 6 — blocked.</b> Swaps <code style="font-family:var(--mono);font-size:.82em">TextEncoder</code> for <code style="font-family:var(--mono);font-size:.82em">btoa</code>.
+            <span class="err">ReferenceError: btoa is not defined</span>
+          </span>
+        </li>
+        <li class="fail">
+          <span class="t">23:27:13</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 7 — blocked.</b> Passes the script through <code style="font-family:var(--mono);font-size:.82em">JSON.stringify</code>, which escapes newlines into the Python source.
+            <span class="err">SyntaxError: unexpected character after line continuation character</span>
+          </span>
+        </li>
+        <li>
+          <span class="t">23:27:26</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 8 — worked.</b> Hand-rolled base64 encoder in plain JS (~15 s of work) ships the query as <code style="font-family:var(--mono);font-size:.82em">python -c "import base64;exec(...)"</code>. The ranking prints; unparsed dates: 0.</span>
+        </li>
+        <li class="fail">
+          <span class="t">23:27:34</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev"><b>Exec 9 — blocked.</b> Attempt to print the table's min and max date, reusing the shell-quoting style that had already failed twice.
+            <span class="err">zsh:1: parse error near `)'</span>
+          </span>
+        </li>
+        <li class="idle">
+          <span class="t">23:27:38</span><span class="mark" aria-hidden="true"></span>
+          <span class="ev">Final answer delivered. Run ends, exit code 0. The unsupported min/max check is dropped rather than retried.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ OPEN ============ -->
+    <section id="open" class="reveal">
+      <p class="eyebrow">06 <span class="dot">/</span> Limits</p>
+      <h2>What the recorded run did not settle.</h2>
+      <p class="sub">
+        Stated plainly, because the headline number is more confident than the evidence behind it.
+      </p>
+
+      <ol class="open">
+        <li>
+          <b>“Asia” was the model's judgement, not the data's.</b>
+          <span>Neither table links an index to a region or an exchange. Six of thirteen tickers were
+          classified by ticker knowledge; the other seven were dropped untested. Korea Exchange
+          appears in the metadata but has no prices, so a seventh Asian market was never in scope.</span>
+        </li>
+        <li>
+          <b>One volatility definition, never compared.</b>
+          <span>Range over Open is a reasonable proxy, but range over Close, close-to-close standard
+          deviation, or ATR could reorder the top. With first and second only 0.1269 pp apart, the
+          definition is doing real work in the answer.</span>
+        </li>
+        <li>
+          <b>The effective date range is unverified.</b>
+          <span>Each index contributes only 339–349 sessions in a window labelled “since 2020”. A daily
+          series spanning 2020 to 2026 would supply roughly 1,600. Either the price table thins out or
+          ends early — the check that would have shown which (exec 9) failed and was never rerun, so
+          the reader cannot tell how much history the averages actually cover.</span>
+        </li>
+        <li>
+          <b>Session counts differ across indexes and nobody asked why.</b>
+          <span>339 to 349 is a 10-session spread among indexes in the same region. Whether the missing
+          sessions cluster in volatile stretches — which would bias the averages — was not tested.</span>
+        </li>
+        <li>
+          <b>The deliverable states the winner without its caveats.</b>
+          <span>The final message carries the formula but not the exchange mapping, the sample sizes,
+          or the near-tie. A reader of the final answer alone would not know that the margin is
+          narrower than the definitional uncertainty.</span>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="foot">
+      <dl>
+        <dt>Case</dt><dd>03_stockindex_query1</dd>
+        <dt>Benchmark</dt><dd>DataAgentBench · data_analysis · source: regen</dd>
+        <dt>Model</dt><dd>gpt-5.6-sol (backend gpt-5.6-sol)</dd>
+        <dt>Duration</dt><dd>4248.1 s · exit code 0</dd>
+        <dt>Collected</dt><dd>2026-07-11</dd>
+        <dt>Trajectory</dt><dd>codex-jsonl · sha256 5b4803139aaa1098adee06c3c7591b47aaeee675492e002cb68a434fe6b56871</dd>
+        <dt>References</dt><dd>none declared</dd>
+        <dt>Media refs</dt><dd>none — no screenshots, frames, or recordings accompany this case</dd>
+      </dl>
+      <p class="signoff">
+        Everything above is reconstructed from the recorded trajectory: nine exec calls, their stdout,
+        and the one-line summaries the agent wrote between them. The volatility figures and session
+        counts are the run's own printed output, reproduced without recomputation; the exchange
+        attributions and the inference about the date window are labelled as such.
+      </p>
+    </footer>
+
+  </main>
+</div>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- ribbon fills ---- */
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#ladder .row'));
+  var label = document.getElementById('ladder-label');
+  var metric = 'vol';
+
+  function maxOf(key) {
+    return rows.reduce(function (m, r) {
+      var v = parseFloat(r.getAttribute('data-' + key));
+      return v > m ? v : m;
+    }, 0);
+  }
+
+  function paint(animate) {
+    var key = metric === 'vol' ? 'vol' : 'days';
+    var max = maxOf(key);
+    rows.forEach(function (r) {
+      var val = parseFloat(r.getAttribute('data-' + key));
+      var pct = max > 0 ? (val / max) * 100 : 0;
+      var fill = r.querySelector('.row-fill');
+      if (!animate || reduce) {
+        fill.style.transition = 'none';
+        fill.style.width = pct.toFixed(2) + '%';
+        void fill.offsetWidth;
+        fill.style.transition = '';
+      } else {
+        fill.style.width = pct.toFixed(2) + '%';
+      }
+      var out = r.querySelector('.row-val');
+      out.textContent = metric === 'vol'
+        ? val.toFixed(4) + '%'
+        : String(Math.round(val)) + ' d';
+    });
+    label.textContent = metric === 'vol'
+      ? 'Average daily range, 2020-01-01 onward'
+      : 'Sessions counted, 2020-01-01 onward';
+  }
+
+  /* chips */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#ladder .chip'));
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      metric = c.getAttribute('data-metric');
+      chips.forEach(function (o) {
+        o.setAttribute('aria-pressed', o === c ? 'true' : 'false');
+      });
+      paint(true);
+    });
+  });
+
+  /* ---- row disclosure ---- */
+  rows.forEach(function (r) {
+    var btn = r.querySelector('.row-btn');
+    btn.addEventListener('click', function () {
+      var open = r.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  paint(false);
+
+  /* ---- initial fills animate once the ladder is on screen ---- */
+  if (reduce) {
+    paint(false);
+  } else if ('IntersectionObserver' in window) {
+    rows.forEach(function (r) { r.querySelector('.row-fill').style.width = '0%'; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          io.disconnect();
+          requestAnimationFrame(function () { paint(true); });
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(document.getElementById('ladder'));
+  }
+
+  /* ---- section reveals ---- */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          ro.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

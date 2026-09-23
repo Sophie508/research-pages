@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Review · sasdocs-41</title>
+  <style>
+    :root {
+      --ink: #19231f;
+      --muted: #68736e;
+      --paper: #f4f1e9;
+      --panel: #fffdf8;
+      --line: #d9d5ca;
+      --green: #2e7054;
+      --green-soft: #dfece5;
+      --amber: #a56621;
+      --amber-soft: #f4e5ca;
+      --red: #a34539;
+      --red-soft: #f4ddd8;
+      --slate: #26332e;
+      --code: #16201c;
+      --code-ink: #e7eee9;
+      --shadow: 0 18px 55px rgba(32, 41, 36, .08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 86% 4%, rgba(46, 112, 84, .12), transparent 28rem),
+        linear-gradient(90deg, rgba(25, 35, 31, .025) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 44px 44px, auto;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    button, a { font: inherit; }
+    a { color: inherit; }
+
+    .shell {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 5px 2px 22px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--slate); }
+    .brand-mark { width: 12px; height: 12px; border: 3px solid var(--green); transform: rotate(45deg); }
+    .case-id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .03em; text-transform: none; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, .75fr);
+      gap: 42px;
+      padding: clamp(30px, 5vw, 64px);
+      color: #f7f4ec;
+      background: var(--slate);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "41";
+      position: absolute;
+      right: -20px;
+      bottom: -105px;
+      color: rgba(255,255,255,.035);
+      font: 800 300px/1 Georgia, serif;
+      pointer-events: none;
+    }
+
+    .eyebrow { margin: 0 0 16px; color: #a9cbb8; font-size: 12px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { max-width: 720px; margin: 0; font: 700 clamp(38px, 6vw, 72px)/.99 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
+    .hero-copy { max-width: 700px; margin: 25px 0 0; color: #ced8d2; font-size: clamp(16px, 2vw, 20px); }
+
+    .verdict {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      padding: 24px;
+      color: var(--ink);
+      background: #f7f1e6;
+      border-radius: 16px;
+      transform: rotate(-1deg);
+    }
+
+    .verdict-label { color: var(--red); font-size: 11px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .verdict strong { display: block; margin: 9px 0 8px; font: 700 30px/1.05 Georgia, serif; }
+    .verdict p { margin: 0; color: #626a66; font-size: 14px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0 46px;
+    }
+
+    .stat {
+      padding: 19px 22px;
+      background: rgba(255,253,248,.86);
+      border: 1px solid rgba(217,213,202,.8);
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    .stat b { display: block; margin-bottom: 2px; font: 700 25px/1.15 Georgia, serif; }
+    .stat span { color: var(--muted); font-size: 12px; letter-spacing: .04em; }
+
+    .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 36px; align-items: start; }
+
+    .nav {
+      position: sticky;
+      top: 20px;
+      padding: 20px;
+      background: rgba(255,253,248,.78);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .nav-title { margin: 0 0 12px; color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .nav a { display: block; padding: 9px 10px; color: var(--muted); border-left: 2px solid transparent; text-decoration: none; font-size: 13px; }
+    .nav a:hover, .nav a.active { color: var(--green); border-left-color: var(--green); background: var(--green-soft); }
+
+    main { min-width: 0; }
+    section { scroll-margin-top: 25px; margin-bottom: 58px; }
+    .section-kicker { margin: 0 0 6px; color: var(--green); font-size: 11px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    h2 { margin: 0 0 22px; font: 700 clamp(28px, 4vw, 42px)/1.1 Georgia, serif; letter-spacing: -.02em; }
+    h3 { margin: 0; font-size: 16px; }
+    p { margin: 0 0 14px; }
+
+    .brief-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .card { padding: 26px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 7px 24px rgba(32,41,36,.035); }
+    .card h3 { margin-bottom: 13px; }
+    .card p:last-child { margin-bottom: 0; }
+    .muted { color: var(--muted); }
+
+    .issue-code, pre {
+      overflow-x: auto;
+      margin: 15px 0 0;
+      padding: 19px 20px;
+      color: var(--code-ink);
+      background: var(--code);
+      border-radius: 12px;
+      font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      tab-size: 2;
+    }
+
+    .meta-list { display: grid; gap: 12px; margin: 0; }
+    .meta-row { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid #ebe7dd; }
+    .meta-row:last-child { padding-bottom: 0; border: 0; }
+    dt { color: var(--muted); font-size: 12px; }
+    dd { min-width: 0; margin: 0; font-size: 13px; font-weight: 650; overflow-wrap: anywhere; }
+
+    .callout { display: flex; gap: 15px; margin-top: 16px; padding: 18px 20px; color: #66421a; background: var(--amber-soft); border-left: 4px solid var(--amber); border-radius: 0 12px 12px 0; }
+    .callout-mark { font-weight: 900; }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 22px; }
+    .filter {
+      padding: 8px 13px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .filter:hover, .filter.on { color: #fff; background: var(--green); border-color: var(--green); }
+
+    .timeline { position: relative; display: grid; gap: 14px; }
+    .timeline::before { content: ""; position: absolute; top: 18px; bottom: 18px; left: 22px; width: 1px; background: var(--line); }
+    .event {
+      position: relative;
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 17px;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .event.hidden { display: none; }
+    .event-number {
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      align-self: start;
+      width: 46px;
+      height: 46px;
+      color: var(--green);
+      background: var(--paper);
+      border: 1px solid var(--green);
+      border-radius: 50%;
+      font: 800 12px/1 ui-monospace, monospace;
+    }
+    .event[data-tone="fail"] .event-number { color: var(--red); border-color: var(--red); }
+    .event[data-tone="warn"] .event-number { color: var(--amber); border-color: var(--amber); }
+    .event-body { padding: 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .event-head { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; margin-bottom: 7px; }
+    .event-tag { color: var(--muted); font-size: 10px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .event p { margin: 0; color: var(--muted); font-size: 14px; }
+    .cmd { display: inline-block; margin-top: 11px; padding: 5px 9px; color: #d9e6de; background: var(--code); border-radius: 6px; font: 12px/1.5 ui-monospace, monospace; }
+    .error { margin-top: 12px; padding: 10px 12px; color: #7f3026; background: var(--red-soft); border-radius: 8px; font: 12px/1.5 ui-monospace, monospace; }
+
+    .turn-map { display: grid; grid-template-columns: repeat(17, 1fr); gap: 4px; margin-top: 20px; }
+    .turn { height: 42px; border-radius: 6px; background: #d7d3c9; position: relative; }
+    .turn.ai { background: var(--green); }
+    .turn.system { background: var(--slate); }
+    .turn::after { content: attr(data-n); position: absolute; inset: auto 0 4px; color: rgba(255,255,255,.8); text-align: center; font: 8px monospace; }
+    .legend { display: flex; gap: 18px; margin-top: 11px; color: var(--muted); font-size: 11px; }
+    .legend i { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 2px; vertical-align: -1px; }
+
+    .patch-card { overflow: hidden; background: var(--code); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .patch-head { display: flex; justify-content: space-between; gap: 20px; padding: 17px 20px; color: #c7d0cb; background: #202c27; border-bottom: 1px solid #34413c; font-size: 12px; }
+    .patch-card pre { margin: 0; border-radius: 0; }
+    .add { color: #aee0bf; }
+    .diff { color: #d5c090; }
+
+    .assessment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .assessment { min-height: 210px; padding: 22px; border-radius: 15px; }
+    .assessment.good { background: var(--green-soft); }
+    .assessment.missed { background: var(--red-soft); }
+    .assessment.next { background: var(--amber-soft); }
+    .assessment .num { display: block; margin-bottom: 28px; opacity: .55; font: italic 700 24px Georgia, serif; }
+    .assessment h3 { margin-bottom: 9px; }
+    .assessment p { color: #505b56; font-size: 13px; }
+
+    .bottom-line { margin-top: 18px; padding: 25px 28px; color: #eff5f1; background: var(--green); border-radius: 16px; }
+    .bottom-line strong { display: block; margin-bottom: 7px; font: 700 23px Georgia, serif; }
+    .bottom-line p { margin: 0; color: #d8e8df; }
+
+    .source-note { padding-top: 22px; color: var(--muted); border-top: 1px solid var(--line); font-size: 12px; }
+    .source-note code { color: var(--ink); font-family: ui-monospace, monospace; }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .verdict { max-width: 430px; }
+      .layout { grid-template-columns: 1fr; }
+      .nav { position: static; display: flex; overflow-x: auto; padding: 8px; }
+      .nav-title { display: none; }
+      .nav a { flex: none; border: 0; border-radius: 8px; }
+      .brief-grid, .assessment-grid { grid-template-columns: 1fr; }
+      .assessment { min-height: 0; }
+    }
+
+    @media (max-width: 580px) {
+      .shell { width: min(100% - 20px, 1180px); padding-top: 12px; }
+      .topbar { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .hero { padding: 28px 22px; border-radius: 20px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 15px; }
+      .card { padding: 20px; }
+      .meta-row { grid-template-columns: 85px 1fr; }
+      .turn-map { gap: 2px; }
+      .turn { height: 30px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .shell { width: 100%; padding: 0; }
+      .hero { border-radius: 0; box-shadow: none; }
+      .nav, .filters { display: none; }
+      .layout { grid-template-columns: 1fr; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span>SWE-bench case review</div>
+      <div class="case-id">01_benjamincorcoran__sasdocs-41</div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Code repair · upstream trajectory</p>
+        <h1 id="page-title">The parser bug that never reached the parser</h1>
+        <p class="hero-copy">A 17-turn attempt to add support for slash options on SAS data steps and procedures. The run submitted cleanly—but the generated patch contains only the issue’s three-line reproduction.</p>
+      </div>
+      <aside class="verdict" aria-label="Case verdict">
+        <span class="verdict-label">Evidence-based verdict</span>
+        <strong>No implementation fix</strong>
+        <p>The submission status records completion of the run, not resolution of the defect.</p>
+      </aside>
+    </section>
+
+    <div class="stats" aria-label="Case summary statistics">
+      <div class="stat"><b>17</b><span>trajectory turns</span></div>
+      <div class="stat"><b>8</b><span>agent actions</span></div>
+      <div class="stat"><b>2</b><span>failed executions</span></div>
+      <div class="stat"><b>+3</b><span>submitted lines</span></div>
+    </div>
+
+    <div class="layout">
+      <nav class="nav" aria-label="Case sections">
+        <p class="nav-title">On this page</p>
+        <a href="#brief">Case brief</a>
+        <a href="#trajectory">Trajectory</a>
+        <a href="#patch">Submitted patch</a>
+        <a href="#assessment">Assessment</a>
+      </nav>
+
+      <main>
+        <section id="brief">
+          <p class="section-kicker">01 · Case brief</p>
+          <h2>What was asked</h2>
+          <div class="brief-grid">
+            <article class="card">
+              <h3>Issue</h3>
+              <p class="muted">The repository parser fails when a data step or procedure declares explicit options after a slash.</p>
+              <pre class="issue-code"><code>data test / view=testvew;
+    set test;
+run;</code></pre>
+              <div class="callout"><span class="callout-mark">!</span><span>The task covers both <code>data</code> and <code>proc</code> forms, although the supplied example demonstrates only a data step.</span></div>
+            </article>
+            <article class="card">
+              <h3>Recorded metadata</h3>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>Instance</dt><dd>benjamincorcoran__sasdocs-41</dd></div>
+                <div class="meta-row"><dt>Model</dt><dd>swe-agent-llama-70b</dd></div>
+                <div class="meta-row"><dt>Format</dt><dd>swe-agent-traj</dd></div>
+                <div class="meta-row"><dt>Exit status</dt><dd>submitted</dd></div>
+                <div class="meta-row"><dt>Benchmark</dt><dd>SWE-bench</dd></div>
+                <div class="meta-row"><dt>Stripped</dt><dd>eval_logs, target</dd></div>
+                <div class="meta-row"><dt>References</dt><dd>none</dd></div>
+              </dl>
+            </article>
+          </div>
+        </section>
+
+        <section id="trajectory">
+          <p class="section-kicker">02 · Trajectory</p>
+          <h2>Eight actions, two dead ends</h2>
+          <div class="filters" role="group" aria-label="Filter timeline">
+            <button class="filter on" data-filter="all">All actions</button>
+            <button class="filter" data-filter="progress">Progress</button>
+            <button class="filter" data-filter="fail">Failures</button>
+            <button class="filter" data-filter="warn">Missteps</button>
+          </div>
+
+          <div class="timeline">
+            <article class="event" data-tone="progress">
+              <div class="event-number">03</div>
+              <div class="event-body"><div class="event-head"><h3>Created a reproduction file</h3><span class="event-tag">setup</span></div><p>The run correctly began from the issue’s concrete SAS input.</p><span class="cmd">create reproduce.sas</span></div>
+            </article>
+            <article class="event" data-tone="progress">
+              <div class="event-number">05</div>
+              <div class="event-body"><div class="event-head"><h3>Copied the reported example</h3><span class="event-tag">reproduction</span></div><p>The three-line sample was entered verbatim, including <code>/ view=testvew</code>.</p><span class="cmd">edit 1:1 … end_of_edit</span></div>
+            </article>
+            <article class="event" data-tone="fail">
+              <div class="event-number">07</div>
+              <div class="event-body"><div class="event-head"><h3>Tried to execute SAS directly</h3><span class="event-tag">failed command</span></div><p>The environment did not include a SAS executable.</p><span class="cmd">sas reproduce.sas</span><div class="error">/bin/bash: line 238: sas: command not found</div></div>
+            </article>
+            <article class="event" data-tone="warn">
+              <div class="event-number">09</div>
+              <div class="event-body"><div class="event-head"><h3>Pivoted to an ad hoc parser</h3><span class="event-tag">scope drift</span></div><p>Instead of locating the repository’s parser and test harness, the run created a standalone Python experiment.</p><span class="cmd">create parse_sas.py</span></div>
+            </article>
+            <article class="event" data-tone="warn">
+              <div class="event-number">11</div>
+              <div class="event-body"><div class="event-head"><h3>Wrote incompatible PLY grammar</h3><span class="event-tag">unvalidated</span></div><p>The script mixed PEG-like notation and PLY yacc conventions, used no lexer, and did not model the repository implementation.</p><span class="cmd">from ply import yacc</span></div>
+            </article>
+            <article class="event" data-tone="fail">
+              <div class="event-number">13</div>
+              <div class="event-body"><div class="event-head"><h3>Hit a missing dependency</h3><span class="event-tag">failed command</span></div><p>The temporary parser could not start because <code>ply</code> was unavailable.</p><span class="cmd">python parse_sas.py</span><div class="error">ModuleNotFoundError: No module named 'ply'</div></div>
+            </article>
+            <article class="event" data-tone="warn">
+              <div class="event-number">15</div>
+              <div class="event-body"><div class="event-head"><h3>Stopped short of repository inspection</h3><span class="event-tag">critical miss</span></div><p>The run claimed the parser code was unavailable without issuing any repository search, then removed the temporary script.</p><span class="cmd">rm parse_sas.py</span></div>
+            </article>
+            <article class="event" data-tone="warn">
+              <div class="event-number">17</div>
+              <div class="event-body"><div class="event-head"><h3>Submitted the reproduction as the patch</h3><span class="event-tag">terminal action</span></div><p>No parser source, tests, or production behavior were changed.</p><span class="cmd">submit</span></div>
+            </article>
+          </div>
+
+          <div class="card" style="margin-top:24px">
+            <h3>Turn composition</h3>
+            <p class="muted">The 17 records alternate between instructions, agent commands, and shell observations. Agent turns are marked in green.</p>
+            <div class="turn-map" aria-label="17 trajectory records by role">
+              <span class="turn system" data-n="1" title="System"></span><span class="turn" data-n="2" title="User"></span><span class="turn ai" data-n="3" title="Agent"></span><span class="turn" data-n="4" title="User"></span><span class="turn ai" data-n="5" title="Agent"></span><span class="turn" data-n="6" title="User"></span><span class="turn ai" data-n="7" title="Agent"></span><span class="turn" data-n="8" title="User"></span><span class="turn ai" data-n="9" title="Agent"></span><span class="turn" data-n="10" title="User"></span><span class="turn ai" data-n="11" title="Agent"></span><span class="turn" data-n="12" title="User"></span><span class="turn ai" data-n="13" title="Agent"></span><span class="turn" data-n="14" title="User"></span><span class="turn ai" data-n="15" title="Agent"></span><span class="turn" data-n="16" title="User"></span><span class="turn ai" data-n="17" title="Agent"></span>
+            </div>
+            <div class="legend"><span><i style="background:var(--slate)"></i>System</span><span><i style="background:#d7d3c9"></i>User / observation</span><span><i style="background:var(--green)"></i>Agent</span></div>
+          </div>
+        </section>
+
+        <section id="patch">
+          <p class="section-kicker">03 · Submitted patch</p>
+          <h2>One new file, no repair</h2>
+          <div class="patch-card">
+            <div class="patch-head"><span>reproduce.sas</span><span>new file · +3 / −0</span></div>
+            <pre><code><span class="diff">diff --git a/reproduce.sas b/reproduce.sas
+new file mode 100644
+--- /dev/null
++++ b/reproduce.sas</span>
+<span class="add">+data test / view=testvew;
++    set test;
++run;</span></code></pre>
+          </div>
+          <div class="callout"><span class="callout-mark">!</span><span>The generated patch is useful as a fixture, but it neither asserts expected behavior nor changes the parser. No evaluation result is available in this case because <code>eval_logs</code> and <code>target</code> were stripped.</span></div>
+        </section>
+
+        <section id="assessment">
+          <p class="section-kicker">04 · Assessment</p>
+          <h2>Where the run diverged</h2>
+          <div class="assessment-grid">
+            <article class="assessment good"><span class="num">01</span><h3>Useful start</h3><p>It preserved the exact failing syntax and attempted to reproduce before editing. That input could have become a focused regression test.</p></article>
+            <article class="assessment missed"><span class="num">02</span><h3>Decisive miss</h3><p>After <code>sas</code> was unavailable, it never searched the repository for parser grammar, existing tests, package scripts, or another local entry point.</p></article>
+            <article class="assessment next"><span class="num">03</span><h3>Needed next</h3><p>Locate the data/procedure statement grammar, add optional slash-options handling, cover both forms with tests, and run the repository’s own test command.</p></article>
+          </div>
+          <div class="bottom-line">
+            <strong>Submitted is a transport state, not a quality signal.</strong>
+            <p>The trajectory ended successfully at the interface level, but the patch evidence does not show the requested parser behavior was implemented or verified.</p>
+          </div>
+        </section>
+
+        <footer class="source-note">
+          Prepared solely from <code>case_meta.json</code>, <code>task/task_statement.md</code>, and <code>trajectory.json</code>. Trajectory SHA-256: <code>0823be65cbcc51c8d1e1dc6e7fcdfecea0f8699cba2592b4ae8c04a9f1954305</code>.
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const filters = [...document.querySelectorAll('.filter')];
+    const events = [...document.querySelectorAll('.event')];
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(item => item.classList.remove('on'));
+      button.classList.add('on');
+      const selected = button.dataset.filter;
+      events.forEach(event => event.classList.toggle('hidden', selected !== 'all' && event.dataset.tone !== selected));
+    }));
+
+    const links = [...document.querySelectorAll('.nav a')];
+    const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id));
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: [0, .25, .6] });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

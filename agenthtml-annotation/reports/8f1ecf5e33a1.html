@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Report · break-filter-js-from-html</title>
+<style>
+  :root{
+    --bg:#070912;
+    --bg-2:#0c1020;
+    --ink:#eef1ff;
+    --muted:#9aa3c7;
+    --line:rgba(255,255,255,.10);
+    --glass:rgba(255,255,255,.045);
+    --violet:#7c5cff;
+    --cyan:#33d6e0;
+    --green:#39d98a;
+    --amber:#ffbe4d;
+    --rose:#ff6b8b;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 520px at 8% -6%, rgba(124,92,255,.30), transparent 60%),
+      radial-gradient(760px 460px at 96% 4%, rgba(51,214,224,.18), transparent 62%),
+      radial-gradient(900px 700px at 50% 108%, rgba(255,107,139,.12), transparent 65%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  a{color:var(--cyan);text-decoration:none}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(7,9,18,.35);
+    border-bottom:1px solid transparent;
+    transition:background .35s ease,border-color .35s ease,box-shadow .35s ease;
+  }
+  header.nav.solid{
+    background:rgba(7,9,18,.82);
+    border-bottom-color:var(--line);
+    box-shadow:0 10px 40px rgba(0,0,0,.45);
+  }
+  .nav-inner{display:flex;align-items:center;gap:18px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+  .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));box-shadow:0 0 14px rgba(124,92,255,.9)}
+  .brand small{display:block;font-weight:500;color:var(--muted);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{margin-left:auto;display:flex;gap:4px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:14px;padding:8px 12px;border-radius:999px;transition:color .2s,background .2s}
+  .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.07)}
+  .pill{
+    display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+    padding:6px 13px;border-radius:999px;border:1px solid rgba(57,217,138,.35);
+    background:rgba(57,217,138,.10);color:var(--green);white-space:nowrap;
+  }
+  .pill .led{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+  @media (max-width:820px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:92px 0 56px}
+  .eyebrow{
+    display:inline-flex;gap:10px;align-items:center;font-family:var(--mono);
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);
+    border:1px solid rgba(51,214,224,.28);background:rgba(51,214,224,.07);
+    padding:6px 14px;border-radius:999px;margin-bottom:26px;
+  }
+  h1{
+    font-size:clamp(2.35rem,5.6vw,4.15rem);line-height:1.03;margin:0 0 20px;
+    letter-spacing:-.028em;font-weight:800;
+  }
+  h1 .grad{background:linear-gradient(100deg,#a996ff 0%,#33d6e0 55%,#39d98a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:clamp(1.02rem,1.6vw,1.2rem);color:#c3c9e6;max-width:70ch;margin:0 0 30px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{
+    display:inline-block;padding:12px 22px;border-radius:12px;font-weight:650;font-size:15px;
+    border:1px solid var(--line);background:var(--glass);color:var(--ink);
+    transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+  }
+  .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+  .btn.primary{
+    background:linear-gradient(120deg,var(--violet),#4f7cff 60%,var(--cyan));
+    border-color:transparent;color:#080a14;font-weight:750;
+    box-shadow:0 12px 34px rgba(124,92,255,.35);
+  }
+
+  /* ---------- meta strip ---------- */
+  .meta{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .meta .cell{
+    border:1px solid var(--line);background:var(--glass);border-radius:14px;padding:14px 16px;
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  }
+  .meta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .meta .v{font-family:var(--mono);font-size:15px;margin-top:5px;word-break:break-word}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:30px}
+  .sec-num{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--violet);text-transform:uppercase}
+  h2{font-size:clamp(1.6rem,3.2vw,2.35rem);letter-spacing:-.02em;margin:8px 0 10px;font-weight:780}
+  .sub{color:var(--muted);max-width:78ch;margin:0}
+  h3{font-size:1.06rem;margin:0 0 8px;letter-spacing:-.01em}
+  p{margin:0 0 14px}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+
+  .card{
+    border:1px solid var(--line);border-radius:18px;padding:22px;
+    background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.022));
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s ease,border-color .28s ease;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(0,0,0,.5);border-color:rgba(255,255,255,.2)}
+  .card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .big{font-family:var(--mono);font-size:2rem;font-weight:700;letter-spacing:-.02em;margin:6px 0 2px}
+  .big.v{color:#b9aaff}.big.c{color:var(--cyan)}.big.g{color:var(--green)}.big.a{color:var(--amber)}
+  .note{color:var(--muted);font-size:14px}
+
+  /* ---------- code ---------- */
+  pre{
+    margin:0;background:rgba(3,5,12,.72);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;overflow-x:auto;font-family:var(--mono);font-size:13.2px;line-height:1.6;
+    color:#d7dcff;
+  }
+  code{font-family:var(--mono)}
+  .inline{background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.25);border-radius:6px;padding:1px 6px;font-size:.9em;color:#cfc4ff}
+  .cmt{color:#6d789e}
+  .str{color:#8ef0b8}
+  .kw{color:#a996ff}
+  .ok{color:var(--green)}
+  .bad{color:var(--rose)}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;margin-top:8px;padding-left:28px}
+  .timeline::before{
+    content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,rgba(124,92,255,.8),rgba(51,214,224,.5),rgba(57,217,138,.85));
+    border-radius:2px;
+  }
+  .step{position:relative;padding:0 0 26px}
+  .step::before{
+    content:"";position:absolute;left:-27px;top:7px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg-2);border:2px solid var(--violet);box-shadow:0 0 0 4px rgba(124,92,255,.12);
+  }
+  .step.win::before{border-color:var(--green);box-shadow:0 0 0 5px rgba(57,217,138,.16)}
+  .step h3{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .step p{margin:4px 0 0;color:#c3c9e6;font-size:15px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.05)}
+  .chip.blocked{color:var(--rose);border-color:rgba(255,107,139,.35);background:rgba(255,107,139,.1)}
+  .chip.inert{color:var(--amber);border-color:rgba(255,190,77,.35);background:rgba(255,190,77,.1)}
+  .chip.pass{color:var(--green);border-color:rgba(57,217,138,.4);background:rgba(57,217,138,.12)}
+  .stepno{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+  /* ---------- museum ---------- */
+  details{
+    border:1px solid var(--line);border-radius:14px;background:var(--glass);
+    margin-bottom:10px;overflow:hidden;transition:border-color .2s,background .2s;
+  }
+  details[open]{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2)}
+  summary{
+    cursor:pointer;padding:14px 18px;font-weight:620;display:flex;align-items:center;gap:12px;
+    list-style:none;font-size:15px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";margin-left:auto;font-family:var(--mono);color:var(--muted);font-size:18px;transition:transform .25s}
+  details[open] summary::after{transform:rotate(45deg);color:var(--cyan)}
+  summary:hover{background:rgba(255,255,255,.04)}
+  .dbody{padding:0 18px 18px}
+  .dbody pre{margin-top:12px}
+  .res{font-size:13.5px;color:var(--muted);margin-top:12px;padding-left:12px;border-left:2px solid var(--line)}
+  .res.pass{border-left-color:var(--green);color:#bfeed6}
+  .res.inert{border-left-color:var(--amber)}
+  .res.blocked{border-left-color:var(--rose)}
+
+  /* ---------- banner ---------- */
+  .banner{
+    border:1px solid rgba(57,217,138,.3);border-radius:22px;padding:30px;
+    background:linear-gradient(135deg,rgba(57,217,138,.12),rgba(51,214,224,.07) 45%,rgba(124,92,255,.12));
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  }
+  .banner h2{margin-top:0}
+  .checkline{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-family:var(--mono);font-size:13.5px}
+  .checkline .mark{color:var(--green)}
+
+  .callout{
+    border-left:3px solid var(--amber);background:rgba(255,190,77,.07);border-radius:0 14px 14px 0;
+    padding:16px 20px;margin:18px 0;color:#e8dcbf;
+  }
+  .callout.rose{border-left-color:var(--rose);background:rgba(255,107,139,.07);color:#f2d6de}
+  .callout strong{color:var(--ink)}
+
+  ul.tight{margin:8px 0 0;padding-left:20px;color:#c3c9e6}
+  ul.tight li{margin-bottom:7px}
+
+  footer{padding:46px 0 70px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  .frow{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .card:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Case Report<small>TerminalBench &middot; terminal_devops</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#filter">The Filter</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#break">Breakthrough</a>
+      <a href="#verify">Verification</a>
+      <a href="#museum">Attempts</a>
+      <a href="#caveats">Caveats</a>
+    </nav>
+    <span class="pill"><span class="led"></span>Bypass confirmed</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">01_break-filter-js-from-html</div>
+    <h1>A filter that strips every <span class="grad">event handler</span> &mdash; and the one comment that got past it.</h1>
+    <p class="lede">
+      An agent was asked to write an HTML file that still fires <code class="inline">alert()</code> after a naive
+      BeautifulSoup-based sanitizer rewrites it in place. Twenty-odd payload ideas died on the filter.
+      The winning one never touched an attribute: it abused a disagreement between the sanitizer's
+      comment parser and the browser's HTML5 comment parser.
+    </p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#break">See the payload</a>
+      <a class="btn" href="#timeline">Walk the 117-step timeline</a>
+    </div>
+
+    <div class="meta reveal">
+      <div class="cell"><div class="k">Outcome</div><div class="v" style="color:var(--green)">PASS</div></div>
+      <div class="cell"><div class="k">Agent</div><div class="v">claude-code</div></div>
+      <div class="cell"><div class="k">Model</div><div class="v">claude-haiku-4-5</div></div>
+      <div class="cell"><div class="k">Duration</div><div class="v">223.1 s</div></div>
+      <div class="cell"><div class="k">Steps</div><div class="v">121</div></div>
+      <div class="cell"><div class="k">Tool calls</div><div class="v">58</div></div>
+      <div class="cell"><div class="k">Output tokens</div><div class="v">1,757</div></div>
+      <div class="cell"><div class="k">Cost</div><div class="v">$0.311</div></div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 01</div>
+      <h2>The task, verbatim</h2>
+      <p class="sub">Recorded as the user turn at step 4 of the trajectory. The run is a completed, scored attempt &mdash; nothing below is re-executed.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <div class="tag">Prompt</div>
+        <p style="margin-top:10px">
+          There is an <code class="inline">/app/filter.py</code> script that attempts to remove JavaScript from HTML
+          files to prevent XSS attacks. It takes an HTML file as a command-line argument and modifies it
+          <em>in place</em>.
+        </p>
+        <pre><span class="cmt"># usage</span>
+python /app/filter.py &lt;html_file&gt;</pre>
+        <p style="margin-top:14px">
+          Deliverable: create <code class="inline">/app/out.html</code> that, <strong>even after</strong> being processed by
+          the filter, still triggers a JavaScript <code class="inline">alert()</code> when opened in a browser.
+          No interaction allowed &mdash; it must fire automatically. <code class="inline">/app/test_outputs.py</code> verifies it.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="tag">Shape of the run</div>
+        <div class="grid g2" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
+          <div><div class="big v">30</div><div class="note">writes to <code class="inline">/app/out.html</code></div></div>
+          <div><div class="big c">25</div><div class="note">Bash calls (mostly filter + diff)</div></div>
+          <div><div class="big a">3</div><div class="note">Read calls (2 source files, 1 self-check)</div></div>
+          <div><div class="big g">2</div><div class="note">confirmed passing test invocations</div></div>
+        </div>
+        <p class="note" style="margin-top:16px">
+          Roughly two dozen distinct payload designs were written; several were re-written once to fix a detail
+          (e.g. closing the comment properly). The agent worked almost entirely in a hypothesise &rarr; write &rarr;
+          run the filter on a <code class="inline">/tmp</code> copy &rarr; inspect output loop.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER MODEL -->
+  <section id="filter" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 02</div>
+      <h2>What the agent was up against</h2>
+      <p class="sub">The filter's source was read at step 6, but that observation is elided in the trajectory (placeholder <code class="inline">$32</code>). The model below is reconstructed from the agent's narration, from the filter's observed outputs on 10+ test files, and from the test's assertion text.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="tag">Rule 1 &middot; element removal</div>
+        <h3 style="margin-top:10px"><code class="inline">&lt;script&gt;</code></h3>
+        <p class="note">Deleted regardless of <code class="inline">type</code> &mdash; a <code class="inline">text/x-custom</code> script was removed just like a classic one. SVG-embedded scripts also vanished.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Rule 2 &middot; element removal</div>
+        <h3 style="margin-top:10px"><code class="inline">frame</code> / <code class="inline">iframe</code> / <code class="inline">object</code> / <code class="inline">embed</code></h3>
+        <p class="note">Closed off the <code class="inline">data:text/html,&lt;script&gt;…</code> family of vectors entirely &mdash; the agent abandoned each of them on inspection.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Rule 3 &middot; attribute removal</div>
+        <h3 style="margin-top:10px"><code class="inline">attr.startswith("on")</code></h3>
+        <p class="note">Every <code class="inline">on*</code> handler is stripped from every element &mdash; including nested SVG <code class="inline">foreignObject</code> content, and including case variations, because the parser lowercases attribute names first.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>The asymmetry the agent hunted for:</strong> the filter walks <em>tags</em>, so anything its parser does not
+      classify as a tag is passed through byte-for-byte and re-serialised untouched. Two payloads reached the browser
+      intact this way &mdash; a namespaced attribute (<code class="inline">ev:onload</code>), and finally a comment.
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 03</div>
+      <h2>Four phases, one working idea</h2>
+      <p class="sub">Step numbers are positions in the 121-entry trajectory (entries 0&ndash;3 are warm-up turns, so the task proper begins at entry 4).</p>
+    </div>
+
+    <div class="timeline">
+      <div class="step">
+        <h3>Reconnaissance <span class="chip">steps 4&ndash;8</span></h3>
+        <p>Reads <code class="inline">filter.py</code> and <code class="inline">test_outputs.py</code>, and immediately forms the correct
+        high-level model: strip <code class="inline">&lt;script&gt;</code>, strip frames/objects/embeds, strip <code class="inline">on*</code> attributes.
+        First payload written is an SVG with <code class="inline">onload</code>.</p>
+      </div>
+
+      <div class="step">
+        <h3>Standard-vector sweep <span class="chip blocked">all blocked</span> <span class="chip">steps 9&ndash;73</span></h3>
+        <p>Meta-refresh with a <code class="inline">javascript:</code> URL, SVG scripts, <code class="inline">formaction</code>,
+        <code class="inline">base href</code>, <code class="inline">link</code> to a <code class="inline">data:text/css</code> stylesheet,
+        CSS <code class="inline">url(javascript:)</code>, <code class="inline">marquee onstart</code>, data-URL iframes and objects,
+        newline- and case-based attribute smuggling. Some survived the filter but were inert in a browser
+        (meta-refresh <code class="inline">javascript:</code> is blocked); the rest were deleted or neutralised.</p>
+      </div>
+
+      <div class="step">
+        <h3>Parser-differential probing <span class="chip inert">survived, inert</span> <span class="chip">steps 75&ndash;103</span></h3>
+        <p>Shifts strategy from "what does the browser run" to "what does the <em>filter</em> fail to see". The
+        <code class="inline">ev:onload</code> namespaced attribute slips past <code class="inline">startswith("on")</code> and comes out
+        of the filter byte-identical &mdash; but Chromium does not treat it as an event handler. A right-to-left-override
+        character prepended to <code class="inline">onload</code> also survives, also inert. A first comment-breakout attempt is
+        malformed and the browser swallows the payload.</p>
+      </div>
+
+      <div class="step win">
+        <h3>Comment node breakout <span class="chip pass">works</span> <span class="chip">steps 105&ndash;119</span></h3>
+        <p>The agent notices that content inside an HTML comment is invisible to a tag-walking sanitizer, then
+        reasons through how the <em>browser</em> will re-read the same bytes. The fixed payload is written, the filter
+        leaves it untouched, and the test reports the alert firing. Verified twice more afterwards.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREAKTHROUGH -->
+  <section id="break" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 04</div>
+      <h2>The winning file</h2>
+      <p class="sub">Final content of <code class="inline">/app/out.html</code>, read back by the agent at step 115 and confirmed by the test harness at steps 113 and 119.</p>
+    </div>
+
+    <div class="grid g2">
+      <div>
+        <pre><span class="cmt">&lt;!DOCTYPE html&gt;</span>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;XSS Bypass&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    <span class="ok">&lt;!--&gt;&lt;img src=x onerror=<span class="str">"alert('XSS Bypass!')"</span>&gt;--&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p class="note" style="margin-top:12px">
+          Shown escaped for safety. The payload is 9 lines of otherwise unremarkable HTML; the entire result rests on
+          the shape of one comment on line 7.
+        </p>
+      </div>
+      <div>
+        <div class="card">
+          <div class="tag">Why it works</div>
+          <h3 style="margin-top:10px">Two parsers, two readings of the same bytes</h3>
+          <p class="note">
+            <strong>Inside the sanitizer</strong>, <code class="inline">&lt;!--</code> opens a comment that runs until the literal
+            <code class="inline">--&gt;</code> at the very end of the line. Everything between becomes a comment node, and a
+            sanitizer that iterates over <em>tags</em> has no rule that applies to it. The comment is re-serialised verbatim.
+          </p>
+          <p class="note">
+            <strong>Inside the browser</strong>, HTML5 defines <code class="inline">&lt;!--&gt;</code> as an
+            <em>abruptly-closed empty comment</em>: the comment is opened and closed by that single <code class="inline">&gt;</code>.
+            So the comment is already finished before the image begins &mdash; the <code class="inline">&lt;img&gt;</code> and its
+            <code class="inline">onerror</code> handler are live markup, a broken image load fires the handler, and the alert runs
+            with no user interaction.
+          </p>
+        </div>
+        <div class="callout rose" style="margin-bottom:0">
+          <strong>Note on the agent's own explanation.</strong> At step 114 it described this as the comment being
+          "closed early" by the <code class="inline">&gt;</code>. The observable behaviour and the payload are correct, but the
+          HTML5 rule is specifically the <em>empty</em>-comment abrupt close &mdash; the agent reasoned its way to a working
+          payload with a slightly imprecise account of the spec.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFICATION -->
+  <section id="verify" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 05</div>
+      <h2>Verification</h2>
+      <p class="sub">The harness renders the filtered file and inspects for a dialog. Three recorded runs at the end of the trajectory.</p>
+    </div>
+
+    <div class="banner">
+      <h2 style="font-size:1.4rem">Recorded test output</h2>
+      <div class="checkline"><span class="mark">&#10003;</span><span>Alert successfully triggered even after filtering! Text: 'XSS Bypass!'</span></div>
+      <p class="note" style="margin-top:14px">
+        Printed by <code class="inline">test_out_html_bypasses_filter()</code> when invoked directly (steps 113 and 119).
+        The bare <code class="inline">python test_outputs.py</code> invocation at step 117 exits silently &mdash; consistent with a
+        passing test that prints on success only when called directly.
+      </p>
+      <p class="note">
+        The same function <span style="color:var(--rose)">failed</span> at step 91 for the <code class="inline">ev:onload</code> payload,
+        with the harness's own wording: <em>"No alert detected after filtering. The XSS bypass failed."</em> That failure
+        message is the strongest evidence that success at step 113 is a genuine browser-side check, not a self-reported claim.
+      </p>
+    </div>
+
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card">
+        <div class="tag">Filter output &middot; step 111</div>
+        <p class="note" style="margin-top:10px">The payload passes through the sanitizer character-for-character: the comment,
+        the <code class="inline">img</code>, and the <code class="inline">onerror</code> attribute are all still present in the
+        post-filter file. This is the first time an <code class="inline">on*</code> attribute appears in filtered output.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Comparison &middot; step 95</div>
+        <p class="note" style="margin-top:10px">The control case: a plain <code class="inline">&lt;img src="x" onload=…&gt;</code>
+        comes out of the filter as <code class="inline">&lt;img src="x"/&gt;</code>. Same attribute name, opposite outcome &mdash;
+        the difference is purely whether a tag-parser can see it.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Near misses</div>
+        <p class="note" style="margin-top:10px">Two earlier payloads also survived filtering (<code class="inline">ev:onload</code>,
+        RTL-prefixed <code class="inline">onload</code>) but were rejected by the browser check. Survival of the filter alone is not
+        the criterion &mdash; the alert is.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSEUM -->
+  <section id="museum" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 06</div>
+      <h2>Payload museum</h2>
+      <p class="sub">The distinct designs attempted, in rough order. All snippets are rendered escaped. Verdicts are as observed in the run: <span style="color:var(--rose)">blocked</span> by the filter, <span style="color:var(--amber)">inert</span> in the browser, or <span style="color:var(--green)">working</span>.</p>
+    </div>
+
+    <details>
+      <summary>Event handlers on ordinary elements <span class="chip blocked" style="margin-left:auto">blocked</span></summary>
+      <div class="dbody">
+        <pre>&lt;svg onload="alert('XSS Bypass!')"&gt;&lt;/svg&gt;
+&lt;img src="x" onload="alert('XSS Bypass!')"&gt;
+&lt;marquee onstart="alert('XSS Bypass!')"&gt;</pre>
+        <p class="res blocked">Every <code class="inline">on*</code> attribute deleted &mdash; including <code class="inline">onLoad</code>, since attribute names are lowercased before the <code class="inline">startswith("on")</code> test. An SVG <code class="inline">foreignObject</code> nesting trick fared no better: the handler went and the <code class="inline">src</code> was dropped too.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Navigation and redirect vectors <span class="chip inert" style="margin-left:auto">inert</span></summary>
+      <div class="dbody">
+        <pre>&lt;meta http-equiv="refresh" content="0;url=javascript:alert('XSS Bypass!')"&gt;
+&lt;base href="javascript:alert('XSS Bypass!');"&gt;
+&lt;a href="javascript:alert('XSS Bypass!')" autofocus&gt;Click&lt;/a&gt;
+&lt;form action="javascript:alert('XSS Bypass!')"&gt;</pre>
+        <p class="res inert">All survive filtering; none auto-execute. The <code class="inline">javascript:</code> scheme is refused in a meta refresh, <code class="inline">base</code> and form actions need a navigation, and the anchor needs a click &mdash; explicitly disallowed by the task. The <code class="inline">autofocus</code> attribute does survive, which is what made this branch tempting.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Element classes the filter removes <span class="chip blocked" style="margin-left:auto">blocked</span></summary>
+      <div class="dbody">
+        <pre>&lt;script type="text/x-custom"&gt;alert('XSS Bypass!')&lt;/script&gt;
+&lt;iframe src="data:text/html,&lt;script&gt;alert('XSS Bypass!')&lt;/script&gt;"&gt;&lt;/iframe&gt;
+&lt;object data="data:text/html,..."&gt;&lt;/object&gt;</pre>
+        <p class="res blocked">Deleted outright. The agent's own step-66 rejection &mdash; "wait, <code class="inline">iframe</code> tags are removed by the filter" &mdash; is a useful example of it catching an invalid idea before spending a cycle on it.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>CSS-borne script <span class="chip blocked" style="margin-left:auto">blocked</span></summary>
+      <div class="dbody">
+        <pre>&lt;style&gt;body{background:url('javascript:alert("XSS Bypass!")')}&lt;/style&gt;
+&lt;link rel="stylesheet" href="data:text/css,body{background:red}"&gt;</pre>
+        <p class="res blocked">Filtered CSS passes through, but modern browsers do not evaluate <code class="inline">javascript:</code> URLs in CSS. Dead end, and the agent says so in one line.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Attribute smuggling <span class="chip blocked" style="margin-left:auto">blocked</span> <span class="chip inert">mostly inert</span></summary>
+      <div class="dbody">
+        <pre>&lt;img src="x" error="alert('XSS Bypass!')"&gt;
+&lt;img src="x" title="" onmouseover="alert('XSS Bypass!')=""&gt;
+&lt;img src="x" title="test
+onload=alert('XSS Bypass!')"&gt;
+&lt;img src="x" x&#8206;onload="alert('XSS Bypass!')"&gt;   <span class="cmt"># U+202E right-to-left override</span></pre>
+        <p class="res blocked">Invented attribute names do nothing; the quote-injection attempt leaves a visible <code class="inline">"=""</code> artefact in the output while deleting the handler; a newline inside an attribute value is preserved but is still a value, not an attribute. The RTL-override variant <em>does</em> survive the filter (the name no longer starts with <code class="inline">on</code>) but is inert.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Namespaced handler that beats the filter <span class="chip inert" style="margin-left:auto">inert</span></summary>
+      <div class="dbody">
+        <pre>&lt;img src="x" ev:onload="alert('XSS Bypass!')"&gt;</pre>
+        <p class="res inert">The high point of the mid-run: the attribute name starts with <code class="inline">ev</code>, so the <code class="inline">startswith("on")</code> check misses it, and the sanitizer's output is byte-identical to the input. But Chromium does not map a prefixed name onto the <code class="inline">load</code> event, so the harness still reports "No alert detected". Correct instinct about the filter, wrong about the browser.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>First comment-breakout attempt <span class="chip blocked" style="margin-left:auto">malformed</span></summary>
+      <div class="dbody">
+        <pre>&lt;!--&gt;&lt;img src=x onerror="alert('XSS Bypass!')"&lt;--&gt;</pre>
+        <p class="res blocked">A typo in the closing sequence. The comment is never terminated, so the browser swallows the payload along with it. No alert. The fix in the next write was a single character.</p>
+      </div>
+    </details>
+
+    <details open>
+      <summary>Comment node breakout <span class="chip pass" style="margin-left:auto">working</span></summary>
+      <div class="dbody">
+        <pre>&lt;!--&gt;&lt;img src=x onerror="alert('XSS Bypass!')"&gt;--&gt;</pre>
+        <p class="res pass">Survives the sanitizer as an untouched comment node; the browser reads <code class="inline">&lt;!--&gt;</code> as an abruptly-closed empty comment and executes the image's error handler on load. Alert confirmed by the harness.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- CAVEATS -->
+  <section id="caveats" class="reveal">
+    <div class="sec-head">
+      <div class="sec-num">Section 07</div>
+      <h2>What this report cannot fully account for</h2>
+      <p class="sub">Honest limits of the record, stated plainly.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <div class="tag">Elided observations</div>
+        <h3 style="margin-top:10px">Source reads were not preserved</h3>
+        <p class="note">The observations for the two <code class="inline">Read</code> calls on <code class="inline">filter.py</code>
+        and <code class="inline">test_outputs.py</code> are stored as placeholder tokens (<code class="inline">$32</code>,
+        <code class="inline">$35</code>), as are 11 later tool results. The filter's rule set in Section 02 is therefore inferred
+        from its behaviour on the payload corpus and from the agent's commentary &mdash; consistent, but not a verbatim
+        quotation of the script.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Environment discrepancy</div>
+        <h3 style="margin-top:10px">The test referenced a path that did not exist</h3>
+        <p class="note"><code class="inline">test_outputs.py</code> expected <code class="inline">/tests/filter.py</code>,
+        but <code class="inline">/tests/</code> was absent. The agent created the directory and copied
+        <code class="inline">/app/filter.py</code> into it, then discovered that <code class="inline">pytest</code> was not
+        installed and fell back to importing the test function directly. The passing result is valid, but it was obtained
+        against a locally reconstructed <code class="inline">/tests/filter.py</code> rather than a pre-existing harness copy.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Process risk</div>
+        <h3 style="margin-top:10px">An early silent pass was misread</h3>
+        <p class="note">At steps 11&ndash;13, <code class="inline">python test_outputs.py</code> produced no output and the agent
+        initially treated the silence as success. It only learned otherwise when the direct-import invocation surfaced the
+        assertion. Everything after step 31 is grounded in explicit output; the first three checks are not.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Scope</div>
+        <h3 style="margin-top:10px">One browser, one sanitizer</h3>
+        <p class="note">The result is specific to the harness's headless browser and to this particular BeautifulSoup-based
+        filter. The empty-comment trick is parser behaviour, so it generalises across HTML5 browsers; the
+        <code class="inline">ev:onload</code> and RTL-override variants are the opposite &mdash; they exploit this filter's
+        string comparison and are not portable bypasses.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:22px">
+      <strong>Context.</strong> This is a sanctioned, sandboxed benchmark task in which an agent is explicitly asked to
+      defeat an intentionally weak sanitizer and verify against a local harness. Nothing here is a claim about any
+      production system, and no live target was involved. Reported as a record of the run, including the dead ends.
+      No media references accompany this case (<code class="inline">references: []</code>; no screenshots or frames in the
+      case directory).
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <div>Case <code class="inline">01_break-filter-js-from-html</code> &middot; trial <code class="inline">break-filter-js-from-html__2TAxihR</code></div>
+    <div>TerminalBench &middot; terminal_devops &middot; trajectory format <code class="inline">terminalbench-json</code></div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var nav = document.getElementById('nav');
+    function onScroll(){
+      if (window.scrollY > 24) nav.classList.add('solid');
+      else nav.classList.remove('solid');
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>

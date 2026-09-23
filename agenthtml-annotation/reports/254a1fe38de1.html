@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HelloFresh Veggie Subscription · Agent Run 03_008</title>
+<style>
+  :root {
+    --bg: #f4faf5;
+    --bg-deep: #0c1f14;
+    --surface: rgba(255, 255, 255, 0.72);
+    --surface-solid: #ffffff;
+    --ink: #0f2418;
+    --ink-soft: #3d5a47;
+    --muted: #6b8575;
+    --line: rgba(15, 36, 24, 0.08);
+    --brand: #1f8f4e;
+    --brand-deep: #0d6b36;
+    --brand-soft: #e6f6ec;
+    --accent: #f0b429;
+    --accent-soft: #fff6d9;
+    --danger: #d64545;
+    --danger-soft: #fdecec;
+    --warn: #d97706;
+    --warn-soft: #fff7ed;
+    --ok: #15803d;
+    --ok-soft: #ecfdf3;
+    --shadow: 0 18px 50px rgba(15, 36, 24, 0.08);
+    --shadow-sm: 0 8px 24px rgba(15, 36, 24, 0.06);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --nav-h: 72px;
+    --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #d9f5e4 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #fff1c9 0%, transparent 45%),
+      linear-gradient(180deg, #f7fcf8 0%, var(--bg) 40%, #eef7f1 100%);
+    min-height: 100vh;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  img { max-width: 100%; display: block; }
+
+  .container {
+    width: min(1140px, calc(100% - 2.5rem));
+    margin: 0 auto;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    transition: background .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+    background: transparent;
+  }
+  .nav.scrolled {
+    background: rgba(247, 252, 248, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(15, 36, 24, 0.04);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(1140px, calc(100% - 2.5rem));
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+  }
+  .brand-mark {
+    width: 36px; height: 36px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2bb673, #0d6b36);
+    display: grid; place-items: center;
+    color: white;
+    box-shadow: 0 8px 18px rgba(31, 143, 78, .35);
+    font-size: 18px;
+  }
+  .brand span { font-size: 1.05rem; }
+  .brand small {
+    display: block;
+    font-weight: 500;
+    color: var(--muted);
+    font-size: .72rem;
+    letter-spacing: .02em;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    color: var(--ink-soft);
+    font-size: .94rem;
+    font-weight: 500;
+  }
+  .nav-links a { opacity: .85; transition: opacity .15s, color .15s; }
+  .nav-links a:hover { opacity: 1; color: var(--brand-deep); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: var(--ink);
+    color: white;
+    padding: .7rem 1.05rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .9rem;
+    box-shadow: 0 10px 24px rgba(15, 36, 24, .18);
+    transition: transform .15s, background .15s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); background: var(--brand-deep); }
+  .menu-btn {
+    display: none;
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 3.2rem 0 2.5rem;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 2.2rem;
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: var(--brand-soft);
+    color: var(--brand-deep);
+    border: 1px solid rgba(31, 143, 78, .15);
+    padding: .38rem .75rem;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 0 0 4px rgba(31, 143, 78, .18);
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 4.4vw, 3.55rem);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    font-weight: 780;
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(120deg, #1f8f4e, #0d6b36 50%, #c79100);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-lead {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+    margin-bottom: 1.6rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-bottom: 1.6rem;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    background: linear-gradient(135deg, #2bb673, #0f7a3d);
+    color: white;
+    padding: .9rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .95rem;
+    box-shadow: 0 14px 30px rgba(31, 143, 78, .28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(31, 143, 78, .34); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    background: var(--surface-solid);
+    color: var(--ink);
+    padding: .9rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 650;
+    font-size: .95rem;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    transition: transform .15s, border-color .15s;
+  }
+  .btn-secondary:hover { transform: translateY(-2px); border-color: rgba(31, 143, 78, .3); }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem 1.2rem;
+    color: var(--muted);
+    font-size: .86rem;
+  }
+  .meta-row strong { color: var(--ink-soft); font-weight: 650; }
+
+  .hero-card {
+    position: relative;
+    background: linear-gradient(160deg, rgba(255,255,255,.9), rgba(255,255,255,.65));
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 1.35rem;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -20% -30% 20%;
+    height: 180px;
+    background: radial-gradient(circle, rgba(47, 182, 115, .2), transparent 70%);
+    pointer-events: none;
+  }
+  .status-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    background: var(--danger-soft);
+    border: 1px solid rgba(214, 69, 69, .15);
+    color: #9f1d1d;
+    border-radius: 14px;
+    padding: .75rem .9rem;
+    margin-bottom: 1rem;
+    font-size: .88rem;
+    font-weight: 600;
+  }
+  .status-banner .pill {
+    background: white;
+    color: var(--danger);
+    border-radius: 999px;
+    padding: .25rem .6rem;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .plan-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .plan-head h2 {
+    font-size: 1.25rem;
+    letter-spacing: -.02em;
+  }
+  .plan-head p { color: var(--muted); font-size: .88rem; margin-top: .2rem; }
+  .price-block {
+    text-align: right;
+  }
+  .price-block .was {
+    color: var(--muted);
+    text-decoration: line-through;
+    font-size: .85rem;
+  }
+  .price-block .now {
+    font-size: 1.7rem;
+    font-weight: 780;
+    letter-spacing: -.03em;
+    color: var(--brand-deep);
+  }
+  .price-block .save {
+    display: inline-block;
+    margin-top: .15rem;
+    background: var(--accent-soft);
+    color: #9a6b00;
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .2rem .5rem;
+    border-radius: 999px;
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .65rem;
+    margin-bottom: 1rem;
+  }
+  .spec {
+    background: rgba(244, 250, 245, .9);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: .75rem .8rem;
+  }
+  .spec .k {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .spec .v {
+    margin-top: .15rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+  .progress {
+    margin-top: .2rem;
+  }
+  .progress-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: .82rem;
+    color: var(--ink-soft);
+    margin-bottom: .4rem;
+    font-weight: 600;
+  }
+  .bar {
+    height: 10px;
+    background: #e4eee7;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .bar > span {
+    display: block;
+    height: 100%;
+    width: 88%;
+    background: linear-gradient(90deg, #2bb673, #f0b429);
+    border-radius: 999px;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.2rem 0 3rem;
+  }
+  .stat {
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.2rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .stat:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .stat .label {
+    color: var(--muted);
+    font-size: .8rem;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .stat .value {
+    margin-top: .35rem;
+    font-size: 1.55rem;
+    font-weight: 780;
+    letter-spacing: -.03em;
+  }
+  .stat .hint { margin-top: .15rem; color: var(--ink-soft); font-size: .85rem; }
+
+  /* Sections common */
+  section { padding: 2.6rem 0; }
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-head h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+    letter-spacing: -.03em;
+    line-height: 1.15;
+  }
+  .section-head p {
+    color: var(--muted);
+    max-width: 28rem;
+    font-size: .95rem;
+  }
+  .tag {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--brand-deep);
+    margin-bottom: .55rem;
+  }
+
+  /* FEATURES */
+  .features {
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,.55), transparent);
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .feature {
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.3rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+    min-height: 180px;
+  }
+  .feature:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+    border-color: rgba(31, 143, 78, .22);
+  }
+  .feature-icon {
+    width: 46px; height: 46px;
+    border-radius: 14px;
+    display: grid; place-items: center;
+    font-size: 1.25rem;
+    margin-bottom: .9rem;
+    background: var(--brand-soft);
+  }
+  .feature h3 {
+    font-size: 1.08rem;
+    letter-spacing: -.015em;
+    margin-bottom: .4rem;
+  }
+  .feature p { color: var(--ink-soft); font-size: .92rem; }
+  .feature .chip {
+    display: inline-flex;
+    margin-top: .85rem;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .28rem .55rem;
+    border-radius: 999px;
+  }
+  .chip.ok { background: var(--ok-soft); color: var(--ok); }
+  .chip.warn { background: var(--warn-soft); color: var(--warn); }
+  .chip.fail { background: var(--danger-soft); color: var(--danger); }
+
+  /* HOW */
+  .how {
+    padding-top: 1rem;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    position: relative;
+  }
+  .step{
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.15rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .step-num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: white;
+    display: grid; place-items: center;
+    font-weight: 750;
+    font-size: .9rem;
+    margin-bottom: .75rem;
+  }
+  .step.done .step-num { background: var(--brand); }
+  .step.blocked .step-num { background: var(--danger); }
+  .step h3 { font-size: 1rem; margin-bottom: .35rem; letter-spacing: -.01em; }
+  .step p { color: var(--muted); font-size: .88rem; }
+  .step .time {
+    margin-top: .75rem;
+    font-family: var(--mono);
+    font-size: .72rem;
+    color: var(--brand-deep);
+    background: var(--brand-soft);
+    display: inline-block;
+    padding: .2rem .45rem;
+    border-radius: 8px;
+  }
+
+  /* TIMELINE */
+  .timeline-wrap {
+    margin-top: 1.5rem;
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .timeline-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #fbfefc, #f4faf6);
+  }
+  .timeline-toolbar h3 { font-size: 1.05rem; letter-spacing: -.015em; }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+  .filter-btn {
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--ink-soft);
+    border-radius: 999px;
+    padding: .4rem .75rem;
+    font-size: .8rem;
+    font-weight: 650;
+    transition: .15s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+  .timeline {
+    max-height: 520px;
+    overflow: auto;
+    padding: .4rem 0;
+  }
+  .t-item {
+    display: grid;
+    grid-template-columns: 92px 18px 1fr;
+    gap: .85rem;
+    padding: .85rem 1.2rem;
+    border-bottom: 1px solid rgba(15,36,24,.045);
+    align-items: start;
+  }
+  .t-item:last-child { border-bottom: 0; }
+  .t-item:hover { background: rgba(230, 246, 236, .35); }
+  .t-time {
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--muted);
+    padding-top: .25rem;
+  }
+  .t-rail {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: .4rem;
+  }
+  .t-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 0 0 4px rgba(31,143,78,.12);
+    z-index: 1;
+  }
+  .t-item[data-kind="error"] .t-dot { background: var(--danger); box-shadow: 0 0 0 4px rgba(214,69,69,.12); }
+  .t-item[data-kind="nav"] .t-dot { background: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,.12); }
+  .t-item[data-kind="input"] .t-dot { background: #7c3aed; box-shadow: 0 0 0 4px rgba(124,58,237,.12); }
+  .t-item[data-kind="block"] .t-dot { background: var(--warn); box-shadow: 0 0 0 4px rgba(217,119,6,.12); }
+  .t-rail::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: -1.7rem;
+    width: 2px;
+    background: #e3ece6;
+  }
+  .t-item:last-child .t-rail::before { display: none; }
+  .t-body h4 {
+    font-size: .95rem;
+    letter-spacing: -.01em;
+    margin-bottom: .2rem;
+  }
+  .t-body p { color: var(--ink-soft); font-size: .88rem; }
+  .t-body code {
+    font-family: var(--mono);
+    font-size: .78rem;
+    background: #f0f5f1;
+    padding: .1rem .35rem;
+    border-radius: 6px;
+    color: #15532e;
+  }
+  .badge {
+    display: inline-block;
+    font-size: .68rem;
+    font-weight: 750;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: .18rem .45rem;
+    border-radius: 999px;
+    margin-right: .35rem;
+    vertical-align: middle;
+  }
+  .badge.nav { background: #e8efff; color: #1d4ed8; }
+  .badge.click { background: var(--brand-soft); color: var(--brand-deep); }
+  .badge.input { background: #f3e8ff; color: #6b21a8; }
+  .badge.error { background: var(--danger-soft); color: var(--danger); }
+  .badge.block { background: var(--warn-soft); color: var(--warn); }
+  .badge.done { background: var(--ok-soft); color: var(--ok); }
+
+  /* PROOF / OUTCOME */
+  .split {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 1.2rem;
+  }
+  .panel {
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .panel h3 {
+    font-size: 1.1rem;
+    letter-spacing: -.015em;
+    margin-bottom: .9rem;
+  }
+  .checklist { list-style: none; display: grid; gap: .55rem; }
+  .checklist li {
+    display: flex;
+    gap: .65rem;
+    align-items: flex-start;
+    padding: .7rem .75rem;
+    border-radius: 14px;
+    background: #f7fbf8;
+    border: 1px solid transparent;
+  }
+  .checklist li.ok { border-color: rgba(21,128,61,.1); }
+  .checklist li.fail { background: var(--danger-soft); border-color: rgba(214,69,69,.12); }
+  .check {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: .75rem; font-weight: 800;
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
+  .checklist li.ok .check { background: var(--ok); color: white; }
+  .checklist li.fail .check { background: var(--danger); color: white; }
+  .checklist .title { font-weight: 700; font-size: .92rem; }
+  .checklist .desc { color: var(--muted); font-size: .82rem; margin-top: .1rem; }
+
+  .order-card {
+    background: linear-gradient(160deg, #10261a, #163724 55%, #1d4a2e);
+    color: white;
+    border-radius: 24px;
+    padding: 1.4rem;
+    box-shadow: 0 20px 40px rgba(12, 31, 20, .28);
+    position: relative;
+    overflow: hidden;
+  }
+  .order-card::after {
+    content: "";
+    position: absolute;
+    width: 180px; height: 180px;
+    right: -40px; top: -40px;
+    background: radial-gradient(circle, rgba(240,180,41,.3), transparent 70%);
+  }
+  .order-card h3 { color: white; margin-bottom: .3rem; }
+  .order-card .sub { color: rgba(255,255,255,.7); font-size: .88rem; margin-bottom: 1rem; }
+  .order-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .55rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    font-size: .92rem;
+  }
+  .order-row:last-of-type { border-bottom: 0; }
+  .order-row .l { color: rgba(255,255,255,.72); }
+  .order-row .r { font-weight: 700; }
+  .order-total {
+    margin-top: .9rem;
+    padding-top: .9rem;
+    border-top: 1px dashed rgba(255,255,255,.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  .order-total .label { color: rgba(255,255,255,.7); font-size: .85rem; }
+  .order-total .amount { font-size: 1.8rem; font-weight: 800; letter-spacing: -.03em; }
+  .order-total .amount small {
+    font-size: .85rem;
+    font-weight: 600;
+    color: #f6d06a;
+    display: block;
+    text-align: right;
+  }
+
+  /* PRICING style cards for plans the agent considered */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .price-card {
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    position: relative;
+  }
+  .price-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .price-card.featured {
+    border-color: rgba(31, 143, 78, .4);
+    background: linear-gradient(180deg, #f3fbf6, #ffffff);
+    box-shadow: var(--shadow);
+  }
+  .price-card .flag {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--brand);
+    color: white;
+    font-size: .7rem;
+    font-weight: 750;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: .28rem .55rem;
+    border-radius: 999px;
+  }
+  .price-card h3 { font-size: 1.15rem; margin-bottom: .35rem; }
+  .price-card .blurb { color: var(--muted); font-size: .9rem; margin-bottom: 1rem; min-height: 2.6em; }
+  .price-card .amount {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    margin-bottom: .2rem;
+  }
+  .price-card .amount span { font-size: .95rem; font-weight: 600; color: var(--muted); }
+  .price-card ul {
+    list-style: none;
+    margin: 1rem 0 1.2rem;
+    display: grid;
+    gap: .45rem;
+    color: var(--ink-soft);
+    font-size: .9rem;
+  }
+  .price-card ul li::before {
+    content: "✓ ";
+    color: var(--brand);
+    font-weight: 800;
+  }
+  .price-card .ghost-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: .8rem;
+    border-radius: 14px;
+    font-weight: 700;
+    border: 1px solid var(--line);
+    background: white;
+    transition: .15s;
+  }
+  .price-card.featured .ghost-btn {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+  .price-card .ghost-btn:hover { transform: translateY(-1px); }
+
+  /* FAQ */
+  .faq-list { display: grid; gap: .7rem; }
+  details.faq {
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  details.faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 1.15rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: "+";
+    font-size: 1.2rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  details.faq[open] summary::after { content: "−"; }
+  details.faq .faq-body {
+    padding: 0 1.15rem 1.1rem;
+    color: var(--ink-soft);
+    font-size: .93rem;
+  }
+  details.faq .faq-body code {
+    font-family: var(--mono);
+    font-size: .8rem;
+    background: #f0f5f1;
+    padding: .1rem .35rem;
+    border-radius: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 2rem;
+    background: var(--bg-deep);
+    color: rgba(255,255,255,.8);
+    padding: 2.8rem 0 1.6rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  footer .brand { color: white; margin-bottom: .7rem; }
+  footer .brand small { color: rgba(255,255,255,.55); }
+  footer p { color: rgba(255,255,255,.6); font-size: .9rem; max-width: 24rem; }
+  footer h4 {
+    color: white;
+    font-size: .85rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+  }
+  footer ul { list-style: none; display: grid; gap: .45rem; }
+  footer li { color: rgba(255,255,255,.62); font-size: .9rem; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .6rem;
+    font-size: .8rem;
+    color: rgba(255,255,255,.45);
+  }
+
+  /* Reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Mobile nav drawer */
+  .mobile-panel {
+    display: none;
+    position: fixed;
+    inset: var(--nav-h) 0 auto 0;
+    background: rgba(247,252,248,.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding: 1rem 1.25rem 1.25rem;
+    z-index: 40;
+  }
+  .mobile-panel.open { display: grid; gap: .85rem; }
+  .mobile-panel a {
+    font-weight: 650;
+    color: var(--ink-soft);
+    padding: .4rem 0;
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid, .split, .feature-grid, .pricing-grid, .steps, .stats, .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .menu-btn { display: inline-flex; }
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    .stats, .feature-grid, .pricing-grid, .steps, .footer-grid, .split {
+      grid-template-columns: 1fr;
+    }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+    .t-item { grid-template-columns: 72px 14px 1fr; gap: .55rem; }
+    .container, .nav-inner { width: min(1140px, calc(100% - 1.4rem)); }
+    .hero { padding-top: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <div class="brand-mark">✦</div>
+        <div>
+          <span>FreshTrail</span>
+          <small>Agent run review</small>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#journey">Journey</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#outcome">Outcome</a>
+        <a href="#plans">Plan picks</a>
+        <a href="#faq">Details</a>
+      </div>
+      <a class="nav-cta" href="#outcome">View result</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#overview">Overview</a>
+    <a href="#journey">Journey</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#outcome">Outcome</a>
+    <a href="#plans">Plan picks</a>
+    <a href="#faq">Details</a>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> ClawBench · daily_web_tasks · 03_008</div>
+        <h1>Subscribe to a <em>Veggie meal kit</em> for two — in one agent pass.</h1>
+        <p class="hero-lead">
+          Claude Haiku configured a HelloFresh Canada Veggie Box (3 meals × 2 people),
+          created the account, filled delivery details, then stalled on a Stripe checkout iframe.
+          Session idled after 900s without completing payment capture.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#timeline">Replay the run →</a>
+          <a class="btn-secondary" href="#outcome">See blockers</a>
+        </div>
+        <div class="meta-row">
+          <span><strong>Model</strong> claude-haiku-4-5-20251001</span>
+          <span><strong>Site</strong> hellofresh.com → .ca</span>
+          <span><strong>Duration</strong> 1,263s (~21m)</span>
+          <span><strong>Stop</strong> agent_idle</span>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="status-banner">
+          <span>Checkout reached · payment incomplete</span>
+          <span class="pill">Failed</span>
+        </div>
+        <div class="plan-head">
+          <div>
+            <h2>Veggie Box configured</h2>
+            <p>3 meals / week · 2 servings · Plant-based</p>
+          </div>
+          <div class="price-block">
+            <div class="was">$88.93</div>
+            <div class="now">$38.97</div>
+            <div class="save">50% + free shipping</div>
+          </div>
+        </div>
+        <div class="spec-grid">
+          <div class="spec"><div class="k">Plan</div><div class="v">Veggie / Vegetarian</div></div>
+          <div class="spec"><div class="k">Household</div><div class="v">2 people</div></div>
+          <div class="spec"><div class="k">Postal</div><div class="v">M5S 2H7 · Toronto</div></div>
+          <div class="spec"><div class="k">First delivery</div><div class="v">Sat Apr 04 · 08–20</div></div>
+        </div>
+        <div class="progress">
+          <div class="progress-head"><span>Funnel completion</span><span>7 / 8 steps</span></div>
+          <div class="bar"><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container stats">
+      <div class="stat reveal">
+        <div class="label">Browser actions</div>
+        <div class="value">85</div>
+        <div class="hint">clicks · inputs · scrolls</div>
+      </div>
+      <div class="stat reveal">
+        <div class="label">Messages</div>
+        <div class="value">187</div>
+        <div class="hint">agent trajectory turns</div>
+      </div>
+      <div class="stat reveal">
+        <div class="label">Tokens (in/out)</div>
+        <div class="value">532k</div>
+        <div class="hint">9.7k output · heavy cache</div>
+      </div>
+      <div class="stat reveal">
+        <div class="label">Eval status</div>
+        <div class="value" style="color:var(--danger)">Idle</div>
+        <div class="hint">no payment intercept hit</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="features" id="overview">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="tag">What was asked</div>
+          <h2>Task brief & runtime context</h2>
+        </div>
+        <p>Autonomous browser subscription only — no CLI, no APIs, no human confirmation. Dummy user Alex Green with disposable email.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature reveal">
+          <div class="feature-icon">🥬</div>
+          <h3>Target subscription</h3>
+          <p>3 meals per week on the <strong>Veggie</strong> plan for <strong>2 people</strong> via HelloFresh meal kit delivery.</p>
+          <span class="chip ok">Spec matched mid-funnel</span>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">👤</div>
+          <h3>Persona loaded</h3>
+          <p>Alex Green · Canadian · Toronto M5S 2H7 · 664 Spadina Ave Unit 1208 · disposable email at clawbench.cc.</p>
+          <span class="chip ok"> /my-info used</span>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">🧭</div>
+          <h3>US → CA redirect</h3>
+          <p>Started on hellofresh.com; zip/postal mismatch prompted a clean switch to hellofresh.ca for deliverability.</p>
+          <span class="chip ok">Smart locale recovery</span>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">🛒</div>
+          <h3>Plan funnel complete</h3>
+          <p>Vegetarian preference, plant-based diet, 3–4 cooking days, 2 adults — landed on Veggie Box at promo pricing.</p>
+          <span class="chip ok">Configured correctly</span>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">🔐</div>
+          <h3>Account created</h3>
+          <p>Registered with <code style="font-family:var(--mono);font-size:.85em">cbecf1d27860d3@clawbench.cc</code> and a generated password, advanced to address checkout.</p>
+          <span class="chip ok">Register + address OK</span>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">💳</div>
+          <h3>Payment hard-block</h3>
+          <p>Stripe iframe never became interactive. “Place order” stayed disabled; forced JS click didn’t validate payment.</p>
+          <span class="chip fail">Eval intercept miss</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="journey">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="tag">How it works</div>
+          <h2>Eight-step subscription path</h2>
+        </div>
+        <p>The agent walked HelloFresh’s real multi-step onboarding, adapting when the US site rejected a Canadian postal code.</p>
+      </div>
+      <div class="steps">
+        <div class="step done reveal">
+          <div class="step-num">1</div>
+          <h3>Identity pull</h3>
+          <p>Read Alex Green’s personal info + disposable email credentials from <code style="font-family:var(--mono);font-size:.8em">/my-info</code>.</p>
+          <span class="time">07:11:41</span>
+        </div>
+        <div class="step done reveal">
+          <div class="step-num">2</div>
+          <h3>Open HelloFresh</h3>
+          <p>Started Chromium, landed on .com, clicked “See Pricing & Plans”, tried Toronto postal code.</p>
+          <span class="time">07:11:51</span>
+        </div>
+        <div class="step done reveal">
+          <div class="step-num">3</div>
+          <h3>Locale switch</h3>
+          <p>US continue stayed disabled → navigated to hellofresh.ca, dismissed promo overlays, entered M5S2H7.</p>
+          <span class="time">07:12:31</span>
+        </div>
+        <div class="step done reveal">
+          <div class="step-num">4</div>
+          <h3>Pick Veggie prefs</h3>
+          <p>Vegetarian → Plant based → keep 3–4 days cooking → 2 adults. Confirmed Veggie Box, 3×2.</p>
+          <span class="time">07:13:57</span>
+        </div>
+        <div class="step done reveal">
+          <div class="step-num">5</div>
+          <h3>Create account</h3>
+          <p>Email + password registration, then checkout address wizard with phone validation.</p>
+          <span class="time">07:14:35</span>
+        </div>
+        <div class="step done reveal">
+          <div class="step-num">6</div>
+          <h3>Delivery details</h3>
+          <p>First/last name, street, unit, city, phone filled with green checkmarks; delivery window set.</p>
+          <span class="time">07:15:00</span>
+        </div>
+        <div class="step blocked reveal">
+          <div class="step-num">7</div>
+          <h3>Payment form</h3>
+          <p>Stripe iframe loading spinner forever. Waits, refresh/F5, Tab traversal, evaluate hacks.</p>
+          <span class="time">07:15:35</span>
+        </div>
+        <div class="step blocked reveal">
+          <div class="step-num">8</div>
+          <h3>Place order</h3>
+          <p>Button remained disabled. Agent forced click then summarized “almost complete” and went idle.</p>
+          <span class="time">07:16:45</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="tag">Trajectory</div>
+          <h2>Key moments from the run</h2>
+        </div>
+        <p>Condensed from 187 agent messages and 85 recorded page actions. Filter by kind of interaction.</p>
+      </div>
+
+      <div class="timeline-wrap reveal">
+        <div class="timeline-toolbar">
+          <h3>Interactive timeline</h3>
+          <div class="filters" id="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nav">Navigation</button>
+            <button class="filter-btn" data-filter="input">Inputs</button>
+            <button class="filter-btn" data-filter="click">Clicks</button>
+            <button class="filter-btn" data-filter="error">Errors</button>
+            <button class="filter-btn" data-filter="block">Blockers</button>
+          </div>
+        </div>
+        <div class="timeline" id="timelineList">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcome">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="tag">Result</div>
+          <h2>Near-miss on a fully valid order path</h2>
+        </div>
+        <p>Everything up to payment worked. Eval never saw the expected POST because Stripe never unlocked Place order.</p>
+      </div>
+      <div class="split">
+        <div class="panel reveal">
+          <h3>Completion checklist</h3>
+          <ul class="checklist">
+            <li class="ok"><span class="check">✓</span><div><div class="title">Postal / delivery zone</div><div class="desc">M5S 2H7 verified on HelloFresh Canada — “We deliver to your area.”</div></div></li>
+            <li class="ok"><span class="check">✓</span><div><div class="title">Veggie plan · 3 meals · 2 people</div><div class="desc">Vegetarian + plant-based preferences, cooking frequency and household size locked in.</div></div></li>
+            <li class="ok"><span class="check">✓</span><div><div class="title">Account registration</div><div class="desc">Disposable email registered; password accepted; advanced into checkout.</div></div></li>
+            <li class="ok"><span class="check">✓</span><div><div class="title">Delivery address</div><div class="desc">Alex Green, 664 Spadina Ave Unit 1208, Toronto, +1 (437) 529-0176.</div></div></li>
+            <li class="ok"><span class="check">✓</span><div><div class="title">Promo pricing shown</div><div class="desc">Box $77.94 → $38.97, shipping free, ~$121 savings across next 9 boxes.</div></div></li>
+            <li class="fail"><span class="check">!</span><div><div class="title">Payment submission</div><div class="desc">Stripe fields missing/uninteractive; Place order disabled; no successful checkout POST.</div></div></li>
+            <li class="fail"><span class="check">!</span><div><div class="title">Eval intercept</div><div class="desc">“Session stopped: agent went idle (900s no actions) before triggering the eval interceptor.”</div></div></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <div class="order-card">
+            <h3>Order snapshot</h3>
+            <div class="sub">HelloFresh.ca · checkout?step=payment · cart LX-8UO1N</div>
+            <div class="order-row"><span class="l">Plan</span><span class="r">Veggie Box</span></div>
+            <div class="order-row"><span class="l">Meals / week</span><span class="r">3 × 2 servings</span></div>
+            <div class="order-row"><span class="l">Email</span><span class="r">cbecf1d…@clawbench.cc</span></div>
+            <div class="order-row"><span class="l">Address</span><span class="r">664 Spadina · Toronto</span></div>
+            <div class="order-row"><span class="l">Box price</span><span class="r"><s style="opacity:.55">$77.94</s> $38.97</span></div>
+            <div class="order-row"><span class="l">Shipping</span><span class="r"><s style="opacity:.55">$10.99</s> Free</span></div>
+            <div class="order-total">
+              <div>
+                <div class="label">First box total</div>
+                <div style="font-size:.8rem;color:rgba(255,255,255,.55);margin-top:.25rem;">Payment never captured</div>
+              </div>
+              <div class="amount">$38.97<small>was $88.93</small></div>
+            </div>
+          </div>
+          <div class="panel" style="margin-top:1rem;">
+            <h3>Stop reason</h3>
+            <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:.8rem;">
+              Interception schema expected a POST to the checkout / payment endpoint.
+              Instead the agent exhausted workarounds, wrote a completion summary, and produced no further tool calls for 900s.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;">
+              <span class="badge error">pass: false</span>
+              <span class="badge block">agent_idle</span>
+              <span class="badge nav">duration 1263s</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="tag">Plan surface</div>
+          <h2>What the site offered vs what was chosen</h2>
+        </div>
+        <p>Onboarding frosted several meal styles; the agent deliberately kept the Veggie path aligned with the brief.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <h3>Classic</h3>
+          <p class="blurb">Meat & veg demos — popular default path on HelloFresh home marketing.</p>
+          <div class="amount">$— <span>/ first box</span></div>
+          <ul>
+            <li>Mixed protein recipes</li>
+            <li>Not matching “Veggie” brief</li>
+            <li>Skipped by agent</li>
+          </ul>
+          <button class="ghost-btn" type="button">Not selected</button>
+        </article>
+        <article class="price-card featured reveal">
+          <div class="flag">Selected</div>
+          <h3>Veggie Box</h3>
+          <p class="blurb">Vegetarian + plant-based preferences · 3 meals · 2 people — exact task match.</p>
+          <div class="amount">$38.97 <span>/ first box</span></div>
+          <ul>
+            <li>Vegetarian preference checked</li>
+            <li>Plant based dietary set</li>
+            <li>3 meals for 2 · promo applied</li>
+          </ul>
+          <button class="ghost-btn" type="button" onclick="document.getElementById('outcome').scrollIntoView({behavior:'smooth'})">View configured box</button>
+        </article>
+        <article class="price-card reveal">
+          <h3>Family / others</h3>
+          <p class="blurb">Larger household nits and specialty boxes present in marketing rails.</p>
+          <div class="amount">$— <span>/ first box</span></div>
+          <ul>
+            <li>Household fixed at 2 adults</li>
+            <li>0 kids selected</li>
+            <li>Not escalated</li>
+          </ul>
+          <button class="ghost-btn" type="button">Not selected</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="tag">Case details</div>
+          <h2>FAQ from the trajectory pack</h2>
+        </div>
+        <p>Metadata, references, and operational quirks pulled from case_meta and interception records.</p>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq">
+          <summary>What was the exact task statement?</summary>
+          <div class="faq-body">
+            <p><strong>Subscribe to a meal kit with 3 meals per week, select the "Veggie" plan, for 2 people.</strong></p>
+            <p style="margin-top:.55rem;">Instructions required full browser autonomy using provided dummy personal info; no human confirmation, no CLI shortcuts.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Which files describe this case?</summary>
+          <div class="faq-body">
+            <p>Trajectory: <code>data/agent-messages.jsonl</code> (clawbench-dir format). Task brief: <code>task/task_statement.md</code>. Actions: <code>data/actions.jsonl</code>. Run metadata: <code>run_meta.json</code>.</p>
+            <p style="margin-top:.55rem;">Oversized reference (not inlined): <code>data/requests.jsonl</code> (~7.6&nbsp;MB) — mentioned only in case_meta references.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Why switch from hellofresh.com to hellofresh.ca?</summary>
+          <div class="faq-body">
+            <p>Postal code <code>M5S 2H7</code> is Canadian. On the US plans page the Continue control stayed disabled after typing the ZIP field. The agent re-homed to Canada, re-validated the postal, and resumed the plan quiz successfully.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>What user data was entered?</summary>
+          <div class="faq-body">
+            <p>Email <code>cbecf1d27860d3@clawbench.cc</code>, password generated as <code>SecurePassword123!</code>, name Alex Green, address 664 Spadina Ave Unit 1208, Toronto ON M5S 2H7, phone +1 (437) 529-0176.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Why did evaluation fail?</summary>
+          <div class="faq-body">
+            <p><code>interception.json</code> records <code>pass: false</code> with stop reason <code>agent_idle</code>: the agent produced no further actions for 900s before the eval interceptor observed a matching payment POST. Root cause in the UI: Stripe card iframe never finished loading; Place order remained disabled even after force-click.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Model & tooling profile</summary>
+          <div class="faq-body">
+            <p>Provider <code>cliproxy</code>, model <code>claude-haiku-4-5-20251001</code>, thinking level medium. Browser tool via OpenClaw/CDP Chromium. Timestamp <code>20260325-071107</code>. Token counts ~532k input / 9.7k output with large cache reuse.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <span>FreshTrail</span>
+            <small>Case presenter</small>
+          </div>
+        </div>
+        <p>High-fidelity review page for ClawBench daily web task 03_008 — HelloFresh Veggie subscription attempt by Claude Haiku.</p>
+      </div>
+      <div>
+        <h4>Case</h4>
+        <ul>
+          <li>daily_web_tasks</li>
+          <li>food · hellofresh</li>
+          <li>id 03_008</li>
+          <li>benchmark ClawBench</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Runtime</h4>
+        <ul>
+          <li>1,263 seconds</li>
+          <li>85 page actions</li>
+          <li>187 messages</li>
+          <li>stop: agent_idle</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Artifacts</h4>
+        <ul>
+          <li>agent-messages.jsonl</li>
+          <li>actions.jsonl</li>
+          <li>interception.json</li>
+          <li>requests.jsonl (ref only)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>Self-contained HTML · no external assets</span>
+      <span>prototype-web aesthetic · green glass UI</span>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  const events = [
+    { t: "07:11:41", kind: "nav", title: "Load persona files", body: "Read <code>alex_green_personal_info.json</code> and disposable email credentials." },
+    { t: "07:11:51", kind: "nav", title: "Navigate to HelloFresh US", body: "Opened <code>https://www.hellofresh.com</code> after starting Chromium CDP." },
+    { t: "07:12:05", kind: "click", title: "See Pricing & Plans", body: "Clicked marketing CTA <code>e92</code>; landed on US plans with mealsize=3-2 defaults." },
+    { t: "07:12:13", kind: "input", title: "Enter postal M5S 2H7", body: "Typed Canadian postal into <code>#Enterzipcode</code> on the US site." },
+    { t: "07:12:24", kind: "error", title: "Continue stayed disabled", body: "Element error / disabled Continue — US delivery area validation failed for Canadian code." },
+    { t: "07:12:31", kind: "nav", title: "Switch to HelloFresh Canada", body: "Navigated to <code>https://www.hellofresh.ca</code> for locale-correct checkout." },
+    { t: "07:13:28", kind: "click", title: "Dismiss promo · Get Started", body: "Closed overlay (NO THANKS) and advanced from landing CTA." },
+    { t: "07:13:35", kind: "nav", title: "Open /plans", body: "Landed on Meal Kit Delivery Plans page with campaign code LX-8UO1N." },
+    { t: "07:13:45", kind: "input", title: "Postal verified in CA", body: "Typed <code>M5S2H7</code>; UI confirmed “We deliver to your area.”" },
+    { t: "07:13:49", kind: "click", title: "Continue into prefs quiz", body: "Advanced from postal gate into multi-step plan questionnaire." },
+    { t: "07:13:57", kind: "click", title: "Select Vegetarian", body: "Clicked preference tile for Vegetarian / Veggie path (step=2)." },
+    { t: "07:14:04", kind: "click", title: "Plant based diet", body: "Chose plant-based dietary constraint to reinforce veggie kit." },
+    { t: "07:14:14", kind: "click", title: "Keep goal: Save money", body: "Left default goal selected; continued quiz." },
+    { t: "07:14:19", kind: "click", title: "Cooking 3–4 days / week", body: "Frequency already checked; matched 3 meals/week requirement." },
+    { t: "07:14:25", kind: "click", title: "Household size = 2", body: "2 adults, 0 kids already set — continued to plan summary." },
+    { t: "07:14:30", kind: "click", title: "Confirm Veggie Box 3×2", body: "Summary ranked Veggie Box, 3 meals for 2 people, promo brought first box low." },
+    { t: "07:14:35", kind: "input", title: "Register email", body: "Entered <code>cbecf1d27860d3@clawbench.cc</code> into username field." },
+    { t: "07:14:46", kind: "input", title: "Set password", body: "Typed generated password and submitted registration forms." },
+    { t: "07:15:00", kind: "input", title: "Fill delivery address", body: "Alex / Green · 664 Spadina Ave · Unit 1208 · Toronto · +1 (437) 529-0176." },
+    { t: "07:15:32", kind: "click", title: "Next → payment", body: "Address validation green checkmarks; advanced to payment step." },
+    { t: "07:15:43", kind: "block", title: "Stripe form stuck loading", body: "Place order & select meals disabled; payment iframe never became ready." },
+    { t: "07:16:07", kind: "block", title: "Refresh & keyboard attempts", body: "F5, Home, Tab traversal; waits of 3–5s; still disabled." },
+    { t: "07:16:23", kind: "block", title: "Iframe probe via evaluate", body: "Counted iframes and button state — Place order <code>disabled: true</code>." },
+    { t: "07:16:45", kind: "error", title: "Force-click Place order", body: "JS cleared disabled and clicked; no validation success; URL stayed on payment step." },
+    { t: "07:17:05", kind: "block", title: "Agent summarized near-success", body: "Posted completion write-up claiming config done; payment remaining. Then idle 900s." }
+  ];
+
+  const list = document.getElementById("timelineList");
+  function badge(kind) {
+    const map = { nav: "nav", click: "click", input: "input", error: "error", block: "block" };
+    const label = { nav: "nav", click: "click", input: "input", error: "error", block: "block" };
+    return '<span class="badge ' + map[kind] + '">' + label[kind] + '</span>';
+  }
+  function render(filter) {
+    list.innerHTML = "";
+    events
+      .filter(e => filter === "all" || e.kind === filter)
+      .forEach(e => {
+        const el = document.createElement("div");
+        el.className = "t-item";
+        el.dataset.kind = e.kind;
+        el.innerHTML =
+          '<div class="t-time">' + e.t + '</div>' +
+          '<div class="t-rail"><div class="t-dot"></div></div>' +
+          '<div class="t-body"><h4>' + badge(e.kind) + e.title + '</h4><p>' + e.body + '</p></div>';
+        list.appendChild(el);
+      });
+  }
+  render("all");
+
+  document.getElementById("filters").addEventListener("click", (ev) => {
+    const btn = ev.target.closest(".filter-btn");
+    if (!btn) return;
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    render(btn.dataset.filter);
+  });
+
+  // Sticky nav
+  const nav = document.getElementById("nav");
+  const onScroll = () => {
+    if (window.scrollY > 12) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Mobile menu
+  const menuBtn = document.getElementById("menuBtn");
+  const panel = document.getElementById("mobilePanel");
+  menuBtn.addEventListener("click", () => panel.classList.toggle("open"));
+  panel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => panel.classList.remove("open")));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add("visible");
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

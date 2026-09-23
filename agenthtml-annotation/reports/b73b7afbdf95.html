@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 008 · Order not placed — HelloFresh Veggie Box run</title>
+<style>
+  :root{
+    --paper:#F1F2ED;
+    --panel:#E6EAE1;
+    --panel-2:#DCE2D8;
+    --ink:#161C17;
+    --moss:#5B6A5C;
+    --rule:#C6CEC3;
+    --tomato:#C93C26;
+    --steel:#3C5867;
+    --max:1120px;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    font-kerning:normal;
+  }
+  ::selection{background:var(--ink);color:var(--paper)}
+
+  a{color:var(--ink)}
+  :focus-visible{outline:2px solid var(--steel);outline-offset:3px;border-radius:1px}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+  /* ---------- masthead ---------- */
+  .mast{
+    border-bottom:1px solid var(--rule);
+    background:
+      repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 9px) bottom left/100% 3px no-repeat,
+      var(--paper);
+  }
+  .mast .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;padding-top:16px;padding-bottom:14px}
+  .mast-id{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+  .mast-id b{font-weight:700}
+  .mast-meta{margin-left:auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss)}
+  .mast-meta span+span{margin-left:18px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:56px 0 40px}
+  .hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:start}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--moss);margin:0 0 22px;
+  }
+  h1{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:clamp(2.5rem,7.4vw,5.4rem);
+    line-height:.94;
+    letter-spacing:-.035em;
+    text-transform:uppercase;
+    margin:0 0 26px;
+    text-wrap:balance;
+  }
+  h1 .light{color:var(--moss)}
+  .deck{font-size:1.08rem;line-height:1.62;max-width:46ch;margin:0 0 30px;text-wrap:pretty}
+  .deck b{font-weight:600}
+
+  .verdict-line{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+    padding-top:20px;border-top:1px solid var(--rule);
+  }
+  .verdict-line .k{color:var(--moss)}
+  .verdict-line .v{font-weight:700}
+  .v.fail{color:var(--tomato)}
+
+  /* ---------- ledger (signature) ---------- */
+  .ledger{
+    border:1px solid var(--ink);
+    background:var(--paper);
+    padding:0;
+    position:relative;
+  }
+  .ledger-head{
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+    padding:13px 16px;border-bottom:1px solid var(--ink);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .ledger-head em{font-style:normal;color:var(--moss)}
+  .ledger-list{list-style:none;margin:0;padding:0}
+  .ledger-row{
+    display:grid;grid-template-columns:34px 1fr auto;align-items:center;
+    gap:12px;padding:8px 16px;
+    border-bottom:1px dotted var(--rule);
+    font-family:var(--mono);font-size:.76rem;
+    opacity:0;transform:translateY(4px);
+    animation:gate-in .34s ease forwards;
+    animation-delay:calc(var(--i) * 90ms);
+  }
+  .ledger-row:last-child{border-bottom:none}
+  .ledger-row .num{color:var(--moss);font-size:.7rem}
+  .ledger-row .what{letter-spacing:.02em}
+  .ledger-row .mark{font-size:.72rem;font-weight:700}
+  .mark.done{color:var(--tomato)}
+  .mark.keep{color:var(--moss)}
+  .mark.block{color:var(--steel);display:inline-flex;align-items:center;gap:7px}
+  .ledger-row.is-block{
+    background:linear-gradient(90deg,rgba(60,88,103,.09),transparent 72%);
+    border-bottom-color:transparent;
+  }
+  .ledger-row.is-block .what{color:var(--steel);font-weight:700}
+
+  .spinner{
+    width:12px;height:12px;border-radius:50%;
+    border:1.6px solid rgba(60,88,103,.28);
+    border-top-color:var(--steel);
+    animation:spin 1.05s linear infinite;
+    flex:none;
+  }
+  .ledger-foot{
+    border-top:1px solid var(--ink);
+    padding:13px 16px;display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  }
+  .ledger-foot .amount{font-size:.95rem;font-weight:700;letter-spacing:-.01em}
+  .ledger-foot .amount s{color:var(--moss);font-weight:400;margin-right:7px}
+
+  /* ---------- run strip ---------- */
+  .strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:34px}
+  .strip .wrap{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+  .cell{padding:20px 18px 20px 0;border-left:1px dotted var(--rule);padding-left:18px}
+  .cell:first-child{border-left:none;padding-left:0}
+  .cell dt{font-family:var(--mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--moss);margin:0 0 7px}
+  .cell dd{margin:0;font-family:var(--mono);font-size:.9rem;font-weight:700;line-height:1.3}
+  .cell dd small{display:block;font-weight:400;font-size:.68rem;color:var(--moss);margin-top:4px;letter-spacing:.02em}
+
+  /* ---------- sections ---------- */
+  section{padding:66px 0 0}
+  .sec-head{display:grid;grid-template-columns:170px 1fr;gap:26px;align-items:baseline;padding-bottom:22px;border-bottom:1px solid var(--ink)}
+  .sec-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,3.3vw,2.35rem);line-height:1.14;letter-spacing:-.015em;margin:0}
+  h2 em{font-style:italic;color:var(--moss)}
+  .lede{max-width:62ch;font-size:1.02rem;margin:26px 0 0;color:var(--ink);text-wrap:pretty}
+
+  /* ---------- gate detail ---------- */
+  .gates{list-style:none;margin:34px 0 0;padding:0;position:relative}
+  .gate{display:grid;grid-template-columns:74px 1fr;gap:0;position:relative}
+  .gate-rail{position:relative;display:flex;justify-content:flex-start}
+  .gate-rail::before{
+    content:"";position:absolute;left:15px;top:0;bottom:0;width:1px;background:var(--rule);
+  }
+  .gate:first-child .gate-rail::before{top:22px}
+  .gate:last-child .gate-rail::before{bottom:auto;height:22px}
+  .gate.is-block .gate-rail::before{
+    background:repeating-linear-gradient(180deg,var(--rule) 0 4px,transparent 4px 9px);
+  }
+  .gate-node{
+    position:relative;z-index:1;width:31px;height:31px;margin-top:9px;
+    display:grid;place-items:center;flex:none;
+    background:var(--paper);border:1px solid var(--rule);border-radius:50%;
+    font-family:var(--mono);font-size:.66rem;color:var(--moss);
+  }
+  .gate.is-chosen .gate-node{border-color:var(--tomato);color:var(--tomato)}
+  .gate.is-keep .gate-node{border-color:var(--moss)}
+  .gate.is-block .gate-node{border-color:var(--steel);color:var(--steel);border-style:dashed}
+  .gate-body{padding:6px 0 34px 22px;min-width:0}
+  .gate-top{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+  .gate-q{font-family:var(--serif);font-size:1.22rem;font-weight:600;letter-spacing:-.01em;margin:0}
+  .gate-time{font-family:var(--mono);font-size:.68rem;color:var(--moss);letter-spacing:.08em}
+  .gate-answer{margin:9px 0 0;font-size:.97rem;max-width:60ch}
+  .gate-answer .tag{
+    font-family:var(--mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid var(--rule);padding:2px 7px;margin-right:9px;color:var(--moss);white-space:nowrap;
+  }
+  .gate.is-chosen .gate-answer .tag{border-color:var(--tomato);color:var(--tomato)}
+  .gate.is-block .gate-answer .tag{border-color:var(--steel);color:var(--steel)}
+
+  details.ev{margin-top:13px;border-left:2px solid var(--panel-2)}
+  details.ev>summary{
+    cursor:pointer;list-style:none;padding:6px 0 6px 13px;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);
+  }
+  details.ev>summary::-webkit-details-marker{display:none}
+  details.ev>summary::before{content:"+ ";font-weight:700;color:var(--ink)}
+  details.ev[open]>summary::before{content:"– "}
+  details.ev>summary:hover{color:var(--ink)}
+  .ev-body{padding:4px 0 10px 13px}
+  .ev-body pre{
+    margin:0 0 9px;font-family:var(--mono);font-size:.74rem;line-height:1.62;
+    background:var(--panel);border:1px solid var(--rule);padding:11px 13px;overflow-x:auto;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .ev-body pre:last-child{margin-bottom:0}
+  .ev-body .note{font-family:var(--mono);font-size:.68rem;color:var(--moss);letter-spacing:.02em}
+
+  /* ---------- callout / two-col ---------- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:30px}
+  .card{border:1px solid var(--rule);background:var(--panel);padding:22px 22px 24px}
+  .card h3{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
+  .card p{margin:0 0 12px;font-size:.94rem}
+  .card p:last-child{margin-bottom:0}
+  .card ul{margin:0;padding-left:17px;font-size:.94rem}
+  .card li{margin-bottom:7px}
+  .card code{font-family:var(--mono);font-size:.82em;background:var(--paper);border:1px solid var(--rule);padding:1px 5px}
+
+  .quote{
+    border-left:2px solid var(--tomato);padding:4px 0 4px 18px;margin:24px 0 0;
+    font-family:var(--serif);font-size:1.06rem;font-style:italic;max-width:58ch;
+  }
+  .quote cite{display:block;margin-top:9px;font-family:var(--mono);font-size:.66rem;font-style:normal;letter-spacing:.11em;text-transform:uppercase;color:var(--moss)}
+
+  /* ---------- table ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:30px;font-size:.9rem}
+  caption{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--moss);padding-bottom:10px}
+  th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px dotted var(--rule);vertical-align:top}
+  th{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);font-weight:400;border-bottom:1px solid var(--ink)}
+  td.t{font-family:var(--mono);font-size:.76rem;white-space:nowrap;color:var(--moss)}
+  td.tool{font-family:var(--mono);font-size:.76rem}
+
+  /* ---------- stamp ---------- */
+  .stamp{
+    display:inline-block;
+    font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--tomato);border:2px solid var(--tomato);padding:7px 13px 7px 16px;
+    transform:rotate(-3.2deg);
+    box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--tomato);
+  }
+  .stamp-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center}
+  .stamp-note{font-family:var(--mono);font-size:.7rem;color:var(--moss);letter-spacing:.04em;max-width:34ch}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:76px;border-top:1px solid var(--ink);padding:26px 0 54px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--moss)}
+  footer a{color:var(--moss)}
+  .refs{font-family:var(--mono);font-size:.72rem;color:var(--moss);line-height:1.85;word-break:break-word}
+  .refs b{color:var(--ink);font-weight:700}
+
+  /* ---------- motion ---------- */
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @keyframes gate-in{to{opacity:1;transform:none}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media (prefers-reduced-motion:reduce){
+    .ledger-row{animation:none;opacity:1;transform:none}
+    .spinner{animation:none;border-top-color:var(--steel);border-right-color:var(--steel)}
+    .reveal{opacity:1;transform:none;transition:none}
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:38px}
+    .strip .wrap{grid-template-columns:repeat(3,1fr)}
+    .cell{border-left:none;padding-left:0;border-top:1px dotted var(--rule)}
+    .cell:nth-child(-n+3){border-top:none}
+    .sec-head{grid-template-columns:1fr;gap:10px}
+    .cols{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 18px}
+    .strip .wrap{grid-template-columns:repeat(2,1fr)}
+    .cell:nth-child(-n+3){border-top:1px dotted var(--rule)}
+    .cell:nth-child(-n+2){border-top:none}
+    .gate{grid-template-columns:46px 1fr}
+    .gate-rail::before{left:15px}
+    .gate-body{padding-left:14px}
+    .gate-q{font-size:1.1rem}
+    .mast-meta{margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="mast-id"><b>ClawBench</b> · daily web tasks · case <b>03_008</b> · food</p>
+    <p class="mast-meta"><span>hellofresh.com → .ca</span><span>2026-03-25</span><span>claude-haiku-4-5</span></p>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Recorded run · task “Subscribe to a meal kit with 3 meals per week, select the ‘Veggie’ plan, for 2 people”</p>
+      <h1>Order<br><span class="light">not placed</span></h1>
+      <p class="deck">The agent chose the <b>Veggie Box</b> — three recipes a week, two servings each — built the account, filled the delivery address, and walked the checkout to its last gate. Then it met a payment form that never finished loading. <b>No card was entered, nothing was submitted, and the run was recorded as not passed.</b></p>
+      <p class="verdict-line">
+        <span class="k">Outcome</span><span class="v fail">pass: false</span>
+        <span class="k">Stop reason</span><span class="v">agent_idle</span>
+        <span class="k">Intercepted request</span><span class="v">none</span>
+      </p>
+    </div>
+
+    <div class="ledger" aria-label="Checkout gates reached during the run">
+      <div class="ledger-head"><span>Gate ledger</span><em>hellofresh.ca</em></div>
+      <ol class="ledger-list">
+        <li class="ledger-row" style="--i:0"><span class="num">00</span><span class="what">Delivery area</span><span class="mark done">✓</span></li>
+        <li class="ledger-row" style="--i:1"><span class="num">01</span><span class="what">Meals you like</span><span class="mark done">✓</span></li>
+        <li class="ledger-row" style="--i:2"><span class="num">02</span><span class="what">Dietary preference</span><span class="mark done">✓</span></li>
+        <li class="ledger-row" style="--i:3"><span class="num">03</span><span class="what">Goals</span><span class="mark keep">○</span></li>
+        <li class="ledger-row" style="--i:4"><span class="num">04</span><span class="what">Cooking frequency</span><span class="mark keep">○</span></li>
+        <li class="ledger-row" style="--i:5"><span class="num">05</span><span class="what">Household size</span><span class="mark keep">○</span></li>
+        <li class="ledger-row" style="--i:6"><span class="num">06</span><span class="what">Meal plan</span><span class="mark done">✓</span></li>
+        <li class="ledger-row" style="--i:7"><span class="num">07</span><span class="what">Create account</span><span class="mark done">✓</span></li>
+        <li class="ledger-row" style="--i:8"><span class="num">08</span><span class="what">Delivery address</span><span class="mark done">✓</span></li>
+        <li class="ledger-row is-block" style="--i:9"><span class="num">09</span><span class="what">Payment</span><span class="mark block"><span class="spinner" aria-hidden="true"></span>blocked</span></li>
+      </ol>
+      <div class="ledger-foot">
+        <span>First box total</span>
+        <span class="amount"><s>$88.93</s>$38.97</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RUN STRIP ================= -->
+<div class="strip">
+  <div class="wrap">
+    <dl class="cell"><dt>Wall clock</dt><dd>21m 03s<small>limit was 30m</small></dd></dl>
+    <dl class="cell"><dt>Recorded activity</dt><dd>5m 26s<small>07:11:39 → 07:17:05</small></dd></dl>
+    <dl class="cell"><dt>Then silence</dt><dd>900s<small>no actions before stop</small></dd></dl>
+    <dl class="cell"><dt>Browser calls</dt><dd>89<small>58 act · 26 snapshot</small></dd></dl>
+    <dl class="cell"><dt>Origins tried</dt><dd>2<small>.com then .ca</small></dd></dl>
+    <dl class="cell"><dt>Gates walked</dt><dd>10<small>9 opened · 1 blocked</small></dd></dl>
+  </div>
+</div>
+
+<!-- ================= GATES ================= -->
+<section aria-labelledby="gates-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-tag">01 / The funnel</p>
+      <h2 id="gates-h">Every question HelloFresh asked,<br><em>and what the agent answered</em></h2>
+    </div>
+    <p class="lede reveal">The plans flow is a numbered wizard — the recorded URLs carry <code>step=1</code> through <code>step=7</code> — followed by two checkout screens. Below is that sequence as it actually happened, with the recorded clock time of each gate and the accessibility-tree lines the agent read before acting. Nine gates opened. The tenth did not.</p>
+
+    <ol class="gates">
+
+      <li class="gate is-chosen reveal">
+        <div class="gate-rail"><span class="gate-node">00</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">Does HelloFresh deliver here?</h3><span class="gate-time">07:12:31 → 07:13:35</span></div>
+          <p class="gate-answer"><span class="tag">detour</span>The first attempt used <b>hellofresh.com</b> (US). Alex’s postal code <code>M5S 2H7</code> went into the zip field, but <b>Continue stayed disabled</b>. The agent read that as a country mismatch and switched to <b>hellofresh.ca</b>, where the same code returned “We deliver to your area.” and unlocked the wizard.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>textbox "ZIP code" [ref=e686]: M5S2H7
+img "Success" [ref=e690]</pre>
+            <p class="note">The US attempt was never confirmed as a country error — it is the agent’s inference, not a recorded message from the site.</p>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-chosen reveal">
+        <div class="gate-rail"><span class="gate-node">01</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">What kind of meals do you like?</h3><span class="gate-time">07:13:57</span></div>
+          <p class="gate-answer"><span class="tag">chosen</span>Checked <b>Vegetarian</b> — the closest the wizard gets to the task’s “Veggie” plan. <b>Mostly Meat</b> had been pre-selected; it was left checked alongside.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>checkbox "Mostly Meat" [active] [ref=e273]
+checkbox "Vegetarian" [ref=e289]   ← clicked</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-chosen reveal">
+        <div class="gate-rail"><span class="gate-node">02</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">Do you have any dietary preferences?</h3><span class="gate-time">07:14:04</span></div>
+          <p class="gate-answer"><span class="tag">chosen</span>Selected the radio <b>Plant based</b>, reasoning that it aligns with the Veggie plan. The screen itself notes you keep access to all recipes regardless.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>radiogroup "Do you have any dietary preferences?" [ref=e308]
+  radio "High protein" [active] [ref=e310]
+  radio "Plant based" [ref=e318]   ← clicked</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-keep reveal">
+        <div class="gate-rail"><span class="gate-node">03</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">What are your goals with HelloFresh?</h3><span class="gate-time">07:14:14</span></div>
+          <p class="gate-answer"><span class="tag">default kept</span>“Save money” was already checked. The agent left it and pressed Continue — no choice was made here.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>checkbox "Save money" [active] [ref=e327]</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-keep reveal">
+        <div class="gate-rail"><span class="gate-node">04</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">How often do you want to cook with HelloFresh?</h3><span class="gate-time">07:14:19</span></div>
+          <p class="gate-answer"><span class="tag">default kept</span>“3 or 4 days a week” was already checked; the agent accepted it as matching the three-meals-a-week brief. Again, nothing was actively chosen.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>checkbox "3 or 4 days a week" [checked] [ref=e346]</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-keep reveal">
+        <div class="gate-rail"><span class="gate-node">05</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">How many people will be eating?</h3><span class="gate-time">07:14:25</span></div>
+          <p class="gate-answer"><span class="tag">default kept</span>The steppers already read <b>2 adults</b> and <b>0 kids</b>, matching the “for 2 people” requirement. Left untouched.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>spinbutton "Number Stepper" [ref=e362]: 2   (adults)
+spinbutton "Number Stepper" [ref=e375]: 0   (kids, decrement disabled)</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-chosen reveal">
+        <div class="gate-rail"><span class="gate-node">06</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">Your meal plan</h3><span class="gate-time">07:14:30</span></div>
+          <p class="gate-answer"><span class="tag">confirmed</span>The wizard’s recommendation was already the target configuration: <b>Veggie Box</b>, <b>3 meals for 2 people per week</b>, 6 servings. A promo code, <b>LX-8UO1N</b>, was already applied on the page (“Your promo has been successfully added”) and the summary showed a <b>$0</b> first-box total at this stage.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>generic [ref=e432]: Veggie Box
+generic [ref=e437]: 3 meals for 2 people per week
+generic [ref=e440]: 6 servings at $0 each
+button "2" [active] [pressed] [ref=e401]   ← servings per recipe
+button "3" [pressed] [ref=e416]            ← recipes per week
+textbox "Enter promo code" [ref=e99]: LX-8UO1N
+generic [ref=e452]: $0                       ← first box total, step 6</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-chosen reveal">
+        <div class="gate-rail"><span class="gate-node">07</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">Create account</h3><span class="gate-time">07:14:35 → 07:15:00</span></div>
+          <p class="gate-answer"><span class="tag">chosen</span>Registered with the assigned disposable address <b>cbecf1d27860d3@clawbench.cc</b> and a password invented on the spot. The Continue button stayed disabled for a beat, so the agent waited two seconds and took a fresh snapshot; the address step then loaded.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>textbox "Email" [disabled] [ref=e575]: cbecf1d27860d3@clawbench.cc
+textbox "Choose a password" [disabled] [ref=e578]: SecurePassword123!
+→ https://www.hellofresh.ca/register?returnUrl=%2Fcheckout%3Fstep%3Daddress</pre>
+            <p class="note">The password was not taken from <code>email_credentials.json</code> — that file holds the mailbox login (PurelyMail), which was never used. No inbox check was performed at any point in the run.</p>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-chosen reveal">
+        <div class="gate-rail"><span class="gate-node">08</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">Add your delivery address</h3><span class="gate-time">07:15:00 → 07:15:32</span></div>
+          <p class="gate-answer"><span class="tag">chosen</span>Filled six fields from the supplied personal record, one click-and-type pair at a time. Every field came back validated — the ZIP code field was already green on arrival. Billing-same-as-delivery was left checked.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>First name:  Alex            img "Success" [ref=e794]
+Last name:   Green           img "Success" [ref=e799]
+Street:      664 Spadina Ave img "Success" [ref=e804]
+Address 2:   Unit 1208       img "Success" [ref=e809]
+City:        Toronto         img "Success" [ref=e814]
+ZIP code:    M5S2H7          img "Success" [ref=e690]
+Phone:       +1 (437) 529-0176</pre>
+          </div></details>
+        </div>
+      </li>
+
+      <li class="gate is-block reveal">
+        <div class="gate-rail"><span class="gate-node">09</span></div>
+        <div class="gate-body">
+          <div class="gate-top"><h3 class="gate-q">How would you like to pay?</h3><span class="gate-time">07:15:32 → end of run</span></div>
+          <p class="gate-answer"><span class="tag">blocked</span>The final screen loaded its frame and its order summary, but the payment module inside it never rendered. The submit button stayed <b>disabled</b>, and the run ended here — see the next section for the full stall.</p>
+          <details class="ev"><summary>Evidence</summary><div class="ev-body">
+            <pre>heading "How would you like to pay?" [level=3] [ref=e827]
+img "loading" [ref=e834]
+button "Place order & select meals" [disabled] [ref=e855]
+Order Summary: 3 meals for 2 people
+  6 total servings at $12.99 → $6.50 per serving
+  Box price      $77.94 → $38.97
+  Shipping       $10.99 → Free
+  First box total $88.93 → $38.97
+First Delivery  Saturday, April 04 · 08:00 – 20:00</pre>
+          </div></details>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- ================= THE STALL ================= -->
+<section aria-labelledby="stall-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-tag">02 / The stall</p>
+      <h2 id="stall-h">A button that could not be <em>unlocked</em></h2>
+    </div>
+    <p class="lede reveal">From 07:15:32 onward, every action in the run was an attempt to get the payment form to render. The agent waited, re-read the page, reloaded with F5, tabbed through the form, then queried the DOM directly. It found the button — disabled — and eventually forced it enabled and clicked it from JavaScript. The page reported the click and changed nothing.</p>
+
+    <table class="reveal">
+      <caption>Recorded attempts at the payment gate</caption>
+      <thead><tr><th>Time</th><th>Action</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td class="t">07:15:32</td><td class="tool">click “Next” on address</td><td>Landed on <code>/checkout?step=payment</code>; submit button present but disabled.</td></tr>
+        <tr><td class="t">07:15:39</td><td class="tool">wait 2s + snapshot</td><td>Page shows <code>img "loading"</code> inside the payment panel. Unchanged.</td></tr>
+        <tr><td class="t">07:15:49</td><td class="tool">wait 3s + snapshot</td><td>Still loading. Identical snapshot, byte-for-byte with the previous one.</td></tr>
+        <tr><td class="t">07:15:55</td><td class="tool">press “Home”, snapshot</td><td>Same state at the top of the page.</td></tr>
+        <tr><td class="t">07:16:04</td><td class="tool">wait 5s + snapshot</td><td>Still loading.</td></tr>
+        <tr><td class="t">07:16:07</td><td class="tool">press “F5”, wait 3s</td><td>Reload did not help; the module still never resolves.</td></tr>
+        <tr><td class="t">07:16:13</td><td class="tool">press “Tab”, screenshot</td><td>Nothing focusable inside the payment panel.</td></tr>
+        <tr><td class="t">07:16:29</td><td class="tool">evaluate: count iframes</td><td><code>2</code> — the payment module is an embedded frame.</td></tr>
+        <tr><td class="t">07:16:33</td><td class="tool">evaluate: find submit button</td><td><code>"no button"</code> — no native submit control exists.</td></tr>
+        <tr><td class="t">07:16:37</td><td class="tool">evaluate: text contains “Place order”</td><td><code>true</code> — the control is there, rendered by script.</td></tr>
+        <tr><td class="t">07:16:41</td><td class="tool">evaluate: button state</td><td><code>{ disabled: true, visible: true }</code></td></tr>
+        <tr><td class="t">07:16:45</td><td class="tool">evaluate: force <code>disabled=false; click()</code></td><td><code>"clicked"</code> — but the next check still returns <code>disabled: true</code>. The click had no effect.</td></tr>
+        <tr><td class="t">07:17:05</td><td class="tool">final summary</td><td>Run ends. No further actions.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cols reveal">
+      <div class="card">
+        <h3>What actually failed</h3>
+        <p>The third-party payment frame never finished initialising in this browser environment. Everything downstream of it — the enabled submit button, the order POST — depends on that frame reporting ready, so the funnel dead-ends at the last gate rather than at a wrong answer.</p>
+        <p>Nothing the agent tried could substitute for it: the form is not a set of DOM fields it could fill, and forcing the button’s state in JavaScript bypasses only the visual gate, not the handler behind it.</p>
+      </div>
+      <div class="card">
+        <h3>What the agent claimed</h3>
+        <p>Its closing message lists eight completed steps and states: “The subscription can be completed by entering payment information once the Stripe payment form fully loads.”</p>
+        <p>The recorded verdict disagrees — no request was ever intercepted, so nothing was submitted. The summary also reports the first box at <b>$38.97</b> while its own step-6 snapshot showed <b>$0</b>; the two figures come from different screens and neither is an amount that was charged.</p>
+      </div>
+    </div>
+
+    <blockquote class="quote">
+      “Given the constraints of the payment form not loading properly in this environment, I have successfully completed most of the subscription setup.”
+      <cite>Final assistant message · 07:17:05</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ================= VERDICT ================= -->
+<section aria-labelledby="verdict-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-tag">03 / The verdict</p>
+      <h2 id="verdict-h">Scored on a request that <em>never arrived</em></h2>
+    </div>
+    <p class="lede reveal">This benchmark does not grade the visible page — it watches the network. A run passes when the expected call fires; the harness stops the session once the agent goes quiet, then checks what it saw. Here the agent went quiet first.</p>
+
+    <div class="cols reveal">
+      <div class="card">
+        <h3>interception.json</h3>
+        <pre style="margin:0;font-family:var(--mono);font-size:.74rem;line-height:1.7;background:var(--paper);border:1px solid var(--rule);padding:12px;overflow-x:auto;white-space:pre-wrap">{
+  "pass": false,
+  "errors": [
+    "Session stopped: agent went idle
+     (900s no actions) before
+     triggering the eval interceptor."
+  ],
+  "stop_reason": "agent_idle",
+  "request": null
+}</pre>
+      </div>
+      <div class="card">
+        <h3>Reading it</h3>
+        <ul>
+          <li>The interceptor was armed for a <code>POST</code> to a specific URL — the subscription call the eval expects a completed signup to produce.</li>
+          <li><code>request: null</code> means no matching call was ever observed. The order was never placed, so nothing was sent.</li>
+          <li>900 seconds with no browser action is what ended the session — not a timeout on the task’s 30-minute clock, which the run never reached.</li>
+          <li>The 15 idle minutes account for most of the run’s 21-minute wall clock; only <b>5m 26s</b> contains recorded activity.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stamp-row reveal">
+      <span class="stamp">Not placed</span>
+      <p class="stamp-note">A box was configured to the last field. It was never ordered, and no payment details exist in this trajectory.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEFT ON THE TABLE ================= -->
+<section aria-labelledby="left-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-tag">04 / Left on the table</p>
+      <h2 id="left-h">Configured, then <em>abandoned at the till</em></h2>
+    </div>
+    <p class="lede reveal">Had the payment frame rendered, this is exactly what the click would have submitted. All of it is recorded state on the site, none of it is a subscription.</p>
+
+    <table class="reveal">
+      <caption>State as recorded at 07:17</caption>
+      <thead><tr><th>Item</th><th>Recorded value</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Plan</td><td>Veggie Box · vegetarian preference · plant-based dietary preference</td><td class="t">configured</td></tr>
+        <tr><td>Size</td><td>3 recipes per week × 2 servings = 6 servings</td><td class="t">configured</td></tr>
+        <tr><td>Promo</td><td><code>LX-8UO1N</code> — “You’ll save $121 in total” across the next 9 boxes</td><td class="t">applied</td></tr>
+        <tr><td>Account</td><td>cbecf1d27860d3@clawbench.cc · password set · never verified</td><td class="t">created</td></tr>
+        <tr><td>Address</td><td>Alex Green · Unit 1208, 664 Spadina Ave, Toronto · M5S2H7 · +1 (437) 529-0176</td><td class="t">validated</td></tr>
+        <tr><td>First delivery</td><td>Saturday, April 04 · 08:00 – 20:00, then weekly</td><td class="t">reserved</td></tr>
+        <tr><td>Payment</td><td>—</td><td class="t">missing</td></tr>
+        <tr><td>Meal selection</td><td>— (the next screen, “Select Meals”, was never reached)</td><td class="t">missing</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cols reveal">
+      <div class="card">
+        <h3>Method note</h3>
+        <p>The agent worked entirely through the browser tool: Chromium over CDP on <code>127.0.0.1:9222</code>, headless off. It read the site as an accessibility tree — the <code>[ref=eNNN]</code> handles in the evidence above are those tree nodes, and clicks were issued against them.</p>
+        <p>Each page snapshot arrived wrapped in a harness notice marking it as external, untrusted content and instructing the agent to ignore any instructions inside it. No prompt-injection attempt was observed in the recorded pages.</p>
+      </div>
+      <div class="card">
+        <h3>References not included</h3>
+        <p class="refs">
+          <b>requests.jsonl</b> — 7,611,617 bytes, over the size cap, reference only. Would contain the network trace needed to confirm no subscription POST was issued.<br><br>
+          <b>Screenshot</b> — one PNG was captured at the stall (07:16:13) and recorded as a media path outside this case directory; cited here as a path only, not embedded.<br><br>
+          <b>Trajectory</b> — parsed from <b>data/agent-messages.jsonl</b>, 191 records, plus <b>data/actions.jsonl</b> (85 DOM events) and <b>data/interception.json</b>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>ClawBench · case 03_008 · daily-life / food · hellofresh</span>
+    <span>Run 2026-03-25 07:11:07 · 1263s · claude-haiku-4-5-20251001 · thinking medium</span>
+    <span>Outcome: not passed</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nodes = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    nodes.forEach(function(n){ n.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  nodes.forEach(function(n){ io.observe(n); });
+})();
+</script>
+
+</body>
+</html>

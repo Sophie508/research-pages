@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 05_022: Car Rental Booking Trajectory</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #17202a;
+      --muted: #5f6b7a;
+      --line: #d9dee7;
+      --accent: #176b87;
+      --accent-2: #b45f06;
+      --bad: #a11f1f;
+      --good: #12633f;
+      --chip: #eef4f7;
+      --code: #111827;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    header {
+      background: #17324d;
+      color: #fff;
+      padding: 28px 36px;
+      border-bottom: 5px solid #e6a23c;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    header p {
+      margin: 0;
+      max-width: 980px;
+      color: #dce7f2;
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      color: #1f3449;
+    }
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+      color: #26384a;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfcfe;
+    }
+    .metric .label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .metric .value {
+      margin-top: 6px;
+      font-size: 18px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+    .status {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .status.fail { color: #fff; background: var(--bad); }
+    .status.partial { color: #3d2600; background: #ffe4ad; }
+    .status.info { color: #113c4a; background: #d9edf4; }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .chip {
+      background: var(--chip);
+      border: 1px solid #d7e5ec;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 13px;
+      color: #214253;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .callout {
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      background: #f2f8fa;
+      border-radius: 6px;
+    }
+    .callout.warn {
+      border-left-color: var(--accent-2);
+      background: #fff8eb;
+    }
+    .callout.bad {
+      border-left-color: var(--bad);
+      background: #fff2f2;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      color: #34495e;
+      background: #f2f5f8;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    code, pre {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+    code {
+      background: #eef1f5;
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: var(--code);
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      background: #101827;
+      color: #eef4ff;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      color: #213547;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .tab[aria-selected="true"] {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline:before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--line);
+    }
+    .event {
+      position: relative;
+      margin: 0 0 16px;
+      padding: 0 0 0 8px;
+    }
+    .event:before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .event h3 {
+      margin: 0 0 3px;
+      font-size: 15px;
+    }
+    .event p { margin: 0; color: var(--muted); }
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .media-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .media-ref {
+      padding: 10px;
+      border: 1px dashed #b9c4d0;
+      border-radius: 7px;
+      background: #fbfcfe;
+      overflow-wrap: anywhere;
+      font-size: 13px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 6px 0 30px;
+    }
+    @media (max-width: 800px) {
+      header { padding: 22px; }
+      main { padding: 14px; }
+      .grid, .two-col, .media-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Car Rental Booking Case Presentation</h1>
+    <p>Case <code>05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519</code>: a browser trajectory for booking a compact car from Toronto to Niagara Falls on June 20.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Case Summary</h2>
+      <div class="grid">
+        <div class="metric">
+          <div class="label">Benchmark</div>
+          <div class="value">ClawBench</div>
+        </div>
+        <div class="metric">
+          <div class="label">Domain</div>
+          <div class="value">daily_web_tasks</div>
+        </div>
+        <div class="metric">
+          <div class="label">Model</div>
+          <div class="value">claude-opus-4-6</div>
+        </div>
+        <div class="metric">
+          <div class="label">Duration</div>
+          <div class="value">1,828 seconds</div>
+        </div>
+      </div>
+      <h3>Task Statement</h3>
+      <div class="callout">
+        Book a car rental on June 20 from Toronto to Niagara Falls, pick up at 9am and return the car by 6pm, compact car.
+      </div>
+      <div class="chips">
+        <span class="chip">Pickup: Toronto</span>
+        <span class="chip">Drop-off / trip destination: Niagara Falls</span>
+        <span class="chip">Date: June 20</span>
+        <span class="chip">Pickup time: 9:00 AM</span>
+        <span class="chip">Return time: 6:00 PM</span>
+        <span class="chip">Car class: compact</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Outcome</h2>
+      <div class="two-col">
+        <div class="callout bad">
+          <strong>Evaluation result:</strong> <span class="status fail">Failed</span><br>
+          The session stopped because the time limit was exceeded before the eval interceptor was triggered.
+        </div>
+        <div class="callout warn">
+          <strong>Expected platform:</strong> <code>turo.com</code><br>
+          The case metadata identifies the platform as <code>turo-enterprise</code>, but the trajectory used KAYAK and Rentalcars.com instead.
+        </div>
+      </div>
+      <h3>Why It Failed</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>Observed trajectory</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Trigger a Turo search request</td>
+            <td>No matching <code>turo.com/.../search</code> GET request was captured.</td>
+            <td>The evaluator could not verify the booking/search state.</td>
+          </tr>
+          <tr>
+            <td>Use the assigned site</td>
+            <td>The agent navigated to <code>kayak.com/cars</code>, then <code>rentalcars.com</code>.</td>
+            <td>The route diverged from the Turo-specific evaluation schema.</td>
+          </tr>
+          <tr>
+            <td>Complete within 30 minutes</td>
+            <td>The run lasted 1,828 seconds and stopped at the time limit.</td>
+            <td>No final booking or successful intercepted search was recorded.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trajectory Timeline</h2>
+      <div class="timeline">
+        <div class="event">
+          <h3>Session setup</h3>
+          <p>The agent read the available personal-information filenames and opened the browser. It then read the dummy user's personal info. Sensitive personal fields are intentionally not reproduced in this presentation.</p>
+        </div>
+        <div class="event">
+          <h3>KAYAK search page</h3>
+          <p>The agent navigated to <code>https://www.kayak.com/cars</code> instead of Turo and changed the rental mode from same drop-off to different drop-off.</p>
+        </div>
+        <div class="event">
+          <h3>Route and date selection</h3>
+          <p>On KAYAK, the agent selected <code>Niagara Falls, Ontario, Canada</code> as the drop-off location and set both start and end dates to <code>Sat 6/20</code>.</p>
+        </div>
+        <div class="event">
+          <h3>Time selection</h3>
+          <p>The KAYAK form was changed from default times to <code>9:00 am</code> pickup and <code>6:00 pm</code> return.</p>
+        </div>
+        <div class="event">
+          <h3>KAYAK search attempt</h3>
+          <p>The agent clicked Search. It reported no results for the one-way Toronto to Niagara Falls route and tried direct KAYAK URLs for same-location Toronto rental searches.</p>
+        </div>
+        <div class="event">
+          <h3>Wrong location issue</h3>
+          <p>The direct KAYAK URL approach produced a page titled <code>Hoffman, 6/20 - 6/20</code>, which the agent recognized as incorrect.</p>
+        </div>
+        <div class="event">
+          <h3>Rentalcars.com fallback</h3>
+          <p>The agent moved to <code>https://www.rentalcars.com/</code>, tried entering Toronto in the pickup field, and encountered repeated <code>No Results Found</code> behavior.</p>
+        </div>
+        <div class="event">
+          <h3>Run stopped</h3>
+          <p>The final recorded action was another click on the Rentalcars.com pickup field. The run then ended without a successful booking or evaluator-triggering request.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Structured Evidence</h2>
+      <div class="tabs" role="tablist" aria-label="Evidence tabs">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="tab-actions" id="tab-actions-button">Key Actions</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-eval" id="tab-eval-button">Evaluator</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-files" id="tab-files-button">Case Files</button>
+      </div>
+
+      <div class="panel active" id="tab-actions" role="tabpanel" aria-labelledby="tab-actions-button">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Site / Page</th>
+              <th>Action</th>
+              <th>Resulting State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>KAYAK cars</td>
+              <td>Selected <code>Different drop-off</code></td>
+              <td>Prepared for a one-way rental search.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>KAYAK cars</td>
+              <td>Entered <code>Niagara Falls</code></td>
+              <td>Field changed to <code>Niagara Falls, Ontario, Canada</code>.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>KAYAK date picker</td>
+              <td>Advanced to June 2026 and clicked day <code>20</code> twice</td>
+              <td>Set start and end date to <code>Sat 6/20</code>.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>KAYAK time picker</td>
+              <td>Selected <code>9:00 am</code> and <code>6:00 pm</code></td>
+              <td>Form matched the requested rental window.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>KAYAK results</td>
+              <td>Clicked Search</td>
+              <td>No result state was reported by the agent for the one-way route.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>KAYAK direct URL</td>
+              <td>Navigated to a URL containing Toronto, date, time, and compact class</td>
+              <td>Page title showed <code>Hoffman, 6/20 - 6/20</code>, not Toronto.</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Rentalcars.com</td>
+              <td>Typed <code>Toronto</code> repeatedly in the pickup autocomplete</td>
+              <td>The agent observed repeated <code>No Results Found</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel" id="tab-eval" role="tabpanel" aria-labelledby="tab-eval-button">
+        <h3>Interceptor Result</h3>
+        <pre>{
+  "pass": false,
+  "errors": [
+    "Session stopped: time limit exceeded before the eval interceptor was triggered."
+  ],
+  "stop_reason": "time_limit_exceeded",
+  "request": null
+}</pre>
+        <h3>Expected Request Shape</h3>
+        <p>The evaluator expected a <code>GET</code> request whose URL matched <code>turo.com/.*/search</code> and included these required params:</p>
+        <div class="chips">
+          <span class="chip"><code>startDate</code></span>
+          <span class="chip"><code>endDate</code></span>
+          <span class="chip"><code>startTime</code></span>
+          <span class="chip"><code>searchDurationType = DAILY</code></span>
+        </div>
+      </div>
+
+      <div class="panel" id="tab-files" role="tabpanel" aria-labelledby="tab-files-button">
+        <table>
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Role in this presentation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>case_meta.json</code></td>
+              <td>Case id, benchmark, trajectory format, duration, and oversized reference listing.</td>
+            </tr>
+            <tr>
+              <td><code>task/task_statement.md</code></td>
+              <td>Original user task.</td>
+            </tr>
+            <tr>
+              <td><code>data/agent-messages.jsonl</code></td>
+              <td>Primary model and browser/tool trajectory.</td>
+            </tr>
+            <tr>
+              <td><code>data/actions.jsonl</code></td>
+              <td>Browser action stream used to verify clicks, inputs, page loads, and final state.</td>
+            </tr>
+            <tr>
+              <td><code>run_meta.json</code></td>
+              <td>Task class, intended site, common info, email used, and runtime limit.</td>
+            </tr>
+            <tr>
+              <td><code>data/interception.json</code></td>
+              <td>Evaluator pass/fail result and expected request schema.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small">Referenced but not followed because it is listed in metadata as over the size cap: <code>trajs/daily_web_tasks/05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519/data/requests.jsonl</code> (6,218,346 bytes).</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Media References</h2>
+      <p>No local images under <code>screenshots/</code>, <code>frames/</code>, or <code>images/</code> were present in the case directory. The browser trajectory mentioned media paths outside the case directory, so they are cited here as plain text only and not embedded.</p>
+      <div class="media-list">
+        <div class="media-ref">MEDIA:/root/.openclaw/media/browser/a9883623-0795-4e45-88db-1e115219688d.jpg</div>
+        <div class="media-ref">MEDIA:/root/.openclaw/media/browser/503c647b-079b-4feb-afb9-fcaf90eb6691.jpg</div>
+        <div class="media-ref">MEDIA:/root/.openclaw/media/browser/5ba146c1-bfeb-489d-bef9-0ed67825e518.png</div>
+        <div class="media-ref">MEDIA:/root/.openclaw/media/browser/70cce2fe-af72-453a-be1b-815e8b8661b6.png</div>
+        <div class="media-ref">MEDIA:/root/.openclaw/media/browser/5f1b8e0d-014f-4ded-9275-89fe45bda1a6.jpg</div>
+        <div class="media-ref">MEDIA:/root/.openclaw/media/browser/47a2e4cf-96c8-4d0f-a6ca-d9a2ac0f749b.png</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Assessment</h2>
+      <p>The agent partially configured the requested date, route, and times on KAYAK, but it did not use the required Turo platform and did not produce the evaluator's expected Turo search request. The trajectory then spent the remaining time attempting workarounds on KAYAK and Rentalcars.com, ending before completion.</p>
+      <div class="callout">
+        <strong>Most important takeaway:</strong> the task was not completed because the browser path never reached the intended <code>turo.com</code> search flow.
+      </div>
+    </section>
+
+    <footer>
+      Generated as a self-contained presentation from the specified case directory only. No external resources are loaded.
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          button.setAttribute('aria-selected', 'true');
+          var panel = document.getElementById(button.getAttribute('aria-controls'));
+          if (panel) panel.classList.add('active');
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

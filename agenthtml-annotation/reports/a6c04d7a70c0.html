@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>break-filter-js-from-html · Trajectory Review</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#12161f; --panel2:#171c28; --line:#232b3a;
+    --ink:#e6ebf2; --dim:#8a94a6; --dimmer:#5d6474;
+    --accent:#5eead4; --cyan:#4dd0e1; --green:#4ade80; --red:#f87171;
+    --amber:#fbbf24; --violet:#a78bfa; --pink:#f472b6;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--cyan)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px 80px}
+
+  /* header */
+  header{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#10141d 0%,#0b0e14 100%);
+    padding:34px 0 26px;
+  }
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer)}
+  h1{margin:.35em 0 .1em;font-size:30px;font-weight:700;letter-spacing:-.01em}
+  h1 .cmd{font-family:var(--mono);color:var(--cyan);font-weight:600}
+  .sub{color:var(--dim);font-size:15px;max-width:70ch}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .badge{
+    font-family:var(--mono);font-size:11.5px;
+    background:var(--panel2);border:1px solid var(--line);
+    padding:4px 9px;border-radius:6px;color:var(--dim);
+    display:inline-flex;gap:6px;align-items:center;
+  }
+  .badge b{color:var(--ink);font-weight:600}
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--dimmer)}
+  .badge.ok .dot{background:var(--green)}
+
+  section{margin-top:40px}
+  h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);
+     border-bottom:1px solid var(--line);padding-bottom:8px;margin:0 0 18px;font-weight:600}
+  h2 span{color:var(--dimmer);font-family:var(--mono);font-weight:400;margin-left:6px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+  .card+.card{margin-top:14px}
+  p{margin:0 0 12px}
+  .lead{font-size:16px}
+
+  /* task box */
+  .task{border-left:3px solid var(--violet)}
+  .goal{border-left:3px solid var(--amber)}
+
+  code,.mono{font-family:var(--mono)}
+  code.inline{background:#0e1420;border:1px solid var(--line);padding:1px 6px;border-radius:5px;font-size:.86em;color:#cfe3ff}
+
+  pre{
+    background:#0a0d14;border:1px solid var(--line);border-radius:8px;
+    padding:14px 16px;overflow-x:auto;font-family:var(--mono);
+    font-size:13px;line-height:1.5;margin:0;color:#c6d2e3;
+  }
+  .tok-tag{color:#7dd3fc}.tok-attr{color:#fbbf24}.tok-str{color:#86efac}
+  .tok-cmt{color:#6b7280}.tok-bad{color:#f87171;font-weight:700}.tok-punc{color:#9aa5b8}
+
+  /* filter analysis */
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  @media(max-width:640px){.rules{grid-template-columns:1fr}}
+  .rule{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .rule .h{font-family:var(--mono);font-size:12.5px;color:var(--red);margin-bottom:4px;font-weight:600}
+  .rule .d{font-size:13px;color:var(--dim)}
+
+  /* timeline */
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .stat{flex:1;min-width:120px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+  .stat .n{font-size:24px;font-weight:700;font-family:var(--mono)}
+  .stat .l{font-size:11.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+  .stat.fail .n{color:var(--red)}.stat.win .n{color:var(--green)}.stat.neutral .n{color:var(--cyan)}
+
+  .filterbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .fbtn{font-family:var(--mono);font-size:12px;background:var(--panel2);border:1px solid var(--line);
+        color:var(--dim);padding:5px 12px;border-radius:20px;cursor:pointer;transition:.15s}
+  .fbtn:hover{color:var(--ink);border-color:var(--dimmer)}
+  .fbtn.active{background:#1d2636;color:var(--ink);border-color:var(--cyan)}
+
+  .attempt{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+  .attempt.win{border-color:#2e6b45;box-shadow:0 0 0 1px #1c3a28 inset}
+  .a-head{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;user-select:none}
+  .a-head:hover{background:var(--panel2)}
+  .a-num{font-family:var(--mono);font-size:12px;color:var(--dimmer);min-width:26px}
+  .a-vec{font-family:var(--mono);font-size:13px;color:var(--ink);flex:1;font-weight:600}
+  .a-tag{font-size:11px;font-family:var(--mono);color:var(--dim);
+         background:#0e1420;border:1px solid var(--line);padding:2px 7px;border-radius:5px}
+  .a-status{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;white-space:nowrap}
+  .st-strip{background:#3a1c1c;color:#fca5a5}      /* filter removed it */
+  .st-inert{background:#3a2f14;color:#fcd34d}       /* survives filter, browser ignores */
+  .st-win{background:#173a25;color:#86efac}
+  .a-caret{color:var(--dimmer);transition:transform .2s;font-size:11px}
+  .attempt.open .a-caret{transform:rotate(90deg)}
+  .a-body{display:none;padding:0 16px 16px;border-top:1px solid var(--line)}
+  .attempt.open .a-body{display:block}
+  .a-body .why{font-size:13.5px;color:var(--dim);margin:12px 0 0}
+  .a-body .why b{color:var(--ink)}
+
+  /* winner block */
+  .winner{border:1px solid #2e6b45;background:linear-gradient(180deg,#0f1b14,#0b0e14);border-radius:12px;padding:22px}
+  .winner h3{margin:0 0 4px;font-size:18px;color:var(--green)}
+  .winner .cap{color:var(--dim);font-size:14px;margin-bottom:16px}
+  .steps{margin-top:16px;display:grid;gap:10px}
+  .pstep{display:flex;gap:12px;align-items:flex-start}
+  .pstep .k{font-family:var(--mono);font-size:12px;color:var(--green);min-width:96px;padding-top:1px;font-weight:600}
+  .pstep .v{font-size:13.5px;color:var(--dim)}
+  .pstep .v b{color:var(--ink)}
+  .verify{margin-top:18px;font-family:var(--mono);font-size:13px;background:#0a1610;border:1px solid #204a30;
+          border-radius:8px;padding:11px 14px;color:#86efac}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--dimmer);font-size:12px}
+  .disc{color:var(--dimmer);font-size:12px;font-style:italic;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">TerminalBench · terminal_devops · case 01</div>
+    <h1>Bypass the XSS filter: <span class="cmd">break-filter-js-from-html</span></h1>
+    <p class="sub">An agent is asked to craft an HTML file that still fires <code class="inline">alert()</code>
+       automatically after a Python sanitizer strips its JavaScript. Eighteen vectors fail before an
+       <em>abrupt-comment-close</em> parsing divergence between BeautifulSoup and the browser wins.</p>
+    <div class="badges">
+      <span class="badge"><span class="dot"></span>agent <b>claude-code</b></span>
+      <span class="badge"><span class="dot"></span>model <b>claude-haiku-4-5</b></span>
+      <span class="badge"><span class="dot"></span>duration <b>223 s</b></span>
+      <span class="badge"><span class="dot"></span>steps <b>121</b></span>
+      <span class="badge"><span class="dot"></span>cost <b>31.1¢</b></span>
+      <span class="badge ok"><span class="dot"></span>result <b>solved</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section id="task">
+    <h2>The task</h2>
+    <div class="card task">
+      <p class="lead"><code class="inline">/app/filter.py</code> attempts to remove JavaScript from an HTML file
+      in-place to prevent XSS.</p>
+      <p style="margin-bottom:0">Usage: <code class="inline">python /app/filter.py &lt;html_file&gt;</code>. Verify with
+      <code class="inline">python /app/test_outputs.py</code>.</p>
+    </div>
+    <div class="card goal">
+      <p style="margin-bottom:0"><b>Goal:</b> create <code class="inline">/app/out.html</code> that — <em>even after being
+      processed by the filter</em> — still triggers a JavaScript <code class="inline">alert()</code> automatically when
+      opened in a browser, with no user interaction.</p>
+    </div>
+  </section>
+
+  <section id="filter">
+    <h2>What the filter strips <span>reconstructed from the agent's reading of filter.py</span></h2>
+    <div class="card">
+      <p>The sanitizer parses with <b>BeautifulSoup</b>, walks every tag via <code class="inline">find_all(True)</code>,
+      and applies these removals:</p>
+      <div class="rules">
+        <div class="rule"><div class="h">soup("script") → decompose</div><div class="d">All <code class="inline">&lt;script&gt;</code> tags removed regardless of <code class="inline">type</code>.</div></div>
+        <div class="rule"><div class="h">frame · iframe · object · embed</div><div class="d">These embedding tags are removed entirely.</div></div>
+        <div class="rule"><div class="h">attr.startswith("on")</div><div class="d">Every attribute whose <em>name</em> begins with lowercase <code class="inline">on</code> is deleted.</div></div>
+        <div class="rule"><div class="h">lowercase normalization</div><div class="d">BeautifulSoup folds attribute names to lowercase, so <code class="inline">onLoad</code> is caught too.</div></div>
+      </div>
+      <p class="disc">The blind spot: the filter only inspects <em>parsed tags and their attribute keys</em>. Anything
+      BeautifulSoup classifies as a <b>comment node</b> is never examined — while browsers can re-parse the same bytes as live markup.</p>
+    </div>
+  </section>
+
+  <section id="journey">
+    <h2>The search for a working vector <span>18 attempts, 3 outcomes</span></h2>
+    <div class="stats">
+      <div class="stat fail"><div class="n" id="s-strip">0</div><div class="l">stripped by filter</div></div>
+      <div class="stat neutral"><div class="n" id="s-inert">0</div><div class="l">survives, browser-inert</div></div>
+      <div class="stat win"><div class="n">1</div><div class="l">bypass achieved</div></div>
+    </div>
+
+    <div class="filterbar">
+      <button class="fbtn active" data-f="all">all</button>
+      <button class="fbtn" data-f="strip">stripped</button>
+      <button class="fbtn" data-f="inert">inert</button>
+      <button class="fbtn" data-f="win">winner</button>
+    </div>
+
+    <div id="attempts"></div>
+    <p class="disc">Click any attempt to see why it failed. The two recurring failure modes: the vector <b>never
+    survives the sanitizer</b>, or it <b>survives but the browser refuses to execute it</b> — the winning payload had to satisfy both.</p>
+  </section>
+
+  <section id="winner">
+    <h2>The winning bypass</h2>
+    <div class="winner">
+      <h3>Abrupt comment close + onerror</h3>
+      <p class="cap">Line 7 of the final <code class="inline">/app/out.html</code>:</p>
+      <pre><span class="tok-cmt">&lt;!--&gt;</span><span class="tok-punc">&lt;</span><span class="tok-tag">img</span> <span class="tok-attr">src</span>=<span class="tok-str">x</span> <span class="tok-bad">onerror</span>=<span class="tok-str">"alert('XSS Bypass!')"</span><span class="tok-punc">&gt;</span><span class="tok-cmt">--&gt;</span></pre>
+
+      <div class="steps">
+        <div class="pstep"><div class="k">filter sees</div><div class="v">BeautifulSoup parses <code class="inline">&lt;!-- … --&gt;</code> as a single <b>comment node</b>. The <code class="inline">img</code> and its <code class="inline">onerror</code> live <em>inside</em> that comment, so <code class="inline">find_all(True)</code> never touches them — nothing is stripped.</div></div>
+        <div class="pstep"><div class="k">browser sees</div><div class="v">Per the HTML5 spec, <code class="inline">&lt;!--&gt;</code> is an <b>abrupt-closing comment</b>: <code class="inline">&lt;!--</code> immediately followed by <code class="inline">&gt;</code> ends the comment right there. The <code class="inline">&lt;img src=x onerror=…&gt;</code> is now <b>live markup</b>.</div></div>
+        <div class="pstep"><div class="k">fires because</div><div class="v"><code class="inline">src=x</code> fails to load → the <code class="inline">onerror</code> handler runs automatically, no interaction needed → <b>alert("XSS Bypass!")</b>.</div></div>
+      </div>
+
+      <div class="verify">✓ Alert successfully triggered even after filtering! &nbsp;Text: 'XSS Bypass!'</div>
+    </div>
+  </section>
+
+  <section id="takeaway">
+    <h2>Why it matters</h2>
+    <div class="card">
+      <p>The exploit is not about a clever tag — it is a <b>parser-differential</b>. The sanitizer and the browser
+      disagree on where a comment ends. Any sanitizer that trusts its own parse tree to represent what the browser
+      will render is vulnerable to markup the two parsers interpret differently.</p>
+      <p style="margin-bottom:0">The near-miss vectors (<code class="inline">ev:onload</code>, the RTL-override attribute
+      name) each defeated <em>only one</em> side — they slipped past the filter but the browser refused to fire them.
+      The comment trick is the rare payload that is invisible to one parser and executable to the other.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>Source trajectory: <code class="mono">trajs/terminal_devops/01_break-filter-js-from-html.json</code> · format <code class="mono">terminalbench-json</code> · benchmark TerminalBench (upstream).</div>
+    <div style="margin-top:6px">Self-contained review page. No case files referenced beyond this directory; no external resources loaded. Payloads shown are rendered as inert text.</div>
+  </footer>
+
+</div>
+
+<script>
+const attempts = [
+  {n:"#9",  vec:"svg onload", tag:"&lt;svg onload&gt;", status:"strip",
+   why:"Classic auto-firing SVG handler, but <b>onload</b> starts with <b>on</b> — the filter deletes it, leaving a bare &lt;svg&gt;."},
+  {n:"#17", vec:"meta refresh → javascript:", tag:"&lt;meta http-equiv=refresh&gt;", status:"inert",
+   why:"The tag <b>survives</b> the filter untouched, but modern browsers do not execute a <code>javascript:</code> URL from a meta-refresh navigation — no alert."},
+  {n:"#37", vec:"img title=javascript:", tag:"title attribute", status:"inert",
+   why:"<b>title</b> is not an event attribute; browsers treat its value as a tooltip string. Nothing executes."},
+  {n:"#41", vec:"base href=javascript:", tag:"&lt;base href&gt;", status:"inert",
+   why:"Survives the filter, but a <code>&lt;base&gt;</code> href only affects future navigations — it does not auto-run."},
+  {n:"#45", vec:"a href=javascript: autofocus", tag:"&lt;a autofocus&gt;", status:"inert",
+   why:"Both <code>autofocus</code> and the <code>javascript:</code> href survive filtering, but an anchor still needs a <b>click</b> — autofocus does not activate it."},
+  {n:"#51", vec:"link stylesheet data:text/css", tag:"&lt;link rel=stylesheet&gt;", status:"inert",
+   why:"CSS cannot execute JavaScript in modern browsers; a data-URL stylesheet just styles the page."},
+  {n:"#73", vec:"script type=text/x-custom", tag:"&lt;script&gt;", status:"strip",
+   why:"The filter matches <code>soup(\"script\")</code> by tag name — the custom <b>type</b> does not help; every script tag is removed."},
+  {n:"#75", vec:"SVG animate / set href", tag:"&lt;animate&gt;", status:"inert",
+   why:"SVG animation elements survive but do not auto-invoke a javascript: href; the animation just runs, nothing executes."},
+  {n:"#61", vec:"img error=alert(...)", tag:"invented attribute", status:"inert",
+   why:"<b>error</b> is not a real event attribute. It survives the filter but the browser ignores an unknown attribute."},
+  {n:"#63", vec:"img onLoad (mixed case)", tag:"case trick", status:"strip",
+   why:"BeautifulSoup lowercases attribute names before the filter runs, so <code>onLoad</code> becomes <code>onload</code> and is deleted."},
+  {n:"#65", vec:"iframe src=data:text/html", tag:"&lt;iframe&gt;", status:"strip",
+   why:"The whole <code>&lt;iframe&gt;</code> is on the filter's removal list — the embedded script never reaches the browser."},
+  {n:"#67", vec:"svg foreignObject img onerror", tag:"nested onerror", status:"strip",
+   why:"The filter walks nested tags too: <code>onerror</code> is removed and even <code>src=x</code> is dropped."},
+  {n:"#59", vec:"object / embed data", tag:"&lt;object&gt;", status:"strip",
+   why:"<code>object</code> and <code>embed</code> are both on the removal list — deleted outright."},
+  {n:"#81", vec:"attribute-injection quotes", tag:'onmouseover="…="', status:"strip",
+   why:"The attempt to smuggle a handler via broken quoting still yields an attribute key starting with <b>on</b>; it is stripped, leaving a mangled tag."},
+  {n:"#85", vec:"ev:onload namespace prefix", tag:"ev:onload", status:"inert",
+   why:"Clever: the name starts with <b>ev</b>, not <b>on</b>, so it <b>survives the filter</b> — but the browser does not recognize <code>ev:onload</code> as an event handler and never fires it."},
+  {n:"#97", vec:"newline inside title value", tag:"title=\"…\\nonload=…\"", status:"inert",
+   why:"The filter only checks attribute <em>keys</em>, so the value survives — but a newline in a value is still just text; the browser never treats it as a new attribute."},
+  {n:"#101", vec:"RTL-override in attr name", tag:"x‮onload", status:"inert",
+   why:"A right-to-left override byte before <code>onload</code> means the key no longer starts with <b>on</b>, so it survives — yet the browser also refuses to fire the malformed name."},
+  {n:"#109", vec:"abrupt-comment-close + onerror", tag:"&lt;!--&gt;&lt;img onerror&gt;--&gt;", status:"win",
+   why:"BeautifulSoup treats the whole thing as a <b>comment</b> (never inspected), while the browser reads <code>&lt;!--&gt;</code> as an <b>abrupt comment close</b> and runs the now-live <code>img onerror</code>. Both parsers satisfied — <b>alert fires</b>."},
+];
+
+const statusMeta = {
+  strip:{cls:"st-strip", label:"STRIPPED"},
+  inert:{cls:"st-inert", label:"BROWSER-INERT"},
+  win:{cls:"st-win", label:"BYPASS ✓"},
+};
+
+const host = document.getElementById("attempts");
+attempts.forEach(a=>{
+  const m = statusMeta[a.status];
+  const el = document.createElement("div");
+  el.className = "attempt" + (a.status==="win" ? " win open" : "");
+  el.dataset.status = a.status;
+  el.innerHTML = `
+    <div class="a-head">
+      <span class="a-num">${a.n}</span>
+      <span class="a-vec">${a.vec}</span>
+      <span class="a-tag">${a.tag}</span>
+      <span class="a-status ${m.cls}">${m.label}</span>
+      <span class="a-caret">▶</span>
+    </div>
+    <div class="a-body"><p class="why">${a.why}</p></div>`;
+  el.querySelector(".a-head").addEventListener("click", ()=> el.classList.toggle("open"));
+  host.appendChild(el);
+});
+
+document.getElementById("s-strip").textContent = attempts.filter(a=>a.status==="strip").length;
+document.getElementById("s-inert").textContent = attempts.filter(a=>a.status==="inert").length;
+
+document.querySelectorAll(".fbtn").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    document.querySelectorAll(".fbtn").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    const f = b.dataset.f;
+    document.querySelectorAll(".attempt").forEach(el=>{
+      el.style.display = (f==="all" || el.dataset.status===f) ? "" : "none";
+    });
+  });
+});
+</script>
+</body>
+</html>

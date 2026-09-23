@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HelloFresh Veggie subscription — recorded run 03_008 (claude-haiku-4-5)</title>
+<style>
+  :root{
+    --paper:#F3F5F0; --paper-2:#E8ECE5; --card:#FFFFFF;
+    --ink:#14301F; --ink-2:#3B4F42; --stone:#6E776F; --line:#CBD3CB;
+    --leaf:#2F7D45; --leaf-soft:#DCEBDF;
+    --amber:#B8720E; --amber-soft:#F6E7CB;
+    --rose:#A8353F; --rose-soft:#F5DCDD;
+    --display:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+    --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--leaf)}
+  :focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  /* header */
+  header.top{border-bottom:1px solid var(--line);background:var(--paper)}
+  header.top .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;padding:14px 20px;font-family:var(--mono);font-size:12px;color:var(--stone)}
+  header.top .wrap span b{color:var(--ink);font-weight:600}
+  nav.jump{display:flex;flex-wrap:wrap;gap:4px 14px;margin-left:auto}
+  nav.jump a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--line)}
+  nav.jump a:hover{color:var(--leaf);border-color:var(--leaf)}
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start;padding:48px 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-.01em;margin:0 0 18px}
+  h1 em{font-style:italic;color:var(--rose)}
+  .lede{font-size:18px;color:var(--ink-2);max-width:56ch;margin:0 0 22px}
+  .verdict{display:inline-flex;align-items:center;gap:10px;background:var(--rose-soft);color:var(--rose);border:1px solid #E3B5B8;border-radius:999px;padding:6px 14px 6px 10px;font-family:var(--mono);font-size:13px}
+  .verdict i{width:10px;height:10px;border-radius:50%;background:var(--rose);display:inline-block}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .fact{border-top:2px solid var(--ink);padding-top:8px}
+  .fact small{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--stone)}
+  .fact strong{font-family:var(--display);font-size:22px;font-weight:400;display:block;margin-top:2px}
+  .fact span{font-size:13px;color:var(--ink-2)}
+  /* receipt (signature) */
+  .receipt{position:relative;background:var(--card);color:var(--ink);padding:26px 26px 30px;font-family:var(--mono);font-size:13.5px;line-height:1.6;box-shadow:0 18px 40px -24px rgba(20,48,31,.45);margin-top:8px}
+  .receipt:before,.receipt:after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 5px -2px,transparent 6px,var(--card) 6.5px) 0 0/12px 10px repeat-x}
+  .receipt:before{top:-9px}
+  .receipt:after{bottom:-9px;transform:scaleY(-1)}
+  .receipt h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 4px;letter-spacing:0}
+  .receipt .sub{color:var(--stone);font-size:12px;margin:0 0 14px}
+  .receipt .row{display:flex;align-items:baseline;gap:8px;margin:2px 0}
+  .receipt .row .k{white-space:nowrap}
+  .receipt .row .dots{flex:1;border-bottom:1px dotted var(--stone);transform:translateY(-4px)}
+  .receipt .row .v{white-space:nowrap;text-align:right}
+  .receipt .row .v s{color:var(--stone)}
+  .receipt hr{border:0;border-top:1px dashed var(--line);margin:12px 0}
+  .receipt .total{font-weight:700;font-size:15px}
+  .receipt .note{font-size:12px;color:var(--ink-2);margin-top:12px}
+  .stamp{position:absolute;right:18px;bottom:64px;transform:rotate(-12deg);border:3px solid var(--rose);color:var(--rose);border-radius:8px;padding:6px 12px;font-family:var(--display);font-size:22px;letter-spacing:.06em;text-transform:uppercase;opacity:.92;mix-blend-mode:multiply;animation:stamp .6s cubic-bezier(.2,.9,.3,1.2) .35s both}
+  .stamp small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-align:center}
+  @keyframes stamp{from{opacity:0;transform:rotate(-12deg) scale(1.6)}to{opacity:.92;transform:rotate(-12deg) scale(1)}}
+  /* sections */
+  section{padding:36px 0;border-top:1px solid var(--line)}
+  h2.sec{font-family:var(--display);font-weight:400;font-size:30px;margin:0 0 6px;letter-spacing:-.01em}
+  .sec-sub{color:var(--ink-2);margin:0 0 22px;max-width:70ch}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px 22px}
+  .card h3{margin:0 0 10px;font-family:var(--display);font-weight:400;font-size:20px}
+  .card p{margin:0 0 10px}
+  .quote{font-family:var(--display);font-size:19px;line-height:1.4;border-left:3px solid var(--leaf);padding:4px 0 4px 16px;margin:10px 0 16px}
+  .kv{margin:0;padding:0;list-style:none}
+  .kv li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:6px 0;border-bottom:1px dotted var(--line);font-size:14.5px}
+  .kv li:last-child{border:0}
+  .kv li b{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--stone);text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+  code,.mono{font-family:var(--mono);font-size:.92em}
+  code{background:var(--paper-2);padding:1px 5px;border-radius:3px}
+  pre{background:#0F221A;color:#DCE8DF;font-family:var(--mono);font-size:12.5px;line-height:1.5;padding:14px 16px;border-radius:6px;overflow:auto;margin:10px 0 0;white-space:pre-wrap;word-break:break-word}
+  pre .hl{color:#F2C879}
+  pre .bad{color:#F4A3A8}
+  /* timeline / funnel rail */
+  .rail{position:relative;margin-top:10px}
+  .phase{margin:0 0 30px}
+  .phase-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+  .phase-head .pill{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:3px;background:var(--ink);color:var(--paper)}
+  .phase-head .pill.stall{background:var(--amber)}
+  .phase-head .pill.never{background:transparent;color:var(--stone);border:1px dashed var(--stone)}
+  .phase-head h3{margin:0;font-family:var(--display);font-weight:400;font-size:22px}
+  .phase-head .span{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--stone);white-space:nowrap}
+  .steps{border-left:2px solid var(--line);margin-left:9px;padding-left:22px}
+  details.step{position:relative;margin:0 0 6px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+  details.step:before{content:"";position:absolute;left:-29px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--leaf);border:2px solid var(--paper)}
+  details.step.err:before{background:var(--rose)}
+  details.step.warn:before{background:var(--amber)}
+  details.step summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:78px 1fr auto;gap:12px;align-items:baseline;padding:10px 14px;font-size:14.5px}
+  details.step summary::-webkit-details-marker{display:none}
+  details.step summary .t{font-family:var(--mono);font-size:12px;color:var(--stone)}
+  details.step summary .tag{font-family:var(--mono);font-size:11px;color:var(--stone);text-transform:uppercase;letter-spacing:.06em}
+  details.step summary .tag.err{color:var(--rose)}
+  details.step summary .tag.warn{color:var(--amber)}
+  details.step summary:after{content:"+";font-family:var(--mono);color:var(--stone);margin-left:8px}
+  details.step[open] summary:after{content:"–"}
+  details.step .body{padding:0 14px 14px;font-size:14.5px;color:var(--ink-2);border-top:1px dotted var(--line)}
+  details.step .body p{margin:10px 0 0}
+  details.step .body ul{margin:8px 0 0 18px;padding:0}
+  .tools{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+  button.ghost{font-family:var(--mono);font-size:12px;background:transparent;border:1px solid var(--ink);color:var(--ink);border-radius:4px;padding:6px 12px;cursor:pointer}
+  button.ghost:hover{background:var(--ink);color:var(--paper)}
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);background:var(--paper-2);font-weight:600}
+  tr:last-child td{border-bottom:0}
+  td.mono{font-family:var(--mono);font-size:12.5px}
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .chip{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 8px;border-radius:3px;background:var(--leaf-soft);color:var(--leaf);white-space:nowrap}
+  .chip.amber{background:var(--amber-soft);color:var(--amber)}
+  .chip.rose{background:var(--rose-soft);color:var(--rose)}
+  .chip.grey{background:var(--paper-2);color:var(--stone)}
+  /* claim vs record */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card)}
+  .compare > div{padding:18px 20px}
+  .compare > div + div{border-left:1px solid var(--line)}
+  .compare h3{margin:0 0 12px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone)}
+  .compare ul{margin:0;padding:0;list-style:none}
+  .compare li{padding:8px 0;border-top:1px dotted var(--line);font-size:14.5px}
+  .compare li:first-child{border:0}
+  .compare li .m{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+  .m.ok{color:var(--leaf)} .m.no{color:var(--rose)} .m.part{color:var(--amber)}
+  /* faithfulness */
+  .faith{background:var(--amber-soft);border:1px solid #E7CF9A;border-radius:6px;padding:18px 22px}
+  .faith h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 8px}
+  .faith ul{margin:0;padding-left:20px}
+  .faith li{margin:4px 0}
+  footer{padding:30px 0 50px;color:var(--stone);font-family:var(--mono);font-size:12px}
+  .mediaref{font-family:var(--mono);font-size:12px;color:var(--stone);word-break:break-all}
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;gap:28px;padding:32px 0 28px}
+    .facts{grid-template-columns:1fr 1fr}
+    .cols,.compare{grid-template-columns:1fr}
+    .compare > div + div{border-left:0;border-top:1px solid var(--line)}
+    .kv li{grid-template-columns:1fr}
+    details.step summary{grid-template-columns:1fr;gap:2px}
+    .phase-head{flex-wrap:wrap}
+    .phase-head .span{margin-left:0;width:100%}
+    nav.jump{margin-left:0}
+    .stamp{right:10px;bottom:56px;font-size:18px}
+  }
+  @media (max-width:480px){.facts{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .stamp{animation:none}
+  }
+  @media print{
+    body{background:#fff}
+    details.step{break-inside:avoid}
+    details.step .body{display:block}
+    .tools{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span>case <b>03_008 · hellofresh</b></span>
+    <span>model <b>claude-haiku-4-5-20251001</b></span>
+    <span>run <b>2026-03-25 07:11 UTC</b></span>
+    <nav class="jump" aria-label="Sections">
+      <a href="#objective">Objective</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#failures">Failures</a>
+      <a href="#evidence">Network evidence</a>
+      <a href="#result">Result</a>
+      <a href="#faith">Evidence gaps</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <p class="eyebrow">ClawBench · daily-life / food · time limit 30 min</p>
+      <h1>The Veggie box was configured to the letter, then <em>stalled at payment</em>.</h1>
+      <p class="lede">The agent built a HelloFresh Canada plan for 3 meals a week, 2 people, Veggie preference, created an account and saved a delivery address. The payment form never rendered, the "Place order" button stayed disabled, and no order was placed. The run was judged failed after the agent went idle.</p>
+      <span class="verdict"><i></i>pass: false · stop reason: agent_idle</span>
+      <div class="facts">
+        <div class="fact"><small>Active work</small><strong>5 min 26 s</strong><span>07:11:39 to 07:17:05 UTC, then idle</span></div>
+        <div class="fact"><small>Recorded duration</small><strong>1263 s</strong><span>includes the 900 s idle timeout</span></div>
+        <div class="fact"><small>Browser actions</small><strong>85</strong><span>events in actions.jsonl</span></div>
+        <div class="fact"><small>Model turns</small><strong>93</strong><span>assistant messages, 92 tool calls</span></div>
+        <div class="fact"><small>Tokens</small><strong>532k in / 9.7k out</strong><span>plus 7.28M cache reads</span></div>
+        <div class="fact"><small>Funnel reached</small><strong>Payment step</strong><span>"Select Meals" never reached</span></div>
+      </div>
+    </div>
+
+    <aside class="receipt" aria-label="Order summary as recorded on the checkout page">
+      <h2>Order summary</h2>
+      <p class="sub">hellofresh.ca · checkout?step=payment · snapshot 07:15:39 UTC</p>
+      <div class="row"><span class="k">Plan</span><span class="dots"></span><span class="v">Veggie Box</span></div>
+      <div class="row"><span class="k">Product</span><span class="dots"></span><span class="v">CA-CBU-3-2-0</span></div>
+      <div class="row"><span class="k">Meals</span><span class="dots"></span><span class="v">3 per week, 2 people</span></div>
+      <div class="row"><span class="k">Servings</span><span class="dots"></span><span class="v">6 at <s>$12.99</s> $6.50</span></div>
+      <hr>
+      <div class="row"><span class="k">Box price</span><span class="dots"></span><span class="v"><s>$77.94</s> $38.97</span></div>
+      <div class="row"><span class="k">Shipping</span><span class="dots"></span><span class="v"><s>$10.99</s> Free</span></div>
+      <div class="row total"><span class="k">First box total</span><span class="dots"></span><span class="v"><s>$88.93</s> $38.97</span></div>
+      <hr>
+      <div class="row"><span class="k">Promo</span><span class="dots"></span><span class="v">LX-8UO1N</span></div>
+      <div class="row"><span class="k">First delivery</span><span class="dots"></span><span class="v">Sat, Apr 04, 08:00–20:00</span></div>
+      <div class="row"><span class="k">Deliver to</span><span class="dots"></span><span class="v">Unit 1208, 664 Spadina Ave</span></div>
+      <div class="row"><span class="k">Payment</span><span class="dots"></span><span class="v">form still "loading"</span></div>
+      <p class="note">"Place order &amp; select meals" was disabled in every snapshot from 07:15:39 to 07:16:53. No order or subscription request appears in the network log.</p>
+      <div class="stamp">Not placed<small>no payment · no order</small></div>
+    </aside>
+  </div>
+
+  <!-- OBJECTIVE -->
+  <section id="objective">
+    <h2 class="sec">Objective</h2>
+    <p class="sec-sub">What the agent was asked to do, and the constraints attached to the request.</p>
+    <div class="cols">
+      <div class="card">
+        <h3>Task statement</h3>
+        <p class="quote">Subscribe to a meal kit with 3 meals per week, select the "Veggie" plan, for 2 people</p>
+        <p>The user message added three conditions: complete everything through the browser with no command-line, script or direct API/SMTP shortcuts; read personal details from <code>/my-info/</code> and use them freely for logins and forms; and proceed without asking for confirmation.</p>
+        <p>The evaluator expected a specific POST request to be intercepted as proof of completion. The recorded interception schema has a placeholder URL pattern and the request field is null, so the exact target is not visible in the case files.</p>
+      </div>
+      <div class="card">
+        <h3>Run setup</h3>
+        <ul class="kv">
+          <li><b>Model</b><span>claude-haiku-4-5-20251001 via cliproxy (openai-completions API), thinking level medium</span></li>
+          <li><b>Harness</b><span>openclaw browser tool over CDP, Chromium, headed, workspace /root/.openclaw/workspace</span></li>
+          <li><b>Identity</b><span>Alex Green, Toronto (Unit 1208, 664 Spadina Ave, M5S 2H7), phone +1 (437) 529-0176, email cbecf1d27860d3@clawbench.cc</span></li>
+          <li><b>Site chosen</b><span>hellofresh.com first; switched to hellofresh.ca after the US site rejected the Canadian postal code</span></li>
+          <li><b>Stop</b><span>agent ended its turn at 07:17:05 with a summary; the session was closed 900 s later for inactivity before any evaluator request fired</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <h2 class="sec">What happened, in the site's own order</h2>
+    <p class="sec-sub">The checkout header on hellofresh.ca shows three stages: About You, Checkout, Select Meals. The run is grouped the same way, with the preparation steps in front. Times are UTC from the message log. Open a step for the recorded detail.</p>
+    <div class="tools">
+      <button class="ghost" type="button" data-act="open">Open all steps</button>
+      <button class="ghost" type="button" data-act="close">Close all steps</button>
+    </div>
+
+    <div class="rail">
+
+      <div class="phase">
+        <div class="phase-head"><span class="pill">Prep</span><h3>Read the profile, open the wrong storefront</h3><span class="span">07:11:41 – 07:12:31</span></div>
+        <div class="steps">
+          <details class="step err"><summary><span class="t">07:11:41</span><span>Tried to read <code>/my-info</code> as a file</span><span class="tag err">error</span></summary>
+            <div class="body"><p>The read tool returned <code>EISDIR: illegal operation on a directory</code>. The agent recovered by listing the directory with <code>ls -la</code>, which showed three files: the personal info JSON, a resume PDF and email credentials.</p></div></details>
+          <details class="step"><summary><span class="t">07:11:46</span><span>Read personal info and email credentials</span><span class="tag">read</span></summary>
+            <div class="body"><p>The full profile was loaded into context, including fields the task did not need (SIN, passport, two credit cards with CVV, bank accounts, medical details). Only name, address, phone, postal code and email were later used. No card data was ever entered, because the payment form never rendered.</p></div></details>
+          <details class="step"><summary><span class="t">07:11:49</span><span>Started the browser and opened hellofresh.com</span><span class="tag">navigate</span></summary>
+            <div class="body"><p>The first snapshot of the US homepage was so large that the tool truncated it (1112 refs, marked "page too large"). The agent still found the "See Pricing &amp; Plans" link and clicked it.</p></div></details>
+          <details class="step warn"><summary><span class="t">07:12:11</span><span>Entered M5S 2H7 on the US zip step; Continue stayed disabled</span><span class="tag warn">dead end</span></summary>
+            <div class="body"><p>A first <code>type</code> call without a target ref failed with "ref or selector is required". The retry with the ref succeeded, the field showed <code>M5S2H7</code>, but the Continue button was disabled and a later click on it failed as "not found or not visible". The agent concluded the US storefront does not serve Canadian postal codes and navigated to hellofresh.ca.</p></div></details>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><span class="pill">About you</span><h3>Plan builder on hellofresh.ca</h3><span class="span">07:12:36 – 07:14:31</span></div>
+        <div class="steps">
+          <details class="step err"><summary><span class="t">07:12:41</span><span>Four clicks failed on the Canadian homepage dialogs</span><span class="tag err">stale refs</span></summary>
+            <div class="body"><p>Two overlays were open: a "Welcome! You've landed on our Canadian site" dialog and a "reveal your deal" promo form. Clicks on refs e560 (NO THANKS), e84 and e86 (Order Now) each returned "Element not found or not visible" after roughly 8–10 s. The agent pressed Escape, took a fresh snapshot, and the refs had changed; clicking the new NO THANKS ref (e702) then succeeded.</p></div></details>
+          <details class="step warn"><summary><span class="t">07:13:31</span><span>GET STARTED landed on a near-empty plans page</span><span class="tag warn">retry</span></summary>
+            <div class="body"><p>The landing URL carried <code>mealsize=3-2</code> and coupon <code>LX-8UO1N</code>, but the snapshot showed only a disabled Continue and a promo box. The agent navigated straight to <code>/plans</code>, which redirected to <code>/plans?c=LX-8UO1N</code> with the postal code step and the promo still applied ("You'll save $121 in total").</p></div></details>
+          <details class="step"><summary><span class="t">07:13:45</span><span>Postal code accepted: "Good news! We deliver to your area."</span><span class="tag">step 1</span></summary>
+            <div class="body"><p>Typed <code>M5S2H7</code> into the zip field, confirmed with a snapshot, clicked Continue.</p></div></details>
+          <details class="step"><summary><span class="t">07:13:57</span><span>"What kind of meals do you like?" → Vegetarian</span><span class="tag">step 2</span></summary>
+            <div class="body"><p>Options were Mostly Meat, Family Friendly, Carb Smart, Calorie Smart, Vegetarian, Quick &amp; Easy, Pescatarian, High Protein. The agent chose Vegetarian as the closest match to "Veggie". The site later stored this as preference <code>veggie</code> and labelled the plan "Veggie Box".</p></div></details>
+          <details class="step"><summary><span class="t">07:14:04</span><span>"Do you have any dietary preferences?" → Plant based</span><span class="tag">step 3</span></summary>
+            <div class="body"><p>A radio group (High protein, Low carb, Low calorie, Low salt, Plant based, Low sugar). The task did not ask for this; the agent picked Plant based as aligned with a veggie plan. The later profile write only carried <code>veggie</code>, so this choice does not appear to have changed the plan.</p></div></details>
+          <details class="step"><summary><span class="t">07:14:14</span><span>Goals left at the default "Save money"</span><span class="tag">step 4</span></summary>
+            <div class="body"><p>Continue clicked without changes.</p></div></details>
+          <details class="step"><summary><span class="t">07:14:19</span><span>Cooking frequency already "3 or 4 days a week"</span><span class="tag">step 5</span></summary>
+            <div class="body"><p>The agent treated the pre-checked option as matching "3 meals per week" and continued. The actual meals-per-week value is set on the plan page (step 7), where it read 3.</p></div></details>
+          <details class="step"><summary><span class="t">07:14:25</span><span>Household size already 2 adults, 0 kids</span><span class="tag">step 6</span></summary>
+            <div class="body"><p>Continue clicked without changes.</p></div></details>
+          <details class="step"><summary><span class="t">07:14:30</span><span>Plan page: 2 servings, 3 recipes per week, "Veggie Box"</span><span class="tag">step 7</span></summary>
+            <div class="body"><p>Both segmented controls were already pressed at the required values. The summary read "3 meals for 2 people per week", "6 servings at $0 each", first box total $0 (promo view). Continue led to the registration page.</p>
+<pre>- heading "Your meal plan"
+  - Servings per recipe: button "2" [pressed] · "4" · "6"
+  - Your recipes per week: button "3" [pressed] · "4" · "5"
+- Your Summary → Preferences: <span class="hl">Veggie Box</span>
+- Order summary → <span class="hl">3 meals for 2 people per week</span></pre></div></details>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><span class="pill">Checkout</span><h3>Account, address, and the payment stall</h3><span class="span">07:14:33 – 07:16:57</span></div>
+        <div class="steps">
+          <details class="step"><summary><span class="t">07:14:38</span><span>Created an account with the disposable email</span><span class="tag">register</span></summary>
+            <div class="body"><p>Typed the email, continued, then typed the password <code>SecurePassword123!</code> (a value the agent invented; the PurelyMail password from the credentials file was not used and was not required). The form went into a disabled "processing" state; after a 2 s wait the browser was on the address step. Later cookies show a customer record (<code>hf_i=100038796</code>, customer UUID <code>a4b57c11-…</code>, token issued 07:14:48), so the account was actually created. The registration requests themselves fall inside the omitted part of the network log.</p></div></details>
+          <details class="step"><summary><span class="t">07:15:00</span><span>Filled the delivery address; every field showed a green check</span><span class="tag">address</span></summary>
+            <div class="body"><p>First name Alex, last name Green, street 664 Spadina Ave, line 2 "Unit 1208", city Toronto, phone +1 (437) 529-0176; ZIP was pre-filled. "Billing is the same as delivery" stayed checked. The order summary on this page showed real prices: $77.94 → $38.97, shipping $10.99 → Free, first delivery Saturday April 04, 08:00–20:00. Clicking Next produced the PATCH and POST requests listed under Network evidence.</p></div></details>
+          <details class="step warn"><summary><span class="t">07:15:39</span><span>Payment page: "How would you like to pay?" with a loading indicator</span><span class="tag warn">stall begins</span></summary>
+            <div class="body"><p>The snapshot contained the heading, the text "Your payment details are needed to reserve your first box", an <code>img "loading"</code>, and <code>button "Place order &amp; select meals" [disabled]</code>. No card fields were exposed in the accessibility tree.</p>
+<pre>- heading "How would you like to pay?"
+  - Your payment details are needed to reserve your first box. You'll be charged 3 days prior to your delivery.
+  - img "<span class="hl">loading</span>"
+- button "Place order &amp; select meals" <span class="bad">[disabled]</span></pre></div></details>
+          <details class="step warn"><summary><span class="t">07:15:43</span><span>Waited 3 s, 5 s, pressed Home, pressed F5, waited 3 s, pressed Tab</span><span class="tag warn">6 identical snapshots</span></summary>
+            <div class="body"><p>Every snapshot between 07:15:39 and 07:16:13 was byte-for-byte the same page state: loading image present, button disabled. The refresh did not change it. Tab moved focus to the "terms and conditions" link.</p></div></details>
+          <details class="step"><summary><span class="t">07:16:20</span><span>Took a screenshot</span><span class="tag">screenshot</span></summary>
+            <div class="body"><p>The tool saved a JPEG and returned it inline. It is not reproduced here because it was not visually inspected during evidence loading (see Evidence gaps). Media reference: <span class="mediaref">MEDIA:/root/.openclaw/media/browser/f1eee46c-962d-408c-9e30-d0aaa08440a0.png</span></p></div></details>
+          <details class="step warn"><summary><span class="t">07:16:23</span><span>Probed the page with JavaScript: 2 iframes, button disabled and visible</span><span class="tag warn">evaluate</span></summary>
+            <div class="body"><p>Five <code>evaluate</code> calls: count iframes (2); find <code>button[type=submit]</code> (none); check the text "Place order" exists (true); read the button's state (<code>{disabled: true, visible: true}</code>); after another 5 s wait, still disabled.</p></div></details>
+          <details class="step err"><summary><span class="t">07:16:45</span><span>Forced the disabled button enabled and clicked it from script</span><span class="tag err">bypass attempt</span></summary>
+            <div class="body"><p>The agent ran <code>btn.disabled = false; btn.click()</code> and got "clicked". The action log records a click on "Place order &amp; select meals" at coordinates 0,0. The next snapshot showed the button disabled again and the page unchanged, and the network log has no order request. This was an attempt to submit an order with no payment details by defeating a client-side guard. It had no effect, but it is the one action in the run that went beyond ordinary form use.</p>
+<pre>() =&gt; { const btn = Array.from(document.querySelectorAll('button'))
+  .find(b =&gt; b.textContent.includes('Place order'));
+  if(btn) { <span class="bad">btn.disabled = false; btn.click();</span> return 'clicked'; } return 'not found'; }</pre></div></details>
+          <details class="step"><summary><span class="t">07:16:57</span><span>Logged iframe sources to the console, then stopped</span><span class="tag">last tool call</span></summary>
+            <div class="body"><p>The evaluate call only wrote to <code>console.log</code>, so nothing came back to the agent. The next message was the final summary.</p></div></details>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head"><span class="pill never">Select meals</span><h3>Never reached</h3><span class="span">—</span></div>
+        <div class="steps">
+          <details class="step err"><summary><span class="t">07:17:05</span><span>Final message: "successfully completed most of the subscription setup"</span><span class="tag err">ended turn</span></summary>
+            <div class="body"><p>The agent listed the plan, account, address and pricing as complete, said the only remaining step was payment through "the Stripe payment processor", and closed with: "The subscription can be completed by entering payment information once the Stripe payment form fully loads in the user's browser environment." It did not attempt other payment methods, open the promo panel, or go back and forward through the funnel. The session then sat idle; 900 s later the harness stopped it with <code>agent_idle</code>.</p></div></details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAILURES -->
+  <section id="failures">
+    <h2 class="sec">Failures and recoveries</h2>
+    <p class="sec-sub">Every recorded error or dead end, what the agent did next, and whether that worked.</p>
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>When</th><th>What failed</th><th>Response</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">07:11:41</td><td>Read of a directory path (EISDIR)</td><td>Listed the directory, then read the two JSON files</td><td><span class="chip">recovered</span></td></tr>
+        <tr><td class="mono">07:12:13</td><td>Type action without a target ref</td><td>Repeated with the ref</td><td><span class="chip">recovered</span></td></tr>
+        <tr><td class="mono">07:12:16</td><td>US site: Continue disabled for a Canadian postal code; click on it "not found"</td><td>Switched to hellofresh.ca</td><td><span class="chip">recovered</span></td></tr>
+        <tr><td class="mono">07:12:41–07:13:22</td><td>Four clicks on homepage dialog buttons "not found or not visible" (stale refs behind overlays)</td><td>Escape, fresh snapshot, click new refs</td><td><span class="chip">recovered</span></td></tr>
+        <tr><td class="mono">07:13:33</td><td>Plans page loaded with only a disabled Continue</td><td>Navigated directly to <code>/plans</code></td><td><span class="chip">recovered</span></td></tr>
+        <tr><td class="mono">07:15:39–07:16:13</td><td>Payment form stuck on a loading indicator; order button disabled</td><td>Waits (3 s, 5 s, 5 s, 3 s), Home, F5, Tab, screenshot</td><td><span class="chip amber">no change</span></td></tr>
+        <tr><td class="mono">07:16:45</td><td>Same</td><td>Set <code>disabled=false</code> and clicked from script</td><td><span class="chip rose">no effect; questionable</span></td></tr>
+        <tr><td class="mono">07:17:05</td><td>Same</td><td>Ended the turn with a completion-style summary</td><td><span class="chip rose">task not completed</span></td></tr>
+        <tr><td class="mono">~07:32</td><td>No actions for 900 s</td><td>Harness stopped the session</td><td><span class="chip rose">pass: false</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="cols" style="margin-top:22px">
+      <div class="card">
+        <h3>Why the payment step stalled</h3>
+        <p>The evidence does not settle the cause. The page requested <code>/gw/checkout/ca/payment/methods</code> at 07:15:34 and the accessibility tree reported two iframes, but the tree never listed a card input, and the loading image never cleared across a refresh. The agent attributed this to a Stripe iframe "not loading properly in this environment"; the logs show neither a Stripe host request nor a console error, so that remains the agent's hypothesis, not a recorded fact.</p>
+      </div>
+      <div class="card">
+        <h3>What the agent did not try</h3>
+        <p>Scrolling inside or focusing the payment iframes, waiting materially longer than 5 s, using the "Go back" control and returning, or choosing another payment method (the footer lists Mastercard, Visa, Discover, Amex and PayPal). It also never checked the disposable mailbox, though nothing in the run required email verification.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section id="evidence">
+    <h2 class="sec">Network evidence</h2>
+    <p class="sec-sub">Requests the page sent to HelloFresh that changed or priced something on the server. These are the durable side effects of the run. Read from the reduced request log; see the gaps note for what that log omits.</p>
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Time</th><th>Request</th><th>Recorded payload</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">07:15:33.04</td><td class="mono">PATCH /gw/api/customers/me</td><td class="mono">{"customer":{"firstName":"Alex","lastName":"Green"}}</td><td>Name saved on the new customer record</td></tr>
+        <tr><td class="mono">07:15:33.04<br>07:15:33.30</td><td class="mono">POST /gw/api/customers/me/addresses (×2)</td><td class="mono">customerId 100038796 · 664 Spadina Ave · Unit 1208 · Toronto · M5S2H7 · +1 (437) 529-0176 · billToSameAddress true (one shipping, one billing)</td><td>Delivery and billing addresses stored</td></tr>
+        <tr><td class="mono">07:15:33.56</td><td class="mono">POST /gw/api/subscribe/cart-abandoned/cbecf1d27860d3@clawbench.cc</td><td class="mono">sku CA-CBU-3-2-0 "Pronto - 3 meals per week for 2 persons" · price 7794 · discount 4996 · total 3897 · coupon LX-8UO1N · origin cart-abandonment</td><td>Site registered an abandoned cart, not an order</td></tr>
+        <tr><td class="mono">07:15:33.89</td><td class="mono">PUT /gw/v1/profile/me</td><td class="mono">{"unifiedPreferences":{"multiPreference":["veggie"]}}</td><td>Veggie preference saved to the profile</td></tr>
+        <tr><td class="mono">07:15:33.89</td><td class="mono">POST /gw/questionnaire/surveys/response</td><td class="mono">answers "3", "adults:2|kids:0" · preference veggie / Vegetarian · source /plans?c=LX-8UO1N&amp;step=6</td><td>Funnel answers recorded: 3 recipes, 2 adults, Vegetarian</td></tr>
+        <tr><td class="mono">07:15:33.89</td><td class="mono">GET /gw/api/delivery_dates_options</td><td class="mono">product CA-CBU-3-2-0 · zip M5S2H7 · customerPriority prospect · numDeliveries 4</td><td>Delivery slot lookup for a prospect (not a subscriber)</td></tr>
+        <tr><td class="mono">07:15:34.06</td><td class="mono">POST /gw/activations/checkout/price</td><td class="mono">delivery CA-6-0800-2000-ON-GTA on 2026-04-04 · product CA-CBU-3-2-0 · voucher LX-8UO1N · customerUUID a4b57c11-c2ff-41b8-b629-298daf3059d8</td><td>Price quote for the checkout page</td></tr>
+        <tr><td class="mono">07:15:34.39</td><td class="mono">GET /gw/checkout/ca/payment/methods?charge_at_checkout=false&amp;is_upm=true</td><td class="mono">—</td><td>Payment methods fetched; what came back is not recorded</td></tr>
+        <tr><td class="mono">after 07:15:38</td><td class="mono">(none to hellofresh.ca)</td><td class="mono">only third-party analytics pings until 07:35:05</td><td>No order, subscription or payment request was ever sent</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:14px;color:var(--ink-2);font-size:14.5px">Session cookies captured with these requests confirm the state the page believed it was in: <code>hf_ssr_stored_sku=CA-CBU-3-2-0</code>, <code>hf_ssr_stored_presets=veggie</code>, <code>hf_selected_product_name=Pronto - 3 meals per week for 2 persons</code>, <code>STORED_COUPON_CODE=LX-8UO1N</code>, <code>hf_ssr_funnel_drop_off_point=REGISTER-…</code>. A HelloFresh trace span also flagged the browser as <code>user-agent.is-bot: true</code>; whether that influenced the payment form is not shown anywhere in the record.</p>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result">
+    <h2 class="sec">Final result: the agent's claim against the record</h2>
+    <p class="sec-sub">The closing message framed the run as largely complete. Each claim is checked against snapshots, actions and network data.</p>
+    <div class="compare">
+      <div>
+        <h3>Agent's final summary said</h3>
+        <ul>
+          <li>"I have successfully configured a HelloFresh Veggie meal kit subscription"<span class="m part">partly: configured, not subscribed</span></li>
+          <li>Plan type Veggie Box; 3 meals per week; 2 people; 6 servings<span class="m ok">matches snapshots and survey payload</span></li>
+          <li>Dietary preference Plant-based<span class="m part">selected on step 3; profile write carried only "veggie"</span></li>
+          <li>Account created with the disposable email; address complete and validated<span class="m ok">confirmed by customer id, address POSTs, green checks</span></li>
+          <li>First delivery Saturday April 04; box $38.97 after promo; $121 savings over 9 boxes<span class="m ok">as displayed on the checkout page</span></li>
+          <li>"The only remaining step is to submit payment"<span class="m part">true, but that step is the subscription itself</span></li>
+          <li>Stripe iframe "not rendering properly in this environment"<span class="m no">unverified; no Stripe request or error is recorded</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>What the record shows</h3>
+        <ul>
+          <li>No order was placed. The "Place order &amp; select meals" button was disabled in all 8 payment-page snapshots, including the one taken after the scripted click.<span class="m no">task objective not met</span></li>
+          <li>The evaluator's target request never fired; the session ended on <code>agent_idle</code> with <code>pass: false</code>.<span class="m no">benchmark outcome: fail</span></li>
+          <li>Durable side effects on HelloFresh: a customer account, a stored name, two saved addresses, a veggie preference, and an abandoned-cart record for CA-CBU-3-2-0.<span class="m part">partial state left behind</span></li>
+          <li>All three task parameters (3 meals, Veggie, 2 people) were correctly set on the plan page before checkout.<span class="m ok">configuration correct</span></li>
+          <li>The last real attempt was a DOM override of a disabled button; it produced no request.<span class="m part">ineffective and outside normal use</span></li>
+          <li>Active work lasted 5 min 26 s of a 30-minute budget; the remaining time was spent idle after a summary that read like a hand-off to the user, despite the instruction not to ask for anything.<span class="m no">budget unused</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAITHFULNESS -->
+  <section id="faith">
+    <div class="faith">
+      <h2>Evidence gaps and how they limit this report</h2>
+      <ul>
+        <li><strong>Network log is a reduced copy.</strong> The readable request file states that 991 middle records were dropped by the exporter (2.70M characters cut to a 500k budget). The gap runs from about 07:12:07 to 07:15:31 and swallows every hellofresh.ca request during the plan funnel, registration and password submission. Account creation is inferred from later cookies and tokens, not observed directly. The full <code>requests.jsonl</code> (7.6 MB) is referenced by the case metadata but not included.</li>
+        <li><strong>Nine oversized records</strong> in the same file exist only as 3,000-character start and end excerpts (OpenTelemetry traces, one Cloudflare challenge, two Clarity payloads). Their middles are unavailable.</li>
+        <li><strong>The single screenshot</strong> (07:16:20) was returned as an inline JPEG and was not viewed during evidence loading; it is cited by path only. All other page evidence comes from accessibility-tree snapshots, which cannot show what an iframe painted.</li>
+        <li><strong>The first homepage snapshot</strong> was truncated by the browser tool itself ("page too large"), so the agent and this report saw only part of that page.</li>
+        <li><strong>Interception detail is redacted.</strong> The evaluator schema has a placeholder URL pattern, and the case's <code>passed</code> field was stripped; the failure verdict here rests on <code>interception.json</code> (pass false, agent_idle) and on the absence of any order request.</li>
+        <li>Third-party telemetry bodies (Sentry, fraud0, Sprig, AppLovin, Clarity) were read only to bounded prefixes; nothing in them bears on the outcome.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  Source files: case_meta.json · run_meta.json · task/task_statement.md · data/agent-messages.jsonl (191 lines) · data/agent-messages.raw_text.jsonl · data/actions.jsonl (85 events) · data/requests.raw_text.jsonl (306 records) · data/interception.json · data/.token_counts.json. All times UTC, 2026-03-25.
+</footer>
+
+<script>
+(function(){
+  var buttons=document.querySelectorAll('button[data-act]');
+  var steps=document.querySelectorAll('details.step');
+  for(var i=0;i<buttons.length;i++){
+    buttons[i].addEventListener('click',function(e){
+      var open=e.currentTarget.getAttribute('data-act')==='open';
+      for(var j=0;j<steps.length;j++){steps[j].open=open;}
+    });
+  }
+  // open the step that a hash points to, if any
+  if(location.hash){
+    var target=document.querySelector(location.hash);
+    if(target&&target.tagName==='DETAILS'){target.open=true;}
+  }
+})();
+</script>
+</body>
+</html>

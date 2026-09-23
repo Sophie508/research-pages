@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 01 — Breaking a JavaScript HTML Filter</title>
+  <style>
+    :root {
+      --ink: #191817;
+      --muted: #66615b;
+      --paper: #f3efe6;
+      --panel: #fffdf7;
+      --line: #d8d0c2;
+      --red: #da3f2f;
+      --red-soft: #f8d9d3;
+      --green: #287a5b;
+      --green-soft: #dcecdf;
+      --violet: #5d50a6;
+      --yellow: #f3c648;
+      --code: #17191c;
+      --code-ink: #f4f0e7;
+      --shadow: 0 14px 40px rgba(57, 46, 30, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(86, 69, 48, .045) 1px, transparent 1px),
+        var(--paper);
+      background-size: 100% 28px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height: 1.55;
+    }
+    button, input { font: inherit; }
+    a { color: inherit; }
+    .shell { min-height: 100vh; }
+    .rail {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 10;
+      width: 78px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid #000;
+    }
+    .case-no {
+      width: 100%;
+      padding: 24px 0;
+      text-align: center;
+      background: var(--red);
+      font-weight: 900;
+      font-size: 23px;
+      letter-spacing: -.06em;
+    }
+    .rail nav { margin: auto 0; display: grid; gap: 14px; }
+    .rail a {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #514e49;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      font-size: 11px;
+      color: #bbb5ac;
+      transition: .2s ease;
+    }
+    .rail a:hover, .rail a.active { color: #fff; border-color: var(--yellow); background: #2b2926; }
+    .rail-foot { writing-mode: vertical-rl; transform: rotate(180deg); color: #8e8880; font-size: 9px; letter-spacing: .14em; padding: 18px 0; }
+    main { margin-left: 78px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+      padding: 72px clamp(28px, 6vw, 96px) 56px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: 54px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::after {
+      content: "<!-->";
+      position: absolute;
+      right: -40px;
+      top: -78px;
+      color: rgba(218, 63, 47, .08);
+      font: 900 clamp(130px, 21vw, 300px)/1 ui-monospace, monospace;
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--red); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; }
+    .eyebrow::before { content: ""; width: 42px; height: 3px; background: var(--red); }
+    h1 {
+      max-width: 890px;
+      margin: 22px 0 24px;
+      font: 800 clamp(48px, 7.5vw, 116px)/.9 Georgia, 'Times New Roman', serif;
+      letter-spacing: -.055em;
+    }
+    h1 em { color: var(--red); font-style: italic; }
+    .deck { max-width: 760px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(19px, 2vw, 27px); color: #48433e; line-height: 1.35; }
+    .verdict {
+      position: relative;
+      z-index: 1;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      transform: rotate(1.2deg);
+    }
+    .verdict::before { content: "VERIFIED"; position: absolute; right: 16px; top: -14px; padding: 5px 10px; background: var(--green); color: white; font-weight: 900; font-size: 12px; letter-spacing: .1em; transform: rotate(-3deg); }
+    .verdict-kicker { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+    .verdict strong { display: block; margin: 10px 0 14px; font: 700 38px/1 Georgia, serif; color: var(--green); }
+    .verdict p { margin: 0; color: var(--muted); font-size: 13px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,253,247,.55);
+    }
+    .stat { padding: 23px clamp(14px, 3vw, 38px); border-right: 1px solid var(--line); }
+    .stat:last-child { border: 0; }
+    .stat b { display: block; font: 700 28px/1 Georgia, serif; }
+    .stat span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+    .section { padding: 78px clamp(28px, 6vw, 96px); border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 160px minmax(0, 760px); gap: 28px; margin-bottom: 42px; }
+    .section-no { color: var(--red); font-weight: 900; }
+    h2 { margin: 0; font: 700 clamp(34px, 4vw, 60px)/1 Georgia, serif; letter-spacing: -.035em; }
+    .lede { margin: 12px 0 0; color: var(--muted); font-family: Georgia, serif; font-size: 18px; }
+    .brief-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; }
+    .card { background: var(--panel); border: 1px solid var(--line); padding: 28px; box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 16px; font: 700 25px/1.1 Georgia, serif; }
+    .task-list { list-style: none; padding: 0; margin: 22px 0 0; }
+    .task-list li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 13px 0; border-top: 1px solid var(--line); }
+    .task-list span { color: var(--green); font-weight: 900; }
+    .filter-stack { display: grid; gap: 10px; }
+    .filter-rule { display: flex; align-items: center; gap: 13px; padding: 13px 15px; background: #f5f1e9; border-left: 4px solid var(--red); font-size: 13px; }
+    .filter-rule code { color: var(--red); font-weight: 800; }
+    .codebox { position: relative; overflow: hidden; background: var(--code); color: var(--code-ink); border: 1px solid #090a0b; box-shadow: 8px 8px 0 var(--yellow); }
+    .codebar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid #36383c; color: #aaa; font-size: 11px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #d55b50; }
+    .dot:nth-child(2) { background: #e1b64d; }
+    .dot:nth-child(3) { background: #4c9b6e; }
+    pre { margin: 0; padding: 24px; overflow: auto; font-size: 13px; line-height: 1.7; tab-size: 2; }
+    .tok-comment { color: #9b8edb; }
+    .tok-tag { color: #ef8f73; }
+    .tok-attr { color: #f1ca68; }
+    .tok-string { color: #8bd6a9; }
+    .mechanism { display: grid; grid-template-columns: 1fr 58px 1fr 58px 1fr; align-items: stretch; }
+    .phase { padding: 24px; border: 1px solid var(--line); background: var(--panel); min-height: 255px; }
+    .phase-num { color: var(--red); font-size: 11px; letter-spacing: .12em; }
+    .phase h3 { margin: 12px 0; font: 700 23px/1.15 Georgia, serif; }
+    .phase p { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+    .mini-code { display: block; background: #ebe5da; padding: 12px; overflow-wrap: anywhere; font-size: 11px; color: #342f2a; }
+    .arrow { display: grid; place-items: center; color: var(--red); font-size: 25px; }
+    .trace-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: -12px 0 26px; }
+    .filter-btn { cursor: pointer; border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 8px 13px; transition: .2s ease; }
+    .filter-btn:hover, .filter-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+    .attempts { display: grid; gap: 12px; }
+    .attempt { display: grid; grid-template-columns: 62px minmax(180px, .72fr) 1.28fr 92px; gap: 18px; align-items: center; padding: 17px 20px; background: rgba(255,253,247,.7); border: 1px solid var(--line); transition: opacity .2s, transform .2s; }
+    .attempt:hover { transform: translateX(4px); }
+    .attempt[hidden] { display: none; }
+    .attempt-id { color: var(--muted); font-size: 11px; }
+    .attempt-name { font-weight: 900; }
+    .attempt-note { color: var(--muted); font-size: 12px; }
+    .badge { justify-self: end; padding: 5px 8px; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .badge.fail { background: var(--red-soft); color: #8b2a20; }
+    .badge.pass { background: var(--green-soft); color: var(--green); }
+    .badge.survive { background: #eee7bf; color: #735f13; }
+    .evidence-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: start; }
+    .terminal { background: #161816; color: #dbe6db; border: 1px solid #050605; box-shadow: var(--shadow); }
+    .terminal-title { padding: 12px 18px; color: #a6ada6; border-bottom: 1px solid #303330; font-size: 11px; }
+    .terminal-body { padding: 22px; font-size: 13px; }
+    .prompt { color: #8e9a8e; }
+    .success { color: #78d59f; font-weight: 800; }
+    .evidence-note { display: grid; gap: 16px; }
+    .callout { padding: 22px; border: 1px solid var(--line); background: var(--panel); }
+    .callout strong { display: block; margin-bottom: 8px; font: 700 20px Georgia, serif; }
+    .callout p { margin: 0; color: var(--muted); font-size: 12px; }
+    .callout.warning { border-left: 5px solid var(--yellow); }
+    .review { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .review .card { box-shadow: none; }
+    .review ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 13px; }
+    .review li + li { margin-top: 12px; }
+    .grade { display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--green); color: #fff; font: 700 30px Georgia, serif; float: right; margin: -8px 0 12px 16px; }
+    .meta-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .meta-table th, .meta-table td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .meta-table th { width: 35%; color: var(--muted); font-weight: 500; }
+    footer { margin-left: 78px; padding: 35px clamp(28px, 6vw, 96px); display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+    .top-btn { cursor: pointer; border: 0; background: none; color: var(--red); text-transform: uppercase; font: inherit; letter-spacing: inherit; }
+    @media (max-width: 940px) {
+      .hero, .brief-grid, .evidence-grid, .review { grid-template-columns: 1fr; }
+      .hero { min-height: 0; align-items: start; }
+      .verdict { max-width: 480px; }
+      .stats { grid-template-columns: repeat(3, 1fr); }
+      .stat:nth-child(3) { border-right: 0; }
+      .stat:nth-child(n+4) { border-top: 1px solid var(--line); }
+      .mechanism { grid-template-columns: 1fr; gap: 0; }
+      .arrow { height: 48px; transform: rotate(90deg); }
+      .attempt { grid-template-columns: 48px 1fr 84px; }
+      .attempt-note { grid-column: 2 / 4; }
+    }
+    @media (max-width: 620px) {
+      .rail { position: static; width: 100%; height: 58px; flex-direction: row; }
+      .case-no { width: 58px; padding: 13px 0; }
+      .rail nav { margin: 0 12px; display: flex; gap: 6px; }
+      .rail a { width: 36px; height: 36px; }
+      .rail-foot { display: none; }
+      main, footer { margin-left: 0; }
+      .hero { padding-top: 52px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat, .stat:nth-child(3) { border-right: 1px solid var(--line); border-top: 1px solid var(--line); }
+      .stat:nth-child(even) { border-right: 0; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; }
+      .attempt { grid-template-columns: 42px 1fr; gap: 9px; }
+      .attempt-note, .badge { grid-column: 2; justify-self: start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell" id="top">
+    <aside class="rail" aria-label="Section navigation">
+      <div class="case-no">01</div>
+      <nav>
+        <a href="#brief" aria-label="Brief">BR</a>
+        <a href="#mechanism" aria-label="Mechanism">MX</a>
+        <a href="#trace" aria-label="Trace">TR</a>
+        <a href="#evidence" aria-label="Evidence">EV</a>
+        <a href="#review" aria-label="Review">RV</a>
+      </nav>
+      <div class="rail-foot">TERMINALBENCH · FORENSIC VIEW</div>
+    </aside>
+
+    <main>
+      <header class="hero">
+        <div>
+          <div class="eyebrow">Terminal DevOps / exploit case study</div>
+          <h1>When the filter and browser <em>disagree.</em></h1>
+          <p class="deck">A malformed-comment parser differential let an automatic <code>alert()</code> survive an HTML sanitizer that removed scripts, dangerous containers, and event attributes.</p>
+        </div>
+        <div class="verdict">
+          <div class="verdict-kicker">Final outcome</div>
+          <strong>Bypass found</strong>
+          <p>The direct test function reported: “Alert successfully triggered even after filtering!”</p>
+        </div>
+      </header>
+
+      <div class="stats" aria-label="Case statistics">
+        <div class="stat"><b>223.1s</b><span>Run duration</span></div>
+        <div class="stat"><b>121</b><span>Trajectory steps</span></div>
+        <div class="stat"><b>58</b><span>Tool calls</span></div>
+        <div class="stat"><b>30</b><span>Candidate writes</span></div>
+        <div class="stat"><b>2×</b><span>Explicit success</span></div>
+      </div>
+
+      <section class="section" id="brief">
+        <div class="section-head">
+          <div class="section-no">01 / BRIEF</div>
+          <div><h2>Make the browser execute what the sanitizer cannot see.</h2><p class="lede">The target was a single <code>/app/out.html</code>, modified in-place by the filter, with zero user interaction allowed.</p></div>
+        </div>
+        <div class="brief-grid">
+          <article class="card">
+            <h3>Acceptance criteria</h3>
+            <p>The task asks for a surviving JavaScript alert after processing—not merely suspicious text that remains in the output.</p>
+            <ul class="task-list">
+              <li><span>✓</span><div>Create <code>/app/out.html</code></div></li>
+              <li><span>✓</span><div>Survive the in-place filter pass</div></li>
+              <li><span>✓</span><div>Trigger automatically in a browser</div></li>
+              <li><span>✓</span><div>Verify with the supplied browser test</div></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Observed filter model</h3>
+            <div class="filter-stack">
+              <div class="filter-rule"><code>&lt;script&gt;</code><span>elements removed</span></div>
+              <div class="filter-rule"><code>frame · iframe</code><span>containers removed</span></div>
+              <div class="filter-rule"><code>object · embed</code><span>containers removed</span></div>
+              <div class="filter-rule"><code>on*</code><span>attributes removed from parsed tags</span></div>
+            </div>
+            <p style="margin:18px 0 0;color:var(--muted);font-size:12px">Crucial scope gap: comment nodes were preserved and were not inspected as tags.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="mechanism">
+        <div class="section-head">
+          <div class="section-no">02 / MECHANISM</div>
+          <div><h2>One byte sequence, two parse trees.</h2><p class="lede">The exploit lives in the handoff between BeautifulSoup’s model and Chromium’s HTML tokenizer.</p></div>
+        </div>
+        <div class="codebox" aria-label="Winning HTML payload">
+          <div class="codebar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">/app/out.html · decisive line</span></div>
+          <pre><code><span class="tok-comment">&lt;!--&gt;</span><span class="tok-tag">&lt;img</span> <span class="tok-attr">src</span>=<span class="tok-string">x</span> <span class="tok-attr">onerror</span>=<span class="tok-string">"alert('XSS Bypass!')"</span><span class="tok-tag">&gt;</span><span class="tok-comment">--&gt;</span></code></pre>
+        </div>
+        <div style="height:42px"></div>
+        <div class="mechanism">
+          <article class="phase">
+            <div class="phase-num">PHASE 01</div>
+            <h3>Sanitizer parses</h3>
+            <p>The malformed sequence is represented as comment content, so the nested-looking <code>img</code> is not visited by the tag loop.</p>
+            <span class="mini-code">comment("&gt;&lt;img … onerror=…&gt;")</span>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="phase">
+            <div class="phase-num">PHASE 02</div>
+            <h3>Serializer preserves</h3>
+            <p>The dangerous-looking text survives intact because comment nodes fall outside the filter’s removal rules.</p>
+            <span class="mini-code">&lt;!--&gt;&lt;img …&gt;--&gt;</span>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="phase">
+            <div class="phase-num">PHASE 03</div>
+            <h3>Browser reparses</h3>
+            <p>Chromium recovers the malformed comment differently, exposes the image, fails <code>src=x</code>, and fires <code>onerror</code>.</p>
+            <span class="mini-code">IMG → error → alert()</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="trace">
+        <div class="section-head">
+          <div class="section-no">03 / TRACE</div>
+          <div><h2>The path was noisy; the final pivot was sharp.</h2><p class="lede">Filter candidates by result. “Survived serialization” is intentionally separate from “executed in browser.”</p></div>
+        </div>
+        <div class="trace-tools" role="group" aria-label="Filter attempts">
+          <span style="color:var(--muted);font-size:11px">SHOW</span>
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="fail">Blocked / inert</button>
+          <button class="filter-btn" data-filter="survive">Survived only</button>
+          <button class="filter-btn" data-filter="pass">Executed</button>
+        </div>
+        <div class="attempts">
+          <article class="attempt" data-result="fail"><div class="attempt-id">STEP 09</div><div class="attempt-name">SVG <code>onload</code></div><div class="attempt-note">The filter removed the event attribute.</div><span class="badge fail">blocked</span></article>
+          <article class="attempt" data-result="survive"><div class="attempt-id">STEP 17</div><div class="attempt-name">Meta refresh</div><div class="attempt-note"><code>javascript:</code> survived output, but the browser test found no alert.</div><span class="badge survive">inert</span></article>
+          <article class="attempt" data-result="fail"><div class="attempt-id">33–79</div><div class="attempt-name">Broad vector sweep</div><div class="attempt-note">SVG script, title, form, base, autofocus links, CSS URLs, iframe/object, mixed case and animation ideas.</div><span class="badge fail">no execution</span></article>
+          <article class="attempt" data-result="survive"><div class="attempt-id">STEP 85</div><div class="attempt-name"><code>ev:onload</code></div><div class="attempt-note">The namespace prefix bypassed the string check; Chromium did not treat it as an event.</div><span class="badge survive">inert</span></article>
+          <article class="attempt" data-result="fail"><div class="attempt-id">93–103</div><div class="attempt-name">Attribute confusion</div><div class="attempt-note">Plain <code>onload</code>, newline-in-value, and a right-to-left override did not bridge both parsers.</div><span class="badge fail">no execution</span></article>
+          <article class="attempt" data-result="survive"><div class="attempt-id">STEP 105</div><div class="attempt-name">Malformed comment v1</div><div class="attempt-note">The payload survived filtering, but the closing form was still under refinement.</div><span class="badge survive">promising</span></article>
+          <article class="attempt" data-result="pass"><div class="attempt-id">STEP 109</div><div class="attempt-name">Malformed comment v2</div><div class="attempt-note">Changing the tail to <code>--&gt;</code> produced an automatic alert in the supplied browser test.</div><span class="badge pass">executed</span></article>
+        </div>
+      </section>
+
+      <section class="section" id="evidence">
+        <div class="section-head">
+          <div class="section-no">04 / EVIDENCE</div>
+          <div><h2>The browser, not the serializer, is the judge.</h2><p class="lede">The strongest evidence is the direct test invocation at trajectory steps 113 and 119.</p></div>
+        </div>
+        <div class="evidence-grid">
+          <div class="terminal" aria-label="Terminal verification output">
+            <div class="terminal-title">verification transcript</div>
+            <div class="terminal-body"><span class="prompt">$</span> python -c "from test_outputs import<br>&nbsp;&nbsp;test_out_html_bypasses_filter; test_out_html_bypasses_filter()"<br><br><span class="success">✓ Alert successfully triggered even after filtering!</span><br><span class="success">&nbsp; Text: 'XSS Bypass!'</span></div>
+          </div>
+          <div class="evidence-note">
+            <div class="callout"><strong>Repeated confirmation</strong><p>The same explicit success message appears twice, after the candidate file was read back and after a final full-test run.</p></div>
+            <div class="callout warning"><strong>Silent output ≠ proof</strong><p>Earlier, the agent initially treated silent test runs as possible success. The direct function call later exposed the meta-refresh failure. This is a useful reliability lesson.</p></div>
+            <div class="callout"><strong>Sanitized output checked</strong><p>The winning malformed-comment line was printed after <code>filter.py</code> processed a copy, showing that it remained intact.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="review">
+        <div class="section-head">
+          <div class="section-no">05 / REVIEW</div>
+          <div><h2>Successful result, inefficient search.</h2><p class="lede">The trajectory ultimately solved the benchmark, while also revealing opportunities for tighter experimental discipline.</p></div>
+        </div>
+        <div class="review">
+          <article class="card">
+            <span class="grade">✓</span>
+            <h3>What worked</h3>
+            <ul>
+              <li>The agent manually inspected sanitized output instead of relying only on candidate construction.</li>
+              <li>It distinguished a filter bypass from a browser-execution bypass once direct assertions were visible.</li>
+              <li>The final strategy targeted a parser differential—the right abstraction for sanitizer bugs.</li>
+              <li>The final artifact was minimal and satisfied the no-interaction requirement.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>What could improve</h3>
+            <ul>
+              <li>Many candidates were knowingly non-automatic or unsupported in modern Chromium and could have been pruned earlier.</li>
+              <li>The run mutated <code>/tests</code> to repair the harness. That may be practical, but it is an environmental side effect worth surfacing.</li>
+              <li>Thirty writes created a long, meandering search path; a parser-differential hypothesis matrix would be more efficient.</li>
+              <li>The explanation “<code>&lt;!--&gt;</code> closes the comment early” is an oversimplification; the reliable claim is that the two parsers recover malformed comment syntax differently.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Case metadata</h3>
+            <table class="meta-table">
+              <tr><th>Case ID</th><td>01_break-filter-js-from-html</td></tr>
+              <tr><th>Benchmark</th><td>TerminalBench</td></tr>
+              <tr><th>Model</th><td>claude-haiku-4-5-20251001@anthropic</td></tr>
+              <tr><th>Trajectory</th><td>terminalbench-json</td></tr>
+              <tr><th>Duration</th><td>223.1009979248047 seconds</td></tr>
+            </table>
+          </article>
+          <article class="card">
+            <h3>Source boundary</h3>
+            <table class="meta-table">
+              <tr><th>Files provided</th><td>case_meta.json, trajectory.json, task/task_statement.md</td></tr>
+              <tr><th>Large references</th><td>None</td></tr>
+              <tr><th>Media refs</th><td>None listed</td></tr>
+              <tr><th>Reward field</th><td>Stripped from the exported trajectory</td></tr>
+              <tr><th>SHA-256</th><td style="overflow-wrap:anywhere">4a7878effde1f760301d93f569e017127708013e7fa1efb1a7d4bf14afd1c678</td></tr>
+            </table>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <span>Self-contained case presentation · no external assets</span>
+    <button class="top-btn" type="button" id="toTop">Return to top ↑</button>
+  </footer>
+
+  <script>
+    const buttons = [...document.querySelectorAll('.filter-btn')];
+    const attempts = [...document.querySelectorAll('.attempt')];
+    buttons.forEach(button => button.addEventListener('click', () => {
+      buttons.forEach(item => item.classList.toggle('active', item === button));
+      attempts.forEach(item => {
+        item.hidden = button.dataset.filter !== 'all' && item.dataset.result !== button.dataset.filter;
+      });
+    }));
+
+    const navLinks = [...document.querySelectorAll('.rail nav a')];
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => observer.observe(section));
+    document.getElementById('toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

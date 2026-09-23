@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClawBench Case 01_001: Food Delivery</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1e2428;
+      --muted: #68737d;
+      --line: #d9e0e5;
+      --soft: #f6f8f9;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --accent-2: #b45309;
+      --bad: #b42318;
+      --ok: #287447;
+      --warn-bg: #fff7ed;
+      --bad-bg: #fff1f2;
+      --ok-bg: #eefbf3;
+      --code: #eef2f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef2f3;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    header {
+      background: #14313a;
+      color: #fff;
+      padding: 34px 28px 30px;
+      border-bottom: 6px solid var(--accent);
+    }
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; }
+    h1 { font-size: clamp(1.75rem, 3vw, 2.65rem); letter-spacing: 0; }
+    h2 { font-size: 1.25rem; margin-bottom: 14px; }
+    h3 { font-size: 1rem; margin-bottom: 8px; }
+    p { margin: 0 0 12px; }
+    code {
+      background: var(--code);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .subtitle {
+      max-width: 850px;
+      margin-top: 12px;
+      color: #d7e6e9;
+      font-size: 1.03rem;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .meta-card, section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(22, 34, 41, 0.06);
+    }
+    .meta-card {
+      padding: 14px;
+      color: var(--ink);
+      background: #fafdff;
+    }
+    .label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .value { font-weight: 700; }
+    section {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+    }
+    .status.fail { color: var(--bad); background: var(--bad-bg); border-color: #fecdd3; }
+    .status.warn { color: var(--accent-2); background: var(--warn-bg); border-color: #fed7aa; }
+    .status.ok { color: var(--ok); background: var(--ok-bg); border-color: #bbf7d0; }
+    .big-outcome {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .outcome-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--bad-bg);
+      color: var(--bad);
+      font-size: 1.55rem;
+      font-weight: 800;
+      border: 1px solid #fecdd3;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .fact {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+    .fact strong { display: block; margin-bottom: 4px; }
+    .timeline {
+      position: relative;
+      margin: 6px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .event {
+      display: grid;
+      grid-template-columns: 136px 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .event:first-child { border-top: 0; }
+    .time {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+    .event-title { font-weight: 700; margin-bottom: 4px; }
+    .event p { color: #39434b; margin-bottom: 0; }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: #314047;
+      font-size: 0.86rem;
+    }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      min-width: 680px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f6;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #52616b;
+    }
+    tr:last-child td { border-bottom: 0; }
+    .note {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 8px 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button[aria-pressed="true"] {
+      background: #dff5f1;
+      border-color: #79c8bd;
+      color: #075e57;
+    }
+    .hidden { display: none; }
+    footer {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 2px 24px 30px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 850px) {
+      header { padding: 28px 18px 24px; }
+      main { padding: 18px; }
+      .meta-grid, .grid, .facts { grid-template-columns: 1fr; }
+      .event { grid-template-columns: 1fr; gap: 5px; }
+      .time { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daily Web Task Case: Food Delivery</h1>
+    <p class="subtitle">A ClawBench trajectory for ordering one Pad Thai and one Thai Iced Tea for delivery, with the note “no peanuts.” The run did not complete checkout.</p>
+    <div class="meta-grid" aria-label="Case metadata">
+      <div class="meta-card"><span class="label">Case ID</span><span class="value">01_001-daily-life-food-uber-eats</span></div>
+      <div class="meta-card"><span class="label">Model</span><span class="value">claude-haiku-4-5-20251001</span></div>
+      <div class="meta-card"><span class="label">Benchmark</span><span class="value">ClawBench / daily_web_tasks</span></div>
+      <div class="meta-card"><span class="label">Duration</span><span class="value">1033 seconds</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="big-outcome">
+        <div class="outcome-mark" aria-hidden="true">!</div>
+        <div>
+          <h2>Outcome</h2>
+          <p><span class="status fail">Not completed</span></p>
+          <p>The agent identified the delivery address, attempted DoorDash and Uber Eats, searched Google Maps for nearby Thai restaurants, and selected an “Order online” path for Isaan Der - Thai Kitchen &amp; Bar. The browser then timed out before any menu items were added, delivery details were entered, payment was made, or an order was submitted.</p>
+          <div class="pill-row">
+            <span class="pill">Interception result: pass = false</span>
+            <span class="pill">Stop reason: agent_idle</span>
+            <span class="pill">No matching POST request captured</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section>
+        <h2>Assigned Task</h2>
+        <p><strong>Instruction:</strong> Order delivery: one Pad Thai + one Thai Iced Tea, deliver to home address, note “no peanuts”.</p>
+        <div class="facts">
+          <div class="fact"><strong>Requested items</strong>1x Pad Thai; 1x Thai Iced Tea</div>
+          <div class="fact"><strong>Special instruction</strong>No peanuts</div>
+          <div class="fact"><strong>Platform target</strong>Uber Eats was the benchmark platform</div>
+          <div class="fact"><strong>Delivery area used</strong>Home address in Toronto from the provided personal-info file</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Run Evidence</h2>
+        <p>The structured logs show 70 message records and 15 browser action records. The action log ends on a Google “Order online” provider page, and the interceptor reports that the evaluation trigger was never reached.</p>
+        <div class="facts">
+          <div class="fact"><strong>Trajectory format</strong><code>clawbench-dir</code></div>
+          <div class="fact"><strong>Trajectory file</strong><code>data/agent-messages.jsonl</code></div>
+          <div class="fact"><strong>Action log</strong><code>data/actions.jsonl</code></div>
+          <div class="fact"><strong>References</strong>No oversized reference files listed</div>
+        </div>
+      </section>
+    </div>
+
+    <section>
+      <h2>Key Timeline</h2>
+      <ol class="timeline">
+        <li class="event" data-kind="setup">
+          <div class="time">07:11:12</div>
+          <div><div class="event-title">Task received</div><p>The user requested delivery of Pad Thai and Thai Iced Tea with “no peanuts,” and instructed the agent to complete the task through the browser.</p></div>
+        </li>
+        <li class="event" data-kind="setup">
+          <div class="time">07:11:15 - 07:11:18</div>
+          <div><div class="event-title">Personal information lookup</div><p>The agent first tried to read <code>/my-info</code> as a file, received an EISDIR error, listed the directory, then read <code>alex_green_personal_info.json</code> for the delivery address.</p></div>
+        </li>
+        <li class="event" data-kind="site">
+          <div class="time">07:11:24 - 07:11:30</div>
+          <div><div class="event-title">DoorDash attempts</div><p>The agent opened <code>doordash.ca</code>, saw it was not the expected delivery site, then opened <code>doordash.com</code>. The page initially presented a verification step.</p></div>
+        </li>
+        <li class="event" data-kind="site">
+          <div class="time">07:11:48 - 07:11:53</div>
+          <div><div class="event-title">Uber Eats attempt</div><p>The agent navigated to <code>ubereats.com</code>, took a screenshot, and inspected the page snapshot, but did not proceed to restaurant selection or checkout there.</p></div>
+        </li>
+        <li class="event" data-kind="search">
+          <div class="time">07:11:54 - 07:12:14</div>
+          <div><div class="event-title">Google Maps search</div><p>The agent opened Google Maps, searched for <code>Thai restaurant 664 Spadina Ave Toronto</code>, and landed on local Thai restaurant results near the delivery area.</p></div>
+        </li>
+        <li class="event" data-kind="search">
+          <div class="time">07:12:19 - 07:12:39</div>
+          <div><div class="event-title">Restaurant selected</div><p>The agent chose the “Order online” path for Isaan Der - Thai Kitchen &amp; Bar at 327 Spadina Ave and loaded a Google provider-selection page titled “Order online.”</p></div>
+        </li>
+        <li class="event" data-kind="failure">
+          <div class="time">07:13:01</div>
+          <div><div class="event-title">Browser failure</div><p>A browser screenshot call timed out with an instruction to restart the OpenClaw gateway and not retry the browser tool.</p></div>
+        </li>
+        <li class="event" data-kind="failure">
+          <div class="time">07:13:04 - 07:13:09</div>
+          <div><div class="event-title">Fallback failed; agent stopped</div><p>The agent attempted web search for direct ordering, but the Brave API key was missing. It then reported technical limitations and suggested next steps instead of completing the order.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Browser Actions</h2>
+      <div class="controls" aria-label="Timeline filters">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="site" aria-pressed="false">Delivery sites</button>
+        <button type="button" data-filter="search" aria-pressed="false">Search</button>
+        <button type="button" data-filter="failure" aria-pressed="false">Failures</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Action</th>
+              <th>Target / Result</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-kind="site"><td>1</td><td>Page load</td><td><code>https://www.doordash.ca/</code></td><td>Title recorded as “Door Dash Geeks - Tech Support Right at Your Door,” not the intended food-delivery flow.</td></tr>
+            <tr data-kind="site"><td>2</td><td>Page load</td><td><code>https://www.doordash.com/</code></td><td>Initial title “Just a moment...”; later title “DoorDash: Food, Grocery and Retail - Fast Same Day Delivery.”</td></tr>
+            <tr data-kind="site"><td>3</td><td>Page load</td><td><code>https://www.ubereats.com/</code></td><td>Uber Eats opened, but no successful ordering flow is recorded afterward.</td></tr>
+            <tr data-kind="search"><td>4</td><td>Page load</td><td><code>https://www.google.com/maps</code></td><td>Google Maps became the alternative path for finding nearby Thai restaurants.</td></tr>
+            <tr data-kind="search"><td>5</td><td>Input and search</td><td><code>Thai restaurant 664 Spadina Ave Toronto</code></td><td>Input, keydown, change, and Enter events are recorded in the action log.</td></tr>
+            <tr data-kind="search"><td>6</td><td>Click</td><td>“Order online” in Maps results</td><td>The target text includes “Order online”; the agent associated it with Isaan Der - Thai Kitchen &amp; Bar.</td></tr>
+            <tr data-kind="failure"><td>7</td><td>Page load</td><td>Google provider chooser</td><td>Title recorded as “Order online,” but checkout never progressed.</td></tr>
+            <tr data-kind="failure"><td>8</td><td>Tool error</td><td>Browser screenshot timed out</td><td>The tool returned an OpenClaw gateway timeout and told the agent not to retry browser actions.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Failure Analysis</h2>
+      <p><span class="status warn">Primary blocker: browser availability</span></p>
+      <p>The agent made progress toward restaurant discovery but never completed the core transactional steps. The decisive failure was a browser timeout while the Google “Order online” page was loading. Afterward, the attempted web-search fallback also failed because no Brave Search API key was configured.</p>
+      <div class="facts">
+        <div class="fact"><strong>What worked</strong>Address lookup, browser startup, site navigation, Google Maps search, and restaurant discovery.</div>
+        <div class="fact"><strong>What did not happen</strong>No cart creation, no item selection, no special-instruction entry, no payment, and no order submission.</div>
+        <div class="fact"><strong>Evaluation result</strong><code>pass: false</code>; session idled for 900 seconds before the eval interceptor was triggered.</div>
+        <div class="fact"><strong>Notable mismatch</strong>The benchmark platform is Uber Eats, but the agent pivoted to DoorDash and Google Maps rather than completing an Uber Eats flow.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data Handling Notes</h2>
+      <p class="note">The trajectory contains personal-info lookup details used by the agent. This presentation includes only task-relevant delivery context and avoids reproducing unrelated personal, financial, government ID, medical, or credential data. Browser media paths in the trajectory point outside the case directory, so no screenshots were embedded.</p>
+    </section>
+  </main>
+
+  <footer>
+    Generated as a single self-contained HTML file with inline CSS and JavaScript. Source files used from this case: <code>case_meta.json</code>, <code>task/task_statement.md</code>, <code>data/agent-messages.jsonl</code>, <code>data/actions.jsonl</code>, <code>data/interception.json</code>, <code>run_meta.json</code>, and <code>data/.token_counts.json</code>.
+  </footer>
+
+  <script>
+    (function () {
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('button[data-filter]'));
+      var rows = Array.prototype.slice.call(document.querySelectorAll('tbody tr[data-kind]'));
+      var events = Array.prototype.slice.call(document.querySelectorAll('.event[data-kind]'));
+
+      function applyFilter(kind) {
+        buttons.forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.getAttribute('data-filter') === kind));
+        });
+        rows.forEach(function (row) {
+          row.classList.toggle('hidden', kind !== 'all' && row.getAttribute('data-kind') !== kind);
+        });
+        events.forEach(function (event) {
+          var eventKind = event.getAttribute('data-kind');
+          var show = kind === 'all' || eventKind === kind || (kind === 'site' && eventKind === 'setup');
+          event.classList.toggle('hidden', !show);
+        });
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          applyFilter(button.getAttribute('data-filter'));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

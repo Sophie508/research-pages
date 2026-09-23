@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Dossier · {=meta_id} · tau-bench Retail</title>
+<style>
+  :root {
+    --ink: #1a1714;
+    --paper: #f5f0e6;
+    --paper-2: #ebe3d2;
+    --rule: #c9bfa8;
+    --accent: #c8402a;
+    --accent-2: #2d5a4f;
+    --gold: #b8860b;
+    --muted: #7a6f5a;
+    --danger: #b5301e;
+    --ok: #3a6b4a;
+    --warn: #b8860b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(200,64,42,0.04) 0, transparent 38%),
+      radial-gradient(circle at 82% 88%, rgba(45,90,79,0.05) 0, transparent 40%);
+    background-attachment: fixed;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    z-index: 0;
+    mix-blend-mode: multiply;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---- Masthead ---- */
+  header.masthead {
+    border-bottom: 3px double var(--rule);
+    padding: 28px 0 18px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+  }
+  .kicker {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: "Georgia", serif;
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .masthead-meta {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+  .masthead-meta b { color: var(--ink); }
+
+  /* ---- Byline / status ---- */
+  .byline {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .byline .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--danger); display:inline-block; }
+  .byline .tag {
+    border: 1px solid var(--rule); padding: 3px 9px; border-radius: 2px;
+    background: var(--paper-2);
+  }
+  .byline .tag.err { border-color: var(--danger); color: var(--danger); background: rgba(181,48,30,0.06); }
+
+  /* ---- Lede ---- */
+  .lede {
+    font-size: 21px;
+    line-height: 1.5;
+    font-style: italic;
+    color: #3a3228;
+    padding: 30px 0 28px;
+    border-bottom: 1px solid var(--rule);
+    max-width: 880px;
+  }
+  .lede::first-letter {
+    font-family: "Georgia", serif;
+    font-size: 62px;
+    float: left;
+    line-height: 0.85;
+    padding: 6px 10px 0 0;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ---- Section ---- */
+  section { padding: 40px 0; border-bottom: 1px solid var(--rule); }
+  .sec-head {
+    display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px;
+  }
+  .sec-num {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  h2 em { font-style: italic; color: var(--accent-2); font-weight: 400; }
+
+  /* ---- Stat band ---- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 24px; }
+  .stat { background: var(--paper); padding: 18px 16px; }
+  .stat .lab { font-family: "Courier New", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .stat .val { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .stat .val small { font-size: 14px; color: var(--muted); font-weight: 400; }
+  .stat.red .val { color: var(--danger); }
+  .stat.green .val { color: var(--ok); }
+  .stat.gold .val { color: var(--gold); }
+
+  /* ---- Order card ---- */
+  .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card {
+    border: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+    padding: 22px 24px;
+    box-shadow: 0 1px 0 rgba(26,23,20,0.04);
+  }
+  .card h3 { font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; font-family: "Courier New", monospace; color: var(--accent-2); margin-bottom: 14px; }
+  .card .oid { font-size: 22px; font-weight: 700; }
+  .card .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dotted var(--rule); font-size: 14px; }
+  .card .row:last-child { border-bottom: none; }
+  .card .row span:last-child { font-family: "Courier New", monospace; }
+  .badge { font-family: "Courier New", monospace; font-size: 11px; padding: 2px 8px; border-radius: 2px; letter-spacing: 0.08em; }
+  .badge.delivered { background: rgba(58,107,74,0.12); color: var(--ok); border: 1px solid var(--ok); }
+  .badge.pending { background: rgba(184,134,11,0.12); color: var(--gold); border: 1px solid var(--gold); }
+  .badge.returned { background: rgba(181,48,30,0.1); color: var(--danger); border: 1px solid var(--danger); }
+
+  /* ---- Items table ---- */
+  .items { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; }
+  .items th { font-family: "Courier New", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--rule); }
+  .items td { padding: 9px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .items tr.return td { background: rgba(181,48,30,0.05); }
+  .items tr.exchange td { background: rgba(45,90,79,0.05); }
+  .items .price { font-family: "Courier New", monospace; text-align: right; white-space: nowrap; }
+  .mini-tag { font-family: "Courier New", monospace; font-size: 9px; padding: 1px 5px; border-radius: 2px; letter-spacing: 0.06em; margin-left: 6px; vertical-align: middle; }
+  .mini-tag.ret { background: var(--danger); color: #fff; }
+  .mini-tag.exc { background: var(--accent-2); color: #fff; }
+
+  /* ---- Exchange plan ---- */
+  .plan { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .exchange-box {
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 20px 22px;
+    position: relative;
+  }
+  .exchange-box h4 { font-size: 17px; margin-bottom: 4px; }
+  .exchange-box .sub { font-family: "Courier New", monospace; font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .ex-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px dotted var(--rule); }
+  .ex-row:last-child { border-bottom: none; }
+  .ex-item { font-size: 13px; }
+  .ex-item .opt { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; font-family: "Courier New", monospace; }
+  .ex-item.old { text-align: right; }
+  .ex-item.old .name { text-decoration: line-through; color: var(--muted); }
+  .arrow { font-size: 22px; color: var(--accent); }
+  .ex-item.new .name { color: var(--accent-2); font-weight: 700; }
+  .ex-save { margin-top: 14px; font-family: "Courier New", monospace; font-size: 12px; color: var(--ok); text-align: right; }
+
+  /* ---- Timeline ---- */
+  .timeline { position: relative; margin-left: 8px; }
+  .timeline::before { content: ""; position: absolute; left: 22px; top: 0; bottom: 0; width: 2px; background: var(--rule); }
+  .turn { position: relative; margin-bottom: 18px; padding-left: 58px; }
+  .turn .marker {
+    position: absolute; left: 14px; top: 2px; width: 18px; height: 18px;
+    border-radius: 50%; background: var(--paper); border: 2px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Courier New", monospace; font-size: 9px; font-weight: 700; color: var(--muted);
+  }
+  .turn.user .marker { border-color: var(--accent-2); background: var(--accent-2); color: #fff; }
+  .turn.assistant .marker { border-color: var(--accent); background: var(--accent); color: #fff; }
+  .turn.tool_call .marker { border-color: var(--gold); background: var(--gold); color: #fff; }
+  .turn.tool_result .marker { border-color: var(--muted); background: var(--paper-2); color: var(--muted); }
+  .turn.stop .marker { border-color: var(--danger); background: var(--danger); color: #fff; }
+  .turn .label { font-family: "Courier New", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .turn .label .fn { color: var(--gold); font-weight: 700; }
+  .turn .label .name { color: var(--accent-2); font-weight: 700; }
+  .turn .label .err { color: var(--danger); font-weight: 700; }
+  .bubble { font-size: 14px; line-height: 1.5; padding: 12px 16px; border-radius: 4px; background: var(--paper-2); border: 1px solid var(--rule); }
+  .turn.user .bubble { background: rgba(45,90,79,0.06); border-color: var(--accent-2); }
+  .turn.assistant .bubble { background: rgba(200,64,42,0.05); border-color: var(--accent); }
+  .turn.tool_call .bubble { background: rgba(184,134,11,0.06); border-color: var(--gold); font-family: "Courier New", monospace; font-size: 12px; }
+  .turn.tool_call .bubble .preamble { font-family: Georgia, serif; font-size: 13px; color: var(--ink); margin-bottom: 6px; }
+  .turn.tool_result .bubble { font-family: "Courier New", monospace; font-size: 11px; background: var(--paper); max-height: 200px; overflow: auto; white-space: pre-wrap; }
+  .turn.tool_result .bubble.error { border-color: var(--danger); background: rgba(181,48,30,0.06); color: var(--danger); font-weight: 700; }
+  .turn.tool_result .bubble.collapsible .toggle { cursor: pointer; user-select: none; }
+  .args { display: block; }
+  .args .k { color: var(--accent-2); }
+  .args .v { color: var(--ink); }
+  .turn.tool_result .summary { font-family: Georgia, serif; font-size: 13px; color: var(--ink); margin-bottom: 6px; font-weight: 700; }
+  .turn.tool_result .summary.ok { color: var(--ok); }
+  .turn.tool_result .summary.bad { color: var(--danger); }
+
+  /* ---- Root cause diagram ---- */
+  .diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); margin-top: 8px; }
+  .diagram .col { padding: 24px; }
+  .diagram .col.left { border-right: 1px solid var(--rule); background: rgba(45,90,79,0.04); }
+  .diagram .col.right { background: rgba(181,48,30,0.04); }
+  .diagram .col h4 { font-size: 14px; font-family: "Courier New", monospace; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+  .diagram .col.left h4 { color: var(--accent-2); }
+  .diagram .col.right h4 { color: var(--danger); }
+  .step-list { list-style: none; counter-reset: s; }
+  .step-list li { position: relative; padding: 10px 0 10px 34px; border-bottom: 1px dotted var(--rule); font-size: 13px; counter-increment: s; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li::before { content: counter(s); position: absolute; left: 0; top: 9px; width: 22px; height: 22px; border-radius: 50%; background: var(--paper); border: 1px solid currentColor; display: flex; align-items: center; justify-content: center; font-family: "Courier New", monospace; font-size: 10px; font-weight: 700; }
+  .diagram .col.left .step-list li::before { color: var(--accent-2); }
+  .diagram .col.right .step-list li::before { color: var(--danger); }
+  .diagram .col.right .step-list li.blocked { font-weight: 700; }
+  .diagram .col.right .step-list li.blocked::after { content: " ✕"; color: var(--danger); font-weight: 700; }
+  .callout {
+    margin-top: 18px; padding: 14px 18px; border-left: 3px solid var(--danger);
+    background: rgba(181,48,30,0.05); font-size: 14px; font-style: italic;
+  }
+  .callout b { font-style: normal; color: var(--danger); }
+
+  /* ---- Variant tables ---- */
+  .variants-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .vtable { font-size: 12px; }
+  .vtable h4 { font-size: 15px; margin-bottom: 4px; }
+  .vtable .vsub { font-family: "Courier New", monospace; font-size: 10px; color: var(--muted); margin-bottom: 12px; }
+  table.vt { width: 100%; border-collapse: collapse; }
+  table.vt th { font-family: "Courier New", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); }
+  table.vt td { padding: 6px 8px; border-bottom: 1px dotted var(--rule); font-size: 12px; }
+  table.vt tr.cur { background: rgba(184,134,11,0.08); }
+  table.vt tr.tgt { background: rgba(58,107,74,0.08); }
+  table.vt tr.unavail td { color: var(--muted); }
+  table.vt tr.unavail td:first-child { text-decoration: line-through; }
+  .pill { font-family: "Courier New", monospace; font-size: 9px; padding: 1px 5px; border-radius: 2px; }
+  .pill.cur { background: var(--gold); color: #fff; }
+  .pill.tgt { background: var(--ok); color: #fff; }
+  .pill.no { background: var(--rule); color: var(--muted); }
+
+  /* ---- Footer ---- */
+  footer { padding: 30px 0 60px; font-family: "Courier New", monospace; font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+  footer .rule { display: inline-block; width: 60px; border-top: 1px solid var(--rule); margin: 0 10px; vertical-align: middle; }
+
+  /* ---- Animate ---- */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .turn, .stat, .card, .exchange-box { animation: fadeUp 0.5s ease both; }
+  section .sec-head { animation: fadeUp 0.4s ease both; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+
+  @media (max-width: 860px) {
+    .order-grid, .plan, .diagram, .variants-wrap { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 32px; }
+    .lede { font-size: 18px; }
+    header.masthead { grid-template-columns: 1fr; }
+    .masthead-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <div class="kicker">Case Dossier · tau-bench · Retail Agent</div>
+    <h1>The Return That <em>Ate</em> the Exchange</h1>
+  </div>
+  <div class="masthead-meta">
+    <b>Case</b> 01_sonnet-35-new-retail_249<br>
+    <b>Model</b> sonnet-35-new &nbsp;·&nbsp; <b>Trial</b> 2 &nbsp;·&nbsp; <b>Task</b> #19<br>
+    <b>Domain</b> tool_use_customer_service
+  </div>
+</header>
+
+<div class="byline">
+  <span class="dot"></span>
+  <span class="tag err">OUTCOME · PARTIAL FAILURE</span>
+  <span class="tag">RETURN SUCCEEDED</span>
+  <span class="tag err">EXCHANGE BLOCKED</span>
+  <span style="margin-left:auto">Customer: Mei Davis · Denver, CO 80217 · Mastercard •1037</span>
+</div>
+
+<div class="lede">
+  A weary customer asked to return a water bottle and swap her pet bed and office chair for cheaper variants on the same delivered order. The agent promised all three, then processed the return first — flipping the order to "return requested" and quietly slamming the door on the exchange it had just guaranteed.
+</div>
+
+<!-- ===== STATS ===== -->
+<section style="padding-top:30px;">
+<div class="stats">
+  <div class="stat gold"><div class="lab">Bottle refund</div><div class="val">$54.04</div></div>
+  <div class="stat green"><div class="lab">Intended exchange savings</div><div class="val">$41.64</div></div>
+  <div class="stat red"><div class="lab">Exchange realized</div><div class="val">$0<small> / $41.64</small></div></div>
+  <div class="stat"><div class="lab">Promised total</div><div class="val">$95.68</div></div>
+</div>
+</section>
+
+<!-- ===== ORDERS ===== -->
+<section>
+<div class="sec-head"><span class="sec-num">01</span><h2>The <em>Orders</em></h2></div>
+<div class="order-grid">
+  <div class="card">
+    <h3>Order in play <span class="badge delivered">delivered</span></h3>
+    <div class="oid">#W2890441</div>
+    <table class="items">
+      <thead><tr><th>Item</th><th>Options</th><th class="price">Price</th></tr></thead>
+      <tbody>
+        <tr class="return"><td>Water Bottle<span class="mini-tag ret">RETURN</span></td><td>1000ml, stainless steel, blue</td><td class="price">$54.04</td></tr>
+        <tr class="exchange"><td>Pet Bed<span class="mini-tag exc">EXCHANGE</span></td><td>large, memory foam, grey</td><td class="price">$195.11</td></tr>
+        <tr class="exchange"><td>Office Chair<span class="mini-tag exc">EXCHANGE</span></td><td>leather, blue, no armrest, high-back</td><td class="price">$499.28</td></tr>
+        <tr><td>Skateboard</td><td>plastic, 31 inch, plain</td><td class="price">$182.03</td></tr>
+      </tbody>
+    </table>
+    <div class="row" style="margin-top:12px;"><span>Order total</span><span>$930.46</span></div>
+    <div class="row"><span>Tracking</span><span>642796688644</span></div>
+  </div>
+  <div class="card">
+    <h3>Other order <span class="badge pending">pending</span></h3>
+    <div class="oid">#W1267569</div>
+    <table class="items">
+      <thead><tr><th>Item</th><th>Options</th><th class="price">Price</th></tr></thead>
+      <tbody>
+        <tr><td>Gaming Mouse</td><td>white, laser, wireless</td><td class="price">$138.47</td></tr>
+        <tr><td>Headphones</td><td>over-ear, wireless, black</td><td class="price">$346.97</td></tr>
+        <tr><td>Air Purifier</td><td>medium, HEPA, night mode</td><td class="price">$492.65</td></tr>
+        <tr><td>Smart Thermostat</td><td>Alexa, stainless steel</td><td class="price">$247.00</td></tr>
+        <tr><td>Wireless Earbuds</td><td>black, 6h, IPX7</td><td class="price">$267.90</td></tr>
+      </tbody>
+    </table>
+    <div class="row" style="margin-top:12px;"><span>Order total</span><span>$1,492.99</span></div>
+    <div class="row"><span>Fulfillments</span><span>none yet</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== THE PLAN ===== -->
+<section>
+<div class="sec-head"><span class="sec-num">02</span><h2>The <em>Promise</em></h2></div>
+<p style="font-size:15px;max-width:820px;margin-bottom:20px;">After fetching product variants, the agent identified the cheapest available versions and pitched a combined plan worth <b>$95.68</b> — a return plus two exchanges, all on one delivered order.</p>
+<div class="plan">
+  <div class="exchange-box">
+    <h4>Pet Bed</h4>
+    <div class="sub">product 2747247837 · exchange on #W2890441</div>
+    <div class="ex-row">
+      <div class="ex-item old"><span class="name">Large grey memory foam</span><span class="opt">$195.11 · item 2751999929</span></div>
+      <div class="arrow">→</div>
+      <div class="ex-item new"><span class="name">Large beige memory foam</span><span class="opt">$180.93 · item 6942241102</span></div>
+    </div>
+    <div class="ex-save">SAVINGS: $14.18</div>
+  </div>
+  <div class="exchange-box">
+    <h4>Office Chair</h4>
+    <div class="sub">product 4794339885 · exchange on #W2890441</div>
+    <div class="ex-row">
+      <div class="ex-item old"><span class="name">Blue leather, high-back</span><span class="opt">$499.28 · item 8069050545</span></div>
+      <div class="arrow">→</div>
+      <div class="ex-item new"><span class="name">Blue leather, standard</span><span class="opt">$471.82 · item 4168944673</span></div>
+    </div>
+    <div class="ex-save">SAVINGS: $27.46</div>
+  </div>
+</div>
+<div class="callout" style="margin-top:20px;">
+  The agent told the customer: <b>"I'll process both requests"</b> and asked for a single "yes" — without flagging that a return mutates the order status and would invalidate the exchange that follows.
+</div>
+</section>
+
+<!-- ===== ROOT CAUSE ===== -->
+<section>
+<div class="sec-head"><span class="sec-num">03</span><h2>Where It <em>Broke</em></h2></div>
+<div class="diagram">
+  <div class="col left">
+    <h4>What the policy says</h4>
+    <ol class="step-list">
+      <li>A delivered order may be <b>returned</b> — status becomes "return requested".</li>
+      <li>A delivered order may be <b>exchanged</b> — but only while status is "delivered".</li>
+      <li>Exchange & modify tools can be called <b>only once</b>; collect all items first.</li>
+      <li>Returns and exchanges are each one-shot per delivered order.</li>
+    </ol>
+  </div>
+  <div class="col right">
+    <h4>What the agent did</h4>
+    <ol class="step-list">
+      <li>Confirmed a combined return + exchange plan with one "yes".</li>
+      <li>Called <b>return_delivered_order_items</b> for the water bottle first.</li>
+      <li>Order status flipped: delivered → <b>"return requested"</b>.</li>
+      <li class="blocked">Called <b>exchange_delivered_order_items</b> — rejected: "non-delivered order cannot be exchanged"</li>
+      <li>Apologized; told customer to come back <i>after</i> the return completes.</li>
+    </ol>
+  </div>
+</div>
+<div class="callout">
+  <b>Root cause:</b> The agent treated the return and the exchange as independent transactions on a static order. In this domain the order is the state machine — one mutation (return) changes its status, and the next action (exchange) is gated on the prior status. The agent never reconciled the promise against that state transition, so it committed to an impossible sequence.
+</div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section>
+<div class="sec-head"><span class="sec-num">04</span><h2>Full <em>Conversation</em></h2></div>
+<div class="timeline" id="timeline"></div>
+</section>
+
+<!-- ===== VARIANT TABLES ===== -->
+<section>
+<div class="sec-head"><span class="sec-num">05</span><h2>Variant <em>Evidence</em></h2></div>
+<div class="variants-wrap">
+  <div class="vtable">
+    <h4>Pet Bed variants</h4>
+    <div class="vsub">15 variants · sorted by price · cheapest available highlighted</div>
+    <table class="vt">
+      <thead><tr><th></th><th>Item ID</th><th>Options</th><th class="price">Price</th></tr></thead>
+      <tbody id="petRows"></tbody>
+    </table>
+  </div>
+  <div class="vtable">
+    <h4>Office Chair variants</h4>
+    <div class="vsub">variants · sorted by price · cheapest available highlighted</div>
+    <table class="vt">
+      <thead><tr><th></th><th>Item ID</th><th>Options</th><th class="price">Price</th></tr></thead>
+      <tbody id="chairRows"></tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<footer>
+  tau-bench · retail domain · case 01_sonnet-35-new-retail_249
+  <span class="rule"></span>
+  one self-contained dossier · no external resources
+</footer>
+
+</div>
+
+<script>
+var STEPS = [{"i": 1, "role": "user", "text": "Hi... I need to return this water bottle and was hoping to get cheaper versions of some other items I bought."}, {"i": 2, "role": "assistant", "text": "I'll help you with your return request. First, I need to authenticate your identity to access your order information. Could you please provide your email address? Alternatively, I can look up your information using your first name, last name, and zip code.\n\nAfter we verify your identity, I'll need:\n1. The order ID for the water bottle order\n2. The specific items you'd like to return\n3. Your preferred payment method for the refund\n\nPlease note that for delivered orders:\n- Returns and exchanges can only be made once\n- Exchanges must be for the same type of product (e.g., water bottle for water bottle, just different options)\n- The order must be in \"delivered\" status for us to process a return or exchange\n\nCould you please provide your email address so we can get started?"}, {"i": 3, "role": "user", "text": "I'm Mei Davis, zip code 80217. Don't remember my order number... just having a rough day."}, {"i": 4, "role": "tool_call", "fn": "find_user_id_by_name_zip", "args": {"first_name": "Mei", "last_name": "Davis", "zip": "80217"}, "text": "I'll help you look up your information using your name and zip code.\n\n\n\nMei\nDavis\n80217"}, {"i": 5, "role": "tool_result", "name": "find_user_id_by_name_zip", "raw": "mei_davis_8935"}, {"i": 6, "role": "tool_call", "fn": "get_user_details", "args": {"user_id": "mei_davis_8935"}, "text": "mei_davis_8935"}, {"i": 7, "role": "tool_result", "name": "get_user_details", "raw": "{\"name\": {\"first_name\": \"Mei\", \"last_name\": \"Davis\"}, \"address\": {\"address1\": \"698 Maple Drive\", \"address2\": \"Suite 465\", \"city\": \"Denver\", \"country\": \"USA\", \"province\": \"CO\", \"zip\": \"80217\"}, \"email\": \"mei.davis6811@example.com\", \"payment_methods\": {\"credit_card_1061405\": {\"source\": \"credit_card\", \"brand\": \"mastercard\", \"last_four\": \"1037\", \"id\": \"credit_card_1061405\"}}, \"orders\": [\"#W2890441\", \"#W1267569\"]}"}, {"i": 8, "role": "tool_call", "fn": "get_order_details", "args": {"order_id": "#W2890441"}, "text": "Let me check your recent orders.\n\n\n\n#W2890441"}, {"i": 9, "role": "tool_result", "name": "get_order_details", "raw": "{\"order_id\": \"#W2890441\", \"user_id\": \"mei_davis_8935\", \"address\": {\"address1\": \"698 Maple Drive\", \"address2\": \"Suite 465\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": \"80217\"}, \"items\": [{\"name\": \"Water Bottle\", \"product_id\": \"8310926033\", \"item_id\": \"2366567022\", \"price\": 54.04, \"options\": {\"capacity\": \"1000ml\", \"material\": \"stainless steel\", \"color\": \"blue\"}}, {\"name\": \"Pet Bed\", \"product_id\": \"2747247837\", \"item_id\": \"2751999929\", \"price\": 195.11, \"options\": {\"size\": \"large\", \"material\": \"memory foam\", \"color\": \"grey\"}}, {\"name\": \"Office Chair\", \"product_id\": \"4794339885\", \"item_id\": \"8069050545\", \"price\": 499.28, \"options\": {\"material\": \"leather\", \"color\": \"blue\", \"armrest\": \"none\", \"backrest height\": \"high-back\"}}, {\"name\": \"Skateboard\", \"product_id\": \"1968349452\", \"item_id\": \"3877188862\", \"price\": 182.03, \"options\": {\"deck material\": \"plastic\", \"length\": \"31 inch\", \"design\": \"plain\"}}], \"fulfillments\": [{\"tracking_id\": [\"642796688644\"], \"item_ids\": [\"2366567022\", \"2751999929\", \"8069050545\", \"3877188862\"]}], \"status\": \"delivered\", \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 930.46, \"payment_method_id\": \"credit_card_1061405\"}]}"}, {"i": 10, "role": "tool_call", "fn": "get_order_details", "args": {"order_id": "#W1267569"}, "text": "#W1267569"}, {"i": 11, "role": "tool_result", "name": "get_order_details", "raw": "{\"order_id\": \"#W1267569\", \"user_id\": \"mei_davis_8935\", \"address\": {\"address1\": \"698 Maple Drive\", \"address2\": \"Suite 465\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": \"80217\"}, \"items\": [{\"name\": \"Gaming Mouse\", \"product_id\": \"5713490933\", \"item_id\": \"7420906769\", \"price\": 138.47, \"options\": {\"color\": \"white\", \"sensor type\": \"laser\", \"connectivity\": \"wireless\"}}, {\"name\": \"Headphones\", \"product_id\": \"6992792935\", \"item_id\": \"7493556126\", \"price\": 346.97, \"options\": {\"type\": \"over-ear\", \"connectivity\": \"wireless\", \"color\": \"black\"}}, {\"name\": \"Air Purifier\", \"product_id\": \"3821016478\", \"item_id\": \"1327854740\", \"price\": 492.65, \"options\": {\"room size\": \"medium\", \"filter type\": \"HEPA\", \"features\": \"night mode\"}}, {\"name\": \"Smart Thermostat\", \"product_id\": \"4896585277\", \"item_id\": \"6243148452\", \"price\": 247.0, \"options\": {\"compatibility\": \"Amazon Alexa\", \"color\": \"stainless steel\"}}, {\"name\": \"Wireless Earbuds\", \"product_id\": \"9924732112\", \"item_id\": \"5565631513\", \"price\": 267.9, \"options\": {\"color\": \"black\", \"battery life\": \"6 hours\", \"water resistance\": \"IPX7\"}}], \"fulfillments\": [], \"status\": \"pending\", \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 1492.99, \"payment_method_id\": \"credit_card_1061405\"}]}"}, {"i": 12, "role": "assistant", "text": "I can see your orders. You have a delivered order (#W2890441) that includes:\n1. A blue stainless steel Water Bottle (1000ml) - $54.04\n2. A large grey Pet Bed - $195.11\n3. A blue high-back Office Chair (no armrests) - $499.28\n4. A 31-inch plain Skateboard - $182.03\n\nAnd a pending order (#W1267569) with various electronics items.\n\nYou mentioned wanting to return the water bottle and possibly exchange some other items for cheaper versions. Since the order is delivered, we can help you with either:\n1. Return the water bottle for a refund\n2. Exchange items for different versions of the same products (e.g., a different water bottle model, different pet bed, etc.)\n\nWhich would you prefer to do? For the return/exchange, we can process the refund to your Mastercard ending in 1037. Please let me know specifically which items you'd like to handle and how you'd like to proceed."}, {"i": 13, "role": "user", "text": "How much money could I save by getting the cheapest pet bed and office chair? And yes, I want to return that water bottle."}, {"i": 14, "role": "tool_call", "fn": "get_product_details", "args": {"product_id": "2747247837"}, "text": "Let me check the product details to find the cheapest options for the pet bed and office chair.\n\n\n\n2747247837"}, {"i": 15, "role": "tool_result", "name": "get_product_details", "raw": "{\"name\": \"Pet Bed\", \"product_id\": \"2747247837\", \"variants\": {\"3360679910\": {\"item_id\": \"3360679910\", \"options\": {\"size\": \"medium\", \"material\": \"memory foam\", \"color\": \"beige\"}, \"available\": true, \"price\": 195.26}, \"4537595158\": {\"item_id\": \"4537595158\", \"options\": {\"size\": \"small\", \"material\": \"fleece\", \"color\": \"brown\"}, \"available\": false, \"price\": 193.79}, \"6499892866\": {\"item_id\": \"6499892866\", \"options\": {\"size\": \"medium\", \"material\": \"polyester\", \"color\": \"beige\"}, \"available\": true, \"price\": 191.21}, \"4982943126\": {\"item_id\": \"4982943126\", \"options\": {\"size\": \"small\", \"material\": \"fleece\", \"color\": \"beige\"}, \"available\": false, \"price\": 214.33}, \"2751999929\": {\"item_id\": \"2751999929\", \"options\": {\"size\": \"large\", \"material\": \"memory foam\", \"color\": \"grey\"}, \"available\": true, \"price\": 195.11}, \"7729002517\": {\"item_id\": \"7729002517\", \"options\": {\"size\": \"large\", \"material\": \"polyester\", \"color\": \"brown\"}, \"available\": true, \"price\": 193.0}, \"8056198669\": {\"item_id\": \"8056198669\", \"options\": {\"size\": \"small\", \"material\": \"polyester\", \"color\": \"brown\"}, \"available\": true, \"price\": 208.32}, \"5067898160\": {\"item_id\": \"5067898160\", \"options\": {\"size\": \"medium\", \"material\": \"memory foam\", \"color\": \"brown\"}, \"available\": false, \"price\": 209.95}, \"6857426243\": {\"item_id\": \"6857426243\", \"options\": {\"size\": \"medium\", \"material\": \"fleece\", \"color\": \"grey\"}, \"available\": true, \"price\": 196.53}, \"2405281423\": {\"item_id\": \"2405281423\", \"options\": {\"size\": \"medium\", \"material\": \"polyester\", \"color\": \"grey\"}, \"available\": true, \"price\": 204.09}, \"7917269097\": {\"item_id\": \"7917269097\", \"options\": {\"size\": \"large\", \"material\": \"polyester\", \"color\": \"grey\"}, \"available\": true, \"price\": 184.25}, \"6942241102\": {\"item_id\": \"6942241102\", \"options\": {\"size\": \"large\", \"material\": \"memory foam\", \"color\": \"beige\"}, \"available\": true, \"price\": 180.93}, \"8941974610\": {\"item_id\": \"8941974610\", \"options\": {\"size\": \"large\", \"material\": \"fleece\", \"color\": \"beige\"}, \"available\": false, \"price\": 200.66}, \"7381052709\": {\"item_id\": \"7381052709\", \"options\": {\"size\": \"large\", \"material\": \"memory foam\", \"color\": \"brown\"}, \"available\": true, \"price\": 193.22}, \"5109407456\": {\"item_id\": \"5109407456\", \"options\": {\"size\": \"small\", \"material\": \"fleece\", \"color\": \"grey\"}, \"available\": true, \"price\": 182.48}}}"}, {"i": 16, "role": "tool_call", "fn": "get_product_details", "args": {"product_id": "4794339885"}, "text": "4794339885"}, {"i": 17, "role": "tool_result", "name": "get_product_details", "raw": "{\"name\": \"Office Chair\", \"product_id\": \"4794339885\", \"variants\": {\"1793929609\": {\"item_id\": \"1793929609\", \"options\": {\"material\": \"fabric\", \"color\": \"black\", \"armrest\": \"none\", \"backrest height\": \"high-back\"}, \"available\": true, \"price\": 514.34}, \"4274709903\": {\"item_id\": \"4274709903\", \"options\": {\"material\": \"mesh\", \"color\": \"red\", \"armrest\": \"none\", \"backrest height\": \"standard\"}, \"available\": true, \"price\": 544.29}, \"8426249116\": {\"item_id\": \"8426249116\", \"options\": {\"material\": \"fabric\", \"color\": \"black\", \"armrest\": \"fixed\", \"backrest height\": \"standard\"}, \"available\": true, \"price\": 488.81}, \"1071497737\": {\"item_id\": \"1071497737\", \"options\": {\"material\": \"leather\", \"color\": \"gray\", \"armrest\": \"fixed\", \"backrest height\": \"high-back\"}, \"available\": true, \"price\": 483.95}, \"4168944673\": {\"item_id\": \"4168944673\", \"options\": {\"material\": \"leather\", \"color\": \"blue\", \"armrest\": \"none\", \"backrest height\": \"standard\"}, \"available\": true, \"price\": 471.82}, \"3704016729\": {\"item_id\": \"3704016729\", \"options\": {\"material\": \"mesh\", \"color\": \"blue\", \"armrest\": \"fixed\", \"backrest height\": \"standard\"}, \"available\": true, \"price\": 487.67}, \"8069050545\": {\"item_id\": \"8069050545\", \"options\": {\"material\": \"leather\", \"color\": \"blue\", \"armrest\": \"none\", \"backrest height\": \"high-back\"}, \"available\": true, \"price\": 499.28}, \"8323284863\": {\"item_id\": \"8323284863\", \"options\": {\"material\": \"fabric\", \"color\": \"blue\", \"armrest\": \"adjustable\", \"backrest height\": \"standard\"}, \"available\": true, \"price\": 511.24}, \"3609437808\": {\"item_id\": \"3609437808\", \"options\": {\"material\": \"leather\", \"color\": \"red\", \"armrest\": \"none\", \"backrest height\": \"high-back\"}, \"available\": false, \"price\": 466.44}, \"4648362606\": {\"item_id\": \"4648362606\", \"options\": {\"material\": \"leather\", \"color\": \"black\", \"armrest\": \"adjustable\", \"backrest height\": \"high-back\"}, \"available\": true, \"price\": 503.76}, \"2386562819\": {\"item_id\": \"2386562819\", \"options\": {\"material\": \"mesh\", \"color\": \"gray\", \"armrest\": \"fixed\", \"backrest height\": \"high-back\"}, \"available\": true, \"price\": 508.21}, \"3915604618\": {\"item_id\": \"3915604618\", \"options\": {\"material\": \"leather\", \"color\": \"blue\", \"armrest\": \"fixed\", \"backrest height\": \"standard\"}, \"available\": true, \"price\": 487.6}, \"9459890810\": {\"item_id\": \"9459890810\", \"options\": {\"material\": \"fabric\", \"color\": \"gray\", \"armrest\": \"none\", \"backrest height\": \"high-back\"}, \"available\": true, \"price\": 510.1}}}"}, {"i": 18, "role": "assistant", "text": "Let me break down the potential savings:\n\n1. Pet Bed: \n- Your current bed: Large, grey, memory foam - $195.11\n- Cheapest available option: Large, beige, memory foam - $180.93\nPotential savings: $14.18\n\n2. Office Chair:\n- Your current chair: Blue leather, no armrests, high-back - $499.28\n- Cheapest available option: Blue leather, no armrests, standard backrest - $471.82\nPotential savings: $27.46\n\nTotal potential savings if you exchange both items: $41.64\n\nWould you like to:\n1. Just return the water bottle ($54.04 refund)\n2. Exchange the pet bed and/or office chair for the cheaper versions\n3. Both return the water bottle and exchange the other items\n\nPlease let me know how you'd like to proceed, and I'll help process your request. The refund/price difference would go back to your Mastercard ending in 1037."}, {"i": 19, "role": "user", "text": "I'll do both - return the bottle and exchange both items for the cheaper versions. I really need the savings right now."}, {"i": 20, "role": "assistant", "text": "I understand you want to both return the water bottle and exchange the other items for cheaper versions. Let me clearly outline what will happen, and then I'll need your confirmation to proceed:\n\n1. Return the water bottle (item ID: 2366567022) for $54.04 refund\n2. Exchange these items:\n   - Current pet bed (large, grey, memory foam) to the cheaper large beige memory foam bed\n   - Current office chair (blue leather, no armrests, high-back) to the blue leather, no armrests, standard backrest chair\n\nTotal savings: $95.68 ($54.04 from return + $41.64 from exchanges)\n\nThe refund will be processed to your Mastercard ending in 1037.\n\nFor the exchange, you'll receive instructions via email about returning your current items, and the new items will be shipped to your address at:\n698 Maple Drive\nSuite 465\nDenver, CO 80217\n\nPlease confirm by saying \"yes\" if you want to proceed with both the return and exchanges as described above.\n\nOnce you confirm, I'll process both requests. Remember, returns and exchanges can only be done once for delivered orders, so please make sure you're satisfied with these changes."}, {"i": 21, "role": "user", "text": "Yes, please process everything. Thank you for helping me save money."}, {"i": 22, "role": "tool_call", "fn": "return_delivered_order_items", "args": {"order_id": "#W2890441", "item_ids": ["2366567022"], "payment_method_id": "credit_card_1061405"}, "text": "I'll process the return and exchanges now.\n\nFirst, let's process the water bottle return:\n\n\n\n#W2890441\n[\"2366567022\"]\ncredit_card_1061405"}, {"i": 23, "role": "tool_result", "name": "return_delivered_order_items", "raw": "{\"order_id\": \"#W2890441\", \"user_id\": \"mei_davis_8935\", \"address\": {\"address1\": \"698 Maple Drive\", \"address2\": \"Suite 465\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": \"80217\"}, \"items\": [{\"name\": \"Water Bottle\", \"product_id\": \"8310926033\", \"item_id\": \"2366567022\", \"price\": 54.04, \"options\": {\"capacity\": \"1000ml\", \"material\": \"stainless steel\", \"color\": \"blue\"}}, {\"name\": \"Pet Bed\", \"product_id\": \"2747247837\", \"item_id\": \"2751999929\", \"price\": 195.11, \"options\": {\"size\": \"large\", \"material\": \"memory foam\", \"color\": \"grey\"}}, {\"name\": \"Office Chair\", \"product_id\": \"4794339885\", \"item_id\": \"8069050545\", \"price\": 499.28, \"options\": {\"material\": \"leather\", \"color\": \"blue\", \"armrest\": \"none\", \"backrest height\": \"high-back\"}}, {\"name\": \"Skateboard\", \"product_id\": \"1968349452\", \"item_id\": \"3877188862\", \"price\": 182.03, \"options\": {\"deck material\": \"plastic\", \"length\": \"31 inch\", \"design\": \"plain\"}}], \"fulfillments\": [{\"tracking_id\": [\"642796688644\"], \"item_ids\": [\"2366567022\", \"2751999929\", \"8069050545\", \"3877188862\"]}], \"status\": \"return requested\", \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 930.46, \"payment_method_id\": \"credit_card_1061405\"}], \"return_items\": [\"2366567022\"], \"return_payment_method_id\": \"credit_card_1061405\"}"}, {"i": 24, "role": "tool_call", "fn": "exchange_delivered_order_items", "args": {"order_id": "#W2890441", "item_ids": ["2751999929", "8069050545"], "new_item_ids": ["6942241102", "4168944673"], "payment_method_id": "credit_card_1061405"}, "text": "Now, let's process the exchanges for the pet bed and office chair:\n\n\n\n#W2890441\n[\"2751999929\", \"8069050545\"]\n[\"6942241102\", \"4168944673\"]\ncredit_card_1061405"}, {"i": 25, "role": "tool_result", "name": "exchange_delivered_order_items", "raw": "Error: non-delivered order cannot be exchanged"}, {"i": 26, "role": "assistant", "text": "I apologize for an error in processing. Since the return was processed first, we'll need to wait until the return is completed before we can process the exchanges. You'll receive an email with instructions for returning the water bottle. Once that's done, please contact us again to process the exchanges for the pet bed and office chair.\n\nTo summarize what's happened:\n1. The water bottle return has been initiated. You'll receive a refund of $54.04 to your Mastercard.\n2. For the pet bed and office chair exchanges, you'll need to contact us again after completing the water bottle return process.\n\nI apologize for not being able to process everything at once. Is there anything else I can help you with today?"}, {"i": 27, "role": "user", "text": "That's frustrating... but I understand. I'll contact you again about the exchanges after returning the bottle."}, {"i": 28, "role": "assistant", "text": "I sincerely apologize for the confusion and frustration. You're absolutely right - I should have known that we couldn't process both simultaneously and explained that upfront. \n\nTo make sure you have all the information you need:\n1. You'll receive an email with instructions for returning the water bottle\n2. The $54.04 refund will be processed to your Mastercard ending in 1037\n3. Once you've completed the water bottle return, please contact us again about exchanging:\n   - The pet bed to the large beige memory foam model (saving $14.18)\n   - The office chair to the blue leather standard backrest model (saving $27.46)\n\nPlease keep your order number (#W2890441) handy for future reference. Is there anything else I can help you with today?"}, {"i": 29, "role": "user", "text": "No, that's all. Thanks for explaining everything."}, {"i": 30, "role": "assistant", "text": "You're welcome! Good luck with the return process, and I hope we can help you with those exchanges soon to get you those additional savings. Have a good rest of your day!"}, {"i": 31, "role": "stop"}];
+var PET_ROWS = [{"item_id": "6942241102", "opts": "size large, material memory foam, color beige", "avail": true, "price": 180.93, "is_current": false, "is_target": true}, {"item_id": "5109407456", "opts": "size small, material fleece, color grey", "avail": true, "price": 182.48, "is_current": false, "is_target": false}, {"item_id": "7917269097", "opts": "size large, material polyester, color grey", "avail": true, "price": 184.25, "is_current": false, "is_target": false}, {"item_id": "6499892866", "opts": "size medium, material polyester, color beige", "avail": true, "price": 191.21, "is_current": false, "is_target": false}, {"item_id": "7729002517", "opts": "size large, material polyester, color brown", "avail": true, "price": 193.0, "is_current": false, "is_target": false}, {"item_id": "7381052709", "opts": "size large, material memory foam, color brown", "avail": true, "price": 193.22, "is_current": false, "is_target": false}, {"item_id": "4537595158", "opts": "size small, material fleece, color brown", "avail": false, "price": 193.79, "is_current": false, "is_target": false}, {"item_id": "2751999929", "opts": "size large, material memory foam, color grey", "avail": true, "price": 195.11, "is_current": true, "is_target": false}, {"item_id": "3360679910", "opts": "size medium, material memory foam, color beige", "avail": true, "price": 195.26, "is_current": false, "is_target": false}, {"item_id": "6857426243", "opts": "size medium, material fleece, color grey", "avail": true, "price": 196.53, "is_current": false, "is_target": false}, {"item_id": "8941974610", "opts": "size large, material fleece, color beige", "avail": false, "price": 200.66, "is_current": false, "is_target": false}, {"item_id": "2405281423", "opts": "size medium, material polyester, color grey", "avail": true, "price": 204.09, "is_current": false, "is_target": false}, {"item_id": "8056198669", "opts": "size small, material polyester, color brown", "avail": true, "price": 208.32, "is_current": false, "is_target": false}, {"item_id": "5067898160", "opts": "size medium, material memory foam, color brown", "avail": false, "price": 209.95, "is_current": false, "is_target": false}, {"item_id": "4982943126", "opts": "size small, material fleece, color beige", "avail": false, "price": 214.33, "is_current": false, "is_target": false}];
+var CHAIR_ROWS = [{"item_id": "3609437808", "opts": "material leather, color red, armrest none, backrest height high-back", "avail": false, "price": 466.44, "is_current": false, "is_target": false}, {"item_id": "4168944673", "opts": "material leather, color blue, armrest none, backrest height standard", "avail": true, "price": 471.82, "is_current": false, "is_target": true}, {"item_id": "1071497737", "opts": "material leather, color gray, armrest fixed, backrest height high-back", "avail": true, "price": 483.95, "is_current": false, "is_target": false}, {"item_id": "3915604618", "opts": "material leather, color blue, armrest fixed, backrest height standard", "avail": true, "price": 487.6, "is_current": false, "is_target": false}, {"item_id": "3704016729", "opts": "material mesh, color blue, armrest fixed, backrest height standard", "avail": true, "price": 487.67, "is_current": false, "is_target": false}, {"item_id": "8426249116", "opts": "material fabric, color black, armrest fixed, backrest height standard", "avail": true, "price": 488.81, "is_current": false, "is_target": false}, {"item_id": "8069050545", "opts": "material leather, color blue, armrest none, backrest height high-back", "avail": true, "price": 499.28, "is_current": true, "is_target": false}, {"item_id": "4648362606", "opts": "material leather, color black, armrest adjustable, backrest height high-back", "avail": true, "price": 503.76, "is_current": false, "is_target": false}, {"item_id": "2386562819", "opts": "material mesh, color gray, armrest fixed, backrest height high-back", "avail": true, "price": 508.21, "is_current": false, "is_target": false}, {"item_id": "9459890810", "opts": "material fabric, color gray, armrest none, backrest height high-back", "avail": true, "price": 510.1, "is_current": false, "is_target": false}, {"item_id": "8323284863", "opts": "material fabric, color blue, armrest adjustable, backrest height standard", "avail": true, "price": 511.24, "is_current": false, "is_target": false}, {"item_id": "1793929609", "opts": "material fabric, color black, armrest none, backrest height high-back", "avail": true, "price": 514.34, "is_current": false, "is_target": false}, {"item_id": "4274709903", "opts": "material mesh, color red, armrest none, backrest height standard", "avail": true, "price": 544.29, "is_current": false, "is_target": false}];
+
+function fmtArgs(args) {
+  var s = '<span class="args">';
+  for (var k in args) {
+    var v = args[k];
+    if (typeof v === 'object') v = JSON.stringify(v);
+    s += '<span class="k">' + esc(k) + '</span>: <span class="v">' + esc(v) + '</span>;  ';
+  }
+  return s + '</span>';
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function summarizeToolResult(name, raw) {
+  // returns {summary, isErr, body, isJson}
+  if (raw.indexOf('Error') === 0 || raw.indexOf('error') === 0) {
+    return {summary: raw, isErr: true, body: raw, isJson: false};
+  }
+  try {
+    var o = JSON.parse(raw);
+    var isErr = (o.error !== undefined);
+    if (name === 'find_user_id_by_name_zip') return {summary: 'user_id → ' + esc(raw), isErr:false, body: raw, isJson:false};
+    if (name === 'get_user_details') return {summary: 'Mei Davis · 2 orders · Mastercard •1037', isErr:false, body: raw, isJson:true};
+    if (name === 'get_order_details') {
+      var status = o.status;
+      var bad = (status === 'return requested');
+      return {summary: esc(o.order_id) + ' · status=' + esc(status) + ' · ' + o.items.length + ' items', isErr:false, body: raw, isJson:true, statusClass: bad?'bad':'ok'};
+    }
+    if (name === 'get_product_details') {
+      var n = Object.keys(o.variants).length;
+      return {summary: esc(o.name) + ' · ' + n + ' variants', isErr:false, body: raw, isJson:true};
+    }
+    if (name === 'return_delivered_order_items') {
+      return {summary: '✓ Return requested · ' + esc(o.order_id) + ' · status=' + esc(o.status), isErr:false, body: raw, isJson:true, statusClass:'bad'};
+    }
+    if (name === 'exchange_delivered_order_items') {
+      return {summary: '✕ Exchange rejected', isErr:true, body: raw, isJson:false};
+    }
+    return {summary: name, isErr:isErr, body: raw, isJson:true};
+  } catch(e) {
+    return {summary: esc(raw.slice(0,80)), isErr:false, body: raw, isJson:false};
+  }
+}
+
+var tl = document.getElementById('timeline');
+STEPS.forEach(function(s, idx){
+  var t = document.createElement('div');
+  t.className = 'turn';
+  var marker = (idx+1);
+  if (s.role === 'user') { t.className += ' user'; t.innerHTML = '<div class="marker">U</div><div class="label">Customer</div>'; var b=document.createElement('div'); b.className='bubble'; b.textContent = s.text; t.appendChild(b); }
+  else if (s.role === 'assistant') { t.className += ' assistant'; t.innerHTML = '<div class="marker">A</div><div class="label">Agent</div>'; var b=document.createElement('div'); b.className='bubble'; b.textContent = s.text; t.appendChild(b); }
+  else if (s.role === 'tool_call') { t.className += ' tool_call'; var label = '<div class="marker">'+marker+'</div><div class="label">Agent · calls <span class="fn">'+esc(s.fn)+'</span></div>'; t.innerHTML = label; var b=document.createElement('div'); b.className='bubble'; var pre = ''; if(s.text) pre = '<div class="preamble">'+esc(s.text)+'</div>'; b.innerHTML = pre + fmtArgs(s.args); t.appendChild(b); }
+  else if (s.role === 'tool_result') {
+    t.className += ' tool_result';
+    var info = summarizeToolResult(s.name, s.raw);
+    var label = '<div class="marker">R</div><div class="label">Tool result · <span class="'+(info.isErr?'err':'name')+'">'+esc(s.name)+'</span></div>';
+    t.innerHTML = label;
+    var b = document.createElement('div');
+    b.className = 'bubble' + (info.isErr ? ' error' : '');
+    var sum = '<div class="summary '+(info.statusClass||'')+'">'+info.summary+'</div>';
+    if (info.body && info.body !== info.summary) {
+      var bodyDiv = document.createElement('div');
+      bodyDiv.textContent = info.body;
+      bodyDiv.style.display = 'none';
+      bodyDiv.style.marginTop = '8px';
+      var toggle = document.createElement('div');
+      toggle.className = 'toggle';
+      toggle.style.fontFamily = 'Courier New, monospace';
+      toggle.style.fontSize = '10px';
+      toggle.style.color = '#7a6f5a';
+      toggle.style.cursor = 'pointer';
+      toggle.textContent = '▸ raw payload';
+      toggle.onclick = function(){
+        if (bodyDiv.style.display === 'none') { bodyDiv.style.display='block'; toggle.textContent='▾ raw payload'; }
+        else { bodyDiv.style.display='none'; toggle.textContent='▸ raw payload'; }
+      };
+      b.innerHTML = sum;
+      b.appendChild(toggle);
+      b.appendChild(bodyDiv);
+    } else {
+      b.innerHTML = sum;
+    }
+    t.appendChild(b);
+  }
+  else if (s.role === 'stop') { t.className += ' stop'; t.innerHTML = '<div class="marker">■</div><div class="label">End</div>'; var b=document.createElement('div'); b.className='bubble'; b.textContent = 'Conversation terminated'; t.appendChild(b); }
+  t.style.animationDelay = (idx * 0.05) + 's';
+  tl.appendChild(t);
+});
+
+function renderVt(tbodyId, rows) {
+  var tb = document.getElementById(tbodyId);
+  rows.forEach(function(r){
+    var tr = document.createElement('tr');
+    if (r.is_current) tr.className = 'cur';
+    else if (r.is_target) tr.className = 'tgt';
+    else if (!r.avail) tr.className = 'unavail';
+    var pill = r.is_current ? '<span class="pill cur">CURRENT</span>' : (r.is_target ? '<span class="pill tgt">TARGET</span>' : (r.avail ? '' : '<span class="pill no">N/A</span>'));
+    tr.innerHTML = '<td>'+pill+'</td><td style="font-family:Courier New,monospace;font-size:11px">'+esc(r.item_id)+'</td><td>'+esc(r.opts)+'</td><td class="price" style="font-family:Courier New,monospace;text-align:right">$'+r.price.toFixed(2)+'</td>';
+    tb.appendChild(tr);
+  });
+}
+renderVt('petRows', PET_ROWS);
+renderVt('chairRows', CHAIR_ROWS);
+</script>
+</body>
+</html>

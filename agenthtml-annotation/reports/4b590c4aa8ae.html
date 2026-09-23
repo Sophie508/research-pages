@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lane · Retail CS Agent Workbench</title>
+<style>
+  :root {
+    --bg: #070b14;
+    --bg2: #0c1222;
+    --surface: rgba(255,255,255,0.04);
+    --surface2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #eef2ff;
+    --muted: #93a0b8;
+    --faint: #647089;
+    --brand: #6ee7ff;
+    --brand2: #8b5cf6;
+    --brand3: #34d399;
+    --warn: #fbbf24;
+    --danger: #fb7185;
+    --ok: #34d399;
+    --grad: linear-gradient(135deg, #6ee7ff 0%, #8b5cf6 55%, #f472b6 100%);
+    --shadow: 0 24px 80px rgba(0,0,0,0.45);
+    --radius: 20px;
+    --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 500px at 12% -10%, rgba(110,231,255,0.18), transparent 60%),
+      radial-gradient(800px 480px at 90% 8%, rgba(139,92,246,0.16), transparent 55%),
+      radial-gradient(700px 500px at 50% 100%, rgba(52,211,153,0.08), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button, input { font: inherit; }
+  .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--brand); font-weight: 600;
+  }
+  .eyebrow::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--brand); box-shadow: 0 0 12px var(--brand);
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(7,11,20,0.72);
+    backdrop-filter: blur(16px);
+    border-bottom-color: var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; gap: 20px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 18px; letter-spacing: -0.02em;
+  }
+  .logo-mark {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--grad);
+    display: grid; place-items: center;
+    color: #061018; font-weight: 800; font-size: 16px;
+    box-shadow: 0 8px 24px rgba(110,231,255,0.25);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 28px;
+    color: var(--muted); font-size: 14px; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border-radius: 999px; border: 1px solid transparent;
+    padding: 12px 20px; font-weight: 600; font-size: 14px;
+    cursor: pointer; transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary {
+    background: var(--grad); color: #071018;
+    box-shadow: 0 10px 30px rgba(139,92,246,0.28);
+  }
+  .btn-ghost {
+    background: rgba(255,255,255,0.03);
+    border-color: var(--border2);
+    color: var(--text);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.06); }
+  .menu-toggle {
+    display: none;
+    width: 42px; height: 42px; border-radius: 12px;
+    border: 1px solid var(--border2); background: var(--surface);
+    color: var(--text); cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 48px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 5.4vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin: 18px 0 18px;
+    font-weight: 750;
+  }
+  .hero h1 .grad {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-lead {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 52ch;
+    margin-bottom: 28px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 12px; max-width: 480px;
+  }
+  .stat {
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .stat b {
+    display: block; font-size: 22px; letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat span { color: var(--faint); font-size: 12px; }
+
+  .hero-visual {
+    position: relative;
+  }
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+  }
+  .case-card {
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-card::after {
+    content: "";
+    position: absolute; inset: auto -20% -40% 30%;
+    height: 220px;
+    background: radial-gradient(circle, rgba(139,92,246,0.25), transparent 70%);
+    pointer-events: none;
+  }
+  .case-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px; gap: 12px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600;
+    padding: 6px 10px; border-radius: 999px;
+    background: rgba(110,231,255,0.1);
+    color: var(--brand);
+    border: 1px solid rgba(110,231,255,0.18);
+  }
+  .pill.warn {
+    background: rgba(251,191,36,0.12);
+    color: var(--warn);
+    border-color: rgba(251,191,36,0.22);
+  }
+  .pill.ok {
+    background: rgba(52,211,153,0.12);
+    color: var(--ok);
+    border-color: rgba(52,211,153,0.22);
+  }
+  .pill.danger {
+    background: rgba(251,113,133,0.12);
+    color: var(--danger);
+    border-color: rgba(251,113,133,0.22);
+  }
+  .case-meta-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;
+  }
+  .meta-box {
+    padding: 12px; border-radius: 14px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+  }
+  .meta-box label {
+    display: block; color: var(--faint); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;
+  }
+  .meta-box strong { font-size: 13px; font-weight: 600; }
+  .chat-window {
+    background: rgba(4,8,16,0.55);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px;
+    max-height: 340px;
+    overflow: auto;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .msg {
+    max-width: 92%;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .msg.user {
+    align-self: flex-end;
+    background: rgba(139,92,246,0.18);
+    border: 1px solid rgba(139,92,246,0.28);
+  }
+  .msg.assistant {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+  }
+  .msg .who {
+    display: block; font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 4px; font-weight: 700;
+  }
+  .msg.tool {
+    align-self: stretch;
+    max-width: 100%;
+    background: rgba(110,231,255,0.06);
+    border: 1px dashed rgba(110,231,255,0.25);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: #b6eef9;
+  }
+  .msg.error {
+    background: rgba(251,113,133,0.08);
+    border-color: rgba(251,113,133,0.28);
+    color: #fecdd3;
+  }
+  .float-badge {
+    position: absolute;
+    right: -10px; bottom: -14px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(12,18,34,0.92);
+    border: 1px solid var(--border2);
+    box-shadow: var(--shadow);
+    font-size: 12px;
+    min-width: 180px;
+  }
+  .float-badge b { display: block; font-size: 18px; margin-top: 2px; color: var(--ok); }
+
+  /* SECTIONS */
+  section { padding: 88px 0; position: relative; z-index: 1; }
+  .section-head {
+    max-width: 640px; margin: 0 auto 48px; text-align: center;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.5vw, 42px);
+    letter-spacing: -0.03em;
+    margin: 12px 0 12px;
+    line-height: 1.15;
+  }
+  .section-head p { color: var(--muted); font-size: 16px; }
+
+  /* FEATURES */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .feature {
+    padding: 24px;
+    border-radius: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    min-height: 210px;
+  }
+  .feature:hover {
+    transform: translateY(-6px);
+    border-color: rgba(110,231,255,0.28);
+    background: rgba(255,255,255,0.055);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+  }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 14px;
+    display: grid; place-items: center;
+    background: rgba(110,231,255,0.1);
+    border: 1px solid rgba(110,231,255,0.18);
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+  .feature h3 {
+    font-size: 18px; margin-bottom: 8px; letter-spacing: -0.02em;
+  }
+  .feature p { color: var(--muted); font-size: 14px; }
+
+  /* HOW */
+  .how {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    counter-reset: step;
+  }
+  .step {
+    padding: 22px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    display: block;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--brand);
+    margin-bottom: 14px;
+  }
+  .step h3 { font-size: 17px; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .step p { color: var(--muted); font-size: 13.5px; }
+
+  /* DEMO / TIMELINE */
+  .demo-panel {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .side-list {
+    padding: 16px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 92px;
+  }
+  .side-list h3 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--faint); margin-bottom: 12px;
+  }
+  .phase-btn {
+    width: 100%; text-align: left;
+    background: transparent; border: 1px solid transparent;
+    color: var(--muted); border-radius: 12px;
+    padding: 12px; cursor: pointer; margin-bottom: 6px;
+    transition: .15s ease;
+  }
+  .phase-btn:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+  .phase-btn.active {
+    background: rgba(110,231,255,0.08);
+    border-color: rgba(110,231,255,0.22);
+    color: var(--text);
+  }
+  .phase-btn small { display: block; color: var(--faint); margin-top: 3px; font-size: 11px; }
+  .timeline {
+    padding: 8px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+  }
+  .t-item {
+    display: none;
+    padding: 22px;
+    animation: fadeUp .35s ease both;
+  }
+  .t-item.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  .t-item h3 { font-size: 22px; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .t-item .desc { color: var(--muted); margin-bottom: 18px; max-width: 68ch; }
+  .tool-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;
+  }
+  .tool-chip {
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.28);
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .tool-chip code {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--brand);
+    background: rgba(110,231,255,0.08);
+    border-radius: 6px;
+    padding: 2px 6px;
+    margin-bottom: 6px;
+  }
+  .tool-chip p { color: var(--muted); font-size: 12.5px; }
+  .kv {
+    display: grid; grid-template-columns: 140px 1fr; gap: 8px 12px;
+    font-size: 13px; margin-top: 8px;
+  }
+  .kv dt { color: var(--faint); }
+  .kv dd { color: var(--text); font-family: var(--mono); font-size: 12px; }
+
+  /* ORDERS */
+  .order-grid {
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px;
+  }
+  .order-card { padding: 22px; }
+  .order-card h3 {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; margin-bottom: 14px; font-size: 18px;
+  }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+  }
+  th, td {
+    text-align: left; padding: 10px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { color: var(--faint); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+  td.price, th.price { text-align: right; font-variant-numeric: tabular-nums; }
+  .item-opts { color: var(--faint); font-size: 11.5px; }
+  .swap-row td { background: rgba(52,211,153,0.05); }
+  .return-row td { background: rgba(251,113,133,0.05); }
+  .savings-stack { display: grid; gap: 12px; }
+  .save-box {
+    padding: 18px; border-radius: 18px;
+    background: var(--surface); border: 1px solid var(--border);
+  }
+  .save-box .amt {
+    font-size: 28px; font-weight: 750; letter-spacing: -0.03em;
+  }
+  .save-box .amt.ok { color: var(--ok); }
+  .save-box .amt.warn { color: var(--warn); }
+  .save-box .amt.muted { color: var(--muted); }
+  .save-box p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+  /* PROOF */
+  .proof-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px;
+  }
+  .quote {
+    padding: 32px;
+    font-size: 22px; line-height: 1.35; letter-spacing: -0.02em;
+  }
+  .quote footer {
+    margin-top: 22px; font-size: 14px; color: var(--muted);
+    display: flex; gap: 12px; align-items: center;
+  }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--grad); color: #071018;
+    display: grid; place-items: center; font-weight: 800;
+  }
+  .logo-wall {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  }
+  .logo-tile {
+    padding: 18px; border-radius: 16px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); font-weight: 700; letter-spacing: 0.04em;
+    text-align: center; font-size: 13px;
+  }
+
+  /* OUTCOME */
+  .outcome-banner {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .ob {
+    padding: 22px; border-radius: 18px; border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .ob h4 { font-size: 14px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+  .ob .big { font-size: 26px; font-weight: 750; letter-spacing: -0.03em; }
+  .ob p { margin-top: 8px; color: var(--faint); font-size: 13px; }
+
+  /* FAQ */
+  .faq {
+    max-width: 760px; margin: 0 auto; display: grid; gap: 10px;
+  }
+  details.faq-item {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 4px 18px;
+  }
+  details.faq-item[open] { border-color: rgba(110,231,255,0.25); }
+  details.faq-item summary {
+    cursor: pointer; list-style: none;
+    padding: 16px 0; font-weight: 600; font-size: 15px;
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: "+"; color: var(--brand); font-size: 20px; font-weight: 500;
+  }
+  details.faq-item[open] summary::after { content: "–"; }
+  details.faq-item .faq-body {
+    color: var(--muted); font-size: 14px; padding: 0 0 16px; line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-band {
+    padding: 28px;
+    border-radius: 28px;
+    background:
+      radial-gradient(500px 200px at 10% 0%, rgba(110,231,255,0.18), transparent 60%),
+      radial-gradient(500px 200px at 90% 100%, rgba(139,92,246,0.18), transparent 60%),
+      rgba(255,255,255,0.03);
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cta-band h2 {
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: -0.03em; margin: 8px 0;
+  }
+  .cta-band p { color: var(--muted); max-width: 48ch; }
+
+  /* FOOTER */
+  footer.site {
+    border-top: 1px solid var(--border);
+    padding: 48px 0 36px;
+    color: var(--faint); font-size: 13px;
+  }
+  .foot-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 24px;
+    margin-bottom: 28px;
+  }
+  .foot-grid h4 { color: var(--text); margin-bottom: 12px; font-size: 13px; }
+  .foot-grid a { display: block; color: var(--muted); margin-bottom: 8px; }
+  .foot-grid a:hover { color: var(--text); }
+  .foot-bottom {
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    padding-top: 18px; border-top: 1px solid var(--border);
+  }
+
+  /* reveal */
+  .reveal {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .mobile-nav {
+    display: none;
+    position: fixed; inset: 72px 16px auto 16px;
+    background: rgba(10,14,24,0.96);
+    border: 1px solid var(--border2);
+    border-radius: 18px;
+    padding: 16px;
+    z-index: 60;
+    box-shadow: var(--shadow);
+  }
+  .mobile-nav.open { display: grid; gap: 8px; }
+  .mobile-nav a {
+    padding: 12px; border-radius: 12px; color: var(--text);
+    background: rgba(255,255,255,0.03);
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid, .demo-panel, .order-grid, .proof-grid, .how, .features,
+    .outcome-banner, .foot-grid {
+      grid-template-columns: 1fr;
+    }
+    .how { grid-template-columns: 1fr 1fr; }
+    .features { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .menu-toggle { display: inline-grid; place-items: center; }
+    .side-list { position: static; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .float-badge { position: static; margin-top: 12px; }
+    .case-meta-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .features, .how, .hero-stats { grid-template-columns: 1fr; }
+    .wrap { width: min(1160px, calc(100% - 28px)); }
+    .hero { padding-top: 40px; }
+    section { padding: 64px 0; }
+    .kv { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top">
+        <span class="logo-mark">L</span>
+        <span>Lane</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Capabilities</a>
+        <a href="#how">Workflow</a>
+        <a href="#case">Case study</a>
+        <a href="#orders">Orders</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#timeline">Replay trail</a>
+        <a class="btn btn-primary" href="#cta">Open workbench</a>
+        <button class="menu-toggle" id="menuBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features">Capabilities</a>
+    <a href="#how">Workflow</a>
+    <a href="#case">Case study</a>
+    <a href="#orders">Orders</a>
+    <a href="#timeline">Replay trail</a>
+    <a href="#faq">FAQ</a>
+    <a href="#cta">Open workbench</a>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Retail customer service · Tool-use trajectory</div>
+        <h1>Close returns with <span class="grad">auditable agent tools</span></h1>
+        <p class="hero-lead">
+          Lane is the workbench for retail support agents that authenticate shoppers,
+          inspect orders, compare product variants, and execute returns or exchanges —
+          one confirmed tool call at a time.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#case">Inspect Mei Davis case</a>
+          <a class="btn btn-ghost" href="#timeline">Watch tool sequence</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>32</b><span>trajectory steps</span></div>
+          <div class="stat"><b>8</b><span>tool invocations</span></div>
+          <div class="stat"><b>$54.04</b><span>return completed</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="glass case-card">
+          <div class="case-top">
+            <span class="pill">tau-bench · task 19</span>
+            <span class="pill warn">partial success</span>
+          </div>
+          <div class="case-meta-row">
+            <div class="meta-box">
+              <label>Customer</label>
+              <strong>Mei Davis · 80217</strong>
+            </div>
+            <div class="meta-box">
+              <label>Order in focus</label>
+              <strong>#W2890441 · delivered</strong>
+            </div>
+            <div class="meta-box">
+              <label>Intent</label>
+              <strong>Return bottle + cheaper swaps</strong>
+            </div>
+            <div class="meta-box">
+              <label>Model</label>
+              <strong>sonnet-35-new</strong>
+            </div>
+          </div>
+          <div class="chat-window" id="heroChat" aria-label="Conversation preview">
+            <div class="msg user"><span class="who">Customer</span>Hi... I need to return this water bottle and was hoping to get cheaper versions of some other items I bought.</div>
+            <div class="msg assistant"><span class="who">Agent</span>I'll help you with your return request. First, I need to authenticate your identity…</div>
+            <div class="msg user"><span class="who">Customer</span>I'm Mei Davis, zip code 80217. Don't remember my order number... just having a rough day.</div>
+            <div class="msg tool"><span class="who">Tool</span>find_user_id_by_name_zip → mei_davis_8935</div>
+            <div class="msg tool"><span class="who">Tool</span>return_delivered_order_items → status: return requested · $54.04</div>
+            <div class="msg tool error"><span class="who">Tool error</span>exchange_delivered_order_items → Error: non-delivered order cannot be exchanged</div>
+          </div>
+          <div class="float-badge">
+            Refund queued
+            <b>$54.04</b>
+            Mastercard •••• 1037
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Capabilities</div>
+        <h2>Everything a retail agent needs — nothing it shouldn’t invent</h2>
+        <p>Policy-bound tools for identity, order truth, catalog variants, and consequential updates with explicit customer confirmation.</p>
+      </div>
+      <div class="features">
+        <article class="feature reveal">
+          <div class="feature-icon">🔐</div>
+          <h3>Identity first</h3>
+          <p>Locate users by email or name + zip before any order visibility. One shopper per conversation, every time.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">📦</div>
+          <h3>Order ground truth</h3>
+          <p>Pull live order status, fulfillments, payment history, and item options — pending vs delivered gates every action.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">🧮</div>
+          <h3>Variant savings scan</h3>
+          <p>Compare catalog SKUs on the same product family so agents can quote real cheaper exchanges, not hunches.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">↩️</div>
+          <h3>Return & exchange tools</h3>
+          <p>Execute <code style="font-family:var(--mono);font-size:12px;color:var(--brand)">return_delivered_order_items</code> and paired exchanges only after a clear yes.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">🧭</div>
+          <h3>Single-tool discipline</h3>
+          <p>At most one tool call at a time. Speak or act — never both — keeping trails clean for audit and coaching.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">⚠️</div>
+          <h3>Failure-aware recovery</h3>
+          <p>When order state flips after a return, exchanges fail loudly. Lane surfaces the error and reseats the plan.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>From rough day to resolved workflow</h2>
+        <p>The Mei Davis trajectory shows the canonical retail support loop — with one state-machine gotcha at the end.</p>
+      </div>
+      <div class="how">
+        <div class="step reveal">
+          <h3>Authenticate</h3>
+          <p>Collect name + zip. Call <strong>find_user_id_by_name_zip</strong>, then <strong>get_user_details</strong>.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Locate orders</h3>
+          <p>Inspect each linked order. Spot delivered #W2890441 vs pending electronics cart.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Price the swaps</h3>
+          <p>Load Pet Bed and Office Chair variants; pick cheapest available SKUs and sum savings.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Confirm & act</h3>
+          <p>List actions, require “yes”, then return — and learn that exchange needs delivered status still intact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Case study · 01_sonnet-35-new-retail_249</div>
+        <h2>“I really need the savings right now.”</h2>
+        <p>Shopper Mei Davis wanted a water bottle refund plus cheaper versions of her pet bed and office chair from delivered order #W2890441.</p>
+      </div>
+
+      <div class="outcome-banner reveal" style="margin-bottom:28px;">
+        <div class="ob">
+          <h4>Completed</h4>
+          <div class="big" style="color:var(--ok)">Return initiated</div>
+          <p>Blue 1000ml stainless water bottle · refund $54.04 to Mastercard 1037 · status became <em>return requested</em>.</p>
+        </div>
+        <div class="ob">
+          <h4>Blocked</h4>
+          <div class="big" style="color:var(--danger)">Exchange failed</div>
+          <p><code style="font-family:var(--mono);font-size:12px;">non-delivered order cannot be exchanged</code> — return flipped status before exchange ran.</p>
+        </div>
+        <div class="ob">
+          <h4>Promoted savings (quoted)</h4>
+          <div class="big" style="color:var(--warn)">$95.68</div>
+          <p>$54.04 return + $14.18 pet bed + $27.46 chair. Only the return landed in-session.</p>
+        </div>
+      </div>
+
+      <div class="proof-grid reveal">
+        <div class="glass quote">
+          “That's frustrating... but I understand. I'll contact you again about the exchanges after returning the bottle.”
+          <footer>
+            <div class="avatar">MD</div>
+            <div>
+              <strong style="color:var(--text)">Mei Davis</strong><br />
+              698 Maple Drive, Suite 465 · Denver, CO 80217
+            </div>
+          </footer>
+        </div>
+        <div class="logo-wall">
+          <div class="logo-tile">FIND USER BY ZIP</div>
+          <div class="logo-tile">GET USER DETAILS</div>
+          <div class="logo-tile">GET ORDER DETAILS ×2</div>
+          <div class="logo-tile">GET PRODUCT DETAILS ×2</div>
+          <div class="logo-tile">RETURN ITEMS ✓</div>
+          <div class="logo-tile">EXCHANGE ITEMS ✗</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="orders" style="padding-top:20px;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Order intelligence</div>
+        <h2>Delivered basket under the microscope</h2>
+        <p>Agents only modify what the tools expose. Here is the delivered order the customer actually wanted changed.</p>
+      </div>
+      <div class="order-grid">
+        <div class="glass order-card reveal">
+          <h3>
+            <span>#W2890441</span>
+            <span class="pill ok">was delivered</span>
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Options</th>
+                <th class="price">Price</th>
+                <th>Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="return-row">
+                <td>Water Bottle</td>
+                <td class="item-opts">1000ml · stainless · blue</td>
+                <td class="price">$54.04</td>
+                <td><span class="pill danger">return</span></td>
+              </tr>
+              <tr class="swap-row">
+                <td>Pet Bed</td>
+                <td class="item-opts">large · memory foam · grey → beige</td>
+                <td class="price">$195.11 → $180.93</td>
+                <td><span class="pill warn">exchange*</span></td>
+              </tr>
+              <tr class="swap-row">
+                <td>Office Chair</td>
+                <td class="item-opts">leather · blue · no arms · high → standard</td>
+                <td class="price">$499.28 → $471.82</td>
+                <td><span class="pill warn">exchange*</span></td>
+              </tr>
+              <tr>
+                <td>Skateboard</td>
+                <td class="item-opts">plastic · 31" · plain</td>
+                <td class="price">$182.03</td>
+                <td><span class="pill">keep</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:12px;color:var(--faint);font-size:12px;">*Exchanges prepared as 2751999929→6942241102 and 8069050545→4168944673, payment credit_card_1061405. Blocked after return status change. Tracking 642796688644.</p>
+        </div>
+        <div class="savings-stack reveal">
+          <div class="save-box">
+            <div class="amt ok">$54.04</div>
+            <p>Refund processed on return of water bottle to Mastercard ending 1037.</p>
+          </div>
+          <div class="save-box">
+            <div class="amt warn">$41.64</div>
+            <p>Potential exchange savings quoted live from catalog variants — deferred to follow-up contact.</p>
+          </div>
+          <div class="save-box">
+            <div class="amt muted">#W1267569</div>
+            <p>Pending electronics order (mouse, headphones, purifier…) left untouched — not in scope of request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Interactive trail</div>
+        <h2>Replay the tool-use trajectory</h2>
+        <p>Step through the phases the agent ran. One tool call at a time, as policy demands.</p>
+      </div>
+      <div class="demo-panel reveal">
+        <aside class="side-list">
+          <h3>Phases</h3>
+          <button class="phase-btn active" data-phase="0">1 · Authenticate<small>name + zip → user id</small></button>
+          <button class="phase-btn" data-phase="1">2 · Load profile<small>address, card, orders</small></button>
+          <button class="phase-btn" data-phase="2">3 · Inspect orders<small>delivered vs pending</small></button>
+          <button class="phase-btn" data-phase="3">4 · Variant search<small>cheapest bed & chair</small></button>
+          <button class="phase-btn" data-phase="4">5 · Confirm plan<small>explicit customer yes</small></button>
+          <button class="phase-btn" data-phase="5">6 · Execute & recover<small>return ok · exchange fail</small></button>
+        </aside>
+        <div class="timeline" id="timelineView">
+          <article class="t-item active" data-phase-panel="0">
+            <span class="pill">Steps 1–5</span>
+            <h3>Authenticate before anything else</h3>
+            <p class="desc">Customer arrives without an order id. Agent refuses to browse the catalog until identity is verified via name and zip.</p>
+            <div class="tool-grid">
+              <div class="tool-chip">
+                <code>find_user_id_by_name_zip</code>
+                <p>Mei + Davis + 80217</p>
+                <dl class="kv"><dt>Result</dt><dd>mei_davis_8935</dd></dl>
+              </div>
+              <div class="tool-chip">
+                <code>policy gate</code>
+                <p>Auth required even if a user id were volunteered. One user per conversation.</p>
+              </div>
+            </div>
+          </article>
+          <article class="t-item" data-phase-panel="1">
+            <span class="pill">Steps 6–7</span>
+            <h3>Profile becomes the source of truth</h3>
+            <p class="desc">Payment method and order list bound every later recommendation — no invented refund rails.</p>
+            <div class="tool-grid">
+              <div class="tool-chip">
+                <code>get_user_details</code>
+                <p>Email mei.davis6811@example.com · Mastercard 1037 · CO address suite 465.</p>
+                <dl class="kv">
+                  <dt>Orders</dt><dd>#W2890441, #W1267569</dd>
+                  <dt>Pay method</dt><dd>credit_card_1061405</dd>
+                </dl>
+              </div>
+              <div class="tool-chip">
+                <code>constraint</code>
+                <p>Refunds and exchanges must target a method already on the profile.</p>
+              </div>
+            </div>
+          </article>
+          <article class="t-item" data-phase-panel="2">
+            <span class="pill">Steps 8–12</span>
+            <h3>Two orders, two stories</h3>
+            <p class="desc">Only the delivered order can host returns/exchanges. The pending electronics order is acknowledged and left alone.</p>
+            <div class="tool-grid">
+              <div class="tool-chip">
+                <code>get_order_details</code>
+                <p>#W2890441 · delivered · 4 items · paid $930.46</p>
+              </div>
+              <div class="tool-chip">
+                <code>get_order_details</code>
+                <p>#W1267569 · pending · 5 electronics · $1,492.99</p>
+              </div>
+            </div>
+          </article>
+          <article class="t-item" data-phase-panel="3">
+            <span class="pill">Steps 13–18</span>
+            <h3>Cheapest available variants, not cheaper fantasies</h3>
+            <p class="desc">Agent loads full variant trees, filters to available, and selects real cheaper SKUs for the same product types.</p>
+            <div class="tool-grid">
+              <div class="tool-chip">
+                <code>get_product_details · Pet Bed</code>
+                <p>Current 2751999929 @ $195.11 → cheapest available 6942241102 large beige memory foam @ $180.93 (−$14.18).</p>
+              </div>
+              <div class="tool-chip">
+                <code>get_product_details · Office Chair</code>
+                <p>Current 8069050545 @ $499.28 → cheapest available 4168944673 blue leather standard back @ $471.82 (−$27.46).</p>
+              </div>
+            </div>
+          </article>
+          <article class="t-item" data-phase-panel="4">
+            <span class="pill">Steps 19–21</span>
+            <h3>Spell the action, wait for yes</h3>
+            <p class="desc">Before mutating the database, the agent lists return + both exchanges, shipping address, refund card, and total purported savings of $95.68.</p>
+            <div class="tool-grid">
+              <div class="tool-chip">
+                <code>confirmation</code>
+                <p>Customer: “Yes, please process everything. Thank you for helping me save money.”</p>
+              </div>
+              <div class="tool-chip">
+                <code>policy</code>
+                <p>Returns/exchanges on delivered orders can only be performed once — disclosed upfront.</p>
+              </div>
+            </div>
+          </article>
+          <article class="t-item" data-phase-panel="5">
+            <span class="pill">Steps 22–30</span>
+            <h3>Return lands; exchange collides with new status</h3>
+            <p class="desc">Sequencing mattered. After return, order status became <strong>return requested</strong>, so the subsequent exchange tool rejected the call. Agent apologized, deferred exchanges, and left the customer with clear next steps.</p>
+            <div class="tool-grid">
+              <div class="tool-chip">
+                <code>return_delivered_order_items</code>
+                <p>item_ids: [2366567022] · payment_method_id: credit_card_1061405 → success, return_items set.</p>
+              </div>
+              <div class="tool-chip">
+                <code>exchange_delivered_order_items</code>
+                <p>item_ids [2751999929, 8069050545] → new [6942241102, 4168944673] → <strong style="color:var(--danger)">Error: non-delivered order cannot be exchanged</strong></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="policy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Policy highlights</div>
+        <h2>Guardrails the agent actually followed</h2>
+        <p>Sourced from the retail agent system prompt in this trajectory — the non-negotiables behind every step.</p>
+      </div>
+      <div class="features" style="grid-template-columns: repeat(2, 1fr);">
+        <article class="feature reveal">
+          <div class="feature-icon">1</div>
+          <h3>Auth even when ID is known</h3>
+          <p>Locate user id via email or name + zip at conversation start, even if the shopper volunteers an id.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">2</div>
+          <h3>Confirm before writes</h3>
+          <p>Cancel, modify, return, and exchange require listing details and an explicit customer “yes”.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">3</div>
+          <h3>No invented knowledge</h3>
+          <p>No subjective product recommendations beyond tool results; exchanges stay within the same product type.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-icon">4</div>
+          <h3>One tool, then wait</h3>
+          <p>Never combine a user-facing message with a tool call. Keeps the audit trail deterministic.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">FAQ</div>
+        <h2>Questions about this case</h2>
+        <p>Accordion details from the trajectory — no external catalog required.</p>
+      </div>
+      <div class="faq reveal">
+        <details class="faq-item">
+          <summary>Why did the exchange fail after a successful return?</summary>
+          <div class="faq-body">The return tool flipped order #W2890441 from <strong>delivered</strong> to <strong>return requested</strong>. The exchange tool only accepts delivered orders, so the follow-up call returned <em>Error: non-delivered order cannot be exchanged</em>. A safer plan is to perform exchanges first, or combine allowed operations according to domain constraints before status transitions lock the order.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How were the cheaper variants chosen?</summary>
+          <div class="faq-body">The agent called <code style="font-family:var(--mono)">get_product_details</code> for Pet Bed (2747247837) and Office Chair (4794339885), then selected the lowest-priced variants with <code>available: true</code>. Unavailable cheaper chairs (e.g. red leather high-back @ $466.44) were correctly skipped.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What refund rail was used?</summary>
+          <div class="faq-body">Profile payment method <code style="font-family:var(--mono)">credit_card_1061405</code> — Mastercard ending 1037 — received the $54.04 water bottle return. No gift card was on file.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Could the pending electronics order be modified instead?</summary>
+          <div class="faq-body">Order #W1267569 was pending, so item option or payment modifications might be possible under policy, but the shopper’s request targeted the delivered water bottle and cheaper delivered décor/furniture items. The agent correctly stayed on #W2890441.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the metadata for this trajectory?</summary>
+          <div class="faq-body">Case id <strong>01_sonnet-35-new-retail_249</strong> · benchmark tau-bench · domain tool_use_customer_service · model sonnet-35-new · trial 2 · task_id 19 · format tau-bench-json · reward/info fields stripped in the published case bundle. References: none.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div>
+          <div class="eyebrow">Ready for ops review</div>
+          <h2>Turn every support trail into a coaching loop</h2>
+          <p>Lane packages authentication, order truth, variant math, confirmation gates, and tool errors into one workbench — so the next Mei Davis gets both the refund and the savings.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="#timeline">Replay full trail</a>
+          <a class="btn btn-ghost" href="#top">Back to overview</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="logo" style="margin-bottom:12px;"><span class="logo-mark">L</span><span>Lane</span></div>
+          <p>Prototype workbench presenting tau-bench retail case 01_sonnet-35-new-retail_249. Self-contained HTML — no external assets.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="#features">Capabilities</a>
+          <a href="#how">Workflow</a>
+          <a href="#policy">Policy</a>
+        </div>
+        <div>
+          <h4>Case</h4>
+          <a href="#case">Mei Davis study</a>
+          <a href="#orders">Order #W2890441</a>
+          <a href="#timeline">Tool replay</a>
+        </div>
+        <div>
+          <h4>Meta</h4>
+          <a href="#faq">FAQ</a>
+          <span style="display:block;margin-bottom:8px;">Benchmark: tau-bench</span>
+          <span style="display:block;">Trajectory: 32 steps</span>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Lane prototype · retail tool-use narrative</span>
+        <span>Task: return water bottle · exchange cheaper variants</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+
+  function onScroll() {
+    if (window.scrollY > 12) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  menuBtn.addEventListener('click', function () {
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { mobileNav.classList.remove('open'); });
+  });
+
+  // Intersection reveal
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nodes = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    nodes.forEach(function (n) { n.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+
+  // Phase switcher
+  var buttons = document.querySelectorAll('.phase-btn');
+  var panels = document.querySelectorAll('[data-phase-panel]');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-phase');
+      buttons.forEach(function (b) { b.classList.toggle('active', b === btn); });
+      panels.forEach(function (p) {
+        p.classList.toggle('active', p.getAttribute('data-phase-panel') === id);
+      });
+    });
+  });
+
+  // Subtle hero chat auto-scroll pulse
+  var chat = document.getElementById('heroChat');
+  if (chat) {
+    var dir = 1;
+    setInterval(function () {
+      if (!chat) return;
+      if (chat.scrollHeight <= chat.clientHeight) return;
+      chat.scrollTop += dir;
+      if (chat.scrollTop + chat.clientHeight >= chat.scrollHeight - 1) dir = -1;
+      if (chat.scrollTop <= 0) dir = 1;
+    }, 80);
+  }
+})();
+</script>
+</body>
+</html>

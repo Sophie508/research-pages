@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Case 03 · Asian Index Volatility — DataAgentBench Run Report</title>
+<style>
+  :root{
+    --ink:#06070b;
+    --ink-2:#0a0c13;
+    --panel:rgba(255,255,255,.045);
+    --panel-2:rgba(255,255,255,.028);
+    --stroke:rgba(255,255,255,.10);
+    --stroke-soft:rgba(255,255,255,.06);
+    --txt:#eef1f8;
+    --muted:#98a1b8;
+    --dim:#6c7590;
+    --violet:#7c5cff;
+    --cyan:#2ee6d6;
+    --amber:#ffb45c;
+    --rose:#ff6b8b;
+    --green:#5ee2a0;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --r:20px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--txt);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* ---- ambient background ---- */
+  .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+  .bg::before,.bg::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+  .bg::before{width:820px;height:820px;top:-320px;left:-180px;
+    background:radial-gradient(circle at 30% 30%,rgba(124,92,255,.55),transparent 62%)}
+  .bg::after{width:760px;height:760px;top:-140px;right:-240px;
+    background:radial-gradient(circle at 60% 40%,rgba(46,230,214,.32),transparent 62%)}
+  .bg .grid{position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 20%,transparent 78%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 20%,transparent 78%);}
+  .bg .warm{position:absolute;bottom:-320px;left:35%;width:700px;height:700px;border-radius:50%;
+    filter:blur(110px);opacity:.22;
+    background:radial-gradient(circle,rgba(255,180,92,.7),transparent 65%)}
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{position:relative}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    border-bottom:1px solid transparent;
+    transition:background .35s ease,border-color .35s ease,backdrop-filter .35s ease;
+  }
+  nav.scrolled{
+    background:rgba(6,7,11,.72);
+    backdrop-filter:blur(16px) saturate(140%);
+    -webkit-backdrop-filter:blur(16px) saturate(140%);
+    border-bottom-color:var(--stroke-soft);
+  }
+  .nav-in{display:flex;align-items:center;gap:28px;height:70px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:650;letter-spacing:-.02em;font-size:15px;white-space:nowrap}
+  .mark{width:26px;height:26px;border-radius:9px;flex:none;
+    background:conic-gradient(from 140deg,var(--violet),var(--cyan),var(--amber),var(--violet));
+    box-shadow:0 0 0 1px rgba(255,255,255,.14),0 6px 22px -6px rgba(124,92,255,.9)}
+  .nav-links{display:flex;gap:26px;margin-left:auto;font-size:14px}
+  .nav-links a{color:var(--muted);text-decoration:none;transition:color .2s ease;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;
+    background:linear-gradient(90deg,var(--violet),var(--cyan));transition:right .3s ease}
+  .nav-links a:hover{color:var(--txt)}
+  .nav-links a:hover::after{right:0}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px;font-weight:600;
+    padding:10px 17px;border-radius:999px;border:1px solid var(--stroke);
+    background:var(--panel);color:var(--txt);text-decoration:none;cursor:pointer;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .25s ease;
+  }
+  .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.09)}
+  .btn.primary{
+    background:linear-gradient(120deg,var(--violet),#5a7bff 55%,var(--cyan));
+    border-color:transparent;color:#080a12;
+    box-shadow:0 12px 34px -14px rgba(124,92,255,.95);
+  }
+  .btn.primary:hover{box-shadow:0 18px 40px -14px rgba(46,230,214,.7)}
+  .btn.sm{padding:8px 14px;font-size:13px}
+  .nav .btn{margin-left:0}
+  @media (max-width:820px){.nav-links{display:none}}
+
+  /* ---- typography ---- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);padding:7px 14px;border:1px solid var(--stroke);border-radius:999px;
+    background:var(--panel-2);backdrop-filter:blur(8px);
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+  h1{
+    font-size:clamp(38px,6.4vw,76px);line-height:1.02;letter-spacing:-.04em;
+    font-weight:730;margin:22px 0 0;
+  }
+  h1 .grad{
+    background:linear-gradient(100deg,var(--cyan) 0%,#9d8bff 48%,var(--amber) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  h2{font-size:clamp(26px,3.3vw,40px);line-height:1.12;letter-spacing:-.032em;font-weight:700;margin:0 0 12px}
+  h3{font-size:17px;letter-spacing:-.015em;font-weight:650;margin:0 0 8px}
+  .lede{font-size:clamp(16px,1.55vw,19px);color:var(--muted);max-width:62ch;margin:20px 0 0}
+  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:0 0 14px}
+  code,.mono{font-family:var(--mono);font-size:.9em}
+  code{background:rgba(255,255,255,.06);border:1px solid var(--stroke-soft);padding:2px 6px;border-radius:6px}
+
+  /* ---- hero ---- */
+  .hero{padding:78px 0 66px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+  .chip{
+    font-family:var(--mono);font-size:12px;color:var(--muted);
+    border:1px solid var(--stroke-soft);background:var(--panel-2);
+    padding:7px 12px;border-radius:10px;
+  }
+  .chip b{color:var(--txt);font-weight:600}
+
+  /* ---- glass card ---- */
+  .card{
+    background:linear-gradient(180deg,rgba(255,255,255,.062),rgba(255,255,255,.022));
+    border:1px solid var(--stroke);border-radius:var(--r);
+    backdrop-filter:blur(14px) saturate(130%);
+    -webkit-backdrop-filter:blur(14px) saturate(130%);
+    box-shadow:0 24px 60px -34px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.06);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s ease,box-shadow .35s ease;
+  }
+  .lift:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.22);
+    box-shadow:0 34px 70px -30px rgba(0,0,0,.95),0 0 0 1px rgba(124,92,255,.18),inset 0 1px 0 rgba(255,255,255,.09)}
+
+  /* ---- answer panel ---- */
+  .answer{padding:30px 30px 26px;position:relative;overflow:hidden}
+  .answer::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(420px 200px at 100% 0%,rgba(255,180,92,.16),transparent 70%)}
+  .answer .who{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.03em;font-weight:700;line-height:1.15}
+  .answer .who span{color:var(--amber)}
+  .bigstat{font-family:var(--mono);font-size:clamp(40px,5.4vw,58px);font-weight:600;letter-spacing:-.045em;line-height:1;margin:18px 0 6px;
+    background:linear-gradient(100deg,var(--cyan),#9d8bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .statlabel{font-size:13px;color:var(--dim);font-family:var(--mono);letter-spacing:.05em}
+  .formula{margin-top:20px;padding-top:18px;border-top:1px dashed var(--stroke);
+    font-family:var(--mono);font-size:13px;color:var(--muted)}
+
+  /* ---- metric strip ---- */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+  @media (max-width:900px){.strip{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.strip{grid-template-columns:1fr}}
+  .stat{padding:20px}
+  .stat .n{font-family:var(--mono);font-size:26px;letter-spacing:-.03em;font-weight:600}
+  .stat .l{font-size:12.5px;color:var(--dim);margin-top:6px;letter-spacing:.02em}
+
+  /* ---- sections ---- */
+  .sec{padding:88px 0 0}
+  .sec-head{max-width:74ch}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke),transparent);margin:0}
+  .spacer-lg{height:88px}
+
+  /* ---- data source cards ---- */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  @media (max-width:820px){.two{grid-template-columns:1fr}}
+  .src{padding:24px}
+  .src .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:8px;border:1px solid var(--stroke)}
+  .tag.sqlite{color:#7fb4ff;background:rgba(80,140,255,.1)}
+  .tag.duck{color:var(--amber);background:rgba(255,180,92,.1)}
+  .src h3{margin-top:16px;font-size:16px}
+  .src .path{font-family:var(--mono);font-size:12px;color:var(--dim);word-break:break-all;margin-top:4px}
+  .fields{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .f{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--stroke-soft);
+    background:var(--panel-2);border-radius:7px;padding:4px 8px}
+  .src .meta{margin-top:16px;font-size:13px;color:var(--dim)}
+
+  /* ---- chart ---- */
+  .chart{padding:28px 28px 22px;margin-top:30px}
+  .chart-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .toggle{display:inline-flex;border:1px solid var(--stroke);border-radius:999px;padding:3px;background:var(--panel-2)}
+  .toggle button{
+    font:inherit;font-size:12.5px;font-weight:600;color:var(--muted);background:transparent;border:0;
+    padding:7px 14px;border-radius:999px;cursor:pointer;transition:color .2s ease,background .25s ease;
+  }
+  .toggle button[aria-pressed="true"]{color:#080a12;background:linear-gradient(120deg,var(--cyan),#9d8bff)}
+  .rows{display:flex;flex-direction:column;gap:6px}
+  .row{display:grid;grid-template-columns:210px 1fr 108px;gap:16px;align-items:center;
+    padding:11px 12px;border-radius:12px;transition:background .25s ease}
+  .row:hover{background:rgba(255,255,255,.045)}
+  .row .name{font-size:14px;font-weight:600;letter-spacing:-.01em}
+  .row .name em{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.04em}
+  .track{height:12px;border-radius:999px;background:rgba(255,255,255,.055);overflow:hidden;position:relative}
+  .fill{height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,rgba(124,92,255,.85),rgba(46,230,214,.9));
+    transition:width 1.15s cubic-bezier(.2,.7,.2,1)}
+  .row.top .fill{background:linear-gradient(90deg,var(--amber),var(--rose));
+    box-shadow:0 0 26px -4px rgba(255,180,92,.55)}
+  .row .val{text-align:right;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:-.02em}
+  .row .val small{display:block;color:var(--dim);font-weight:400;font-size:11px;letter-spacing:.03em}
+  @media (max-width:700px){
+    .row{grid-template-columns:1fr 84px;grid-template-areas:"n v" "t t";gap:8px 12px}
+    .row .name{grid-area:n}.row .val{grid-area:v}.track{grid-area:t}
+  }
+  .chart-note{font-size:12.5px;color:var(--dim);margin-top:20px;padding-top:16px;border-top:1px solid var(--stroke-soft)}
+
+  /* ---- steps ---- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  @media (max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.steps{grid-template-columns:1fr}}
+  .step{padding:22px}
+  .step .num{font-family:var(--mono);font-size:11.5px;color:var(--cyan);letter-spacing:.14em}
+  .step h3{margin-top:12px;font-size:15.5px}
+  .step p{margin:8px 0 0;font-size:13.5px;color:var(--muted);line-height:1.55}
+
+  /* ---- ledger ---- */
+  .ledger{margin-top:30px;padding:8px 8px 8px;overflow:hidden}
+  .tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+  .tbl th{
+    text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--dim);font-weight:500;padding:14px 14px 10px;border-bottom:1px solid var(--stroke-soft);
+  }
+  .tbl td{padding:14px;border-bottom:1px solid var(--stroke-soft);vertical-align:top;color:var(--muted)}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl tbody tr{transition:background .2s ease}
+  .tbl tbody tr:hover{background:rgba(255,255,255,.035)}
+  .tbl .cmd{font-family:var(--mono);font-size:12.5px;color:var(--txt)}
+  .tbl .time{font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .pill.ok{color:var(--green);background:rgba(94,226,160,.1);border:1px solid rgba(94,226,160,.28)}
+  .pill.bad{color:var(--rose);background:rgba(255,107,139,.1);border:1px solid rgba(255,107,139,.28)}
+  .err{font-family:var(--mono);font-size:11.5px;color:var(--rose);opacity:.92;word-break:break-word}
+  .tbl-scroll{overflow-x:auto}
+  @media (max-width:760px){.tbl thead{display:none}.tbl td{display:block;border:0;padding:4px 14px}
+    .tbl tbody tr{display:block;padding:12px 0;border-bottom:1px solid var(--stroke-soft)}
+    .tbl td.hide-sm{display:none}}
+
+  /* ---- timeline ---- */
+  .tl{margin-top:30px;padding:26px 26px 10px}
+  .tl-row{display:grid;grid-template-columns:96px 22px 1fr;gap:14px;align-items:start}
+  .tl-time{font-family:var(--mono);font-size:12px;color:var(--dim);padding-top:2px;text-align:right}
+  .tl-rail{position:relative;display:flex;justify-content:center;height:100%}
+  .tl-rail::before{content:"";position:absolute;top:6px;bottom:-10px;width:1px;background:var(--stroke)}
+  .tl-row:last-child .tl-rail::before{display:none}
+  .tl-dot{width:9px;height:9px;border-radius:50%;margin-top:4px;background:var(--violet);
+    box-shadow:0 0 0 4px rgba(124,92,255,.15);z-index:1}
+  .tl-dot.warn{background:var(--rose);box-shadow:0 0 0 4px rgba(255,107,139,.15)}
+  .tl-dot.end{background:var(--green);box-shadow:0 0 0 4px rgba(94,226,160,.16)}
+  .tl-body{padding-bottom:20px}
+  .tl-body b{font-weight:600;font-size:14px}
+  .tl-body p{margin:3px 0 0;font-size:13px;color:var(--muted)}
+  .gap{margin:6px 0 20px 132px;padding:14px 18px;border-radius:14px;
+    border:1px dashed rgba(255,107,139,.4);background:rgba(255,107,139,.06);font-size:13px;color:#ffc2ce}
+  @media (max-width:560px){.gap{margin-left:0}}
+
+  /* ---- faq ---- */
+  .faq{margin-top:30px;display:flex;flex-direction:column;gap:12px}
+  details{border:1px solid var(--stroke);border-radius:16px;background:var(--panel-2);
+    transition:border-color .25s ease,background .25s ease;overflow:hidden}
+  details[open]{border-color:rgba(124,92,255,.34);background:rgba(124,92,255,.05)}
+  details:hover{border-color:rgba(255,255,255,.2)}
+  summary{
+    cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;gap:14px;
+    font-size:15px;font-weight:600;letter-spacing:-.012em;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";margin-left:auto;font-family:var(--mono);font-size:19px;color:var(--muted);
+    transition:transform .3s ease,color .25s ease}
+  details[open] summary::after{transform:rotate(45deg);color:var(--cyan)}
+  summary .q{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.1em}
+  details .body{padding:0 22px 20px;color:var(--muted);font-size:14px;line-height:1.68}
+  details .body p{margin:0 0 10px}
+  details .body p:last-child{margin-bottom:0}
+  details .body strong{color:var(--txt);font-weight:600}
+
+  /* ---- footer ---- */
+  footer{margin-top:96px;border-top:1px solid var(--stroke-soft);
+    background:linear-gradient(180deg,transparent,rgba(124,92,255,.05))}
+  .foot{padding:52px 0 60px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px}
+  @media (max-width:820px){.foot{grid-template-columns:1fr}}
+  .foot h4{margin:0 0 12px;font-size:12px;font-family:var(--mono);letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dim);font-weight:500}
+  .kv{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--stroke-soft);font-size:13px}
+  .kv span:first-child{color:var(--dim)}
+  .kv span:last-child{font-family:var(--mono);font-size:12px;text-align:right;word-break:break-all}
+  .foot p{font-size:13px;color:var(--dim);margin:0}
+
+  /* ---- reveal ---- */
+  .reveal{opacity:0;transform:translateY(20px);
+    transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .fill{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="bg"><div class="grid"></div><div class="warm"></div></div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <div class="brand"><span class="mark"></span>DataAgentBench<span style="color:var(--dim);font-weight:400">/ case 03</span></div>
+    <div class="nav-links">
+      <a href="#question">Question</a>
+      <a href="#ranking">Ranking</a>
+      <a href="#method">Method</a>
+      <a href="#ledger">Attempts</a>
+      <a href="#caveats">Caveats</a>
+    </div>
+    <a class="btn primary sm" href="#answer">The answer</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero wrap" id="answer">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Run completed · exit code 0 · 11 Jul 2026</span>
+      <h1>The Shenzhen Component ran <span class="grad">hottest</span>.</h1>
+      <p class="lede">
+        Asked which Asian stock index showed the highest average intraday volatility since 2020,
+        the agent inspected two databases, defined a comparable metric, and returned
+        <strong style="color:var(--txt)">Shenzhen Component (<span class="mono">399001.SZ</span>)</strong> at
+        <strong style="color:var(--txt)">1.8341%</strong> average daily range — ahead of Nifty 50 and the Hang Seng.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#ranking">See the full ranking</a>
+        <a class="btn" href="#ledger">9 tool calls · 6 failures</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>gpt-5.6-sol</b> · single agent</span>
+        <span class="chip">wall clock <b>70m 46s</b></span>
+        <span class="chip"><b>6</b> Asian indexes compared</span>
+        <span class="chip"><b>0</b> unparsed dates</span>
+      </div>
+    </div>
+
+    <div class="card answer lift reveal">
+      <div class="kicker" style="margin:0 0 12px">Recorded answer</div>
+      <div class="who">Shenzhen Component Index<br><span class="mono" style="font-size:.62em;color:var(--amber)">399001.SZ</span></div>
+      <div class="bigstat">1.8341%</div>
+      <div class="statlabel">avg. intraday range per trading day · 342 sessions</div>
+      <div class="formula">volatility = (High − Low) / Open × 100</div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="card stat lift reveal" data-d="0"><div class="n">4,248 s</div><div class="l">Total recorded duration</div></div>
+    <div class="card stat lift reveal" data-d="80"><div class="n">9 / 3</div><div class="l">Tool calls / successful</div></div>
+    <div class="card stat lift reveal" data-d="160"><div class="n">13 → 6</div><div class="l">Traded tickers → Asian subset</div></div>
+    <div class="card stat lift reveal" data-d="240"><div class="n">3</div><div class="l">Date formats normalized</div></div>
+  </div>
+</header>
+
+<!-- ============ QUESTION + DATA ============ -->
+<section class="sec wrap" id="question">
+  <div class="sec-head reveal">
+    <p class="kicker">01 — The task</p>
+    <h2>One question, two databases, no stated metric.</h2>
+    <p class="lede">
+      The prompt asked only for the answer, written and printed by Python. It did <em>not</em> define
+      "intraday volatility", nor which indexes count as Asia — both had to be inferred.
+    </p>
+  </div>
+
+  <div class="card reveal" style="padding:26px 28px;margin-top:30px">
+    <p class="mono" style="margin:0;font-size:14px;color:var(--muted);line-height:1.7">
+      <span style="color:var(--cyan)">Q:</span> Which stock index in the Asia region has exhibited the
+      highest average intraday volatility since 2020?
+    </p>
+  </div>
+
+  <div class="two">
+    <div class="card src lift reveal">
+      <span class="tag sqlite">SQLite</span>
+      <h3>indexInfo_query.db</h3>
+      <div class="path">workspace/data/indexInfo_query.db · 8 KB</div>
+      <div class="fields"><span class="f">Exchange TEXT</span><span class="f">Currency TEXT</span></div>
+      <div class="meta">1 table <code>index_info</code>, <strong style="color:var(--txt)">14 rows</strong> — exchange/currency pairs only. No ticker, no region column.</div>
+    </div>
+    <div class="card src lift reveal" data-d="90">
+      <span class="tag duck">DuckDB</span>
+      <h3>indextrade_query.db</h3>
+      <div class="path">workspace/data/indextrade_query.db · 4.4 MB</div>
+      <div class="fields">
+        <span class="f">Index</span><span class="f">Date</span><span class="f">Open</span><span class="f">High</span>
+        <span class="f">Low</span><span class="f">Close</span><span class="f">Adj Close</span><span class="f">CloseUSD</span>
+      </div>
+      <div class="meta">1 table <code>index_trade</code>, <strong style="color:var(--txt)">13 tickers</strong>, history back to 1986 — with three mixed date formats in the same column.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RANKING ============ -->
+<section class="sec wrap" id="ranking">
+  <div class="sec-head reveal">
+    <p class="kicker">02 — Result</p>
+    <h2>Six Asian indexes, one clear leader.</h2>
+    <p class="lede">Average daily percentage range from 2020-01-01 onward, per the recorded query output.</p>
+  </div>
+
+  <div class="card chart reveal">
+    <div class="chart-top">
+      <div class="toggle" role="group" aria-label="Chart metric">
+        <button id="btn-vol" aria-pressed="true">Avg range %</button>
+        <button id="btn-days" aria-pressed="false">Sessions</button>
+      </div>
+      <span class="chip" id="scale-chip">scale · 0 – 2.00%</span>
+      <span class="chip" style="margin-left:auto">trading days ≥ 2020-01-01</span>
+    </div>
+
+    <div class="rows" id="rows">
+      <div class="row top" data-vol="1.8341" data-days="342">
+        <div class="name">Shenzhen Component<em>399001.SZ</em></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="val">1.8341%<small>342 sessions</small></div>
+      </div>
+      <div class="row" data-vol="1.7072" data-days="349">
+        <div class="name">Nifty 50<em>NSEI</em></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="val">1.7072%<small>349 sessions</small></div>
+      </div>
+      <div class="row" data-vol="1.4932" data-days="348">
+        <div class="name">Hang Seng Index<em>HSI</em></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="val">1.4932%<small>348 sessions</small></div>
+      </div>
+      <div class="row" data-vol="1.3781" data-days="340">
+        <div class="name">Shanghai Composite<em>000001.SS</em></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="val">1.3781%<small>340 sessions</small></div>
+      </div>
+      <div class="row" data-vol="1.3427" data-days="344">
+        <div class="name">Nikkei 225<em>N225</em></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="val">1.3427%<small>344 sessions</small></div>
+      </div>
+      <div class="row" data-vol="1.3225" data-days="339">
+        <div class="name">Taiwan Weighted<em>TWII</em></div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="val">1.3225%<small>339 sessions</small></div>
+      </div>
+    </div>
+
+    <div class="chart-note">
+      Bars are drawn from the trajectory's printed query output. The agent also confirmed
+      <span class="mono">unparsed dates 0</span> across the whole table, so no sessions were silently dropped
+      by date normalization.
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="sec wrap" id="method">
+  <div class="sec-head reveal">
+    <p class="kicker">03 — How it worked</p>
+    <h2>From schema to ranking in four moves.</h2>
+  </div>
+
+  <div class="steps">
+    <div class="card step lift reveal" data-d="0">
+      <div class="num">STEP 01</div>
+      <h3>Probe both schemas</h3>
+      <p>Read <code>index_info</code> and <code>index_trade</code> columns and sample rows before writing any analysis.</p>
+    </div>
+    <div class="card step lift reveal" data-d="80">
+      <div class="num">STEP 02</div>
+      <h3>Pick the Asian subset</h3>
+      <p>Mapped six of the 13 traded tickers to Asian exchanges: HSI, 000001.SS, N225, 399001.SZ, NSEI, TWII.</p>
+    </div>
+    <div class="card step lift reveal" data-d="160">
+      <div class="num">STEP 03</div>
+      <h3>Normalize the dates</h3>
+      <p>One column carried three formats; a <span class="mono">COALESCE(try_strptime(...))</span> chain recovered every row.</p>
+    </div>
+    <div class="card step lift reveal" data-d="240">
+      <div class="num">STEP 04</div>
+      <h3>Rank by percentage range</h3>
+      <p>Used <span class="mono">(High−Low)/Open×100</span> rather than raw points, so index scale can't skew the comparison.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEDGER ============ -->
+<section class="sec wrap" id="ledger">
+  <div class="sec-head reveal">
+    <p class="kicker">04 — Attempt ledger</p>
+    <h2>Nine shell calls, six of them rejected.</h2>
+    <p class="lede">
+      The sandbox was read-only with no network, and the shell refused heredocs and temp files.
+      Most of the run was spent finding a way to hand a multi-line Python script to the interpreter.
+    </p>
+  </div>
+
+  <div class="card ledger reveal">
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead>
+          <tr><th>#</th><th>Time</th><th>Intent</th><th>Result</th><th>Outcome / error</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time">1</td>
+            <td class="time">22:16:59</td>
+            <td class="cmd">python &lt;&lt;'PY' … schema probe</td>
+            <td><span class="pill bad">failed</span></td>
+            <td class="err">zsh:1: can't create temp file for here document: operation not permitted</td>
+          </tr>
+          <tr>
+            <td class="time">2</td>
+            <td class="time">22:17:07</td>
+            <td class="cmd">python -c '… sqlite3 + duckdb …'</td>
+            <td><span class="pill ok">ok</span></td>
+            <td>Found <span class="mono">index_info</span> (Exchange, Currency) and <span class="mono">index_trade</span> (8 cols).</td>
+          </tr>
+          <tr>
+            <td class="time">3</td>
+            <td class="time">22:17:16</td>
+            <td class="cmd">python -c '… inventory …'</td>
+            <td><span class="pill ok">ok</span></td>
+            <td>14 exchanges · 13 tickers · three date formats exposed.</td>
+          </tr>
+          <tr>
+            <td class="time">4</td>
+            <td class="time">22:17:31</td>
+            <td class="cmd">python -c '… CTE volatility query …'</td>
+            <td><span class="pill bad">failed</span></td>
+            <td class="err">zsh:1: parse error near `)' — inline quoting broke the SQL.</td>
+          </tr>
+          <tr>
+            <td class="time">5</td>
+            <td class="time">23:26:51</td>
+            <td class="cmd">TextEncoder → btoa → python exec</td>
+            <td><span class="pill bad">failed</span></td>
+            <td class="err">ReferenceError: TextEncoder is not defined</td>
+          </tr>
+          <tr>
+            <td class="time">6</td>
+            <td class="time">23:27:01</td>
+            <td class="cmd">btoa → python exec</td>
+            <td><span class="pill bad">failed</span></td>
+            <td class="err">ReferenceError: btoa is not defined</td>
+          </tr>
+          <tr>
+            <td class="time">7</td>
+            <td class="time">23:27:13</td>
+            <td class="cmd">JSON.stringify → python -c</td>
+            <td><span class="pill bad">failed</span></td>
+            <td class="err">SyntaxError: unexpected character after line continuation character</td>
+          </tr>
+          <tr>
+            <td class="time">8</td>
+            <td class="time">23:27:26</td>
+            <td class="cmd">hand-rolled base64 → python exec</td>
+            <td><span class="pill ok">ok</span></td>
+            <td>Ranking printed; <span class="mono">unparsed dates 0</span>.</td>
+          </tr>
+          <tr>
+            <td class="time">9</td>
+            <td class="time">23:27:34</td>
+            <td class="cmd">python -c '… min/max Date …'</td>
+            <td><span class="pill bad">failed</span></td>
+            <td class="err">zsh:1: parse error near `)' — never retried.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tl card reveal" style="margin-top:18px">
+    <div class="tl-row">
+      <div class="tl-time">22:16:52</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><b>Run starts</b><p>Read-only sandbox, restricted network, approval policy never.</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">22:17:33</div><div class="tl-rail"><span class="tl-dot warn"></span></div>
+      <div class="tl-body"><b>Shell-quoting dead end</b><p>Four consecutive attempts to pass a multi-line script fail.</p></div>
+    </div>
+    <div class="gap">
+      <strong>≈ 69 minutes of no recorded activity</strong> — timestamps jump from 22:17:33 to 23:26:51,
+      accounting for nearly all of the 70-minute run. The trajectory shows no tool call, message, or
+      reasoning entry in that window; the cause is not visible in the log.
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">23:27:26</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><b>Query succeeds</b><p>A hand-rolled base64 encoder finally smuggles the script past the shell.</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">23:27:38</div><div class="tl-rail"><span class="tl-dot end"></span></div>
+      <div class="tl-body"><b>Answer delivered</b><p>Shenzhen Component, 1.8341%, with the top-six table and the metric definition.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAVEATS ============ -->
+<section class="sec wrap" id="caveats">
+  <div class="sec-head reveal">
+    <p class="kicker">05 — Caveats &amp; open questions</p>
+    <h2>What the run did not settle.</h2>
+    <p class="lede">Reported as uncertainty, not as failure: the answer was produced and is internally consistent, but several assumptions were never independently checked.</p>
+  </div>
+
+  <div class="faq">
+    <details class="reveal" open>
+      <summary><span class="q">Q1</span> Was the volatility metric specified, or chosen?</summary>
+      <div class="body">
+        <p><strong>Chosen by the agent.</strong> The task never defines "intraday volatility". The agent picked the
+        daily percentage range <span class="mono">(High − Low) / Open × 100</span> and stated that rationale —
+        raw point ranges would be dominated by high-level indexes. That is a sound choice, but a different
+        definition (close-to-close standard deviation, or True Range) would produce a different ordering.</p>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span class="q">Q2</span> How was the "Asia region" decided?</summary>
+      <div class="body">
+        <p><strong>By the agent's own domain knowledge, not by the data.</strong> <code>index_info</code> holds only
+        Exchange and Currency, with no region and no ticker column, so there is no join key linking an
+        exchange to an index ticker. The six-index Asian subset was asserted in a hard-coded
+        <span class="mono">VALUES</span> list. Nothing in the databases confirms or contradicts it, and
+        <span class="mono">NSEI</span> (India) is the one inclusion most likely to be argued either way.</p>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span class="q">Q3</span> Does "since 2020" really cover everything after 2020?</summary>
+      <div class="body">
+        <p><strong>Unverified.</strong> Each index reports only ~340–349 trading days from 2020-01-01 onward —
+        roughly 1.3 years of sessions, not the ~1,500 a 2020-to-2026 window would hold. The agent did try to
+        check the table's date range, but that call failed with a shell parse error and was never re-run.
+        So the actual coverage window behind these averages is unknown from the log.</p>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span class="q">Q4</span> Was the result independently cross-checked?</summary>
+      <div class="body">
+        <p><strong>No.</strong> One query produced the ranking, and the final message restates it verbatim. The only
+        secondary check that ran was the unparsed-date count (0). There is no second implementation, no
+        per-year breakdown, and no verification against <code>Close</code>/<code>Adj Close</code>.</p>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span class="q">Q5</span> How should the six failed calls be read?</summary>
+      <div class="body">
+        <p>They are environment friction, not reasoning errors. The sandbox blocked heredocs and temp files,
+        and the JavaScript host had neither <span class="mono">TextEncoder</span> nor <span class="mono">btoa</span>.
+        The agent recovered by writing its own base64 encoder in plain string arithmetic — which worked.
+        The cost was time, not correctness.</p>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span class="q">Q6</span> Is the gap in the timeline a stall?</summary>
+      <div class="body">
+        <p><strong>Unknown.</strong> The record jumps ~69 minutes between a failed call and the next attempt.
+        Every tool output reports sub-second wall times, and the total duration (4,248 s) matches the
+        timestamp span almost exactly, so the gap is real and inside the run — but the trajectory
+        contains no entry explaining it.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<div class="spacer-lg"></div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand" style="margin-bottom:14px"><span class="mark"></span>DataAgentBench</div>
+      <p>Run report for case <span class="mono">03_stockindex_query1</span>, reconstructed from the recorded
+      Codex trajectory. No part of the task was re-executed for this page; every figure above is quoted
+      from the log.</p>
+    </div>
+    <div>
+      <h4>Provenance</h4>
+      <div class="kv"><span>Case id</span><span>03_stockindex_query1</span></div>
+      <div class="kv"><span>Domain</span><span>data_analysis</span></div>
+      <div class="kv"><span>Source</span><span>regen</span></div>
+      <div class="kv"><span>Collected</span><span>2026-07-11</span></div>
+      <div class="kv"><span>References</span><span>none</span></div>
+    </div>
+    <div>
+      <h4>Run</h4>
+      <div class="kv"><span>Model</span><span>gpt-5.6-sol</span></div>
+      <div class="kv"><span>Backend</span><span>gpt-5.6-sol</span></div>
+      <div class="kv"><span>Duration</span><span>4248.1 s</span></div>
+      <div class="kv"><span>Exit code</span><span>0</span></div>
+      <div class="kv"><span>Trajectory</span><span>codex-jsonl</span></div>
+      <div class="kv"><span>sha256</span><span>5b4803139aaa…b56871</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* nav scroll state */
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 12); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* reveal on scroll */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  reveals.forEach(function(el){
+    var d = el.getAttribute("data-d");
+    if(d){ el.style.transitionDelay = d + "ms"; }
+  });
+
+  function drawBars(){
+    var rows = document.querySelectorAll("#rows .row");
+    var max = 0;
+    rows.forEach(function(r){
+      var v = parseFloat(r.getAttribute(metric === "days" ? "data-days" : "data-vol"));
+      if(v > max) max = v;
+    });
+    rows.forEach(function(r){
+      var v = parseFloat(r.getAttribute(metric === "days" ? "data-days" : "data-vol"));
+      var fill = r.querySelector(".fill");
+      var pct = max > 0 ? (v / max) * 100 : 0;
+      fill.style.width = pct.toFixed(1) + "%";
+    });
+  }
+
+  var metric = "vol";
+  var chip = document.getElementById("scale-chip");
+  var btnVol = document.getElementById("btn-vol");
+  var btnDays = document.getElementById("btn-days");
+
+  function setMetric(m){
+    metric = m;
+    btnVol.setAttribute("aria-pressed", String(m === "vol"));
+    btnDays.setAttribute("aria-pressed", String(m === "days"));
+    chip.textContent = m === "vol" ? "scale · 0 – 2.00%" : "scale · 0 – 360 sessions";
+    drawBars();
+  }
+  btnVol.addEventListener("click", function(){ setMetric("vol"); });
+  btnDays.addEventListener("click", function(){ setMetric("days"); });
+
+  var revealed = false;
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.12});
+    reveals.forEach(function(el){ io.observe(el); });
+
+    /* animate the chart when it first appears */
+    var chart = document.querySelector(".chart");
+    if(chart){
+      var io2 = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting && !revealed){
+            revealed = true;
+            drawBars();
+            io2.disconnect();
+          }
+        });
+      }, {threshold:0.2});
+      io2.observe(chart);
+    }
+  } else {
+    reveals.forEach(function(el){ el.classList.add("in"); });
+    revealed = true;
+    drawBars();
+  }
+})();
+</script>
+</body>
+</html>

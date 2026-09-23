@@ -1,0 +1,196 @@
+<meta charset="utf-8">
+<title>AgentHTML 报告排序标注</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{--ink:#1b1f27;--ink-2:#4b5262;--ink-3:#7d8494;--ground:#f5f6f8;--paper:#ffffff;--line:#d9dde5;--accent:#2f5d8a;--accent-ink:#ffffff;--accent-soft:#e6eef7;--ok:#1f7a4d;--ok-soft:#e3f2ea;--warn:#a15c00;--warn-soft:#fbf0dc}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8eaef;--ink-2:#b4b9c5;--ink-3:#7f8695;--ground:#15181e;--paper:#1e2229;--line:#333944;--accent:#7fb0e0;--accent-ink:#0f1a26;--accent-soft:#233242;--ok:#6fcf97;--ok-soft:#1f3328;--warn:#e0a24a;--warn-soft:#3a2d16}}
+:root[data-theme="dark"]{--ink:#e8eaef;--ink-2:#b4b9c5;--ink-3:#7f8695;--ground:#15181e;--paper:#1e2229;--line:#333944;--accent:#7fb0e0;--accent-ink:#0f1a26;--accent-soft:#233242;--ok:#6fcf97;--ok-soft:#1f3328;--warn:#e0a24a;--warn-soft:#3a2d16}
+html,body{height:100%}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 "IBM Plex Sans",-apple-system,"PingFang SC","Noto Sans SC",sans-serif;margin:0}
+.wrap{max-width:1600px;margin:0 auto;padding-block:16px;padding-inline:16px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+h1{font-size:22px;font-weight:600;margin:0 0 6px;text-wrap:balance}
+h2{font-size:17px;font-weight:600;margin:0 0 8px}
+p{margin:0 0 10px;max-width:70ch}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px}
+.start{max-width:640px;margin:40px auto;display:flex;flex-direction:column;gap:14px}
+label{display:block;font-size:13px;color:var(--ink-2);margin-bottom:4px}
+input[type=text],select,textarea{width:100%;box-sizing:border-box;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+textarea{min-height:90px;resize:vertical}
+button{font:inherit;font-weight:500;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:6px;padding:8px 14px;cursor:pointer}
+button:hover{border-color:var(--accent)} button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.top{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin-bottom:10px}
+.badge{display:inline-block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.task{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 16px;margin-bottom:12px}
+.task .q{font-size:16px;font-weight:600;margin:4px 0 2px}
+.task .fixed{color:var(--ink-2);font-size:13px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr))}
+.out{background:var(--paper);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;min-width:0}
+.out.big{grid-column:1/-1}
+.out header{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line)}
+.out header .letter{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:15px;background:var(--ink);color:var(--paper);border-radius:4px;padding:0 8px;line-height:24px}
+.out header .sp{flex:1}
+.out header button{padding:3px 9px;font-size:12px}
+.out iframe{width:100%;height:68vh;border:0;background:#fff;display:block}
+.out.big iframe{height:85vh}
+.ranks{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line);align-items:center;flex-wrap:wrap}
+.choice{border:0;padding:14px 0 4px;gap:10px} .choice button{min-width:110px;padding:10px 16px;font-size:15px}
+.ranks span{font-size:13px;color:var(--ink-2);margin-right:4px}
+.ranks button{min-width:38px;font-family:"IBM Plex Mono",monospace}
+.ranks button.tick{min-width:72px;font-family:inherit}
+.ranks button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.summary{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:12px 0}
+.summary .order{font-family:"IBM Plex Mono",monospace;font-size:15px}
+.pill{font-size:12px;padding:2px 9px;border-radius:999px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.warn{background:var(--warn-soft);color:var(--warn)}
+.nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.nav .sp{flex:1}
+.progress{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.progress button{width:34px;padding:4px 0;font-family:"IBM Plex Mono",monospace;font-size:12px}
+.progress button.done{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.progress button.cur{outline:2px solid var(--accent)}
+.hint{font-size:13px;color:var(--ink-3)}
+.result textarea{min-height:260px;font-family:"IBM Plex Mono",monospace;font-size:12px}
+@media (max-width:1100px){.grid{--cols:2 !important}}
+@media (max-width:640px){.grid{--cols:1 !important}.out iframe{height:60vh}}
+@media (prefers-reduced-motion:no-preference){button{transition:border-color .12s,background .12s}}
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const DATA = {"questions": [{"id": "T1-04-html_anything", "type": 1, "task_id": "04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954", "domain": "daily_web_tasks", "task_summary": "在 SpotHero 上为次日早上9点至下午5点预订多伦多市中心停车位。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/ef3f688b0038.html"}, {"label": "B", "file": "reports/de896ef27742.html"}, {"label": "C", "file": "reports/9cba91060ff2.html"}, {"label": "D", "file": "reports/12904b875e5f.html"}, {"label": "E", "file": "reports/77d20081ba8d.html"}, {"label": "F", "file": "reports/84b2fb7c14a2.html"}]}, {"id": "T1-01-skill", "type": 1, "task_id": "01_001-daily-life-food-uber-eats-claude-haiku-4-5-20251001-20260325-071049", "domain": "daily_web_tasks", "task_summary": "通过浏览器订购一份泰式炒河粉和一杯泰式冰茶，送到用户家庭地址并备注不加花生。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/b2fb1a020530.html"}, {"label": "B", "file": "reports/3d0f7128d00e.html"}, {"label": "C", "file": "reports/0f30cc3ffcc4.html"}, {"label": "D", "file": "reports/858e3b08e2ff.html"}, {"label": "E", "file": "reports/a866841cb3e7.html"}, {"label": "F", "file": "reports/5432db28eed2.html"}]}, {"id": "T1-07-skill", "type": 1, "task_id": "03_stockindex_query1", "domain": "data_analysis", "task_summary": "用 Python 查询两份数据库，找出自 2020 年以来亚洲地区平均日内波动率最高的股票指数。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/044273bbacd0.html"}, {"label": "B", "file": "reports/fdfc7a8d8346.html"}, {"label": "C", "file": "reports/9664ce992747.html"}, {"label": "D", "file": "reports/76534d39b023.html"}, {"label": "E", "file": "reports/566afb5cda14.html"}, {"label": "F", "file": "reports/507a3a43df1a.html"}]}, {"id": "T1-07-html_anything", "type": 1, "task_id": "03_stockindex_query1", "domain": "data_analysis", "task_summary": "用 Python 查询两份数据库，找出自 2020 年以来亚洲地区平均日内波动率最高的股票指数。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/51e94108ef06.html"}, {"label": "B", "file": "reports/85ef45a1e0ab.html"}, {"label": "C", "file": "reports/336f8bed311a.html"}, {"label": "D", "file": "reports/9d875b90b70b.html"}, {"label": "E", "file": "reports/5d66deb0b4ae.html"}, {"label": "F", "file": "reports/718c80deefe3.html"}]}, {"id": "T1-04-skill", "type": 1, "task_id": "04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954", "domain": "daily_web_tasks", "task_summary": "在 SpotHero 上为次日早上9点至下午5点预订多伦多市中心停车位。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/9e0bc3a27b5d.html"}, {"label": "B", "file": "reports/38511054cef2.html"}, {"label": "C", "file": "reports/88b4044e5110.html"}, {"label": "D", "file": "reports/0f1996b4aa3d.html"}, {"label": "E", "file": "reports/02750c690248.html"}, {"label": "F", "file": "reports/b71aaea4c502.html"}]}, {"id": "T1-10-html_anything", "type": 1, "task_id": "02_f9be0997-4b7c-45c5-b05c-4612b44a6118_f9be0997", "domain": "desktop_gui", "task_summary": "在 Ubuntu 系统设置中开启“请勿打扰”模式，避免通知打扰用户。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/23f7097e0f73.html"}, {"label": "B", "file": "reports/59d4f01343d0.html"}, {"label": "C", "file": "reports/e542397b28f9.html"}, {"label": "D", "file": "reports/6cf6eda66481.html"}, {"label": "E", "file": "reports/cdc67e00b3c3.html"}, {"label": "F", "file": "reports/190c752c565e.html"}]}, {"id": "T1-08-raw", "type": 1, "task_id": "01_break-filter-js-from-html", "domain": "terminal_devops", "task_summary": "构造一个经 JavaScript 过滤器原地处理后仍会在浏览器中自动触发 alert 的 HTML 文件。", "fixed": "生成方法相同：Direct HTML", "pick": 2, "outputs": [{"label": "A", "file": "reports/b690f2ecdcfb.html"}, {"label": "B", "file": "reports/2ebf5ed468a6.html"}, {"label": "C", "file": "reports/db9545ee9a4f.html"}, {"label": "D", "file": "reports/1ee3a03556e4.html"}, {"label": "E", "file": "reports/a6c04d7a70c0.html"}, {"label": "F", "file": "reports/3c9004c1856c.html"}]}, {"id": "T1-05-html_anything", "type": 1, "task_id": "05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519", "domain": "daily_web_tasks", "task_summary": "在浏览器中预订一辆6月20日从多伦多到尼亚加拉瀑布、9:00取车并于18:00还车的紧凑型汽车。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/3a3247bd6056.html"}, {"label": "B", "file": "reports/7efa43924d49.html"}, {"label": "C", "file": "reports/e5f1d6a237f3.html"}, {"label": "D", "file": "reports/85df7b909ab4.html"}, {"label": "E", "file": "reports/40b77f6690e1.html"}, {"label": "F", "file": "reports/66d842943b7e.html"}]}, {"id": "T1-03-raw", "type": 1, "task_id": "03_008-daily-life-food-hellofresh-claude-haiku-4-5-20251001-20260325-071107", "domain": "daily_web_tasks", "task_summary": "在 HelloFresh 为两人配置每周三餐的 Veggie 膳食订阅并完成下单。", "fixed": "生成方法相同：Direct HTML", "pick": 2, "outputs": [{"label": "A", "file": "reports/735aec680ea3.html"}, {"label": "B", "file": "reports/ff6c1e79e74a.html"}, {"label": "C", "file": "reports/ad3cfc04e5ee.html"}, {"label": "D", "file": "reports/0940540d415b.html"}, {"label": "E", "file": "reports/7a876f2612bf.html"}, {"label": "F", "file": "reports/e446f7c0c261.html"}]}, {"id": "T1-08-html_anything", "type": 1, "task_id": "01_break-filter-js-from-html", "domain": "terminal_devops", "task_summary": "构造一个经 JavaScript 过滤器原地处理后仍会在浏览器中自动触发 alert 的 HTML 文件。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/3e2a5d31298b.html"}, {"label": "B", "file": "reports/54539a3d3d04.html"}, {"label": "C", "file": "reports/4d4133835f98.html"}, {"label": "D", "file": "reports/2f544daf27c8.html"}, {"label": "E", "file": "reports/f5d28977ceb1.html"}, {"label": "F", "file": "reports/8f1ecf5e33a1.html"}]}, {"id": "T1-02-raw", "type": 1, "task_id": "02_019-daily-life-transportation-google-flights-claude-haiku-4-5-20251001-20260325-071431", "domain": "daily_web_tasks", "task_summary": "要求代理通过浏览器购买2026年6月1日至12日从多伦多往返蒙特利尔的最便宜经济舱机票。", "fixed": "生成方法相同：Direct HTML", "pick": 2, "outputs": [{"label": "A", "file": "reports/d7e4c283b0e9.html"}, {"label": "B", "file": "reports/5dd81adf91dc.html"}, {"label": "C", "file": "reports/33dc18441f3f.html"}, {"label": "D", "file": "reports/7456cae484b4.html"}, {"label": "E", "file": "reports/9e685b9038d9.html"}, {"label": "F", "file": "reports/a34e9d2921dc.html"}]}, {"id": "T1-02-html_anything", "type": 1, "task_id": "02_019-daily-life-transportation-google-flights-claude-haiku-4-5-20251001-20260325-071431", "domain": "daily_web_tasks", "task_summary": "要求代理通过浏览器购买2026年6月1日至12日从多伦多往返蒙特利尔的最便宜经济舱机票。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/4ffa7da3f1bf.html"}, {"label": "B", "file": "reports/6ecd2802fc98.html"}, {"label": "C", "file": "reports/8dba2856891d.html"}, {"label": "D", "file": "reports/b84b84039268.html"}, {"label": "E", "file": "reports/788d31965d3a.html"}, {"label": "F", "file": "reports/718db876fc43.html"}]}, {"id": "T1-09-raw", "type": 1, "task_id": "01_benjamincorcoran__sasdocs-41", "domain": "code_repair", "task_summary": "修复 SAS 解析器无法处理带斜杠显式选项的数据步和过程声明的问题。", "fixed": "生成方法相同：Direct HTML", "pick": 2, "outputs": [{"label": "A", "file": "reports/cf1c86ca3326.html"}, {"label": "B", "file": "reports/6a466a176f2c.html"}, {"label": "C", "file": "reports/dbe44f624af0.html"}, {"label": "D", "file": "reports/4769d20f7359.html"}, {"label": "E", "file": "reports/93cc6f33fa11.html"}, {"label": "F", "file": "reports/41eb6d0f49b0.html"}]}, {"id": "T1-06-skill", "type": 1, "task_id": "01_sonnet-35-new-retail_249", "domain": "tool_use_customer_service", "task_summary": "帮助已认证客户退回水瓶，并查找、尝试换购更便宜的宠物床和办公椅。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/9c718afd4584.html"}, {"label": "B", "file": "reports/0dd0ab03bc3b.html"}, {"label": "C", "file": "reports/64bafeed33fb.html"}, {"label": "D", "file": "reports/fe27b5919cdd.html"}, {"label": "E", "file": "reports/35c9454a131e.html"}, {"label": "F", "file": "reports/055be377ac15.html"}]}, {"id": "T1-01-html_anything", "type": 1, "task_id": "01_001-daily-life-food-uber-eats-claude-haiku-4-5-20251001-20260325-071049", "domain": "daily_web_tasks", "task_summary": "通过浏览器订购一份泰式炒河粉和一杯泰式冰茶，送到用户家庭地址并备注不加花生。", "fixed": "生成方法相同：HTML Anything", "pick": 2, "outputs": [{"label": "A", "file": "reports/2c8fbc878a7b.html"}, {"label": "B", "file": "reports/e0e080775543.html"}, {"label": "C", "file": "reports/b83af5c47908.html"}, {"label": "D", "file": "reports/930f02f7ba56.html"}, {"label": "E", "file": "reports/c5dfd54e6bea.html"}, {"label": "F", "file": "reports/167778aac646.html"}]}, {"id": "T1-06-raw", "type": 1, "task_id": "01_sonnet-35-new-retail_249", "domain": "tool_use_customer_service", "task_summary": "帮助已认证客户退回水瓶，并查找、尝试换购更便宜的宠物床和办公椅。", "fixed": "生成方法相同：Direct HTML", "pick": 2, "outputs": [{"label": "A", "file": "reports/b5338ab560cb.html"}, {"label": "B", "file": "reports/68ac6abe5577.html"}, {"label": "C", "file": "reports/3ee128c95005.html"}, {"label": "D", "file": "reports/f2fc6eb472b8.html"}, {"label": "E", "file": "reports/abb4368bd3d7.html"}, {"label": "F", "file": "reports/a17b704dd82c.html"}]}, {"id": "T1-09-skill", "type": 1, "task_id": "01_benjamincorcoran__sasdocs-41", "domain": "code_repair", "task_summary": "修复 SAS 解析器无法处理带斜杠显式选项的数据步和过程声明的问题。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/f229c4256893.html"}, {"label": "B", "file": "reports/be1385c3f7cb.html"}, {"label": "C", "file": "reports/340a43280d08.html"}, {"label": "D", "file": "reports/2653a3314a44.html"}, {"label": "E", "file": "reports/68f0774c812f.html"}, {"label": "F", "file": "reports/838b6f710353.html"}]}, {"id": "T1-05-raw", "type": 1, "task_id": "05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519", "domain": "daily_web_tasks", "task_summary": "在浏览器中预订一辆6月20日从多伦多到尼亚加拉瀑布、9:00取车并于18:00还车的紧凑型汽车。", "fixed": "生成方法相同：Direct HTML", "pick": 2, "outputs": [{"label": "A", "file": "reports/1cdbdb9d3a85.html"}, {"label": "B", "file": "reports/8db292792092.html"}, {"label": "C", "file": "reports/0aa8308c6fc1.html"}, {"label": "D", "file": "reports/b80efcbbb255.html"}, {"label": "E", "file": "reports/eb6a906a03b8.html"}, {"label": "F", "file": "reports/f42bce2d0f9f.html"}]}, {"id": "T1-03-skill", "type": 1, "task_id": "03_008-daily-life-food-hellofresh-claude-haiku-4-5-20251001-20260325-071107", "domain": "daily_web_tasks", "task_summary": "在 HelloFresh 为两人配置每周三餐的 Veggie 膳食订阅并完成下单。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/4eba327facda.html"}, {"label": "B", "file": "reports/3182bca24b42.html"}, {"label": "C", "file": "reports/56ae01055118.html"}, {"label": "D", "file": "reports/38deb98619d5.html"}, {"label": "E", "file": "reports/b73b7afbdf95.html"}, {"label": "F", "file": "reports/3a7cf2b65435.html"}]}, {"id": "T1-10-skill", "type": 1, "task_id": "02_f9be0997-4b7c-45c5-b05c-4612b44a6118_f9be0997", "domain": "desktop_gui", "task_summary": "在 Ubuntu 系统设置中开启“请勿打扰”模式，避免通知打扰用户。", "fixed": "生成方法相同：Frontend Design skill", "pick": 2, "outputs": [{"label": "A", "file": "reports/9b2ed4562e89.html"}, {"label": "B", "file": "reports/178f2526c580.html"}, {"label": "C", "file": "reports/4d176ed9470b.html"}, {"label": "D", "file": "reports/8de41e3729ff.html"}, {"label": "E", "file": "reports/5a3a3a962005.html"}, {"label": "F", "file": "reports/229232a3f048.html"}]}, {"id": "T2-01-gpt6-astra-low", "type": 2, "task_id": "01_001-daily-life-food-uber-eats-claude-haiku-4-5-20251001-20260325-071049", "domain": "daily_web_tasks", "task_summary": "通过浏览器订购一份泰式炒河粉和一杯泰式冰茶，送到用户家庭地址并备注不加花生。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/2c8fbc878a7b.html"}, {"label": "B", "file": "reports/0f30cc3ffcc4.html"}, {"label": "C", "file": "reports/71415609b26d.html"}]}, {"id": "T2-07-gpt6-astra-low", "type": 2, "task_id": "03_stockindex_query1", "domain": "data_analysis", "task_summary": "用 Python 查询两份数据库，找出自 2020 年以来亚洲地区平均日内波动率最高的股票指数。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/51e94108ef06.html"}, {"label": "B", "file": "reports/a779e5215f9a.html"}, {"label": "C", "file": "reports/5fe594174d8a.html"}]}, {"id": "T2-08-gpt5.5", "type": 2, "task_id": "01_break-filter-js-from-html", "domain": "terminal_devops", "task_summary": "构造一个经 JavaScript 过滤器原地处理后仍会在浏览器中自动触发 alert 的 HTML 文件。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/70e6b9befe85.html"}, {"label": "B", "file": "reports/35cb23e5744d.html"}, {"label": "C", "file": "reports/32b47e0cddfb.html"}]}, {"id": "T2-02-glm5.2", "type": 2, "task_id": "02_019-daily-life-transportation-google-flights-claude-haiku-4-5-20251001-20260325-071431", "domain": "daily_web_tasks", "task_summary": "要求代理通过浏览器购买2026年6月1日至12日从多伦多往返蒙特利尔的最便宜经济舱机票。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/33dc18441f3f.html"}, {"label": "B", "file": "reports/8dba2856891d.html"}, {"label": "C", "file": "reports/c1e608bc8b7f.html"}]}, {"id": "T2-10-deepseek-v4.1-flash", "type": 2, "task_id": "02_f9be0997-4b7c-45c5-b05c-4612b44a6118_f9be0997", "domain": "desktop_gui", "task_summary": "在 Ubuntu 系统设置中开启“请勿打扰”模式，避免通知打扰用户。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/190c752c565e.html"}, {"label": "B", "file": "reports/2fdf7cd9966a.html"}, {"label": "C", "file": "reports/c10bca7e19a4.html"}]}, {"id": "T2-06-grok4.5", "type": 2, "task_id": "01_sonnet-35-new-retail_249", "domain": "tool_use_customer_service", "task_summary": "帮助已认证客户退回水瓶，并查找、尝试换购更便宜的宠物床和办公椅。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/4b590c4aa8ae.html"}, {"label": "B", "file": "reports/0dd0ab03bc3b.html"}, {"label": "C", "file": "reports/f2fc6eb472b8.html"}]}, {"id": "T2-08-sonnet4.6", "type": 2, "task_id": "01_break-filter-js-from-html", "domain": "terminal_devops", "task_summary": "构造一个经 JavaScript 过滤器原地处理后仍会在浏览器中自动触发 alert 的 HTML 文件。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/f5d28977ceb1.html"}, {"label": "B", "file": "reports/2ebf5ed468a6.html"}, {"label": "C", "file": "reports/b8991ab67e22.html"}]}, {"id": "T2-04-fable5.1", "type": 2, "task_id": "04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954", "domain": "daily_web_tasks", "task_summary": "在 SpotHero 上为次日早上9点至下午5点预订多伦多市中心停车位。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/d1eed3c75228.html"}, {"label": "B", "file": "reports/3db2c18357f4.html"}, {"label": "C", "file": "reports/0f1996b4aa3d.html"}]}, {"id": "T2-01-gpt5.5", "type": 2, "task_id": "01_001-daily-life-food-uber-eats-claude-haiku-4-5-20251001-20260325-071049", "domain": "daily_web_tasks", "task_summary": "通过浏览器订购一份泰式炒河粉和一杯泰式冰茶，送到用户家庭地址并备注不加花生。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/139410408dce.html"}, {"label": "B", "file": "reports/1e5a3d6120f6.html"}, {"label": "C", "file": "reports/c5dfd54e6bea.html"}]}, {"id": "T2-03-deepseek-v4.1-flash", "type": 2, "task_id": "03_008-daily-life-food-hellofresh-claude-haiku-4-5-20251001-20260325-071107", "domain": "daily_web_tasks", "task_summary": "在 HelloFresh 为两人配置每周三餐的 Veggie 膳食订阅并完成下单。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/b73b7afbdf95.html"}, {"label": "B", "file": "reports/e3de4efb806b.html"}, {"label": "C", "file": "reports/a925c640ae91.html"}]}, {"id": "T2-08-fable5.1", "type": 2, "task_id": "01_break-filter-js-from-html", "domain": "terminal_devops", "task_summary": "构造一个经 JavaScript 过滤器原地处理后仍会在浏览器中自动触发 alert 的 HTML 文件。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/b3361e36f89e.html"}, {"label": "B", "file": "reports/b1c751636285.html"}, {"label": "C", "file": "reports/2f544daf27c8.html"}]}, {"id": "T2-04-gpt6-astra-low", "type": 2, "task_id": "04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954", "domain": "daily_web_tasks", "task_summary": "在 SpotHero 上为次日早上9点至下午5点预订多伦多市中心停车位。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/2366dea531cb.html"}, {"label": "B", "file": "reports/ebaf6793dde6.html"}, {"label": "C", "file": "reports/84b2fb7c14a2.html"}]}, {"id": "T2-05-sonnet4.6", "type": 2, "task_id": "05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519", "domain": "daily_web_tasks", "task_summary": "在浏览器中预订一辆6月20日从多伦多到尼亚加拉瀑布、9:00取车并于18:00还车的紧凑型汽车。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/7fd247a04973.html"}, {"label": "B", "file": "reports/0aa8308c6fc1.html"}, {"label": "C", "file": "reports/40b77f6690e1.html"}]}, {"id": "T2-06-gpt5.6", "type": 2, "task_id": "01_sonnet-35-new-retail_249", "domain": "tool_use_customer_service", "task_summary": "帮助已认证客户退回水瓶，并查找、尝试换购更便宜的宠物床和办公椅。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/b5338ab560cb.html"}, {"label": "B", "file": "reports/be5a5b417633.html"}, {"label": "C", "file": "reports/f4071064dbe9.html"}]}, {"id": "T2-09-grok4.5", "type": 2, "task_id": "01_benjamincorcoran__sasdocs-41", "domain": "code_repair", "task_summary": "修复 SAS 解析器无法处理带斜杠显式选项的数据步和过程声明的问题。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/1e0410153cde.html"}, {"label": "B", "file": "reports/838b6f710353.html"}, {"label": "C", "file": "reports/2e0b0367c47c.html"}]}, {"id": "T2-02-opus4.8", "type": 2, "task_id": "02_019-daily-life-transportation-google-flights-claude-haiku-4-5-20251001-20260325-071431", "domain": "daily_web_tasks", "task_summary": "要求代理通过浏览器购买2026年6月1日至12日从多伦多往返蒙特利尔的最便宜经济舱机票。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/718db876fc43.html"}, {"label": "B", "file": "reports/27a7a4bbd0d4.html"}, {"label": "C", "file": "reports/d7e4c283b0e9.html"}]}, {"id": "T2-05-glm5.2", "type": 2, "task_id": "05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519", "domain": "daily_web_tasks", "task_summary": "在浏览器中预订一辆6月20日从多伦多到尼亚加拉瀑布、9:00取车并于18:00还车的紧凑型汽车。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/f74bc8556f37.html"}, {"label": "B", "file": "reports/f42bce2d0f9f.html"}, {"label": "C", "file": "reports/f5c67912223e.html"}]}, {"id": "T2-07-deepseek-v4.1-flash", "type": 2, "task_id": "03_stockindex_query1", "domain": "data_analysis", "task_summary": "用 Python 查询两份数据库，找出自 2020 年以来亚洲地区平均日内波动率最高的股票指数。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/b699dc2cd269.html"}, {"label": "B", "file": "reports/9664ce992747.html"}, {"label": "C", "file": "reports/d3ddb39ee258.html"}]}, {"id": "T2-09-opus4.8", "type": 2, "task_id": "01_benjamincorcoran__sasdocs-41", "domain": "code_repair", "task_summary": "修复 SAS 解析器无法处理带斜杠显式选项的数据步和过程声明的问题。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/5a94b4d87280.html"}, {"label": "B", "file": "reports/41eb6d0f49b0.html"}, {"label": "C", "file": "reports/68f0774c812f.html"}]}, {"id": "T2-04-gemini3.8-flash", "type": 2, "task_id": "04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954", "domain": "daily_web_tasks", "task_summary": "在 SpotHero 上为次日早上9点至下午5点预订多伦多市中心停车位。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/f9630e746260.html"}, {"label": "B", "file": "reports/88b4044e5110.html"}, {"label": "C", "file": "reports/ef3f688b0038.html"}]}, {"id": "T2-03-grok4.5", "type": 2, "task_id": "03_008-daily-life-food-hellofresh-claude-haiku-4-5-20251001-20260325-071107", "domain": "daily_web_tasks", "task_summary": "在 HelloFresh 为两人配置每周三餐的 Veggie 膳食订阅并完成下单。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/254a1fe38de1.html"}, {"label": "B", "file": "reports/de79740dfba7.html"}, {"label": "C", "file": "reports/ad3cfc04e5ee.html"}]}, {"id": "T2-07-gemini3.8-flash", "type": 2, "task_id": "03_stockindex_query1", "domain": "data_analysis", "task_summary": "用 Python 查询两份数据库，找出自 2020 年以来亚洲地区平均日内波动率最高的股票指数。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/718c80deefe3.html"}, {"label": "B", "file": "reports/c0f6d1498a41.html"}, {"label": "C", "file": "reports/9818ebebaf26.html"}]}, {"id": "T2-03-gpt5.6", "type": 2, "task_id": "03_008-daily-life-food-hellofresh-claude-haiku-4-5-20251001-20260325-071107", "domain": "daily_web_tasks", "task_summary": "在 HelloFresh 为两人配置每周三餐的 Veggie 膳食订阅并完成下单。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/fca1fc980db4.html"}, {"label": "B", "file": "reports/f14b08f42105.html"}, {"label": "C", "file": "reports/4eba327facda.html"}]}, {"id": "T2-01-fable5.1", "type": 2, "task_id": "01_001-daily-life-food-uber-eats-claude-haiku-4-5-20251001-20260325-071049", "domain": "daily_web_tasks", "task_summary": "通过浏览器订购一份泰式炒河粉和一杯泰式冰茶，送到用户家庭地址并备注不加花生。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/3089ba220540.html"}, {"label": "B", "file": "reports/3d0f7128d00e.html"}, {"label": "C", "file": "reports/dc7b0ee28f6f.html"}]}, {"id": "T2-10-gpt5.6", "type": 2, "task_id": "02_f9be0997-4b7c-45c5-b05c-4612b44a6118_f9be0997", "domain": "desktop_gui", "task_summary": "在 Ubuntu 系统设置中开启“请勿打扰”模式，避免通知打扰用户。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/59d4f01343d0.html"}, {"label": "B", "file": "reports/583804f032ee.html"}, {"label": "C", "file": "reports/37a7e06eecc2.html"}]}, {"id": "T2-06-opus4.8", "type": 2, "task_id": "01_sonnet-35-new-retail_249", "domain": "tool_use_customer_service", "task_summary": "帮助已认证客户退回水瓶，并查找、尝试换购更便宜的宠物床和办公椅。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/a17b704dd82c.html"}, {"label": "B", "file": "reports/a079f8554f1e.html"}, {"label": "C", "file": "reports/d107637da286.html"}]}, {"id": "T2-05-gpt5.5", "type": 2, "task_id": "05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519", "domain": "daily_web_tasks", "task_summary": "在浏览器中预订一辆6月20日从多伦多到尼亚加拉瀑布、9:00取车并于18:00还车的紧凑型汽车。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/85df7b909ab4.html"}, {"label": "B", "file": "reports/3c99f94a0533.html"}, {"label": "C", "file": "reports/0b16e603415f.html"}]}, {"id": "T2-09-glm5.2", "type": 2, "task_id": "01_benjamincorcoran__sasdocs-41", "domain": "code_repair", "task_summary": "修复 SAS 解析器无法处理带斜杠显式选项的数据步和过程声明的问题。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/d5f444b8b4a6.html"}, {"label": "B", "file": "reports/1c4980c19f01.html"}, {"label": "C", "file": "reports/d470b1a9eed6.html"}]}, {"id": "T2-10-gemini3.8-flash", "type": 2, "task_id": "02_f9be0997-4b7c-45c5-b05c-4612b44a6118_f9be0997", "domain": "desktop_gui", "task_summary": "在 Ubuntu 系统设置中开启“请勿打扰”模式，避免通知打扰用户。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/8de41e3729ff.html"}, {"label": "B", "file": "reports/b379a441133c.html"}, {"label": "C", "file": "reports/6cf6eda66481.html"}]}, {"id": "T2-02-sonnet4.6", "type": 2, "task_id": "02_019-daily-life-transportation-google-flights-claude-haiku-4-5-20251001-20260325-071431", "domain": "daily_web_tasks", "task_summary": "要求代理通过浏览器购买2026年6月1日至12日从多伦多往返蒙特利尔的最便宜经济舱机票。", "fixed": "模型相同", "pick": 2, "outputs": [{"label": "A", "file": "reports/1fb9871c5991.html"}, {"label": "B", "file": "reports/f322f68f82e8.html"}, {"label": "C", "file": "reports/1308f8b37821.html"}]}], "packets": {"P03": ["T1-04-skill", "T1-10-html_anything", "T2-08-sonnet4.6", "T2-04-fable5.1", "T2-01-gpt5.5"]}, "built": "2026-09-23"};
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const TYPE_TEXT = {1: '同一任务、同一生成方法，不同模型', 2: '同一任务、同一模型，三种生成方法'};
+// multi-select: an annotator ticks every report they consider good (hm, 2026-09-23)
+const DOMAIN = {daily_web_tasks:'日常网页任务', tool_use_customer_service:'工具调用 · 客服', data_analysis:'数据分析', terminal_devops:'终端 / DevOps', code_repair:'代码修复', desktop_gui:'桌面 GUI'};
+const app = $('#app');
+let S = null;             // session: {annotator, packet, ids, answers:{qid:{rank:{}, comment, seconds}}, i}
+let openedAt = 0;
+const storeKey = () => `agenthtml-annot-multi:${S.annotator}:${S.packet}`;
+function save(){ try{ localStorage.setItem(storeKey(), JSON.stringify(S)); }catch(e){} }
+function load(annotator, packet){ try{ const v = localStorage.getItem(`agenthtml-annot-multi:${annotator}:${packet}`); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+const byId = Object.fromEntries(DATA.questions.map(q => [q.id, q]));
+const packetCodes = Object.keys(DATA.packets);
+
+function renderStart(){
+  const preview = packetCodes.length === 0;
+  app.innerHTML = `
+  <div class="start">
+    <div>
+      <h1>AgentHTML 报告排序标注</h1>
+      <p>每一题给出一个 agent 任务，以及几份由不同模型或不同生成方法写出的 HTML 报告。把你<b>觉得好的报告都勾上</b>（可以只勾一份，也可以全勾）：好的标准是它能让你看懂这次任务做了什么、做得怎么样、结果可不可信。</p>
+      <p class="hint">报告以 A、B、C… 匿名显示。每份报告可以在框内滚动，也可以点「放大」单独看。只看报告本身，不要猜它出自哪个模型。</p>
+    </div>
+    <div class="card">
+      <label for="annotator">标注者编号（发给你的编号，例如 A3）</label>
+      <input type="text" id="annotator" placeholder="A3" autocomplete="off">
+      <div style="height:10px"></div>
+      <label for="packet">题包</label>
+      ${preview ? `<select id="packet"><option value="__all__">预览模式：全部 ${DATA.questions.length} 题（题包尚未分配）</option></select>`
+                : `<select id="packet">${packetCodes.map(c => `<option value="${esc(c)}">${esc(c)}（${DATA.packets[c].length} 题）</option>`).join('')}</select>`}
+      <div style="height:14px"></div>
+      <button class="primary" id="go">开始标注</button>
+      <p class="hint" style="margin-top:10px">进度会保存在这台电脑的浏览器里；同一编号、同一题包再次打开会接着上次的位置。</p>
+    </div>
+  </div>`;
+  $('#go').onclick = () => {
+    const annotator = $('#annotator').value.trim();
+    if(!annotator){ $('#annotator').focus(); return; }
+    const packet = $('#packet').value;
+    const ids = packet === '__all__' ? DATA.questions.map(q => q.id) : DATA.packets[packet];
+    S = load(annotator, packet) || {annotator, packet, ids, answers:{}, i:0, started: new Date().toISOString()};
+    save(); renderQuestion();
+  };
+}
+
+function renderQuestion(){
+  const qid = S.ids[S.i], q = byId[qid];
+  const a = S.answers[qid] || (S.answers[qid] = {good:[], comment:'', seconds:0});
+  const n = q.outputs.length;
+  openedAt = Date.now();
+  app.innerHTML = `
+  <div class="top">
+    <span class="mono">${esc(S.annotator)} · ${esc(S.packet === '__all__' ? '预览' : S.packet)}</span>
+    <span>第 <b>${S.i+1}</b> / ${S.ids.length} 题</span>
+    <span class="badge">类型 ${q.type}</span><span class="hint">${TYPE_TEXT[q.type]}</span>
+    <span class="hint mono">${esc(q.id)}</span>
+  </div>
+  <div class="task">
+    <span class="badge">${esc(DOMAIN[q.domain] || q.domain)}</span>
+    <div class="q">${esc(q.task_summary)}</div>
+    <div class="fixed">${esc(q.fixed)} · 下面 ${n} 份报告，觉得好的就勾上，可以勾一份也可以全勾</div>
+  </div>
+  <div class="grid" style="--cols:${Math.min(n,3)}">
+    ${q.outputs.map(o => `
+    <div class="out" data-label="${o.label}">
+      <header><span class="letter">${o.label}</span><span class="sp"></span><button class="zoom" data-label="${o.label}">放大</button></header>
+      <iframe src="${esc(o.file)}" title="报告 ${o.label}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+      <div class="ranks"><button class="rk tick${a.good.includes(o.label)?' on':''}" data-label="${o.label}">${a.good.includes(o.label)?'✓ 好':'好'}</button></div>
+    </div>`).join('')}
+  </div>
+  <div class="summary" id="summary"></div>
+  <div>
+    <label for="comment">备注（可选：为什么这样排，或哪份有明显问题）</label>
+    <textarea id="comment">${esc(a.comment)}</textarea>
+  </div>
+  <div class="progress" id="progress"></div>
+  <div class="nav">
+    <button id="prev" ${S.i===0?'disabled':''}>上一题</button>
+    <button id="next" class="primary">${S.i===S.ids.length-1 ? '完成，生成结果' : '下一题'}</button>
+    <span class="sp"></span>
+    <button id="finish">随时生成结果</button>
+    <button id="quit">退出</button>
+  </div>`;
+  app.querySelectorAll('.rk').forEach(b => b.onclick = () => { const l = b.dataset.label; a.good = a.good.includes(l) ? a.good.filter(x => x !== l) : [...a.good, l].sort(); save(); app.querySelectorAll('.rk').forEach(x => { const on = a.good.includes(x.dataset.label); x.classList.toggle('on', on); x.textContent = on ? '✓ 好' : '好'; }); paintSummary(q, a); paintProgress(); });
+  app.querySelectorAll('.zoom').forEach(b => b.onclick = () => {
+    const card = b.closest('.out'); const big = card.classList.toggle('big'); b.textContent = big ? '还原' : '放大';
+    if(big) card.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  $('#comment').oninput = e => { a.comment = e.target.value; save(); };
+  $('#prev').onclick = () => { commitTime(a); S.i--; save(); renderQuestion(); };
+  $('#next').onclick = () => { commitTime(a); if(S.i === S.ids.length-1){ save(); renderResult(); } else { S.i++; save(); renderQuestion(); } };
+  $('#finish').onclick = () => { commitTime(a); save(); renderResult(); };
+  $('#quit').onclick = () => { commitTime(a); save(); S = null; renderStart(); };
+  paintSummary(q, a); paintProgress();
+}
+
+const complete = (q, a) => a.visited === true;
+function paintSummary(q, a){
+  const n = a.good.length;
+  $('#summary').innerHTML = `<span class="order">${n ? '勾了：' + a.good.join('、') : '还没勾'}</span>` +
+    `<span class="pill ${n && n < q.outputs.length ? 'ok' : 'warn'}">${n === 0 ? '一份都没勾也可以，表示都不好' : (n === q.outputs.length ? '全勾了，表示都差不多好' : n + ' / ' + q.outputs.length)}</span>`;
+}
+function paintProgress(){
+  $('#progress').innerHTML = S.ids.map((id, k) => { const done = S.answers[id] && complete(byId[id], S.answers[id]);
+    return `<button class="${done?'done':''}${k===S.i?' cur':''}" data-i="${k}" title="${esc(id)}">${k+1}</button>`; }).join('');
+  app.querySelectorAll('#progress button').forEach(b => b.onclick = () => { const cur = S.answers[S.ids[S.i]]; if(cur) commitTime(cur); S.i = +b.dataset.i; save(); renderQuestion(); });
+}
+function commitTime(a){ a.seconds = Math.round((a.seconds || 0) + (Date.now() - openedAt)/1000); openedAt = Date.now(); a.visited = true; }
+
+function renderResult(){
+  const rows = S.ids.map(id => { const q = byId[id], a = S.answers[id] || {good:[], comment:'', seconds:0, visited:false};
+    return {question: id, type: q.type, task_id: q.task_id, complete: complete(q,a), good: a.good, n_shown: q.outputs.length, comment: a.comment, seconds: a.seconds}; });
+  const out = {annotator: S.annotator, packet: S.packet, built: DATA.built, started: S.started, finished: new Date().toISOString(), answers: rows};
+  const left = rows.filter(r => !r.complete).length;
+  const text = JSON.stringify(out, null, 1);
+  app.innerHTML = `
+  <div class="start result">
+    <div><h1>标注结果</h1>
+      <p>${left ? `还有 <b>${left}</b> 题没选完，可以先复制，也可以返回补完。` : '全部题目已完成。'}把下面的 JSON 整段复制，发回给 Sophie。</p></div>
+    <div class="card">
+      <div class="nav" style="margin:0 0 10px"><button class="primary" id="copy">复制到剪贴板</button><button id="back">返回题目</button><span class="hint" id="copied"></span></div>
+      <textarea id="json" readonly>${esc(text)}</textarea>
+    </div>
+  </div>`;
+  $('#json').onclick = e => e.target.select();
+  $('#copy').onclick = async () => { const ta = $('#json'); ta.select();
+    try{ await navigator.clipboard.writeText(text); $('#copied').textContent = '已复制'; }
+    catch(e){ try{ document.execCommand('copy'); $('#copied').textContent = '已复制'; }catch(_){ $('#copied').textContent = '请手动全选复制'; } } };
+  $('#back').onclick = () => renderQuestion();
+}
+renderStart();
+</script>

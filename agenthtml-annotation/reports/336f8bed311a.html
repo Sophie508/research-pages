@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Report · 03_stockindex_query1 · Asia index intraday volatility</title>
+<style>
+  :root{
+    --bg:#0b1020;--bg2:#101a33;--ink:#e8edf7;--muted:#9aa7c2;--line:rgba(255,255,255,.10);
+    --glass:rgba(255,255,255,.06);--glass2:rgba(255,255,255,.10);
+    --acc:#7dd3fc;--acc2:#c084fc;--ok:#4ade80;--bad:#fb7185;--warn:#fbbf24;
+    --r:18px;--maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:
+      radial-gradient(1200px 600px at 10% -10%,rgba(125,211,252,.18),transparent 60%),
+      radial-gradient(900px 500px at 100% 0%,rgba(192,132,252,.16),transparent 60%),
+      linear-gradient(180deg,var(--bg),var(--bg2) 60%,#0a0f1e);line-height:1.55;-webkit-font-smoothing:antialiased}
+  code,pre,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+  a{color:var(--acc);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(11,16,32,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:14px;height:62px}
+  .brand{font-weight:800;letter-spacing:.2px;display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 18px rgba(125,211,252,.7)}
+  .links{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .links::-webkit-scrollbar{display:none}
+  .links a{color:var(--muted);padding:8px 10px;border-radius:10px;font-size:14px;white-space:nowrap}
+  .links a:hover{color:var(--ink);background:var(--glass)}
+  .pill{font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+  .pill.ok{color:#052e16;background:var(--ok)}
+
+  /* hero */
+  header.hero{padding:64px 0 34px}
+  .eyebrow{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+  h1{font-size:clamp(30px,5vw,54px);line-height:1.08;margin:12px 0 14px;letter-spacing:-.02em;
+     background:linear-gradient(90deg,#fff,#cfe6ff 50%,#e6d1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:760px;margin:0 0 22px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid var(--line);color:var(--ink);background:var(--glass);transition:transform .2s,background .2s}
+  .btn.primary{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#0b1020;border-color:transparent}
+  .btn:hover{transform:translateY(-2px);background:var(--glass2)}
+  .btn.primary:hover{background:linear-gradient(135deg,#a5e3ff,#d4a8ff)}
+
+  /* layout */
+  section{padding:40px 0}
+  h2{font-size:clamp(22px,3vw,32px);letter-spacing:-.015em;margin:0 0 8px}
+  h3{font-size:17px;margin:0 0 8px}
+  .lead{color:var(--muted);margin:0 0 22px;max-width:760px}
+  .grid{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:760px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+  .card{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:20px;
+        backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .25s,box-shadow .25s,border-color .25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35);border-color:rgba(255,255,255,.18)}
+  .kpi .v{font-size:26px;font-weight:800;letter-spacing:-.01em}
+  .kpi .k{color:var(--muted);font-size:13px;margin-top:2px}
+  .verdict{border-color:rgba(74,222,128,.35);background:linear-gradient(135deg,rgba(74,222,128,.10),rgba(125,211,252,.08))}
+  .verdict .big{font-size:clamp(22px,3.4vw,34px);font-weight:800;letter-spacing:-.02em;margin:4px 0}
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-right:6px}
+  .tag.ok{color:var(--ok);border-color:rgba(74,222,128,.4)}
+  .tag.bad{color:var(--bad);border-color:rgba(251,113,133,.4)}
+  .tag.warn{color:var(--warn);border-color:rgba(251,191,36,.4)}
+  .tag.info{color:var(--acc);border-color:rgba(125,211,252,.4)}
+
+  /* timeline */
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--acc),var(--acc2));opacity:.5}
+  .step{position:relative;margin:0 0 14px}
+  .step::before{content:"";position:absolute;left:-24px;top:16px;width:14px;height:14px;border-radius:50%;background:var(--bg2);border:3px solid var(--acc)}
+  .step.fail::before{border-color:var(--bad)}
+  .step.ok::before{border-color:var(--ok)}
+  .step.note::before{border-color:var(--warn)}
+  .step .t{font-size:12px;color:var(--muted)}
+  .step p{margin:6px 0 0}
+  pre{margin:10px 0 0;padding:12px 14px;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:12px;font-size:12.5px;overflow:auto;color:#dbe4f5;white-space:pre-wrap;word-break:break-word}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr.top td{font-weight:700;color:#fff}
+  .twrap{overflow-x:auto}
+
+  /* bars */
+  .bars{display:grid;gap:10px;margin-top:8px}
+  .bar{display:grid;grid-template-columns:150px 1fr 70px;align-items:center;gap:10px;font-size:14px}
+  .bar .track{height:14px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+  .bar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2));width:0;transition:width 1s ease}
+  .bar .val{text-align:right;font-variant-numeric:tabular-nums}
+  @media(max-width:520px){.bar{grid-template-columns:110px 1fr 60px;font-size:13px}}
+
+  /* details */
+  details{border:1px solid var(--line);border-radius:14px;background:var(--glass);margin:10px 0;overflow:hidden}
+  summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;align-items:center;gap:10px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:18px;font-weight:400}
+  details[open] summary::after{content:"–"}
+  details .body{padding:0 18px 16px;color:#d7deee}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.bar .fill{transition:none}}
+
+  footer{padding:36px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+  .small{font-size:13px;color:var(--muted)}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:4px 0}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Case 03_stockindex_query1</div>
+    <div class="links">
+      <a href="#objective">Objective</a>
+      <a href="#work">Work</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#failures">Failures</a>
+      <a href="#result">Result</a>
+      <a href="#faith">Faithfulness</a>
+    </div>
+    <span class="pill ok">Exit 0 · Answer delivered</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">DataAgentBench · data_analysis · recorded 2026-07-11 · model gpt-5.6-sol</div>
+    <h1>Which Asia-region stock index showed the highest average intraday volatility since 2020?</h1>
+    <p class="sub">A read-only Codex session was asked to write and run Python against a SQLite metadata file and a DuckDB price table. The recorded agent reached an answer after nine shell attempts, five of which failed on quoting or sandbox limits.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#result">Jump to recorded result</a>
+      <a class="btn" href="#failures">See failures and recoveries</a>
+    </div>
+  </div>
+</header>
+
+<section id="objective">
+  <div class="wrap">
+    <div class="grid c4 reveal">
+      <div class="card kpi"><div class="v">9</div><div class="k">exec tool calls recorded</div></div>
+      <div class="card kpi"><div class="v">4 / 9</div><div class="k">calls that produced usable output</div></div>
+      <div class="card kpi"><div class="v">70.8 min</div><div class="k">recorded duration (4248.1 s)</div></div>
+      <div class="card kpi"><div class="v">6</div><div class="k">Asia tickers selected by the agent</div></div>
+    </div>
+
+    <div style="height:26px"></div>
+    <h2>Objective and setup</h2>
+    <p class="lead">The task statement and the recorded environment constraints, as they appear in the case files.</p>
+    <div class="grid c2 reveal">
+      <div class="card">
+        <h3>Task statement (workspace/prompt.txt)</h3>
+        <p>Answer a data analysis question by writing and running Python code that computes and prints the answer.</p>
+        <p><strong>Question:</strong> Which stock index in the Asia region has exhibited the highest average intraday volatility since 2020?</p>
+        <p class="small">Data files named in the prompt: <code>indexInfo_query.db</code> (SQLite) and <code>indextrade_query.db</code> (DuckDB), both under the workspace data folder.</p>
+      </div>
+      <div class="card">
+        <h3>Recorded environment</h3>
+        <ul>
+          <li><strong>Sandbox:</strong> read-only filesystem, network restricted, approval policy "never".</li>
+          <li><strong>Shell:</strong> zsh on macOS paths, working directory inside the benchmark workspace.</li>
+          <li><strong>Agent mode:</strong> multi-agent tools available but instructed not to spawn sub-agents. None were spawned.</li>
+          <li><strong>Project instructions:</strong> an AGENTS.md block about an unrelated "AgentHTML" research pipeline was injected. The agent did not act on it.</li>
+          <li><strong>Trajectory:</strong> 36 codex-jsonl items, one turn, nine encrypted reasoning entries.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Recorded work, step by step</h2>
+    <p class="lead">Timestamps are UTC from the trajectory. Green means the call returned usable output, red means it failed, amber marks a note or gap.</p>
+    <div class="tl reveal">
+
+      <div class="step ok card">
+        <div class="t">22:16:53 · assistant commentary</div>
+        <p>The agent stated its plan: inspect both schemas, identify Asia-region indexes, compute average intraday volatility from 2020 onward, and make the volatility definition explicit.</p>
+      </div>
+
+      <div class="step fail card">
+        <div class="t">22:16:59 · exec 1 · schema inspection via shell heredoc</div>
+        <p>A Python script fed through a heredoc was rejected by the sandbox.</p>
+        <pre>zsh:1: can't create temp file for here document: operation not permitted</pre>
+      </div>
+
+      <div class="step ok card">
+        <div class="t">22:17:02 → 22:17:07 · exec 2 · recovery with a one-line python -c</div>
+        <p>The agent noted that heredocs were blocked and switched to a single-line invocation. This returned both schemas and sample rows.</p>
+        <pre>SQLite ['index_info']  columns: Exchange TEXT, Currency TEXT
+DuckDB ['index_trade'] columns: Index, Date (VARCHAR), Open, High, Low, Close, Adj Close, CloseUSD
+sample: ('HSI', '31 Dec 1986, 00:00', 2568.30, ...)
+        ('HSI', 'January 02, 1987 at 12:00 AM', 2540.10, ...)
+        ('HSI', '1987-01-05 00:00:00', 2552.40, ...)</pre>
+      </div>
+
+      <div class="step ok card">
+        <div class="t">22:17:16 · exec 3 · row counts and date formats</div>
+        <p>Confirmed 14 exchange rows in the SQLite table, 13 distinct tickers in the price table, and three mixed date string formats.</p>
+      </div>
+
+      <div class="step note card">
+        <div class="t">22:17:21 · assistant commentary · method chosen</div>
+        <p>The agent declared six Asia-region tickers (Hang Seng, Shanghai Composite, Nikkei 225, Shenzhen Component, Nifty 50, Taiwan Weighted) and defined volatility as the daily percentage range, (High − Low) / Open × 100, to avoid distortion from index scale.</p>
+      </div>
+
+      <div class="step fail card">
+        <div class="t">22:17:31 · exec 4 · full query as a nested-quoted one-liner</div>
+        <pre>zsh:1: parse error near `)'</pre>
+      </div>
+
+      <div class="step note card">
+        <div class="t">22:17:33 → 23:26:51 · unexplained gap</div>
+        <p>About 69 minutes pass between the reasoning entry after exec 4 and the next tool call. No events are recorded in that window. The reasoning entries are encrypted, so the cause is not recoverable from the trajectory.</p>
+      </div>
+
+      <div class="step fail card">
+        <div class="t">23:26:51 · exec 5 · base64-encode the script with TextEncoder</div>
+        <pre>ReferenceError: TextEncoder is not defined  (exec_main.mjs:35)</pre>
+      </div>
+
+      <div class="step fail card">
+        <div class="t">23:27:01 · exec 6 · base64-encode with btoa</div>
+        <pre>ReferenceError: btoa is not defined  (exec_main.mjs:35)</pre>
+      </div>
+
+      <div class="step fail card">
+        <div class="t">23:27:13 · exec 7 · pass the script through JSON.stringify</div>
+        <p>The JSON-escaped newlines reached Python as literal backslash-n sequences.</p>
+        <pre>SyntaxError: unexpected character after line continuation character</pre>
+      </div>
+
+      <div class="step ok card">
+        <div class="t">23:27:26 · exec 8 · hand-written base64 encoder in the tool's JavaScript</div>
+        <p>The agent implemented base64 by hand in the exec wrapper, then ran the decoded Python via <code>exec(base64.b64decode(...))</code>. The DuckDB query succeeded and printed the ranking below. It also reported zero unparsed dates across the whole table.</p>
+      </div>
+
+      <div class="step fail card">
+        <div class="t">23:27:34 · exec 9 · min/max parsed date check</div>
+        <p>A follow-up sanity check on the date range used the nested-quote style again and failed. It was not retried, so the data's start and end dates are not recorded.</p>
+        <pre>zsh:1: parse error near `)'</pre>
+      </div>
+
+      <div class="step ok card">
+        <div class="t">23:27:38 · final answer</div>
+        <p>The agent reported the Shenzhen Component Index as the answer, with the metric, the per-index averages, and the statement that all date values parsed successfully.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <h2>Evidence</h2>
+    <p class="lead">Values below come from the recorded tool outputs. The SQLite table was also opened directly for this report and matches. The DuckDB file could not be opened here, so its contents rest on the recording alone.</p>
+
+    <div class="grid c2 reveal">
+      <div class="card">
+        <h3>index_info (SQLite) · 14 rows, verified directly</h3>
+        <p class="small">Two columns only: Exchange and Currency. There is no ticker, region, or index-name column, so the Asia mapping had to be supplied by the agent.</p>
+        <div class="twrap"><table>
+          <tr><th>Exchange</th><th>Currency</th></tr>
+          <tr><td>New York Stock Exchange</td><td>USD</td></tr>
+          <tr><td>NASDAQ</td><td>USD</td></tr>
+          <tr><td>Hong Kong Stock Exchange</td><td>HKD</td></tr>
+          <tr><td>Shanghai Stock Exchange</td><td>CNY</td></tr>
+          <tr><td>Tokyo Stock Exchange</td><td>JPY</td></tr>
+          <tr><td>Euronext</td><td>EUR</td></tr>
+          <tr><td>Shenzhen Stock Exchange</td><td>CNY</td></tr>
+          <tr><td>Toronto Stock Exchange</td><td>CAD</td></tr>
+          <tr><td>National Stock Exchange of India</td><td>INR</td></tr>
+          <tr><td>Frankfurt Stock Exchange</td><td>EUR</td></tr>
+          <tr><td>Korea Exchange</td><td>KRW</td></tr>
+          <tr><td>SIX Swiss Exchange</td><td>CHF</td></tr>
+          <tr><td>Taiwan Stock Exchange</td><td>TWD</td></tr>
+          <tr><td>Johannesburg Stock Exchange</td><td>ZAR</td></tr>
+        </table></div>
+      </div>
+
+      <div class="card">
+        <h3>index_trade (DuckDB) · tickers and row counts, as recorded</h3>
+        <p class="small">Thirteen tickers were recorded. Korea Exchange appears in the metadata but no Korean ticker appears in the price table, so no Korean index could be considered.</p>
+        <div class="twrap"><table>
+          <tr><th>Ticker</th><th class="num">Rows</th><th>Agent's Asia set</th></tr>
+          <tr><td>000001.SS</td><td class="num">5,791</td><td><span class="tag info">Shanghai Composite</span></td></tr>
+          <tr><td>399001.SZ</td><td class="num">5,760</td><td><span class="tag info">Shenzhen Component</span></td></tr>
+          <tr><td>GDAXI</td><td class="num">8,438</td><td></td></tr>
+          <tr><td>GSPTSE</td><td class="num">10,526</td><td></td></tr>
+          <tr><td>HSI</td><td class="num">8,492</td><td><span class="tag info">Hang Seng Index</span></td></tr>
+          <tr><td>IXIC</td><td class="num">12,690</td><td></td></tr>
+          <tr><td>J203.JO</td><td class="num">2,346</td><td></td></tr>
+          <tr><td>N100</td><td class="num">5,474</td><td></td></tr>
+          <tr><td>N225</td><td class="num">13,874</td><td><span class="tag info">Nikkei 225</span></td></tr>
+          <tr><td>NSEI</td><td class="num">3,346</td><td><span class="tag info">Nifty 50</span></td></tr>
+          <tr><td>NYA</td><td class="num">13,947</td><td></td></tr>
+          <tr><td>SSMI</td><td class="num">7,671</td><td></td></tr>
+          <tr><td>TWII</td><td class="num">5,869</td><td><span class="tag info">Taiwan Weighted</span></td></tr>
+        </table></div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+    <div class="grid c2 reveal">
+      <div class="card">
+        <h3>Date column handling</h3>
+        <p>The Date column is text in three mixed formats. The agent parsed all three with DuckDB's try_strptime and a COALESCE, then filtered on parsed date ≥ 2020-01-01.</p>
+        <pre>'1987-01-12 00:00:00'          → %Y-%m-%d %H:%M:%S
+'27 Jan 1987, 00:00'           → %d %b %Y, %H:%M
+'October 07, 1987 at 12:00 AM' → %B %d, %Y at %I:%M %p
+
+recorded check: unparsed dates 0</pre>
+      </div>
+      <div class="card">
+        <h3>Volatility definition used</h3>
+        <p>Per trading day, then averaged per ticker over rows with Open &gt; 0 and non-null High and Low:</p>
+        <pre>intraday_volatility_pct = 100 * (High - Low) / Open</pre>
+        <p class="small">The question does not define "intraday volatility". The agent chose a normalized daily range and stated the choice in both its commentary and the final answer. Alternative definitions, such as log(High/Low) or close-to-close standard deviation, were not computed.</p>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+    <details class="reveal">
+      <summary>Raw successful query output (exec 8, 23:27:27 UTC)</summary>
+      <div class="body"><pre>name | ticker | days | avg intraday volatility (%)
+Shenzhen Component | 399001.SZ | 342 | 1.8341
+Nifty 50 | NSEI | 349 | 1.7072
+Hang Seng Index | HSI | 348 | 1.4932
+Shanghai Composite | 000001.SS | 340 | 1.3781
+Nikkei 225 | N225 | 344 | 1.3427
+Taiwan Weighted | TWII | 339 | 1.3225
+unparsed dates 0</pre></div>
+    </details>
+    <details class="reveal">
+      <summary>Recorded Python that produced the result (decoded from the base64 payload)</summary>
+      <div class="body"><pre>import duckdb
+c=duckdb.connect("data/indextrade_query.db",read_only=True)
+q="""WITH parsed AS (
+ SELECT "Index" AS idx,
+ COALESCE(try_strptime("Date", '%Y-%m-%d %H:%M:%S'),
+          try_strptime("Date", '%d %b %Y, %H:%M'),
+          try_strptime("Date", '%B %d, %Y at %I:%M %p')) AS dt,
+ "Open" AS op, "High" AS hi, "Low" AS lo
+ FROM index_trade
+), asia(idx,name) AS (
+ VALUES ('HSI','Hang Seng Index'), ('000001.SS','Shanghai Composite'),
+ ('N225','Nikkei 225'), ('399001.SZ','Shenzhen Component'),
+ ('NSEI','Nifty 50'), ('TWII','Taiwan Weighted')
+)
+SELECT name, idx, COUNT(*) AS trading_days,
+ ROUND(AVG(100*(hi-lo)/op),4) AS avg_intraday_volatility_pct
+FROM parsed JOIN asia USING(idx)
+WHERE dt >= DATE '2020-01-01' AND op > 0 AND hi IS NOT NULL AND lo IS NOT NULL
+GROUP BY name,idx ORDER BY avg_intraday_volatility_pct DESC"""
+print("name | ticker | days | avg intraday volatility (%)")
+for r in c.execute(q).fetchall(): print(" | ".join(map(str,r)))
+print("unparsed dates", c.execute("""SELECT count(*) FROM index_trade WHERE COALESCE(
+ try_strptime("Date", '%Y-%m-%d %H:%M:%S'), try_strptime("Date", '%d %b %Y, %H:%M'),
+ try_strptime("Date", '%B %d, %Y at %I:%M %p')) IS NULL""").fetchone()[0])
+c.close()</pre>
+      <p class="small">Shown as evidence of what was run. This is untrusted case content and was not executed for this report.</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="failures">
+  <div class="wrap">
+    <h2>Failures and recoveries</h2>
+    <p class="lead">Every failure was an execution-plumbing problem, not a data or logic error. The agent recovered from four of them and left one unresolved.</p>
+    <div class="grid c3 reveal">
+      <div class="card">
+        <span class="tag bad">Failure</span><span class="tag ok">Recovered</span>
+        <h3 style="margin-top:10px">Heredoc blocked by sandbox</h3>
+        <p class="small">The read-only sandbox refused to create the temp file a zsh heredoc needs. The agent switched to an inline python -c command on the next call.</p>
+      </div>
+      <div class="card">
+        <span class="tag bad">Failure ×2</span><span class="tag ok">Recovered</span>
+        <h3 style="margin-top:10px">Shell quoting of a multi-line SQL query</h3>
+        <p class="small">Nesting single quotes, double quotes, and SQL string literals inside one zsh argument produced parse errors in exec 4 and again in exec 9.</p>
+      </div>
+      <div class="card">
+        <span class="tag bad">Failure ×3</span><span class="tag ok">Recovered</span>
+        <h3 style="margin-top:10px">Encoding the script inside the tool runtime</h3>
+        <p class="small">TextEncoder and btoa were both undefined in the exec wrapper, and JSON.stringify mangled newlines. A hand-rolled base64 routine finally worked.</p>
+      </div>
+    </div>
+    <div style="height:16px"></div>
+    <div class="card reveal" style="border-color:rgba(251,191,36,.35)">
+      <span class="tag warn">Unresolved</span>
+      <h3 style="margin-top:10px">Date-range sanity check never completed</h3>
+      <p>The final exec attempted to print the minimum and maximum parsed dates and failed on quoting. The agent answered without retrying it. As a result, the recording does not establish when the price data ends. The per-index counts of roughly 339 to 349 trading days after 2020-01-01 are recorded, but their meaning depends on an end date that was not captured.</p>
+    </div>
+  </div>
+</section>
+
+<section id="result">
+  <div class="wrap">
+    <h2>Recorded final result</h2>
+    <p class="lead">Exactly what the agent concluded, followed by the ranking it printed.</p>
+    <div class="card verdict reveal">
+      <div class="eyebrow">Agent's answer</div>
+      <div class="big">Shenzhen Component Index (399001.SZ)</div>
+      <p>Highest average intraday volatility among the six Asia-region indexes since 2020, at <strong>1.8341 % per trading day</strong> over 342 observations, using (High − Low) / Open × 100. The agent also stated that all date values parsed successfully, which matches the recorded "unparsed dates 0" check.</p>
+    </div>
+    <div style="height:16px"></div>
+    <div class="grid c2 reveal">
+      <div class="card">
+        <h3>Ranking, average daily range in percent</h3>
+        <div class="bars" id="bars">
+          <div class="bar"><span>Shenzhen Component</span><div class="track"><div class="fill" data-w="100"></div></div><span class="val">1.8341</span></div>
+          <div class="bar"><span>Nifty 50</span><div class="track"><div class="fill" data-w="93.1"></div></div><span class="val">1.7072</span></div>
+          <div class="bar"><span>Hang Seng Index</span><div class="track"><div class="fill" data-w="81.4"></div></div><span class="val">1.4932</span></div>
+          <div class="bar"><span>Shanghai Composite</span><div class="track"><div class="fill" data-w="75.1"></div></div><span class="val">1.3781</span></div>
+          <div class="bar"><span>Nikkei 225</span><div class="track"><div class="fill" data-w="73.2"></div></div><span class="val">1.3427</span></div>
+          <div class="bar"><span>Taiwan Weighted</span><div class="track"><div class="fill" data-w="72.1"></div></div><span class="val">1.3225</span></div>
+        </div>
+        <p class="small" style="margin-top:12px">Bar widths are scaled relative to the top value for readability only.</p>
+      </div>
+      <div class="card">
+        <h3>Full table as recorded</h3>
+        <div class="twrap"><table>
+          <tr><th>Index</th><th>Ticker</th><th class="num">Days</th><th class="num">Avg %</th></tr>
+          <tr class="top"><td>Shenzhen Component</td><td class="mono">399001.SZ</td><td class="num">342</td><td class="num">1.8341</td></tr>
+          <tr><td>Nifty 50</td><td class="mono">NSEI</td><td class="num">349</td><td class="num">1.7072</td></tr>
+          <tr><td>Hang Seng Index</td><td class="mono">HSI</td><td class="num">348</td><td class="num">1.4932</td></tr>
+          <tr><td>Shanghai Composite</td><td class="mono">000001.SS</td><td class="num">340</td><td class="num">1.3781</td></tr>
+          <tr><td>Nikkei 225</td><td class="mono">N225</td><td class="num">344</td><td class="num">1.3427</td></tr>
+          <tr><td>Taiwan Weighted</td><td class="mono">TWII</td><td class="num">339</td><td class="num">1.3225</td></tr>
+        </table></div>
+        <p class="small" style="margin-top:12px">Task compliance: Python code was written and run, and it printed the answer, as the prompt required. The process exited with code 0.</p>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+    <div class="card reveal">
+      <h3>Assessment points a reader should weigh</h3>
+      <ul>
+        <li><strong>Region membership was asserted, not derived.</strong> The metadata table has no region or ticker column. The six-ticker Asia list is the agent's own mapping and is plausible, but it was not cross-checked against the exchange rows and the mapping between exchanges and tickers is never made explicit in the recording.</li>
+        <li><strong>The metric is one reasonable choice among several.</strong> The agent disclosed it clearly. Results under other volatility definitions were not computed and could differ.</li>
+        <li><strong>The margin between first and second is recorded.</strong> Shenzhen Component leads Nifty 50 by about 0.13 percentage points on the chosen metric.</li>
+        <li><strong>Most of the session time is unaccounted for.</strong> The nine tool calls span under two minutes of wall time. The 69-minute gap holds no recorded activity.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faith">
+  <div class="wrap">
+    <h2>Faithfulness note: what this report could and could not verify</h2>
+    <p class="lead">Coverage of each supplied case file and the limits that remain.</p>
+    <div class="grid c2 reveal">
+      <div class="card">
+        <h3>Verified directly for this report</h3>
+        <ul>
+          <li>case_meta.json, prompt.txt and all 36 trajectory lines were read in full. Every line parsed as JSON.</li>
+          <li>The SQLite metadata file was opened read-only. Its schema and 14 rows match the recorded tool output exactly.</li>
+          <li>The DuckDB file's header carries the DuckDB magic bytes and its size matches the manifest, consistent with the engine named in the prompt.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Not verifiable from the supplied inputs</h3>
+        <ul>
+          <li><strong>The numeric result.</strong> No DuckDB engine was available in the reporting environment and installing one was not permitted. The ranking rests on the recorded output of exec 8 alone.</li>
+          <li><strong>Agent reasoning.</strong> All nine reasoning entries are encrypted with empty summaries. Motivations between calls, and the cause of the 69-minute gap, are unknown.</li>
+          <li><strong>Data end date.</strong> The min/max date check failed and was not retried.</li>
+          <li><strong>Checksums.</strong> Manifest SHA-256 values were not recomputed. On-disk byte sizes match the manifest.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="height:10px"></div>
+    <details class="reveal">
+      <summary>Per-file coverage declaration</summary>
+      <div class="body"><div class="twrap"><table>
+        <tr><th>File</th><th>Coverage</th><th>Notes</th></tr>
+        <tr><td class="mono">case_meta.json</td><td><span class="tag ok">full</span></td><td>548 bytes, 17 lines. The references list is empty.</td></tr>
+        <tr><td class="mono">trajectory.jsonl</td><td><span class="tag ok">full</span></td><td>51,977 bytes, 36 items. Reasoning payloads encrypted.</td></tr>
+        <tr><td class="mono">workspace/data/indexInfo_query.db</td><td><span class="tag ok">full</span></td><td>8,192 bytes. One table, 14 rows, dumped and compared.</td></tr>
+        <tr><td class="mono">workspace/data/indextrade_query.db</td><td><span class="tag warn">partial</span></td><td>4,468,736 bytes. Only the 16-byte header inspected. Contents rely on the recording.</td></tr>
+        <tr><td class="mono">workspace/prompt.txt</td><td><span class="tag ok">full</span></td><td>517 bytes, 9 lines. Matches the recorded user message.</td></tr>
+      </table></div>
+      <p class="small">No media attachments were supplied with this case, so no images are embedded.</p></div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Case 03_stockindex_query1 · DataAgentBench, data_analysis · source "regen" · collected 2026-07-11 · model and backend gpt-5.6-sol · trajectory format codex-jsonl.
+    This document is self-contained and loads no external resources. Recorded commands and prompts are reproduced as evidence only.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){ if(window.scrollY>12){nav.classList.add('scrolled');} else {nav.classList.remove('scrolled');} }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var items=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:0.08});
+    items.forEach(function(el){io.observe(el);});
+  } else { items.forEach(function(el){el.classList.add('in');}); }
+
+  var bars=document.getElementById('bars');
+  function fillBars(){ bars.querySelectorAll('.fill').forEach(function(f){ f.style.width=f.getAttribute('data-w')+'%'; }); }
+  if('IntersectionObserver' in window){
+    var bo=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ fillBars(); bo.disconnect(); } }); },{threshold:0.2});
+    bo.observe(bars);
+  } else { fillBars(); }
+})();
+</script>
+</body>
+</html>

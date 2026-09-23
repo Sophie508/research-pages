@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Report — 01_sonnet-35-new-retail_249</title>
+<style>
+  :root{
+    --bg:#0f1216; --panel:#171c23; --panel2:#1d242e; --ink:#e7edf5;
+    --muted:#9aa7b8; --line:#2a3441; --accent:#5aa9ff; --accent2:#7ee0c0;
+    --bad:#ff6b6b; --badbg:#3a1d20; --good:#5fd08a; --warn:#ffc857;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
+  h1{font-size:24px;margin:0 0 6px}
+  h2{font-size:18px;margin:34px 0 12px;color:var(--accent)}
+  h3{font-size:15px;margin:18px 0 8px;color:var(--accent2)}
+  .sub{color:var(--muted);font-size:13px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .badge{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+    padding:4px 12px;font-size:12px;color:var(--muted)}
+  .badge b{color:var(--ink);font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
+  .card .v{font-size:15px;font-weight:600}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+  blockquote{margin:0;background:var(--panel);border-left:3px solid var(--accent);
+    padding:14px 18px;border-radius:0 10px 10px 0;color:#dbe6f3}
+  .turn{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    margin-bottom:14px;overflow:hidden}
+  .turn .head{display:flex;gap:10px;align-items:center;padding:10px 16px;
+    background:var(--panel2);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .role{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:11px;
+    padding:2px 9px;border-radius:6px}
+  .r-sys{background:#2b2f3a;color:#c8d2e0}
+  .r-user{background:#123a4d;color:#8fd8ff}
+  .r-asst{background:#1d3a2b;color:#8fe0b0}
+  .r-tool{background:#3a2f18;color:#ffd88a}
+  .turn .body{padding:12px 16px;white-space:pre-wrap;word-wrap:break-word}
+  .toolcall{margin:10px 16px 14px;background:#10151b;border:1px dashed #35435a;
+    border-radius:8px;padding:10px 12px}
+  .toolcall .name{color:var(--warn);font-weight:600;font-size:12.5px}
+  .toolcall pre{margin:6px 0 0;overflow-x:auto;color:#bcd2ea}
+  .err{color:var(--bad)}
+  .flag{border-left:3px solid var(--bad) !important}
+  .flag .head{background:var(--badbg)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+  tr:last-child td{border-bottom:none}
+  .yes{color:var(--good);font-weight:600}
+  .no{color:var(--bad);font-weight:600}
+  ul{margin:8px 0 0;padding-left:22px}
+  li{margin:6px 0}
+  .note{background:#1a2130;border:1px solid #2f3d52;border-radius:10px;padding:14px 18px;color:#c9d6e6}
+  .kv{display:flex;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line)}
+  .kv:last-child{border-bottom:none}
+  .kv .a{color:var(--muted);min-width:190px}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:12.5px}
+  .pill{display:inline-block;padding:1px 8px;border-radius:6px;font-size:11.5px;
+    font-weight:600;background:#2a3441;color:#c8d6e6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Retail Customer-Service Agent — Return + Exchange on a Delivered Order</h1>
+  <div class="sub">tau-bench &middot; tool_use_customer_service &middot; case <span class="mono">01_sonnet-35-new-retail_249</span></div>
+  <div class="badges">
+    <span class="badge">model <b>sonnet-35-new</b></span>
+    <span class="badge">task_id <b>19</b></span>
+    <span class="badge">trial <b>2</b></span>
+    <span class="badge">format <b>tau-bench-json</b></span>
+    <span class="badge">outcome <b style="color:var(--bad)">partial / failed compound request</b></span>
+  </div>
+</header>
+
+<h2>1. What the case is</h2>
+<div class="grid">
+  <div class="card"><div class="k">Domain</div><div class="v">Retail customer service</div></div>
+  <div class="card"><div class="k">Scenario</div><div class="v">Return + exchange a delivered order</div></div>
+  <div class="card"><div class="k">User</div><div class="v">Mei Davis (<span class="mono">mei_davis_8935</span>)</div></div>
+  <div class="card"><div class="k">Order acted on</div><div class="v mono">#W2890441</div></div>
+</div>
+<p style="margin-top:14px">The user opens with a compound request: return a water bottle, and get cheaper
+versions of some other items, with no order number at hand. The agent authenticates by name + zip,
+locates two orders, prices the cheaper variants, confirms, and then executes — but processes the
+return first, which locks the order out of being exchanged.</p>
+
+<h2>2. Task statement</h2>
+<blockquote>"Hi... I need to return this water bottle and was hoping to get cheaper versions of some other items I bought."</blockquote>
+<p class="sub" style="margin-top:8px">That is the entire user prompt. Order identity, item list, and choices must all be discovered by the agent.</p>
+
+<h2>3. Facts established during the run</h2>
+<div class="card" style="margin-top:8px">
+  <div class="kv"><span class="a">Authentication</span><span>Name + zip <span class="mono">find_user_id_by_name_zip("Mei","Davis","80217")</span> → <span class="mono">mei_davis_8935</span>; profile fetched via <span class="mono">get_user_details</span>. Policy-compliant, done before any lookup.</span></div>
+  <div class="kv"><span class="a">Orders on profile</span><span class="mono">#W2890441</span> (delivered) and <span class="mono">#W1267569</span> (pending)</span></div>
+  <div class="kv"><span class="a">Payment method</span><span>Single Mastercard <span class="mono">credit_card_1061405</span> (…1037)</span></div>
+  <div class="kv"><span class="a">Delivered order items</span><span>Water Bottle $54.04 · Pet Bed $195.11 · Office Chair $499.28 · Skateboard $182.03 (order total $930.46)</span></div>
+  <div class="kv"><span class="a">Cheapest avail. pet bed</span><span class="mono">6942241102</span> — large / memory foam / beige, $180.93 → saves <b>$14.18</b></span></div>
+  <div class="kv"><span class="a">Cheapest avail. office chair</span><span class="mono">4168944673</span> — leather / blue / no armrest / standard back, $471.82 → saves <b>$27.46</b></span></div>
+  <div class="kv"><span class="a">Agent's stated total</span><span>$41.64 exchange savings; $54.04 refund; agent framed combined figure as $95.68</span></div>
+</div>
+<p class="sub" style="margin-top:8px">Both cheapest-variant selections are correct: the next-cheapest alternatives are $184.25 and the unavailable $466.44 respectively, so the chosen items are the true available minima and the savings arithmetic is right.</p>
+
+<h2>4. Run timeline (11 exchanges, 6 tool calls)</h2>
+
+<div class="turn flag">
+  <div class="head"><span class="role r-user">user</span><span>turn 1</span></div>
+  <div class="body">Hi... I need to return this water bottle and was hoping to get cheaper versions of some other items I bought.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 2</span></div>
+  <div class="body">Asks for email or name + zip; lists the ground rules (one-time actions, same product type only, must be delivered).</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-user">user</span><span>turn 3</span></div>
+  <div class="body">I'm Mei Davis, zip code 80217. Don't remember my order number... just having a rough day.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 4</span></div>
+  <div class="body">Authenticates.</div>
+  <div class="toolcall"><div class="name">find_user_id_by_name_zip(first_name="Mei", last_name="Davis", zip="80217")</div>
+  <pre>→ "mei_davis_8935"</pre></div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 5</span></div>
+  <div class="body">Fetches profile.</div>
+  <div class="toolcall"><div class="name">get_user_details(user_id="mei_davis_8935")</div>
+  <pre>→ address 698 Maple Drive, Denver CO 80217; one mastercard; orders [#W2890441, #W1267569]</pre></div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 6</span></div>
+  <div class="body">Looks up both orders.</div>
+  <div class="toolcall"><div class="name">get_order_details(order_id="#W2890441")</div>
+  <pre>→ status "delivered"; Water Bottle 2366567022, Pet Bed 2751999929, Office Chair 8069050545, Skateboard 3877188862</pre></div>
+  <div class="toolcall"><div class="name">get_order_details(order_id="#W1267569")</div>
+  <pre>→ status "pending"; electronics (not relevant to the request)</pre></div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 7</span></div>
+  <div class="body">Summarizes the delivered order and offers return vs. exchange; mentions refund to Mastercard …1037.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-user">user</span><span>turn 8</span></div>
+  <div class="body">How much money could I save by getting the cheapest pet bed and office chair? And yes, I want to return that water bottle.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 9</span></div>
+  <div class="body">Prices the variants.</div>
+  <div class="toolcall"><div class="name">get_product_details(product_id="2747247837")  # Pet Bed</div>
+  <pre>→ cheapest available: 6942241102 @ $180.93 (large/memory foam/beige)</pre></div>
+  <div class="toolcall"><div class="name">get_product_details(product_id="4794339885")  # Office Chair</div>
+  <pre>→ cheapest available: 4168944673 @ $471.82 (leather/blue/no armrest/standard back)</pre></div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 10</span></div>
+  <div class="body">Reports savings of $14.18 + $27.46 = $41.64 plus a $54.04 bottle refund; asks how to proceed.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-user">user</span><span>turn 11</span></div>
+  <div class="body">I'll do both - return the bottle and exchange both items for the cheaper versions.</div>
+</div>
+<div class="turn flag">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 12 — the pivotal move</span></div>
+  <div class="body">Lays out return + both exchanges, total "savings" $95.68, asks for explicit "yes". No mention that a return and an exchange on the same order may be mutually exclusive.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-user">user</span><span>turn 13</span></div>
+  <div class="body">Yes, please process everything. Thank you for helping me save money.</div>
+</div>
+<div class="turn flag">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 14 — action 1: return first</span></div>
+  <div class="body">Executes the return.</div>
+  <div class="toolcall"><div class="name">return_delivered_order_items(order_id="#W2890441", item_ids=["2366567022"], payment_method_id="credit_card_1061405")</div>
+  <pre>→ OK. status: "return requested", return_items ["2366567022"]</pre></div>
+</div>
+<div class="turn flag">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 15 — action 2: exchange, rejected</span></div>
+  <div class="body">Attempts the exchange after the return.</div>
+  <div class="toolcall"><div class="name">exchange_delivered_order_items(order_id="#W2890441", item_ids=["2751999929","8069050545"], new_item_ids=["6942241102","4168944673"], payment_method_id="credit_card_1061405")</div>
+  <pre class="err">→ Error: non-delivered order cannot be exchanged</pre></div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 16</span></div>
+  <div class="body">Apologizes, tells the user to contact again after the bottle return is done; restates the refund and the intended exchanges.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-user">user</span><span>turn 17</span></div>
+  <div class="body">That's frustrating... but I understand. I'll contact you again about the exchanges after returning the bottle.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-asst">assistant</span><span>turn 18</span></div>
+  <div class="body">Second apology; reiterates instructions, order number, and the two intended exchanges.</div>
+</div>
+<div class="turn">
+  <div class="head"><span class="role r-user">user</span><span>turn 19 — ###STOP###</span></div>
+  <div class="body">No, that's all. Thanks for explaining everything.</div>
+</div>
+
+<h2>5. Tool-call scorecard</h2>
+<table>
+  <thead><tr><th>#</th><th>Tool</th><th>Purpose</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td class="mono">find_user_id_by_name_zip</td><td>Authenticate by name + zip</td><td class="yes">Correct</td></tr>
+    <tr><td>2</td><td class="mono">get_user_details</td><td>Profile / payment / order list</td><td class="yes">Correct</td></tr>
+    <tr><td>3</td><td class="mono">get_order_details</td><td>Delivered order #W2890441</td><td class="yes">Correct</td></tr>
+    <tr><td>4</td><td class="mono">get_order_details</td><td>Pending order #W1267569 (not needed)</td><td class="yes">Harmless</td></tr>
+    <tr><td>5</td><td class="mono">get_product_details ×2</td><td>Find cheapest available variants</td><td class="yes">Correct minima</td></tr>
+    <tr><td>6</td><td class="mono">return_delivered_order_items</td><td>Return the bottle</td><td class="yes">Succeeded</td></tr>
+    <tr><td>7</td><td class="mono">exchange_delivered_order_items</td><td>Exchange bed + chair</td><td class="no">Rejected — order no longer "delivered"</td></tr>
+  </tbody>
+</table>
+
+<h2>6. The failure, precisely</h2>
+<div class="note">
+  <p style="margin:0 0 10px"><b>Ordering trap.</b> Every consequential tool on a delivered order requires status
+  <span class="pill">delivered</span>. A return flips the order to
+  <span class="pill">return requested</span>; an exchange flips it to
+  <span class="pill">exchange requested</span>. The agent executed the return first and only then tried the
+  exchange, so the exchange was structurally impossible. The system's error message confirms this:
+  <span class="mono err">non-delivered order cannot be exchanged</span>.</p>
+  <p style="margin:0"><b>Compounding issue.</b> The agent explicitly promised both actions, took the user's
+  "yes", and only discovered the conflict from a tool error — it told the user to come back later for the
+  exchanges. Whether the exchanges are actually recoverable on a later visit is not demonstrated by this
+  trajectory; the order sits in <span class="pill">return requested</span> at the point the run ends, and the
+  policy's one-time exchange restriction means the safe resolution is uncertain from the recorded data
+  alone.</p>
+</div>
+
+<h3>Policy-relevant observations</h3>
+<ul>
+  <li><b>Authentication:</b> handled correctly and before any account lookup, despite the user volunteering no id.</li>
+  <li><b>Confirmation:</b> a detailed summary and explicit "yes" were obtained before acting — but the summary promised an outcome the agent then could not deliver.</li>
+  <li><b>Missing upfront disclosure:</b> the policy states both return and exchange require a
+  <em>delivered</em> order and that each changes status. The agent never reconciled "do both" against these
+  constraints before committing.</li>
+  <li><b>Exchange blurb:</b> the policy asks the agent to remind the customer to confirm <em>all</em> items
+  before the one-shot exchange/modify call; the agent's final exchange call did collect both items into a
+  single list, which is right, but it had already spent the only valid order state on the return.</li>
+  <li><b>Framing:</b> calling $95.68 "total savings" mixes a refund of already-spent money with genuine
+  savings; minor, and the individual figures ($14.18, $27.46, $54.04) were all accurate.</li>
+  <li><b>No fabricated data:</b> all prices, ids, and options came from tool output.</li>
+</ul>
+
+<h2>7. Outcome</h2>
+<div class="grid">
+  <div class="card"><div class="k">Bottle return</div><div class="v yes">Requested successfully — $54.04 to Mastercard …1037</div></div>
+  <div class="card"><div class="k">Pet bed exchange</div><div class="v no">Not processed</div></div>
+  <div class="card"><div class="k">Office chair exchange</div><div class="v no">Not processed</div></div>
+  <div class="card"><div class="k">Terminal order status</div><div class="v mono">return requested</div></div>
+</div>
+<p style="margin-top:14px">The user's compound request was served only in part. The run ends with the agent
+apologizing and deferring the exchanges to a future contact — a deferral whose feasibility the trajectory
+does not establish.</p>
+
+<h2>8. Provenance &amp; caveats</h2>
+<div class="card">
+  <div class="kv"><span class="a">Trajectory file</span><span class="mono">trajectory.json</span> (tau-bench-json, sha256 <span class="mono">38c8884b…d78d9dd</span>)</span></div>
+  <div class="kv"><span class="a">Source path</span><span class="mono">trajs/tool_use_customer_service/01_sonnet-35-new-retail_249.json</span></div>
+  <div class="kv"><span class="a">Stripped fields</span><span class="mono">info</span>, <span class="mono">reward</span> — no ground-truth action list or reward is available, so the assessment above is derived from the policy in the system prompt and the observed tool results, not from a reference solution.</span></div>
+  <div class="kv"><span class="a">References / media</span><span>None declared; no images, video, or audio in this case.</span></div>
+  <div class="kv"><span class="a">Trial</span><span>2 of the task</span></div>
+</div>
+<p class="sub" style="margin-top:10px">Because <span class="mono">reward</span> was stripped, this report does not assert a numeric score. It reports what the recorded run did and the point at which it broke.</p>
+
+<footer>
+  Self-contained report generated from <span class="mono">/app/case</span>. No external resources loaded.
+</footer>
+
+</div>
+</body>
+</html>

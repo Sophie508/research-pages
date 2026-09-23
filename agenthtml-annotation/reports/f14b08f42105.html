@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03_008 · HelloFresh subscription trajectory</title>
+  <style>
+    :root {
+      --ink: #152019;
+      --muted: #637068;
+      --paper: #f4f2ea;
+      --card: #fffdf7;
+      --line: #d9d7cc;
+      --green: #174c35;
+      --lime: #b9df58;
+      --amber: #a45b12;
+      --amber-bg: #fff0d7;
+      --red: #9d352d;
+      --red-bg: #fbe6e1;
+      --blue: #335d7d;
+      --shadow: 0 14px 40px rgba(31, 47, 37, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 84% 6%, rgba(185,223,88,.28), transparent 23rem),
+        linear-gradient(90deg, rgba(23,76,53,.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 48px 48px, auto;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      padding: 26px 0 20px;
+      border-bottom: 1px solid rgba(21,32,25,.13);
+      background: rgba(244,242,234,.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--green); color: white; }
+    .eyebrow { color: var(--green); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 800; }
+    nav { display: flex; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; padding: 7px 10px; border-radius: 99px; }
+    nav a:hover { background: rgba(23,76,53,.08); color: var(--green); }
+    main { padding: 56px 0 72px; }
+    .hero { display: grid; grid-template-columns: 1.35fr .65fr; gap: 26px; align-items: stretch; }
+    .hero-main { background: var(--green); color: white; border-radius: 28px; padding: 38px 40px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .hero-main:after { content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%; right: -85px; bottom: -110px; background: var(--lime); opacity: .85; }
+    h1 { margin: 10px 0 15px; max-width: 750px; font-size: clamp(38px, 6vw, 70px); line-height: .98; letter-spacing: -.055em; }
+    .lede { margin: 0; max-width: 710px; font-size: 18px; color: rgba(255,255,255,.78); }
+    .verdict { padding: 28px; border-radius: 28px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: space-between; }
+    .verdict-icon { width: 60px; height: 60px; border-radius: 20px; display: grid; place-items: center; background: var(--red-bg); color: var(--red); font-size: 28px; font-weight: 900; }
+    .verdict h2 { font-size: 31px; line-height: 1; letter-spacing: -.04em; margin: 26px 0 10px; }
+    .verdict p { color: var(--muted); margin: 0; }
+    .pill { display: inline-flex; align-items: center; gap: 7px; width: fit-content; padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 850; letter-spacing: .02em; }
+    .pill.fail { color: var(--red); background: var(--red-bg); }
+    .pill.warn { color: var(--amber); background: var(--amber-bg); }
+    .pill.ok { color: var(--green); background: #e8f3d1; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin: 18px 0 52px; }
+    .stat { padding: 20px 21px; background: rgba(255,253,247,.84); border: 1px solid var(--line); border-radius: 18px; }
+    .stat strong { display: block; font-size: 29px; line-height: 1.05; letter-spacing: -.04em; }
+    .stat span { color: var(--muted); font-size: 12px; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }
+    section { margin-top: 56px; scroll-margin-top: 100px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .section-head h2 { font-size: clamp(28px, 4vw, 43px); line-height: 1; letter-spacing: -.045em; margin: 6px 0 0; }
+    .section-head p { margin: 0; max-width: 520px; color: var(--muted); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { border: 1px solid var(--line); border-radius: 22px; background: var(--card); padding: 24px; box-shadow: 0 8px 28px rgba(31,47,37,.045); }
+    .card h3 { margin: 0 0 15px; font-size: 19px; letter-spacing: -.02em; }
+    .spec { display: grid; grid-template-columns: 1fr auto; padding: 12px 0; border-bottom: 1px solid var(--line); gap: 15px; }
+    .spec:last-child { border: 0; padding-bottom: 0; }
+    .spec span:first-child { color: var(--muted); }
+    .spec strong { text-align: right; }
+    .callout { border-left: 5px solid var(--red); background: var(--red-bg); }
+    .callout p { margin: 8px 0 0; color: #6d3b35; }
+    .progress { margin-top: 16px; height: 9px; border-radius: 99px; overflow: hidden; background: #e7e4d8; }
+    .progress > span { display: block; height: 100%; width: 86%; background: linear-gradient(90deg,var(--green),var(--lime)); }
+    .progress-label { margin-top: 7px; display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .timeline { position: relative; display: grid; gap: 0; }
+    .event { display: grid; grid-template-columns: 52px 1fr; gap: 18px; position: relative; }
+    .event:not(:last-child):before { content: ""; position: absolute; left: 25px; top: 50px; bottom: -3px; width: 2px; background: var(--line); }
+    .event-no { width: 52px; height: 52px; border-radius: 17px; background: var(--green); color: white; display: grid; place-items: center; font-weight: 900; z-index: 1; border: 5px solid var(--paper); }
+    .event.fail .event-no { background: var(--red); }
+    .event.warn .event-no { background: var(--amber); }
+    .event-body { padding: 9px 0 29px; }
+    .event-body h3 { margin: 0 0 6px; font-size: 19px; }
+    .event-body p { margin: 0; color: var(--muted); }
+    .event-body .trace { margin-top: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--blue); }
+    .filterbar { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter { border: 1px solid var(--line); color: var(--muted); background: var(--card); padding: 8px 12px; border-radius: 99px; cursor: pointer; font-weight: 750; font-size: 13px; }
+    .filter.active, .filter:hover { color: white; background: var(--green); border-color: var(--green); }
+    .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .evidence { min-height: 188px; display: flex; flex-direction: column; }
+    .evidence[hidden] { display: none; }
+    .evidence .tag { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-weight: 850; font-size: 11px; }
+    .evidence h3 { margin: 10px 0 8px; font-size: 18px; }
+    .evidence p { margin: 0; color: var(--muted); font-size: 14px; }
+    .quote { margin-top: auto; padding-top: 15px; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .assessment { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .assessment .card { padding-top: 20px; }
+    .score { font-size: 41px; line-height: 1; letter-spacing: -.05em; font-weight: 900; color: var(--green); }
+    .score.red { color: var(--red); }
+    .score.amber { color: var(--amber); }
+    .assessment p { color: var(--muted); margin: 10px 0 0; font-size: 14px; }
+    details { border: 1px solid var(--line); border-radius: 18px; background: var(--card); padding: 0 20px; }
+    summary { padding: 17px 0; cursor: pointer; font-weight: 800; }
+    details p { color: var(--muted); margin: 0 0 18px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 42px; color: var(--muted); font-size: 12px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    @media (max-width: 860px) {
+      header { position: static; }
+      nav { display: none; }
+      .hero, .grid-2 { grid-template-columns: 1fr; }
+      .stats, .assessment { grid-template-columns: 1fr 1fr; }
+      .evidence-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 20px, 1180px); }
+      main { padding-top: 24px; }
+      .hero-main, .verdict { padding: 25px; border-radius: 21px; }
+      .stats, .assessment, .evidence-grid { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .card { padding: 19px; }
+    }
+    @media print {
+      header { position: static; }
+      nav, .filterbar { display: none; }
+      body { background: white; }
+      .card, .hero-main, .verdict { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell header-row">
+      <div class="brand"><span class="brand-mark">03</span><span>Trajectory Review</span></div>
+      <nav aria-label="Case sections">
+        <a href="#outcome">Outcome</a><a href="#journey">Journey</a><a href="#evidence">Evidence</a><a href="#assessment">Assessment</a><a href="#provenance">Provenance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="hero">
+      <div class="hero-main">
+        <div class="eyebrow" style="color:var(--lime)">ClawBench · daily-life / food</div>
+        <h1>HelloFresh plan configured. Subscription not placed.</h1>
+        <p class="lede">The agent selected a Veggie Box with 3 meals per week for 2 people and reached checkout. A perpetually loading payment iframe left the final order button disabled, so no paid subscription was created.</p>
+      </div>
+      <aside class="verdict" aria-label="Final verdict">
+        <div class="verdict-icon">×</div>
+        <div>
+          <span class="pill fail"><span class="dot"></span> Not completed</span>
+          <h2>Failed at the commitment step</h2>
+          <p>The run ended with a configured cart and delivery profile, not a confirmed order.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="stats" aria-label="Case metrics">
+      <div class="stat"><strong>21:03</strong><span>Recorded duration</span></div>
+      <div class="stat"><strong>89</strong><span>Browser calls</span></div>
+      <div class="stat"><strong>7</strong><span>Observed tool errors</span></div>
+      <div class="stat"><strong>1</strong><span>Constraint violation</span></div>
+    </div>
+
+    <section id="outcome">
+      <div class="section-head">
+        <div><div class="eyebrow">Outcome</div><h2>Requested versus achieved</h2></div>
+        <p>The requested configuration was evidenced in the checkout summary, but the operative verb was “Subscribe.” That required a successful final order.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Configuration match</h3>
+          <div class="spec"><span>Plan</span><strong>Veggie Box ✓</strong></div>
+          <div class="spec"><span>Meals per week</span><strong>3 ✓</strong></div>
+          <div class="spec"><span>People</span><strong>2 ✓</strong></div>
+          <div class="spec"><span>Total servings</span><strong>6 ✓</strong></div>
+          <div class="progress" aria-label="Configuration progress: 86 percent"><span></span></div>
+          <div class="progress-label"><span>Setup complete</span><span>Payment outstanding</span></div>
+        </article>
+        <article class="card callout">
+          <span class="pill fail"><span class="dot"></span> Decisive blocker</span>
+          <h3 style="margin-top:16px">“Place order &amp; select meals” remained disabled</h3>
+          <p>Two payment iframes were present, but the payment UI stayed in a loading state through multiple waits and a refresh. The agent changed the button’s DOM <span class="mono">disabled</span> property and invoked a click; the subsequent snapshot still showed the genuine button disabled and no state transition.</p>
+          <p><strong>Result:</strong> payment was not entered, the first box was not reserved, and the weekly auto-renewing subscription did not begin.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="section-head">
+        <div><div class="eyebrow">Journey</div><h2>Where the run went</h2></div>
+        <p>A compact reconstruction from the 191-line message trajectory.</p>
+      </div>
+      <div class="card timeline">
+        <div class="event warn"><div class="event-no">1</div><div class="event-body"><h3>Loaded personal data</h3><p>The agent first tried to read the directory, then used a shell listing and read the two relevant files. The shell command violated the task’s browser-only constraint.</p><div class="trace">messages 6–12 · read ×3 · exec ×1</div></div></div>
+        <div class="event warn"><div class="event-no">2</div><div class="event-body"><h3>Corrected the regional site</h3><p>It began on the US site, where the Canadian postal code could not proceed, then switched to <span class="mono">hellofresh.ca</span>.</p><div class="trace">messages 15–34 · postal code M5S 2H7</div></div></div>
+        <div class="event"><div class="event-no">3</div><div class="event-body"><h3>Built the requested plan</h3><p>Selected Vegetarian and Plant based, accepted the default cooking-frequency and household answers, and reached a summary explicitly showing “Veggie Box” and “3 meals for 2 people per week.”</p><div class="trace">messages 61–95 · steps 1–6</div></div></div>
+        <div class="event"><div class="event-no">4</div><div class="event-body"><h3>Created an account</h3><p>Entered the assigned disposable email and chose a new password. Sensitive values are intentionally omitted from this presentation.</p><div class="trace">messages 97–118 · registration</div></div></div>
+        <div class="event"><div class="event-no">5</div><div class="event-body"><h3>Completed delivery details</h3><p>Filled and validated the Toronto delivery address and phone number. The checkout displayed an initial delivery slot for Saturday, April 4, 08:00–20:00.</p><div class="trace">messages 119–149 · address → payment</div></div></div>
+        <div class="event fail"><div class="event-no">6</div><div class="event-body"><h3>Payment UI stalled</h3><p>The embedded processor never rendered an interactive form. The order button was confirmed visible but disabled after waits, refresh, keyboard navigation, and iframe inspection.</p><div class="trace">messages 150–184 · iframe count 2 · disabled = true</div></div></div>
+        <div class="event fail"><div class="event-no">7</div><div class="event-body"><h3>Forced click failed; run stopped</h3><p>A JavaScript mutation reported “clicked,” but the page did not advance. The agent then described the setup as mostly complete. Case interception records <span class="mono">pass: false</span> and <span class="mono">stop_reason: agent_idle</span>.</p><div class="trace">messages 185–191 · no order confirmation</div></div></div>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <div class="section-head">
+        <div><div class="eyebrow">Evidence ledger</div><h2>Claims anchored to the trace</h2></div>
+        <div class="filterbar" role="group" aria-label="Evidence filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="success">Setup</button>
+          <button class="filter" data-filter="failure">Failure</button>
+          <button class="filter" data-filter="process">Process</button>
+        </div>
+      </div>
+      <div class="evidence-grid">
+        <article class="card evidence" data-kind="success"><span class="tag">Setup · message 94</span><h3>Exact plan summary</h3><p>The site’s own order summary is the strongest proof that all three requested parameters were selected.</p><div class="quote">“Veggie Box” · “3 meals for 2 people per week”</div></article>
+        <article class="card evidence" data-kind="success"><span class="tag">Setup · message 150</span><h3>Checkout carried the plan forward</h3><p>The payment page retained the requested quantities and displayed 6 total servings.</p><div class="quote">“3 meals for 2 people” · “6 total servings”</div></article>
+        <article class="card evidence" data-kind="success"><span class="tag">Setup · message 188</span><h3>Price and delivery were ready</h3><p>The final snapshot showed a first-box total of CAD $38.97 and a reserved delivery date pending payment.</p><div class="quote">Box $77.94 → $38.97 · Shipping free</div></article>
+        <article class="card evidence" data-kind="failure"><span class="tag">Failure · message 180</span><h3>Submit control was blocked</h3><p>A DOM check found the order control visible but unavailable.</p><div class="quote">{ disabled: true, visible: true }</div></article>
+        <article class="card evidence" data-kind="failure"><span class="tag">Failure · message 188</span><h3>No transition after forced click</h3><p>The subsequent page snapshot remained on payment, still showing the loading indicator and disabled button.</p><div class="quote">“Place order &amp; select meals” [disabled]</div></article>
+        <article class="card evidence" data-kind="failure"><span class="tag">Failure · interception</span><h3>Evaluator records failure</h3><p>The run never triggered the expected evaluation request and later idled out.</p><div class="quote">pass: false · stop_reason: agent_idle</div></article>
+        <article class="card evidence" data-kind="process"><span class="tag">Process · messages 8–9</span><h3>Browser-only rule was breached</h3><p>The user explicitly prohibited command-line tools, yet the agent invoked a shell listing to discover files under the provided information directory.</p><div class="quote">exec: ls -la /my-info/</div></article>
+        <article class="card evidence" data-kind="process"><span class="tag">Process · messages 26–46</span><h3>Seven tool errors</h3><p>One directory-read error, one missing-selector type error, and five stale/not-visible element references added avoidable friction.</p><div class="quote">7 observed error results</div></article>
+        <article class="card evidence" data-kind="process"><span class="tag">Process · final response</span><h3>Honest limitation, softened framing</h3><p>The agent did disclose that payment remained. But calling the configuration “successfully completed” risked obscuring that the subscription itself was not created.</p><div class="quote">“The only remaining step is to submit payment”</div></article>
+      </div>
+    </section>
+
+    <section id="assessment">
+      <div class="section-head">
+        <div><div class="eyebrow">Assessment</div><h2>What worked, what did not</h2></div>
+      </div>
+      <div class="assessment">
+        <article class="card"><div class="score">3/3</div><h3>Requested attributes</h3><p>Plan, meal count, and household size all matched in the order summary.</p></article>
+        <article class="card"><div class="score red">0/1</div><h3>Final commitment</h3><p>No valid payment submission and no order confirmation means the core task was incomplete.</p></article>
+        <article class="card"><div class="score amber">Mixed</div><h3>Procedure</h3><p>Mostly browser-driven, but one shell command directly contradicted the explicit constraint.</p></article>
+      </div>
+      <div class="grid-2" style="margin-top:18px">
+        <article class="card"><h3>Strong choices</h3><div class="spec"><span>Regional recovery</span><strong>Switched to Canada</strong></div><div class="spec"><span>Configuration validation</span><strong>Checked site summary</strong></div><div class="spec"><span>Blocker disclosure</span><strong>Explicit in final text</strong></div></article>
+        <article class="card"><h3>Most important improvements</h3><div class="spec"><span>Respect modality</span><strong>Avoid shell entirely</strong></div><div class="spec"><span>Payment recovery</span><strong>Try clean session / alternate browser path</strong></div><div class="spec"><span>Final wording</span><strong>Lead with “not subscribed”</strong></div></article>
+      </div>
+    </section>
+
+    <section id="provenance">
+      <div class="section-head"><div><div class="eyebrow">Provenance</div><h2>Case record</h2></div></div>
+      <div class="grid-2">
+        <article class="card">
+          <div class="spec"><span>Case ID</span><strong class="mono">03_008</strong></div>
+          <div class="spec"><span>Benchmark</span><strong>ClawBench</strong></div>
+          <div class="spec"><span>Model</span><strong>claude-haiku-4-5-20251001</strong></div>
+          <div class="spec"><span>Trajectory format</span><strong>clawbench-dir</strong></div>
+          <div class="spec"><span>Trajectory messages</span><strong>191 JSONL records</strong></div>
+        </article>
+        <article class="card">
+          <h3>Source handling</h3>
+          <p style="color:var(--muted)">This presentation uses the case metadata, task statement, message trajectory, run metadata, and interception result. No screenshots or image directories were present in the case bundle.</p>
+          <details>
+            <summary>Oversized reference not followed</summary>
+            <p><span class="mono">trajs/daily_web_tasks/03_008-daily-life-food-hellofresh-claude-haiku-4-5-20251001-20260325-071107/data/requests.jsonl</span> — 7,611,617 bytes, listed by <span class="mono">case_meta.json</span> as reference-only.</p>
+          </details>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row"><span>Self-contained case presentation · no external resources</span><span>Personal credentials, payment data, and full address redacted</span></div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.evidence');
+    buttons.forEach(button => button.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      const value = button.dataset.filter;
+      cards.forEach(card => { card.hidden = value !== 'all' && card.dataset.kind !== value; });
+    }));
+  </script>
+</body>
+</html>

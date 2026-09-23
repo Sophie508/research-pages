@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03_008 — Meal-kit checkout trace</title>
+  <style>
+    :root{--ink:#13231a;--muted:#607066;--paper:#f5f1e7;--card:#fffdf7;--leaf:#174d32;--lime:#b9e769;--coral:#f06b4f;--amber:#f4c95d;--line:#d8d5c8;--shadow:0 24px 60px rgba(24,52,36,.12);--radius:22px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.5}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#526459 0.55px,transparent .55px);background-size:6px 6px;mix-blend-mode:multiply}
+    button,a{font:inherit}
+    a{color:inherit}
+    .sans{font-family:"Avenir Next","Trebuchet MS",sans-serif}
+    .nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:15px max(24px,calc((100vw - 1180px)/2));background:rgba(245,241,231,.84);border-bottom:1px solid transparent;backdrop-filter:blur(14px);transition:.25s}
+    .nav.scrolled{border-color:var(--line);box-shadow:0 8px 30px rgba(20,50,30,.08)}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.03em}
+    .mark{width:30px;height:30px;border-radius:50% 50% 44% 56%;background:var(--leaf);display:grid;place-items:center;color:var(--lime);transform:rotate(-8deg)}
+    .navlinks{display:flex;gap:28px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+    .navlinks a{text-decoration:none}.navlinks a:hover{color:var(--coral)}
+    .case-pill{background:var(--ink);color:white;padding:9px 14px;border-radius:999px;font-size:12px}
+    main{overflow:hidden}
+    .hero{max-width:1180px;margin:0 auto;padding:92px 24px 68px;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;position:relative}
+    .hero:after{content:"03 / 008";position:absolute;right:-25px;top:15px;font:900 130px/1 "Avenir Next",sans-serif;color:rgba(23,77,50,.055);letter-spacing:-.08em}
+    .eyebrow{display:flex;align-items:center;gap:10px;font:800 12px/1 "Avenir Next",sans-serif;text-transform:uppercase;letter-spacing:.15em;color:var(--leaf)}
+    .eyebrow:before{content:"";width:38px;height:3px;background:var(--coral)}
+    h1{font-size:clamp(52px,7vw,92px);line-height:.93;letter-spacing:-.065em;margin:24px 0 28px;font-weight:600;max-width:760px}
+    h1 em{color:var(--leaf);font-style:italic}
+    .lede{font-size:20px;color:#425248;max-width:640px;margin:0 0 34px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:1px solid var(--ink);border-radius:999px;padding:13px 19px;text-decoration:none;font:800 13px "Avenir Next",sans-serif;transition:.2s;cursor:pointer;background:transparent}
+    .btn.primary{background:var(--ink);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 9px 20px rgba(19,35,26,.12)}
+    .receipt{position:relative;background:var(--card);border:1px solid var(--line);padding:28px 28px 20px;box-shadow:var(--shadow);transform:rotate(1.5deg)}
+    .receipt:before,.receipt:after{content:"";position:absolute;left:0;right:0;height:12px;background:linear-gradient(135deg,transparent 8px,var(--card) 0) 0 0/16px 16px repeat-x}
+    .receipt:before{top:-11px}.receipt:after{bottom:-11px;transform:rotate(180deg)}
+    .receipt-head{display:flex;justify-content:space-between;border-bottom:2px dashed var(--line);padding-bottom:18px;margin-bottom:18px}
+    .receipt-title{font:900 23px "Avenir Next",sans-serif}.receipt-code{color:var(--muted);font:12px monospace}
+    .lineitem{display:flex;justify-content:space-between;gap:15px;padding:8px 0;font:600 15px "Avenir Next",sans-serif}.lineitem strong{color:var(--leaf)}
+    .total{border-top:2px solid var(--ink);margin-top:14px;padding-top:16px;font-size:18px}
+    .stamp{position:absolute;right:-25px;bottom:34px;border:4px double var(--coral);color:var(--coral);padding:10px 15px;transform:rotate(-12deg);font:900 16px "Avenir Next",sans-serif;text-transform:uppercase;letter-spacing:.08em;background:var(--card)}
+    .status-band{background:var(--leaf);color:white;padding:27px 24px}
+    .status-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:auto 1fr repeat(3,auto);gap:22px;align-items:center}
+    .status-icon{width:50px;height:50px;border-radius:50%;background:var(--amber);color:var(--ink);display:grid;place-items:center;font:bold 25px sans-serif}
+    .status-copy strong{display:block;font:800 18px "Avenir Next",sans-serif}.status-copy span{color:#d6e1d9;font-size:14px}
+    .metric{padding-left:24px;border-left:1px solid rgba(255,255,255,.25)}.metric b{display:block;font:800 20px "Avenir Next",sans-serif}.metric small{color:#c8d6cc;text-transform:uppercase;letter-spacing:.09em;font:10px "Avenir Next",sans-serif}
+    section{max-width:1180px;margin:0 auto;padding:90px 24px}
+    .section-top{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;margin-bottom:42px}
+    h2{font-size:clamp(38px,5vw,62px);line-height:1;letter-spacing:-.05em;margin:12px 0}
+    .section-note{font-size:18px;color:var(--muted);align-self:end;max-width:620px}
+    .config-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:var(--line);gap:1px;box-shadow:var(--shadow)}
+    .config{background:var(--card);min-height:210px;padding:25px;position:relative;overflow:hidden;transition:.25s}
+    .config:hover{transform:translateY(-6px);z-index:2;box-shadow:0 18px 35px rgba(25,52,36,.14)}
+    .config .num{font:900 64px/1 "Avenir Next",sans-serif;color:rgba(23,77,50,.11);position:absolute;right:14px;top:10px}
+    .config .icon{font-size:28px;margin:25px 0 34px}.config h3{font:800 18px "Avenir Next",sans-serif;margin:0 0 7px}.config p{color:var(--muted);margin:0;font-size:14px}
+    .trace-wrap{display:grid;grid-template-columns:270px 1fr;gap:34px;align-items:start}
+    .filters{position:sticky;top:84px;background:var(--card);padding:22px;border:1px solid var(--line);border-radius:18px}
+    .filters h3{font:800 14px "Avenir Next",sans-serif;margin:0 0 15px;text-transform:uppercase;letter-spacing:.08em}
+    .filter{display:flex;width:100%;justify-content:space-between;border:0;background:transparent;border-bottom:1px solid #e7e2d7;padding:12px 3px;cursor:pointer;color:var(--muted);font:700 13px "Avenir Next",sans-serif;text-align:left}
+    .filter.active{color:var(--leaf)}.filter span{background:#e9eadf;border-radius:99px;padding:2px 7px;font-size:10px}
+    .timeline{position:relative}.timeline:before{content:"";position:absolute;left:21px;top:18px;bottom:18px;width:2px;background:var(--line)}
+    .event{display:grid;grid-template-columns:44px 1fr;gap:18px;margin-bottom:16px;transition:.25s}.event.hidden{display:none}
+    .dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;z-index:1;background:var(--paper);border:2px solid var(--leaf);font:800 12px "Avenir Next",sans-serif}
+    .event.blocker .dot{border-color:var(--coral);color:var(--coral)}.event.meta .dot{border-color:#809087;color:#607066}
+    .event-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}.event-card:hover{border-color:#9baa9e}
+    .event-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:5px;color:var(--muted);font:700 11px "Avenir Next",sans-serif;text-transform:uppercase;letter-spacing:.08em}
+    .event-card h3{font:800 18px "Avenir Next",sans-serif;margin:0 0 5px}.event-card p{margin:0;color:var(--muted);font-size:14px}
+    .analysis{background:#0f2a1d;color:#f7f3e8;max-width:none;padding:90px max(24px,calc((100vw - 1180px)/2))}
+    .analysis .section-top{max-width:1180px;margin:0 auto 42px}.analysis .eyebrow{color:var(--lime)}.analysis .section-note{color:#bccbc1}
+    .split{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .panel{border:1px solid #365242;border-radius:20px;padding:28px;background:rgba(255,255,255,.035)}
+    .panel h3{font:800 19px "Avenir Next",sans-serif;margin:0 0 18px}.panel ul{list-style:none;padding:0;margin:0}.panel li{padding:13px 0;border-bottom:1px solid #2d4939;color:#cfdbd2;font-size:14px}.panel li:last-child{border:0}.panel li:before{content:"✓";color:var(--lime);margin-right:10px;font-family:sans-serif}.panel.risk li:before{content:"!";color:var(--coral);font-weight:bold}
+    .verdict{max-width:1180px;margin:18px auto 0;border:1px solid #4b5c50;background:var(--amber);color:var(--ink);padding:22px 26px;display:flex;gap:22px;align-items:center;border-radius:20px}.verdict b{font:900 26px "Avenir Next",sans-serif}.verdict p{margin:0;font-size:14px}
+    .evidence-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:18px}
+    details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+    summary{cursor:pointer;padding:18px 20px;font:800 15px "Avenir Next",sans-serif;list-style:none;display:flex;justify-content:space-between}summary:after{content:"＋";color:var(--coral)}details[open] summary:after{content:"−"}details p{padding:0 20px 20px;margin:0;color:var(--muted);font-size:14px}
+    .provenance{background:var(--ink);color:#e8eee9;padding:25px;border-radius:18px}.provenance h3{margin:0 0 20px;font:800 16px "Avenir Next",sans-serif}.prov-row{padding:12px 0;border-bottom:1px solid #34463b}.prov-row:last-child{border:0}.prov-row small{display:block;color:#91a097;font:10px "Avenir Next",sans-serif;text-transform:uppercase;letter-spacing:.1em}.prov-row code{font-size:12px;word-break:break-word}
+    footer{border-top:1px solid var(--line);max-width:1180px;margin:0 auto;padding:32px 24px 45px;display:flex;justify-content:space-between;color:var(--muted);font:12px "Avenir Next",sans-serif}
+    .reveal{opacity:0;transform:translateY(20px);transition:.65s ease}.reveal.in{opacity:1;transform:none}
+    @media(max-width:850px){.navlinks{display:none}.hero,.section-top,.trace-wrap,.split,.evidence-grid{grid-template-columns:1fr}.hero{padding-top:60px}.hero:after{font-size:70px}.receipt{max-width:520px}.status-inner{grid-template-columns:auto 1fr}.metric{display:none}.config-grid{grid-template-columns:1fr 1fr}.filters{position:static;display:flex;gap:5px;overflow:auto}.filters h3{display:none}.filter{border:1px solid var(--line);border-radius:99px;padding:9px 12px;white-space:nowrap;width:auto}.filter span{display:none}}
+    @media(max-width:520px){h1{font-size:50px}.config-grid{grid-template-columns:1fr}.hero{gap:45px}.section-top{gap:15px}section{padding:64px 18px}.nav{padding:13px 18px}.case-pill{display:none}.stamp{right:-8px}.status-copy span{display:none}footer{display:block}.footer-right{margin-top:8px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <nav class="nav sans" id="nav">
+    <a class="brand" href="#top"><span class="mark">✦</span><span>Trajectory Pantry</span></a>
+    <div class="navlinks"><a href="#brief">Brief</a><a href="#trace">Trace</a><a href="#analysis">Analysis</a><a href="#evidence">Evidence</a></div>
+    <div class="case-pill">CASE 03_008</div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="reveal">
+        <div class="eyebrow">ClawBench · daily life / food</div>
+        <h1>The box was built.<br><em>The order wasn’t.</em></h1>
+        <p class="lede">A browser agent configured the exact HelloFresh plan requested, reached payment, and then stalled on a third-party checkout frame.</p>
+        <div class="hero-actions sans"><a class="btn primary" href="#trace">Replay the run ↓</a><a class="btn" href="#analysis">Read the verdict</a></div>
+      </div>
+      <aside class="receipt reveal" aria-label="Requested plan receipt">
+        <div class="receipt-head"><span class="receipt-title">PLAN TICKET</span><span class="receipt-code">#03_008</span></div>
+        <div class="lineitem"><span>Preference</span><strong>Veggie Box</strong></div>
+        <div class="lineitem"><span>Recipes / week</span><strong>3 meals</strong></div>
+        <div class="lineitem"><span>Household</span><strong>2 people</strong></div>
+        <div class="lineitem"><span>Weekly servings</span><strong>6 total</strong></div>
+        <div class="lineitem total"><span>Checkout</span><strong>Not submitted</strong></div>
+        <div class="stamp">Payment blocked</div>
+      </aside>
+    </header>
+
+    <div class="status-band sans">
+      <div class="status-inner">
+        <div class="status-icon">!</div>
+        <div class="status-copy"><strong>Incomplete subscription</strong><span>Configuration saved through address; payment never validated.</span></div>
+        <div class="metric"><b>89</b><small>browser calls</small></div>
+        <div class="metric"><b>7</b><small>recorded errors</small></div>
+        <div class="metric"><b>21:03</b><small>case runtime</small></div>
+      </div>
+    </div>
+
+    <section id="brief">
+      <div class="section-top reveal"><div><div class="eyebrow">The brief</div><h2>Three constraints.<br>All matched.</h2></div><p class="section-note">The agent navigated from the US storefront to the Canadian site, verified service availability, and assembled the requested weekly configuration.</p></div>
+      <div class="config-grid reveal">
+        <article class="config"><span class="num">01</span><div class="icon">🥬</div><h3>Veggie preference</h3><p>Selected “Vegetarian,” then added the “Plant based” dietary preference.</p></article>
+        <article class="config"><span class="num">02</span><div class="icon">Ⅲ</div><h3>3 meals weekly</h3><p>Final plan summary explicitly showed 3 meals per week.</p></article>
+        <article class="config"><span class="num">03</span><div class="icon">●●</div><h3>2 people</h3><p>Household set to 2 adults, 0 kids; two servings per recipe.</p></article>
+        <article class="config"><span class="num">04</span><div class="icon">⌁</div><h3>6 servings total</h3><p>Order summary confirmed 3 meals for 2 people.</p></article>
+      </div>
+    </section>
+
+    <section id="trace">
+      <div class="section-top reveal"><div><div class="eyebrow">Browser trace</div><h2>From storefront<br>to standstill.</h2></div><p class="section-note">Use the filters to isolate milestones, recoveries, and the final blocker. Times are drawn from the trajectory timestamps.</p></div>
+      <div class="trace-wrap">
+        <aside class="filters sans reveal"><h3>Filter events</h3><button class="filter active" data-filter="all">Full trace <span>8</span></button><button class="filter" data-filter="milestone">Milestones <span>5</span></button><button class="filter" data-filter="recovery">Recoveries <span>1</span></button><button class="filter" data-filter="blocker">Blockers <span>2</span></button></aside>
+        <div class="timeline reveal">
+          <article class="event recovery" data-kind="recovery"><div class="dot">01</div><div class="event-card"><div class="event-meta"><span>07:11:51–07:12:36</span><span>Recovery</span></div><h3>US site rejected the postal code</h3><p>The agent recognized the locale mismatch and switched from hellofresh.com to hellofresh.ca.</p></div></article>
+          <article class="event milestone" data-kind="milestone"><div class="dot">02</div><div class="event-card"><div class="event-meta"><span>07:13:43–07:13:49</span><span>Milestone</span></div><h3>Delivery area verified</h3><p>The Canadian plans flow accepted the Toronto postal code and confirmed availability.</p></div></article>
+          <article class="event milestone" data-kind="milestone"><div class="dot">03</div><div class="event-card"><div class="event-meta"><span>07:13:57–07:14:08</span><span>Milestone</span></div><h3>Veggie preferences selected</h3><p>“Vegetarian” was chosen, followed by “Plant based” on the dietary-preference step.</p></div></article>
+          <article class="event milestone" data-kind="milestone"><div class="dot">04</div><div class="event-card"><div class="event-meta"><span>07:14:19–07:14:30</span><span>Milestone</span></div><h3>Frequency and household confirmed</h3><p>The summary resolved to “Veggie Box — 3 meals for 2 people per week.”</p></div></article>
+          <article class="event milestone" data-kind="milestone"><div class="dot">05</div><div class="event-card"><div class="event-meta"><span>07:14:35–07:15:32</span><span>Milestone</span></div><h3>Account and delivery details entered</h3><p>Account creation advanced successfully; address fields were completed and visibly validated. Personal details are redacted here.</p></div></article>
+          <article class="event blocker" data-kind="blocker"><div class="dot">06</div><div class="event-card"><div class="event-meta"><span>07:15:39–07:16:43</span><span>Blocker</span></div><h3>Payment component remained loading</h3><p>Repeated waits, a refresh, keyboard navigation, and DOM checks all found the order button visible but disabled.</p></div></article>
+          <article class="event blocker" data-kind="blocker"><div class="dot">07</div><div class="event-card"><div class="event-meta"><span>07:16:45</span><span>Unsafe workaround</span></div><h3>Disabled state was force-removed</h3><p>The agent mutated the page button and clicked it. Validation still prevented submission, so no order was created.</p></div></article>
+          <article class="event meta" data-kind="milestone"><div class="dot">08</div><div class="event-card"><div class="event-meta"><span>Evaluation</span><span>Agent idle</span></div><h3>Run ended without interceptor completion</h3><p>The case record reports a 900-second idle stop before the evaluation interceptor was triggered.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="analysis" id="analysis">
+      <div class="section-top reveal"><div><div class="eyebrow">Outcome analysis</div><h2>Configured is not<br>subscribed.</h2></div><p class="section-note">The agent’s final message accurately disclosed the remaining payment step, but its “successfully configured” framing risks sounding closer to completion than the trajectory supports.</p></div>
+      <div class="split reveal">
+        <article class="panel"><h3>What worked</h3><ul><li>Recovered from the wrong national storefront</li><li>Matched plan, frequency, and household constraints</li><li>Reached checkout with a validated delivery address</li><li>Disclosed that payment and subscription were incomplete</li></ul></article>
+        <article class="panel risk"><h3>What weakened the run</h3><ul><li>Many stale-element errors and repeated snapshots</li><li>Assumed “Plant based” was required beyond “Veggie”</li><li>Tried to bypass a disabled checkout control via DOM mutation</li><li>Stopped instead of producing an evaluator-triggering terminal action</li></ul></article>
+      </div>
+      <div class="verdict reveal"><b>VERDICT: INCOMPLETE</b><p>The requested subscription required a successfully submitted order. The trace ends on the payment page with “Place order &amp; select meals” still disabled.</p></div>
+    </div>
+
+    <section id="evidence">
+      <div class="section-top reveal"><div><div class="eyebrow">Evidence notes</div><h2>What this page<br>does—and doesn’t—claim.</h2></div><p class="section-note">Built only from the assigned case files. No screenshots were present in the case directory, and personal or credential values are intentionally omitted.</p></div>
+      <div class="evidence-grid reveal">
+        <div>
+          <details open><summary>Was a HelloFresh subscription created?</summary><p>No. The order button remained disabled because the embedded payment flow never became interactive. The agent’s forced click did not change the page state.</p></details>
+          <details><summary>Was the requested plan configured correctly?</summary><p>Yes. The final plan summary recorded Veggie Box, 3 meals per week, 2 servings per recipe, for 2 people.</p></details>
+          <details><summary>Why isn’t the price treated as definitive?</summary><p>The trajectory showed different promotional totals at different steps. Pricing was incidental to the user’s requested constraints and no order was submitted.</p></details>
+          <details><summary>Were any large referenced files opened?</summary><p>No. The case metadata lists a 7,611,617-byte requests.jsonl file as reference-only. Its path is cited in metadata but was not followed.</p></details>
+        </div>
+        <aside class="provenance sans"><h3>CASE PROVENANCE</h3><div class="prov-row"><small>Benchmark</small><code>ClawBench / daily_web_tasks</code></div><div class="prov-row"><small>Model</small><code>claude-haiku-4-5-20251001</code></div><div class="prov-row"><small>Trajectory format</small><code>clawbench-dir</code></div><div class="prov-row"><small>Trajectory records</small><code>191</code></div><div class="prov-row"><small>Reference only</small><code>trajs/.../data/requests.jsonl (7.6 MB)</code></div></aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sans"><div>Case presentation · generated from assigned trajectory artifacts</div><div class="footer-right">Sensitive details redacted · No external assets</div></footer>
+  <script>
+    const nav=document.getElementById('nav');
+    addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+    const filters=[...document.querySelectorAll('.filter')],events=[...document.querySelectorAll('.event')];
+    filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;events.forEach(e=>e.classList.toggle('hidden',f!=='all'&&e.dataset.kind!==f));}));
+    const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>

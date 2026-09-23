@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>04_024 · SpotHero · Downtown Toronto Parking</title>
+<style>
+  :root {
+    --asphalt: #0c1118;
+    --garage: #141c27;
+    --bay: #1c2734;
+    --lane: #2a3648;
+    --mist: #8fa0b5;
+    --chalk: #e7edf5;
+    --pure: #f7f9fc;
+    --lamp: #f0b429;
+    --lamp-dim: #c48912;
+    --meter: #2ec4b6;
+    --meter-deep: #1a8f85;
+    --brake: #e0524a;
+    --brake-deep: #a8322c;
+    --ok: #5ecf8a;
+    --ticket: #f4efe4;
+    --ticket-ink: #1a1a18;
+    --ticket-perf: #d4cbb8;
+    --shadow: 0 18px 50px rgba(0,0,0,.45);
+    --radius: 14px;
+    --display: "Avenir Next Condensed", "Arial Narrow", "Franklin Gothic Medium", "Helvetica Neue", system-ui, sans-serif;
+    --body: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--body);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(240,180,41,.08), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(46,196,182,.06), transparent 50%),
+      linear-gradient(180deg, #0a0e14 0%, var(--asphalt) 40%, #0a1018 100%);
+    color: var(--chalk);
+    min-height: 100vh;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+
+  /* pavement noise overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2.25rem 0 5rem;
+  }
+
+  /* top rail */
+  .rail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+  .rail-left { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .35rem .7rem;
+    border: 1px solid var(--lane);
+    border-radius: 999px;
+    background: rgba(28,39,52,.65);
+  }
+  .pill .dot {
+    width: .45rem; height: .45rem; border-radius: 50%;
+    background: var(--brake);
+    box-shadow: 0 0 10px var(--brake);
+  }
+  .pill.pass .dot { background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+  .pill.site { color: var(--meter); border-color: rgba(46,196,182,.35); }
+
+  /* HERO: parking ticket + thesis */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 2.75rem;
+  }
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; }
+  }
+
+  .thesis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.1rem;
+    padding: .5rem 0;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .75rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--lamp);
+  }
+  .thesis h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 4.6vw, 3.35rem);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    color: var(--pure);
+    text-wrap: balance;
+  }
+  .thesis h1 em {
+    font-style: normal;
+    color: var(--lamp);
+  }
+  .lede {
+    color: var(--mist);
+    font-size: 1.05rem;
+    max-width: 38ch;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-top: .35rem;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .04em;
+    padding: .4rem .65rem;
+    border-radius: 6px;
+    background: var(--bay);
+    border: 1px solid var(--lane);
+    color: var(--chalk);
+  }
+  .chip strong { color: var(--lamp); font-weight: 600; }
+
+  /* TICKET */
+  .ticket {
+    position: relative;
+    background: var(--ticket);
+    color: var(--ticket-ink);
+    border-radius: 10px 10px 6px 6px;
+    box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,.06);
+    overflow: hidden;
+    transform: rotate(-1.2deg);
+    transition: transform .25s ease;
+  }
+  .ticket:hover { transform: rotate(0deg) translateY(-2px); }
+  .ticket-top {
+    padding: 1.15rem 1.25rem .9rem;
+    border-bottom: 2px dashed var(--ticket-perf);
+  }
+  .ticket-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: .65rem;
+  }
+  .ticket-brand .logo {
+    font-family: var(--display);
+    font-weight: 800;
+    letter-spacing: .08em;
+    font-size: .95rem;
+    text-transform: uppercase;
+  }
+  .ticket-brand .case {
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .06em;
+    opacity: .65;
+  }
+  .ticket-title {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: .01em;
+  }
+  .ticket-body {
+    padding: 1rem 1.25rem 1.15rem;
+    display: grid;
+    gap: .55rem;
+  }
+  .t-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: .5rem;
+    font-size: .86rem;
+  }
+  .t-row .k {
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .55;
+    padding-top: .2rem;
+  }
+  .t-row .v { font-weight: 600; }
+  .stamp {
+    position: absolute;
+    right: 1rem;
+    top: 48%;
+    transform: translateY(-50%) rotate(-14deg);
+    border: 3px solid var(--brake-deep);
+    color: var(--brake-deep);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: .18em;
+    padding: .35rem .6rem;
+    border-radius: 4px;
+    opacity: .88;
+    background: rgba(255,255,255,.35);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .ticket-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .7rem 1.25rem .85rem;
+    background: rgba(0,0,0,.04);
+    border-top: 2px dashed var(--ticket-perf);
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .7;
+  }
+  /* perforated edge */
+  .ticket::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -7px;
+    height: 14px;
+    background:
+      radial-gradient(circle at 10px 0, transparent 6px, var(--ticket) 6.5px) 0 0 / 20px 14px repeat-x;
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .75rem;
+    margin-bottom: 2.75rem;
+  }
+  @media (max-width: 720px) {
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+  .stat {
+    background: linear-gradient(160deg, var(--bay), var(--garage));
+    border: 1px solid var(--lane);
+    border-radius: var(--radius);
+    padding: 1rem 1.05rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--lamp), var(--meter));
+    opacity: .7;
+  }
+  .stat .num {
+    font-family: var(--display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--pure);
+    letter-spacing: -.02em;
+    line-height: 1.1;
+  }
+  .stat .lbl {
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-top: .3rem;
+  }
+
+  /* SECTION HEADS */
+  section { margin-bottom: 2.75rem; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: .85rem;
+    margin-bottom: 1.15rem;
+    border-bottom: 1px solid var(--lane);
+    padding-bottom: .65rem;
+  }
+  .sec-head h2 {
+    font-family: var(--display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: var(--pure);
+  }
+  .sec-head .hint {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  /* TASK CARD */
+  .task-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 780px) {
+    .task-grid { grid-template-columns: 1fr; }
+  }
+  .panel {
+    background: var(--garage);
+    border: 1px solid var(--lane);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.35rem;
+  }
+  .panel h3 {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--meter);
+    margin-bottom: .65rem;
+  }
+  .instruction {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--pure);
+    line-height: 1.4;
+  }
+  .criteria {
+    list-style: none;
+    display: grid;
+    gap: .55rem;
+  }
+  .criteria li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .6rem;
+    font-size: .9rem;
+    color: var(--mist);
+  }
+  .criteria .mark {
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .05em;
+    padding: .2rem .4rem;
+    border-radius: 4px;
+    border: 1px solid var(--lane);
+    color: var(--chalk);
+    height: fit-content;
+  }
+  .criteria .mark.need { color: var(--lamp); border-color: rgba(240,180,41,.4); }
+
+  /* GARAGE TIMELINE */
+  .garage {
+    position: relative;
+    padding-left: 0;
+  }
+  .garage-rail {
+    position: absolute;
+    left: 2.05rem;
+    top: .5rem;
+    bottom: .5rem;
+    width: 3px;
+    background: linear-gradient(180deg, var(--lamp), var(--meter) 55%, var(--brake));
+    border-radius: 3px;
+    opacity: .55;
+  }
+  .level {
+    position: relative;
+    display: grid;
+    grid-template-columns: 4.3rem 1fr;
+    gap: .85rem;
+    margin-bottom: .85rem;
+  }
+  .level-plate {
+    position: relative;
+    z-index: 1;
+    width: 4.1rem;
+    height: 4.1rem;
+    border-radius: 10px;
+    background: var(--bay);
+    border: 1px solid var(--lane);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  }
+  .level-plate .fl {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--lamp);
+    line-height: 1;
+  }
+  .level-plate .tm {
+    font-family: var(--mono);
+    font-size: .58rem;
+    letter-spacing: .04em;
+    color: var(--mist);
+    margin-top: .25rem;
+  }
+  .level-card {
+    background: var(--garage);
+    border: 1px solid var(--lane);
+    border-radius: var(--radius);
+    padding: 1rem 1.15rem 1.05rem;
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease, transform .2s ease;
+  }
+  .level-card:hover, .level-card:focus-visible {
+    border-color: rgba(240,180,41,.45);
+    background: #182230;
+    outline: none;
+  }
+  .level-card:focus-visible {
+    box-shadow: 0 0 0 3px rgba(240,180,41,.35);
+  }
+  .level-card.open {
+    border-color: rgba(46,196,182,.4);
+  }
+  .level-card header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem .85rem;
+  }
+  .level-card h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--pure);
+    letter-spacing: .01em;
+  }
+  .level-card .status {
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .28rem .5rem;
+    border-radius: 999px;
+    border: 1px solid var(--lane);
+  }
+  .status.ok { color: var(--ok); border-color: rgba(94,207,138,.4); background: rgba(94,207,138,.08); }
+  .status.warn { color: var(--lamp); border-color: rgba(240,180,41,.4); background: rgba(240,180,41,.08); }
+  .status.bad { color: var(--brake); border-color: rgba(224,82,74,.45); background: rgba(224,82,74,.08); }
+  .level-card .summary {
+    color: var(--mist);
+    font-size: .92rem;
+    margin-top: .45rem;
+  }
+  .level-card .detail {
+    display: none;
+    margin-top: .85rem;
+    padding-top: .85rem;
+    border-top: 1px dashed var(--lane);
+    color: var(--chalk);
+    font-size: .9rem;
+  }
+  .level-card.open .detail { display: block; }
+  .detail ul {
+    margin: .5rem 0 0 1.1rem;
+    color: var(--mist);
+  }
+  .detail li { margin: .3rem 0; }
+  .detail .quote {
+    margin-top: .7rem;
+    padding: .7rem .85rem;
+    border-left: 3px solid var(--lamp);
+    background: rgba(240,180,41,.06);
+    color: var(--chalk);
+    font-size: .86rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .chev {
+    font-family: var(--mono);
+    font-size: .65rem;
+    color: var(--mist);
+    margin-left: auto;
+  }
+
+  /* BATTLE ZONE / stripe */
+  .battle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 780px) {
+    .battle { grid-template-columns: 1fr; }
+  }
+  .battle .panel { min-height: 100%; }
+  .trouble-list {
+    list-style: none;
+    counter-reset: t;
+    display: grid;
+    gap: .65rem;
+  }
+  .trouble-list li {
+    counter-increment: t;
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    gap: .55rem;
+    font-size: .9rem;
+    color: var(--mist);
+  }
+  .trouble-list li::before {
+    content: counter(t, decimal-leading-zero);
+    font-family: var(--mono);
+    font-size: .68rem;
+    color: var(--lamp);
+    padding-top: .2rem;
+  }
+
+  /* OUTCOME */
+  .outcome {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 780px) {
+    .outcome { grid-template-columns: 1fr; }
+  }
+  .verdict {
+    background:
+      linear-gradient(135deg, rgba(224,82,74,.12), transparent 55%),
+      var(--garage);
+    border: 1px solid rgba(224,82,74,.35);
+    border-radius: var(--radius);
+    padding: 1.35rem 1.4rem;
+  }
+  .verdict .big {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--brake);
+    letter-spacing: .04em;
+  }
+  .verdict p {
+    margin-top: .55rem;
+    color: var(--mist);
+    font-size: .95rem;
+  }
+  .checklist {
+    list-style: none;
+    display: grid;
+    gap: .45rem;
+  }
+  .checklist li {
+    display: flex;
+    gap: .55rem;
+    align-items: flex-start;
+    font-size: .9rem;
+    color: var(--mist);
+  }
+  .checklist .ico {
+    font-family: var(--mono);
+    font-size: .72rem;
+    min-width: 1.1rem;
+    color: var(--ok);
+  }
+  .checklist .ico.x { color: var(--brake); }
+
+  /* actions viz */
+  .bars {
+    display: grid;
+    gap: .45rem;
+    margin-top: .35rem;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr 2.2rem;
+    gap: .55rem;
+    align-items: center;
+    font-size: .78rem;
+  }
+  .bar-row .label { font-family: var(--mono); color: var(--mist); font-size: .68rem; letter-spacing: .04em; }
+  .bar-track {
+    height: 8px;
+    background: var(--bay);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid var(--lane);
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--meter-deep), var(--meter));
+  }
+  .bar-fill.lamp { background: linear-gradient(90deg, var(--lamp-dim), var(--lamp)); }
+  .bar-fill.brake { background: linear-gradient(90deg, var(--brake-deep), var(--brake)); }
+  .bar-row .n { font-family: var(--mono); color: var(--chalk); text-align: right; font-size: .72rem; }
+
+  /* media refs */
+  .media-list {
+    list-style: none;
+    display: grid;
+    gap: .4rem;
+  }
+  .media-list li {
+    font-family: var(--mono);
+    font-size: .72rem;
+    color: var(--mist);
+    padding: .5rem .7rem;
+    background: var(--bay);
+    border-radius: 6px;
+    border: 1px solid var(--lane);
+    word-break: break-all;
+  }
+
+  /* FOOT */
+  footer {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--lane);
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mist);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.5rem;
+    justify-content: space-between;
+  }
+
+  /* filters */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    margin-bottom: 1rem;
+  }
+  .filters button {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .45rem .75rem;
+    border-radius: 999px;
+    border: 1px solid var(--lane);
+    background: transparent;
+    color: var(--mist);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .filters button:hover, .filters button:focus-visible {
+    color: var(--pure);
+    border-color: var(--lamp);
+    outline: none;
+  }
+  .filters button.active {
+    background: rgba(240,180,41,.12);
+    color: var(--lamp);
+    border-color: rgba(240,180,41,.5);
+  }
+
+  .level[hidden] { display: none; }
+
+  /* ascii-ish map pin line over hero optional */
+  .path-line {
+    font-family: var(--mono);
+    font-size: .68rem;
+    color: var(--meter);
+    letter-spacing: .06em;
+    opacity: .85;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="rail">
+      <div class="rail-left">
+        <span class="pill"><span class="dot"></span> Fail · time limit / no checkout intercept</span>
+        <span class="pill site">spothero.com</span>
+        <span class="pill">daily_web_tasks · transportation</span>
+      </div>
+      <span>ClawBench · claude-opus-4-6 · medium</span>
+    </div>
+
+    <header class="hero">
+      <div class="thesis">
+        <div class="eyebrow">Case 04_024 · Parking reservation</div>
+        <h1>A downtown stall almost booked — <em>payment never cleared</em>.</h1>
+        <p class="lede">
+          Agent attempt to reserve SpotHero parking for tomorrow 9&nbsp;AM–5&nbsp;PM in downtown Toronto.
+          Reach the checkout rail, wrestle a cross-origin Stripe iframe, then stall on a declined card.
+        </p>
+        <p class="path-line">HOME → SEARCH → LOT 63 CENTRE → CONTACT → STRIPE → PAY&nbsp;✕</p>
+        <div class="meta-row">
+          <span class="chip"><strong>Model</strong>&nbsp; claude-opus-4-6</span>
+          <span class="chip"><strong>Wall</strong>&nbsp; ~12&nbsp;min agent / 1828&nbsp;s run</span>
+          <span class="chip"><strong>Tools</strong>&nbsp; 101 browser · 2 exec</span>
+          <span class="chip"><strong>Site</strong>&nbsp; SpotHero</span>
+        </div>
+      </div>
+
+      <aside class="ticket" aria-label="Reservation attempt ticket">
+        <div class="stamp">DECLINED</div>
+        <div class="ticket-top">
+          <div class="ticket-brand">
+            <span class="logo">Spot·Stub</span>
+            <span class="case">04_024</span>
+          </div>
+          <div class="ticket-title">63 Centre Ave. — Lot<br/>Downtown Toronto</div>
+        </div>
+        <div class="ticket-body">
+          <div class="t-row"><span class="k">When</span><span class="v">Sat Mar 28, 2026 · 9:00 AM → 5:00 PM*</span></div>
+          <div class="t-row"><span class="k">Guest</span><span class="v">Alex Green · cb01709d163de2@clawbench.cc</span></div>
+          <div class="t-row"><span class="k">Vehicle</span><span class="v">Optional — not added</span></div>
+          <div class="t-row"><span class="k">Total</span><span class="v">CA$9.49</span></div>
+          <div class="t-row"><span class="k">Card</span><span class="v">VISA ···· 4532 · Alex Green</span></div>
+          <div class="t-row"><span class="k">Status</span><span class="v">Unable to process payment</span></div>
+        </div>
+        <div class="ticket-foot">
+          <span>* lot showed free time to 6:00 PM</span>
+          <span>RID 158690</span>
+        </div>
+      </aside>
+    </header>
+
+    <div class="stat-strip" aria-label="Run metrics">
+      <div class="stat"><div class="num">FAIL</div><div class="lbl">Eval outcome</div></div>
+      <div class="stat"><div class="num">101</div><div class="lbl">Browser tool calls</div></div>
+      <div class="stat"><div class="num">~12m</div><div class="lbl">Active trajectory</div></div>
+      <div class="stat"><div class="num">$9.49</div><div class="lbl">Quoted price (CAD)</div></div>
+    </div>
+
+    <section aria-labelledby="task-h">
+      <div class="sec-head">
+        <h2 id="task-h">The brief</h2>
+        <span class="hint">What the agent was asked to do</span>
+      </div>
+      <div class="task-grid">
+        <div class="panel">
+          <h3>Instruction</h3>
+          <p class="instruction">Reserve a parking spot on SpotHero for tomorrow 9am–5pm in downtown Toronto.</p>
+          <p style="margin-top:.85rem;color:var(--mist);font-size:.92rem;">
+            Browser-only. Personal details for guest Alex Green live under <code style="font-family:var(--mono);color:var(--lamp);">/my-info/</code>.
+            Disposable email: <code style="font-family:var(--mono);color:var(--chalk);">cb01709d163de2@clawbench.cc</code>.
+            No user confirmation allowed mid-run.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Interceptor success shape</h3>
+          <ul class="criteria">
+            <li><span class="mark need">POST</span><span>URL matches <code style="font-family:var(--mono);font-size:.8rem;">spothero.com/api/v1/checkout</code></span></li>
+            <li><span class="mark need">times</span><span>Rental item with <code style="font-family:var(--mono);font-size:.8rem;">T09:00:00</code> start and <code style="font-family:var(--mono);font-size:.8rem;">T17:00:00</code> end</span></li>
+            <li><span class="mark need">email</span><span>Checkout body email = clawbench disposable address</span></li>
+            <li><span class="mark">stop</span><span>Observed: <strong style="color:var(--brake);">time_limit_exceeded</strong> before interceptor fired</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="tl-h">
+      <div class="sec-head">
+        <h2 id="tl-h">Garage descent</h2>
+        <span class="hint">Trajectory as parking levels — click to expand</span>
+      </div>
+
+      <div class="filters" role="toolbar" aria-label="Filter levels">
+        <button type="button" class="active" data-filter="all">All levels</button>
+        <button type="button" data-filter="ok">Clean passes</button>
+        <button type="button" data-filter="friction">Friction</button>
+        <button type="button" data-filter="fail">Terminal fail</button>
+      </div>
+
+      <div class="garage">
+        <div class="garage-rail" aria-hidden="true"></div>
+
+        <article class="level" data-tag="ok">
+          <div class="level-plate"><span class="fl">L0</span><span class="tm">15:00</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Entry — identity + SpotHero</h3>
+              <span class="status ok">smooth</span>
+            </header>
+            <p class="summary">Read Alex Green profile; open spothero.com; dual tool start (exec + browser).</p>
+            <div class="detail">
+              <ul>
+                <li><code style="font-family:var(--mono);">exec ls /my-info/</code> then cat personal_info JSON</li>
+                <li>Guest profile: Canadian, Toronto address on Spadina; contact email matches disposable account</li>
+                <li>No phone on file — becomes a later workaround</li>
+              </ul>
+              <div class="quote">“Let me start by reading the personal information files and then navigate to SpotHero…”</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="ok">
+          <div class="level-plate"><span class="fl">L1</span><span class="tm">15:00</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Search setup — place & window</h3>
+              <span class="status ok">on target</span>
+            </header>
+            <p class="summary">Type “Downtown Toronto”, pick autocomplete, set Mar 28 + 9:00 AM–5:00 PM, hit Search.</p>
+            <div class="detail">
+              <ul>
+                <li>Autocomplete: “Downtown, Old Toronto, Toronto, ON, Canada”</li>
+                <li>Calendar: tomorrow Mar 28, 2026 (session day is Mar 27)</li>
+                <li>Time comboboxes selected via aria refs after compact snapshot</li>
+              </ul>
+              <div class="quote">“Today is Mar 27, 2026 — I need tomorrow (Mar 28)…”</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="ok">
+          <div class="level-plate"><span class="fl">L2</span><span class="tm">15:02</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Spot locked — 63 Centre Ave.</h3>
+              <span class="status ok">booked path</span>
+            </header>
+            <p class="summary">Results list for correct window; “Book Now” on first lot. Checkout at CA$9.49.</p>
+            <div class="detail">
+              <ul>
+                <li>Facility route: purchase hourly RID 158690, facility 86545</li>
+                <li>URL params later show <code style="font-family:var(--mono);">starts=…T09:00:00</code> and <code style="font-family:var(--mono);">ends=…T17:00:00</code></li>
+                <li>UI showed free extension to 6:00 PM (“extra time for free”)</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="friction">
+          <div class="level-plate"><span class="fl">L3</span><span class="tm">15:03</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Rate block vs. 5 PM</h3>
+              <span class="status warn">friction</span>
+            </header>
+            <p class="summary">Checkout UI stuck on 6:00 PM presentation; agent toggles Reservation Period until URL ends=17:00.</p>
+            <div class="detail">
+              <ul>
+                <li>Accepts lot minimum rate block as “extra free time”</li>
+                <li>Interceptor cares about T17:00:00 — agent did steer ends param there</li>
+              </ul>
+              <div class="quote">“This is fine — having extra time (until 6 PM) is better than not enough.”</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="friction">
+          <div class="level-plate"><span class="fl">L4</span><span class="tm">15:05</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Contact form — empty fields & React state</h3>
+              <span class="status warn">retries</span>
+            </header>
+            <p class="summary">Email typed then appears empty again after navigations; falls back to evaluate/JS fill + placeholder phone.</p>
+            <div class="detail">
+              <ul>
+                <li>Phone invented: (416) 555-1234 — not present in my-info</li>
+                <li>Eventually contact summary shows correct email + phone</li>
+                <li>Guest checkout path (no login)</li>
+              </ul>
+              <div class="quote">“The fields look empty again in the screenshot. The page might have reloaded.”</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="friction">
+          <div class="level-plate"><span class="fl">L5</span><span class="tm">15:06</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Stripe iframe maze</h3>
+              <span class="status warn">~5 minutes</span>
+            </header>
+            <p class="summary">Cross-origin payment frame resists typing, snapshots, and height; finally card fields accept data.</p>
+            <div class="detail">
+              <ul>
+                <li>Iframe title: “Secure card payment input frame”</li>
+                <li>Early height only ~20px; agent scrolls, frame snapshots, re-clicks</li>
+                <li>Card from profile eventually visible: 4519 8734 2460 4532 · exp 09/28 · CVC filled</li>
+                <li>Name on Card required a second fill after first typing failed</li>
+              </ul>
+              <div class="quote">“The Stripe iframe is only 20px high — this is the combined card element.”</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="ok">
+          <div class="level-plate"><span class="fl">L6</span><span class="tm">15:11</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Method accepted on page</h3>
+              <span class="status ok">VISA ····4532</span>
+            </header>
+            <p class="summary">Confirm → payment method collapses to VISA ending 4532; review shows Purchase / Pay and Reserve.</p>
+            <div class="detail">
+              <ul>
+                <li>Contact + payment method both confirmed in UI</li>
+                <li>Vehicle left optional</li>
+                <li>Total still CA$9.49</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="level" data-tag="fail">
+          <div class="level-plate"><span class="fl">B1</span><span class="tm">15:12</span></div>
+          <div class="level-card" tabindex="0" role="button" aria-expanded="false">
+            <header>
+              <h3>Pay and Reserve → dead end</h3>
+              <span class="status bad">declined</span>
+            </header>
+            <p class="summary">Final click yields “Unable to process payment.” Agent stops with a structured summary; interceptor never sees a successful checkout POST.</p>
+            <div class="detail">
+              <ul>
+                <li>Error text from UI reproduced in assistant final message</li>
+                <li>Agent attributes failure to test card / Stripe rejection</li>
+                <li>Eval row: <code style="font-family:var(--mono);">pass: false</code>, stop_reason <code style="font-family:var(--mono);">time_limit_exceeded</code></li>
+              </ul>
+              <div class="quote">“The card number from your personal info was rejected by Stripe’s payment processor.”</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="battle-h">
+      <div class="sec-head">
+        <h2 id="battle-h">Where time burned</h2>
+        <span class="hint">Tool mix + friction sources</span>
+      </div>
+      <div class="battle">
+        <div class="panel">
+          <h3>Browser action mix</h3>
+          <div class="bars">
+            <div class="bar-row"><span class="label">click</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="n">33</span></div>
+            <div class="bar-row"><span class="label">snapshot</span><div class="bar-track"><div class="bar-fill lamp" style="width:67%"></div></div><span class="n">22</span></div>
+            <div class="bar-row"><span class="label">type</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="n">14</span></div>
+            <div class="bar-row"><span class="label">wait</span><div class="bar-track"><div class="bar-fill" style="width:27%"></div></div><span class="n">9</span></div>
+            <div class="bar-row"><span class="label">evaluate</span><div class="bar-track"><div class="bar-fill lamp" style="width:24%"></div></div><span class="n">8</span></div>
+            <div class="bar-row"><span class="label">screenshot</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="n">6</span></div>
+            <div class="bar-row"><span class="label">select</span><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><span class="n">4</span></div>
+            <div class="bar-row"><span class="label">press</span><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><span class="n">3</span></div>
+          </div>
+          <p style="margin-top:1rem;font-size:.85rem;color:var(--mist);">
+            Plus <strong style="color:var(--chalk);">2 exec</strong> calls for identity discovery. Action log (page events): 23 clicks, 49 key cycles, 4 form submits.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Friction ledger</h3>
+          <ol class="trouble-list">
+            <li>Lot pricing UI advertised 6&nbsp;PM while task demanded 5&nbsp;PM; URL env eventually aligned to 17:00.</li>
+            <li>Contact fields lost state after navigation; required re-type + JS evaluate.</li>
+            <li>Missing phone number in my-info forced a fabricated Toronto placeholder.</li>
+            <li>Stripe combined card iframe (cross-origin, low height) absorbed multiple failed typing attempts.</li>
+            <li>Successful card UI state still produced a hard payment decline — no reserve confirmation.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="out-h">
+      <div class="sec-head">
+        <h2 id="out-h">Verdict</h2>
+        <span class="hint">Eval interception · case_meta</span>
+      </div>
+      <div class="outcome">
+        <div class="verdict">
+          <div class="big">NOT RESERVED</div>
+          <p>
+            Session never delivered a qualifying <strong style="color:var(--chalk);">POST /api/v1/checkout</strong>
+            that the interceptor could accept. Error from environment:
+            <em style="color:var(--chalk);">“Session stopped: time limit exceeded before the eval interceptor was triggered.”</em>
+          </p>
+          <p style="margin-top:.6rem;">
+            Trajectory completeness is high on the browser path; outcome collapses at payment authorization —
+            a brittle dependency on sandbox card numbers and Stripe acceptance.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Agent’s own tally</h3>
+          <ul class="checklist">
+            <li><span class="ico">✔</span><span>Opened SpotHero and searched downtown Toronto</span></li>
+            <li><span class="ico">✔</span><span>Window set to tomorrow Mar&nbsp;28, 9:00–5:00 (with free-to-6 display)</span></li>
+            <li><span class="ico">✔</span><span>Selected 63 Centre Ave. — Lot · CA$9.49</span></li>
+            <li><span class="ico">✔</span><span>Contact: disposable email + placeholder phone</span></li>
+            <li><span class="ico">✔</span><span>Card fields filled · VISA ····4532 accepted on method UI</span></li>
+            <li><span class="ico x">✖</span><span>Pay and Reserve declined · no completed reservation</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="media-h">
+      <div class="sec-head">
+        <h2 id="media-h">Media references</h2>
+        <span class="hint">Agent-captured screenshots — paths only, not embedded</span>
+      </div>
+      <div class="panel">
+        <ul class="media-list">
+          <li>/root/.openclaw/media/browser/5645054d-959d-46a3-b494-431224444464.png</li>
+          <li>/root/.openclaw/media/browser/bccdc5ad-17d6-4182-9de5-46ebdbdda13c.png</li>
+          <li>+ additional browser screenshot artifacts referenced mid-run (session media store)</li>
+        </ul>
+        <p style="margin-top:.85rem;font-size:.85rem;color:var(--mist);">
+          No local screenshots/ frames/ folder shipped with this case. Images stay as plain path citations per packaging rules.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="cfg-h">
+      <div class="sec-head">
+        <h2 id="cfg-h">Case configuration</h2>
+        <span class="hint">From case_meta · run_meta · interception</span>
+      </div>
+      <div class="task-grid">
+        <div class="panel">
+          <h3>Run</h3>
+          <div class="t-row" style="color:var(--mist);margin:.35rem 0;"><span class="k" style="color:var(--meter);">ID</span><span class="v" style="color:var(--chalk);font-family:var(--mono);font-size:.8rem;">04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954</span></div>
+          <div class="t-row" style="color:var(--mist);margin:.35rem 0;"><span class="k" style="color:var(--meter);">Benchmark</span><span class="v" style="color:var(--chalk);">ClawBench · daily_web_tasks</span></div>
+          <div class="t-row" style="color:var(--mist);margin:.35rem 0;"><span class="k" style="color:var(--meter);">Provider</span><span class="v" style="color:var(--chalk);">anthropic · thinking medium</span></div>
+          <div class="t-row" style="color:var(--mist);margin:.35rem 0;"><span class="k" style="color:var(--meter);">Limit</span><span class="v" style="color:var(--chalk);">30 minutes · duration_s 1828</span></div>
+          <div class="t-row" style="color:var(--mist);margin:.35rem 0;"><span class="k" style="color:var(--meter);">Trajectory</span><span class="v" style="color:var(--chalk);">data/agent-messages.jsonl · clawbench-dir</span></div>
+        </div>
+        <div class="panel">
+          <h3>Scenario tags</h3>
+          <div class="meta-row" style="margin-top:.2rem;">
+            <span class="chip">metaclass · daily-life</span>
+            <span class="chip">class · transportation</span>
+            <span class="chip">platform · spothero</span>
+            <span class="chip">task_id · 24</span>
+            <span class="chip">timestamp · 20260327-145954</span>
+          </div>
+          <p style="margin-top:1rem;font-size:.88rem;color:var(--mist);">
+            Decision shape for display: agent got all the way through guest checkout UX, including payment method attachment,
+            but false positive “done enough” thinking cannot satisfy an interceptor that requires a live checkout POST with
+            the task’s rental window and email.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Case digest · no external assets</span>
+      <span>Trajectory messages: 206 · assistants 102 · toolResults 103</span>
+      <span>self-contained HTML</span>
+    </footer>
+  </div>
+
+<script>
+(function () {
+  const cards = document.querySelectorAll('.level-card');
+  function toggle(card, force) {
+    const open = force !== undefined ? force : !card.classList.contains('open');
+    card.classList.toggle('open', open);
+    card.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () { toggle(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle(card);
+      }
+    });
+  });
+
+  const buttons = document.querySelectorAll('.filters button');
+  const levels = document.querySelectorAll('.level');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      const f = btn.getAttribute('data-filter');
+      levels.forEach(function (lvl) {
+        const tag = lvl.getAttribute('data-tag');
+        const show = f === 'all' || tag === f || (f === 'friction' && tag === 'friction');
+        lvl.hidden = !show;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

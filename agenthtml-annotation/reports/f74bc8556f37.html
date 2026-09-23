@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case 022 · Turo Enterprise · Wrong Turn on the Way to Niagara Falls</title>
+<style>
+  /* === TOKENS === */
+  :root {
+    --paper: #f0ece2;
+    --paper-deep: #e6e0d3;
+    --ink: #232228;
+    --ink-soft: #555056;
+    --route-blue: #1b5fae;
+    --route-blue-dark: #144680;
+    --amber: #e0901e;
+    --amber-pale: #f5e2bd;
+    --stop: #c2392f;
+    --stop-pale: #f0d4d1;
+    --go: #3e7d4e;
+    --hairline: #c9c2b4;
+    --panel: #fbf9f4;
+    --mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --display: 'Georgia', 'Times New Roman', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === LAYOUT PRIMITIVES === */
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+  .hairline-top { border-top: 1px solid var(--hairline); }
+  .hairline-bottom { border-bottom: 1px solid var(--hairline); }
+
+  /* === HEADER === */
+  .top-bar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .top-bar .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .top-bar .case-id { color: var(--amber); }
+  .top-bar .meta-tags { display: flex; gap: 16px; flex-wrap: wrap; }
+  .top-bar .meta-tags span { opacity: 0.75; }
+
+  /* === HERO === */
+  .hero {
+    padding: 64px 0 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(35,34,40,0.04) 38px, rgba(35,34,40,0.04) 39px);
+    pointer-events: none;
+  }
+  .hero .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero .eyebrow .dot {
+    width: 8px; height: 8px;
+    background: var(--stop);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(34px, 5.5vw, 58px);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    max-width: 760px;
+    margin-bottom: 18px;
+  }
+  .hero h1 .em { font-style: italic; color: var(--route-blue); }
+  .hero h1 .strike { text-decoration: line-through; text-decoration-color: var(--stop); text-decoration-thickness: 3px; }
+  .hero .lede {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+
+  /* === HERO STATS === */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--hairline);
+    background: var(--panel);
+  }
+  .hero-stats .stat {
+    padding: 22px 18px;
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-stats .stat:last-child { border-right: none; }
+  .hero-stats .stat .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .hero-stats .stat .value {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .hero-stats .stat .value.stop { color: var(--stop); }
+  .hero-stats .stat .value.amber { color: var(--amber); }
+  .hero-stats .stat .sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 700px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stats .stat:nth-child(2) { border-right: none; }
+    .hero-stats .stat:nth-child(1), .hero-stats .stat:nth-child(2) {
+      border-bottom: 1px solid var(--hairline);
+    }
+  }
+
+  /* === SECTION === */
+  .section { padding: 56px 0; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--amber);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* === TASK BRIEF === */
+  .task-brief {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-left: 4px solid var(--route-blue);
+    padding: 28px 32px;
+    font-size: 17px;
+  }
+  .task-brief .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .task-brief .instruction {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 18px;
+  }
+  .task-params {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .task-params .chip {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--paper-deep);
+    border: 1px solid var(--hairline);
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+  .task-params .chip .k { color: var(--ink-soft); }
+  .task-params .chip .v { color: var(--route-blue-dark); font-weight: 600; }
+
+  /* === ROUTE TIMELINE (SIGNATURE) === */
+  .route-map {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .route-map::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(240,236,226,0.04) 60px, rgba(240,236,226,0.04) 61px),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(240,236,226,0.03) 60px, rgba(240,236,226,0.03) 61px);
+    pointer-events: none;
+  }
+  .route-map .section-head .section-title { color: var(--paper); }
+  .route-map .section-num { color: var(--amber); }
+
+  .route-track {
+    position: relative;
+    margin: 40px 0 28px;
+    padding: 0 20px;
+  }
+  .route-line {
+    position: relative;
+    height: 6px;
+    background: rgba(240,236,226,0.15);
+    border-radius: 3px;
+  }
+  .route-progress {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--route-blue) 0%, var(--route-blue) 50%, var(--amber) 50%, var(--amber) 78%, var(--stop) 78%, var(--stop) 100%);
+    border-radius: 3px;
+    width: 100%;
+  }
+  .route-stops {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: -3px;
+  }
+  .route-stop {
+    position: relative;
+    text-align: center;
+    width: 140px;
+    transform: translateX(-50%);
+  }
+  .route-stop:first-child { transform: translateX(-20px); }
+  .route-stop:last-child { transform: translateX(calc(-100% + 20px)); }
+  .route-stop .pin {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 3px solid var(--paper);
+    position: relative;
+    z-index: 2;
+  }
+  .route-stop.go .pin { background: var(--go); }
+  .route-stop.warn .pin { background: var(--amber); }
+  .route-stop.stop .pin { background: var(--stop); }
+  .route-stop .time {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    margin-top: 10px;
+    letter-spacing: 0.03em;
+  }
+  .route-stop .name {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+    color: var(--paper);
+  }
+  .route-stop .desc {
+    font-size: 11px;
+    color: rgba(240,236,226,0.6);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .route-legend {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(240,236,226,0.7);
+  }
+  .route-legend .item { display: flex; align-items: center; gap: 8px; }
+  .route-legend .swatch { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* destination-not-reached banner */
+  .never-reached {
+    margin-top: 36px;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed rgba(240,236,226,0.25);
+    border-radius: 4px;
+  }
+  .never-reached .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stop);
+    margin-bottom: 6px;
+  }
+  .never-reached .text {
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--paper);
+  }
+  .never-reached .text code {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--amber);
+    background: rgba(224,144,30,0.12);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 800px) {
+    .route-stops { flex-direction: column; gap: 24px; align-items: center; }
+    .route-stop { transform: none; width: 200px; text-align: center; }
+    .route-line { display: none; }
+  }
+
+  /* === PHASE CARDS === */
+  .phases { display: flex; flex-direction: column; gap: 20px; }
+  .phase {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .phase:hover { border-color: var(--amber); }
+  .phase-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--hairline);
+    cursor: pointer;
+    user-select: none;
+  }
+  .phase-badge {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .phase-badge.go { background: #e0eee4; color: var(--go); border: 1px solid #c3d8c9; }
+  .phase-badge.warn { background: var(--amber-pale); color: #a06a15; border: 1px solid #d9c899; }
+  .phase-badge.stop { background: var(--stop-pale); color: var(--stop); border: 1px solid #d9b3af; }
+  .phase-head .title {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+  }
+  .phase-head .site {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding: 3px 10px;
+    background: var(--paper-deep);
+    border-radius: 2px;
+  }
+  .phase-head .time-range {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .phase-head .toggle {
+    font-size: 18px;
+    color: var(--ink-soft);
+    transition: transform 0.2s;
+  }
+  .phase.open .toggle { transform: rotate(180deg); }
+  .phase-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .phase.open .phase-body { max-height: 2000px; }
+  .phase-body-inner { padding: 20px 24px 24px; }
+
+  .step-list { list-style: none; }
+  .step {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--hairline);
+  }
+  .step:last-child { border-bottom: none; }
+  .step .step-time {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    width: 56px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .step .step-body { flex: 1; }
+  .step .step-body .action {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .step .step-body .action .verb {
+    font-weight: 600;
+    color: var(--route-blue-dark);
+  }
+  .step .step-body .action code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--paper-deep);
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+  .step .step-body .note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .step .step-body .note.fail { color: var(--stop); font-style: normal; font-weight: 500; }
+
+  /* === FAILURE ANALYSIS === */
+  .failure-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 700px) { .failure-grid { grid-template-columns: 1fr; } }
+  .fail-card {
+    padding: 24px;
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-top: 3px solid var(--stop);
+  }
+  .fail-card .title {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .fail-card .body {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .fail-card .body strong { color: var(--ink); font-weight: 600; }
+
+  /* === EXPECTED VS ACTUAL === */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--hairline);
+    margin-bottom: 24px;
+  }
+  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+  .compare .col { padding: 24px 28px; }
+  .compare .col:first-child { border-right: 1px solid var(--hairline); }
+  .compare .col .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .compare .col.expected .label { color: var(--go); }
+  .compare .col.actual .label { color: var(--stop); }
+  .compare .col .content { font-size: 14px; line-height: 1.6; }
+  .compare .col .content code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--paper-deep);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+  .compare .col.expected { background: #eef5ef; }
+  .compare .col.actual { background: #f8efed; }
+  .compare .col .endpoint {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow-x: auto;
+  }
+  .compare .col .endpoint .key { color: var(--amber); }
+
+  /* === TECHNICAL APPENDIX === */
+  .tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .tech-table th, .tech-table td {
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .tech-table th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    background: var(--paper-deep);
+  }
+  .tech-table td { font-family: var(--mono); }
+  .tech-table td:first-child { color: var(--ink-soft); width: 40%; }
+  .tech-table td:last-child { color: var(--ink); }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--ink);
+    color: rgba(240,236,226,0.6);
+    padding: 32px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: center;
+  }
+  footer .ref-note {
+    max-width: 600px;
+    margin: 0 auto 10px;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  /* === REDUCED MOTION === */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="wrap">
+    <span class="case-id">CASE 022 · daily-life-transportation-turo-enterprise</span>
+    <div class="meta-tags">
+      <span>MODEL: claude-opus-4-6</span>
+      <span>BENCHMARK: ClawBench</span>
+      <span>2026-03-27 14:45 → 15:15</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> Task Outcome — Failed · Time Limit Exceeded</div>
+    <h1>Wrong turn on the way to <span class="em">Niagara Falls.</span><br>The agent never reached <span class="strike">Turo</span>.</h1>
+    <p class="lede">A car-booking task that should have ended with a search on turo.com instead spent 30 minutes lost across Kayak and Rentalcars.com — selecting dates, fighting autocomplete, and running out the clock.</p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="label">Duration</div>
+        <div class="value amber">30:28</div>
+        <div class="sub">1828 seconds</div>
+      </div>
+      <div class="stat">
+        <div class="label">Messages</div>
+        <div class="value">125</div>
+        <div class="sub">trajectory entries</div>
+      </div>
+      <div class="stat">
+        <div class="label">Browser Actions</div>
+        <div class="value">61</div>
+        <div class="sub">clicks, types, navigations</div>
+      </div>
+      <div class="stat">
+        <div class="label">Outcome</div>
+        <div class="value stop">Failed</div>
+        <div class="sub">time limit exceeded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASK BRIEF -->
+<section class="section hairline-top">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">The Assignment</h2>
+    </div>
+    <div class="task-brief">
+      <div class="label">Task Statement</div>
+      <div class="instruction">"Book a car rental on June 20 from Toronto to Niagara Falls, pick up at 9am and return the car by 6pm, compact car"</div>
+      <div class="label">Target Platform & Expected Request</div>
+      <p style="font-size:14px; color:var(--ink-soft); margin-bottom:8px;">The evaluator intercepts a <code style="font-family:var(--mono); background:var(--paper-deep); padding:1px 5px; border-radius:2px;">GET</code> request to a turo.com search URL with these parameters:</p>
+      <div class="task-params">
+        <div class="chip"><span class="k">url</span> <span class="v">turo.com/.../search</span></div>
+        <div class="chip"><span class="k">method</span> <span class="v">GET</span></div>
+        <div class="chip"><span class="k">startDate</span> <span class="v">2026-06-20</span></div>
+        <div class="chip"><span class="k">endDate</span> <span class="v">2026-06-20</span></div>
+        <div class="chip"><span class="k">startTime</span> <span class="v">09:00</span></div>
+        <div class="chip"><span class="k">searchDurationType</span> <span class="v">DAILY</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE TIMELINE (SIGNATURE) -->
+<section class="route-map">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Route the Agent Actually Took</h2>
+    </div>
+
+    <div class="route-track">
+      <div class="route-line">
+        <div class="route-progress"></div>
+      </div>
+      <div class="route-stops">
+        <div class="route-stop go">
+          <div class="pin"></div>
+          <div class="time">14:45:38</div>
+          <div class="name">Workspace</div>
+          <div class="desc">Read personal info, start browser</div>
+        </div>
+        <div class="route-stop go">
+          <div class="pin"></div>
+          <div class="time">14:45:52</div>
+          <div class="name">kayak.com/cars</div>
+          <div class="desc">Different drop-off, Niagara Falls</div>
+        </div>
+        <div class="route-stop warn">
+          <div class="pin"></div>
+          <div class="time">14:49:40</div>
+          <div class="name">Search: No Results</div>
+          <div class="desc">One-way Toronto → Niagara Falls empty</div>
+        </div>
+        <div class="route-stop warn">
+          <div class="pin"></div>
+          <div class="time">14:50:01</div>
+          <div class="name">kayak.com — Retry</div>
+          <div class="desc">URL geolocated to Hoffman, IL</div>
+        </div>
+        <div class="route-stop stop">
+          <div class="pin"></div>
+          <div class="time">14:51:32</div>
+          <div class="name">rentalcars.com</div>
+          <div class="desc">Autocomplete failed, session ends</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-legend">
+      <div class="item"><span class="swatch" style="background:var(--go)"></span> Progressed</div>
+      <div class="item"><span class="swatch" style="background:var(--amber)"></span> Stalled</div>
+      <div class="item"><span class="swatch" style="background:var(--stop)"></span> Dead end</div>
+    </div>
+
+    <div class="never-reached">
+      <div class="label">Destination Never Reached</div>
+      <div class="text">The expected target was <code>turo.com/.../search</code> — the agent never navigated there.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE DETAIL -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Step-by-Step Breakdown</h2>
+    </div>
+
+    <div class="phases">
+
+      <!-- Phase 1 -->
+      <div class="phase open">
+        <div class="phase-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="phase-badge go">01</div>
+          <div class="title">Initialization & Profile Read</div>
+          <div class="site">workspace</div>
+          <div class="time-range">14:45:38 → 14:45:52</div>
+          <div class="toggle">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-body-inner">
+            <ol class="step-list">
+              <li class="step">
+                <div class="step-time">14:45:42</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">exec</span> <code>ls /my-info/</code> — discover personal info files</div>
+                  <div class="note">Found: alex_green_personal_info.json, alex_green_resume.pdf, email_credentials.json</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:45:42</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">browser</span> status check — confirm CDP browser is running on port 9222</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:45:46</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">exec</span> <code>cat /my-info/alex_green_personal_info.json</code></div>
+                  <div class="note">Read the dummy user's identity: Alex Green, born May 1, 1980, female</div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase">
+        <div class="phase-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="phase-badge go">02</div>
+          <div class="title">KAYAK — One-Way Search Form Setup</div>
+          <div class="site">kayak.com/cars</div>
+          <div class="time-range">14:45:52 → 14:49:22</div>
+          <div class="toggle">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-body-inner">
+            <ol class="step-list">
+              <li class="step">
+                <div class="step-time">14:45:52</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">navigate</span> <code>kayak.com/cars</code> — agent chose Kayak instead of the target Turo</div>
+                  <div class="note">The task's platform was turo-enterprise; the agent went to a comparison aggregator instead.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:46:06</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> "Same drop-off" dropdown → select "Different drop-off"</div>
+                  <div class="note">Correctly identified the need for a one-way rental: Toronto → Niagara Falls</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:46:25</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">type</span> "Niagara Falls" in drop-off field → select "Niagara Falls, Ontario, Canada"</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:46:42</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> start date → navigate calendar to June 2026 → click "20" twice</div>
+                  <div class="note">Same-day rental: June 20 pickup and return</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:48:12</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> start time dropdown → scroll → select "9:00 am"</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:48:33</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> end time dropdown → scroll → select "6:00 pm"</div>
+                  <div class="note">Form verified: Toronto → Niagara Falls, Sat 6/20, 9:00 am → 6:00 pm</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:49:08</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> Search button</div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase">
+        <div class="phase-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="phase-badge warn">03</div>
+          <div class="title">KAYAK — No Results & Broken URL Geolocation</div>
+          <div class="site">kayak.com/cars/...</div>
+          <div class="time-range">14:49:40 → 14:51:09</div>
+          <div class="toggle">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-body-inner">
+            <ol class="step-list">
+              <li class="step">
+                <div class="step-time">14:49:40</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">screenshot</span> — search results page shows "No matching results were found"</div>
+                  <div class="note fail">One-way Toronto → Niagara Falls returned zero results on Kayak.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:49:40</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">navigate</span> direct URL: <code>kayak.com/cars/Toronto,Ontario,Canada-c30560/2026-06-20-09h/2026-06-20-18h?sort=rank_a&amp;carClass=compact</code></div>
+                  <div class="note">Agent pivoted to same-drop-off Toronto with compact class filter via URL</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:50:01</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">screenshot</span> — page shows "Hoffman, Illinois, United States"</div>
+                  <div class="note fail">The Kayak city ID c30560 resolved to the wrong location. Geolocation mismatch.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:50:01</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">navigate</span> back to <code>kayak.com/cars</code> — try fresh same-drop-off search</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:50:39</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">screenshot</span> — form still retains previous one-way settings</div>
+                  <div class="note">Agent struggled to reset the form to same-drop-off mode</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:51:09</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">navigate</span> <code>kayak.com/cars/Toronto,ON-c30560/2026-06-20-09h/2026-06-20-18h</code></div>
+                  <div class="note">Tried a different URL format — still geolocated wrong</div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase">
+        <div class="phase-head" onclick="this.parentElement.classList.toggle('open')">
+          <div class="phase-badge stop">04</div>
+          <div class="title">Rentalcars.com — Autocomplete Dead End</div>
+          <div class="site">rentalcars.com</div>
+          <div class="time-range">14:51:32 → 14:52:59</div>
+          <div class="toggle">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-body-inner">
+            <ol class="step-list">
+              <li class="step">
+                <div class="step-time">14:51:32</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">navigate</span> <code>rentalcars.com</code> — agent abandoned Kayak entirely</div>
+                  <div class="note">Still not on Turo. Now on a third-party aggregator.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:51:52</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> pickup location input → <span class="verb">type</span> "Toronto"</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:52:08</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">snapshot</span> — autocomplete shows "No Results Found"</div>
+                  <div class="note fail">The text was typed too fast for the autocomplete to respond.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:52:18</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> clear button → <span class="verb">type</span> "Toronto" slowly</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:52:53</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">snapshot</span> — still "No Results Found"</div>
+                  <div class="note fail">Autocomplete remained non-functional. Session terminated — 30-minute time limit reached.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-time">14:52:59</div>
+                <div class="step-body">
+                  <div class="action"><span class="verb">click</span> "fill" action — last recorded action before timeout</div>
+                  <div class="note">Agent never set dates, never searched, never reached Turo.</div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPECTED VS ACTUAL -->
+<section class="section hairline-top">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">What the Evaluator Expected vs. What Happened</h2>
+    </div>
+
+    <div class="compare">
+      <div class="col expected">
+        <div class="label">Expected</div>
+        <div class="content">
+          Navigate to <strong>turo.com</strong>, fill the search form with:
+          <div class="endpoint"><span class="key">GET</span> turo.com/.../search<br>startDate=2026-06-20<br>endDate=2026-06-20<br>startTime=09:00<br>searchDurationType=DAILY</div>
+        </div>
+      </div>
+      <div class="col actual">
+        <div class="label">Actual</div>
+        <div class="content">
+          Visited <strong>kayak.com</strong> and <strong>rentalcars.com</strong>. No request was ever sent to turo.com. The eval interceptor was never triggered.
+          <div class="endpoint"><span class="key">ERROR</span> Session stopped: time limit exceeded before the eval interceptor was triggered.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE ANALYSIS -->
+<section class="section hairline-top">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Why It Failed</h2>
+    </div>
+
+    <div class="failure-grid">
+      <div class="fail-card">
+        <div class="title">Wrong Website From the Start</div>
+        <div class="body">The task's platform field specified <strong>turo-enterprise</strong> and the evaluation schema required a request to <strong>turo.com</strong>. The agent chose Kayak — a comparison aggregator — and never course-corrected to the target site. This was the root failure: no amount of correct form-filling on Kayak could satisfy the evaluator.</div>
+      </div>
+      <div class="fail-card">
+        <div class="title">One-Way Search Returned Empty</div>
+        <div class="body">The agent correctly interpreted "Toronto to Niagara Falls" as a one-way rental and set up the Kayak form perfectly (different drop-off, correct city, June 20, 9am–6pm). But Kayak returned <strong>zero results</strong> for that route, prompting the agent to second-guess the task and pivot strategies.</div>
+      </div>
+      <div class="fail-card">
+        <div class="title">Broken URL Geolocation</div>
+        <div class="body">When the agent tried direct URL navigation on Kayak with city code <strong>c30560</strong>, the page resolved to <strong>"Hoffman, Illinois, United States"</strong> instead of Toronto. The geo-ID mismatch wasted several minutes of retries and eroded the agent's progress.</div>
+      </div>
+      <div class="fail-card">
+        <div class="title">Autocomplete Failure on Rentalcars</div>
+        <div class="body">After abandoning Kayak, the agent tried rentalcars.com but couldn't get the pickup-location autocomplete to return results for "Toronto" — even when retyping slowly. The last 90 seconds were spent on this dead end before the 30-minute time limit expired.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL APPENDIX -->
+<section class="section hairline-top" style="padding-bottom: 72px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Run Metadata</h2>
+    </div>
+
+    <table class="tech-table">
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>test_case</td><td>022-daily-life-transportation-turo-enterprise</td></tr>
+      <tr><td>task_id</td><td>22</td></tr>
+      <tr><td>metaclass / class</td><td>daily-life / transportation</td></tr>
+      <tr><td>platform</td><td>turo-enterprise</td></tr>
+      <tr><td>sites_involved</td><td>["turo.com"]</td></tr>
+      <tr><td>model</td><td>claude-opus-4-6</td></tr>
+      <tr><td>thinking_level</td><td>medium</td></tr>
+      <tr><td>time_limit_minutes</td><td>30</td></tr>
+      <tr><td>duration_seconds</td><td>1828</td></tr>
+      <tr><td>email_used</td><td>cb507c63b6db63@clawbench.cc</td></tr>
+      <tr><td>stop_reason</td><td>time_limit_exceeded</td></tr>
+      <tr><td>eval_pass</td><td>false</td></tr>
+      <tr><td>eval_errors</td><td>["Session stopped: time limit exceeded before the eval interceptor was triggered."]</td></tr>
+      <tr><td>trajectory_messages</td><td>125</td></tr>
+      <tr><td>browser_actions</td><td>61</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ref-note">Large reference file cited but not embedded: <code style="color:var(--amber);">data/requests.jsonl</code> (6.2 MB, over size cap — reference only).</div>
+    <div>ClawBench · daily_web_tasks · Case 022 · Generated from trajectory 05_022-daily-life-transportation-turo-enterprise-claude-opus-4-6-20260327-144519</div>
+  </div>
+</footer>
+
+<script>
+  // Auto-open first phase, keep others collapsed
+  // (already handled via .open class in markup)
+
+  // Keyboard focus for phase toggles
+  document.querySelectorAll('.phase-head').forEach(head => {
+    head.setAttribute('tabindex', '0');
+    head.setAttribute('role', 'button');
+    head.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.parentElement.classList.toggle('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

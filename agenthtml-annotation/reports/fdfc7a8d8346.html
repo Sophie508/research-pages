@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asia Intraday Volatility — 03_stockindex_query1</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #030810;
+  --surface: #07111f;
+  --surface2: #0c1a2e;
+  --border: rgba(0, 160, 240, 0.09);
+  --border-mid: rgba(0, 160, 240, 0.22);
+  --border-hi: rgba(0, 160, 240, 0.5);
+  --text: #8daec8;
+  --text-dim: #3a5268;
+  --text-bright: #d0e8f8;
+  --cyan: #00b8e8;
+  --gold: #f0c040;
+  --red: #ff3855;
+  --green: #00cc80;
+  --mono: 'Courier New', 'Lucida Console', monospace;
+  --serif: Georgia, 'Palatino Linotype', serif;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scanline texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.05) 3px,
+    rgba(0, 0, 0, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ── NAV ── */
+.nav {
+  border-bottom: 1px solid var(--border-mid);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(3, 8, 16, 0.96);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.nav-brand {
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.nav-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.nav-pill {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  text-transform: uppercase;
+}
+.nav-pill.ok {
+  color: var(--green);
+  border-color: rgba(0, 204, 128, 0.3);
+}
+
+/* ── QUESTION ── */
+.question-section {
+  padding: 60px 0 44px;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.5s ease 0.05s both;
+}
+.q-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+.q-text {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.8vw, 32px);
+  color: var(--text-bright);
+  line-height: 1.35;
+  max-width: 820px;
+}
+.q-data-note {
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.q-data-note span { display: flex; align-items: center; gap: 6px; }
+.db-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border: 1px solid var(--border-mid);
+  color: var(--cyan);
+}
+
+/* ── WINNER HERO ── */
+.hero-section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.5s ease 0.15s both;
+}
+.h-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.h-label::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.winner-card {
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-left: 4px solid var(--red);
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.winner-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(255, 56, 85, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 20%, rgba(0, 184, 232, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+.winner-rank-badge {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.winner-name {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.8vw, 50px);
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.winner-meta {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+  letter-spacing: 0.04em;
+}
+.winner-meta strong { color: var(--text); }
+
+.stats-row {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.stat { display: flex; flex-direction: column; gap: 5px; }
+.stat-lbl { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); }
+.stat-val {
+  font-size: clamp(22px, 3vw, 38px);
+  color: var(--gold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.stat-val.white { color: var(--text-bright); font-size: clamp(18px, 2.4vw, 30px); }
+.stat-sub { font-size: 10px; color: var(--text-dim); }
+
+/* ── RANKINGS ── */
+.rankings-section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.5s ease 0.25s both;
+}
+.sec-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.sec-title {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.formula-tag {
+  font-size: 11px;
+  background: var(--surface2);
+  border: 1px solid var(--border-mid);
+  padding: 5px 14px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.bar-chart { display: flex; flex-direction: column; gap: 18px; }
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: slideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.bar-row:nth-child(1) { animation-delay: 0.35s; }
+.bar-row:nth-child(2) { animation-delay: 0.48s; }
+.bar-row:nth-child(3) { animation-delay: 0.60s; }
+.bar-row:nth-child(4) { animation-delay: 0.72s; }
+.bar-row:nth-child(5) { animation-delay: 0.84s; }
+.bar-row:nth-child(6) { animation-delay: 0.96s; }
+
+@keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+
+.bar-lbl { text-align: right; }
+.bar-lbl-name { font-size: 12px; color: var(--text-bright); }
+.bar-lbl-ticker { font-size: 10px; color: var(--text-dim); letter-spacing: 0.04em; margin-top: 2px; }
+
+.bar-track {
+  height: 30px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0;
+  transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(90deg, rgba(0,184,232,0.9) 0%, rgba(0,184,232,0.35) 100%);
+}
+.bar-fill.winner {
+  background: linear-gradient(90deg, rgba(255, 56, 85, 0.95) 0%, rgba(255, 56, 85, 0.3) 100%);
+}
+
+.bar-val-col { min-width: 80px; text-align: right; }
+.bar-pct { font-size: 14px; color: var(--text-bright); }
+.bar-pct.winner { color: var(--red); }
+.bar-days { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+
+/* ── LOWER GRID ── */
+.lower-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.5s ease 0.35s both;
+}
+@media (max-width: 760px) {
+  .lower-grid { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 130px 1fr auto; }
+  .winner-card { padding: 24px 20px; }
+  .stats-row { gap: 24px; }
+}
+
+/* TRAJECTORY */
+.panel-title {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 28px;
+}
+
+.timeline { display: flex; flex-direction: column; }
+
+.tl-step {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0;
+  position: relative;
+}
+.tl-step:not(:last-child) { padding-bottom: 24px; }
+
+.tl-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2px;
+}
+.tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--border-mid);
+  background: var(--bg);
+  flex-shrink: 0;
+  transition: border-color 0.3s;
+}
+.tl-dot.ok { border-color: var(--green); background: rgba(0,204,128,0.15); }
+.tl-dot.fail { border-color: rgba(255, 56, 85, 0.5); }
+.tl-dot.info { border-color: var(--cyan); background: rgba(0,184,232,0.1); }
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+  margin-top: 5px;
+  min-height: 16px;
+}
+.tl-step:last-child .tl-line { display: none; }
+
+.tl-body { padding-left: 10px; }
+.tl-name { font-size: 12px; color: var(--text-bright); margin-bottom: 4px; }
+.tl-desc { font-size: 11px; color: var(--text-dim); line-height: 1.55; }
+.tl-tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  margin-top: 6px;
+}
+.tl-tag.ok { border-color: rgba(0,204,128,0.35); color: var(--green); }
+.tl-tag.fail { border-color: rgba(255,56,85,0.35); color: var(--red); }
+.tl-tag.info { border-color: var(--border-mid); color: var(--cyan); }
+.tl-tag.warn { border-color: rgba(240,192,64,0.35); color: var(--gold); }
+
+/* METHODOLOGY PANEL */
+.method-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.method-card-lbl { font-size: 9px; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 10px; }
+.formula-display {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  padding: 8px 0;
+}
+.method-note { font-size: 11px; color: var(--text-dim); line-height: 1.65; }
+
+.schema-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.schema-table th {
+  text-align: left;
+  font-weight: normal;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 8px 6px 0;
+}
+.schema-table td {
+  padding: 5px 8px 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.025);
+  color: var(--text);
+  vertical-align: top;
+}
+.schema-table td:first-child { color: var(--text-bright); }
+.schema-table tr:last-child td { border-bottom: none; }
+.col-type { color: var(--cyan); font-size: 10px; }
+
+/* ── CODE SECTION ── */
+.code-section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.code-title { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); }
+.code-badge { font-size: 10px; color: var(--text-dim); border: 1px solid var(--border); padding: 3px 10px; }
+
+.code-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--border-mid);
+  padding: 24px 28px;
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.75;
+  tab-size: 2;
+}
+.code-block pre { white-space: pre; }
+
+.ck { color: #7bb8f8; }    /* keyword */
+.cs { color: #79c9b0; }    /* string */
+.cc { color: #3d5870; }    /* comment */
+.cf { color: #e8c56a; }    /* function/method */
+.cn { color: #f08c78; }    /* number */
+.co { color: #5a7898; }    /* operator */
+.cm { color: var(--text-dim); }  /* meta */
+
+/* ── FOOTER ── */
+.footer-section {
+  padding: 40px 0 56px;
+  animation: fadeUp 0.5s ease 0.45s both;
+}
+.footer-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.meta-cell {
+  padding: 20px 20px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.meta-cell:nth-child(4n) { border-right: none; }
+.meta-lbl { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+.meta-val { font-size: 13px; color: var(--text-bright); }
+.meta-val.ok { color: var(--green); }
+.meta-val.accent { color: var(--gold); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <span class="nav-brand">DataAgentBench</span>
+      <div class="nav-pills">
+        <span class="nav-pill">03_stockindex_query1</span>
+        <span class="nav-pill">data_analysis</span>
+        <span class="nav-pill">gpt-5.6-sol</span>
+        <span class="nav-pill">2026-07-11</span>
+        <span class="nav-pill ok">&#10003; exit 0</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- QUESTION -->
+<section class="question-section">
+  <div class="container">
+    <div class="q-label">Task Prompt</div>
+    <p class="q-text">Which stock index in the Asia region has exhibited the highest average intraday volatility since 2020?</p>
+    <div class="q-data-note">
+      <span><span class="db-badge">SQLite</span> indexInfo_query.db &mdash; 14 exchanges, currency metadata</span>
+      <span><span class="db-badge">DuckDB</span> indextrade_query.db &mdash; OHLC trade records, 8 index tickers</span>
+    </div>
+  </div>
+</section>
+
+<!-- WINNER HERO -->
+<section class="hero-section">
+  <div class="container">
+    <div class="h-label">Benchmark Answer</div>
+    <div class="winner-card">
+      <div class="winner-rank-badge">&#9651; Highest Average Intraday Volatility &mdash; Asia Region</div>
+      <div class="winner-name">Shenzhen Component Index</div>
+      <div class="winner-meta">
+        <strong>399001.SZ</strong> &nbsp;&middot;&nbsp; Shenzhen Stock Exchange &nbsp;&middot;&nbsp; CNY
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-lbl">Avg Intraday Volatility</span>
+          <span class="stat-val" id="volCounter">0.0000%</span>
+          <span class="stat-sub">per trading day</span>
+        </div>
+        <div class="stat">
+          <span class="stat-lbl">Observations</span>
+          <span class="stat-val" style="font-size: clamp(22px,2.8vw,36px);">342</span>
+          <span class="stat-sub">trading days &ge;2020</span>
+        </div>
+        <div class="stat">
+          <span class="stat-lbl">Volatility Formula</span>
+          <span class="stat-val white">(H &minus; L) / O &times; 100</span>
+          <span class="stat-sub">daily percentage range</span>
+        </div>
+        <div class="stat">
+          <span class="stat-lbl">Agent Runtime</span>
+          <span class="stat-val" style="font-size: clamp(22px,2.8vw,36px);">4248s</span>
+          <span class="stat-sub">&asymp;71 minutes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RANKINGS -->
+<section class="rankings-section">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-title">Asia Region &mdash; Volatility Rankings</span>
+      <span class="formula-tag">vol = (High &minus; Low) / Open &times; 100%</span>
+    </div>
+    <div class="bar-chart" id="barChart"></div>
+  </div>
+</section>
+
+<!-- LOWER: TRAJECTORY + METHODOLOGY -->
+<section style="border-bottom: 1px solid var(--border); animation: fadeUp 0.5s ease 0.35s both;">
+  <div class="container">
+    <div class="lower-grid">
+
+      <!-- LEFT: TRAJECTORY -->
+      <div>
+        <div class="panel-title">Agent Trajectory</div>
+        <div class="timeline">
+
+          <div class="tl-step">
+            <div class="tl-left">
+              <div class="tl-dot info"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-name">Schema Inspection</div>
+              <div class="tl-desc">Probed both databases. Initial heredoc syntax was blocked by the sandbox shell; pivoted to inline Python invocations.</div>
+              <span class="tl-tag warn">heredoc fail &rarr; workaround</span>
+            </div>
+          </div>
+
+          <div class="tl-step">
+            <div class="tl-left">
+              <div class="tl-dot ok"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-name">Data Inventory</div>
+              <div class="tl-desc">Confirmed 14 exchanges in SQLite, 8 index tickers in DuckDB with OHLC columns. Date strings use multiple non-standard formats.</div>
+              <span class="tl-tag ok">schemas confirmed</span>
+            </div>
+          </div>
+
+          <div class="tl-step">
+            <div class="tl-left">
+              <div class="tl-dot ok"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-name">Asia Region Identification</div>
+              <div class="tl-desc">Mapped 6 Asia-region indices: HSI (HK), 000001.SS (Shanghai), N225 (Tokyo), 399001.SZ (Shenzhen), NSEI (India), TWII (Taiwan). Chose percentage range to avoid index-point scale distortion.</div>
+              <span class="tl-tag info">6 indices scoped</span>
+            </div>
+          </div>
+
+          <div class="tl-step">
+            <div class="tl-left">
+              <div class="tl-dot fail"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-name">Query Attempts &mdash; Execution Failures</div>
+              <div class="tl-desc">4 successive script invocations failed due to shell encoding errors (TextEncoder, btoa not defined) and string escaping issues in the sandbox environment.</div>
+              <span class="tl-tag fail">4 failed attempts</span>
+            </div>
+          </div>
+
+          <div class="tl-step">
+            <div class="tl-left">
+              <div class="tl-dot ok"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-name">Successful DuckDB Query</div>
+              <div class="tl-desc">Multi-format date parsing via <code style="color:var(--cyan)">try_strptime</code> successfully resolved all date formats. 0 unparsed records. Results returned for all 6 indices.</div>
+              <span class="tl-tag ok">342–349 obs each</span>
+            </div>
+          </div>
+
+          <div class="tl-step">
+            <div class="tl-left">
+              <div class="tl-dot ok"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-name">Answer Delivered</div>
+              <div class="tl-desc">Shenzhen Component confirmed as top Asia index with 1.8341% avg daily range, ahead of Nifty 50 by ~0.13 percentage points.</div>
+              <span class="tl-tag ok">exit 0</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: METHODOLOGY + SCHEMA -->
+      <div>
+        <div class="panel-title">Methodology &amp; Schema</div>
+
+        <div class="method-card">
+          <div class="method-card-lbl">Volatility Metric</div>
+          <div class="formula-display">vol<sub style="font-size:12px">d</sub> = (High<sub style="font-size:12px">d</sub> &minus; Low<sub style="font-size:12px">d</sub>) / Open<sub style="font-size:12px">d</sub> &times; 100</div>
+          <div class="method-note">Daily percentage range. Chosen over point-difference to normalize across indices of vastly different scales (e.g., Nikkei ~30 000 vs Nifty ~22 000 vs HSI ~18 000). Filter: date &ge; 2020-01-01, Open &gt; 0.</div>
+        </div>
+
+        <div class="method-card">
+          <div class="method-card-lbl">DuckDB &mdash; index_trade schema</div>
+          <table class="schema-table">
+            <thead>
+              <tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Index</td><td class="col-type">VARCHAR</td><td>Ticker symbol</td></tr>
+              <tr><td>Date</td><td class="col-type">VARCHAR</td><td>3 non-standard formats</td></tr>
+              <tr><td>Open</td><td class="col-type">DOUBLE</td><td>Used as denominator</td></tr>
+              <tr><td>High</td><td class="col-type">DOUBLE</td><td>Intraday high</td></tr>
+              <tr><td>Low</td><td class="col-type">DOUBLE</td><td>Intraday low</td></tr>
+              <tr><td>Close</td><td class="col-type">DOUBLE</td><td>&mdash;</td></tr>
+              <tr><td>CloseUSD</td><td class="col-type">DOUBLE</td><td>Not used</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="method-card">
+          <div class="method-card-lbl">SQLite &mdash; index_info schema</div>
+          <table class="schema-table">
+            <thead>
+              <tr><th>Column</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Exchange</td><td class="col-type">TEXT</td></tr>
+              <tr><td>Currency</td><td class="col-type">TEXT</td></tr>
+            </tbody>
+          </table>
+          <div class="method-note" style="margin-top: 10px;">14 rows covering major global exchanges. Asia region cross-referenced manually to select 6 relevant tickers.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE SECTION -->
+<section class="code-section">
+  <div class="container">
+    <div class="code-header">
+      <span class="code-title">Final Query &mdash; Successful Execution (Event 29/30)</span>
+      <span class="code-badge">Python + DuckDB</span>
+    </div>
+    <div class="code-block"><pre><span class="ck">import</span> duckdb
+
+c <span class="co">=</span> duckdb.<span class="cf">connect</span>(<span class="cs">"data/indextrade_query.db"</span>, read_only<span class="co">=</span><span class="ck">True</span>)
+
+q <span class="co">=</span> <span class="cs">"""
+WITH parsed AS (
+  SELECT "Index" AS idx,
+    COALESCE(
+      try_strptime("Date", '%Y-%m-%d %H:%M:%S'),
+      try_strptime("Date", '%d %b %Y, %H:%M'),
+      try_strptime("Date", '%B %d, %Y at %I:%M %p')
+    ) AS dt,
+    "Open" AS op, "High" AS hi, "Low" AS lo
+  FROM index_trade
+), asia(idx, name) AS (
+  VALUES
+    ('HSI',       'Hang Seng Index'),
+    ('000001.SS', 'Shanghai Composite'),
+    ('N225',      'Nikkei 225'),
+    ('399001.SZ', 'Shenzhen Component'),
+    ('NSEI',      'Nifty 50'),
+    ('TWII',      'Taiwan Weighted')
+)
+SELECT
+  name, idx,
+  COUNT(*)                            AS trading_days,
+  ROUND(AVG((hi - lo) / op * 100), 4) AS avg_volatility_pct
+FROM parsed
+JOIN asia USING (idx)
+WHERE dt &gt;= '2020-01-01'
+  AND op &gt; 0
+GROUP BY name, idx
+ORDER BY avg_volatility_pct DESC
+"""</span>
+
+<span class="ck">for</span> row <span class="ck">in</span> c.<span class="cf">execute</span>(q).<span class="cf">fetchall</span>():
+    <span class="cf">print</span>(<span class="cs">f"</span>{row[<span class="cn">0</span>]:<span class="cn">20</span>s}<span class="cs"> | </span>{row[<span class="cn">1</span>]:<span class="cn">12</span>s}<span class="cs"> | </span>{row[<span class="cn">2</span>]:<span class="cn">3</span>d}<span class="cs"> | </span>{row[<span class="cn">3</span>]:.<span class="cn">4</span>f}<span class="cs">"</span>)</pre></div>
+
+    <!-- Output block -->
+    <div style="margin-top: 12px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); padding: 18px 24px; font-size: 12px; line-height: 1.9; color: var(--text-dim);">
+      <div style="font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px;">stdout &mdash; 0 unparsed dates</div>
+      <span style="color: var(--red);">Shenzhen Component</span>  | 399001.SZ   | 342 | <span style="color: var(--gold);">1.8341</span><br>
+      <span style="color: var(--text);">Nifty 50           </span>  | NSEI        | 349 | 1.7072<br>
+      <span style="color: var(--text);">Hang Seng Index    </span>  | HSI         | 348 | 1.4932<br>
+      <span style="color: var(--text);">Shanghai Composite </span>  | 000001.SS   | 340 | 1.3781<br>
+      <span style="color: var(--text);">Nikkei 225         </span>  | N225        | 344 | 1.3427<br>
+      <span style="color: var(--text);">Taiwan Weighted    </span>  | TWII        | 339 | 1.3225
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER META -->
+<section class="footer-section">
+  <div class="container">
+    <div class="footer-label">Run Metadata</div>
+    <div class="meta-grid">
+      <div class="meta-cell">
+        <div class="meta-lbl">Case ID</div>
+        <div class="meta-val">03_stockindex_query1</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Model</div>
+        <div class="meta-val accent">gpt-5.6-sol</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Duration</div>
+        <div class="meta-val">4248.1 s</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Exit Code</div>
+        <div class="meta-val ok">0 (success)</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Benchmark</div>
+        <div class="meta-val">DataAgentBench</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Domain</div>
+        <div class="meta-val">Data Analysis</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Collected</div>
+        <div class="meta-val">2026-07-11</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Trajectory Events</div>
+        <div class="meta-val">36</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ── Bar chart data ── */
+const indices = [
+  { name: 'Shenzhen Component', ticker: '399001.SZ', vol: 1.8341, days: 342, winner: true  },
+  { name: 'Nifty 50',           ticker: 'NSEI',      vol: 1.7072, days: 349, winner: false },
+  { name: 'Hang Seng Index',    ticker: 'HSI',       vol: 1.4932, days: 348, winner: false },
+  { name: 'Shanghai Composite', ticker: '000001.SS', vol: 1.3781, days: 340, winner: false },
+  { name: 'Nikkei 225',         ticker: 'N225',      vol: 1.3427, days: 344, winner: false },
+  { name: 'Taiwan Weighted',    ticker: 'TWII',      vol: 1.3225, days: 339, winner: false },
+];
+const maxVol = indices[0].vol;
+
+const chart = document.getElementById('barChart');
+indices.forEach(d => {
+  const pct = (d.vol / maxVol * 100).toFixed(2);
+  const row = document.createElement('div');
+  row.className = 'bar-row';
+  row.innerHTML = `
+    <div class="bar-lbl">
+      <div class="bar-lbl-name">${d.name}</div>
+      <div class="bar-lbl-ticker">${d.ticker}</div>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill${d.winner ? ' winner' : ''}" data-pct="${pct}"></div>
+    </div>
+    <div class="bar-val-col">
+      <div class="bar-pct${d.winner ? ' winner' : ''}">${d.vol.toFixed(4)}%</div>
+      <div class="bar-days">${d.days} days</div>
+    </div>
+  `;
+  chart.appendChild(row);
+});
+
+/* Animate bars after rows slide in */
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 500);
+
+/* Animate volatility counter */
+(function() {
+  const el = document.getElementById('volCounter');
+  const target = 1.8341;
+  const duration = 1400;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 4);
+    el.textContent = (ease * target).toFixed(4) + '%';
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  setTimeout(() => requestAnimationFrame(tick), 300);
+})();
+</script>
+</body>
+</html>

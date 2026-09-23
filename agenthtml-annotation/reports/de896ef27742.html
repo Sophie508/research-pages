@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ParkPilot · SpotHero Toronto run</title>
+<style>
+  :root {
+    --bg: #070b14;
+    --bg2: #0c1220;
+    --surface: rgba(255,255,255,0.04);
+    --surface2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.16);
+    --text: #f4f7ff;
+    --muted: #9aa6c0;
+    --faint: #6b7894;
+    --accent: #5b8cff;
+    --accent2: #7c5cff;
+    --accent3: #3ee0a0;
+    --warn: #ffb020;
+    --danger: #ff5d7a;
+    --grad: linear-gradient(135deg, #5b8cff 0%, #7c5cff 50%, #3ee0a0 100%);
+    --grad-soft: linear-gradient(135deg, rgba(91,140,255,0.18), rgba(124,92,255,0.12) 50%, rgba(62,224,160,0.08));
+    --shadow: 0 24px 80px rgba(0,0,0,0.45);
+    --radius: 20px;
+    --nav-h: 72px;
+    --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Ambient backdrop */
+  .bg-orbs {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+  }
+  .bg-orbs::before,
+  .bg-orbs::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.45;
+  }
+  .bg-orbs::before {
+    width: 540px; height: 540px;
+    background: #3a5bff;
+    top: -120px; left: -80px;
+  }
+  .bg-orbs::after {
+    width: 480px; height: 480px;
+    background: #6c3dff;
+    top: 20%; right: -160px;
+  }
+  .bg-orb-3 {
+    position: absolute;
+    width: 420px; height: 420px;
+    background: #1fc896;
+    bottom: 10%; left: 30%;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.18;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    height: var(--nav-h);
+    display: flex; align-items: center;
+    transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(7,11,20,0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom-color: var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  }
+  .nav-inner {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--text);
+    font-weight: 700; letter-spacing: -0.02em; font-size: 1.1rem;
+  }
+  .brand-mark {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--grad);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 24px rgba(91,140,255,0.35);
+    font-size: 16px;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: var(--text); background: var(--surface2); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--grad);
+    color: #fff !important;
+    padding: 10px 18px !important;
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 10px 30px rgba(91,140,255,0.3);
+  }
+  .nav-cta:hover { filter: brightness(1.05); background: var(--grad) !important; }
+  .menu-btn {
+    display: none;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border: none; cursor: pointer;
+    font-family: inherit; font-weight: 600; font-size: 0.95rem;
+    border-radius: 999px;
+    padding: 14px 22px;
+    transition: transform .15s ease, box-shadow .2s, filter .2s, background .2s;
+    text-decoration: none;
+  }
+  .btn:active { transform: translateY(1px) scale(0.99); }
+  .btn-primary {
+    background: var(--grad);
+    color: white;
+    box-shadow: 0 12px 36px rgba(91,140,255,0.32);
+  }
+  .btn-primary:hover { filter: brightness(1.06); box-shadow: 0 16px 44px rgba(91,140,255,0.42); }
+  .btn-ghost {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 56px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(91,140,255,0.12);
+    border: 1px solid rgba(91,140,255,0.28);
+    color: #b7cbff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent3);
+    box-shadow: 0 0 0 4px rgba(62,224,160,0.18);
+    animation: pulse 1.8s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(62,224,160,0.35); }
+    50% { box-shadow: 0 0 0 8px rgba(62,224,160,0); }
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 750;
+    margin-bottom: 18px;
+  }
+  h1 .grad {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-sub {
+    color: var(--muted);
+    font-size: 1.12rem;
+    max-width: 34em;
+    margin-bottom: 28px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 18px;
+    color: var(--faint);
+    font-size: 0.85rem;
+  }
+  .hero-meta strong { color: var(--muted); font-weight: 600; }
+
+  .hero-card {
+    position: relative;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+  }
+  .hero-card::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 0%, rgba(91,140,255,0.25), transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(62,224,160,0.12), transparent 40%);
+    pointer-events: none;
+  }
+  .hero-card-inner { position: relative; padding: 22px; }
+  .pass-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 18px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 10px; border-radius: 999px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .pill-warn {
+    background: rgba(255,176,32,0.14);
+    color: #ffd27a;
+    border: 1px solid rgba(255,176,32,0.28);
+  }
+  .pill-ok {
+    background: rgba(62,224,160,0.12);
+    color: #7dffc7;
+    border: 1px solid rgba(62,224,160,0.28);
+  }
+  .pill-danger {
+    background: rgba(255,93,122,0.12);
+    color: #ff9aad;
+    border: 1px solid rgba(255,93,122,0.28);
+  }
+  .price-tag {
+    font-size: 1.7rem; font-weight: 750; letter-spacing: -0.03em;
+  }
+  .price-tag span { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
+  .ticket {
+    background: rgba(0,0,0,0.28);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+  }
+  .ticket h3 {
+    font-size: 1.05rem; margin-bottom: 4px; letter-spacing: -0.02em;
+  }
+  .ticket .loc { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+  .ticket-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .ticket-grid .cell {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+  }
+  .ticket-grid .label {
+    display: block; font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--faint); margin-bottom: 2px;
+  }
+  .ticket-grid .value { font-weight: 600; font-size: 0.92rem; }
+  .ticket-foot {
+    margin-top: 14px; padding-top: 14px;
+    border-top: 1px dashed rgba(255,255,255,0.12);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  .ticket-foot .status { color: var(--danger); font-weight: 700; }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .section-head h2 {
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .section-head p { color: var(--muted); font-size: 1.05rem; }
+  .section-label {
+    display: inline-block;
+    color: #a8bdff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* Stats / Features */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: -28px;
+    margin-bottom: 8px;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    transition: transform .2s, border-color .2s, background .2s;
+  }
+  .stat:hover {
+    transform: translateY(-4px);
+    border-color: rgba(91,140,255,0.35);
+    background: rgba(255,255,255,0.06);
+  }
+  .stat .n {
+    font-size: 1.7rem; font-weight: 750; letter-spacing: -0.03em;
+    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .stat .l { color: var(--muted); font-size: 0.88rem; margin-top: 4px; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .feature {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 22px;
+    transition: transform .22s ease, box-shadow .22s, border-color .22s;
+    min-height: 200px;
+  }
+  .feature:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124,92,255,0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+  }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 14px;
+    display: grid; place-items: center;
+    background: var(--grad-soft);
+    border: 1px solid rgba(91,140,255,0.25);
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+  .feature h3 {
+    font-size: 1.1rem; letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .feature p { color: var(--muted); font-size: 0.94rem; }
+
+  /* How it works */
+  .how {
+    background: linear-gradient(180deg, transparent, rgba(91,140,255,0.04) 30%, rgba(124,92,255,0.03), transparent);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    counter-reset: step;
+  }
+  .step {
+    position: relative;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 18px 20px;
+    min-height: 210px;
+  }
+  .step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    display: block;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: #9db4ff;
+    margin-bottom: 14px;
+  }
+  .step h3 { font-size: 1.02rem; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .step p { color: var(--muted); font-size: 0.9rem; }
+  .step .badge {
+    position: absolute; top: 16px; right: 16px;
+    font-size: 0.7rem; font-weight: 700;
+    padding: 4px 8px; border-radius: 999px;
+  }
+
+  /* Timeline board */
+  .timeline {
+    margin-top: 40px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+  .timeline-head {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+  }
+  .timeline-head h3 { font-size: 1rem; }
+  .timeline-head span { color: var(--faint); font-size: 0.85rem; font-family: var(--mono); }
+  .timeline-body { padding: 8px 0; max-height: 420px; overflow: auto; }
+  .t-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 12px;
+    padding: 12px 22px;
+    border-left: 3px solid transparent;
+    transition: background .15s;
+  }
+  .t-item:hover { background: rgba(255,255,255,0.03); }
+  .t-item.done { border-left-color: var(--accent3); }
+  .t-item.fail { border-left-color: var(--danger); }
+  .t-item.active { border-left-color: var(--accent); background: rgba(91,140,255,0.06); }
+  .t-time { color: var(--faint); font-family: var(--mono); font-size: 0.78rem; padding-top: 3px; }
+  .t-title { font-weight: 600; font-size: 0.95rem; }
+  .t-desc { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
+
+  /* Proof / logos wall */
+  .proof-row {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-bottom: 36px;
+  }
+  .chip {
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .quotes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .quote {
+    background: var(--grad-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+  }
+  .quote p {
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+    color: #e7ecff;
+  }
+  .quote .who {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--muted); font-size: 0.9rem;
+  }
+  .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--grad);
+    display: grid; place-items: center;
+    font-weight: 700; color: white; font-size: 0.85rem;
+  }
+
+  /* Pricing / Checkout prototype */
+  .pricing {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .plan {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .plan.featured {
+    border-color: rgba(91,140,255,0.55);
+    box-shadow: 0 0 0 1px rgba(91,140,255,0.15), 0 30px 80px rgba(91,140,255,0.12);
+  }
+  .plan.featured::before {
+    content: "Selected by agent";
+    position: absolute; top: 16px; right: 16px;
+    background: var(--grad);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .plan h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .plan .amt {
+    font-size: 2.4rem; font-weight: 750; letter-spacing: -0.04em; margin: 10px 0 6px;
+  }
+  .plan .amt small { font-size: 1rem; color: var(--muted); font-weight: 500; }
+  .plan ul { list-style: none; margin: 18px 0 24px; }
+  .plan li {
+    padding: 8px 0;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.92rem;
+  }
+  .plan li strong { color: var(--text); font-weight: 600; }
+  .checkout {
+    background: rgba(0,0,0,0.28);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 26px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .checkout h3 { margin-bottom: 4px; }
+  .field label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--faint);
+    margin-bottom: 6px;
+  }
+  .field input, .field select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    color: var(--text);
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus {
+    border-color: rgba(91,140,255,0.55);
+    box-shadow: 0 0 0 3px rgba(91,140,255,0.15);
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .notice {
+    background: rgba(255,93,122,0.1);
+    border: 1px solid rgba(255,93,122,0.28);
+    color: #ffc0cb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+  .notice.ok {
+    background: rgba(62,224,160,0.1);
+    border-color: rgba(62,224,160,0.28);
+    color: #b8ffe0;
+  }
+  .checkout .btn { width: 100%; margin-top: 4px; }
+
+  /* FAQ */
+  .faq {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 4px 18px;
+    transition: border-color .2s, background .2s;
+  }
+  details[open] {
+    border-color: rgba(91,140,255,0.35);
+    background: rgba(255,255,255,0.05);
+  }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 16px 0;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-size: 1.3rem;
+    color: var(--muted);
+    font-weight: 400;
+    transition: transform .2s;
+  }
+  details[open] summary::after { content: "–"; color: #b7cbff; }
+  details .ans {
+    color: var(--muted);
+    padding: 0 0 16px;
+    font-size: 0.95rem;
+  }
+  details .ans code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: rgba(255,255,255,0.06);
+    padding: 1px 6px;
+    border-radius: 6px;
+  }
+
+  /* Case data strip */
+  .case-strip {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    font-size: 0.88rem;
+  }
+  .case-strip .k { color: var(--faint); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .case-strip .v { color: var(--text); font-weight: 600; word-break: break-word; }
+
+  /* CTA band */
+  .cta-band {
+    margin: 20px 0 40px;
+    border-radius: 28px;
+    padding: 48px 36px;
+    text-align: center;
+    background: var(--grad-soft);
+    border: 1px solid rgba(91,140,255,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+  }
+  .cta-band p { color: var(--muted); margin-bottom: 22px; max-width: 34em; margin-left: auto; margin-right: auto; }
+  .cta-band .actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 50px;
+    color: var(--faint);
+    font-size: 0.88rem;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .foot-grid h4 { color: var(--text); margin-bottom: 12px; font-size: 0.9rem; }
+  .foot-grid a, .foot-grid p {
+    color: var(--faint);
+    text-decoration: none;
+    display: block;
+    padding: 4px 0;
+  }
+  .foot-grid a:hover { color: var(--muted); }
+  .foot-bottom {
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: rgba(12,18,32,0.92);
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    padding: 14px 18px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+    max-width: 320px;
+    font-size: 0.9rem;
+  }
+  .toast.show { opacity: 1; transform: none; pointer-events: auto; }
+
+  /* Mobile nav drawer */
+  .drawer {
+    display: none;
+    position: fixed; inset: 0; z-index: 60;
+    background: rgba(0,0,0,0.55);
+  }
+  .drawer.open { display: block; }
+  .drawer-panel {
+    position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%;
+    background: #0b1220;
+    border-left: 1px solid var(--border);
+    padding: 24px 20px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .drawer-panel a {
+    color: var(--text); text-decoration: none;
+    padding: 14px 12px; border-radius: 12px;
+    font-weight: 600;
+  }
+  .drawer-panel a:hover { background: var(--surface2); }
+  .drawer-close {
+    align-self: flex-end;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid, .pricing, .quotes, .steps { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .features { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .case-strip { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .menu-btn { display: grid; place-items: center; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding-top: 40px; }
+    .hero-grid, .pricing, .quotes, .steps, .features, .stats, .case-strip, .foot-grid {
+      grid-template-columns: 1fr;
+    }
+    .t-item { grid-template-columns: 1fr; gap: 4px; }
+    section { padding: 56px 0; }
+    .cta-band { padding: 36px 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="bg-orbs"><div class="bg-orb-3"></div></div>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="ParkPilot home">
+        <span class="brand-mark">P</span>
+        ParkPilot
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Capabilities</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#spot">Spot</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="nav-cta" href="#reserve">Try reservation</a></li>
+      </ul>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer">
+    <div class="drawer-panel">
+      <button class="drawer-close" id="drawerClose" aria-label="Close">✕</button>
+      <a href="#features" data-close>Capabilities</a>
+      <a href="#journey" data-close>Journey</a>
+      <a href="#spot" data-close>Spot</a>
+      <a href="#faq" data-close>FAQ</a>
+      <a href="#reserve" data-close>Try reservation</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> ClawBench · daily-life · transportation</div>
+          <h1>Reserve downtown parking <span class="grad">before you leave the house.</span></h1>
+          <p class="hero-sub">
+            An autonomous agent navigated SpotHero, picked a downtown Toronto garage for tomorrow 9:00&nbsp;AM–5:00&nbsp;PM, filled contact + payment, and reached the final pay wall — all browser-only.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#journey">Replay the run</a>
+            <a class="btn btn-ghost" href="#spot">Inspect the spot · CA$9.49</a>
+          </div>
+          <div class="hero-meta">
+            <span><strong>Model</strong> claude-opus-4-6</span>
+            <span><strong>Duration</strong> 12m 5s active · 30m budget</span>
+            <span><strong>Actions</strong> 101 browser · 2 exec</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="hero-card-inner">
+            <div class="pass-row">
+              <span class="pill pill-warn">Payment declined</span>
+              <div class="price-tag">CA$9.49 <span>total</span></div>
+            </div>
+            <div class="ticket">
+              <h3>63 Centre Ave. · Lot</h3>
+              <div class="loc">Downtown · Old Toronto · Mar 28, 2026</div>
+              <div class="ticket-grid">
+                <div class="cell"><span class="label">Entry</span><span class="value">9:00 AM</span></div>
+                <div class="cell"><span class="label">Exit</span><span class="value">6:00 PM <small style="color:var(--accent3)">(extra free)</small></span></div>
+                <div class="cell"><span class="label">Guest</span><span class="value">Alex Green</span></div>
+                <div class="cell"><span class="label">Card</span><span class="value">VISA ···· 4532</span></div>
+              </div>
+              <div class="ticket-foot">
+                <span>Pay and Reserve</span>
+                <span class="status">Unable to process payment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="stats reveal" style="margin-top:40px">
+          <div class="stat"><div class="n">103</div><div class="l">Tool calls total</div></div>
+          <div class="stat"><div class="n">33</div><div class="l">Clicks in the browser</div></div>
+          <div class="stat"><div class="n">8/9</div><div class="l">Steps completed</div></div>
+          <div class="stat"><div class="n">CA$9.49</div><div class="l">Quoted reservation total</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">Capabilities observed</div>
+          <h2>Everything needed to book a real garage space.</h2>
+          <p>This run exercised search, calendar controls, rate blocks, contact forms, Stripe iframes, and final checkout on spothero.com.</p>
+        </div>
+        <div class="features">
+          <article class="feature reveal">
+            <div class="feature-icon">⌕</div>
+            <h3>Location autocomplete</h3>
+            <p>Typed “Downtown Toronto” and selected the precise place option: Downtown, Old Toronto, Toronto, ON, Canada.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">▦</div>
+            <h3>Calendar & time matrix</h3>
+            <p>Set start date to Mar 28, 2026, entry 9:00 AM and exit 5:00 PM — then accepted the lot’s free extension to 6:00 PM.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">◎</div>
+            <h3>Spot selection</h3>
+            <p>Chose the first bookable result — <strong style="color:var(--text)">63 Centre Ave. - Lot</strong> — and advanced to checkout at CA$9.49.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">@</div>
+            <h3>Contact autofill</h3>
+            <p>Populated the disposeable email <code style="font-family:var(--mono);font-size:0.85em;color:#c9d6ff">cb01709d163de2@clawbench.cc</code> plus a Toronto-style phone placeholder.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">▢</div>
+            <h3>Stripe field orchestration</h3>
+            <p>Clicked into the card iframe, completed number, expiry, CVC and name-on-card (Alex Green), verified VISA ···· 4532.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature-icon">!</div>
+            <h3>Honest failure surface</h3>
+            <p>Stopped cleanly after Stripe returned “Unable to process payment” — dummy card could not settle a live reservation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW / JOURNEY -->
+    <section class="how" id="journey">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">How the agent worked</div>
+          <h2>Nine deliberate moves from blank tab to Pay & Reserve.</h2>
+          <p>Browser-only path, reading personal info from <code style="font-family:var(--mono);font-size:0.9em;color:#c9d6ff">/my-info/</code> and avoiding unscripted APIs.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <span class="badge pill pill-ok">done</span>
+            <h3>Open SpotHero</h3>
+            <p>Launched spothero.com and listed personal info for Alex Green.</p>
+          </div>
+          <div class="step reveal">
+            <span class="badge pill pill-ok">done</span>
+            <h3>Search downtown</h3>
+            <p>Filled the hero search box and confirmed Downtown, Old Toronto.</p>
+          </div>
+          <div class="step reveal">
+            <span class="badge pill pill-ok">done</span>
+            <h3>Pin tomorrow’s window</h3>
+            <p>Mar 28 · 9:00 AM → 5:00 PM, then searched inventory.</p>
+          </div>
+          <div class="step reveal">
+            <span class="badge pill pill-ok">done</span>
+            <h3>Book the lot</h3>
+            <p>Book Now on 63 Centre Ave; accept free until 6:00 PM pricing tier.</p>
+          </div>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-head">
+            <h3>Agent timeline</h3>
+            <span>2026-03-27 · 15:00:14 → 15:12:12 UTC</span>
+          </div>
+          <div class="timeline-body" id="timeline">
+            <div class="t-item done">
+              <div class="t-time">15:00:14</div>
+              <div>
+                <div class="t-title">Session start · claude-opus-4-6</div>
+                <div class="t-desc">Task: Reserve parking tomorrow 9am–5pm, downtown Toronto. Browser-only policy.</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:00:15</div>
+              <div>
+                <div class="t-title">Load personal info · open SpotHero</div>
+                <div class="t-desc">exec ls/cat alex_green_personal_info.json · browser open https://spothero.com</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:00:36</div>
+              <div>
+                <div class="t-title">Type location</div>
+                <div class="t-desc">Search box ← “Downtown Toronto”; pick autocomplete place.</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:01:18</div>
+              <div>
+                <div class="t-title">Configure reservation window</div>
+                <div class="t-desc">Calendar → Mar 28 · start 9:00 AM · end 5:00 PM · Search.</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:02:45</div>
+              <div>
+                <div class="t-title">Select inventory</div>
+                <div class="t-desc">Book Now · “63 Centre Ave. - Lot” from result set.</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:03:15</div>
+              <div>
+                <div class="t-title">Checkout · contact</div>
+                <div class="t-desc">Email + phone. Noticed rate block rounds exit to 6:00 PM (“extra time free”).</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:05–15:10</div>
+              <div>
+                <div class="t-title">Stripe iframe struggle → success</div>
+                <div class="t-desc">Multiple type attempts; final card fields: 4519…4532 / 09/28 / 847 / Alex Green.</div>
+              </div>
+            </div>
+            <div class="t-item done">
+              <div class="t-time">15:11:41</div>
+              <div>
+                <div class="t-title">Review panel ready</div>
+                <div class="t-desc">VISA ···· 4532 accepted in UI. Total still CA$9.49. Click Pay and Reserve.</div>
+              </div>
+            </div>
+            <div class="t-item fail">
+              <div class="t-time">15:12:12</div>
+              <div>
+                <div class="t-title">Payment declined — run ends</div>
+                <div class="t-desc">“Unable to process payment. Please try again or select another payment method.” Dummy card rejected by Stripe.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL / PROOF -->
+    <section id="proof">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">Run environment</div>
+          <h2>Industrial-strength browser agent stack.</h2>
+          <p>Provenance from ClawBench daily_web_tasks · case 04_024 · transportation · SpotHero.</p>
+        </div>
+        <div class="proof-row reveal">
+          <span class="chip">ClawBench</span>
+          <span class="chip">anthropic · claude-opus-4-6</span>
+          <span class="chip">thinking: medium</span>
+          <span class="chip">spothero.com</span>
+          <span class="chip">Stripe checkout</span>
+          <span class="chip">Toronto downtown</span>
+          <span class="chip">browser tool ×101</span>
+        </div>
+        <div class="quotes">
+          <blockquote class="quote reveal">
+            <p>“Search results are showing parking spots in downtown Toronto for Mar 28, 9:00 AM – 5:00 PM. I’ll click Book Now on the first result — 63 Centre Ave. - Lot.”</p>
+            <div class="who"><div class="avatar">AO</div><div>Agent · mid-run reasoning</div></div>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <p>“The payment was declined… This is expected since the test credit card number is not a real card. You’d need a working payment method to complete the reservation.”</p>
+            <div class="who"><div class="avatar">AO</div><div>Agent · final summary</div></div>
+          </blockquote>
+        </div>
+
+        <div class="case-strip reveal" style="margin-top:28px">
+          <div>
+            <div class="k">Case id</div>
+            <div class="v">04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954</div>
+          </div>
+          <div>
+            <div class="k">Trajectory</div>
+            <div class="v">data/agent-messages.jsonl · clawbench-dir · 210 events</div>
+          </div>
+          <div>
+            <div class="k">Constraint</div>
+            <div class="v">Browser-only completion. No CLI / API / SMTP shortcuts.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPOT / PRICING -->
+    <section id="spot">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">Reservation package</div>
+          <h2>Exactly what the agent tried to purchase.</h2>
+          <p>Interactive checkout prototype replaying the form state at the final gate.</p>
+        </div>
+
+        <div class="pricing reveal">
+          <div class="plan featured">
+            <h3>63 Centre Ave. - Lot</h3>
+            <p style="color:var(--muted)">Downtown, Old Toronto · surface lot entry</p>
+            <div class="amt">CA$9.49 <small>/ window</small></div>
+            <ul>
+              <li><strong>Date</strong> — Saturday, March 28, 2026</li>
+              <li><strong>Requested</strong> — 9:00 AM → 5:00 PM</li>
+              <li><strong>Granted</strong> — 9:00 AM → 6:00 PM (extra free)</li>
+              <li><strong>Guest</strong> — Alex Green</li>
+              <li><strong>Contact</strong> — cb01709d163de2@clawbench.cc</li>
+              <li><strong>Vehicle</strong> — Optional (add later)</li>
+              <li><strong>Site</strong> — spothero.com</li>
+            </ul>
+            <a class="btn btn-primary" href="#reserve">Use this configuration</a>
+          </div>
+
+          <div class="checkout" id="reserve">
+            <h3>Pay and Reserve</h3>
+            <p style="color:var(--muted);font-size:0.9rem;margin-bottom:4px">Prototype mirrors the agent’s final form values. Submission simulates the live Stripe decline.</p>
+            <div class="field">
+              <label>Email</label>
+              <input id="email" type="email" value="cb01709d163de2@clawbench.cc" />
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input id="phone" type="text" value="(416) 555-1234" />
+            </div>
+            <div class="field">
+              <label>Card number</label>
+              <input id="card" type="text" value="4519 8734 2460 4532" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>Expiry</label>
+                <input id="exp" type="text" value="09 / 28" />
+              </div>
+              <div class="field">
+                <label>CVC</label>
+                <input id="cvc" type="text" value="847" />
+              </div>
+            </div>
+            <div class="field">
+              <label>Name on card</label>
+              <input id="name" type="text" value="Alex Green" />
+            </div>
+            <div class="notice" id="payNotice">
+              Live agent result: payment processor returned “Unable to process payment.” Dummy credentials cannot settle charges.
+            </div>
+            <button class="btn btn-primary" id="payBtn" type="button">Pay and Reserve · CA$9.49</button>
+            <button class="btn btn-ghost" id="resetBtn" type="button" style="width:100%">Reset form</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">FAQ</div>
+          <h2>About this case presentation</h2>
+          <p>Context for evaluators, researchers, and curious operators.</p>
+        </div>
+        <div class="faq">
+          <details class="reveal">
+            <summary>What was the original task statement?</summary>
+            <div class="ans">“Reserve a parking spot on SpotHero for tomorrow 9am-5pm in downtown Toronto.” Personal details live under <code>/my-info/</code>; the agent must finish entirely in the browser.</div>
+          </details>
+          <details class="reveal">
+            <summary>Did the agent finish the booking?</summary>
+            <div class="ans">No. Every step up to and including <strong style="color:var(--text)">Pay and Reserve</strong> succeeded in the UI, then Stripe declined the test Visa <code>4519 8734 2460 4532</code>. The agent reported this limitation honestly and stopped.</div>
+          </details>
+          <details class="reveal">
+            <summary>Why was the end time 6:00 PM instead of 5:00 PM?</summary>
+            <div class="ans">The chosen lot prices in a 9 AM–6 PM rate block. SpotHero surface copy noted “You’re getting extra time for free!” — the agent accepted the free extension rather than re-shop.</div>
+          </details>
+          <details class="reveal">
+            <summary>What tools did the agent use?</summary>
+            <div class="ans">Mostly the <code>browser</code> tool (open, snapshot, screenshot, click, type, fill, select, press, wait, evaluate). Two <code>exec</code> calls listed and read personal info. 210 total log events spanning ~12 minutes of active work.</div>
+          </details>
+          <details class="reveal">
+            <summary>Where does this data come from?</summary>
+            <div class="ans">ClawBench trajectory <code>04_024-daily-life-transportation-spothero-claude-opus-4-6-20260327-145954</code>, format <code>clawbench-dir</code>, model anthropic/claude-opus-4-6, thinking medium. Duration budget 30 minutes; recorded 1828s wall time in run meta.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>From instruction to Pay & Reserve in twelve minutes.</h2>
+        <p>ParkPilot’s case study packages a full SpotHero browser trajectory into a crystal-clear product story: clear goal, transparent steps, honest outcome.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#journey">Review timeline</a>
+          <a class="btn btn-ghost" href="#top">Back to overview</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="#top" style="margin-bottom:12px"><span class="brand-mark">P</span> ParkPilot</a>
+          <p>High-fidelity case presentation for a ClawBench SpotHero parking reservation run. Not affiliated with SpotHero.</p>
+        </div>
+        <div>
+          <h4>Case</h4>
+          <p>daily_web_tasks</p>
+          <p>transportation</p>
+          <p>task 024</p>
+        </div>
+        <div>
+          <h4>Model</h4>
+          <p>claude-opus-4-6</p>
+          <p>provider: anthropic</p>
+          <p>thinking: medium</p>
+        </div>
+        <div>
+          <h4>Artifacts</h4>
+          <p>agent-messages.jsonl</p>
+          <p>actions.jsonl · requests.jsonl</p>
+          <p>trajectory_format: clawbench-dir</p>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>Prototype presentation · self-contained HTML · no external assets</span>
+        <span>Timestamp 20260327-145954</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    (function () {
+      const nav = document.getElementById('nav');
+      const drawer = document.getElementById('drawer');
+      const menuBtn = document.getElementById('menuBtn');
+      const drawerClose = document.getElementById('drawerClose');
+      const toast = document.getElementById('toast');
+      const payBtn = document.getElementById('payBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const notice = document.getElementById('payNotice');
+
+      // Sticky nav style
+      const onScroll = () => {
+        if (window.scrollY > 12) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Drawer
+      menuBtn.addEventListener('click', () => drawer.classList.add('open'));
+      drawerClose.addEventListener('click', () => drawer.classList.remove('open'));
+      drawer.addEventListener('click', (e) => {
+        if (e.target === drawer) drawer.classList.remove('open');
+      });
+      drawer.querySelectorAll('[data-close]').forEach((a) => {
+        a.addEventListener('click', () => drawer.classList.remove('open'));
+      });
+
+      // Reveal on view
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add('in');
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.transitionDelay = (i % 6) * 0.05 + 's';
+        io.observe(el);
+      });
+
+      // Toast helper
+      let toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+
+      // Checkout simulation
+      const defaults = {
+        email: 'cb01709d163de2@clawbench.cc',
+        phone: '(416) 555-1234',
+        card: '4519 8734 2460 4532',
+        exp: '09 / 28',
+        cvc: '847',
+        name: 'Alex Green'
+      };
+
+      payBtn.addEventListener('click', () => {
+        payBtn.disabled = true;
+        payBtn.textContent = 'Processing…';
+        notice.className = 'notice';
+        notice.textContent = 'Contacting payment processor…';
+        setTimeout(() => {
+          notice.className = 'notice';
+          notice.textContent = 'Unable to process payment. Please try again or select another payment method. (Simulated — matches the agent’s live Stripe decline.)';
+          payBtn.disabled = false;
+          payBtn.textContent = 'Pay and Reserve · CA$9.49';
+          showToast('Payment declined — same outcome as the original trajectory.');
+        }, 900);
+      });
+
+      resetBtn.addEventListener('click', () => {
+        Object.keys(defaults).forEach((k) => {
+          const el = document.getElementById(k);
+          if (el) el.value = defaults[k];
+        });
+        notice.className = 'notice';
+        notice.textContent = 'Live agent result: payment processor returned “Unable to process payment.” Dummy credentials cannot settle charges.';
+        showToast('Form restored to agent final state.');
+      });
+
+      // Subtle hover polish on timeline items via keyboard focus
+      document.querySelectorAll('.t-item').forEach((item) => {
+        item.tabIndex = 0;
+        item.addEventListener('focus', () => item.classList.add('active'));
+        item.addEventListener('blur', () => item.classList.remove('active'));
+      });
+    })();
+  </script>
+</body>
+</html>

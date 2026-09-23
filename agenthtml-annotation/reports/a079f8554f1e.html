@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case #249 — Mei Davis / Order #W2890441</title>
+<style>
+  :root{
+    --paper:#f2ece0;
+    --paper-2:#e9e1d2;
+    --ink:#211d18;
+    --ink-soft:#4a4237;
+    --faint:#8a7f6d;
+    --rust:#b1462b;
+    --rust-deep:#8a2f18;
+    --teal:#2f5d55;
+    --gold:#a67c2e;
+    --line:#cbbfa8;
+    --card:#fbf7ee;
+    --shadow:rgba(40,30,16,.16);
+    --mono:ui-monospace,"SFMono-Regular",Menlo,"Cascadia Mono",Consolas,monospace;
+    --serif:"Hoefler Text","Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;
+    --sans:"Optima","Gill Sans","Gill Sans MT",Avenir,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(177,70,43,.06), transparent 40%),
+      radial-gradient(circle at 88% 22%, rgba(47,93,85,.07), transparent 42%);
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:9999;
+    opacity:.045;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px 120px;}
+
+  /* ---------- Masthead ---------- */
+  header.mast{
+    padding:64px 0 34px;
+    border-bottom:3px double var(--ink);
+    position:relative;
+  }
+  .kicker{
+    font-family:var(--sans);
+    text-transform:uppercase;
+    letter-spacing:.42em;
+    font-size:11px;
+    color:var(--rust-deep);
+    font-weight:600;
+    margin:0 0 22px;
+    display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  }
+  .kicker .dot{width:5px;height:5px;background:var(--rust);border-radius:50%;display:inline-block;}
+  h1.title{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(38px,6.5vw,74px);
+    line-height:.98;
+    letter-spacing:-.015em;
+    margin:0;
+  }
+  h1.title em{font-style:italic;color:var(--rust);}
+  .subline{
+    margin:20px 0 0;
+    font-size:20px;
+    color:var(--ink-soft);
+    font-style:italic;
+    max-width:62ch;
+  }
+  .metastrip{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:0;
+    border:1px solid var(--line);
+    background:var(--card);
+  }
+  .metastrip div{
+    padding:13px 16px;
+    border-right:1px solid var(--line);
+  }
+  .metastrip div:last-child{border-right:none;}
+  .metastrip .lab{
+    font-family:var(--sans);
+    font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);
+    display:block;margin-bottom:4px;
+  }
+  .metastrip .val{font-family:var(--mono);font-size:13.5px;color:var(--ink);}
+
+  /* ---------- Verdict banner ---------- */
+  .verdict{
+    margin:44px 0 10px;
+    background:linear-gradient(180deg,#241b12,#171009);
+    color:#f2e7d4;
+    padding:34px 38px;
+    border-radius:3px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 22px 44px -26px rgba(30,18,6,.8);
+  }
+  .verdict::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 90% 0%, rgba(177,70,43,.28), transparent 45%);
+  }
+  .verdict .tag{
+    font-family:var(--sans);
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:#e0a06f;font-weight:600;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .verdict .tag .ex{
+    width:20px;height:20px;border-radius:50%;
+    border:1.5px solid #e0a06f;display:grid;place-items:center;
+    font-family:var(--serif);font-size:13px;font-style:italic;
+  }
+  .verdict h2{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(23px,3.4vw,33px);line-height:1.2;
+    margin:16px 0 12px;letter-spacing:-.01em;
+  }
+  .verdict h2 b{color:#f0b27a;font-weight:600;}
+  .verdict p{margin:0;color:#cdbda3;font-size:16.5px;max-width:70ch;}
+  .verdict code{font-family:var(--mono);font-size:.86em;background:rgba(224,160,111,.14);color:#f2c79a;padding:1px 6px;border-radius:3px;}
+
+  /* ---------- Section headers ---------- */
+  .sec{margin:66px 0 0;}
+  .sec-h{
+    display:flex;align-items:baseline;gap:16px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;margin-bottom:28px;
+  }
+  .sec-h .num{
+    font-family:var(--mono);font-size:13px;color:var(--rust);
+    letter-spacing:.05em;
+  }
+  .sec-h h3{
+    font-family:var(--sans);font-weight:600;
+    text-transform:uppercase;letter-spacing:.18em;font-size:14px;
+    margin:0;color:var(--ink);
+  }
+  .sec-h .aside{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--faint);}
+
+  /* ---------- Profile / order cards ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:22px 24px;
+    box-shadow:0 12px 30px -24px var(--shadow);
+  }
+  .card h4{
+    font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;
+    font-size:11.5px;color:var(--faint);margin:0 0 14px;font-weight:600;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .card h4 .badge{
+    font-family:var(--mono);font-size:10px;letter-spacing:.05em;
+    padding:2px 8px;border-radius:20px;text-transform:none;
+  }
+  .b-delivered{background:#e7efe4;color:var(--teal);border:1px solid #b9d0bf;}
+  .b-pending{background:#f6ecd6;color:var(--gold);border:1px solid #e3cf9f;}
+  .kv{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dotted var(--line);}
+  .kv:last-child{border-bottom:none;}
+  .kv .k{color:var(--ink-soft);font-size:15px;}
+  .kv .v{font-family:var(--mono);font-size:13px;color:var(--ink);text-align:right;}
+  .itemrow{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+    padding:9px 0;border-bottom:1px dotted var(--line);
+  }
+  .itemrow:last-child{border-bottom:none;}
+  .itemrow .nm{font-size:15.5px;}
+  .itemrow .opt{font-family:var(--sans);font-size:11.5px;color:var(--faint);display:block;margin-top:1px;letter-spacing:.02em;}
+  .itemrow .pr{font-family:var(--mono);font-size:14px;white-space:nowrap;}
+  .flag{position:relative;}
+  .flag::before{
+    content:"↩ return";position:absolute;left:-4px;top:-8px;
+    font-family:var(--sans);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--rust);
+  }
+  .mark-ret{background:linear-gradient(transparent 60%, rgba(177,70,43,.16) 0);}
+  .mark-exc{background:linear-gradient(transparent 60%, rgba(47,93,85,.18) 0);}
+
+  /* ---------- Savings ledger ---------- */
+  .ledger{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    overflow:hidden;
+  }
+  .ledger .row{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr .8fr;
+    gap:0;align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .ledger .row.head{
+    background:#efe7d7;
+    font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;
+    font-size:10px;color:var(--faint);font-weight:600;
+  }
+  .ledger .row.total{background:#231a12;color:#f2e7d4;border-bottom:none;}
+  .ledger .cell{padding:14px 18px;border-right:1px solid var(--line);}
+  .ledger .cell:last-child{border-right:none;}
+  .ledger .row.total .cell{border-right-color:rgba(255,255,255,.08);}
+  .ledger .prod{font-size:16px;}
+  .ledger .prod small{display:block;font-family:var(--sans);font-size:11px;color:var(--faint);letter-spacing:.02em;margin-top:2px;}
+  .ledger .row.total .prod small{color:#cdbda3;}
+  .ledger .mono{font-family:var(--mono);font-size:14px;}
+  .ledger .save{font-family:var(--mono);font-size:15px;color:var(--teal);font-weight:600;}
+  .ledger .row.total .save{color:#7bc0a6;font-size:18px;}
+  @media(max-width:720px){
+    .ledger .row{grid-template-columns:1fr 1fr;}
+    .ledger .cell:nth-child(1){grid-column:1/3;border-right:none;}
+    .ledger .cell{border-bottom:1px solid var(--line);}
+  }
+
+  /* ---------- Transcript ---------- */
+  .thread{position:relative;padding-left:34px;}
+  .thread::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--line),var(--line));
+  }
+  .turn{position:relative;margin-bottom:26px;}
+  .turn::before{
+    content:"";position:absolute;left:-30px;top:6px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--faint);
+  }
+  .turn.user::before{border-color:var(--gold);}
+  .turn.agent::before{border-color:var(--rust);}
+  .turn.tool::before{border-color:var(--teal);background:var(--teal);}
+  .turn.err::before{border-color:var(--rust-deep);background:var(--rust-deep);box-shadow:0 0 0 4px rgba(138,47,24,.18);}
+  .who{
+    font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    font-weight:600;margin-bottom:6px;display:flex;gap:10px;align-items:center;
+  }
+  .who .r-user{color:var(--gold);}
+  .who .r-agent{color:var(--rust);}
+  .who .r-tool{color:var(--teal);}
+  .bubble{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    padding:14px 18px;font-size:15.5px;color:var(--ink-soft);line-height:1.55;
+  }
+  .turn.user .bubble{background:#faf3e2;border-color:#e6d6b0;color:var(--ink);}
+  .turn.agent .bubble{color:var(--ink);}
+  .bubble.said{font-style:italic;}
+  .bubble ol{margin:8px 0 0;padding-left:20px;}
+  .bubble li{margin:2px 0;}
+
+  .toolcall{
+    font-family:var(--mono);font-size:12.5px;
+    background:#20281f;color:#cfe3d0;border-radius:3px;
+    padding:11px 15px;line-height:1.5;overflow-x:auto;
+  }
+  .toolcall .fn{color:#9fd0a6;}
+  .toolcall .ar{color:#e8cf9b;}
+  .toolcall .pn{color:#8fb4c9;}
+  .toolret{
+    font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);
+    background:#eef2ea;border:1px solid #cdddc9;border-left:3px solid var(--teal);
+    padding:9px 14px;margin-top:8px;border-radius:0 3px 3px 0;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .toolret.error{
+    background:#f6e3dc;border-color:#e0b3a4;border-left-color:var(--rust-deep);
+    color:var(--rust-deep);font-weight:600;font-family:var(--mono);font-size:13px;
+  }
+  .toolret .rk{color:var(--faint);}
+
+  /* ---------- Analysis ---------- */
+  .analysis{
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;
+  }
+  @media(max-width:720px){.analysis{grid-template-columns:1fr;}}
+  .anote{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    padding:22px 24px;position:relative;
+  }
+  .anote.bad{border-top:3px solid var(--rust-deep);}
+  .anote.good{border-top:3px solid var(--teal);}
+  .anote h5{
+    font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:11px;
+    margin:0 0 12px;color:var(--faint);font-weight:600;
+  }
+  .anote p{margin:0 0 12px;font-size:15.5px;color:var(--ink-soft);}
+  .anote p:last-child{margin-bottom:0;}
+  .anote strong{color:var(--ink);}
+  .anote code{font-family:var(--mono);font-size:.85em;background:var(--paper-2);padding:1px 5px;border-radius:3px;color:var(--rust-deep);}
+
+  .stepflow{display:flex;flex-direction:column;gap:0;margin-top:6px;}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:8px 0;}
+  .step .n{
+    font-family:var(--mono);font-size:12px;flex:0 0 auto;
+    width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+    border:1.5px solid var(--line);color:var(--faint);
+  }
+  .step.ok .n{border-color:var(--teal);color:var(--teal);}
+  .step.fail .n{border-color:var(--rust-deep);color:var(--rust-deep);background:#f6e3dc;}
+  .step .txt{font-size:14.5px;color:var(--ink-soft);}
+  .step .txt b{color:var(--ink);}
+
+  footer{
+    margin-top:80px;padding-top:22px;border-top:3px double var(--ink);
+    font-family:var(--mono);font-size:11.5px;color:var(--faint);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  /* ---------- entrance animation ---------- */
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}
+  .d4{animation-delay:.32s}.d5{animation-delay:.41s}
+  @media(prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <p class="kicker reveal d1">
+      <span>τ-Bench Retail</span><span class="dot"></span>
+      <span>Case&nbsp;#249</span><span class="dot"></span>
+      <span>Model · sonnet-35-new</span><span class="dot"></span>
+      <span>Task 19 · trial 2</span>
+    </p>
+    <h1 class="title reveal d2">The Return that <em>Cancelled</em><br>the Exchange</h1>
+    <p class="subline reveal d3">A customer on a rough day asks for one refund and two cheaper swaps.
+      The agent gets the arithmetic right — and the order of operations wrong.</p>
+
+    <div class="metastrip reveal d4">
+      <div><span class="lab">Customer</span><span class="val">Mei Davis</span></div>
+      <div><span class="lab">User ID</span><span class="val">mei_davis_8935</span></div>
+      <div><span class="lab">Order</span><span class="val">#W2890441</span></div>
+      <div><span class="lab">Auth via</span><span class="val">name + zip</span></div>
+      <div><span class="lab">Outcome</span><span class="val" style="color:var(--rust-deep)">partial ✗</span></div>
+    </div>
+  </header>
+
+  <div class="verdict reveal d5">
+    <span class="tag"><span class="ex">!</span> Critical mis-sequence</span>
+    <h2>Both actions targeted the <b>same delivered order</b> — but a return and an
+      exchange each flip its status, so only the <b>first</b> could ever succeed.</h2>
+    <p>The agent processed the water-bottle return first. That set order <code>#W2890441</code>
+      to <code>return requested</code>. The follow-up exchange then failed with
+      <code>Error: non-delivered order cannot be exchanged</code> — leaving the promised
+      $41.64 of swap savings unfulfilled.</p>
+  </div>
+
+  <!-- 01 REQUEST -->
+  <section class="sec">
+    <div class="sec-h"><span class="num">01</span><h3>The Request</h3><span class="aside">verbatim, opening turn</span></div>
+    <div class="card" style="border-left:3px solid var(--gold)">
+      <p style="margin:0;font-size:20px;font-style:italic;color:var(--ink)">
+        “Hi… I need to return this water bottle and was hoping to get cheaper versions
+        of some other items I bought.”</p>
+      <p style="margin:12px 0 0;font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--faint)">
+        — Mei Davis, later adding: “…just having a rough day.” &nbsp;·&nbsp; “I really need the savings right now.”</p>
+    </div>
+  </section>
+
+  <!-- 02 THE ACCOUNT -->
+  <section class="sec">
+    <div class="sec-h"><span class="num">02</span><h3>The Account</h3><span class="aside">get_user_details · 2 orders</span></div>
+    <div class="grid2">
+      <div class="card">
+        <h4>Profile</h4>
+        <div class="kv"><span class="k">Name</span><span class="v">Mei Davis</span></div>
+        <div class="kv"><span class="k">Email</span><span class="v">mei.davis6811@…</span></div>
+        <div class="kv"><span class="k">Address</span><span class="v">698 Maple Dr, Ste 465<br>Denver, CO 80217</span></div>
+        <div class="kv"><span class="k">Payment</span><span class="v">Mastercard ····1037</span></div>
+      </div>
+      <div class="card">
+        <h4>Orders on file</h4>
+        <div class="kv"><span class="k">#W2890441 <span style="color:var(--rust)">◄ in scope</span></span><span class="v"><span class="badge b-delivered">delivered</span> $930.46</span></div>
+        <div class="kv"><span class="k">#W1267569</span><span class="v"><span class="badge b-pending">pending</span> $1,492.99</span></div>
+        <p style="margin:14px 0 0;font-size:13.5px;color:var(--faint);font-style:italic">
+          Only the delivered order is eligible for return / exchange. The pending
+          electronics order was viewed but never touched.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THE DELIVERED ORDER -->
+  <section class="sec">
+    <div class="sec-h"><span class="num">03</span><h3>Order #W2890441 — line items</h3><span class="aside">delivered · $930.46 · Mastercard</span></div>
+    <div class="card">
+      <div class="itemrow mark-ret">
+        <div class="nm">Water Bottle
+          <span class="opt">1000ml · stainless steel · blue &nbsp;→&nbsp; <b style="color:var(--rust)">RETURN</b></span></div>
+        <div class="pr">$54.04</div>
+      </div>
+      <div class="itemrow mark-exc">
+        <div class="nm">Pet Bed
+          <span class="opt">large · memory foam · grey &nbsp;→&nbsp; <b style="color:var(--teal)">EXCHANGE (intended)</b></span></div>
+        <div class="pr">$195.11</div>
+      </div>
+      <div class="itemrow mark-exc">
+        <div class="nm">Office Chair
+          <span class="opt">leather · blue · no armrest · high-back &nbsp;→&nbsp; <b style="color:var(--teal)">EXCHANGE (intended)</b></span></div>
+        <div class="pr">$499.28</div>
+      </div>
+      <div class="itemrow">
+        <div class="nm">Skateboard
+          <span class="opt">plastic · 31 inch · plain · untouched</span></div>
+        <div class="pr">$182.03</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 SAVINGS LEDGER -->
+  <section class="sec">
+    <div class="sec-h"><span class="num">04</span><h3>The Savings Math</h3><span class="aside">cheapest available variant, same product</span></div>
+    <div class="ledger">
+      <div class="row head">
+        <div class="cell">Item &amp; swap</div>
+        <div class="cell">Current</div>
+        <div class="cell">Cheapest avail.</div>
+        <div class="cell">Saves</div>
+      </div>
+      <div class="row">
+        <div class="cell prod">Water Bottle<small>returned outright — full refund</small></div>
+        <div class="cell mono">$54.04</div>
+        <div class="cell mono">— refund</div>
+        <div class="cell save">$54.04</div>
+      </div>
+      <div class="row">
+        <div class="cell prod">Pet Bed<small>→ large · memory foam · beige &nbsp;(6942241102)</small></div>
+        <div class="cell mono">$195.11</div>
+        <div class="cell mono">$180.93</div>
+        <div class="cell save">$14.18</div>
+      </div>
+      <div class="row">
+        <div class="cell prod">Office Chair<small>→ leather · blue · no armrest · standard &nbsp;(4168944673)</small></div>
+        <div class="cell mono">$499.28</div>
+        <div class="cell mono">$471.82</div>
+        <div class="cell save">$27.46</div>
+      </div>
+      <div class="row total">
+        <div class="cell prod">Promised to customer<small>$54.04 refund + $41.64 in swap credit</small></div>
+        <div class="cell mono">—</div>
+        <div class="cell mono">—</div>
+        <div class="cell save">$95.68</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--faint);margin-top:14px;font-style:italic">
+      The figures are correct: the agent scanned all pet-bed and office-chair variants and
+      picked the cheapest <em>available</em> option of each. The failure was purely procedural.</p>
+  </section>
+
+  <!-- 05 TRANSCRIPT -->
+  <section class="sec">
+    <div class="sec-h"><span class="num">05</span><h3>How it unfolded</h3><span class="aside">annotated transcript</span></div>
+    <div class="thread">
+
+      <div class="turn user">
+        <div class="who"><span class="r-user">Customer</span></div>
+        <div class="bubble said">I'm Mei Davis, zip code 80217. Don't remember my order number… just having a rough day.</div>
+      </div>
+
+      <div class="turn tool">
+        <div class="who"><span class="r-tool">Tool · authenticate</span></div>
+        <div class="toolcall"><span class="fn">find_user_id_by_name_zip</span>(<span class="pn">first</span>=<span class="ar">"Mei"</span>, <span class="pn">last</span>=<span class="ar">"Davis"</span>, <span class="pn">zip</span>=<span class="ar">"80217"</span>)</div>
+        <div class="toolret"><span class="rk">→</span> mei_davis_8935</div>
+      </div>
+
+      <div class="turn agent">
+        <div class="who"><span class="r-agent">Agent</span></div>
+        <div class="bubble">Pulled both orders, summarised the delivered one, and asked whether Mei
+          wanted a return, an exchange, or both.</div>
+      </div>
+
+      <div class="turn user">
+        <div class="who"><span class="r-user">Customer</span></div>
+        <div class="bubble said">How much money could I save by getting the cheapest pet bed and office chair?
+          And yes, I want to return that water bottle.</div>
+      </div>
+
+      <div class="turn tool">
+        <div class="who"><span class="r-tool">Tool · price lookup ×2</span></div>
+        <div class="toolcall"><span class="fn">get_product_details</span>(<span class="pn">product_id</span>=<span class="ar">"2747247837"</span>) <span style="color:#6f8a70">// Pet Bed — 16 variants</span></div>
+        <div class="toolcall" style="margin-top:8px"><span class="fn">get_product_details</span>(<span class="pn">product_id</span>=<span class="ar">"4794339885"</span>) <span style="color:#6f8a70">// Office Chair — 13 variants</span></div>
+        <div class="toolret"><span class="rk">→</span> cheapest available: Pet Bed $180.93 · Office Chair $471.82</div>
+      </div>
+
+      <div class="turn agent">
+        <div class="who"><span class="r-agent">Agent · quote</span></div>
+        <div class="bubble">Presented the savings breakdown — $14.18 + $27.46 in swaps, plus the $54.04
+          refund — and asked for confirmation to do <em>both</em>.</div>
+      </div>
+
+      <div class="turn user">
+        <div class="who"><span class="r-user">Customer · confirms</span></div>
+        <div class="bubble said">I'll do both — return the bottle and exchange both items for the cheaper
+          versions. I really need the savings right now. … Yes, please process everything.</div>
+      </div>
+
+      <div class="turn tool">
+        <div class="who"><span class="r-tool">Tool · return ✓</span></div>
+        <div class="toolcall"><span class="fn">return_delivered_order_items</span>(<span class="pn">order</span>=<span class="ar">"#W2890441"</span>, <span class="pn">items</span>=<span class="ar">["2366567022"]</span>, <span class="pn">pay</span>=<span class="ar">credit_card_1061405</span>)</div>
+        <div class="toolret"><span class="rk">→</span> status: <b>return requested</b> · refund $54.04 to Mastercard ····1037</div>
+      </div>
+
+      <div class="turn err">
+        <div class="who"><span class="r-tool" style="color:var(--rust-deep)">Tool · exchange ✗</span></div>
+        <div class="toolcall"><span class="fn" style="color:#e6a986">exchange_delivered_order_items</span>(<span class="pn">order</span>=<span class="ar">"#W2890441"</span>, <span class="pn">items</span>=<span class="ar">["2751999929","8069050545"]</span>, <span class="pn">new</span>=<span class="ar">["6942241102","4168944673"]</span>)</div>
+        <div class="toolret error">Error: non-delivered order cannot be exchanged</div>
+      </div>
+
+      <div class="turn agent">
+        <div class="who"><span class="r-agent">Agent · recovery</span></div>
+        <div class="bubble">Apologised, wrongly explained the block as “wait until the return completes,”
+          and told Mei to contact support again later for the exchanges.</div>
+      </div>
+
+      <div class="turn user">
+        <div class="who"><span class="r-user">Customer</span></div>
+        <div class="bubble said">That's frustrating… but I understand. I'll contact you again about the
+          exchanges after returning the bottle.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 ANALYSIS -->
+  <section class="sec">
+    <div class="sec-h"><span class="num">06</span><h3>What went wrong</h3><span class="aside">root cause &amp; fix</span></div>
+    <div class="analysis">
+      <div class="anote bad">
+        <h5>Root cause — status collision</h5>
+        <p>Under retail policy, both a return <em>and</em> an exchange can only run on a
+          <strong>delivered</strong> order, and each mutates that status. The first
+          <code>return</code> call moved <code>#W2890441</code> out of <code>delivered</code>,
+          so no exchange on the same order could follow.</p>
+        <p>The agent confirmed “process everything” as if the two actions were independent.
+          They were mutually exclusive on a single order.</p>
+        <div class="stepflow">
+          <div class="step ok"><span class="n">1</span><span class="txt"><b>Return</b> → status becomes <code>return requested</code></span></div>
+          <div class="step fail"><span class="n">2</span><span class="txt"><b>Exchange</b> → rejected: order no longer <code>delivered</code></span></div>
+        </div>
+      </div>
+      <div class="anote good">
+        <h5>What good looks like</h5>
+        <p>The right move was to <strong>surface the constraint before confirming</strong>:
+          a single delivered order cannot be both returned <em>and</em> exchanged in one pass.</p>
+        <p>The agent should have offered a real choice — e.g. <strong>exchange the pet bed
+          &amp; chair first</strong> (batched into one <code>exchange</code> call, as policy
+          requires), then handle the water bottle separately — rather than promising all
+          three and delivering one.</p>
+        <p>Its recovery message also invented a policy (“wait for the return to complete”)
+          that does not exist, compounding the error with a fabricated explanation.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>τ-bench · tool_use_customer_service · 01_sonnet-35-new-retail_249</span>
+    <span>format: tau-bench-json · fields stripped: info, reward</span>
+  </footer>
+
+</div>
+</body>
+</html>
