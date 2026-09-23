@@ -134,6 +134,7 @@ function render(){
         fe=document.getElementById("fEv").value, ord=document.getElementById("fOrder").value;
   let list=[...DATA];
   list.sort((a,b)=>ord==="desc"?b.date.localeCompare(a.date):a.date.localeCompare(b.date));
+  list.sort((a,b)=>(b.ev.length>0)-(a.ev.length>0));
   const htmls=[]; let n=0;
   for(const d of list){
     if(ft && !d.tags.includes(ft)) continue;

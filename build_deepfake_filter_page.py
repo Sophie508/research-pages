@@ -81,6 +81,10 @@ html = html.replace('''    if(fv && vclass(d)!==fv) continue;
     if(fc && d.conf!==fc) continue;
     if(fe && !d.ev.length) continue;''')
 html = html.replace('for(const id of ["fVerdict","fMod","fEv","fOrder"])', 'for(const id of ["fTag","fConf","fEv","fOrder"])')
+# Claims our pipeline has been run on stay at the top whatever the order, so
+# they are not lost among the eighty that have not.
+html = html.replace('  list.sort((a,b)=>ord==="desc"?b.date.localeCompare(a.date):a.date.localeCompare(b.date));',
+                    '  list.sort((a,b)=>ord==="desc"?b.date.localeCompare(a.date):a.date.localeCompare(b.date));\n  list.sort((a,b)=>(b.ev.length>0)-(a.ev.length>0));')
 html = html.replace('const label=e.p==="external-verified"?"External search":e.p;', 'const label=e.p==="external-verified"?"External search":e.p==="none"?"No URL (fact-checker finding)":e.p;')
 html = html.replace('</style>', '.tag.none{background:var(--na-soft, #fffaeb);color:var(--na, #854708)}\n.tag.article-recovered{background:var(--ok-soft, #ecfdf3);color:var(--ok, #067647)}\n</style>', 1)
 (OUT/'index.html').write_text(html, encoding='utf-8')
