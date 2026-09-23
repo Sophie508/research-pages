@@ -53,7 +53,7 @@ note = (f'<div class="note"><b>The VeriTaS claims whose media VeriTaS itself jud
         f'Tags are VeriTaS\'s: AI-generated {tagc["AI-generated"]}, Manipulated {tagc["Manipulated"]}, Forged {tagc["Forged"]} (a claim may carry several); confidence certain {confc["certain"]}, '
         f'rather certain {confc["rather certain"]}, rather uncertain {confc["rather uncertain"]}. Click a card to open it. Our pipeline has been run on {n_ext} claims so far; those cards show the '
         'extracted evidence with the link each statement ended up with, in the same format as the intake page. The others open to VeriTaS\'s own explanation of the verdict and the source links.</div>')
-html = re.sub(r'<div class="note">.*?</div>\s*<div class="controls">', note+'\n<div class="controls">', html, count=1, flags=re.S)
+html = re.sub(r'<div class="revision-note">.*?</div>', note.replace('<div class="note">','<div class="revision-note">',1), html, count=1, flags=re.S)
 # filters: tag, confidence, extracted, order (replace verdict/modality/evidence filters)
 controls = ('<div class="controls"> <label>Tag: <select id="fTag"><option value="">All</option><option value="AI-generated">AI-generated</option><option value="Manipulated">Manipulated</option><option value="Forged">Forged</option></select></label> '
             '<label>Confidence: <select id="fConf"><option value="">All</option><option value="certain">certain</option><option value="rather certain">rather certain</option><option value="rather uncertain">rather uncertain</option></select></label> '

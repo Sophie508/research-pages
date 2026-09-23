@@ -6,7 +6,7 @@ shown per claim. AVerImaTeC rows come from the 2026-08-30 val run after the new
 URL stage: every evidence statement keeps its statement text, the link it ended
 up with, how that link was obtained (article hyperlink, dated external search,
 image, metadata) and whether the verifier confirmed it. Only statements with no
-candidate link of any kind were dropped (18 of 397). AVeriTeC rows are the 20
+candidate link of any kind were dropped (40 of 397); the outlet's own pages, social embeds and archive mirrors do not count as candidate links. AVeriTeC rows are the 20
 claims already on the site, still from the older URL stage, and are labelled so.
 
 The intake page is the template so all three review pages share one look; only
@@ -21,14 +21,14 @@ MCFC = Path('/Users/sophie/Downloads/mcfc-veritas-track3'); DESK = Path('/Users/
 IMG = DESK/'datasets/averimatec/images'
 
 # ---- AVerImaTeC (new URL stage) ----
-inp = json.load(open(MCFC/'results/url_revision_aug30/ev2r_input_link_or_drop.json'))
+inp = json.load(open(MCFC/'results/url_revision_aug30/ev2r_input_link_or_drop_fixed.json'))
 gold = json.load(open(DESK/'datasets/averimatec/val.json'))
 _p = json.load(open(MCFC/'results/t2_averimatec_mm_predict_val_n108_gemma4_26b_20260830_100302.json'))
 pred = {r['id']: r for r in (_p.get('records', _p) if isinstance(_p, dict) else _p)}
 import glob, os
-ev2r_f = sorted(glob.glob(str(MCFC/'track3_veritas/pipeline/results/*amt_val_link_or_drop*ev2r_official*.json')), key=os.path.getmtime)[-1]
+ev2r_f = (sorted(glob.glob(str(MCFC/'track3_veritas/pipeline/results/*amt_val_link_or_drop_fixed*ev2r_official*.json')), key=os.path.getmtime) or sorted(glob.glob(str(MCFC/'track3_veritas/pipeline/results/*amt_val_link_or_drop*ev2r_official*.json')), key=os.path.getmtime))[-1]
 ev2r = {r['id']: r['evidence'] for r in json.load(open(ev2r_f))['records'] if isinstance(r.get('evidence'), dict)}
-dec = {r['key']: r for r in (json.loads(l) for l in open(MCFC/'results/url_revision_aug30/verify_and_drop.jsonl') if l.strip())}
+dec = {r['key']: r for r in (json.loads(l) for l in open(MCFC/'results/url_revision_aug30/verify_and_drop_fixed.jsonl') if l.strip())}
 orig = {r['id']: r for r in json.load(open(MCFC/'results/clean_val_ev2r_input_single.json'))}
 gold_to_pipe = {r.get('averimatec_gold_index', r['id']): r['id'] for r in json.load(open(MCFC/'results/clean_val_ev2r_input_single.json'))}
 
@@ -106,9 +106,10 @@ html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href
 note = (f'<div class="note"><b>Two datasets with ground truth, one page.</b> AVerImaTeC val ({n_amt} claims, {n_ev_amt} evidence items) '
         'is the 2026-08-30 run of our pipeline after the new URL stage: for each evidence statement the article\'s own hyperlinks are shortlisted first and a dated external-search '
         'URL second; the statement keeps whichever link it got, and the verifier\'s verdict on that link is shown but did not decide anything. Only statements with no candidate link '
-        'of any kind were dropped (18 of 397). Image evidence and metadata carry no URL by design and are kept. The EV2R chip on each card is the official-protocol evidence score for '
-        'that claim; over the set it is R 0.733 / P 0.621, level with the run before the URL stage (R 0.724 / P 0.619), because EV2R scores statements, not links. '
+        'of any kind were dropped (40 of 397); the outlet\'s own pages, social embeds and archive mirrors do not count as candidate links. Image evidence and metadata carry no URL by design and are kept. The EV2R chip on each card is the official-protocol evidence score for '
+        'that claim; over the set it is R 0.697 / P 0.639, against R 0.724 / P 0.619 before the URL stage: the statements dropped for lacking any admissible link cost a little recall and bought a little precision, and the links themselves do not enter EV2R. '
         'AVeriTeC (20 claims) is the earlier text-only run and has not yet been through the new URL stage; it is labelled as such.</div>')
-html = re.sub(r'<div class="note">.*?</div>\s*<div class="controls">', note+'\n<div class="controls">', html, count=1, flags=re.S)
+# No explanatory box on this page; the inherited intake-page note is dropped.
+html = re.sub(r'<div class="revision-note">.*?</div>\s*', '', html, count=1, flags=re.S)
 (OUT/'index.html').write_text(html, encoding='utf-8')
 print(f'wrote averitec-averimatec-review/index.html  AVerImaTeC {n_amt} claims / {n_ev_amt} evidence, AVeriTeC {len(old)} claims; images {len(list((OUT/"media").iterdir()))}')
