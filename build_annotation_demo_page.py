@@ -87,7 +87,6 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:40px;let
 <button id="themeBtn">🌙</button></nav>
 <div class="hero"><h1>Annotation Demo</h1></div>
 <div class="wrap">
-__NOTE__
 <div class="controls">
   <label>Set: <select id="fKind"><option value="">All</option><option value="text">Text claims</option><option value="image">Image claims</option></select></label>
   <label>Verdict: <select id="fV"><option value="">All</option><option value="supported">supported</option><option value="refuted">refuted</option><option value="not_enough_evidence">not enough evidence</option></select></label>
@@ -166,19 +165,7 @@ setTheme(localStorage.getItem("mcfc_theme")||(matchMedia("(prefers-color-scheme:
 </body></html>
 """
 
-note = (
-    f'<div class="note"><b>What a VeriTaS claim looks like after our pipeline, with a human check on top: '
-    f'{len(rows)} claims, {n_text} text and {n_img} image.</b> The claims and their fact-checking articles come from the '
-    f'VeriTaS export; the evidence statements and the link under each one are ours, extracted automatically, and every '
-    f'evidence item here carries exactly one source URL. Two people annotated in the interface without ever seeing the '
-    f'pipeline\'s verdict: they judged whether the claim is checkable at all, opened each source and flagged anything wrong '
-    f'with the statement or the page, then gave their own verdict. '
-    f'These {len(rows)} are the cases where a human verdict came out the same as the pipeline\'s, drawn from 27 annotated '
-    f'claims in total. On {n_split} image claims the two annotators reached different verdicts; both are shown and the card '
-    f'is marked. {n_ev} evidence items are on this page and {n_flag} of them were flagged for a problem — those are worth '
-    f'reading, since a matching verdict does not mean the evidence behind it was clean.</div>'
-)
-html = HTML.replace("__NOTE__", note).replace("__DATA__", json.dumps(rows, ensure_ascii=False))
+html = HTML.replace("__DATA__", json.dumps(rows, ensure_ascii=False))
 (OUT / "index.html").write_text(html, encoding="utf-8")
 print(f"wrote {OUT/'index.html'}: {len(rows)} claims ({n_text} text, {n_img} image), "
       f"{n_ev} evidence, {n_flag} flagged, {n_split} split")
