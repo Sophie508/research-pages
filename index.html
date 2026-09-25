@@ -38,14 +38,19 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="baseline-reproduce/">Baseline Reproduce</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
 <div class="tagline">Multi-culture fact-checking — interactive reports and benchmark reviews</div>
-<span class="pill">4 pages</span>
+<span class="pill">5 pages</span>
 </div>
 <div class="list">
+<a class="card" href="annotation-demo/">
+<h2>Annotation Demo</h2>
+<p><b>What a VeriTaS claim looks like after our pipeline, with a human check on top.</b> Twenty claims, eleven text and nine image, each with the evidence statements our pipeline extracted and the single source URL each one carries. Two people annotated them in the quality interface without ever seeing the pipeline's verdict: they judged whether the claim is checkable at all, opened every source and flagged anything wrong with the statement or the page, then gave their own verdict. These are the cases where a human verdict came out the same as the pipeline's, drawn from 27 annotated claims. Eleven of the 64 evidence items were still flagged for a problem, so a matching verdict is not the same as clean evidence; two image claims split the annotators and are marked.</p>
+<div class="meta"><span>2026-09-25</span><span class="chip">20 claims · 64 evidence</span><span class="chip">1 URL per evidence item</span><span class="chip">11 evidence flagged · 2 split</span></div>
+</a>
 <a class="card" href="baseline-reproduce/">
 <h2>Baseline Reproduce</h2>
 <p><b>Four text systems delivered on a fixed slice, live web search instead of the knowledge store.</b> HerO2, SANCTUARY, AIC CTU and InFact on AVeriTeC dev 0–99, all on Gemma via OpenRouter as an adapted reproduction: 400 of 400 terminal records, of which 391 ok, 5 without evidence and 4 retrieval failures. Browse every claim with the gold label, open a system's questions, answers, sources and reasoning, compare two systems side by side. Label accuracy is 48–61%, none above the 63% always-Refuted baseline; the evidence score is the legacy Hungarian-METEOR, not EV2R. The two image-text systems are deferred, so the six-system scope is not complete.</p>
