@@ -121,6 +121,7 @@ svg.ribbons path.future{opacity:0}
 .hint{padding:0 32px 4px;font-size:12px;color:var(--ink3)}
 @media (max-width:900px){.stepnote{margin-left:16px;margin-right:16px}.seg{flex-wrap:wrap}.ctl{flex-wrap:wrap}.controls,.claimbar,.canvas-wrap,.lower,.legend,.hint{padding-left:16px;padding-right:16px}nav.top{height:auto;padding:10px 16px;flex-wrap:wrap;gap:8px 16px}nav.top .navlinks{margin-left:0;width:100%;gap:14px}nav.top .section-name{padding-left:0;border-left:0}.claimbar .c{font-size:16px}select.ex{min-width:0;width:100%}}
 </style>
+<link rel="stylesheet" href="explain-guide.css">
 </head>
 <body>
 <nav class="top"><a class="brand" href="../">MCFC Bench</a><a class="section-name" href="index.html#/">Baseline Reproduce</a>
@@ -128,17 +129,22 @@ svg.ribbons path.future{opacity:0}
   <button id="themeBtn" title="切换明暗主题">🌙</button></nav>
 
 <div class="controls">
-  <div class="ctl"><label>示例</label><select class="ex" id="ex"></select></div>
+  <div class="ctl"><label for="ex">示例</label><select class="ex" id="ex"></select></div>
   <div class="ctl"><label>系统</label><span class="seg" id="sys"></span></div>
   <div class="ctl scrub"><label>步骤</label><button class="play" id="play" title="逐步播放">▶</button><input type="range" id="step" min="0" max="1" value="0"><span class="steplabel" id="steplabel"></span></div>
 </div>
 <div class="claimbar" id="claimbar"></div>
+<div class="page-tools"><p>四个适配版系统 · 冻结记录回放</p><div class="view-switch" aria-label="查看方式"><button id="guided-view" aria-pressed="true">逐步查看</button><button id="overview-view" aria-pressed="false">流程总览</button></div></div>
+<main id="guide" aria-live="polite"></main>
+<section id="overview" hidden>
 <div class="legend"><span class="k-io"><i></i>输入 / 输出</span><span class="k-llm"><i></i>LLM 调用（Gemma-4-26B）</span><span class="k-web"><i></i>搜索与日期过滤（共同适配层，我们设计）</span><span class="k-emb"><i></i>向量检索（本地嵌入模型）</span><span class="k-alg"><i></i>原系统的非 LLM 步骤</span></div>
 <div class="hint">拖动“步骤”或点列标题逐步看；鼠标放在格子上会高亮它的上游和下游；点格子在页面下方看完整内容。</div>
 <div class="stepnote" id="explain"></div>
 <div class="stage"><div class="canvas-wrap" id="wrap"><div class="canvas" id="canvas"></div></div></div>
 <div class="lower"><div class="panel" id="detail"><h2>点一个格子查看完整内容</h2><p>每个格子都是这条 claim 在这一步的真实中间结果，来自冻结的系统输出和运行缓存。</p></div></div>
 
+</section>
+<script src="explain-guide.js"></script>
 <script>
 (function(){
 const $=(s,e=document)=>e.querySelector(s);
@@ -152,7 +158,7 @@ const vcls=v=>!v?'v-none':v.startsWith('Ref')?'v-Refuted':v.startsWith('Sup')?'v
 const short=v=>!v?'无判决':v.replace('Conflicting Evidence/Cherrypicking','Conflicting').replace('Not Enough Evidence','NEE');
 const LABELS=['Refuted','Supported','Not Enough Evidence','Conflicting Evidence/Cherrypicking'];
 const SYS=[['infact','InFact'],['hero2','HerO2'],['sanctuary','SANCTUARY'],['aic_ctu_averitec','AIC CTU']];
-const ADM={admitted:['放行','ok'],admitted_elsewhere:['放行（重复）','ok'],fetch_failed:['抓取失败','bad'],after_claim:['晚于 claim','bad'],unknown_date:['日期不明','warn'],revision_after:['修订晚于 claim','bad'],no_cache:['无缓存','warn']};
+const ADM={admitted:['放行','ok'],admitted_elsewhere:['放行（重复）','ok'],fetch_failed:['抓取失败','bad'],after_claim:['晚于 claim','bad'],unknown_date:['日期不明','warn'],revision_after:['修订晚于 claim','bad'],no_cache:['无缓存','warn'],not_in_output:['未进入输出','warn']};
 const admChip=h=>{const a=ADM[h.admission]||[h.admission,''];return `<span class="chip ${a[1]}" title="${esc(h.why)}">${a[0]}</span>`};
 
 // theme: same key as the rest of MCFC Bench
@@ -160,7 +166,7 @@ const tb=$('#themeBtn');function setTheme(t){document.documentElement.setAttribu
 let t0='light';try{t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}
 setTheme(t0);tb.onclick=()=>{setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');requestAnimationFrame(draw)};
 
-let IDX=null,DOC=null,M=null; const S={ex:null,sys:'infact',step:0,sel:null,whatif:null,timer:null};
+let IDX=null,DOC=null,M=null; const S={ex:null,sys:'infact',step:0,sel:null,whatif:null,timer:null,view:'guided',focusIndex:0,requestIndex:0};
 
 // ---------------------------------------------------------------- model builders
 // each returns {cols:[{id,kind,n,t,s,calls,explain,items:[{id,kind,l,x,cls,detail}]}], links:[[a,b]], out:{...}}
@@ -169,11 +175,11 @@ function funnelText(f){ if(!f) return ''; const r=f.rejected_by_reason||{}; cons
 function funnelBar(f){ if(!f||!f.unique_urls) return ''; const a=f.admitted/f.unique_urls*100; return `<div class="bar"><span style="width:${a}%;background:var(--k-web)"></span></div>`; }
 function searchHtml(rows){ return rows.map(r=>`<h3>查询：${esc(r.q)} <span class="faint">（取 ${r.num} 条）</span></h3><ul class="hitlist">${r.hits.map(h=>`<li>${admChip(h)} ${link(h.url,h.title||h.url)} <span class="faint mono">${esc(h.page_date||'')}</span></li>`).join('')||'<li class="faint">无结果</li>'}</ul>`).join(''); }
 const claimItem=d=>({id:'claim',l:d.claim,x:`${d.claim_date||''}`,detail:()=>`<h2>输入 claim</h2><p class="plain">${esc(d.claim)}</p><div class="kv"><span>日期</span><b>${esc(d.claim_date||'缺失')}</b><span>说话者</span><b>${esc(d.speaker||'—')}</b><span>平台</span><b>${esc(d.reporting_source||'—')}</b><span>gold 标签</span><b>${esc(d.gold_label)}</b></div><p class="small faint">gold 标签只用于评分，系统看不到。</p>`});
-const inputCol=d=>({id:'in',kind:'io',n:'输入',t:'数据集里的 claim',s:'文本 + 日期 +（若有）说话者、平台',calls:'',items:[claimItem(d)],explain:{t:'输入',p:[`所有系统的输入都是同一条数据集 claim：<b>${esc(cut(d.claim,160))}</b>。claim 日期 ${esc(d.claim_date||'缺失')} 会被用来过滤网页：只放行发布日期不晚于它的页面。`,'gold 标签（右上角）只在评分时使用，系统在运行时看不到。']}});
+const inputCol=d=>({id:'in',kind:'io',n:'输入',t:'数据集里的 claim',s:'同一条记录，各系统使用字段不同',calls:'',items:[claimItem(d)],explain:{t:'输入',p:[`所有系统的输入都是同一条数据集 claim：<b>${esc(cut(d.claim,160))}</b>。claim 日期 ${esc(d.claim_date||'缺失')} 会被用来过滤网页：只放行发布日期不晚于它的页面。`,'本样本的 gold 标签只用于评估；各系统实际使用的 metadata 见输入表。']}});
 
 function mInfact(d,sd){ const t=sd.trace, Q=t.questions; const cols=[inputCol(d)], L=[];
-  cols.push({id:'q',kind:'llm',n:'① 提问',t:'提出 10 个核查问题',s:'prompt: pose_questions.md',calls:'LLM ×1',items:Q.map(q=>({id:'q'+q.i,l:q.question,x:`Q${q.i+1}`,detail:()=>`<h2>问题 Q${q.i+1}</h2><p class="plain">${esc(q.question)}</p>`})),
-    explain:{t:'① 提问',p:['InFact 像记者一样先想清楚要问什么：一次 LLM 调用生成 10 个问题，每个问题之后都各自独立去搜、去读。']}});
+  cols.push({id:'q',kind:'llm',n:'① 提问',t:`提出 ${Q.length} 个核查问题`,s:'prompt: pose_questions.md',calls:'LLM ×1',items:Q.map(q=>({id:'q'+q.i,l:q.question,x:`Q${q.i+1}`,detail:()=>`<h2>问题 Q${q.i+1}</h2><p class="plain">${esc(q.question)}</p>`})),
+    explain:{t:'① 提问',p:[`一次模型处理生成 ${Q.length} 个问题。随后按问题依次生成查询、搜索、尝试回答，并非并行运行多个模型。`]}});
   Q.forEach(q=>L.push(['claim','q'+q.i]));
   cols.push({id:'g',kind:'llm',n:'② 查询',t:'每个问题生成搜索词',s:'prompt: propose_queries.md；每问题最多 3 条',calls:'LLM ×10',items:Q.map(q=>({id:'g'+q.i,l:q.queries.join(' ｜ ')||'（未生成查询）',x:`${q.queries.length} 条查询`,cls:q.queries.length?'':'muted',detail:()=>`<h2>Q${q.i+1} 的搜索词</h2><ol class="small" style="padding-left:18px">${q.queries.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`})),
     explain:{t:'② 生成查询',p:['对每个问题再调用一次 LLM，让它写出搜索词。'],dev:'D-18：原代码会给每条查询整体加双引号做精确短语搜索，实测 135 次搜索 134 次零命中，适配版去掉了这层引号。D-13：每个问题最多取 3 条查询（原来无上限）。'}});
@@ -203,7 +209,7 @@ function mHero2(d,sd){ const t=sd.trace; const cols=[inputCol(d)], L=[];
   cols.push({id:'r',kind:'emb',n:'④ 向量检索',t:`选最像的 top-${t.top_k}`,s:'gte-base；查询向量 = claim 与 8 篇假想文章的均值',calls:'',items:t.qa.map((q,i)=>({id:'r'+i,l:host(q.url),x:`第 ${i+1} 名`,detail:()=>`<h2>检索第 ${i+1} 名</h2><p>${link(q.url)}</p><p class="small faint">运行时没有记录相似度分数，这里只展示被选中的页面和顺序。</p>`})),
     explain:{t:'④ 向量检索',p:[`用 gte-base 给候选池里每篇网页的全文算向量，查询向量是 claim 和 8 篇假想文章向量的平均。按余弦相似度取前 ${t.top_k} 篇（候选 ${t.n_candidates} 篇）。`,'分数当时没有保存，所以这里只能展示排名，不能展示分数。'],dev:'D-21：嵌入在 CPU 上逐篇计算，权重与 8192 token 上限不变。'}});
   t.qa.forEach((q,i)=>L.push(['sf','r'+i]));
-  cols.push({id:'sm',kind:'llm',n:'⑤ 摘要',t:'每篇压缩成一段',s:'输入 ≤24k token',calls:`LLM ×${t.qa.length}`,items:t.qa.map((q,i)=>({id:'sm'+i,l:q.summary||'（未还原）',x:host(q.url),detail:()=>`<h2>摘要 ${i+1}</h2><p class="plain">${esc(q.summary)}</p><p>${link(q.url)}</p><p class="small faint">模型对整篇网页写的摘要，不是原文摘录。</p>`})),
+  cols.push({id:'sm',kind:'llm',n:'⑤ 摘要',t:'每篇压缩成一段',s:'输入按近似 token 规则截断',calls:`LLM ×${t.qa.length}`,items:t.qa.map((q,i)=>({id:'sm'+i,l:q.summary||'（未还原）',x:host(q.url),detail:()=>`<h2>摘要 ${i+1}</h2><p class="plain">${esc(q.summary)}</p><p>${link(q.url)}</p><p class="small faint">模型对整篇网页写的摘要，不是原文摘录。</p>`})),
     explain:{t:'⑤ 摘要',p:['把选中的每篇网页压缩成一段摘要。后面的问答都建立在这些摘要上，而不是网页原文上。'],dev:'D-05：原系统提前对整个 store 做摘要，我们只对选中的这几篇做。'}});
   t.qa.forEach((q,i)=>L.push(['r'+i,'sm'+i]));
   cols.push({id:'qg',kind:'llm',n:'⑥ 倒推问题',t:'为每段摘要编一个问题',s:'10 个训练集范例做 few-shot（BM25 选）',calls:`LLM ×${t.qa.length}`,items:t.qa.map((q,i)=>({id:'qg'+i,l:q.question,x:`Q${i+1}`,detail:()=>`<h2>倒推出的问题 Q${i+1}</h2><p class="plain">${esc(q.question)}</p><p class="small faint">先有证据后有问题：这个问题是给摘要配的“标题”，系统并没有真的去查这个问题。</p>`})),
@@ -213,11 +219,11 @@ function mHero2(d,sd){ const t=sd.trace; const cols=[inputCol(d)], L=[];
     explain:{t:'⑦ 改写回答',p:[`按每个问题把摘要改写成回答，得到最终的问答对。本条保留 ${t.qa.length} 组${t.dropped_after_rewrite?`，丢弃 ${t.dropped_after_rewrite} 组`:''}。`]}});
   t.qa.forEach((q,i)=>{L.push(['qg'+i,'rw'+i]);L.push(['rw'+i,'OUT'])});
   return {cols,links:L,out:{calls:'⑧ 判决 LLM ×1',components:t.qa.map((q,i)=>({id:'rw'+i,l:`Q${i+1} ${cut(q.question,60)}`})),reason:t.vp_text,reasonLabel:'判决时的推理（justification）',
-    explain:{t:'⑧ 判决 → 输出',p:['把全部问答放进判决 prompt，模型一步步推理并给出标签。判决 prompt 与原系统一致。',`组成这个判决的组件：<b>${t.qa.length}</b> 组问答。HerO2 不输出概率，下面四个候选只标出被选中的那一个。`],dev:'D-04：原系统用微调过的 Qwen3-32B 判决，我们用同一个 prompt 喂未微调的 Gemma。四个系统里这是能力来源改动最大的一处。'}}};
+    explain:{t:'⑧ 判决 → 输出',p:['把全部问答放进判决 prompt，模型一步步推理并给出标签。判决 prompt 与原系统一致。',`组成这个判决的组件：<b>${t.qa.length}</b> 组问答。HerO2 不输出概率，下面四个候选只标出被选中的那一个。`],dev:'D-04：原系统用微调过的 Qwen3-32B 判决，我们用同一个 prompt 喂未微调的 Gemma。这一替换不保留原判决模型的微调能力。'}}};
 }
 
 function mSanct(d,sd){ const t=sd.trace, H=t.hyde, st=t.stats||{}; const cols=[inputCol(d)], L=[];
-  cols.push({id:'hq',kind:'llm',n:'① HyDE 问答',t:`写 ${H.length} 组假想问答`,s:`并猜一个标签：${t.label_guess||'—'}`,calls:'LLM ×1',items:H.map((h,i)=>({id:'hq'+i,l:h.question,x:`Q${i+1} · 假想答案 ${h.answers.length} 条`,detail:()=>`<h2>假想问答 Q${i+1}</h2><p class="plain"><b>${esc(h.question)}</b></p>${h.answers.map(a=>`<p class="plain">${esc(a)}</p>`).join('')}<p class="small faint">prompt 明说“需要时可以编造事实”：这些答案是模型的猜测，只用作检索查询，不是证据。</p>`})),
+  cols.push({id:'hq',kind:'llm',n:'① HyDE 问答',t:`写 ${H.length} 组假想问答`,s:`并猜一个标签：${t.label_guess||'—'}`,calls:'LLM ×1',items:H.map((h,i)=>({id:'hq'+i,l:h.question,x:`Q${i+1} · 假想答案 ${h.answers.length} 条`,detail:()=>`<h2>假想问答 Q${i+1}</h2><p class="plain"><b>${esc(h.question)}</b></p>${h.answers.map(a=>`<p class="plain">${esc(a)}</p>`).join('')}<p class="small faint">prompt 明说“需要时可以编造事实”：这些答案是模型的猜测，问题用于 web 搜索，问题加假想答案用于 BM25 检索；不是证据。</p>`})),
     explain:{t:'① HyDE：先编一套“标准答案”',p:[`一次 LLM 调用先写出 ${H.length} 组问题和假想答案，并顺手猜一个标签（本条猜 <b>${esc(t.label_guess||'—')}</b>）。答案允许编造，只用来当检索查询。`]}});
   H.forEach((h,i)=>L.push(['claim','hq'+i]));
   cols.push({id:'ss',kind:'web',n:'② 搜索 + 过滤',t:'每个问题搜 10 条',s:'共同适配层',calls:`搜索 ${H.length} 次`,items:H.map((h,i)=>({id:'ss'+i,l:`${h.funnel.results} 条结果 → ${h.funnel.admitted} 页放行`,x:`Q${i+1}`,html:funnelBar(h.funnel),detail:()=>`<h2>Q${i+1} 的搜索与过滤</h2><p>${funnelText(h.funnel)}</p>${searchHtml(h.search)}`})),
@@ -239,7 +245,7 @@ function mSanct(d,sd){ const t=sd.trace, H=t.hyde, st=t.stats||{}; const cols=[i
 
 function mAic(d,sd){ const t=sd.trace; const cols=[inputCol(d)], L=[]; const failed=sd.status!=='ok';
   cols.push({id:'as',kind:'web',n:'① 搜索 + 过滤',t:'claim 原文搜 1 次',s:'共同适配层',calls:'搜索 ×1',items:[{id:'as',l:`${t.funnel.results} 条结果 → ${t.funnel.admitted} 页放行`,x:'查询 = claim 原文',html:funnelBar(t.funnel),cls:t.funnel.admitted?'':'bad',detail:()=>`<h2>搜索与过滤</h2><p>${funnelText(t.funnel)}</p>${searchHtml(t.search)}`}],
-    explain:{t:'① 搜索与日期过滤',p:['AIC CTU 只用 claim 原文搜一次。这是四个系统里搜索最少的，也是它最脆弱的地方。',funnelText(t.funnel)+'。',failed?'<b>本条过滤后一页都没剩，后面的步骤全部没有发生，状态记为 retrieval_failed，判决按错误计。</b>':''],dev:'D-14：原系统在 FAISS store 里检索；用 claim 搜一次是本项目的规则（原系统的子查询检索与投稿一致保持关闭）。'}});
+    explain:{t:'① 搜索与日期过滤',p:['AIC CTU 只用 claim 原文搜一次。后续结果取决于这一次查询召回的页面。',funnelText(t.funnel)+'。',failed?'<b>本条过滤后一页都没剩，后面的步骤全部没有发生，状态记为 retrieval_failed，判决按错误计。</b>':''],dev:'D-14：原系统在 FAISS store 里检索；用 claim 搜一次是本项目的规则（原系统的子查询检索与投稿一致保持关闭）。'}});
   L.push(['claim','as']);
   if(failed){
     [['② 切块 + MMR','emb'],['③ few-shot','alg'],['④ 一次生成','llm'],['⑤ Likert 打分','llm']].forEach(([n,k],j)=>{ cols.push({id:'ghost'+j,kind:k,n,t:'本条没有发生',s:'上一步没有任何可用页面',calls:'',items:[{id:'ghost'+j,l:'未发生',x:'retrieval_failed',cls:'muted',detail:()=>`<h2>${esc(n)}：本条没有发生</h2><p>搜索结果经日期过滤后一页都没剩，这一步没有输入，所以没有执行。</p>`}],explain:{t:n+'（未发生）',p:['上一步没有留下任何可用页面，AIC CTU 的流程在这里就停了：没有切块、没有问答、没有打分。']}}); L.push([j?'ghost'+(j-1):'as','ghost'+j]); });
@@ -254,7 +260,7 @@ function mAic(d,sd){ const t=sd.trace; const cols=[inputCol(d)], L=[]; const fai
   const Q=t.qa;
   cols.push({id:'gq',kind:'llm',n:'④ 一次生成',t:'问答 + 引用的 Source ID',s:'所有内容在同一次调用里产生',calls:'LLM ×1',items:Q.map((q,i)=>{const sid=parseInt(String(q.source||'').split(',')[0],10);return {id:'gq'+i,l:q.question,x:`${q.answer_type||''} · ${Number.isFinite(sid)?'Source '+sid:'无来源'}`,cls:Number.isFinite(sid)?'good':'muted',
       detail:()=>`<h2>问答 ${i+1}</h2><p class="plain"><b>${esc(q.question)}</b></p><p class="plain">${esc(q.answer)}</p><div class="kv"><span>回答类型</span><b>${esc(q.answer_type||'—')}</b><span>引用</span><b>${Number.isFinite(sid)?'Source ID '+sid:'未提供对应来源'}</b></div>`}}),
-    explain:{t:'④ 一次生成问答',p:['把 10 个块、10 个范例和输出格式说明拼成一个大 prompt，模型一次性写出问答（每条注明引用哪个 Source ID）和对四个标签的打分。这是 AIC CTU 唯一的一次 LLM 调用。'],dev:'D-02：原代码解析失败会拿上一条 claim 的输出顶替，我们改成同一条重试一次后记失败。'}});
+    explain:{t:'④ 一次生成问答',p:['把 10 个块、10 个范例和输出格式说明拼成一个大 prompt，模型一次性写出问答（每条注明引用哪个 Source ID）和对四个标签的打分。这是一个生成阶段；解析失败时可能重试。'],dev:'D-02：原代码解析失败会拿上一条 claim 的输出顶替，我们改成同一条重试一次后记失败。'}});
   Q.forEach((q,i)=>{const sid=parseInt(String(q.source||'').split(',')[0],10); if(Number.isFinite(sid)&&C.some(c=>c.id===sid)) L.push(['ch'+sid,'gq'+i]);});
   const lk=t.likert_raw||{};
   cols.push({id:'lk',kind:'llm',n:'⑤ Likert 打分',t:'四个标签各打 1–5 分',s:'同一次调用的输出',calls:'',items:LABELS.map((lab,i)=>({id:'lk'+i,l:`${short(lab)}：${lk[lab]??'—'} 分`,x:['非常不同意','不同意','中立','同意','非常同意'][(parseInt(lk[lab],10)||3)-1],detail:()=>`<h2>${esc(lab)}</h2><p>模型给“判为 ${esc(lab)}”的同意程度打了 <b>${esc(lk[lab])}</b> 分（1–5）。</p>`})),
@@ -262,15 +268,15 @@ function mAic(d,sd){ const t=sd.trace; const cols=[inputCol(d)], L=[]; const fai
   Q.forEach((q,i)=>LABELS.forEach((l,j)=>L.push(['gq'+i,'lk'+j])));  // same call: every score is conditioned on the whole answer, not on one QA
   LABELS.forEach((l,j)=>L.push(['lk'+j,'OUT']));
   return {cols,links:L,out:{calls:'⑥ softmax → 取最大',components:LABELS.map((l,j)=>({id:'lk'+j,l:`${short(l)} · ${lk[l]} 分`})),probs:t.probs,likert:lk,
-    explain:{t:'⑥ softmax → top-1',p:['把四个 Likert 分数映射到 −2…+2，做 softmax 得到四个概率，取最大的一个作为判决。这是四个系统里唯一一个真的有“概率分布”的：下面的条形图就是本条的真实数值。','可以拖下面的“假设”滑杆改某个分数，看 top-1 怎么变。这只是演示计算规则，不是系统输出。']}}};
+    explain:{t:'⑥ softmax → top-1',p:['把四个 Likert 分数映射到 −2…+2，做 softmax 得到四个概率，取最大的一个作为判决。这些是 softmax 归一化分数，不是校准后的置信度。','可以拖下面的“假设”滑杆改某个分数，看 top-1 怎么变。这只是演示计算规则，不是系统输出。']}}};
 }
 const BUILD={infact:mInfact,hero2:mHero2,sanctuary:mSanct,aic_ctu_averitec:mAic};
 
 // ---------------------------------------------------------------- render
 function render(){
-  const d=DOC, sd=d.systems[S.sys]; M=BUILD[S.sys](d,sd);
-  const nSteps=M.cols.length; $('#step').max=String(nSteps); if(S.step>nSteps) S.step=nSteps;
-  $('#claimbar').innerHTML=`<span class="c">${esc(d.claim)}</span><span class="m">${esc(d.claim_date||'')} · 原始 ID ${d.original_index} · gold <span class="badge ${vcls(d.gold_label)}">${esc(d.gold_label)}</span>${d.note?` · ${esc(d.note)}`:''}</span>`;
+  const d=DOC, sd=d.systems[S.sys]; S.hov=null; $('#detail').innerHTML='<h2>选择一个流程节点</h2><p>点选节点查看当前样本的中间结果。</p>'; M=BUILD[S.sys](d,sd); window.ExplainerGuide.enrich(M,d,S);
+  const nSteps=M.cols.length; $('#step').max=String(nSteps); S.step=Number.isFinite(S.step)?Math.max(0,Math.min(Math.floor(S.step),nSteps)):0;
+  $('#claimbar').innerHTML=`<span class="c">${esc(d.claim)}</span><span class="m">AVeriTeC dev / ${d.original_index} · Claim 日期 ${esc(d.claim_date||'未提供')}</span>`;
   const colHtml=M.cols.map((c,ci)=>`<div class="col k-${c.kind}${c.items.length>8?' ':''}" data-ci="${ci}"><div class="hd" data-ci="${ci}"><div class="n"><span>${esc(c.n)}</span><span>${esc(c.calls||'')}</span></div><div class="t">${esc(c.t)}</div><div class="s">${esc(c.s||'')}</div></div>${c.items.map(it=>`<button class="item k-${c.kind} ${it.cls||''}" data-id="${esc(it.id)}" title="${esc(cut(plain(it.l),400))}"><div class="l">${esc(cut(plain(it.l),160))}</div>${it.x?`<div class="x">${esc(it.x)}</div>`:''}${it.html||''}</button>`).join('')}</div>`).join('');
   $('#canvas').innerHTML=`<svg class="ribbons" id="rib"></svg>${colHtml}${outHtml(d,sd)}`;
   $('#canvas').querySelectorAll('.item').forEach(b=>{b.onmouseenter=()=>hover(b.dataset.id);b.onmouseleave=()=>hover(null);b.onclick=()=>select(b.dataset.id)});
@@ -328,27 +334,35 @@ function sync(){ $('#step').value=S.step; const n=M.cols.length; const ex=S.step
   $('#steplabel').textContent=`${Math.min(S.step,n)+1} / ${n+1} · ${title}`;
   $('#explain').innerHTML=`<h2>${esc(ex.t)}</h2>${ex.p.filter(Boolean).map(p=>`<p>${p}</p>`).join('')}${ex.dev?`<div class="dev"><b>与原系统的差异：</b>${ex.dev}</div>`:''}`;
   applyStep(); const cur=$('#canvas').querySelector(`[data-ci="${S.step}"]`); if(cur&&S.scroll){ const w=$('#wrap'); w.scrollTo({left:Math.max(0,cur.offsetLeft-80),behavior:'smooth'}); } S.scroll=true;
-  writeHash(); }
+  window.ExplainerGuide.render({model:M,doc:DOC,state:S,go:goStep});
+  setView(S.view); writeHash(); }
 $('#step').oninput=e=>{S.step=+e.target.value;stopPlay();sync()};
 function stopPlay(){ if(S.timer){clearInterval(S.timer);S.timer=null;$('#play').textContent='▶';} }
 $('#play').onclick=()=>{ if(S.timer) return stopPlay(); if(S.step>=M.cols.length) S.step=0; $('#play').textContent='❚❚'; S.timer=setInterval(()=>{ if(S.step>=M.cols.length) return stopPlay(); S.step++; sync(); },1500); };
 
+function goStep(step){stopPlay();S.step=Math.max(0,Math.min(step,M.cols.length));S.focusIndex=0;S.requestIndex=0;sync();}
+function setView(view){S.view=view==='overview'?'overview':'guided';const overview=S.view==='overview';$('#guide').hidden=overview;$('#overview').hidden=!overview;$('#guided-view').setAttribute('aria-pressed',String(!overview));$('#overview-view').setAttribute('aria-pressed',String(overview));document.body.classList.toggle('view-overview',overview);if(overview)requestAnimationFrame(draw);}
+$('#guided-view').onclick=()=>{setView('guided');writeHash()};
+$('#overview-view').onclick=()=>{setView('overview');writeHash()};
+
 // routing and loading
-function writeHash(){ history.replaceState(null,'',`#ex=${S.ex}&sys=${S.sys}&step=${S.step}`); }
-function readHash(){ const p=new URLSearchParams(location.hash.slice(1)); return {ex:p.has('ex')?+p.get('ex'):null, sys:p.get('sys'), step:p.has('step')?+p.get('step'):null}; }
+function writeHash(){ history.replaceState(null,'',`#ex=${S.ex}&sys=${S.sys}&step=${S.step}${S.view==='overview'?'&view=overview':''}`); }
+function readHash(){ const p=new URLSearchParams(location.hash.slice(1)); return {ex:p.has('ex')?+p.get('ex'):null, sys:p.get('sys'), step:p.has('step')?+p.get('step'):null,view:p.get('view')}; }
 async function loadEx(i){ const r=await fetch(`data/traces/${i}.json`,{cache:'no-store'}); if(!r.ok) throw new Error('trace '+i+' HTTP '+r.status); DOC=await r.json(); S.ex=i; S.whatif=null; }
-function sysBar(){ $('#sys').innerHTML=SYS.map(([k,n])=>{const sd=DOC.systems[k]; return `<button data-k="${k}" class="${k===S.sys?'on':''}">${n} <span class="badge ${vcls(sd.predicted_label)}" style="font-size:10.5px;padding:0 5px">${short(sd.predicted_label)}${sd.label_correct?' ✓':' ✗'}</span></button>`;}).join('');
-  $('#sys').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.sys=b.dataset.k;S.step=0;S.whatif=null;stopPlay();sysBar();render();}); }
+function sysBar(){ $('#sys').innerHTML=SYS.map(([k,n])=>`<button data-k="${k}" aria-pressed="${k===S.sys}" class="${k===S.sys?'on':''}">${n}</button>`).join('');
+  $('#sys').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.sys=b.dataset.k;S.step=0;S.focusIndex=0;S.requestIndex=0;S.whatif=null;stopPlay();sysBar();render();}); }
+
 async function boot(){
   const r=await fetch('data/traces/index.json',{cache:'no-store'}); IDX=await r.json();
   $('#ex').innerHTML=IDX.examples.map(e=>`<option value="${e.original_index}">#${e.original_index} · ${esc(e.note||'')} · ${esc(cut(e.claim,70))}</option>`).join('');
   const h=readHash(); const first=IDX.examples.some(e=>e.original_index===h.ex)?h.ex:IDX.examples[0].original_index;
-  if(h.sys&&BUILD[h.sys]) S.sys=h.sys; if(h.step!=null) S.step=h.step; S.scroll=false;
+  if(h.sys&&BUILD[h.sys]) S.sys=h.sys; if(h.step!=null) S.step=h.step; S.scroll=false; S.view=h.view==='overview'?'overview':'guided';
   await loadEx(first); $('#ex').value=String(first); sysBar(); render();
-  $('#ex').onchange=async e=>{stopPlay(); await loadEx(+e.target.value); S.step=0; sysBar(); render();};
+  $('#ex').onchange=async e=>{stopPlay(); await loadEx(+e.target.value); S.step=0; S.focusIndex=0; S.requestIndex=0; sysBar(); render();};
 }
+window.addEventListener('hashchange',async()=>{if(!IDX)return;stopPlay();const h=readHash();const id=IDX.examples.some(e=>e.original_index===h.ex)?h.ex:IDX.examples[0].original_index;try{if(id!==S.ex)await loadEx(id);S.sys=BUILD[h.sys]?h.sys:'infact';S.step=h.step??0;S.view=h.view==='overview'?'overview':'guided';S.focusIndex=0;S.requestIndex=0;$('#ex').value=String(id);sysBar();render();}catch(e){$('#guide').textContent='加载失败：'+e.message;}});
 window.addEventListener('resize',()=>requestAnimationFrame(draw));
-boot().catch(e=>{ $('#canvas').innerHTML=`<div class="panel" style="margin:20px">加载失败：${esc(e.message)}。本页需通过 HTTP 访问，并且 data/traces/ 必须存在。</div>`; console.error(e); });
+boot().catch(e=>{ $('#guide').innerHTML=`<div class="panel" style="margin:20px">加载失败：${esc(e.message)}。本页需通过 HTTP 访问，并且 data/traces/ 必须存在。</div>`; console.error(e); });
 })();
 </script>
 </body>
