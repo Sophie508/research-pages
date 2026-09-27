@@ -1,0 +1,66 @@
+{
+ "examples": [
+  {
+   "original_index": 0,
+   "claim": "In a letter to Steve Jobs, Sean Connery refused to appear in an apple commercial.",
+   "gold_label": "Refuted",
+   "note": "四个系统全部判对（gold Refuted）",
+   "preds": {
+    "infact": "Refuted",
+    "hero2": "Refuted",
+    "sanctuary": "Refuted",
+    "aic_ctu_averitec": "Refuted"
+   }
+  },
+  {
+   "original_index": 31,
+   "claim": "Amy Coney Barrett was confirmed as US Supreme Court Justice on October 26, 2020",
+   "gold_label": "Supported",
+   "note": "四个系统全部判对（gold Supported）",
+   "preds": {
+    "infact": "Supported",
+    "hero2": "Supported",
+    "sanctuary": "Supported",
+    "aic_ctu_averitec": "Supported"
+   }
+  },
+  {
+   "original_index": 3,
+   "claim": "UNESCO declared Nadar community as the most ancient race in the world.",
+   "gold_label": "Refuted",
+   "note": "四个系统给出三种不同判决",
+   "preds": {
+    "infact": "Not Enough Evidence",
+    "hero2": "Supported",
+    "sanctuary": "Refuted",
+    "aic_ctu_averitec": "Refuted"
+   }
+  },
+  {
+   "original_index": 2,
+   "claim": "Due to Imran Khan's criticism of Macron's comments on Islam, French authorities cancelled the visas of 183 Pakistani citizens and deported 118 from the country.",
+   "gold_label": "Refuted",
+   "note": "InFact 无证据（no_evidence）",
+   "preds": {
+    "infact": "Not Enough Evidence",
+    "hero2": "Not Enough Evidence",
+    "sanctuary": "Not Enough Evidence",
+    "aic_ctu_averitec": "Refuted"
+   }
+  },
+  {
+   "original_index": 34,
+   "claim": "The United States, New Zealand, U.K., Australia, and the EU have not included the NDF in their official list of terrorist groups.",
+   "gold_label": "Supported",
+   "note": "AIC CTU 检索失败",
+   "preds": {
+    "infact": "Conflicting Evidence/Cherrypicking",
+    "hero2": "Conflicting Evidence/Cherrypicking",
+    "sanctuary": "Supported",
+    "aic_ctu_averitec": null
+   }
+  }
+ ],
+ "rule": "示例覆盖：全部判对、判决分歧、无证据、检索失败，不只挑成功案例。任何 ID 都可以用 build_traces.py 生成。",
+ "limits": "检索打分（向量相似度、BM25、MMR）运行时没有记录，页面只展示选中结果与顺序，不展示分数。完整 prompt 与网页正文不公开；检索片段只保留短摘录。"
+}
