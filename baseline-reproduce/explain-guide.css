@@ -50,3 +50,7 @@ button:disabled{opacity:.4;cursor:default}button:focus-visible,summary:focus-vis
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 .retained-note{padding:0 22px}
+
+/* Stack long values in the narrow sidebar instead of squeezing a table. */
+.input-fields{margin:0 18px 18px}.input-field{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;padding:15px 0;border-top:1px solid var(--line)}
+.input-field dt{font-size:12px;font-weight:600}.field-use{font-size:11px;text-align:right}.field-value{grid-column:1/-1;min-width:0;font-size:13px;line-height:1.75;white-space:normal;word-break:normal;overflow-wrap:anywhere}
