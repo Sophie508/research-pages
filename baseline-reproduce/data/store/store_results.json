@@ -1,0 +1,274 @@
+{
+ "schema": "store-results-1",
+ "source_repo": "Sophie508/multi-culture-fact-checking, branch baseline-reproduce",
+ "source_commit": "678d631",
+ "text": {
+  "infact": {
+   "ours": [
+    {
+     "who": "Ours, original InFact code",
+     "model": "Gemma-4-26B",
+     "eval_set": "dev, all 500",
+     "accuracy": 0.632,
+     "macro_f1": 0.518,
+     "q_only": 0.41,
+     "qa": 0.31,
+     "averitec_025": 0.474
+    },
+    {
+     "who": "Ours, original InFact code (subset)",
+     "model": "Gemma-4-26B",
+     "eval_set": "dev IDs 0–99",
+     "accuracy": 0.65,
+     "macro_f1": 0.526,
+     "q_only": 0.413,
+     "qa": 0.314,
+     "averitec_025": 0.55
+    }
+   ],
+   "reference": [
+    {
+     "who": "InFact paper, Table 2",
+     "model": "GPT-4o",
+     "eval_set": "dev, all 500",
+     "accuracy": 0.724,
+     "macro_f1": null,
+     "q_only": 0.458,
+     "qa": 0.332,
+     "averitec_025": 0.588
+    },
+    {
+     "who": "InFact paper, Table 2",
+     "model": "GPT-4o-mini",
+     "eval_set": "dev, all 500",
+     "accuracy": 0.602,
+     "macro_f1": null,
+     "q_only": 0.433,
+     "qa": 0.315,
+     "averitec_025": 0.472
+    },
+    {
+     "who": "InFact paper, Table 2",
+     "model": "Llama 3 70B",
+     "eval_set": "dev, all 500",
+     "accuracy": 0.618,
+     "macro_f1": null,
+     "q_only": 0.396,
+     "qa": 0.295,
+     "averitec_025": 0.402
+    }
+   ]
+  },
+  "aic_ctu": {
+   "ours": [
+    {
+     "who": "Ours, original AIC CTU code",
+     "model": "qwen3-14b via OpenRouter",
+     "eval_set": "dev IDs 0–99",
+     "accuracy": 0.69,
+     "macro_f1": 0.479,
+     "q_only": 0.435,
+     "qa": 0.282,
+     "averitec_025": 0.39
+    }
+   ],
+   "reference": [
+    {
+     "who": "AIC CTU authors' dev predictions, scored by us",
+     "model": "qwen3:14b, local Ollama",
+     "eval_set": "dev IDs 0–99",
+     "accuracy": 0.64,
+     "macro_f1": 0.418,
+     "q_only": 0.447,
+     "qa": 0.292,
+     "averitec_025": 0.41
+    }
+   ]
+  },
+  "hero2": {
+   "ours": [
+    {
+     "who": "Ours, original HerO2 code and models",
+     "model": "authors' Qwen3-32B-AWQ-HerO, local",
+     "eval_set": "dev IDs 0–99",
+     "accuracy": 0.65,
+     "macro_f1": 0.331,
+     "q_only": 0.48,
+     "qa": 0.313,
+     "averitec_025": 0.56
+    }
+   ],
+   "reference": [
+    {
+     "who": "HerO2 paper, Table 4",
+     "model": "Qwen3-32B AWQ, fine-tuned",
+     "eval_set": "dev, all 500",
+     "accuracy": 0.692,
+     "macro_f1": 0.382,
+     "q_only": null,
+     "qa": null,
+     "averitec_025": null
+    }
+   ]
+  },
+  "sanctuary": {
+   "ours": [
+    {
+     "who": "Ours, original SANCTUARY code and models",
+     "model": "Qwen2.5-7B / Phi-4 GPTQ, local",
+     "eval_set": "dev IDs 0–99",
+     "accuracy": 0.68,
+     "macro_f1": 0.449,
+     "q_only": 0.459,
+     "qa": 0.223,
+     "averitec_025": 0.19
+    }
+   ],
+   "reference": [
+    {
+     "who": "SANCTUARY thesis, Table 5.3",
+     "model": "Qwen2.5-7B / Phi-4 GPTQ",
+     "eval_set": "100 class-balanced dev claims",
+     "accuracy": 0.535,
+     "macro_f1": 0.486,
+     "q_only": null,
+     "qa": null,
+     "averitec_025": null
+    }
+   ]
+  }
+ },
+ "ev2r": {
+  "judge": "Llama-3.3-70B (official 2025 evaluator, judge called through OpenRouter, DeepInfra), threshold 0.5",
+  "judge_check": {
+   "who": "AIC CTU authors' 500 dev predictions, scored by us",
+   "eval_set": "dev, all 500",
+   "q_only": 0.219,
+   "qa": 0.569,
+   "new_score": 0.394
+  },
+  "rows": {
+   "aic_ctu": {
+    "ours": {
+     "eval_set": "dev IDs 0–99",
+     "q_only": 0.141,
+     "qa": 0.639,
+     "new_score": 0.46
+    },
+    "authors_same_claims": {
+     "eval_set": "dev IDs 0–99",
+     "q_only": 0.183,
+     "qa": 0.579,
+     "new_score": 0.43
+    },
+    "paper": {
+     "who": "AIC CTU paper (2025), Table 2",
+     "eval_set": "dev",
+     "q_only": "0.20–0.29",
+     "qa": "0.59",
+     "new_score": "0.41–0.42"
+    }
+   },
+   "hero2": {
+    "ours": {
+     "eval_set": "dev IDs 0–99",
+     "q_only": 0.179,
+     "qa": 0.57,
+     "new_score": 0.36
+    },
+    "paper": {
+     "who": "HerO2 paper, Table 3",
+     "eval_set": "dev",
+     "q_only": null,
+     "qa": "0.556",
+     "new_score": null
+    }
+   },
+   "sanctuary": {
+    "ours": {
+     "eval_set": "dev IDs 0–99",
+     "q_only": 0.254,
+     "qa": 0.524,
+     "new_score": 0.35
+    },
+    "paper": {
+     "who": "SANCTUARY thesis, Table 5.2",
+     "eval_set": "100 class-balanced dev claims",
+     "q_only": "0.343",
+     "qa": "0.517",
+     "new_score": "0.29"
+    }
+   }
+  }
+ },
+ "image_text": {
+  "status": {
+   "as_of": "2026-10-04 07:10 UTC",
+   "villain": {
+    "model": "Qwen3-VL-8B-Thinking, local",
+    "eval_set": "AVerImaTeC dev, all 152",
+    "state": "生成中（120/152），之后用 Gemma-3-27B 本地评分"
+   },
+   "aic_ctu_mm": {
+    "model": "Gemma-4-26B via OpenRouter",
+    "eval_set": "AVerImaTeC dev, all 152",
+    "state": "生成完成（152/152），等待 Gemma-3-27B 本地评分"
+   }
+  },
+  "reference": {
+   "villain": {
+    "who": "VILLAIN paper, Table 4 (Qwen3-VL-8B)",
+    "q": 0.737,
+    "evid": 0.396,
+    "verdict": 0.421,
+    "just": null
+   },
+   "aic_ctu_mm": {
+    "who": "AVerImaTeC dev leaderboard (GPT-5.1)",
+    "q": 0.822,
+    "evid": 0.347,
+    "verdict": 0.375,
+    "just": 0.304
+   }
+  }
+ },
+ "sources": {
+  "infact_500": {
+   "file": "infact_official_store/averitec_scores.yaml",
+   "sha256": "404cd2d2cc6fac1717951c591ec6ef250d1f222fb5418e061e6e69dc99349b36"
+  },
+  "infact_100": {
+   "file": "infact_official_store/first100_averitec_scores.yaml",
+   "sha256": "2539a0d182ad80f40d3964804c91c284472c9c3b13adc9e02a7128be49919b92"
+  },
+  "aic_legacy": {
+   "file": "aic_ctu_official_store/legacy_scores_first100.json",
+   "sha256": "04ce65267a834da9c491cad70cfd895fed74f9047fe8c36499d332460bf97d63"
+  },
+  "hero2_legacy": {
+   "file": "hero2_official_store/legacy_scores_first100.json",
+   "sha256": "b8bbbac97fd13c36b3a0b349c79b9d6b7225e36388763ed67cf6a73182b88ad7"
+  },
+  "sanctuary_legacy": {
+   "file": "sanctuary_official_store/legacy_scores_first100.json",
+   "sha256": "2a0743b138e877a9212e49fb7c35c7cfeb4ee0ec2c086f8a1c283390c814c781"
+  },
+  "ev2r_aic_ours": {
+   "file": "ev2r/results/aic_ours_first100.json",
+   "sha256": "8d7f60a626c0630bd8464cd8fd1a332094a793843fce4715aeccaf623c88a1ea"
+  },
+  "ev2r_aic_authors": {
+   "file": "ev2r/results/aic_authors_dev500.json",
+   "sha256": "007c9351c691650f09d107e6f8c33f2040262715fcfe9590097649c76558d11e"
+  },
+  "ev2r_hero2": {
+   "file": "ev2r/results/hero2_ours_first100.json",
+   "sha256": "f60ae4d0e5beee883e00326002907620d75058574bce2596ba4216f0848672d7"
+  },
+  "ev2r_sanctuary": {
+   "file": "ev2r/results/sanctuary_ours_first100.json",
+   "sha256": "abf06f53071777c58f70690983e7e1c4eea518427e05e21087822f9f6619b548"
+  }
+ },
+ "generated_utc": "2026-10-04T06:26:39Z"
+}

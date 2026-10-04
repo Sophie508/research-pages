@@ -149,6 +149,7 @@ details.src td{padding:5px 6px;border-bottom:1px solid var(--border);vertical-al
 .reftoggle button.on.s{border-color:var(--ref-silver);color:var(--ref-silver)}
 .cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .tbl{overflow-x:auto;margin-top:12px} .tbl table{width:100%;border-collapse:collapse;font-size:13px} .tbl th{text-align:left;color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;padding:6px 8px;border-bottom:1px solid var(--border)} .tbl td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
+.tbl tr.ours td{background:rgba(242,140,40,.07)}
 .cmp select{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 10px;font:inherit;font-size:14px;width:100%}
 .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 14px;font-weight:600;font-size:13.5px}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
@@ -403,7 +404,30 @@ footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padd
 
   // ---------------- Results ----------------
   async function results(){
-    setNav('results'); const S=MET.systems, order=TEXT_SYS(); const th=Object.keys(S[order[0]].legacy_joint_by_threshold);
+    setNav('results');
+    const sr=await fetch('data/store/store_results.json?t='+Date.now(),{cache:'no-store'}); if(!sr.ok) throw new Error('store_results.json HTTP '+sr.status); const ST=await sr.json();
+    const p1=(x)=>x==null?'—':(x*100).toFixed(1)+'%'; const cell=(x)=>x==null?'—':(typeof x==='string'?esc(x):f3(x));
+    const SNAME={infact:'InFact',aic_ctu:'AIC CTU',hero2:'HerO2',sanctuary:'SANCTUARY'};
+    const stRow=(r,ours)=>`<tr${ours?' class="ours"':''}><td>${ours?'<b>'+esc(r.who)+'</b>':esc(r.who)}</td><td>${esc(r.model)}</td><td>${esc(r.eval_set)}</td><td>${p1(r.accuracy)}</td><td>${f3(r.macro_f1)}</td><td>${f3(r.q_only)}</td><td>${f3(r.qa)}</td><td>${p1(r.averitec_025)}</td></tr>`;
+    const stTable=(k)=>{const t=ST.text[k]; return `<h3>${SNAME[k]}</h3><div class="tbl"><table><thead><tr><th>谁跑的</th><th>模型</th><th>样本</th><th>Accuracy</th><th>Macro-F1</th><th>Q-only<br><span class="thsub">HU-METEOR</span></th><th>Q+A<br><span class="thsub">HU-METEOR</span></th><th>AVeriTeC 分数<br><span class="thsub">@0.25</span></th></tr></thead><tbody>${t.reference.map(r=>stRow(r,false)).join('')}${t.ours.map(r=>stRow(r,true)).join('')}</tbody></table></div>`;};
+    const E=ST.ev2r, evR=(who,set,r,ours)=>`<tr${ours?' class="ours"':''}><td>${ours?'<b>'+esc(who)+'</b>':esc(who)}</td><td>${esc(set)}</td><td>${cell(r.q_only)}</td><td>${cell(r.qa)}</td><td>${cell(r.new_score)}</td></tr>`;
+    const ev2r=`<div class="tbl"><table><thead><tr><th>谁的输出</th><th>样本</th><th>Q-only recall</th><th>Q+A recall</th><th>新 AVeriTeC 分数 @0.5</th></tr></thead><tbody>
+      ${evR(E.rows.aic_ctu.paper.who,E.rows.aic_ctu.paper.eval_set,E.rows.aic_ctu.paper,false)}${evR(E.judge_check.who,E.judge_check.eval_set,E.judge_check,false)}${evR("AIC CTU authors' predictions, same 100 claims, scored by us",'dev IDs 0–99',E.rows.aic_ctu.authors_same_claims,false)}${evR('Ours, AIC CTU','dev IDs 0–99',E.rows.aic_ctu.ours,true)}
+      ${evR(E.rows.hero2.paper.who,E.rows.hero2.paper.eval_set,E.rows.hero2.paper,false)}${evR('Ours, HerO2','dev IDs 0–99',E.rows.hero2.ours,true)}
+      ${evR(E.rows.sanctuary.paper.who,E.rows.sanctuary.paper.eval_set,E.rows.sanctuary.paper,false)}${evR('Ours, SANCTUARY','dev IDs 0–99',E.rows.sanctuary.ours,true)}</tbody></table></div>`;
+    const MS=ST.image_text.status, MR=ST.image_text.reference, mmRow=(k,name)=>`<tr><td><b>${name}</b></td><td>${esc(MS[k].model)}</td><td>${esc(MS[k].eval_set)}</td><td>${esc(MS[k].state)}</td><td>${esc(MR[k].who)}：问题 ${f3(MR[k].q)} / 证据 ${f3(MR[k].evid)} / 判决 ${f3(MR[k].verdict)}${MR[k].just!=null?' / 理由 '+f3(MR[k].just):''}</td></tr>`;
+    const store=`<div class="panel"><h2>官方 knowledge store 复现（主线）</h2>
+      <div class="notice" style="margin:10px 0">9 月 30 日起按导师要求，先用 shared task 的官方 knowledge store 和各系统作者的原版代码复现，确认复现本身没问题，再做改动。粗体行是我们的运行，其余是论文或作者公开的数字。模型、样本不完全相同的行只能粗略对比，各节下方有说明。</div>
+      ${stTable('infact')}<div class="small muted" style="margin-top:6px">dev 500 那行和论文三行是同一批 claim、同一个 store、同一个评分器，只差模型（论文没有 Gemma 的数字）；四项都落在论文三个模型之间，和 GPT-4o-mini 几乎重合。前 100 条那行偏高，说明前 100 条比全量容易。</div>
+      ${stTable('aic_ctu')}<div class="small muted" style="margin-top:6px">作者那行来自其仓库里自带的 dev 预测文件，由我们用同一评分器打分；两行样本、store、代码、评分器都相同，只有模型量化精度不同（本地 4-bit 对 API fp8）。生成有随机采样且没有重复运行，accuracy 的 5 个点差距不能当作真实差异。</div>
+      ${stTable('hero2')}<div class="small muted" style="margin-top:6px">论文那行是全部 500 条 dev，我们是前 100 条。系统几乎只判 Supported / Refuted（100 条里只有 3 条判了另两类），所以 macro-F1 偏低，论文 F1 也只有 0.382。</div>
+      ${stTable('sanctuary')}<div class="small muted" style="margin-top:6px">学位论文的 dev 结果是在 100 条“类别均衡”的 dev claim 上报的，没有公开是哪 100 条；我们的 100 条里 63 条是 Refuted，所以 accuracy 和 macro-F1 不能直接比。</div>
+      <h3>Ev2R（2025 新指标）</h3>${ev2r}
+      <div class="small muted" style="margin-top:6px">${esc(E.judge)}。论文里报了 Ev2R 的三个系统都补算了；InFact 论文早于 Ev2R，不算。用同一套裁判去评 AIC CTU 作者自己的 500 条预测，结果和论文数字接近，说明这里的 Ev2R 可以和论文的直接比。三个系统的 Q+A recall 都和原文相差不到 0.06；Q-only 普遍偏低，作者自己的预测在同一裁判下也偏低，主要是裁判口径造成的。</div>
+      <h3>图文两个系统（AVerImaTeC）</h3><div class="tbl"><table><thead><tr><th>系统</th><th>模型</th><th>样本</th><th>状态</th><th>官方对照</th></tr></thead><tbody>${mmRow('villain','VILLAIN')}${mmRow('aic_ctu_mm','AIC CTU 图文版')}</tbody></table></div>
+      <div class="small muted" style="margin-top:6px">状态更新于 ${esc(MS.as_of)}。图文任务的官方指标全部需要裁判模型（Gemma-3-27B），分数出来前这里不放任何数字。AIC CTU 图文版的反向图搜证据改用主办方 store 里的结果（作者自己的 Google Lens 搜索结果没有公开）。</div>
+      <div class="small muted" style="margin-top:10px">数据：data/store/store_results.json，由只读脚本从结果仓库 baseline-reproduce 分支（提交 ${esc(ST.source_commit)}）的分数文件导出，每个源文件记录了 SHA-256；生成于 ${esc(ST.generated_utc)}。</div></div>`;
+    const S=MET.systems, order=TEXT_SYS(); const th=Object.keys(S[order[0]].legacy_joint_by_threshold);
     const labels=Object.keys(MET.gold_label_counts); const b=MET.budget;
     const main=`<div class="tbl"><table><thead><tr><th>系统</th><th>终态（固定分母 100）</th><th>标签 accuracy<br><span class="thsub">全样本 /100</span></th><th>Macro-F1<br><span class="thsub">四类等权</span></th><th>QA Hungarian-METEOR<br><span class="thsub">旧版 / legacy</span></th><th>标签正确且 QA &gt; 0.25<br><span class="thsub">旧版 / legacy 联合分</span></th></tr></thead><tbody>
       ${order.map(s=>{const m=S[s]; const sc=m.status_counts; return `<tr><td><b>${esc(sysName(s))}</b></td><td>ok ${sc.ok||0}${sc.no_evidence?` · 无证据 ${sc.no_evidence}`:''}${sc.retrieval_failed?` · 检索失败 ${sc.retrieval_failed}`:''}</td><td><b>${pct(m.accuracy_full_sample)}</b> <span class="muted">(${m.n_correct}/100)</span></td><td>${f3(m.macro_f1)}</td><td>${f3(m.qa_hu_meteor)}</td><td>${pct(m.legacy_joint_by_threshold['0.25'])}</td></tr>`;}).join('')}</tbody></table></div>`;
@@ -413,7 +437,9 @@ footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padd
     const cm=order.map(s=>{const m=S[s].confusion_matrix; const cols=[...labels,'SYSTEM_FAILED']; return `<details class="src"><summary>${esc(sysName(s))} 混淆矩阵（行 = gold，列 = 预测）</summary><div class="tbl"><table><thead><tr><th>gold ＼ 预测</th>${cols.map(x=>`<th>${esc(x==='SYSTEM_FAILED'?'系统失败（无判决）':x)}</th>`).join('')}</tr></thead><tbody>${labels.map(g=>`<tr><td>${esc(g)}</td>${cols.map(p=>`<td>${m[g][p]}</td>`).join('')}</tr>`).join('')}</tbody></table></div></details>`;}).join('');
     const src=`<div class="tbl"><table><thead><tr><th>系统</th><th>问答总数</th><th>未提供来源的问答</th><th>涉及 claim 数</th><th>解析回退判决</th><th>非 ok 的原始 ID</th></tr></thead><tbody>${order.map(s=>{const m=S[s]; return `<tr><td>${esc(sysName(s))}</td><td>${m.qa_count}</td><td>${m.qa_missing_source_url}</td><td>${m.claims_with_missing_qa_url}</td><td>${m.verdict_fallback_count}</td><td class="mono">${Object.entries(m.non_ok_ids||{}).map(([k,v])=>`${k}: ${v.join(', ')}`).join('；')||'—'}</td></tr>`;}).join('')}</tbody></table></div>`;
     $('#view').innerHTML=`<h1>评估结果</h1>
-      <div class="notice" style="margin:14px 0">四个文本系统，固定 AVeriTeC dev 原始 ID 0–99，<b>所有指标的分母都是 100</b>，失败保留在分母里。恒猜 Refuted 的 accuracy 是 <b>${pct(MET.majority_label_accuracy)}</b>（gold：${labels.map(l=>`${l} ${MET.gold_label_counts[l]}`).join('，')}），四个系统都不高于它。这是 adapted reproduction 在固定切片上的结果，不是官方榜单成绩，未做显著性检验。</div>
+      ${store}
+      <h2 style="margin-top:28px">实时检索适配复现（9 月 21 日交付包）</h2>
+      <div class="notice" style="margin:14px 0">这一节是 9 月 30 日之前的做法：把 knowledge store 换成实时网页搜索、模型统一换成 Gemma，代码按我们的适配版跑。四个文本系统，固定 AVeriTeC dev 原始 ID 0–99，<b>所有指标的分母都是 100</b>，失败保留在分母里。恒猜 Refuted 的 accuracy 是 <b>${pct(MET.majority_label_accuracy)}</b>（gold：${labels.map(l=>`${l} ${MET.gold_label_counts[l]}`).join('，')}），四个系统都不高于它。这是 adapted reproduction 在固定切片上的结果，不是官方榜单成绩，未做显著性检验。</div>
       <div class="panel"><h2>四系统比较</h2>${main}
         <div class="small muted" style="margin-top:10px">证据列是<b>旧版 / legacy</b> AVeriTeC Hungarian-METEOR：最多取 10 组预测问答，与 gold 问答做词汇 / WordNet 匹配和最优配对。<b>它不核实链接、证据真假或网页历史版本</b>，不是 2025 EV2R，也没有用模型 judge。联合分要求判决正确且问答分<b>严格大于</b>阈值；0.25 只是报告的展示列，没有按结果挑阈值。</div>
         <div class="small muted" style="margin-top:6px">不同指标下领先的系统不同：标签 accuracy 上 SANCTUARY 与 InFact 并列，QA 匹配分 HerO2 最高，0.25 联合分 InFact 最高，Macro-F1 SANCTUARY 最高。本页不把它们合成一个“最佳模型”。</div>
@@ -422,8 +448,8 @@ footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padd
         <h3>各类 F1 与混淆矩阵</h3>${cls}${cm}
         <h3>问答来源与失败</h3>${src}<div class="small muted" style="margin-top:6px">未提供来源的问答包括 SANCTUARY 的 No Evidence. 占位与 AIC CTU 的“来源无法回答”；非空 URL 只核对过在放行来源列表中，没有做蕴含验证。</div></div>
       <div class="cmp" style="margin-top:16px">
-        <div class="panel"><h2>EV2R / 付费 judge / silver–gold 排名</h2><div class="empty" style="margin-top:8px">本轮未执行。</div><div class="small muted" style="margin-top:10px">没有 EV2R precision / recall / F1，没有模型 judge 调用，也没有 silver 与 gold 参照下的排名一致性比较。上面的旧版 METEOR 分数不会填入这里，缺测也不记零分。</div></div>
-        <div class="panel"><h2>图文系统（VILLAIN、AIC CTU AVerImaTeC）</h2><div class="empty" style="margin-top:8px">正式运行暂缓。</div><div class="small muted" style="margin-top:10px">按用户指示暂缓，未运行；不等于失败，也不等于完成。各五条历史小样可在 <a href="#/?dataset=averimatec&role=smoke">Claims · 小样</a> 下单独查看，不进入任何指标或分母。六系统总范围尚未完成。</div></div>
+        <div class="panel"><h2>EV2R / 付费 judge / silver–gold 排名</h2><div class="empty" style="margin-top:8px">实时检索这一轮未执行。</div><div class="small muted" style="margin-top:10px">实时检索的四个系统没有 EV2R、没有模型 judge 调用，也没有 silver 与 gold 参照下的排名一致性比较；上面的旧版 METEOR 分数不会填入这里，缺测也不记零分。官方 store 复现的 Ev2R 分数见本页上方。</div></div>
+        <div class="panel"><h2>图文系统（VILLAIN、AIC CTU AVerImaTeC）</h2><div class="empty" style="margin-top:8px">实时检索这一轮未运行。</div><div class="small muted" style="margin-top:10px">图文系统的实时检索版按用户指示暂缓，没有正式运行；各五条历史小样可在 <a href="#/?dataset=averimatec&role=smoke">Claims · 小样</a> 下单独查看，不进入任何指标或分母。图文系统的官方 store 复现进度见本页上方。</div></div>
       </div>
       <div class="panel" style="margin-top:16px"><h2>报告与数据下载</h2><div class="row" style="margin-top:6px"><a class="btn" href="#/report">在线阅读 REPORT.md</a>${META.downloads.map(f=>`<a class="btn ghost" href="downloads/${esc(f)}" download>${esc(f)}</a>`).join('')}</div>
         <div class="small muted" style="margin-top:10px">results.csv 与上表同源（metrics.json，导出时逐项核对）。manifest.json 含载荷文件、四个冻结源输出、gold 与评分器的 SHA-256。不含实验缓存、请求消息、账本原件或私有上下文。</div></div>
