@@ -1,7 +1,7 @@
 {
  "schema": "store-results-1",
  "source_repo": "Sophie508/multi-culture-fact-checking, branch baseline-reproduce",
- "source_commit": "678d631",
+ "source_commit": "db7ab1f",
  "text": {
   "infact": {
    "ours": [
@@ -202,34 +202,64 @@
   }
  },
  "image_text": {
-  "status": {
-   "as_of": "2026-10-04 07:10 UTC",
-   "villain": {
-    "model": "Qwen3-VL-8B-Thinking, local",
-    "eval_set": "AVerImaTeC dev, all 152",
-    "state": "生成中（120/152），之后用 Gemma-3-27B 本地评分"
-   },
-   "aic_ctu_mm": {
-    "model": "Gemma-4-26B via OpenRouter",
-    "eval_set": "AVerImaTeC dev, all 152",
-    "state": "生成完成（152/152），等待 Gemma-3-27B 本地评分"
-   }
+  "judge": "Gemma-3-27B, local (official AVerImaTeC evaluator as shipped in the VILLAIN repository), λ = 0.3",
+  "villain": {
+   "reference": [
+    {
+     "who": "VILLAIN paper, Table 4 (mean of 5 runs)",
+     "model": "Qwen3-VL-8B",
+     "eval_set": "dev, all 152",
+     "q": 0.737,
+     "evid": 0.396,
+     "verdict": 0.421,
+     "just": null
+    }
+   ],
+   "ours": [
+    {
+     "who": "Ours, original VILLAIN code",
+     "model": "Qwen3-VL-8B-Thinking, local",
+     "eval_set": "dev, all 152",
+     "q": 0.776,
+     "evid": 0.36,
+     "verdict": 0.408,
+     "just": 0.338,
+     "accuracy": 0.8618,
+     "just_uncond": 0.532,
+     "n": 152,
+     "n_above": 69,
+     "threshold": 0.3
+    }
+   ]
   },
-  "reference": {
-   "villain": {
-    "who": "VILLAIN paper, Table 4 (Qwen3-VL-8B)",
-    "q": 0.737,
-    "evid": 0.396,
-    "verdict": 0.421,
-    "just": null
-   },
-   "aic_ctu_mm": {
-    "who": "AVerImaTeC dev leaderboard (GPT-5.1)",
-    "q": 0.822,
-    "evid": 0.347,
-    "verdict": 0.375,
-    "just": 0.304
-   }
+  "aic_ctu_mm": {
+   "reference": [
+    {
+     "who": "AIC CTU on the dev leaderboard (VILLAIN paper, Table 2)",
+     "model": "GPT-5.1",
+     "eval_set": "dev",
+     "q": 0.822,
+     "evid": 0.347,
+     "verdict": 0.375,
+     "just": 0.304
+    }
+   ],
+   "ours": [
+    {
+     "who": "Ours, original AIC CTU code",
+     "model": "Gemma-4-26B via OpenRouter",
+     "eval_set": "dev, all 152",
+     "q": 0.665,
+     "evid": 0.218,
+     "verdict": 0.276,
+     "just": 0.215,
+     "accuracy": 0.7961,
+     "just_uncond": 0.51,
+     "n": 152,
+     "n_above": 50,
+     "threshold": 0.3
+    }
+   ]
   }
  },
  "sources": {
@@ -268,7 +298,15 @@
   "ev2r_sanctuary": {
    "file": "ev2r/results/sanctuary_ours_first100.json",
    "sha256": "abf06f53071777c58f70690983e7e1c4eea518427e05e21087822f9f6619b548"
+  },
+  "mm_villain": {
+   "file": "villain_official_store/official_scores.json",
+   "sha256": "63c1794ed3d42fc04d6e385a377000b697f6fc2a356751eecd9eef456f9946b2"
+  },
+  "mm_aic_ctu": {
+   "file": "aic_ctu_averimatec_official_store/official_scores.json",
+   "sha256": "2ee8944e0db0b384c14f7f9ba48e5d395379ce4b3a8ebf97f8349df6c4a5f4c3"
   }
  },
- "generated_utc": "2026-10-04T06:26:39Z"
+ "generated_utc": "2026-10-06T01:12:03Z"
 }

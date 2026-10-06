@@ -415,7 +415,9 @@ footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padd
       ${evR(E.rows.aic_ctu.paper.who,E.rows.aic_ctu.paper.eval_set,E.rows.aic_ctu.paper,false)}${evR(E.judge_check.who,E.judge_check.eval_set,E.judge_check,false)}${evR("AIC CTU authors' predictions, same 100 claims, scored by us",'dev IDs 0–99',E.rows.aic_ctu.authors_same_claims,false)}${evR('Ours, AIC CTU','dev IDs 0–99',E.rows.aic_ctu.ours,true)}
       ${evR(E.rows.hero2.paper.who,E.rows.hero2.paper.eval_set,E.rows.hero2.paper,false)}${evR('Ours, HerO2','dev IDs 0–99',E.rows.hero2.ours,true)}
       ${evR(E.rows.sanctuary.paper.who,E.rows.sanctuary.paper.eval_set,E.rows.sanctuary.paper,false)}${evR('Ours, SANCTUARY','dev IDs 0–99',E.rows.sanctuary.ours,true)}</tbody></table></div>`;
-    const MS=ST.image_text.status, MR=ST.image_text.reference, mmRow=(k,name)=>`<tr><td><b>${name}</b></td><td>${esc(MS[k].model)}</td><td>${esc(MS[k].eval_set)}</td><td>${esc(MS[k].state)}</td><td>${esc(MR[k].who)}：问题 ${f3(MR[k].q)} / 证据 ${f3(MR[k].evid)} / 判决 ${f3(MR[k].verdict)}${MR[k].just!=null?' / 理由 '+f3(MR[k].just):''}</td></tr>`;
+    const M=ST.image_text, mmR=(r,ours)=>`<tr${ours?' class="ours"':''}><td>${ours?'<b>'+esc(r.who)+'</b>':esc(r.who)}</td><td>${esc(r.model)}</td><td>${esc(r.eval_set)}</td><td>${f3(r.q)}</td><td>${f3(r.evid)}</td><td>${f3(r.verdict)}</td><td>${f3(r.just)}</td></tr>`;
+    const mmT=(k)=>M[k].reference.map(r=>mmR(r,false)).join('')+M[k].ours.map(r=>mmR(r,true)).join('');
+    const mv=M.villain.ours[0], ma=M.aic_ctu_mm.ours[0];
     const store=`<div class="panel"><h2>官方 knowledge store 复现（主线）</h2>
       <div class="notice" style="margin:10px 0">9 月 30 日起按导师要求，先用 shared task 的官方 knowledge store 和各系统作者的原版代码复现，确认复现本身没问题，再做改动。粗体行是我们的运行，其余是论文或作者公开的数字。模型、样本不完全相同的行只能粗略对比，各节下方有说明。</div>
       ${stTable('infact')}<div class="small muted" style="margin-top:6px">dev 500 那行和论文三行是同一批 claim、同一个 store、同一个评分器，只差模型（论文没有 Gemma 的数字）；四项都落在论文三个模型之间，和 GPT-4o-mini 几乎重合。前 100 条那行偏高，说明前 100 条比全量容易。</div>
@@ -424,8 +426,11 @@ footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padd
       ${stTable('sanctuary')}<div class="small muted" style="margin-top:6px">学位论文的 dev 结果是在 100 条“类别均衡”的 dev claim 上报的，没有公开是哪 100 条；我们的 100 条里 63 条是 Refuted，所以 accuracy 和 macro-F1 不能直接比。</div>
       <h3>Ev2R（2025 新指标）</h3>${ev2r}
       <div class="small muted" style="margin-top:6px">${esc(E.judge)}。论文里报了 Ev2R 的三个系统都补算了；InFact 论文早于 Ev2R，不算。用同一套裁判去评 AIC CTU 作者自己的 500 条预测，结果和论文数字接近，说明这里的 Ev2R 可以和论文的直接比。三个系统的 Q+A recall 都和原文相差不到 0.06；Q-only 普遍偏低，作者自己的预测在同一裁判下也偏低，主要是裁判口径造成的。</div>
-      <h3>图文两个系统（AVerImaTeC）</h3><div class="tbl"><table><thead><tr><th>系统</th><th>模型</th><th>样本</th><th>状态</th><th>官方对照</th></tr></thead><tbody>${mmRow('villain','VILLAIN')}${mmRow('aic_ctu_mm','AIC CTU 图文版')}</tbody></table></div>
-      <div class="small muted" style="margin-top:6px">状态更新于 ${esc(MS.as_of)}。图文任务的官方指标全部需要裁判模型（Gemma-3-27B），分数出来前这里不放任何数字。AIC CTU 图文版的反向图搜证据改用主办方 store 里的结果（作者自己的 Google Lens 搜索结果没有公开）。</div>
+      <h3>图文两个系统（AVerImaTeC）</h3><div class="tbl"><table><thead><tr><th>谁跑的</th><th>模型</th><th>样本</th><th>Q-Eval</th><th>Evid-Eval</th><th>Veracity<br><span class="thsub">有条件</span></th><th>Justification<br><span class="thsub">有条件</span></th></tr></thead><tbody>
+      <tr><td colspan="7"><b>VILLAIN</b></td></tr>${mmT('villain')}<tr><td colspan="7"><b>AIC CTU 图文版</b></td></tr>${mmT('aic_ctu_mm')}</tbody></table></div>
+      <div class="small muted" style="margin-top:6px">${esc(M.judge)}。两个系统用同一个评分脚本、同一个裁判，都是 dev 全部 152 条。Veracity 和 Justification 只在证据分超过 0.3 时计分（VILLAIN ${mv.n_above}/${mv.n} 条、AIC CTU ${ma.n_above}/${ma.n} 条过线）；不加条件的标签准确率是 ${p1(mv.accuracy)} 和 ${p1(ma.accuracy)}，但 dev 152 条里 141 条是 Refuted，全猜 Refuted 就有 92.8%，所以要看有条件的那两列。<br>
+      VILLAIN 和论文是同一批 claim、同一个 store、同一份代码、同一个裁判模型：Veracity 低 0.013，在论文 5 次运行的标准差（0.015）以内；Q-Eval 高 0.039、Evid-Eval 低 0.036，超出论文的标准差（各 0.008）。我们只跑了一次，分不清是运行波动还是系统性差异。<br>
+      AIC CTU 图文版不能直接比：生成模型是 Gemma-4-26B 而不是 GPT-5.1，反向图搜证据用的是主办方 store 里的结果（作者自己的搜索结果没有公开）。四项都比 leaderboard 低，哪个差异造成的没有单独测过。论文没说 leaderboard 的 Justification 是不是有条件的；我们这里是有条件的，不加条件是 ${f3(ma.just_uncond)}。</div>
       <div class="small muted" style="margin-top:10px">数据：data/store/store_results.json，由只读脚本从结果仓库 baseline-reproduce 分支（提交 ${esc(ST.source_commit)}）的分数文件导出，每个源文件记录了 SHA-256；生成于 ${esc(ST.generated_utc)}。</div></div>`;
     const S=MET.systems, order=TEXT_SYS(); const th=Object.keys(S[order[0]].legacy_joint_by_threshold);
     const labels=Object.keys(MET.gold_label_counts); const b=MET.budget;
