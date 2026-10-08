@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCFC Bench · Multilingual</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fafbfc; --card:#ffffff; --ink:#101828; --ink2:#475467; --ink3:#98a2b3;
+  --line:#eaecf0; --accent:#e8590c; --accent-soft:#fff4ed;
+  --ok:#079455; --ok-soft:#ecfdf3; --bad:#d92d20; --bad-soft:#fef3f2;
+  --info:#175cd3; --info-soft:#eff8ff; --warn:#b54708; --warn-soft:#fffaeb;
+  --shadow:0 1px 3px rgba(16,24,40,.07),0 1px 2px rgba(16,24,40,.04);
+}
+[data-theme="dark"] {
+  --bg:#0c111d; --card:#161b26; --ink:#f5f5f6; --ink2:#94969c; --ink3:#61646c;
+  --line:#1f242f; --accent:#ff692e; --accent-soft:#2a1206;
+  --ok:#47cd89; --ok-soft:#0a2417; --bad:#f97066; --bad-soft:#2d1210;
+  --info:#84adff; --info-soft:#0e1f3d; --warn:#fdb022; --warn-soft:#2a1e05;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"DM Sans",-apple-system,"PingFang SC",sans-serif;font-size:15px;line-height:1.6;transition:background .2s}
+nav{display:flex;align-items:center;gap:32px;padding:0 40px;height:64px;border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:20}
+.brand{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.brand a{color:inherit;text-decoration:none}
+.navlinks{display:flex;gap:28px;margin-left:auto;font-weight:500;color:var(--ink2);font-size:14.5px}
+.navlinks a{color:inherit;text-decoration:none} .navlinks a:hover{color:var(--ink)}
+#themeBtn{margin-left:20px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink2)}
+.hero{text-align:center;padding:56px 20px 8px}
+h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:40px;letter-spacing:-.03em}
+.pill{display:inline-block;margin-top:16px;padding:8px 22px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-weight:600;color:var(--ink2);box-shadow:var(--shadow)}
+.controls{display:flex;align-items:center;gap:18px;flex-wrap:wrap;max-width:1240px;margin:36px auto 0;padding:0 24px 18px;border-bottom:1px solid var(--line)}
+.controls label{font-weight:600;color:var(--ink2);font-size:14px}
+select{font-family:inherit;font-size:14px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);cursor:pointer}
+.count{margin-left:auto;font-size:13.5px;color:var(--ink3);font-family:"JetBrains Mono",monospace}
+.grid{max-width:1240px;margin:26px auto 80px;padding:0 24px;column-count:3;column-gap:20px}
+@media(max-width:1000px){.grid{column-count:2}} @media(max-width:660px){.grid{column-count:1}}
+.card{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;cursor:pointer;transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 12px rgba(16,24,40,.1)}
+.cardimg{width:100%;display:block;max-height:280px;object-fit:cover}
+.cardbody{padding:18px 22px 20px}
+.claimtext{font-size:15.5px;line-height:1.55;margin-bottom:14px}
+.cfoot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--ink3);font-family:"JetBrains Mono",monospace;border-top:1px solid var(--line);padding-top:12px}
+.chip{padding:2px 10px;border-radius:999px;font-family:"DM Sans";font-size:12px;font-weight:600}
+.chip.mod{background:var(--info-soft);color:var(--info)}
+.chip.v-ok{background:var(--ok-soft);color:var(--ok)} .chip.v-bad{background:var(--bad-soft);color:var(--bad)} .chip.v-na{background:var(--warn-soft);color:var(--warn)}
+.detail{display:none;margin-top:16px}
+.card.open .detail{display:block}
+.detail h4{font-family:"Plus Jakarta Sans";font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink3);margin:14px 0 8px}
+.evitem{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:14px}
+.evmeta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px;font-size:12px}
+.tag{padding:1px 9px;border-radius:999px;font-weight:600;font-size:11.5px}
+.tag.article{background:var(--info-soft);color:var(--info)}
+.tag.external-verified{background:var(--ok-soft);color:var(--ok)}
+.tag.external-nodate{background:var(--warn-soft);color:var(--warn)}
+.tag.ungrounded{background:var(--bad-soft);color:var(--bad)}
+.tag.metadata,.tag.none{background:var(--bg);color:var(--ink3);border:1px solid var(--line)}
+.detail a{color:var(--info);word-break:break-all;text-decoration:none;font-size:12.5px} .detail a:hover{text-decoration:underline}
+.deconbox{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:13.5px;margin-top:6px;color:var(--ink2)}
+.mono{font-family:"JetBrains Mono",monospace}
+
+/* Article-link revision: display source type and format. */
+.tag.article-recovered{background:var(--info-soft);color:var(--info)}
+.source-list{margin-top:9px}.source-row{padding:9px 0;border-top:1px solid var(--line)}
+.source-row:first-child{border-top:0}.source-row a{display:block;margin-top:5px}
+.source-label,.source-hint{font-size:12px;color:var(--ink2);margin-top:6px}
+.source-history{margin-top:10px;border-top:1px solid var(--line);padding-top:7px;font-size:12px;color:var(--ink2)}
+.source-history summary{cursor:pointer;color:var(--info)}
+.revision-note{max-width:1000px;margin:16px auto 0;padding:12px 20px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink2);font-size:13px}
+
+.tag.lang{background:var(--info-soft);color:var(--info)}
+.tag.external{background:var(--warn-soft);color:var(--warn)}
+.tag.no_source_found{background:var(--bg);color:var(--ink3);border:1px solid var(--line)}
+.tag.article-recovered{background:var(--ok-soft);color:var(--ok)}
+</style>
+</head>
+<body>
+<nav><span class="brand"><a href="../">MCFC Bench</a></span>
+<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-review/">VeriTaS Intake</a><a href="../deepfake-filter/">Deep Fake Filter</a></div>
+<button id="themeBtn" title="toggle theme">🌙</button></nav>
+<div class="hero"><h1>Multilingual Claims</h1><span class="pill" id="pill"></span></div>
+<div class="revision-note"><b>Non-English fact-checks through our pipeline: 3 claims, 16 evidence statements.</b> Claims in Arabic, Hindi and Telugu, taken from the VeriTaS claim browser. The extractor reads the original-language fact-checking article and writes each evidence statement in English; the statement is also given in the article's language, and the quoted passage it came from is kept as written. Links: the article's own hyperlinks first; only when the article has no candidate is the web searched, using the original-language statement and pages dated before the claim, and a search result is attached only if the verifier finds that it supports the statement. The fact-checker's own channels and messaging links are not counted as sources. The language of each linked page is read from a language marker in its address when there is one, otherwise detected from the page text and kept only when the detector is at least 90% sure. Linked-page languages: English 8, no link attached 3, unknown 3, Arabic 1, Tamil 1. Three claims are far too few for a distribution; this page is for checking quality. Claim media are not shown or used.</div>
+<div class="controls"> <label>Claim language: <select id="fLang"><option value="">All</option><option value="ar">Arabic</option><option value="hi">Hindi</option><option value="te">Telugu</option></select></label> <span class="count" id="count"></span> </div>
+<div class="grid" id="grid"></div>
+<script>
+const DATA = [{"id": 4023, "claim": "الفيديو يوثق لحظة لمّ شمل أحد المقاتلين في سوريا مع والده القادم من الصين في ساحة الجامع الأموي بدمشق.", "claim_en": "The video documents the moment of a reunion of one of the fighters in Syria with his father coming from China in the courtyard of the Umayyad Mosque in Damascus.", "lang": "ar", "date": "2025-04-05", "mod": "video", "pred": "", "gold": "", "art": "https://verify-sy.com/ar/factcheck/2504052026", "pub": "Verify-Sy", "img": "", "orig": "", "veritas": "https://veritas.mai.informatik.tu-darmstadt.de/claims/4023", "ev": [{"s": "The video does not show a foreign fighter reuniting with his father from China.", "o": "لا يُظهر الفيديو لمّ شمل مقاتل أجنبي مع والده القادم من الصين.", "span": "تبيّن أن هذا الادعاء مضلل. هذا الفيديو لا يُظهر لمّ شمل مقاتل أجنبي في سوريا مع والده القادم من الصين", "u": "", "p": "no_source_found", "lang": "", "lang_basis": "", "verdict": "", "cands": [{"url": "https://ar.nia.gov.cn/n32832/n32882/c109804/content.html", "verdict": "UNVERIFIABLE"}, {"url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D8%AA%D9%84%D9%88%D9%86_%D8%A7%D9%84%D8%A3%D8%AC%D8%A7%D9%86%D8%A8_%D9%81%D9%8A_%D8%A7%D9%84%D8%AD%D8%B1%D8%A8%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A%D8%AA%D9%8A%D9%86_%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%A9_%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%D9%8A%D8%A9", "verdict": "UNVERIFIABLE"}, {"url": "https://2017-2021-translations.state.gov/2020/05/20/%D8%A7%D9%84%D9%86%D9%87%D8%AC-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A-%D8%A7%D9%84%D8%B0%D9%8A-%D8%AA%D8%AA%D8%A8%D8%B9%D9%87-%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7/", "verdict": "UNVERIFIABLE"}], "searched": true}, {"s": "Reverse image search via InVID shows the video was posted on March 31st on the Instagram account of ''muhojir_tactical'.", "o": "أظهر البحث العكسي عن الصور عبر InVID أن الفيديو نُشر في 31 آذار على حساب ''muhojir_tactical'' على إنستغرام.", "span": "وأظهرت نتائج البحث العكسي عبر موقع InVID أن مقطع الفيديو منشور بتاريخ 31 آذار الماضي، أول أيام عيد الفطر، على حساب يحمل اسم \"muhojir_tactical\" على منصة إنستغرام", "u": "https://www.invid-project.eu/", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}, {"s": "The video belongs to an Uzbek fighter named Ayub Hok, known as 'Abu Dujana al-Uzbeki'.", "o": "يعود الفيديو لمقاتل أوزبكي يُدعى أيوب هوك، المعروف بلقب \"أبو دجانة الأوزبكي\".", "span": "ويعود لمقاتل أوزبكي يُدعى أيوب هوك، المعروف بلقب \"أبو دجانة الأوزبكي\".", "u": "https://www.instagram.com/muhojir_tactical/reel/DH2tRoxMLfV/", "p": "article", "lang": "unknown", "lang_basis": "unreadable", "verdict": "", "cands": [], "searched": false}, {"s": "The video shows the Uzbek fighter meeting a Turkish man in the Umayyad Mosque in Damascus.", "o": "يظهر الفيديو المقاتل الأوزبكي وهو يلتقي برجل تركي في الجامع الأموي بدمشق.", "span": "الفيديو يعود لمقاتل أوزبكي اجتمع مع رجل تركي في المسجد الأموي بدمشق صباح عيد الفطر.", "u": "https://www.alhurra.com/syria/2025/02/05/%D8%B9%D9%82%D8%AF%D8%A9-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D8%AA%D9%84%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D8%AC%D8%A7%D9%86%D8%A8-%D9%81%D9%8A-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%88%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9-%D8%AA%D9%88%D8%B2%D8%B9%D9%87%D9%85", "p": "article-recovered", "lang": "ar", "lang_basis": "url_slug_script", "verdict": "UNVERIFIABLE", "cands": [{"url": "https://www.alhurra.com/syria/2025/02/05/%D8%B9%D9%82%D8%AF%D8%A9-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D8%AA%D9%84%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D8%AC%D8%A7%D9%86%D8%A8-%D9%81%D9%8A-%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%D9%88%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9-%D8%AA%D9%88%D8%B2%D8%B9%D9%87%D9%85", "verdict": "UNVERIFIABLE"}, {"url": "https://www.invid-project.eu/", "verdict": "UNVERIFIABLE"}], "searched": false}, {"s": "The original post by 'Abu Dujana' included a short caption in Turkish saying 'Uncle Turki' without mentioning the man was his father or from China.", "o": "تضمن المنشور الأصلي لـ 'أبو دجانة' تعليقًا قصيرًا باللغة التركية يقول 'عم تركي' دون ذكر أن الرجل والده أو أنه من الصين.", "span": "ونشر \"أبو دجانة\" الفيديو المشار إليه عبر حسابه... مرفقًا بتعليق قصير باللغة التركية جاء فيه: \"عم تركي\"، دون أن يشير إلى أن الرجل والده أو أنه قادم من الصين.", "u": "", "p": "no_source_found", "lang": "", "lang_basis": "", "verdict": "", "cands": [{"url": "http://www.jordanzad.com/index.php?page=article&id=1475", "verdict": "UNVERIFIABLE"}, {"url": "https://carnegieendowment.org/ar/middle-east/research/2017/02/eastern-expectations-the-changing-dynamics-in-syrias-tribal-regions", "verdict": "UNVERIFIABLE"}, {"url": "https://archive.org/stream/20230704_20230704_0631/%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86%20%28%D8%A8%D9%85%D8%A7%20%D9%81%D9%8A%D9%87%D9%85%20%D8%A7%D9%84%D8%B4%D8%B9%D9%88%D8%A8%20%D8%A7%D9%84%D8%AA%D9%8A%20%D8%B3%D8%A8%D9%82%D8%AA%D9%87%D9%85%20%D9%88%D8%B3%D9%83%D8%A7%D9%86%20%D8%AF%D8%A7%D8%B1%D9%81%D9%88%D8%B1%29%20_%20%D9%87%D8%A7%D8%B1%D9%88%D9%84%D8%AF%20%D9%85%D9%83%D9%85%D8%A7%D9%8A%D9%83%D9%84%20_%20%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A_djvu.txt", "verdict": "UNVERIFIABLE"}], "searched": true}]}, {"id": 3822, "claim": "सोशल मीडिया पर वायरल हो रही तस्वीरें डीएमके नेता एमके स्टलिन की बेटी सेंटामरई और दामाद सबरीसन के ठिकानों पर पड़े हालिया आयकर छापों की हैं।", "claim_en": "The images going viral on social media are of the recent income tax raids conducted at the residences of DMK leader MK Stalin's daughter Senthamarai and son-in-law Sabarison.", "lang": "hi", "date": "2021-04-04", "mod": "image-text", "pred": "", "gold": "", "art": "https://www.thequint.com/hindi/webqoof/tamil-nadu-elections-it-raid-in-dmk-leader-mk-stalin-daughter-son-in-law-old-photos-shared-with-false-claim", "pub": "The Quint (Hindi)", "img": "", "orig": "", "veritas": "https://veritas.mai.informatik.tu-darmstadt.de/claims/3822", "ev": [{"s": "The photos being shared on social media as evidence of an IT raid at MK Stalin's daughter and son-in-law's residence are actually old photos and have no connection to the recent event.", "o": "एमके स्टालिन की बेटी और दामाद के निवास पर आईटी छापेमारी के प्रमाण के रूप में सोशल मीडिया पर साझा की जा रही तस्वीरें वास्तव में पुरानी हैं और उनका हालिया घटना से कोई संबंध नहीं है।", "span": "तमिलनाडु चुनाव के बीच शेयर की जा रही ये तस्वीरें असल में पुरानी हैं और इनका हाल की घटना से कोई संबंध नहीं है.", "u": "https://www.thehindu.com/news/national/tamil-nadu/tn-assembly-polls-stalins-son-in-law-under-it-scanner/article34221565.ece", "p": "article-recovered", "lang": "en", "lang_basis": "page_text", "verdict": "UNVERIFIABLE", "cands": [{"url": "https://www.thehindu.com/news/national/tamil-nadu/tn-assembly-polls-stalins-son-in-law-under-it-scanner/article34221565.ece", "verdict": "UNVERIFIABLE"}, {"url": "https://www.dailythanthi.com/News/India/2019/11/02173040/320-bundles-of-Rs-2000-denomination-fake-notes-around.vpf", "verdict": "UNVERIFIABLE"}, {"url": "https://www.financialexpress.com/india-news/fake-rs-2000-notes-worth-rs-6-4-crore-recovered/1752718/", "verdict": "UNVERIFIABLE"}], "searched": false}, {"s": "The Income Tax Department's statement regarding the raid mentioned seizure of items related to tax evasion from people linked to DMK, but did not specifically mention the seizure of cash or jewelry.", "o": "आयकर विभाग के छापे संबंधी बयान में डीएमके से जुड़े लोगों से टैक्स चोरी से संबंधित सामान जब्त करने का उल्लेख किया गया है, लेकिन इसमें विशेष रूप से नकदी या गहने जब्त किए जाने का जिक्र नहीं किया गया है।", "span": "आयकर विभाग ने छापे को लेकर जारी किए बयान में कहा कि डीएमके से जुड़े लोगों के पास से टैक्स चोरी से जुड़ा सामान जब्त किया गया. हालांकि, आयकर विभाग के बयान में कहीं भी कैश या जेवर जब्त किए जाने का अलग से जिक्र नहीं है.", "u": "https://www.bloombergquint.com/politics/tax-sleuths-unearth-cash-stashed-away-in-tn-warehouse", "p": "article-recovered", "lang": "unknown", "lang_basis": "unreadable", "verdict": "UNVERIFIABLE", "cands": [{"url": "https://www.bloombergquint.com/politics/tax-sleuths-unearth-cash-stashed-away-in-tn-warehouse", "verdict": "UNVERIFIABLE"}, {"url": "https://www.thenewsminute.com/article/i-t-officials-seize-cash-stacked-gunny-bags-and-cartons-vellore-99286", "verdict": "UNSUPPORTED"}, {"url": "https://www.eastmojo.com/news/2019/04/04/cash-for-votes-rs-1-9-cr-cash-seized-across-ne-ahead-of-polls/", "verdict": "UNSUPPORTED"}], "searched": false}, {"s": "One viral photo shows 6.5 crore rupees in 2,000 denomination notes recovered from Telangana in November 2019, as reported by Dina Thanthi and Financial Express.", "o": "एक वायरल फोटो में नवंबर 2019 में तेलंगाना से बरामद 2,000 के नोटों में 6.5 करोड़ रुपये दिखाए गए हैं, जैसा कि Dina Thanthi और Financial Express द्वारा रिपोर्ट किया गया है।", "span": "रिवर्स सर्च करने से हमें तमिलनाडु के अखबार Dina Thanthi की वेबसाइट पर 2 नवंबर, 2019 की एक रिपोर्ट में यही फोटो मिली. रिपोर्ट के मुताबिक, तेलंगाना से 6.5 करोड़ रुपए बरामद हुए थे, सभी नोट 2,000 के थे.", "u": "https://www.dailythanthi.com/News/India/2019/11/02173040/320-bundles-of-Rs-2000-denomination-fake-notes-around.vpf", "p": "article", "lang": "ta", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}, {"s": "Another photo was found in an Economic Times report from January 2017 regarding 300 crore rupees declared under PMGKY after demonetization.", "o": "जनवरी 2017 की द इकोनॉमिक टाइम्स की एक रिपोर्ट में एक और फोटो मिली थी, जिसमें नोटबंदी के बाद PMGKY के तहत 300 करोड़ रुपये घोषित किए गए थे।", "span": "रिवर्स सर्च करने से हमें द इकोनॉमिक टाइम्स की वेबसाइट पर जनवरी, 2017 की एक रिपोर्ट में यही फोटो मिली. रिपोर्ट के मुताबिक, PMGKY के तहत नोटबंदी के बाद 300 करोड़ रुपए डिक्लेयर किए गए थे.", "u": "https://economictimes.indiatimes.com/news/economy/policy/notes-ban-i-t-dept-gets-over-rs-300-crore-declarations-under-pmgky/articleshow/56691273.cms?from=mdr", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}, {"s": "A photo used in the claim was identified as being from an April 2019 report by Bloomberg Quint/PTI regarding cash seized from a warehouse in Vellore, Tamil Nadu, linked to a person associated with DMK.", "o": "दावे में इस्तेमाल की गई एक तस्वीर की पहचान अप्रैल 2019 की ब्लूमबर्ग क्विंट/पीटीआई की एक रिपोर्ट से हुई है, जो तमिलनाडु के वेल्लोर में एक गोदाम से जब्त की गई नकदी के संबंध में थी, जो DMK से जुड़े एक व्यक्ति से संबंधित थी।", "span": "रिवर्स सर्च करने से हमें ब्लूमबर्ग क्विंट की वेबसाइट पर पीटीआई की अप्रैल 2019 की रिपोर्ट मिली. रिपोर्ट के मुताबिक, आयकर विभाग ने तमिलनाडु के वेल्लोर में स्थित एक गोदाम से नगदी बरामद की थी. जिस शख्स के यहां से ये नगदी बरामद हुई थी, वह DMK से जुड़ा हुआ था.", "u": "https://www.bloombergquint.com/politics/tax-sleuths-unearth-cash-stashed-away-in-tn-warehouse", "p": "article", "lang": "unknown", "lang_basis": "unreadable", "verdict": "", "cands": [], "searched": false}, {"s": "One specific photo is confirmed to be from the actual IT raid on MK Stalin's daughter Sentamarai and son-in-law Sabarisan, as published by The Hindu.", "o": "एक विशिष्ट फोटो की पुष्टि की गई है कि यह एमके स्टालिन की बेटी सेंटामरई और दामाद सबरीसन पर हुई वास्तविक आयकर छापेमारी की है, जैसा कि द हिंदू द्वारा प्रकाशित किया गया है।", "span": "ये फोटो स्टलिन बेटी सेंटामरई और दामाद सबरीसन के ठिकानों पर पड़े आयकर विभाग के छापे की ही है. द हिंदू की रिपोर्ट के साथ यही फोटो पब्लिश की गई है.", "u": "https://www.thehindu.com/news/national/tamil-nadu/tn-assembly-polls-stalins-son-in-law-under-it-scanner/article34221565.ece", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}, {"s": "A photo showing 5.7 crore in new notes, 90 lakh in old notes, and 32 kg of jewelry was identified as being from a December 2016 raid in Chitradurga, Karnataka, according to Hindustan Times.", "o": "हिंदुस्तान टाइम्स के अनुसार, 5.7 करोड़ के नए नोट, 90 लाख के पुराने नोट और 32 किलो आभूषण दिखाने वाली एक तस्वीर की पहचान कर्नाटक के चित्रदुर्ग में दिसंबर 2016 की छापेमारी से की गई थी।", "span": "रिवर्स सर्च करने से हमें हिंदुस्तान टाइम्स की वेबसाइट पर 11 दिसंबर, 2016 की रिपोर्ट मिली. रिपोर्ट के मुताबिक, आयकर विभाग ने 5.7 करोड़ रुपए के नए नोट और 90 लाख रुपए के पुराने नोट जब्त किए. साथ में 32 किलो के आभूषण भी जब्त किए गए थे. ये कार्रवाई कर्नाटक के चित्रदुर्ग में हुई थी.", "u": "https://www.hindustantimes.com/india-news/rs-32-crore-cash-in-new-notes-82-kg-gold-seized-in-major-raids-across-country/story-5j8e2XBbq2vtn6axUxNX0M.html", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}, {"s": "A collage of photos was traced back to a 2018 Outlook report about 163 crore rupees and 100 kg of gold seized from a construction firm in Tamil Nadu.", "o": "तस्वीरों के एक कोलाज का पता तमिलनाडु की एक निर्माण कंपनी से जब्त किए गए 163 करोड़ रुपये और 100 किलोग्राम सोने के बारे में 2018 की आउटलुक रिपोर्ट से लगाया गया था।", "span": "कोलाज को रिवर्स सर्च करने से हमें आउटलुक की वेबसाइट पर 2018 में पब्लिश की गई यही तस्वीरें मिलीं. रिपोर्ट के मुताबिक, तमिलनाडु की एक कंसट्रक्शन फर्म से 163 करोड़ रुपए और 100 किलो सोना जब्त किया गया था.", "u": "https://www.outlookindia.com/website/story/tn-it-dept-seizes-rs-163-cr-cash-100-kg-bullion-after-raids-at-a-contracting-fir/313613/?next", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}]}, {"id": 4314, "claim": "ఈ ఫోటో 13 ఫిబ్రవరి 2024న ఢిల్లీలో జరగబోయే ‘ఢిల్లీ చలో’ రైతుల నిరసన ర్యాలీ కోసం ప్రత్యేకంగా మార్పులు చేసిన ట్రాక్టర్లను చూపిస్తుంది.", "claim_en": "This photo shows tractors specially modified for the ‘Delhi Chalo’ farmers' protest rally to be held in Delhi on 13 February 2024.", "lang": "te", "date": "2024-02-13", "mod": "image-text", "pred": "", "gold": "", "art": "https://factly.in/telugu-this-viral-photo-showing-modified-tractors-for-the-delhi-chalo-farmers-protest-rally-is-created-by-ai/", "pub": "Factly (Telugu)", "img": "", "orig": "", "veritas": "https://veritas.mai.informatik.tu-darmstadt.de/claims/4314", "ev": [{"s": "The viral photo showing modified tractors for the 'Delhi Chalo' farmers' protest rally is an AI-generated image, not a real photo.", "o": "'ఢిల్లీ చలో' రైతుల నిరసన ర్యాలీ కోసం మార్పులు చేయబడిన ట్రాక్టర్లను చూపిస్తున్న ఈ వైరల్ ఫోటో AI ద్వారా రూపొందించబడిన చిత్రం, ఇది నిజమైన ఫోటో కాదు.", "span": "‘ఢిల్లీ చలో' రైతుల నిరసన ర్యాలీ కోసం మార్పులు చేయబడిన ట్రాక్టర్లను చూపిస్తున్న ఈ వైరల్ ఫోటో AI ద్వారా రూపొందించబడింది.", "u": "", "p": "no_source_found", "lang": "", "lang_basis": "", "verdict": "", "cands": [{"url": "https://archive.org/stream/07122017AllTeluguNewspaperMain/07-12-2017%20all%20telugu%20newspaper%20main_djvu.txt", "verdict": "UNVERIFIABLE"}, {"url": "https://365telugu.com/wp-content/uploads/2021/12/%E0%B0%88%E0%B0%A8%E0%B0%BE%E0%B0%A1%E0%B1%81.pdf", "verdict": "UNVERIFIABLE"}], "searched": true}, {"s": "OpIndia stated that the photo used in their news report is merely a symbolic image created by AI and is not a real photograph.", "o": "OpIndia తమ వార్త కథనంలో ఉపయోగించిన ఫోటో కేవలం AI ద్వారా రూపొందించబడిన ఒక ప్రతీకాత్మక చిత్రం మాత్రమేనని మరియు అది నిజమైన ఫోటో కాదని పేర్కొంది.", "span": "అలాగే OpIndia తమ వార్త కథనంలో ఉపయోగించిన ఈ ఫోటో AI ద్వారా రూపొందించిన ప్రతీతాత్మక చిత్రం మాత్రమే, నిజమైన ఫోటో కాదు అని తెలిపారు.", "u": "https://www.opindia.com/2024/02/modified-tractors-to-lead-farmers-protest-march-intelligence-agencies-alert-police/", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}, {"s": "The HIVE AI detection tool analyzed the viral photo and indicated a 99.4% probability that it was generated by AI.", "o": "HIVE AI డిటెక్షన్ టూల్ వైరల్ ఫోటోను విశ్లేషించింది మరియు అది AI ద్వారా రూపొందించబడింది కావడానికి 99.4% సంభావ్యత ఉందని సూచించింది.", "span": "అంతేకాకుండా మేము HIVE అనే AI డిటెక్టర్ టూల్ ని ఉపయోగించి ఈ వైరల్ ఫోటోను పరిశీలించగా, ఈ వైరల్ ఫోటో ఎక్కువగా (99.4%) AI ద్వారా రూపొందించబడింది అయ్యే అవకాశం ఉందని చూపించింది.", "u": "https://hivemoderation.com/ai-generated-content-detection", "p": "article", "lang": "en", "lang_basis": "page_text", "verdict": "", "cands": [], "searched": false}]}];
+function vclass(d){
+  const g = d.gold||"", p = d.pred||"";
+  if ((g.startsWith("true") && p==="Supported") || (g.startsWith("false") && p==="Refuted")) return "ok";
+  if (!g || p==="Not Enough Evidence" || p==="Conflicting Evidence/Cherrypicking") return "na";
+  return g ? "bad" : "na";
+}
+function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
+// BEGIN ARTICLE SOURCE RENDERER
+const MATERIAL_LABELS={ACADEMIC:"Academic literature",OFFICIAL:"Official / judicial",NEWS:"News",ORGANIZATION:"Organization / company",SOCIAL:"Social post",REFERENCE:"Reference / document mirror",MEDIA_ARCHIVE:"Image archive",FACT_CHECK:"Fact-check",UNKNOWN:"Unclassified"};
+function sourceLink(url,label){return /^https?:\/\//i.test(url||"")?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(label||url)}</a>`:""}
+function sourceRow(s){
+  const type=(s.material||{}).source_type||"UNKNOWN";
+  const format=(s.material||{}).format||"UNKNOWN";
+  return `<div class="source-row"><div class="evmeta"><span class="tag article">Article link #${s.rank}</span><span>${esc(MATERIAL_LABELS[type]||type)}</span><span>${esc(format)}</span></div>${sourceLink(s.url)}<details class="source-history" onclick="event.stopPropagation()"><summary>Source details</summary><div>Original anchor: ${esc((s.article_anchor||{}).anchor||"[unnamed link]")}</div>${s.page_date?`<div>Source date: ${esc(s.page_date)} (${esc(s.date_source||"unknown field")})</div>`:""}</details></div>`;
+}
+function evidenceHTML(e){
+  const LN={ar:"Arabic",hi:"Hindi",te:"Telugu",ta:"Tamil",en:"English",unknown:"language unknown","ru/uk":"Cyrillic"};
+  const PL={"article":"Article link","article-recovered":"Article link (recovered)","external":"External search","no_source_found":"No supported source found","metadata":"Metadata","none":"No URL"};
+  const basis=e.lang_basis==="url_marker"?"from address":e.lang_basis==="page_text"?"detected from page":e.lang_basis==="url_slug_script"?"from address script":e.lang_basis?"page unreadable":"";
+  const link=e.u?`<div class="source-row"><div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span><span class="tag lang">${esc(LN[e.lang]||e.lang)}</span>${basis?`<span>${esc(basis)}</span>`:""}${e.verdict?`<span class="mono">verifier: ${esc(e.verdict)}</span>`:""}</div>${sourceLink(e.u)}</div>`
+    :`<div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span>${e.searched?"<span>original-language web search found nothing the verifier accepts</span>":""}</div>`;
+  const cands=e.cands.length?`<details class="source-history" onclick="event.stopPropagation()"><summary>Candidates judged (${e.cands.length})</summary>${e.cands.map(c=>`<div class="source-row"><span class="mono">${esc(c.verdict)}</span> ${sourceLink(c.url)}</div>`).join("")}</details>`:"";
+  return `<div class="evitem">${esc(e.s)}${e.o?`<div class="deconbox" dir="auto">${esc(e.o)}</div>`:""}<details class="source-history" onclick="event.stopPropagation()"><summary>Passage in the article</summary><div dir="auto">${esc(e.span)}</div></details>${link}${cands}</div>`;
+}
+// END ARTICLE SOURCE RENDERER
+
+function card(d){
+  const vc = vclass(d);
+  const vlabel = vc==="ok" ? "✓ " : vc==="bad" ? "✗ " : "";
+  const img = d.img ? `<img class="cardimg" src="${d.img}" loading="lazy" alt="claim media">` : "";
+  const ev = d.ev.map(evidenceHTML).join("");
+  const decon = d.orig ? `<h4>Decontextualization</h4><div class="deconbox">original: ${esc(d.orig)}</div>` : "";
+  return `<div class="card" onclick="this.classList.toggle('open')">${img}<div class="cardbody">
+  <div class="claimtext" dir="auto">${esc(d.claim)}</div>${d.claim_en?`<div class="source-label">${esc(d.claim_en)}</div>`:""}
+  <div class="cfoot"><span>#${d.id}</span><span>${d.date}</span><span class="chip mod">${d.mod}</span>
+  <span class="chip mod">${esc({ar:"Arabic",hi:"Hindi",te:"Telugu"}[d.lang]||d.lang)}</span><span class="chip mod" style="margin-left:auto">${esc(d.pub)}</span></div>
+  <div class="detail">${decon}<h4>Evidence (${d.ev.length})</h4>${ev}
+  <h4>Source</h4><a href="${esc(d.art)}" target="_blank" onclick="event.stopPropagation()">fact-checking article (${esc(d.pub)}) ↗</a> · <a href="${esc(d.veritas)}" target="_blank" onclick="event.stopPropagation()">VeriTaS claim page ↗</a></div></div></div>`;
+}
+function render(){
+  const fl=document.getElementById("fLang").value, ord="desc";
+  let list=[...DATA];
+  list.sort((a,b)=>ord==="desc"?b.date.localeCompare(a.date):a.date.localeCompare(b.date));
+  const htmls=[]; let n=0;
+  for(const d of list){
+    if(fl && d.lang!==fl) continue;
+    htmls.push(card(d)); n++;
+  }
+  document.getElementById("grid").innerHTML=htmls.join("");
+  document.getElementById("count").textContent=n+" shown";
+  document.getElementById("pill").textContent=DATA.length+" claims";
+}
+for(const id of ["fLang"]) document.getElementById(id).addEventListener("change",render);
+const btn=document.getElementById("themeBtn");
+function setTheme(t){document.documentElement.setAttribute("data-theme",t);btn.textContent=t==="dark"?"☀️":"🌙";localStorage.setItem("mcfc_theme",t)}
+btn.onclick=()=>setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
+setTheme(localStorage.getItem("mcfc_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+render();
+</script>
+</body></html>

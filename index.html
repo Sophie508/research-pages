@@ -38,12 +38,12 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="multilingual/">Multilingual</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
 <div class="tagline">Multi-culture fact-checking — interactive reports and benchmark reviews</div>
-<span class="pill">5 pages</span>
+<span class="pill">6 pages</span>
 </div>
 <div class="list">
 <a class="card" href="annotation-demo/">
@@ -65,6 +65,11 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 <h2>AVeriTeC + AVerImaTeC Review</h2>
 <p><b>Our pipeline on the two datasets that have ground truth.</b> AVerImaTeC val, 108 claims and 379 evidence items from the 2026-08-30 run after the new URL stage: each statement keeps the link it got, article hyperlink first and dated external search second, with the verifier's verdict shown but not deciding; only statements with no admissible candidate link were dropped, 40 of 397, where the outlet's own pages, social embeds and archive mirrors do not count. Every card carries its own official-protocol EV2R evidence score; over the set it is R 0.697 / P 0.639 against R 0.724 / P 0.619 before the URL stage, since EV2R scores statements rather than links. AVeriTeC's 20 claims are the earlier text-only run and are labelled as not yet through the new URL stage.</p>
 <div class="meta"><span>2026-09-23</span><span class="chip">AVerImaTeC 108 · AVeriTeC 20</span><span class="chip">EV2R R 0.697 · P 0.639</span><span class="chip">verdict 98 / 108 correct</span></div>
+</a>
+<a class="card" href="multilingual/">
+<h2>Multilingual Claims</h2>
+<p><b>Non-English fact-checks through our pipeline.</b> Three VeriTaS claims in Arabic, Hindi and Telugu. Evidence is extracted from the original-language fact-checking article in English and also shown in the article's language, with the quoted passage it came from. Links come from the article first; only when the article has no candidate is the web searched in the original language, and a search result is attached only if the verifier supports it. Each link is tagged with the language of the page it points to. Too few claims for a language distribution; this page is for checking quality.</p>
+<div class="meta"><span>2026-10-08</span><span class="chip">3 claims · 16 evidence</span><span class="chip">linked pages: English 8 · Arabic 1 · Tamil 1 · unknown 3</span><span class="chip">no link attached 3</span></div>
 </a>
 <a class="card" href="deepfake-filter/">
 <h2>Deep Fake Filter</h2>
