@@ -3,9 +3,10 @@
 
 Three non-English VeriTaS claims (Arabic, Hindi, Telugu) run through our pipeline:
 English evidence statements extracted from the original-language fact-checking
-article, each also written in the article's language, then the URL stage (article
-links first, original-language external search only when the article has no
-candidate, and an external result is attached only if the verifier supports it).
+article, each also written in the article's language, then the pipeline's URL stage
+(e2e/link_evidence_sources.py --settle): article links first, then a date-restricted
+search, then the settle step that keeps looking until a page supports the statement,
+drops it otherwise, and marks the supporting passages on the page.
 Every attached link carries the language of the page it points to.
 """
 import json, re, collections
@@ -14,7 +15,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE / 'veritas-intake-review/index.html'
 OUT = HERE / 'multilingual'
-SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/multilingual_20261008/multilingual_results.json')
+SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/multilingual_20261008/multilingual_results_settled_v2.json')
 LANG = {'ar': 'Arabic', 'hi': 'Hindi', 'te': 'Telugu', 'ta': 'Tamil', 'en': 'English', 'unknown': 'unknown'}
 
 rows, lang_count, prov_count = [], collections.Counter(), collections.Counter()
@@ -22,17 +23,16 @@ for r in json.loads(SRC.read_text(encoding='utf-8')):
     if r.get('status') != 'ok': continue
     ev = []
     for e in (r['extracted'].get('evidence_set') or []):
-        cands = e.get('article_candidates') or (e.get('external_search') or {}).get('candidates') or []
-        attached = next((c for c in cands if c['url'] == e.get('source_url')), None)
+        cands = (e.get('link_sources') or {}).get('candidates') or []
         ev.append({'s': e.get('statement', ''), 'o': e.get('statement_original', ''), 'span': e.get('support_span', ''),
                    'u': e.get('source_url') or '', 'p': e.get('provenance', 'none'),
                    'lang': e.get('source_lang', ''), 'lang_basis': e.get('source_lang_basis', ''),
-                   'verdict': (attached or {}).get('verdict', ''),
-                   'cands': [{'url': c['url'], 'verdict': c['verdict']} for c in cands],
-                   'searched': bool(e.get('external_search'))})
+                   'h': e.get('highlight_url') or '', 'st': e.get('url_status', ''),
+                   'before': e.get('statement_before_settle', ''),
+                   'cands': [{'url': c['url'], 'verdict': c.get('verdict', '')} for c in cands]})
         lang_count[e.get('source_lang') or 'no_url'] += 1; prov_count[e.get('provenance', 'none')] += 1
     rows.append({'id': int(r['claim_id']), 'claim': r['text'], 'claim_en': r.get('claim_en', ''), 'lang': r['lang'],
-                 'date': r['date'], 'mod': 'image-text' if r['claim_id'] in ('3822', '4314') else 'video',
+                 'date': r['date'], 'mod': 'text-only',
                  'pred': '', 'gold': '', 'art': r['article'], 'pub': r['publisher'], 'img': '', 'orig': '',
                  'veritas': r['veritas_url'], 'ev': ev})
 n_ev = sum(len(r['ev']) for r in rows)
@@ -45,15 +45,18 @@ html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href
 
 lang_txt = ', '.join(f'{LANG.get(k, k) if k != "no_url" else "no link attached"} {v}' for k, v in lang_count.most_common())
 note = (f'<div class="revision-note"><b>Non-English fact-checks through our pipeline: {len(rows)} claims, {n_ev} evidence statements.</b> '
-        'Claims in Arabic, Hindi and Telugu, taken from the VeriTaS claim browser. The extractor reads the original-language '
+        'Claims in Arabic, Hindi and Telugu, taken from the VeriTaS claim browser: text claims whose fact-checking article cites outside '
+        'sources (regulators, government sites, news reports), so that the evidence can be checked against pages other than the fact-check. The extractor reads the original-language '
         'fact-checking article and writes each evidence statement in English; the statement is also given in the article\'s '
-        'language, and the quoted passage it came from is kept as written. Links: the article\'s own hyperlinks first; only when '
-        'the article has no candidate is the web searched, using the original-language statement and pages dated before the claim, '
-        'and a search result is attached only if the verifier finds that it supports the statement. The fact-checker\'s own '
-        'channels and messaging links are not counted as sources. The language of each linked page is read from a language marker '
+        'language, and the quoted passage it came from is kept as written. Links come from the pipeline\'s URL stage, the same '
+        'procedure the annotation interface uses: the article\'s own hyperlinks first, then a web search restricted to pages dated '
+        'before the claim. An LLM then reads each linked page and checks that it states the evidence. When it does not, the '
+        'statement is cut back to what the page says, or other pages are tried: the article\'s cited sources as archived on or '
+        'before the claim date, the other evidence pages of the claim, then a new search. A statement no page supports is dropped. '
+        '"Highlighted" opens the page with the supporting passages marked, or a text copy of it when the passages cannot be marked '
+        'on the live page. The language of each linked page is read from a language marker '
         'in its address when there is one, otherwise detected from the page text and kept only when the detector is at least 90% sure. '
-        f'Linked-page languages: {lang_txt}. Three claims are far too few for a distribution; this page is for checking quality. '
-        'Claim media are not shown or used.</div>')
+        f'Linked-page languages: {lang_txt}. Three claims are far too few for a distribution; this page is for checking quality.</div>')
 html = re.sub(r'<div class="revision-note">.*?</div>', note, html, count=1, flags=re.S)
 
 controls = ('<div class="controls"> <label>Claim language: <select id="fLang"><option value="">All</option>'
@@ -63,12 +66,14 @@ html = re.sub(r'<div class="controls">.*?</div>\s*<div class="grid" id="grid"></
 
 evidence_js = r'''function evidenceHTML(e){
   const LN={ar:"Arabic",hi:"Hindi",te:"Telugu",ta:"Tamil",en:"English",unknown:"language unknown","ru/uk":"Cyrillic"};
-  const PL={"article":"Article link","article-recovered":"Article link (recovered)","external":"External search","no_source_found":"No supported source found","metadata":"Metadata","none":"No URL"};
+  const PL={"article_link":"Article link","external_search":"External search","extractor":"Extractor citation","metadata":"Metadata","none":"No URL"};
+  const SL={kept:"page supports it",kept_rewritten:"cut back to what the page says",kept_compound:"supported by two pages together",kept_archived:"supported by the archived page",replaced:"replaced by a page that supports it",rewritten_to_cited_source:"cut back to the article's cited source",unverifiable:"page could not be read; not checked"};
   const basis=e.lang_basis==="url_marker"?"from address":e.lang_basis==="page_text"?"detected from page":e.lang_basis==="url_slug_script"?"from address script":e.lang_basis?"page unreadable":"";
-  const link=e.u?`<div class="source-row"><div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span><span class="tag lang">${esc(LN[e.lang]||e.lang)}</span>${basis?`<span>${esc(basis)}</span>`:""}${e.verdict?`<span class="mono">verifier: ${esc(e.verdict)}</span>`:""}</div>${sourceLink(e.u)}</div>`
-    :`<div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span>${e.searched?"<span>original-language web search found nothing the verifier accepts</span>":""}</div>`;
+  const link=e.u?`<div class="source-row"><div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span><span class="tag lang">${esc(LN[e.lang]||e.lang)}</span>${basis?`<span>${esc(basis)}</span>`:""}${e.st?`<span class="mono">${esc(SL[e.st]||e.st)}</span>`:""}</div>${sourceLink(e.u)}${e.h?` · <a href="${esc(e.h)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">highlighted ↗</a>`:""}</div>`
+    :`<div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span></div>`;
   const cands=e.cands.length?`<details class="source-history" onclick="event.stopPropagation()"><summary>Candidates judged (${e.cands.length})</summary>${e.cands.map(c=>`<div class="source-row"><span class="mono">${esc(c.verdict)}</span> ${sourceLink(c.url)}</div>`).join("")}</details>`:"";
-  return `<div class="evitem">${esc(e.s)}${e.o?`<div class="deconbox" dir="auto">${esc(e.o)}</div>`:""}<details class="source-history" onclick="event.stopPropagation()"><summary>Passage in the article</summary><div dir="auto">${esc(e.span)}</div></details>${link}${cands}</div>`;
+  const before=e.before?`<details class="source-history" onclick="event.stopPropagation()"><summary>Statement before it was cut back</summary><div>${esc(e.before)}</div></details>`:"";
+  return `<div class="evitem">${esc(e.s)}${before}${e.o?`<div class="deconbox" dir="auto">${esc(e.o)}</div>`:""}<details class="source-history" onclick="event.stopPropagation()"><summary>Passage in the article</summary><div dir="auto">${esc(e.span)}</div></details>${link}${cands}</div>`;
 }'''
 html = re.sub(r'function evidenceHTML\(e\)\{.*?\n\}\n// END ARTICLE SOURCE RENDERER', evidence_js + '\n// END ARTICLE SOURCE RENDERER', html, count=1, flags=re.S)
 
@@ -83,7 +88,7 @@ html = html.replace('''    if(fv && vclass(d)!==fv) continue;
     if(fm && d.mod!==fm) continue;
     if(fe && !d.ev.some(e=>e.p===fe)) continue;''', '''    if(fl && d.lang!==fl) continue;''')
 html = html.replace('for(const id of ["fVerdict","fMod","fEv","fOrder"])', 'for(const id of ["fLang"])')
-html = html.replace('</style>', '.tag.lang{background:var(--info-soft);color:var(--info)}\n.tag.external{background:var(--warn-soft);color:var(--warn)}\n.tag.no_source_found{background:var(--bg);color:var(--ink3);border:1px solid var(--line)}\n.tag.article-recovered{background:var(--ok-soft);color:var(--ok)}\n</style>', 1)
+html = html.replace('</style>', '.tag.lang{background:var(--info-soft);color:var(--info)}\n.tag.external_search{background:var(--warn-soft);color:var(--warn)}\n.tag.extractor{background:var(--ok-soft);color:var(--ok)}\n</style>', 1)
 
 for marker in ('fLang', 'Multilingual Claims', 'evidenceHTML(e){\n  const LN'):
     assert marker in html, f'template patch failed: {marker}'
