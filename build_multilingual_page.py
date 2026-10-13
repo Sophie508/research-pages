@@ -90,7 +90,92 @@ html = html.replace('''    if(fv && vclass(d)!==fv) continue;
 html = html.replace('for(const id of ["fVerdict","fMod","fEv","fOrder"])', 'for(const id of ["fLang"])')
 html = html.replace('</style>', '.tag.lang{background:var(--info-soft);color:var(--info)}\n.tag.external_search{background:var(--warn-soft);color:var(--warn)}\n.tag.extractor{background:var(--ok-soft);color:var(--ok)}\n</style>', 1)
 
-for marker in ('fLang', 'Multilingual Claims', 'evidenceHTML(e){\n  const LN'):
+# ---- comparison of search languages (2026-10-12), rendered as a static section under the claim grid
+import html as _html, shutil
+from urllib.parse import urlsplit
+AB = SRC.parent / 'search_ab'
+VERSIONS = [('published', 'Shown above', 'English search; links ranked against the English statement'),
+            ('en', 'English search', 'links ranked against the quoted passage'),
+            ('original', 'Original-language search', 'links ranked against the quoted passage'),
+            ('both', 'Both searches', 'original language first, then English')]
+STATUS = {'kept': 'supported', 'kept_rewritten': 'cut back, supported', 'kept_compound': 'two pages together',
+          'kept_archived': 'archived page supports it', 'replaced': 'replaced, supported',
+          'rewritten_to_cited_source': 'cut back to cited source', 'unverifiable': 'page unreadable, not checked'}
+LABEL = {'Refuted': 'Refuted', 'Supported': 'Supported', 'Not Enough Evidence': 'Not enough evidence',
+         'Conflicting Evidence/Cherrypicking': 'Conflicting / cherry-picking'}
+esc = lambda t: _html.escape(str(t or ''))
+
+
+def compare_section():
+    pub = json.loads((AB / 'search_ab_results.json').read_text(encoding='utf-8'))['claims']
+    arms = {a: json.loads((AB / f'search_ab_results_{a}.json').read_text(encoding='utf-8'))['claims'] for a in ('en', 'original', 'both')}
+    extracted = {r['claim_id']: [e['statement'] for e in r['extracted']['evidence_set']]
+                 for r in json.loads((SRC.parent / 'multilingual_results_v2.json').read_text(encoding='utf-8'))}
+    (OUT / 'snapshots').mkdir(parents=True, exist_ok=True)
+
+    def link(e):
+        url, hl = e.get('source_url', ''), e.get('highlight_url') or ''
+        if hl.startswith('snapshots/'):                     # copy the marked text copy next to the page
+            for a in ('en', 'original', 'both'):
+                f = AB / f'snapshots_{a}' / hl.split('/', 1)[1]
+                if f.exists():
+                    shutil.copy(f, OUT / 'snapshots' / f.name); break
+        host = urlsplit(url).netloc.replace('www.', '') if url else ''
+        out = f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(host)}</a>' if url else ''
+        if hl:
+            out += f' · <a href="{esc(hl)}" target="_blank" rel="noopener">highlighted ↗</a>'
+        return out
+
+    rows, details = [], []
+    for cid in ('26141', '5567', '10888'):
+        c = pub[cid]
+        per = {'published': c['arms']['published'], **{a: arms[a][cid]['arms'][a] for a in arms}}
+        cells = ''.join(f'<td><b>{esc(LABEL.get(per[k]["label"], per[k]["label"]))}</b><br><span class="muted">{len(per[k]["evidence"])} evidence</span></td>' for k, _, _ in VERSIONS)
+        lang = {'ar': 'Arabic', 'hi': 'Hindi', 'te': 'Telugu'}[c['lang']]
+        rows.append(f'<tr><th>{lang}<br><span class="muted">{esc(c["claim_en"][:90])}…</span></th>{cells}<td>{esc(c["veritas"])}</td></tr>')
+        body = []
+        for i, stmt in enumerate(extracted[cid], 1):
+            tds = []
+            for k, _, _ in VERSIONS:
+                e = next((x for x in per[k]['evidence'] if (x.get('statement_before_settle') or x['statement']) == stmt), None)
+                tds.append('<td class="muted">dropped</td>' if e is None else
+                           f'<td>{esc(STATUS.get(e["url_status"], e["url_status"]))}<br>{link(e)}</td>')
+            body.append(f'<tr><th>E{i}. {esc(stmt)}</th>{"".join(tds)}</tr>')
+        heads = ''.join(f'<th>{esc(t)}</th>' for _, t, _ in VERSIONS)
+        details.append(f'<details class="cmp-claim"><summary>{lang}: evidence per version</summary>'
+                       f'<div class="cmp-scroll"><table class="cmp"><tr><th>Extracted evidence</th>{heads}</tr>{"".join(body)}</table></div></details>')
+    heads = ''.join(f'<th>{esc(t)}<br><span class="muted">{esc(d)}</span></th>' for _, t, d in VERSIONS)
+    return f"""<section class="cmp-section">
+<h2>Does the search language change the evidence or the verdict?</h2>
+<p>The same three claims, run four ways. The first column is the version shown above. The other three restart every statement
+from the extractor's citation and differ only in the language of the web search used when the article's own links do not support
+a statement: the English statement, the statement in the article's language, or both. All three rank the article's links against
+the quoted passage, which is in the article's language. Each version then goes through the pipeline's merge and verdict prompts,
+with the English claim. These claims have no gold evidence, so there is no EV2R score; the VeriTaS verdict is given for reference.</p>
+<div class="cmp-scroll"><table class="cmp"><tr><th>Claim</th>{heads}<th>VeriTaS</th></tr>{''.join(rows)}</table></div>
+<p><b>What it shows.</b> The verdict is the same in every version and agrees with VeriTaS. For the Arabic and Hindi claims the
+links are the same under all three searches: every statement got its link from the article itself, so no search was needed. For the
+Telugu claim, about a press conference in Washington, the English search added English news coverage (Times of India, OPB), and the
+Telugu search found nothing the article's own links did not already give. Some differences between versions are run-to-run noise
+rather than language: pages are fetched live, and the White House page was read directly in one run and from its Wayback copy in
+another. Ranking against the quoted passage made the article's Facebook links come first for a few statements; Facebook pages cannot be
+read, so those statements are kept as unreadable instead of being re-sourced or dropped.</p>
+<p><b>Limits.</b> Three claims, chosen because their articles cite outside sources, mostly English-language institutions. This says
+little about claims on local events whose sources are in the local language, where searching in the original language should matter
+most.</p>
+{''.join(details)}
+</section>"""
+
+
+html = html.replace('<div class="grid" id="grid"></div>', '<div class="grid" id="grid"></div>\n' + compare_section(), 1)
+html = html.replace('</style>', '.cmp-section{max-width:1100px;margin:40px auto 24px;padding:0 16px;color:var(--ink2);line-height:1.6}\n'
+                    '.cmp-section h2{color:var(--ink);font-size:1.3rem}.cmp-scroll{overflow-x:auto}\n'
+                    'table.cmp{border-collapse:collapse;width:100%;min-width:760px;margin:12px 0;font-size:.9rem;background:var(--card)}\n'
+                    'table.cmp th,table.cmp td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}\n'
+                    'table.cmp th{color:var(--ink);font-weight:600}.cmp-section .muted{color:var(--ink3);font-weight:400}\n'
+                    'details.cmp-claim{margin:10px 0}details.cmp-claim summary{cursor:pointer;color:var(--ink);font-weight:600}\n</style>', 1)
+
+for marker in ('fLang', 'Multilingual Claims', 'evidenceHTML(e){\n  const LN', 'cmp-section'):
     assert marker in html, f'template patch failed: {marker}'
 OUT.mkdir(exist_ok=True)
 (OUT / 'index.html').write_text(html, encoding='utf-8')
