@@ -28,7 +28,7 @@ for r in json.loads(SRC.read_text(encoding='utf-8')):
                    'u': e.get('source_url') or '', 'p': e.get('provenance', 'none'),
                    'lang': e.get('source_lang', ''), 'lang_basis': e.get('source_lang_basis', ''),
                    'h': e.get('highlight_url') or '', 'st': e.get('url_status', ''),
-                   'before': e.get('statement_before_settle', ''),
+                   'before': e.get('statement_before_settle', ''), 'prev': e.get('source_url_before_settle', ''),
                    'cands': [{'url': c['url'], 'verdict': c.get('verdict', '')} for c in cands]})
         lang_count[e.get('source_lang') or 'no_url'] += 1; prov_count[e.get('provenance', 'none')] += 1
     rows.append({'id': int(r['claim_id']), 'claim': r['text'], 'claim_en': r.get('claim_en', ''), 'lang': r['lang'],
@@ -68,8 +68,8 @@ evidence_js = r'''function evidenceHTML(e){
   const LN={ar:"Arabic",hi:"Hindi",te:"Telugu",ta:"Tamil",en:"English",unknown:"language unknown","ru/uk":"Cyrillic"};
   const PL={"article_link":"Article link","external_search":"External search","extractor":"Extractor citation","metadata":"Metadata","none":"No URL"};
   const SL={kept:"page supports it",kept_rewritten:"cut back to what the page says",kept_compound:"supported by two pages together",kept_archived:"supported by the archived page",replaced:"replaced by a page that supports it",rewritten_to_cited_source:"cut back to the article's cited source",unverifiable:"page could not be read; not checked"};
-  const basis=e.lang_basis==="url_marker"?"from address":e.lang_basis==="page_text"?"detected from page":e.lang_basis==="url_slug_script"?"from address script":e.lang_basis?"page unreadable":"";
-  const link=e.u?`<div class="source-row"><div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span><span class="tag lang">${esc(LN[e.lang]||e.lang)}</span>${basis?`<span>${esc(basis)}</span>`:""}${e.st?`<span class="mono">${esc(SL[e.st]||e.st)}</span>`:""}</div>${sourceLink(e.u)}${e.h?` · <a href="${esc(e.h)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">highlighted ↗</a>`:""}</div>`
+  const basis=e.lang_basis==="url_marker"?"from address":e.lang_basis==="page_text"?"detected from page":e.lang_basis==="url_slug_script"?"from address script":e.lang_basis?"language not detected":"";
+  const link=e.u?`<div class="source-row"><div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span><span class="tag lang">${esc(LN[e.lang]||e.lang)}</span>${basis?`<span>${esc(basis)}</span>`:""}${e.st?`<span class="mono">${esc(SL[e.st]||e.st)}</span>`:""}</div>${sourceLink(e.u)}${e.h?` · <a href="${esc(e.h)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">highlighted ↗</a>`:""}${e.prev?`<div class="evmeta"><span>Replaced the link first attached:</span> ${sourceLink(e.prev)}</div>`:""}</div>`
     :`<div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span></div>`;
   const others=e.cands.filter(c=>c.url!==e.u);
   const cands=others.length?`<details class="source-history" onclick="event.stopPropagation()"><summary>Other links checked, not used (${others.length})</summary><div class="muted">Each was checked for this statement and not chosen. The label is the link stage's first check of the page; the link above is the one the final check kept.</div>${others.map(c=>`<div class="source-row"><span class="mono">${esc(c.verdict)}</span> ${sourceLink(c.url)}</div>`).join("")}</details>`:"";
