@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store vs Web · InFact</title>
+<meta name="description" content="InFact 在官方 knowledge store 和系统查询实时搜索两种证据来源下的逐问题对比：同一条查询两边各返回什么，store 里的网页当初是怎么被找到的。">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fafbfc; --card:#ffffff; --ink:#101828; --ink2:#475467; --ink3:#98a2b3; --line:#eaecf0; --accent:#e8590c; --info:#175cd3; --info-soft:#eff8ff;
+  --shadow:0 1px 3px rgba(16,24,40,.07),0 1px 2px rgba(16,24,40,.04);
+  --gold:#fef0c7; --gold-ink:#93370d; --ok:#079455; --ok-soft:#ecfdf3; --bad:#d92d20; --bad-soft:#fef3f2; --code-bg:#f2f4f7; --store-soft:#f5f8ff; --web-soft:#fff8f3;
+}
+[data-theme="dark"]{
+  --bg:#0c111d; --card:#161b26; --ink:#f5f5f6; --ink2:#94969c; --ink3:#61646c; --line:#1f242f; --accent:#ff692e; --info:#84adff; --info-soft:#0e1f3d;
+  --shadow:0 1px 3px rgba(0,0,0,.4); --gold:#3d2a06; --gold-ink:#fdb022; --ok:#47cd89; --ok-soft:#0b2a1b; --bad:#f97066; --bad-soft:#3a1412; --code-bg:#1c2130; --store-soft:#121a2b; --web-soft:#2a1a10;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;font-family:"DM Sans",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+a{color:var(--info);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-weight:700;letter-spacing:-0.02em;line-height:1.1;font-size:36px}
+h2{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-weight:700;letter-spacing:-0.01em;font-size:26px;margin:0 0 8px}
+h3{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-weight:700;font-size:18px;border-left:3px solid var(--accent);padding-left:12px;margin:22px 0 10px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.sec-num{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase}
+.muted{color:var(--ink3)} .small{font-size:13px}
+code{background:var(--code-bg);padding:2px 6px;border-radius:2px;font-family:"JetBrains Mono",monospace;font-size:12.5px}
+nav.top{display:flex;align-items:center;gap:22px;padding:0 40px;height:64px;border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:20}
+nav.top .brand{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
+nav.top .section-name{font-weight:600;color:var(--ink2);font-size:14.5px;padding-left:22px;border-left:1px solid var(--line)}
+nav.top .navlinks{display:flex;gap:22px;margin-left:auto;font-weight:500;color:var(--ink2);font-size:14.5px;flex-wrap:wrap}
+nav.top .navlinks a{color:inherit} nav.top .navlinks a.on{color:var(--ink);border-bottom:2px solid var(--accent)} nav.top .navlinks a:hover{text-decoration:none;color:var(--ink)}
+#themeBtn{margin-left:4px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink2)}
+header.hero{background:var(--card);border-bottom:1px solid var(--line);padding:48px 0 32px}
+.hero .en{font-family:"Plus Jakarta Sans","DM Sans",sans-serif;font-size:17px;color:var(--ink2);margin-top:10px}
+.hero .lead{margin-top:20px;font-size:15px;color:var(--ink2);border-left:3px solid var(--accent);padding-left:18px;max-width:820px}
+.hero .meta{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.hero .meta div{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink3);line-height:1.5}
+.hero .meta b{display:block;color:var(--ink);font-weight:700;font-size:13px;margin-top:2px;font-family:"DM Sans",sans-serif}
+section{padding:32px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:var(--shadow);margin-top:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tbl{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:13.5px} th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);font-weight:600}
+td.num,th.num{text-align:right;font-family:"JetBrains Mono",monospace;font-size:12.5px}
+tr.ours td{background:rgba(242,140,40,.07)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:10px}
+.kpi div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg)}
+.kpi b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:24px;letter-spacing:-.02em} .kpi span{font-size:12.5px;color:var(--ink2)}
+.notice{border-left:3px solid var(--info);background:var(--info-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;color:var(--ink2)}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--ink2);margin-right:4px;vertical-align:middle;white-space:nowrap}
+.tag.gold{background:var(--gold);color:var(--gold-ink);border-color:transparent;font-weight:600}
+.tag.ans{background:var(--ok-soft);color:var(--ok);border-color:transparent;font-weight:600}
+.tag.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.tag.fc{background:var(--code-bg)}
+.tag.store{background:var(--store-soft);color:var(--info)}
+details.claim{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:14px;box-shadow:var(--shadow)}
+details.claim>summary{cursor:pointer;padding:16px 22px;list-style:none;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+details.claim>summary::-webkit-details-marker{display:none}
+details.claim>summary .cid{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:12px;letter-spacing:.1em}
+details.claim>summary .ctext{font-weight:600;flex:1 1 420px}
+details.claim .body{padding:0 22px 22px}
+.verdicts{display:flex;gap:10px;flex-wrap:wrap;font-size:13px}
+.verdicts span{border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.verdicts .right{border-color:var(--ok);color:var(--ok)} .verdicts .wrong{border-color:var(--bad);color:var(--bad)}
+.goldbox{border:1px dashed var(--gold-ink);background:var(--gold);border-radius:10px;padding:12px 14px;margin:12px 0;font-size:13.5px} .goldbox b{color:var(--gold-ink)}
+.goldbox ol{margin-left:18px} .goldbox li{margin:4px 0}
+.q{border-top:1px solid var(--line);padding:14px 0 6px;margin-top:8px}
+.q .qt{font-weight:600;margin-bottom:8px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.col{border-radius:10px;padding:12px 14px;font-size:13px}
+.col.store{background:var(--store-soft)} .col.web{background:var(--web-soft)}
+.col h5{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}
+.query{margin:8px 0 4px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink)} .query::before{content:"⌕ ";color:var(--accent)}
+.res{margin-left:14px;padding:3px 0;border-left:2px solid var(--line);padding-left:10px;word-break:break-all;line-height:1.5}
+.res.gold{border-left-color:var(--gold-ink)} .res.ans{border-left-color:var(--ok)}
+.res .u{color:var(--info)} .res .sq{display:block;color:var(--ink2);font-size:12px;margin-top:2px}
+.res .sq::before{content:"store 里这页来自：";color:var(--ink3)}
+details.more{margin:6px 0 0 14px;font-size:12.5px} details.more>summary{cursor:pointer;color:var(--ink3)}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin-top:10px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-size:13px;margin-top:20px}
+@media (max-width:860px){.cols,.grid2{grid-template-columns:1fr}.hero .meta{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){nav.top{height:auto;padding:10px 16px;flex-wrap:wrap;gap:10px 16px}nav.top .navlinks{margin-left:0;width:100%;gap:14px}nav.top .section-name{padding-left:0;border-left:0}.wrap{padding:0 16px}h1{font-size:26px}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<nav class="top"><a class="brand" href="../">MCFC Bench</a><a class="section-name" href="index.html#/">Baseline Reproduce</a>
+  <div class="navlinks"><a href="../">Home</a><a href="index.html#/">Claims</a><a href="index.html#/compare">Compare</a><a href="explain.html">Pipeline</a><a href="methods.html">Methods</a><a href="index.html#/results">Results</a><a class="on" href="store-vs-web.html">Store vs Web</a><a href="progress.html">Progress</a></div>
+  <button id="themeBtn">🌙</button></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="sec-num">InFact · evidence source comparison</div>
+  <h1 style="margin-top:10px">官方 knowledge store vs 系统查询的实时搜索</h1>
+  <div class="en">The same InFact code and model, two evidence sources: the organisers' knowledge store, or Google (Serper) searched with the system's own queries</div>
+  <div class="lead">同一份 InFact 代码、同一个模型（Gemma-4-26B）、同一批 AVeriTeC dev claim，只换证据来源。这页回答一个问题：换成系统自己生成的查询去实时搜索后，证据差在哪里。第 2 节把 store 版判对、搜索版判错的 13 条 claim 逐个问题并排摆出来，并标出 store 里每个网页当初是用什么查询找到的。</div>
+  <div class="meta">
+    <div>范围<b>AVeriTeC dev 前 50 条；逐条对比 13 条</b></div>
+    <div>代码与模型<b>InFact（DEFAME infact 分支 f364d33）· Gemma-4-26B</b></div>
+    <div>搜索设置<b>Serper，只取 claim 日期前的网页，过滤 fact-check 站，抓正文</b></div>
+    <div>数据生成<b id="m-gen">—</b></div>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="sec-num">1 · 总览</div>
+  <h2>两种证据来源的差距</h2>
+
+  <div class="panel">
+    <h3 style="margin-top:0">同 50 条 claim 上的分数</h3>
+    <div class="tbl"><table><thead><tr><th>证据来源</th><th class="num">判决准确率</th><th class="num">Macro-F1</th><th class="num">Q-only</th><th class="num">Q+A</th><th class="num">AVeriTeC 分数 @0.25</th><th class="num">每条留下的问答对</th><th class="num">判"证据不足"的条数</th></tr></thead><tbody>
+      <tr><td>官方 knowledge store</td><td class="num">64%</td><td class="num">0.498</td><td class="num">0.423</td><td class="num">0.320</td><td class="num">52%</td><td class="num">8.7</td><td class="num">6</td></tr>
+      <tr class="ours"><td><b>系统查询 → Serper 实时搜索</b></td><td class="num"><b>46%</b></td><td class="num">0.330</td><td class="num">0.351</td><td class="num">0.254</td><td class="num"><b>28%</b></td><td class="num">5.1</td><td class="num">13</td></tr>
+    </tbody></table></div>
+    <div class="small muted" style="margin-top:8px">标准标签里只有 3 条是"证据不足"。两版判决相同的有 29/50 条。评分器是 InFact 仓库自带的旧版 AVeriTeC 评分器。store 版判对、搜索版判错的 13 条，和反过来的 4 条，分别是 3, 4, 5, 8, 11, 15, 18, 20, 23, 25, 29, 34, 49 与 14, 16, 32, 46。</div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin-top:0">这 13 条里，搜索版的问题去哪了</h3>
+    <div class="kpi" id="kpi-q"></div>
+    <div class="small muted" style="margin-top:10px">每条 claim 10 个问题。"有网页但没答案"指至少有一个抓到正文的网页交给了模型，模型仍说里面没有答案。</div>
+    <h3>这些问题的候选网页都怎么了</h3>
+    <div class="kpi" id="kpi-cand"></div>
+    <div class="small muted" style="margin-top:10px">每条查询向 Serper 要 10 个候选网页，跳过 fact-check 站和抓不到正文的，留前 5 个。抓不到正文的原因主要是网站拦截（403 / 400）、页面要靠脚本才能显示、PDF。</div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3 style="margin-top:0">标准答案网页，搜索能不能搜到</h3>
+      <div class="kpi" id="kpi-gold"></div>
+      <div class="small muted" style="margin-top:10px">标准答案网页 = 标注员记录的证据来源网址（按去掉存档前缀、www 和跟踪参数后比较）。</div>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">store 版的答案来自哪些网页</h3>
+      <div class="kpi" id="kpi-store"></div>
+      <div class="small muted" style="margin-top:10px">store 里每个网页都记录了主办方当初用什么查询把它搜回来（shared task 论文附录 A）。"gold 问题派生"= 标注员问题原文、改写，或 ChatGPT 根据 claim + 标注问答生成的问题。这些查询里带着系统不可能事先知道的实体名，第 2 节的例子能直接看到。</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin-top:0">两个补充实验（都在这 13 条的 69 个没答出的问题上做）</h3>
+    <div class="tbl"><table><thead><tr><th>实验</th><th>做法</th><th>结果</th></tr></thead><tbody>
+      <tr><td>去掉日期限制重搜</td><td>208 条查询不限日期再搜一次（只用 Serper，199 次）</td><td>命中标准答案网页的查询 6 → 9（共 208）；有命中的 claim 2 → 2（共 13）；fact-check 站结果 94 → 161；不限日期的结果里 47% 晚于 claim 日期，会泄露。<b>日期限制不是找不到答案的原因。</b></td></tr>
+      <tr><td>把问题拆成更具体的关键词查询</td><td>Gemma 把每个问题拆成 2–4 个关键词子查询，再搜、抓页，让 Gemma 看网页能否作答（OpenRouter 0.09 美元，Serper 182 次）</td><td>能作答的问题 14 → 17（共 69，严格统计，净 +3）；命中标准答案的问题 4 → 3。<b>有一点帮助，不是主要杠杆。</b></td></tr>
+    </tbody></table></div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin-top:0">还有一处设置不同</h3>
+    <p class="small" style="color:var(--ink2)">store 本身不排除 fact-check 网站：50 条 claim 的 48,330 个 store 网页里有 0.4%（212 个）来自 PolitiFact、FactCheck.org 这类网站；store 版 437 个答案里有 26 个引用了它们，涉及 6 条 claim。搜索版按 DEFAME 作者的名单把这些网站过滤掉了。比例不大，但是两边设置上的差异。</p>
+  </div>
+
+  <div class="notice" style="margin-top:16px"><b style="color:var(--ink)">怎么读下面的逐条对比。</b>每条 claim 先列标注员的问题和证据网址，再按 InFact 自己提的每个问题分左右两栏：左栏是 store 版，同一条查询在 store 里返回的网页，每个网页标着它当初是靠什么查询进入 store 的；右栏是搜索版，同一条查询 Serper 返回的网页，标着留下还是丢掉、为什么。被标注员用作证据的网页高亮。InFact 两版各自生成问题和查询，所以左右两栏的问题不一定相同。</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-num">2 · 逐条对比</div>
+  <h2>store 版判对、搜索版判错的 13 条</h2>
+  <div class="legend"><span class="tag gold">gold</span>标注员的证据网页 <span class="tag ans">answered from</span>InFact 从这页答出了问题 <span class="tag store">store: …</span>这页进入 store 的方式 <span class="tag bad">dropped</span>搜索版丢掉的候选 <span class="tag fc">fact-check site</span>fact-check 网站</div>
+  <div id="claims"><p class="muted">加载中…</p></div>
+</div></section>
+
+<footer><div class="wrap">
+  数据：<code>data/store/store_vs_web_13.json</code>，由只读脚本 <code>export_store_vs_web.py</code> 从两次运行的日志和输出、官方 store 文件、Serper 与抓页缓存导出；没有调用任何模型。store 版运行 2026-09-30，搜索版运行 2026-10-12，分数和产物见 GitHub 分支 baseline-reproduce。
+</div></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const esc=(s)=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=(u)=>/^https?:\/\//i.test(String(u||'').trim());
+const link=(u)=>safeUrl(u)?`<a class="u" href="${esc(u.trim())}" target="_blank" rel="noopener noreferrer">${esc(u)}</a>`:`<span class="mono">${esc(u)}</span>`;
+const pct=(a,b)=>b?Math.round(100*a/b)+'%':'—';
+const btn=$('#themeBtn'); function setTheme(t){document.documentElement.setAttribute('data-theme',t);btn.textContent=t==='dark'?'☀️':'🌙';try{localStorage.setItem('mcfc_theme',t);}catch(e){}}
+let t0='light'; try{t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}catch(e){}
+setTheme(t0); btn.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
+const GOLDQ_TYPES=new Set(['question','question_duplicate','gpt_question','claim+question','answer']);
+const STORE_LABEL={gold:'gold 证据页',question:'标注员问题原文',question_duplicate:'标注员问题改写',gpt_question:'ChatGPT 据 claim + 标注问答出的问题','claim+question':'claim + 标注员问题',answer:'标注员答案文本',claim:'claim 文本',background:'背景问题',background_questions:'背景问题',provenance:'来源问题',NER:'实体名',most_similar:'相似问题',gpt_url_only:'ChatGPT 直接给的网址',same_entity_questions:'干扰项：同实体不同问题','?':'未知'};
+
+function kpi(el,items){el.innerHTML=items.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');}
+
+function summarise(D){
+  let total=0,ans=0,notext=0,noans=0,nores=0; const fate={}; let goldN=0,goldCand=0,goldKept=0,goldHost=0;
+  let sAns=0,sGoldQ=0,sGoldUrl=0,sFc=0;
+  for(const c of D.claims){
+    const gold=new Set(c.gold_evidence.filter(g=>g.url).map(g=>g.url)); goldN+=gold.size;
+    const seenGold=new Set(),keptGold=new Set(),hostSeen=new Set();
+    for(const q of c.web.questions){
+      total++; const shown=q.queries.flatMap(x=>x.results.filter(r=>r.fate==='kept')); const cands=q.queries.reduce((a,x)=>a+x.n_candidates,0);
+      if(q.answered) ans++; else if(!cands) nores++; else if(!shown.length) notext++; else noans++;
+      for(const x of q.queries) for(const r of x.results){ const k=r.fate.startsWith('dropped: no text')?'dropped: no text':r.fate; fate[k]=(fate[k]||0)+1;
+        if(r.gold){seenGold.add(r.url); if(r.fate==='kept') keptGold.add(r.url);} if(r.gold_host) hostSeen.add(r.url.split('/')[2]); }
+    }
+    goldCand+=seenGold.size; goldKept+=keptGold.size; goldHost+=hostSeen.size?1:0;
+    for(const q of c.store.questions) for(const x of q.queries) for(const r of x.results) if(r.answered_from){ sAns++; if(GOLDQ_TYPES.has(r.store_type)) sGoldQ++; if(r.gold) sGoldUrl++; if(r.fact_check_site) sFc++; }
+  }
+  kpi($('#kpi-q'),[[total,'个问题（13 条 × 10）'],[`${ans} · ${pct(ans,total)}`,'找到了答案'],[`${noans} · ${pct(noans,total)}`,'有网页但没答案'],[notext,'搜到网页但全抓不到正文'],[nores,'Serper 没返回结果']]);
+  const f=(k)=>fate[k]||0; const candTotal=Object.values(fate).reduce((a,b)=>a+b,0);
+  kpi($('#kpi-cand'),[[candTotal,'候选网页（全部问题）'],[`${f('kept')} · ${pct(f('kept'),candTotal)}`,'抓到正文，交给模型'],[`${f('dropped: no text')} · ${pct(f('dropped: no text'),candTotal)}`,'抓不到正文，丢掉'],[`${f('dropped: fact-check site')} · ${pct(f('dropped: fact-check site'),candTotal)}`,'fact-check 站，过滤'],[f('seen before (dedup)'),'之前已见，去重'],[f('not needed (5 kept already)'),'已凑够 5 个，没去抓']]);
+  kpi($('#kpi-gold'),[[goldN,'标准答案网页（13 条）'],[`${goldCand} · ${pct(goldCand,goldN)}`,'出现在 Serper 候选里'],[goldKept,'其中抓到了正文'],[`${goldHost} / ${D.claims.length}`,'claim：至少搜到过同一网站的页']]);
+  kpi($('#kpi-store'),[[sAns,'store 版答案（13 条）'],[`${sGoldQ} · ${pct(sGoldQ,sAns)}`,'来自 gold 问题派生查询找到的页'],[sGoldUrl,'直接来自标准答案网页'],[sFc,'来自 fact-check 网站']]);
+}
+
+function resLine(r,side){
+  const tags=[];
+  if(r.gold) tags.push('<span class="tag gold">gold</span>'); else if(r.gold_host) tags.push('<span class="tag">同 gold 网站</span>');
+  if(r.answered_from) tags.push('<span class="tag ans">answered from</span>');
+  if(r.fact_check_site) tags.push('<span class="tag fc">fact-check site</span>');
+  if(side==='web'&&r.fate&&r.fate!=='kept') tags.push(`<span class="tag ${r.fate.startsWith('dropped')?'bad':''}">${esc(r.fate)}</span>`);
+  let extra='';
+  if(side==='store'){ tags.push(`<span class="tag store">store: ${esc(STORE_LABEL[r.store_type]||r.store_type)}</span>`); if(r.store_query&&r.store_query!=='_') extra=`<span class="sq">${esc(r.store_query)}</span>`; }
+  return `<div class="res ${r.gold?'gold':''} ${r.answered_from?'ans':''}">${tags.join('')} ${link(r.url)}${extra}</div>`;
+}
+function column(run,side){
+  const title=side==='store'?'官方 knowledge store':'Serper 实时搜索';
+  const v=run.verdict;
+  return `<div class="col ${side}"><h5><span>${title}</span><span>判决 ${esc(v)} · ${run.n_answers} 个答案</span></h5>${run.questions.map((q,k)=>{
+    const qs=q.queries.map(x=>{
+      const kept=side==='web'?x.results.filter(r=>r.fate==='kept'):x.results;
+      const rest=side==='web'?x.results.filter(r=>r.fate!=='kept'):[];
+      return `<div class="query">${esc(x.query)}</div>${kept.length?kept.map(r=>resLine(r,side)).join(''):'<div class="res muted">没有返回网页</div>'}${rest.length?`<details class="more"><summary>另有 ${rest.length} 个候选没有用上</summary>${rest.map(r=>resLine(r,side)).join('')}</details>`:''}`;
+    }).join('');
+    const a=q.answered?`<span class="tag ans">answered</span>`:`<span class="tag bad">no answer</span>`;
+    return `<div class="q"><div class="qt">${a} Q${k+1}. ${esc(q.question)}</div>${qs}</div>`;}).join('')}</div>`;
+}
+function claimBlock(c,open){
+  const ok=(v)=>v===c.gold_label?'right':'wrong';
+  const gold=c.gold_evidence.map(g=>`<li>${esc(g.question)}${g.answer?` — <span class="muted">${esc(g.answer).slice(0,220)}</span>`:''}${g.url?`<br>${link(g.url)}`:''}</li>`).join('');
+  return `<details class="claim" id="c${c.id}" ${open?'open':''}><summary><span class="cid">CLAIM ${c.id}${open?' · 讲解示例':''}</span><span class="ctext">${esc(c.claim)}</span><span class="small muted">gold ${esc(c.gold_label)} · store ${esc(c.store.verdict)} · web ${esc(c.web.verdict)}</span></summary>
+  <div class="body">
+    <div class="verdicts"><span>标准标签：<b>${esc(c.gold_label)}</b></span><span class="${ok(c.store.verdict)}">store 版判决：${esc(c.store.verdict)}</span><span class="${ok(c.web.verdict)}">搜索版判决：${esc(c.web.verdict)}</span><span class="muted">claim 日期 ${esc(c.claim_date)}${c.speaker?' · '+esc(c.speaker):''}</span>${c.fact_checking_article?`<span>${link(c.fact_checking_article).replace(c.fact_checking_article,'fact-check 文章')}</span>`:''}</div>
+    <div class="goldbox"><b>标注员的问题和证据（gold）</b><ol>${gold||'<li>无</li>'}</ol></div>
+    <div class="cols">${column(c.store,'store')}${column(c.web,'web')}</div>
+  </div></details>`;
+}
+(async()=>{
+  try{
+    const r=await fetch('data/store/store_vs_web_13.json',{cache:'no-store'}); if(!r.ok) throw new Error('HTTP '+r.status); const D=await r.json();
+    $('#m-gen').textContent=`${D.claims.length} 条 claim · ${new Date(r.headers.get('last-modified')||Date.now()).toISOString().slice(0,10)}`;
+    summarise(D);
+    const order=[4,...D.claims.map(c=>c.id).filter(i=>i!==4)];
+    $('#claims').innerHTML=order.map(i=>claimBlock(D.claims.find(c=>c.id===i),i===4)).join('');
+    if(location.hash){const el=$(location.hash); if(el){el.open=true; el.scrollIntoView();}}
+  }catch(e){ $('#claims').innerHTML=`<p class="muted">数据加载失败：${esc(e.message)}</p>`; }
+})();
+</script>
+</body>
+</html>
