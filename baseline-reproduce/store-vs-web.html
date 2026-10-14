@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Store vs Web · InFact</title>
-<meta name="description" content="InFact 的每一条查询，在官方 knowledge store 里检索到什么、在实时搜索里搜到什么，并排对比。">
+<meta name="description" content="InFact：同一条查询在官方 knowledge store 与 web search（Serper）中的检索结果对比，AVeriTeC dev。">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -73,13 +73,13 @@ table.qt3 td.query{font-family:"JetBrains Mono",monospace;font-size:12.5px;color
 table.qt3 td.query .sum{display:block;font-family:"DM Sans",sans-serif;font-size:12px;color:var(--ink3);margin-top:6px}
 .res{padding:3px 0 3px 10px;border-left:2px solid var(--line);margin:3px 0;word-break:break-all;line-height:1.5}
 .res.gold{border-left-color:var(--accent)} .res.ans{border-left-color:var(--ink2)}
-.res .how{display:block;color:var(--ink2);font-size:12px;margin-top:1px} .res .how::before{content:"进 store 的查询：";color:var(--ink3)}
+.res .how{display:block;color:var(--ink2);font-size:12px;margin-top:1px} .res .how::before{content:"构建 store 的查询：";color:var(--ink3)}
 .res .how.plain::before{content:""}
 .res.drop{color:var(--ink3)} .res.drop a{color:var(--ink3)}
 details.more{margin:4px 0 0 0;font-size:12.5px} details.more>summary{cursor:pointer;color:var(--ink3);list-style:none} details.more>summary::-webkit-details-marker{display:none} details.more>summary::before{content:"▸ ";color:var(--ink3)} details.more[open]>summary::before{content:"▾ "}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin-top:10px;align-items:center}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-size:13px;margin-top:20px}
-@media (max-width:860px){.hero .meta{grid-template-columns:1fr 1fr} table.qt3,table.qt3 thead,table.qt3 tbody,table.qt3 tr,table.qt3 td{display:block;width:100%} table.qt3 thead{display:none} table.qt3 td{border-bottom:0;padding:6px 0} table.qt3 td::before{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)} table.qt3 td.query::before{content:"查询"} table.qt3 td.store::before{content:"官方 store 返回"} table.qt3 td.web::before{content:"外部搜索返回"} table.qt3 tr{border-bottom:1px solid var(--line);padding:6px 0}}
+@media (max-width:860px){.hero .meta{grid-template-columns:1fr 1fr} table.qt3,table.qt3 thead,table.qt3 tbody,table.qt3 tr,table.qt3 td{display:block;width:100%} table.qt3 thead{display:none} table.qt3 td{border-bottom:0;padding:6px 0} table.qt3 td::before{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)} table.qt3 td.query::before{content:"InFact 查询"} table.qt3 td.store::before{content:"Knowledge store 检索"} table.qt3 td.web::before{content:"Web search"} table.qt3 tr{border-bottom:1px solid var(--line);padding:6px 0}}
 @media (max-width:760px){nav.top{height:auto;padding:10px 16px;flex-wrap:wrap;gap:10px 16px}nav.top .navlinks{margin-left:0;width:100%;gap:14px}nav.top .section-name{padding-left:0;border-left:0}.wrap{padding:0 16px}h1{font-size:26px}.panel{padding:16px}}
 </style>
 </head>
@@ -89,62 +89,62 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
   <button id="themeBtn">🌙</button></nav>
 
 <header class="hero"><div class="wrap">
-  <div class="sec-num">InFact · 同一条查询，两种证据来源</div>
-  <h1 style="margin-top:10px">官方 knowledge store vs 实时搜索</h1>
-  <div class="lead">同一份 InFact 代码、同一个模型（Gemma-4-26B）、同一批 AVeriTeC dev claim，只换证据来源。下面按 InFact 实际用过的每一条查询，并排列出：官方 store 对这条查询检索到什么，外部搜索（Serper）搜到什么。store 里的每个网页都标着主办方当初是用什么查询把它放进 store 的。</div>
+  <div class="sec-num">InFact · Knowledge store vs web search</div>
+  <h1 style="margin-top:10px">InFact：knowledge store vs web search</h1>
+  <div class="lead">同一份 InFact 代码与模型（Gemma-4-26B），同一批 AVeriTeC dev claim，只换证据来源。第 2 节按 InFact 实际发出的每条查询，并排列出 knowledge store 的检索结果和 web search（Serper）的结果；store 中每页标注主办方构建 store 时检索到该页所用的查询。</div>
   <div class="meta">
-    <div>范围<b>dev 前 50 条打分；逐条对比 13 条（store 版判对、搜索版判错）</b></div>
-    <div>查询来源<b>搜索版运行时 InFact 自己生成的查询，共 <span id="m-nq">—</span> 条</b></div>
-    <div>外部搜索设置<b>Serper，只取 claim 日期前的网页，过滤 fact-check 站，抓正文，每条查询留 5 页</b></div>
-    <div>store 检索<b>InFact 自带的 kNN 检索，每条查询取 5 页；数据生成 <span id="m-gen">—</span></b></div>
+    <div>范围<b>评分：dev 0–49；逐查询对比：其中 store 版正确、web search 版错误的 13 条</b></div>
+    <div>查询<b>web search 版运行中 InFact 生成的查询，共 <span id="m-nq">—</span> 条</b></div>
+    <div>web search<b>Serper；限 claim 日期前；过滤 fact-check 站点；抓取正文；每条查询保留 5 页</b></div>
+    <div>store 检索<b>InFact 自带 kNN 检索，每条查询取 5 页；数据生成 <span id="m-gen">—</span></b></div>
   </div>
 </div></header>
 
 <section><div class="wrap">
-  <div class="sec-num">1 · 总览</div>
-  <h2>差距有多大，差在哪</h2>
+  <div class="sec-num">1 · Summary</div>
+  <h2>汇总</h2>
 
   <div class="panel">
-    <h3 style="margin-top:0">同 50 条 claim 上的分数</h3>
-    <div class="tbl"><table><thead><tr><th>证据来源</th><th class="num">判决准确率</th><th class="num">Macro-F1</th><th class="num">Q-only</th><th class="num">Q+A</th><th class="num">AVeriTeC 分数 @0.25</th><th class="num">每条留下的问答对</th><th class="num">判"证据不足"的条数</th></tr></thead><tbody>
-      <tr><td>官方 knowledge store</td><td class="num">64%</td><td class="num">0.498</td><td class="num">0.423</td><td class="num">0.320</td><td class="num">52%</td><td class="num">8.7</td><td class="num">6</td></tr>
-      <tr class="ours"><td>实时搜索（系统自己的查询 → Serper）</td><td class="num">46%</td><td class="num">0.330</td><td class="num">0.351</td><td class="num">0.254</td><td class="num">28%</td><td class="num">5.1</td><td class="num">13</td></tr>
+    <h3 style="margin-top:0">评分（AVeriTeC dev 0–49，同一评分器）</h3>
+    <div class="tbl"><table><thead><tr><th>证据来源</th><th class="num">Accuracy</th><th class="num">Macro-F1</th><th class="num">Q-only</th><th class="num">Q+A</th><th class="num">AVeriTeC score @0.25</th><th class="num">QA 对 / claim</th><th class="num">预测 NEI 条数</th></tr></thead><tbody>
+      <tr><td>Knowledge store</td><td class="num">64%</td><td class="num">0.498</td><td class="num">0.423</td><td class="num">0.320</td><td class="num">52%</td><td class="num">8.7</td><td class="num">6</td></tr>
+      <tr class="ours"><td>Web search（InFact 查询 → Serper）</td><td class="num">46%</td><td class="num">0.330</td><td class="num">0.351</td><td class="num">0.254</td><td class="num">28%</td><td class="num">5.1</td><td class="num">13</td></tr>
     </tbody></table></div>
-    <div class="small muted" style="margin-top:8px">标准标签里只有 3 条是"证据不足"。两版判决相同的有 29/50 条。评分器是 InFact 仓库自带的旧版 AVeriTeC 评分器。</div>
+    <div class="small muted" style="margin-top:8px">GT 中 NEI 为 3 条。两版预测相同 29/50。评分器：InFact 仓库自带的 AVeriTeC 评分器（Hungarian METEOR）。</div>
   </div>
 
   <div class="panel">
-    <h3 style="margin-top:0">同一条查询，两边各返回什么（13 条 claim 的全部查询）</h3>
+    <h3 style="margin-top:0">按查询：两种来源的检索结果（13 条 claim，全部查询）</h3>
     <div class="kpi" id="kpi-query"></div>
-    <div class="small muted" style="margin-top:10px">"标准答案网页"= 标注员记录的证据来源网址。"gold 问题派生的网页"= 主办方用标注员问题原文、改写，或 ChatGPT 根据 claim + 标注问答生成的问题搜回来的网页；这些查询里带着系统事先不可能知道的实体名，第 2 节能直接看到。</div>
+    <div class="small muted" style="margin-top:10px">GT 证据页：AVeriTeC GT 中标注的证据来源网址。GT 问题派生查询：主办方构建 store 时使用的 GT 问题原文、改写，或 ChatGPT 根据 claim + GT 问答生成的问题（shared task 论文附录 A）；这类查询含有系统无法事先得知的实体名，见第 2 节。</div>
   </div>
 
   <div class="panel">
-    <h3 style="margin-top:0">搜索版的问题最后怎么样了</h3>
+    <h3 style="margin-top:0">按问题：web search 版的回答情况（13 条 claim）</h3>
     <div class="kpi" id="kpi-q"></div>
-    <div class="small muted" style="margin-top:10px">"有网页但没答案"指至少有一个抓到正文的网页交给了模型，模型仍说里面没有答案。外部搜索的候选网页里，抓不到正文的约占一半（网站拦截、页面靠脚本显示、PDF），fact-check 站约 4%。</div>
+    <div class="small muted" style="margin-top:10px">每个问题 InFact 发 1–3 条查询。"无答案（有页面）"：至少一页抓到正文并交给模型，模型判定无答案。web search 候选页中约 45% 抓不到正文（403/400、脚本渲染、PDF），4% 为 fact-check 站点被过滤。</div>
   </div>
 
   <div class="panel">
-    <h3 style="margin-top:0">两个补充实验（13 条里 69 个没答出的问题）</h3>
+    <h3 style="margin-top:0">补充实验（69 个无答案问题）</h3>
     <div class="tbl"><table><thead><tr><th>实验</th><th>做法</th><th>结果</th></tr></thead><tbody>
-      <tr><td>去掉日期限制重搜</td><td>208 条查询不限日期再搜一次</td><td>命中标准答案网页的查询 6 → 9（共 208）；有命中的 claim 2 → 2（共 13）；不限日期的结果里 47% 晚于 claim 日期，会泄露。日期限制不是找不到答案的原因。</td></tr>
-      <tr><td>把问题拆成更具体的关键词查询</td><td>Gemma 把每个问题拆成 2–4 个关键词子查询，再搜、抓页，让 Gemma 看网页能否作答</td><td>能作答的问题 14 → 17（共 69，严格统计）；命中标准答案的问题 4 → 3。有一点帮助，不是主要杠杆。</td></tr>
+      <tr><td>取消日期限制</td><td>208 条查询不限日期重搜（Serper）</td><td>命中 GT 证据页的查询 6 → 9 / 208；命中的 claim 2 → 2 / 13；不限日期的结果中 47% 晚于 claim 日期。日期限制不是主因。</td></tr>
+      <tr><td>查询拆分</td><td>Gemma 将每个问题拆为 2–4 条关键词子查询，重搜、抓页，再由 Gemma 判断能否作答</td><td>可作答问题 14 → 17 / 69（严格计数）；命中 GT 证据页的问题 4 → 3。增益有限。</td></tr>
     </tbody></table></div>
-    <p class="small muted" style="margin-top:10px">另一处设置差异：store 本身不排除 fact-check 网站（50 条的 48,330 个 store 网页里 0.4% 来自 PolitiFact、FactCheck.org 等；store 版 437 个答案里 26 个引用了它们，涉及 6 条 claim）。搜索版按 DEFAME 作者的名单过滤了这些网站。</p>
+    <p class="small muted" style="margin-top:10px">设置差异：store 不排除 fact-check 站点（dev 0–49 的 48,330 页中 0.4%；store 版 437 个答案中 26 个引用此类页面，涉及 6 条 claim）；web search 版按 DEFAME 的站点名单过滤。</p>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sec-num">2 · 逐条查询对比</div>
-  <h2>13 条 claim，每条查询一行</h2>
-  <div class="note">每条 claim 先列标注员的问题和证据网址。下面按搜索版运行时 InFact 提出的每个问题，列出它用过的每条查询：左边是查询，中间是官方 store 对这条查询检索到的 5 页（标着这页当初是靠什么查询进入 store 的），右边是外部搜索搜到并留下的页。被标注员用作证据的网页用橙色标出。右边"answered"表示 InFact 在搜索版里从这页答出了问题。</div>
-  <div class="legend"><span class="tag gold">gold</span>标注员的证据网页 <span class="tag ans">answered</span>InFact 从这页答出了问题 <span class="tag">store: …</span>这页进入 store 的方式 <span class="muted">灰色 = 外部搜索丢掉的候选，默认收起</span></div>
+  <div class="sec-num">2 · Per query</div>
+  <h2>逐查询对比（13 条 claim）</h2>
+  <div class="note">每条 claim：先列 AVeriTeC GT（问题、答案、证据网址），再按 web search 版运行中 InFact 提出的问题，逐条查询三列并排：查询 | knowledge store 对该查询的检索结果（前 5 页，附主办方构建 store 时所用查询） | web search 结果（保留的页，未用候选折叠）。GT 证据页以橙色标出；"answered" 表示 InFact 从该页得到了答案。</div>
+  <div class="legend"><span class="tag gold">GT</span>GT 证据页 <span class="tag ans">answered</span>InFact 从该页得到答案 <span class="tag">store: …</span>该页进入 store 的查询类型 <span class="muted">灰色：web search 未用候选（默认折叠）</span></div>
   <div id="claims"><p class="muted">加载中…</p></div>
 </div></section>
 
 <footer><div class="wrap">
-  数据：<code>data/store/store_vs_web_13.json</code>，由只读脚本 <code>export_store_vs_web.py</code> 从两次运行的日志和输出、官方 store 文件、Serper 与抓页缓存导出；store 对搜索版查询的检索由 <code>store_lookup.py</code> 用 InFact 自带的 kNN 检索补做。没有调用任何模型。store 版运行 2026-09-30，搜索版运行 2026-10-12，分数和产物见 GitHub 分支 baseline-reproduce。
+  数据：<code>data/store/store_vs_web_13.json</code>，由 <code>export_store_vs_web.py</code> 从两次运行的日志与输出、官方 store 文件、Serper 与抓页缓存导出；store 对 web search 查询的检索由 <code>store_lookup.py</code> 以 InFact 自带 kNN 补做。未调用模型。store 版运行 2026-09-30，web search 版 2026-10-12；分数与产物见 GitHub 分支 baseline-reproduce。
 </div></footer>
 
 <script>
@@ -159,7 +159,7 @@ let t0='light'; try{t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers
 setTheme(t0); btn.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 
 const GOLDQ=new Set(['question','question_duplicate','gpt_question','claim+question','answer']);
-const LABEL={gold:'gold 证据页',question:'标注员问题原文',question_duplicate:'标注员问题改写',gpt_question:'ChatGPT 据 claim + 标注问答出的问题','claim+question':'claim + 标注员问题',answer:'标注员答案文本',claim:'claim 文本',background:'背景问题',background_questions:'背景问题',provenance:'来源问题',NER:'实体名',most_similar:'相似问题',gpt_url_only:'ChatGPT 直接给的网址',same_entity_questions:'干扰项：同实体不同问题','?':'未知'};
+const LABEL={gold:'GT 证据页',question:'GT 问题原文',question_duplicate:'GT 问题改写',gpt_question:'ChatGPT 据 claim + GT 问答生成',"claim+question":'claim + GT 问题',answer:'GT 答案文本',claim:'claim 文本',background:'背景问题',background_questions:'背景问题',provenance:'来源问题',NER:'实体名',most_similar:'相似问题',gpt_url_only:'ChatGPT 给出的网址',same_entity_questions:'干扰项（同实体）','?':'未知'};
 function kpi(el,items){el.innerHTML=items.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');}
 
 function summarise(D){
@@ -176,36 +176,36 @@ function summarise(D){
     }
   }
   $('#m-nq').textContent=nq;
-  kpi($('#kpi-query'),[[nq,'条查询'],[`${sGold} · ${pct(sGold,nq)}`,'store 前 5 页里有标准答案网页'],[`${wGold} · ${pct(wGold,nq)}`,'外部搜索候选里有标准答案网页'],[`${pct(sGoldQPages,sPages)}`,'store 返回的页里，gold 问题派生的网页占比'],[`${wKeptAny} · ${pct(wKeptAny,nq)}`,'外部搜索至少留下 1 页']]);
-  kpi($('#kpi-q'),[[total,'个问题（13 条 × 10）'],[`${ans} · ${pct(ans,total)}`,'找到了答案'],[`${noans} · ${pct(noans,total)}`,'有网页但没答案'],[notext,'搜到网页但全抓不到正文'],[nores,'Serper 没返回结果']]);
+  kpi($('#kpi-query'),[[nq,'查询数'],[`${sGold} · ${pct(sGold,nq)}`,'store 前 5 页含 GT 证据页'],[`${wGold} · ${pct(wGold,nq)}`,'web search 候选含 GT 证据页'],[`${pct(sGoldQPages,sPages)}`,'store 返回页中，由 GT 问题派生查询检索到的比例'],[`${wKeptAny} · ${pct(wKeptAny,nq)}`,'web search 保留 ≥1 页']]);
+  kpi($('#kpi-q'),[[total,'问题数（13 claim × 10）'],[`${ans} · ${pct(ans,total)}`,'有答案'],[`${noans} · ${pct(noans,total)}`,'无答案（有页面）'],[notext,'无答案（候选均无正文）'],[nores,'无答案（Serper 无结果）']]);
 }
 function storeRes(r){
-  const tags=[]; if(r.gold) tags.push('<span class="tag gold">gold</span>');
+  const tags=[]; if(r.gold) tags.push('<span class="tag gold">GT</span>');
   tags.push(`<span class="tag">store: ${esc(LABEL[r.store_type]||r.store_type)}</span>`);
   const how=r.store_query&&r.store_query!=='_'?`<span class="how">${esc(r.store_query)}</span>`:'';
   return `<div class="res ${r.gold?'gold':''}">${tags.join('')}${link(r.url)}${how}</div>`;
 }
 function webRes(r){
-  const tags=[]; if(r.gold) tags.push('<span class="tag gold">gold</span>'); if(r.answered_from) tags.push('<span class="tag ans">answered</span>');
+  const tags=[]; if(r.gold) tags.push('<span class="tag gold">GT</span>'); if(r.answered_from) tags.push('<span class="tag ans">answered</span>');
   if(r.fate!=='kept') tags.push(`<span class="tag">${esc(r.fate)}</span>`);
   return `<div class="res ${r.gold?'gold':''} ${r.answered_from?'ans':''} ${r.fate!=='kept'?'drop':''}">${tags.join('')}${link(r.url)}</div>`;
 }
 function queryRow(x){
   const sr=x.store_results||[]; const kept=x.results.filter(r=>r.fate==='kept'); const rest=x.results.filter(r=>r.fate!=='kept');
-  const sSum=`${sr.length} 页 · 含 gold ${sr.filter(r=>r.gold).length} · gold 问题派生 ${sr.filter(r=>GOLDQ.has(r.store_type)).length}`;
-  const wSum=`${x.n_candidates} 个候选 · 留下 ${kept.length} · 含 gold ${x.results.filter(r=>r.gold).length}`;
-  return `<tr><td class="query">${esc(x.query)}<span class="sum">store：${sSum}<br>外部：${wSum}</span></td>
-    <td class="store">${sr.length?sr.map(storeRes).join(''):'<span class="muted">store 没有返回网页</span>'}</td>
-    <td class="web">${kept.length?kept.map(webRes).join(''):'<span class="muted">没有留下任何网页</span>'}${rest.length?`<details class="more"><summary>${rest.length} 个候选没有用上</summary>${rest.map(webRes).join('')}</details>`:''}</td></tr>`;
+  const sSum=`${sr.length} 页 · GT 证据页 ${sr.filter(r=>r.gold).length} · GT 问题派生 ${sr.filter(r=>GOLDQ.has(r.store_type)).length}`;
+  const wSum=`候选 ${x.n_candidates} · 保留 ${kept.length} · GT 证据页 ${x.results.filter(r=>r.gold).length}`;
+  return `<tr><td class="query">${esc(x.query)}<span class="sum">store：${sSum}<br>web：${wSum}</span></td>
+    <td class="store">${sr.length?sr.map(storeRes).join(''):'<span class="muted">store 无结果</span>'}</td>
+    <td class="web">${kept.length?kept.map(webRes).join(''):'<span class="muted">无保留页</span>'}${rest.length?`<details class="more"><summary>未用候选 ${rest.length}</summary>${rest.map(webRes).join('')}</details>`:''}</td></tr>`;
 }
 function claimBlock(c,open){
   const gold=c.gold_evidence.map(g=>`<li>${esc(g.question)}${g.answer?` <span class="a">— ${esc(g.answer).slice(0,220)}</span>`:''}${g.url?`<br>${link(g.url)}`:''}</li>`).join('');
-  const qs=c.web.questions.map((q,k)=>`<div class="q"><div class="qt"><span class="n">Q${k+1}</span>${esc(q.question)}<span class="st">${q.answered?'搜索版答出了':'搜索版没答出'}</span></div>
-    <table class="qt3"><thead><tr><th class="col-q">InFact 的查询</th><th class="col-s">官方 store 返回（前 5 页）</th><th class="col-w">外部搜索返回（留下的页）</th></tr></thead><tbody>${q.queries.map(queryRow).join('')}</tbody></table></div>`).join('');
-  return `<details class="claim" id="c${c.id}" ${open?'open':''}><summary><span class="cid">CLAIM ${c.id}${open?' · 讲解示例':''}</span><span class="ctext">${esc(c.claim)}</span><span class="small muted">gold ${esc(c.gold_label)} · store 版 ${esc(c.store.verdict)} · 搜索版 ${esc(c.web.verdict)}</span></summary>
+  const qs=c.web.questions.map((q,k)=>`<div class="q"><div class="qt"><span class="n">Q${k+1}</span>${esc(q.question)}<span class="st">${q.answered?'有答案':'无答案'}</span></div>
+    <table class="qt3"><thead><tr><th class="col-q">InFact 查询</th><th class="col-s">Knowledge store 检索（前 5 页）</th><th class="col-w">Web search（保留的页）</th></tr></thead><tbody>${q.queries.map(queryRow).join('')}</tbody></table></div>`).join('');
+  return `<details class="claim" id="c${c.id}" ${open?'open':''}><summary><span class="cid">CLAIM ${c.id}${open?' · 示例':''}</span><span class="ctext">${esc(c.claim)}</span><span class="small muted">GT ${esc(c.gold_label)} · store ${esc(c.store.verdict)} · web ${esc(c.web.verdict)}</span></summary>
   <div class="body">
-    <div class="verdicts"><span>标准标签 <b>${esc(c.gold_label)}</b></span><span>store 版判决 <b>${esc(c.store.verdict)}</b>（${c.store.n_answers} 个答案）</span><span>搜索版判决 <b>${esc(c.web.verdict)}</b>（${c.web.n_answers} 个答案）</span><span>claim 日期 ${esc(c.claim_date)}${c.speaker?' · '+esc(c.speaker):''}</span>${c.fact_checking_article?`<span>${link(c.fact_checking_article).replace(esc(short(c.fact_checking_article)),'fact-check 文章')}</span>`:''}</div>
-    <div class="goldbox"><h6>标注员的问题和证据（gold）</h6><ol>${gold||'<li>无</li>'}</ol></div>
+    <div class="verdicts"><span>GT <b>${esc(c.gold_label)}</b></span><span>store 版 <b>${esc(c.store.verdict)}</b>（${c.store.n_answers} 个答案）</span><span>web search 版 <b>${esc(c.web.verdict)}</b>（${c.web.n_answers} 个答案）</span><span>claim 日期 ${esc(c.claim_date)}${c.speaker?' · '+esc(c.speaker):''}</span>${c.fact_checking_article?`<span>${link(c.fact_checking_article).replace(esc(short(c.fact_checking_article)),'fact-check 文章')}</span>`:''}</div>
+    <div class="goldbox"><h6>AVeriTeC GT：问题、答案、证据网址</h6><ol>${gold||'<li>无</li>'}</ol></div>
     ${qs}
   </div></details>`;
 }
