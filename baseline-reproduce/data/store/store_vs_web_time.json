@@ -1,0 +1,176 @@
+[
+ {
+  "baseline": "AIC CTU",
+  "claims": "old",
+  "n": 100,
+  "gold": "AVeriTeC GT, dev 0-99",
+  "store": {
+   "accuracy": 0.69,
+   "macro_f1": 0.4793,
+   "legacy_at_0.25": 0.39,
+   "ev2r_qa_recall": 0.6393,
+   "ev2r_score_at_0.5": 0.46,
+   "judge_unparsed_qa": 0,
+   "repaired_calls": []
+  },
+  "web": {
+   "accuracy": 0.57,
+   "macro_f1": 0.3932,
+   "legacy_at_0.25": 0.25,
+   "ev2r_qa_recall": 0.485,
+   "ev2r_score_at_0.5": 0.32,
+   "judge_unparsed_qa": 0,
+   "repaired_calls": []
+  },
+  "paired_diff_store_minus_web": {
+   "qa_recall": [
+    0.154,
+    0.079,
+    0.233
+   ],
+   "counted": [
+    0.14,
+    0.03,
+    0.25
+   ]
+  }
+ },
+ {
+  "baseline": "AIC CTU",
+  "claims": "new",
+  "n": 100,
+  "gold": "VeriTaS silver, 100 text-only",
+  "store": {
+   "accuracy": 0.81,
+   "macro_f1": 0.4361,
+   "legacy_at_0.25": 0.65,
+   "ev2r_qa_recall": 0.6517,
+   "ev2r_score_at_0.5": 0.55,
+   "judge_unparsed_qa": 1,
+   "repaired_calls": [
+    50
+   ]
+  },
+  "web": {
+   "accuracy": 0.66,
+   "macro_f1": 0.322,
+   "legacy_at_0.25": 0.44,
+   "ev2r_qa_recall": 0.5104,
+   "ev2r_score_at_0.5": 0.32,
+   "judge_unparsed_qa": 0,
+   "repaired_calls": [
+    49,
+    50,
+    51,
+    52
+   ]
+  },
+  "paired_diff_store_minus_web": {
+   "qa_recall": [
+    0.141,
+    0.061,
+    0.223
+   ],
+   "counted": [
+    0.23,
+    0.13,
+    0.34
+   ]
+  }
+ },
+ {
+  "baseline": "InFact",
+  "claims": "old",
+  "n": 50,
+  "gold": "AVeriTeC GT, dev 0-49",
+  "store": {
+   "accuracy": 0.64,
+   "macro_f1": 0.4975,
+   "legacy_at_0.25": 0.52,
+   "ev2r_qa_recall": 0.607,
+   "ev2r_score_at_0.5": 0.4,
+   "judge_unparsed_qa": 1,
+   "repaired_calls": [
+    17,
+    18,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+   ]
+  },
+  "web": {
+   "accuracy": 0.46,
+   "macro_f1": 0.3303,
+   "legacy_at_0.25": 0.28,
+   "ev2r_qa_recall": 0.505,
+   "ev2r_score_at_0.5": 0.3,
+   "judge_unparsed_qa": 4,
+   "repaired_calls": []
+  },
+  "paired_diff_store_minus_web": {
+   "qa_recall": [
+    0.102,
+    -0.02,
+    0.228
+   ],
+   "counted": [
+    0.1,
+    -0.06,
+    0.26
+   ]
+  }
+ },
+ {
+  "baseline": "InFact",
+  "claims": "new",
+  "n": 100,
+  "gold": "VeriTaS silver, 100 text-only",
+  "store": {
+   "accuracy": 0.7,
+   "macro_f1": 0.4155,
+   "legacy_at_0.25": 0.63,
+   "ev2r_qa_recall": 0.5841,
+   "ev2r_score_at_0.5": 0.45,
+   "judge_unparsed_qa": 0,
+   "repaired_calls": []
+  },
+  "web": {
+   "accuracy": 0.6,
+   "macro_f1": 0.3644,
+   "legacy_at_0.25": 0.29,
+   "ev2r_qa_recall": 0.4744,
+   "ev2r_score_at_0.5": 0.35,
+   "judge_unparsed_qa": 5,
+   "repaired_calls": []
+  },
+  "paired_diff_store_minus_web": {
+   "qa_recall": [
+    0.11,
+    0.031,
+    0.191
+   ],
+   "counted": [
+    0.1,
+    -0.02,
+    0.22
+   ]
+  }
+ }
+]

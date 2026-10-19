@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Store vs Web · InFact</title>
-<meta name="description" content="InFact：同一条查询在官方 knowledge store 与 web search（Serper）中的检索结果对比，AVeriTeC dev。">
+<title>Store vs Web</title>
+<meta name="description" content="InFact 与 AIC CTU：knowledge store 与 web search 的分数对比（AVeriTeC 旧 claim 与 VeriTaS 新 claim），以及 InFact 同一条查询在两种来源中的检索结果。">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -89,11 +89,11 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
   <button id="themeBtn">🌙</button></nav>
 
 <header class="hero"><div class="wrap">
-  <div class="sec-num">InFact · Knowledge store vs web search</div>
-  <h1 style="margin-top:10px">InFact：knowledge store vs web search</h1>
-  <div class="lead">同一份 InFact 代码与模型（Gemma-4-26B），同一批 AVeriTeC dev claim，只换证据来源。第 2 节按 InFact 实际发出的每条查询，并排列出 knowledge store 的检索结果和 web search（Serper）的结果；store 中每页标注主办方构建 store 时检索到该页所用的查询。</div>
+  <div class="sec-num">InFact · AIC CTU · Knowledge store vs web search</div>
+  <h1 style="margin-top:10px">Knowledge store vs web search</h1>
+  <div class="lead">每个 baseline 用同一份代码与模型，只换证据来源。第 1 节：两个 baseline 在 AVeriTeC 旧 claim 与 VeriTaS 新 claim 上的 store / web 分数（检验差距是否来自 claim 年代）。第 2–3 节：InFact 在 AVeriTeC dev 上的检索细节，按 InFact 实际发出的每条查询，并排列出 knowledge store 的检索结果和 web search（Serper）的结果；store 中每页标注主办方构建 store 时检索到该页所用的查询。</div>
   <div class="meta">
-    <div>范围<b>评分：dev 0–49；逐查询对比：其中 store 版正确、web search 版错误的 13 条</b></div>
+    <div>范围<b>第 1 节：旧 claim dev 0–99（InFact 0–49）、新 claim 100 条；第 2–3 节：InFact dev 0–49，逐查询对比其中 store 版正确、web search 版错误的 13 条</b></div>
     <div>查询<b>web search 版运行中 InFact 生成的查询，共 <span id="m-nq">—</span> 条</b></div>
     <div>web search<b>Serper；限 claim 日期前；过滤 fact-check 站点；抓取正文；每条查询保留 5 页</b></div>
     <div>store 检索<b>InFact 自带 kNN 检索，每条查询取 5 页；数据生成 <span id="m-gen">—</span></b></div>
@@ -101,11 +101,48 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
 </div></header>
 
 <section><div class="wrap">
-  <div class="sec-num">1 · Summary</div>
-  <h2>汇总</h2>
+  <div class="sec-num">1 · Old vs new claims</div>
+  <h2>旧 claim 与新 claim：store / web 分数</h2>
 
   <div class="panel">
-    <h3 style="margin-top:0">评分（AVeriTeC dev 0–49，同一评分器）</h3>
+    <h3 style="margin-top:0">分数（每格：store / web）</h3>
+    <div class="tbl"><table><thead><tr><th>Baseline</th><th>Claim 集</th><th class="num">n</th><th class="num">Macro-F1</th><th class="num">Ev2R Q+A recall</th><th class="num">AVeriTeC score (Ev2R @0.5)</th><th class="num">Legacy @0.25</th><th class="num">Accuracy</th></tr></thead><tbody>
+      <tr><td>AIC CTU</td><td>旧：AVeriTeC dev 0–99</td><td class="num">100</td><td class="num">0.479 / 0.393</td><td class="num">0.639 / 0.485</td><td class="num">0.46 / 0.32</td><td class="num">39% / 25%</td><td class="num">69% / 57%</td></tr>
+      <tr><td>AIC CTU</td><td>新：VeriTaS text-only</td><td class="num">100</td><td class="num">0.436 / 0.322</td><td class="num">0.652 / 0.510</td><td class="num">0.55 / 0.32</td><td class="num">65% / 44%</td><td class="num">81% / 66%</td></tr>
+      <tr><td>InFact</td><td>旧：AVeriTeC dev 0–49</td><td class="num">50</td><td class="num">0.498 / 0.330</td><td class="num">0.607 / 0.505</td><td class="num">0.40 / 0.30</td><td class="num">52% / 28%</td><td class="num">64% / 46%</td></tr>
+      <tr><td>InFact</td><td>新：VeriTaS text-only</td><td class="num">100</td><td class="num">0.416 / 0.364</td><td class="num">0.584 / 0.474</td><td class="num">0.45 / 0.35</td><td class="num">63% / 29%</td><td class="num">70% / 60%</td></tr>
+    </tbody></table></div>
+    <div class="small muted" style="margin-top:8px">GT：旧 claim 为 AVeriTeC GT（问答对）；新 claim 为 silver label（pipeline_verdict + 证据 statement，无问题，故不报 Q-only）。新 claim 的 knowledge store 按主办方构建代码自建（Serper + Gemma，silver 证据代替 GT），旧 claim 用官方 store。web search：InFact 用自己生成的查询，AIC CTU 用 claim 原文（Serper 前 2 页）；均限 claim 日期前、过滤 fact-check 站点、排除该 claim 自己的核查文章。</div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin-top:0">store − web 差值（逐 claim 配对，bootstrap 95% CI）</h3>
+    <div class="tbl"><table><thead><tr><th>Baseline</th><th class="num">Ev2R recall：旧</th><th class="num">Ev2R recall：新</th><th class="num">AVeriTeC score：旧</th><th class="num">AVeriTeC score：新</th></tr></thead><tbody>
+      <tr><td>AIC CTU</td><td class="num">+0.154 [+0.079, +0.233]</td><td class="num">+0.141 [+0.061, +0.223]</td><td class="num">+0.14 [+0.03, +0.25]</td><td class="num">+0.23 [+0.13, +0.34]</td></tr>
+      <tr><td>InFact</td><td class="num">+0.102 [−0.020, +0.228]</td><td class="num">+0.110 [+0.031, +0.191]</td><td class="num">+0.10 [−0.06, +0.26]</td><td class="num">+0.10 [−0.02, +0.22]</td></tr>
+    </tbody></table></div>
+    <div class="note">两个 baseline 的 Ev2R recall 差值在旧、新 claim 上基本相同，AVeriTeC score 差值的区间在旧、新之间重叠：换成 2026 年的 claim 后，store 与 web 的差距没有缩小。新 claim 的 store 同样由 silver 证据派生的查询构建，因此本组对照不能区分"claim 年代"与"store 构建使用了标准答案"两种解释。</div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin-top:0">指标与读法</h3>
+    <div class="tbl"><table><tbody>
+      <tr><td style="width:190px">Ev2R Q+A recall</td><td>2025 官方评分器。裁判 Llama-3.3-70B 将参考证据与系统问答对各拆成原子事实，统计参考事实中被系统证据支持的比例。只计召回，多交的证据不扣分。</td></tr>
+      <tr><td>AVeriTeC score (Ev2R @0.5)</td><td>Ev2R recall &gt; 0.5 且标签正确记 1，否则记 0，取平均。</td></tr>
+      <tr><td>Macro-F1</td><td>四个标签各算 F1 后不加权平均。新 claim 的 silver label 没有 NEE，NEE 一类 F1 恒为 0，上限 0.75；旧、新之间只比差值，不比绝对值。全猜 Refuted 的 macro-F1：旧 0.19（dev 0–99）、新 0.22。</td></tr>
+      <tr><td>Legacy @0.25</td><td>Hungarian METEOR（问答对）≥ 0.25 且标签正确的比例。</td></tr>
+      <tr><td>Accuracy</td><td>标签准确率。新 claim 81/100 为 Refuted，全猜 Refuted 即 81%；旧 claim dev 0–99 为 63%。</td></tr>
+    </tbody></table></div>
+    <div class="small muted" style="margin-top:8px">每条 claim 交出的问答对（store / web）：AIC CTU 旧 8.1 / 6.9、新 8.6 / 7.0；InFact 旧 8.7 / 5.1、新 8.9 / 4.5。web 版无证据的 claim：InFact 旧 4/50、新 5/100（Ev2R 计 0），AIC CTU 0。裁判调用遇 429 限流时官方评分器返回空回复并计 0；这类调用已逐条重新请求（InFact 旧 store 22 次，AIC CTU 新 store 1 次、web 4 次），解析失败的回复按官方规则保留为 0。</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-num">2 · InFact detail</div>
+  <h2>InFact 检索细节（AVeriTeC dev 0–49）</h2>
+
+  <div class="panel">
+    <h3 style="margin-top:0">评分（InFact 仓库自带评分器）</h3>
     <div class="tbl"><table><thead><tr><th>证据来源</th><th class="num">Accuracy</th><th class="num">Macro-F1</th><th class="num">Q-only</th><th class="num">Q+A</th><th class="num">AVeriTeC score @0.25</th><th class="num">QA 对 / claim</th><th class="num">预测 NEI 条数</th></tr></thead><tbody>
       <tr><td>Knowledge store</td><td class="num">64%</td><td class="num">0.498</td><td class="num">0.423</td><td class="num">0.320</td><td class="num">52%</td><td class="num">8.7</td><td class="num">6</td></tr>
       <tr class="ours"><td>Web search（InFact 查询 → Serper）</td><td class="num">46%</td><td class="num">0.330</td><td class="num">0.351</td><td class="num">0.254</td><td class="num">28%</td><td class="num">5.1</td><td class="num">13</td></tr>
@@ -116,7 +153,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
   <div class="panel">
     <h3 style="margin-top:0">按查询：两种来源的检索结果（13 条 claim，全部查询）</h3>
     <div class="kpi" id="kpi-query"></div>
-    <div class="small muted" style="margin-top:10px">GT 证据页：AVeriTeC GT 中标注的证据来源网址。GT 问题派生查询：主办方构建 store 时使用的 GT 问题原文、改写，或 ChatGPT 根据 claim + GT 问答生成的问题（shared task 论文附录 A）；这类查询含有系统无法事先得知的实体名，见第 2 节。</div>
+    <div class="small muted" style="margin-top:10px">GT 证据页：AVeriTeC GT 中标注的证据来源网址。GT 问题派生查询：主办方构建 store 时使用的 GT 问题原文、改写，或 ChatGPT 根据 claim + GT 问答生成的问题（shared task 论文附录 A）；这类查询含有系统无法事先得知的实体名，见第 3 节。</div>
   </div>
 
   <div class="panel">
@@ -136,7 +173,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
 </div></section>
 
 <section><div class="wrap">
-  <div class="sec-num">2 · Per query</div>
+  <div class="sec-num">3 · Per query</div>
   <h2>逐查询对比（13 条 claim）</h2>
   <div class="note">InFact 的流程：对每条 claim 生成约 10 个问题；对每个问题生成 1–3 条搜索查询；用查询检索网页，再从网页中回答该问题。本节每条 claim：先列 AVeriTeC GT（问题、答案、证据网址），再按 InFact 生成的问题分块，每块内一条查询一行，三列并排：查询 | knowledge store 对该查询的检索结果（前 5 页，附主办方构建 store 时所用查询） | web search 结果（保留的页，未用候选折叠）。GT 证据页以橙色标出；"answered" 表示 InFact 从该页得到了答案。</div>
   <div class="legend"><span class="tag gold">GT</span>GT 证据页 <span class="tag ans">answered</span>InFact 从该页得到答案 <span class="tag">store: …</span>该页进入 store 的查询类型 <span class="muted">灰色：web search 未用候选（默认折叠）</span></div>
@@ -144,7 +181,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
 </div></section>
 
 <footer><div class="wrap">
-  数据：<code>data/store/store_vs_web_13.json</code>，由 <code>export_store_vs_web.py</code> 从两次运行的日志与输出、官方 store 文件、Serper 与抓页缓存导出；store 对 web search 查询的检索由 <code>store_lookup.py</code> 以 InFact 自带 kNN 补做。未调用模型。store 版运行 2026-09-30，web search 版 2026-10-12；分数与产物见 GitHub 分支 baseline-reproduce。
+  第 1 节数据：<code>data/store/store_vs_web_time.json</code>，由 <code>summarize_store_vs_web.py</code> 从各运行的 legacy 与 Ev2R 分数文件生成（差值 CI：逐 claim 配对 bootstrap，5,000 次，种子 0）。<br>第 2–3 节数据：<code>data/store/store_vs_web_13.json</code>，由 <code>export_store_vs_web.py</code> 从两次运行的日志与输出、官方 store 文件、Serper 与抓页缓存导出；store 对 web search 查询的检索由 <code>store_lookup.py</code> 以 InFact 自带 kNN 补做。未调用模型。store 版运行 2026-09-30，web search 版 2026-10-12；分数与产物见 GitHub 分支 baseline-reproduce。
 </div></footer>
 
 <script>
