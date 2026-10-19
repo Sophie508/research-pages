@@ -12,12 +12,16 @@ data/site.json     everything the page shows, built from the two files above
 
 ## Updating
 
-1. Copy the new `intake_clean.jsonl` from the pipeline to `data/items.jsonl`.
-2. `python3 make_domain_table.py` adds any new domains. It fetches names from Wikidata and keeps
-   everything already in the table, including the manual columns.
-3. Fill `name_manual` / `type_manual` in `data/domains.csv` for domains you want named or typed by
-   hand. Manual values always win.
-4. `python3 build_dashboard.py` writes `data/site.json`. Commit and push.
+One command on the pipeline side does it all: `build_clean.py --publish` (in the pipeline repo's
+`analysis_outputs/veritas_intake_clean_20261014/`). It builds the clean items from the pipeline
+outputs, writes them to `data/items.jsonl`, then runs the two scripts here:
+
+- `make_domain_table.py` adds any new domains. It fetches names from Wikidata and keeps everything
+  already in the table, including the manual columns.
+- `build_dashboard.py` writes `data/site.json`.
+
+Then review the diff and push. To name or type a domain by hand, fill `name_manual` /
+`type_manual` in `data/domains.csv` and rerun `build_dashboard.py`; manual values always win.
 
 ## How a source gets its name and type
 

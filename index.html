@@ -38,7 +38,7 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-review/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="multilingual/">Multilingual</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-dashboard/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="multilingual/">Multilingual</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
@@ -56,10 +56,10 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 <p><b>Six systems reproduced with the official knowledge store and the authors' own code: four text, two image-text.</b> InFact, AIC CTU, HerO2 and SANCTUARY on AVeriTeC dev, scored with the legacy scorer and with Ev2R where the papers report it. The results match the published numbers: InFact on all 500 dev claims lands between the paper's models (63.2% accuracy, 47.4% AVeriTeC score); AIC CTU is within 0.06 of the authors' own predictions on the same claims; HerO2 and SANCTUARY reach Ev2R Q+A recall within 0.02 of their papers. On all 152 AVerImaTeC dev claims, VILLAIN is close to its paper (conditional veracity 0.408 against 0.421); the AIC CTU image-text system, run with Gemma instead of GPT-5.1, scores below its leaderboard entry. The earlier live-web adaptation (2026-09-21) and its claim browser stay available.</p>
 <div class="meta"><span>2026-10-05</span><span class="chip">official knowledge store · authors' code</span><span class="chip">4 text + 2 image-text systems done</span><span class="chip">legacy METEOR + Ev2R + AVerImaTeC judge</span></div>
 </a>
-<a class="card" href="veritas-intake-review/">
-<h2>VeriTaS Intake Review</h2>
-<p><b>Their claims, their articles, our pipeline.</b> Claims and fact-checking article links come from the VeriTaS export; everything downstream is ours: decontextualization, evidence extraction, and URL recovery under the strict temporal policy, where an evidence item is kept only if it carries an article-embedded URL or an externally recovered one whose date we could verify against the claim date.</p>
-<div class="meta"><span>2026-09-14</span><span class="chip">n = 69 claims</span><span class="chip">308 evidence</span><span class="chip">strict temporal policy</span></div>
+<a class="card" href="veritas-intake-dashboard/">
+<h2>VeriTaS Intake</h2>
+<p><b>Their claims, our silver evidence.</b> Claims and fact-checking articles come from VeriTaS; the normalized claim, the extracted evidence and its sources come from our pipeline (decontextualization, evidence extraction, URL recovery under the strict temporal policy) and serve as silver labels. The page is generated from the pipeline's output: overview statistics, sources merged by domain and named by outlet, and every claim with its evidence timeline.</p>
+<div class="meta"><span>2026-10-19</span><span class="chip">n = 138 claims (100 text-only, 38 image-text)</span><span class="chip">650 evidence</span><span class="chip">generated from data</span></div>
 </a>
 <a class="card" href="averitec-averimatec-review/">
 <h2>AVeriTeC + AVerImaTeC Review</h2>

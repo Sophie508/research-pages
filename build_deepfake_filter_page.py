@@ -47,7 +47,7 @@ html = TEMPLATE.read_text(encoding='utf-8')
 html = re.sub(r'(const DATA\s*=\s*)\[.*?\](;\s*\n)', lambda m: m.group(1)+json.dumps(rows, ensure_ascii=False)+m.group(2), html, flags=re.S)
 html = html.replace('<title>MCFC Bench — Claim Browser</title>', '<title>MCFC Bench — Deep Fake Filter</title>')
 html = html.replace('<h1>Claim Overview</h1>', '<h1>Deep Fake Filter</h1>')
-html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-review/">VeriTaS Intake</a><a href="../averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="../baseline-reproduce/">Baseline Reproduce</a><a href="#" class="on">Deep Fake Filter</a></div>', html, count=1, flags=re.S)
+html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-dashboard/">VeriTaS Intake</a><a href="../averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="../baseline-reproduce/">Baseline Reproduce</a><a href="#" class="on">Deep Fake Filter</a></div>', html, count=1, flags=re.S)
 note = (f'<div class="note"><b>The VeriTaS claims whose media VeriTaS itself judged fabricated: {n} of 197 in the export.</b> One selection rule: the claim carries media, and at least one medium\'s '
         'authenticity label from the VeriTaS four-model ensemble is "fabricated" at any confidence. Real media in a false context is excluded as a contextualization failure, not a fabrication. '
         f'Tags are VeriTaS\'s: AI-generated {tagc["AI-generated"]}, Manipulated {tagc["Manipulated"]}, Forged {tagc["Forged"]} (a claim may carry several); confidence certain {confc["certain"]}, '

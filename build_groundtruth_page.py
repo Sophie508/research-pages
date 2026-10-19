@@ -101,7 +101,7 @@ html = html.replace('const label=e.p==="external-verified"?"External search":e.p
 html = html.replace('.tag.metadata{', '.tag.image{background:var(--info-soft);color:var(--info)}\n.tag.metadata{', 1) if '.tag.metadata{' in html else html.replace('</style>', '.tag.image{background:var(--info-soft);color:var(--info)}\n</style>', 1)
 html = html.replace('<option value="external-verified">Has external (date-verified)</option>', '<option value="external-verified">Has external (date-verified)</option><option value="image">Has image evidence</option>')
 # nav: this page is the third review page
-html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-review/">VeriTaS Intake</a><a href="#" class="on">AVeriTeC + AVerImaTeC</a><a href="../baseline-reproduce/">Baseline Reproduce</a><a href="../deepfake-filter/">Deep Fake Filter</a></div>', html, count=1, flags=re.S)
+html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-dashboard/">VeriTaS Intake</a><a href="#" class="on">AVeriTeC + AVerImaTeC</a><a href="../baseline-reproduce/">Baseline Reproduce</a><a href="../deepfake-filter/">Deep Fake Filter</a></div>', html, count=1, flags=re.S)
 # intro note: replace the intake page's own note block
 note = (f'<div class="note"><b>Two datasets with ground truth, one page.</b> AVerImaTeC val ({n_amt} claims, {n_ev_amt} evidence items) '
         'is the 2026-08-30 run of our pipeline after the new URL stage: for each evidence statement the article\'s own hyperlinks are shortlisted first and a dated external-search '

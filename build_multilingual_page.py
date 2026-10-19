@@ -65,7 +65,7 @@ html = TEMPLATE.read_text(encoding='utf-8')
 html = re.sub(r'(const DATA\s*=\s*)\[.*?\](;\s*\n)', lambda m: m.group(1) + json.dumps(rows, ensure_ascii=False).replace('</', '<\\/') + m.group(2), html, flags=re.S)
 html = html.replace('<title>MCFC Bench — Claim Browser</title>', '<title>MCFC Bench · Multilingual</title>')
 html = html.replace('<h1>Claim Overview</h1>', '<h1>Multilingual Claims</h1>')
-html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-review/">VeriTaS Intake</a><a href="../deepfake-filter/">Deep Fake Filter</a></div>', html, count=1, flags=re.S)
+html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-dashboard/">VeriTaS Intake</a><a href="../deepfake-filter/">Deep Fake Filter</a></div>', html, count=1, flags=re.S)
 
 lang_txt = ', '.join(f'{LANG.get(k, k) if k != "no_url" else "no link attached"} {v}' for k, v in lang_count.most_common())
 claim_langs = ', '.join(f'{LANG[k]} {sum(1 for r in rows if r["lang"] == k)}' for k in langs_present)
