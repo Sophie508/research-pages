@@ -153,7 +153,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink3);font-si
   <div class="panel">
     <h3 style="margin-top:0">按查询：两种来源的检索结果（13 条 claim，全部查询）</h3>
     <div class="kpi" id="kpi-query"></div>
-    <div class="small muted" style="margin-top:10px">GT 证据页：AVeriTeC GT 中标注的证据来源网址。GT 问题派生查询：主办方构建 store 时使用的 GT 问题原文、改写，或 ChatGPT 根据 claim + GT 问答生成的问题（shared task 论文附录 A）；这类查询含有系统无法事先得知的实体名，见第 3 节。</div>
+    <div class="small muted" style="margin-top:10px">GT 证据页：AVeriTeC GT 中标注的证据来源网址。GT 派生查询：主办方构建 store 时由 GT 问题、答案或 GT 证据页生成的查询，即 GT 问题原文与改写、claim + GT 问题、GT 答案、GT 证据页中与 GT 问答最相似的句子、按 GT 证据页网址反推的查询（主办方 <code>source_finder.py</code>）；ChatGPT 只据 claim 生成的问题不算。store 中每页只保留第一个检索到它的查询类型，GT 派生类型在构建顺序中靠前。这类查询含有系统无法事先得知的实体名，见第 3 节。</div>
   </div>
 
   <div class="panel">
@@ -195,8 +195,9 @@ const btn=$('#themeBtn'); function setTheme(t){document.documentElement.setAttri
 let t0='light'; try{t0=localStorage.getItem('mcfc_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}catch(e){}
 setTheme(t0); btn.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 
-const GOLDQ=new Set(['question','question_duplicate','gpt_question','claim+question','answer']);
-const LABEL={gold:'GT 证据页',question:'GT 问题原文',question_duplicate:'GT 问题改写',gpt_question:'ChatGPT 据 claim + GT 问答生成',"claim+question":'claim + GT 问题',answer:'GT 答案文本',claim:'claim 文本',background:'背景问题',background_questions:'背景问题',provenance:'来源问题',NER:'实体名',most_similar:'相似问题',gpt_url_only:'ChatGPT 给出的网址',same_entity_questions:'干扰项（同实体）','?':'未知'};
+// query types built from GT questions, answers or GT evidence pages (official source_finder.py); gpt_question uses the claim only
+const GOLDQ=new Set(['question','question_duplicate','claim+question','answer','answer_duplicate','most_similar','gpt_url_only']);
+const LABEL={gold:'GT 证据页',question:'GT 问题原文',question_duplicate:'GT 问题改写',gpt_question:'ChatGPT 据 claim 生成',"claim+question":'claim + GT 问题',answer:'GT 答案文本',answer_duplicate:'GT 问题改写（复用）',claim:'claim 文本',background:'背景问题',background_questions:'背景问题',provenance:'来源问题',NER:'实体名',most_similar:'GT 证据页中与 GT 问答最相似的句子',gpt_url_only:'ChatGPT 据 GT 证据页网址生成',same_entity_questions:'干扰项（同实体）','?':'未知'};
 function kpi(el,items){el.innerHTML=items.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');}
 
 function summarise(D){
@@ -213,7 +214,7 @@ function summarise(D){
     }
   }
   $('#m-nq').textContent=nq;
-  kpi($('#kpi-query'),[[nq,'查询数'],[`${sGold} · ${pct(sGold,nq)}`,'store 前 5 页含 GT 证据页'],[`${wGold} · ${pct(wGold,nq)}`,'web search 候选含 GT 证据页'],[`${pct(sGoldQPages,sPages)}`,'store 返回页中，由 GT 问题派生查询检索到的比例'],[`${wKeptAny} · ${pct(wKeptAny,nq)}`,'web search 保留 ≥1 页']]);
+  kpi($('#kpi-query'),[[nq,'查询数'],[`${sGold} · ${pct(sGold,nq)}`,'store 前 5 页含 GT 证据页'],[`${wGold} · ${pct(wGold,nq)}`,'web search 候选含 GT 证据页'],[`${pct(sGoldQPages,sPages)}`,'store 返回页中，由 GT 派生查询检索到的比例（按页面保留的类型标签）'],[`${wKeptAny} · ${pct(wKeptAny,nq)}`,'web search 保留 ≥1 页']]);
   kpi($('#kpi-q'),[[total,'问题数（13 claim × 10）'],[`${ans} · ${pct(ans,total)}`,'有答案'],[`${noans} · ${pct(noans,total)}`,'无答案（有页面）'],[notext,'无答案（候选均无正文）'],[nores,'无答案（Serper 无结果）']]);
 }
 function storeRes(r){
@@ -229,7 +230,7 @@ function webRes(r){
 }
 function queryRow(x){
   const sr=x.store_results||[]; const kept=x.results.filter(r=>r.fate==='kept'); const rest=x.results.filter(r=>r.fate!=='kept');
-  const sSum=`${sr.length} 页 · GT 证据页 ${sr.filter(r=>r.gold).length} · GT 问题派生 ${sr.filter(r=>GOLDQ.has(r.store_type)).length}`;
+  const sSum=`${sr.length} 页 · GT 证据页 ${sr.filter(r=>r.gold).length} · GT 派生 ${sr.filter(r=>GOLDQ.has(r.store_type)).length}`;
   const wSum=`候选 ${x.n_candidates} · 保留 ${kept.length} · GT 证据页 ${x.results.filter(r=>r.gold).length}`;
   return `<tr><td class="query">${esc(x.query)}<span class="sum">store：${sSum}<br>web：${wSum}</span></td>
     <td class="store">${sr.length?sr.map(storeRes).join(''):'<span class="muted">store 无结果</span>'}</td>
