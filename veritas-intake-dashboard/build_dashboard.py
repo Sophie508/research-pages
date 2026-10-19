@@ -29,10 +29,12 @@ def final_type(row: dict) -> str:
 
 def timing(e: dict, claim_date: str, check_date: str) -> str:
     """Where the source sits relative to the claim (t_c) and the fact-check (t_f)."""
+    if not e.get("source_url"):
+        return "no_url"
     d = e.get("source_date")
     if not d:
         # strict recovery accepted these through a Wayback capture before the claim date
-        return "before_claim_archived" if e["source_origin"] == "external_search_date_verified" else "undated"
+        return "before_claim_archived" if e["source_origin"] == "external_search_date_verified" else "not_dated"
     if d <= claim_date:
         return "before_claim"
     return "during_check" if check_date and d <= check_date else "after_check"
