@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intake Dashboard</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14171f;--ink2:#4a5263;--ink3:#7a8294;--line:#e3e6ec;--accent:#3b5bdb;
+  --news:#2f6fde;--official:#2b8a3e;--academic:#7048e8;--social:#d9480f;--other:#868e96;--unknown:#c4c9d2;
+  --ok:#2b8a3e;--bad:#c92a2a;--na:#868e96}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11131a;--card:#1a1d26;--ink:#e8eaf0;--ink2:#b0b6c4;--ink3:#7d8496;
+  --line:#2a2e3a;--accent:#748ffc;--news:#5c95f0;--official:#51b866;--academic:#9775fa;--social:#f0773e;--other:#9aa1ab;--unknown:#4a505d}}
+:root[data-theme="dark"]{--bg:#11131a;--card:#1a1d26;--ink:#e8eaf0;--ink2:#b0b6c4;--ink3:#7d8496;
+  --line:#2a2e3a;--accent:#748ffc;--news:#5c95f0;--official:#51b866;--academic:#9775fa;--social:#f0773e;--other:#9aa1ab;--unknown:#4a505d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0 0 4px} h2{font-size:16px;margin:32px 0 12px}
+.sub{color:var(--ink2);max-width:760px;margin:0}
+.meta{color:var(--ink3);font-size:12px;margin-top:6px}
+button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.card .k{color:var(--ink3);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.card .v{font-size:28px;font-weight:650;margin:2px 0}
+.card .d{color:var(--ink2);font-size:12.5px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.panel h3{font-size:13.5px;margin:0 0 10px;display:flex;justify-content:space-between;gap:8px}
+.panel h3 span{color:var(--ink3);font-weight:400;font-size:12px}
+.bar{display:grid;grid-template-columns:minmax(0,1fr) 110px 88px;align-items:center;gap:10px;margin:5px 0;font-size:13px}
+.bar .lab{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .track{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;border-radius:4px;background:var(--accent)}
+.bar .n{text-align:right;white-space:nowrap;color:var(--ink2);font-variant-numeric:tabular-nums}
+.note{color:var(--ink3);font-size:12px;margin-top:8px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.controls select,.controls input{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit}
+.controls input{flex:1;min-width:180px}
+.count{color:var(--ink3);font-size:12.5px}
+.claim{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+.claim>summary{list-style:none;cursor:pointer;padding:12px 16px}
+.claim>summary::-webkit-details-marker{display:none}
+.claim .text{font-weight:550}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;font-size:12px;color:var(--ink2)}
+.tag{border:1px solid var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.tag.ok{color:var(--ok);border-color:var(--ok)} .tag.bad{color:var(--bad);border-color:var(--bad)}
+.body{padding:0 16px 14px;border-top:1px solid var(--line)}
+.orig{color:var(--ink2);font-size:13px;margin:10px 0 0}
+.imgs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.imgs img{height:120px;border-radius:8px;border:1px solid var(--line)}
+.timeline{position:relative;height:46px;margin:14px 6px 4px}
+.timeline .axis{position:absolute;left:0;right:0;top:22px;height:2px;background:var(--line)}
+.timeline .dot{position:absolute;top:17px;width:12px;height:12px;border-radius:50%;transform:translateX(-50%);border:2px solid var(--card)}
+.timeline .mark{position:absolute;top:0;transform:translateX(-50%);font-size:11px;color:var(--ink2);white-space:nowrap}
+.timeline .mark::after{content:"";position:absolute;left:50%;top:16px;width:2px;height:14px;background:var(--ink2)}
+.ev{display:grid;grid-template-columns:4px minmax(0,1fr);gap:10px;margin-top:12px}
+.ev .stripe{border-radius:2px}
+.ev .s{font-size:13.5px}
+.ev .src{font-size:12.5px;color:var(--ink2);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.ev .src a{overflow-wrap:anywhere}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--ink2);margin:6px 0 0}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+@media (max-width:560px){.bar{grid-template-columns:minmax(0,1fr) 60px 78px}.card .v{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>VeriTaS intake: claims and silver evidence</h1>
+    <p class="sub">Each claim was normalized by our pipeline, which then extracted evidence statements from the fact-check article and attached a source to each. The evidence and its sources are silver labels, not checked by people. Every number below is computed from <a href="data/items.jsonl">data/items.jsonl</a> and <a href="data/domains.csv">data/domains.csv</a> by <code>build_dashboard.py</code>.</p>
+    <div class="meta" id="meta"></div>
+  </div>
+  <button class="theme" id="themeBtn" type="button">Theme</button>
+</header>
+
+<div class="cards" id="cards"></div>
+
+<h2>Sources</h2>
+<div class="panels" id="srcPanels"></div>
+
+<h2>Evidence and claims</h2>
+<div class="panels" id="evPanels"></div>
+
+<h2>Claims</h2>
+<div class="controls">
+  <select id="fMod"><option value="">All modalities</option></select>
+  <select id="fBatch"><option value="">All batches</option></select>
+  <select id="fVerdict"><option value="">All verdicts</option></select>
+  <select id="fType"><option value="">Any source type</option></select>
+  <input id="fText" type="search" placeholder="Search claim or outlet">
+  <span class="count" id="count"></span>
+</div>
+<div class="legend" id="legend"></div>
+<div id="list" style="margin-top:12px"></div>
+</div>
+
+<script>
+const TYPE_COLOR = {NEWS:"--news", OFFICIAL:"--official", ACADEMIC:"--academic", SOCIAL:"--social", UNKNOWN:"--unknown", METADATA:"--other"};
+const TYPE_LABEL = {NEWS:"News", OFFICIAL:"Official", ACADEMIC:"Academic", SOCIAL:"Social", REFERENCE:"Reference",
+  ORGANIZATION:"Organization", FACT_CHECK:"Fact-check", MEDIA_ARCHIVE:"Image archive", UNKNOWN:"Unclassified", METADATA:"Claim metadata"};
+const ORIGIN_LABEL = {external_search_date_verified:"Found by search, dated before the claim", fact_check_article:"Link given in the fact-check article",
+  fact_check_article_link:"Article link (revision of the first 69 claims)", metadata:"Claim metadata (no URL)"};
+const TIMING_LABEL = {before_claim:"Dated before the claim", before_claim_archived:"Before the claim (by archive capture)",
+  during_check:"Between claim and fact-check", after_check:"After the fact-check", undated:"No date"};
+const BATCH_LABEL = {intake_200:"First batch (69)", text_extension:"Text extension (69)"};
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const color = t => css(TYPE_COLOR[t] || "--other");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => n.toLocaleString("en-US");
+const pct = (a, b) => b ? Math.round(100 * a / b) + "%" : "–";
+
+try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+document.getElementById("themeBtn").onclick = () => {
+  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark"
+    : matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", document.documentElement.dataset.theme); } catch (e) {}
+  if (window.SITE) render(window.SITE);
+};
+
+function bars(rows, total, labeler, colorer) {
+  const max = Math.max(...rows.map(r => r[1]));
+  return rows.map(([k, n]) => `<div class="bar"><div class="lab" title="${esc(labeler(k))}">${esc(labeler(k))}</div>
+    <div class="track"><div class="fill" style="width:${100 * n / max}%;${colorer ? "background:" + colorer(k) : ""}"></div></div>
+    <div class="n">${fmt(n)} · ${pct(n, total)}</div></div>`).join("");
+}
+const panel = (title, aside, body, note) => `<div class="panel"><h3>${title}<span>${aside}</span></h3>${body}${note ? `<div class="note">${note}</div>` : ""}</div>`;
+const card = (k, v, d) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+
+function render(site) {
+  const S = site.summary, C = S.claims, E = S.evidence, R = S.sources, V = S.verdict;
+  const get = (rows, k) => (rows.find(r => r[0] === k) || [0, 0])[1];
+  document.getElementById("meta").textContent = `Built ${site.built} · claim dates ${C.date_range[0]} to ${C.date_range[1]}`;
+  const dated = get(E.timing, "before_claim") + get(E.timing, "before_claim_archived") + get(E.timing, "during_check") + get(E.timing, "after_check");
+  document.getElementById("cards").innerHTML = [
+    card("Claims", fmt(C.n), C.modality.map(([m, n]) => `${n} ${m}`).join(" · ")),
+    card("Evidence statements", fmt(E.n), `${E.per_claim_mean} per claim, median ${E.per_claim_median}`),
+    card("Sources", fmt(R.n_urls), `${fmt(R.distinct_urls)} distinct URLs on ${fmt(R.domains)} domains`),
+    card("Named outlets", pct(R.named_urls, R.n_urls), `of source URLs map to a named outlet (${R.named_domains} domains)`),
+    card("Dated evidence", pct(dated, E.n), `${fmt(dated)} of ${fmt(E.n)} statements have a source date`),
+    card("Agrees with VeriTaS", `${V.agree_with_veritas} / ${V.veritas_labelled}`, "pipeline verdict vs VeriTaS true/false label"),
+  ].join("");
+
+  document.getElementById("srcPanels").innerHTML = [
+    panel("Source type", `${fmt(R.n_urls)} URLs`, bars(R.type, R.n_urls, k => TYPE_LABEL[k] || k, color),
+      "Type from conservative domain and path rules, then the outlet's Wikidata class; Unclassified when neither applies."),
+    panel("Top outlets", "after merging subdomains", bars(R.top_outlets.map(r => [r[0], r[1], r[2]]), R.n_urls, k => k,
+      k => color((R.top_outlets.find(r => r[0] === k) || [])[2])),
+      "Names from Wikidata (official website) or the manual column of domains.csv; otherwise the bare domain."),
+  ].join("");
+
+  document.getElementById("evPanels").innerHTML = [
+    panel("Where the source URL came from", `${fmt(E.n)} statements`, bars(E.origin, E.n, k => ORIGIN_LABEL[k] || k)),
+    panel("Source date relative to the claim", `${fmt(E.n)} statements`, bars(E.timing, E.n, k => TIMING_LABEL[k] || k),
+      "Links taken from the fact-check article are not dated by the pipeline, which is most of the undated ones."),
+    panel("Evidence per claim", `${C.n} claims`, bars([...E.per_claim].sort((a, b) => a[0] - b[0]), C.n, k => `${k} statement${k == 1 ? "" : "s"}`)),
+    panel("Normalized claim", `${C.n} claims`, bars(C.normalization, C.n, k => ({unnecessary:"Kept as written", rewritten:"Rewritten", insufficient_context:"Insufficient context"}[k] || k)),
+      `Fact-check published ${C.check_days_median} days after the claim (median; mean ${C.check_days_mean}).`),
+    panel("Pipeline verdict", `${C.n} claims`, bars(V.pipeline, C.n, k => k),
+      "A model prediction from the silver evidence, not a label."),
+  ].join("");
+  renderList(site);
+}
+
+function fillSelect(id, values, labeler) {
+  const el = document.getElementById(id);
+  if (el.options.length > 1) return;
+  values.forEach(v => el.insertAdjacentHTML("beforeend", `<option value="${esc(v)}">${esc(labeler ? labeler(v) : v)}</option>`));
+  el.onchange = () => renderList(window.SITE);
+}
+
+function timeline(it) {
+  const tc = Date.parse(it.claim_date), tf = Date.parse(it.fact_check_date || it.claim_date);
+  const dates = it.silver_evidence.map(e => e.source_date && Date.parse(e.source_date)).filter(Boolean);
+  if (!dates.length) return `<div class="note">No dated sources for this claim.</div>`;
+  const lo = Math.min(tc, ...dates), hi = Math.max(tf, ...dates), span = hi - lo || 1;
+  const x = t => 3 + 94 * (t - lo) / span;
+  const marks = `<div class="mark" style="left:${x(tc)}%">claim ${it.claim_date}</div>` +
+    (tf !== tc ? `<div class="mark" style="left:${x(tf)}%;top:30px">fact-check</div>` : "");
+  const dots = it.silver_evidence.filter(e => e.source_date).map(e =>
+    `<div class="dot" title="${esc(e.outlet || "")} · ${e.source_date}" style="left:${x(Date.parse(e.source_date))}%;background:${color(e.source_type)}"></div>`).join("");
+  const first = new Date(lo).toISOString().slice(0, 10);
+  return `<div class="timeline"><div class="axis"></div>${dots}${marks}</div><div class="note">Dated sources only, from ${first}. ${it.silver_evidence.length - dates.length} undated not shown.</div>`;
+}
+
+function claimHTML(it) {
+  const pole = {true: "Supported", false: "Refuted"}[(it.veritas_veracity_label || "").split(" ")[0]];
+  const vcls = !pole ? "" : it.pipeline_verdict === pole ? "ok" : "bad";
+  const ev = it.silver_evidence.map(e => `<div class="ev"><div class="stripe" style="background:${color(e.source_type)}"></div><div>
+      <div class="s">${esc(e.statement)}</div>
+      <div class="src"><b>${esc(e.outlet || "Claim metadata")}</b><span>${esc(TYPE_LABEL[e.source_type] || e.source_type)}</span>
+        ${e.source_date ? `<span>${e.source_date}</span>` : ""}<span>${esc(ORIGIN_LABEL[e.source_origin] || "")}</span>
+        ${e.source_url ? `<a href="${esc(e.source_url)}" target="_blank" rel="noopener noreferrer">${esc(e.domain)}</a>` : ""}</div></div></div>`).join("");
+  return `<details class="claim"><summary><div class="text">${esc(it.normalized_claim)}</div>
+    <div class="tags"><span class="tag">#${it.claim_id}</span><span class="tag">${it.claim_date}</span><span class="tag">${esc(it.modality)}</span>
+      <span class="tag ${vcls}">${esc(it.pipeline_verdict || "no verdict")}${it.veritas_veracity_label ? " · VeriTaS: " + esc(it.veritas_veracity_label) : ""}</span>
+      <span class="tag">${it.silver_evidence.length} evidence</span></div></summary>
+    <div class="body">
+      ${it.veritas_claim !== it.normalized_claim ? `<p class="orig">VeriTaS original: ${esc(it.veritas_claim)}</p>` : ""}
+      ${it.images.length ? `<div class="imgs">${it.images.map(s => `<img src="${esc(s)}" alt="claim image" loading="lazy">`).join("")}</div>` : ""}
+      ${timeline(it)}
+      <div class="note">Fact-check: <a href="${esc(it.fact_check_article_url)}" target="_blank" rel="noopener noreferrer">${esc(it.fact_check_publisher || it.fact_check_article_url)}</a>${it.fact_check_date ? ", " + it.fact_check_date : ""}</div>
+      ${ev}</div></details>`;
+}
+
+function renderList(site) {
+  const items = site.items;
+  fillSelect("fMod", [...new Set(items.map(i => i.modality))]);
+  fillSelect("fBatch", [...new Set(items.map(i => i.batch))], k => BATCH_LABEL[k] || k);
+  fillSelect("fVerdict", [...new Set(items.map(i => i.pipeline_verdict))]);
+  fillSelect("fType", site.summary.sources.type.map(r => r[0]), k => TYPE_LABEL[k] || k);
+  const f = id => document.getElementById(id).value;
+  const q = document.getElementById("fText").value.trim().toLowerCase();
+  const shown = items.filter(i => (!f("fMod") || i.modality === f("fMod")) && (!f("fBatch") || i.batch === f("fBatch"))
+    && (!f("fVerdict") || i.pipeline_verdict === f("fVerdict"))
+    && (!f("fType") || i.silver_evidence.some(e => e.source_type === f("fType")))
+    && (!q || (i.normalized_claim + " " + i.silver_evidence.map(e => e.outlet || "").join(" ")).toLowerCase().includes(q)));
+  document.getElementById("count").textContent = `${shown.length} of ${items.length} claims`;
+  document.getElementById("legend").innerHTML = Object.keys(TYPE_COLOR).map(t => `<span><i style="background:${color(t)}"></i>${TYPE_LABEL[t]}</span>`).join("");
+  document.getElementById("list").innerHTML = shown.map(claimHTML).join("");
+}
+document.getElementById("fText").oninput = () => renderList(window.SITE);
+
+fetch("data/site.json").then(r => r.json()).then(site => { window.SITE = site; render(site); })
+  .catch(() => { document.getElementById("cards").textContent = "Could not load data/site.json."; });
+</script>
+</body>
+</html>
