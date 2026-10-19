@@ -6,12 +6,15 @@
 <title>Intake Dashboard</title>
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--ink:#14171f;--ink2:#4a5263;--ink3:#7a8294;--line:#e3e6ec;--accent:#3b5bdb;--mark:#3b5bdb;
+  --c1:#2a78d6;--c2:#eb6834;--c3:#1baf7a;--pos:#2a78d6;--mid:#9aa0a8;--neg:#e34948;
   --news:#2f6fde;--official:#2b8a3e;--academic:#7048e8;--social:#d9480f;--other:#868e96;--unknown:#c4c9d2;
   --ok:#2b8a3e;--bad:#c92a2a;--na:#868e96}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11131a;--card:#1a1d26;--ink:#e8eaf0;--ink2:#b0b6c4;--ink3:#7d8496;
-  --line:#2a2e3a;--accent:#748ffc;--mark:#6a85f5;--news:#5c95f0;--official:#51b866;--academic:#9775fa;--social:#f0773e;--other:#9aa1ab;--unknown:#4a505d}}
+  --line:#2a2e3a;--accent:#748ffc;--mark:#6a85f5;--news:#5c95f0;--official:#51b866;--academic:#9775fa;--social:#f0773e;--other:#9aa1ab;--unknown:#4a505d;
+  --c1:#3987e5;--c2:#d95926;--c3:#199e70;--pos:#3987e5;--mid:#6b717c;--neg:#e66767}}
 :root[data-theme="dark"]{--bg:#11131a;--card:#1a1d26;--ink:#e8eaf0;--ink2:#b0b6c4;--ink3:#7d8496;
-  --line:#2a2e3a;--accent:#748ffc;--mark:#6a85f5;--news:#5c95f0;--official:#51b866;--academic:#9775fa;--social:#f0773e;--other:#9aa1ab;--unknown:#4a505d}
+  --line:#2a2e3a;--accent:#748ffc;--mark:#6a85f5;--news:#5c95f0;--official:#51b866;--academic:#9775fa;--social:#f0773e;--other:#9aa1ab;--unknown:#4a505d;
+  --c1:#3987e5;--c2:#d95926;--c3:#199e70;--pos:#3987e5;--mid:#6b717c;--neg:#e66767}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 a{color:var(--accent)}
@@ -32,7 +35,7 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 .panel h3 span{color:var(--ink3);font-weight:400;font-size:12px}
 .bars{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(48px,1fr) auto;align-items:center;column-gap:10px;row-gap:9px;font-size:13px}
 .bar{display:contents}
-.bar .lab{line-height:1.3;overflow-wrap:anywhere}
+.bar .lab{line-height:1.3;overflow-wrap:break-word}
 .bar .track{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
 .bar .fill{height:100%;border-radius:4px;background:var(--mark)}
 .bar .n{text-align:right;white-space:nowrap;color:var(--ink2);font-variant-numeric:tabular-nums}
@@ -45,6 +48,14 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 .hcol:focus-visible{box-shadow:0 0 0 2px var(--accent) inset;border-radius:4px}
 .haxis{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:2px;font-size:12px;color:var(--ink2);text-align:center;margin-top:4px;font-variant-numeric:tabular-nums}
 .hcap{font-size:12px;color:var(--ink3);text-align:center;margin-top:2px}
+.stack{display:flex;gap:2px;height:16px;margin:6px 0 12px}
+.seg{min-width:4px;height:100%;outline:none;cursor:default}
+.seg:first-child{border-radius:4px 0 0 4px}.seg:last-child{border-radius:0 4px 4px 0}.seg:only-child{border-radius:4px}
+.seg:hover,.seg:focus-visible{filter:brightness(1.15)}
+.seg:focus-visible{box-shadow:0 0 0 2px var(--ink) inset}
+.slegend{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:8px;row-gap:6px;align-items:center;font-size:13px}
+.slegend .sw{width:10px;height:10px;border-radius:2px}
+.slegend .n{color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
 #tip{position:fixed;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;z-index:10}
 #tip b{display:block;font-size:14px}
 .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
@@ -56,7 +67,7 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 .claim>summary::-webkit-details-marker{display:none}
 .claim .text{font-weight:550}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;font-size:12px;color:var(--ink2)}
-.tag{border:1px solid var(--line);border-radius:999px;padding:1px 8px;max-width:100%;overflow-wrap:anywhere}
+.tag{border:1px solid var(--line);border-radius:999px;padding:1px 8px;max-width:100%;overflow-wrap:break-word}
 .tag.ok{color:var(--ok);border-color:var(--ok)} .tag.bad{color:var(--bad);border-color:var(--bad)}
 .body{padding:0 16px 14px;border-top:1px solid var(--line)}
 .orig{color:var(--ink2);font-size:13px;margin:10px 0 0}
@@ -119,6 +130,14 @@ const ORIGIN_LABEL = {external_search_date_verified:"Found by search, dated befo
   fact_check_article_link:"Article link (revision of the first 69 claims)", metadata:"Claim metadata (no URL)"};
 const TIMING_LABEL = {before_claim:"Dated before the claim", before_claim_archived:"Before the claim (by archive capture)",
   during_check:"Between claim and fact-check", after_check:"After the fact-check", not_dated:"Source not dated", no_url:"No source URL"};
+const NORM_ORDER = ["unnecessary", "rewritten", "insufficient_context"];
+const NORM_LABEL = {unnecessary: "Kept as written", rewritten: "Rewritten", insufficient_context: "Insufficient context"};
+// verdicts on one polarity scale: supported and refuted at the poles, the rest neutral in between
+const VERDICT_ORDER = ["Supported", "Not Enough Evidence", "Conflicting Evidence/Cherrypicking", "Refuted"];
+const VERDICT_COLOR = {"Supported": "--pos", "Not Enough Evidence": "--mid", "Conflicting Evidence/Cherrypicking": "--mid", "Refuted": "--neg"};
+const inOrder = (rows, order) => [...rows].sort((a, b) => (order.indexOf(a[0]) + 1 || 99) - (order.indexOf(b[0]) + 1 || 99));
+const plural = (n, word) => `${fmt(n)} ${n === 1 ? word.replace(/s$/, "") : word}`;
+const wrapSlash = s => s.replace(/\//g, "/<wbr>");
 const BATCH_LABEL = {intake_200:"First batch (69)", text_extension:"Text extension (69)"};
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const color = t => css(TYPE_COLOR[t] || "--other");
@@ -137,14 +156,14 @@ document.getElementById("themeBtn").onclick = () => {
 
 function bars(rows, total, labeler, colorer) {
   const max = Math.max(...rows.map(r => r[1]));
-  return '<div class="bars">' + rows.map(([k, n]) => `<div class="bar"><div class="lab" title="${esc(labeler(k))}">${esc(labeler(k))}</div>
+  return '<div class="bars">' + rows.map(([k, n]) => `<div class="bar"><div class="lab" title="${esc(labeler(k))}">${wrapSlash(esc(labeler(k)))}</div>
     <div class="track"><div class="fill" style="width:${100 * n / max}%;${colorer ? "background:" + colorer(k) : ""}"></div></div>
     <div class="n">${fmt(n)} · ${pct(n, total)}</div></div>`).join("") + "</div>";
 }
 // a column per value of an ordered count; value on the cap, details on hover and keyboard focus
 function histogram(rows, total, unit, what) {
   const max = Math.max(...rows.map(r => r[1]));
-  const cols = rows.map(([k, n]) => `<div class="hcol" tabindex="0" data-k="${k}" data-n="${n}"
+  const cols = rows.map(([k, n]) => `<div class="hcol" tabindex="0" data-tip-b="${plural(n, what)} · ${pct(n, total)}" data-tip-s="with ${k} ${unit}${k == 1 ? "" : "s"}"
       aria-label="${k} ${unit}${k == 1 ? "" : "s"}: ${n} ${what} (${pct(n, total)})">
       <div class="cap" style="bottom:calc(${100 * n / max}% + 2px)">${n}</div>
       <div class="col" style="height:${100 * n / max}%"></div></div>`).join("");
@@ -152,14 +171,22 @@ function histogram(rows, total, unit, what) {
     <div class="haxis">${rows.map(([k]) => `<div>${k}</div>`).join("")}</div>
     <div class="hcap">${unit}s per claim</div>`;
 }
+// one horizontal bar split into the parts of a whole; the legend under it carries every value
+function stacked(rows, total, labeler, colorVar, what) {
+  const segs = rows.map(([k, n]) => `<div class="seg" tabindex="0" style="flex:${n} 1 0;background:var(${colorVar(k)})"
+      data-tip-b="${plural(n, what)} · ${pct(n, total)}" data-tip-s="${esc(labeler(k))}" aria-label="${esc(labeler(k))}: ${plural(n, what)} (${pct(n, total)})"></div>`).join("");
+  const legend = rows.map(([k, n]) => `<div class="sw" style="background:var(${colorVar(k)})"></div>
+      <div>${wrapSlash(esc(labeler(k)))}</div><div class="n">${fmt(n)} · ${pct(n, total)}</div>`).join("");
+  return `<div class="stack" role="img" aria-label="${rows.map(([k, n]) => `${labeler(k)} ${pct(n, total)}`).join(", ")}">${segs}</div>
+    <div class="slegend">${legend}</div>`;
+}
 function wireTips() {
   const tip = document.getElementById("tip");
-  document.querySelectorAll(".hcol").forEach(c => {
-    const h = c.parentElement.dataset, k = +c.dataset.k, n = +c.dataset.n;
+  document.querySelectorAll("[data-tip-b]").forEach(c => {
     const show = () => {
       tip.textContent = "";
-      const b = document.createElement("b"); b.textContent = `${n} ${h.what} · ${pct(n, +h.total)}`;
-      tip.append(b, document.createTextNode(`with ${k} ${h.unit}${k === 1 ? "" : "s"}`));
+      const b = document.createElement("b"); b.textContent = c.dataset.tipB;
+      tip.append(b, document.createTextNode(c.dataset.tipS));
       const r = c.getBoundingClientRect(); tip.style.display = "block";
       tip.style.left = Math.min(innerWidth - tip.offsetWidth - 8, Math.max(8, r.left + r.width / 2 - tip.offsetWidth / 2)) + "px";
       tip.style.top = Math.max(8, r.top - tip.offsetHeight - 6) + "px";
@@ -200,9 +227,11 @@ function render(site) {
       "Links taken from the fact-check article are not dated by the pipeline; they are almost all of “Source not dated”."),
     panel("Evidence per claim", `${C.n} claims`, histogram([...E.per_claim].sort((a, b) => a[0] - b[0]), C.n, "evidence item", "claims"),
       `Mean ${E.per_claim_mean}, median ${E.per_claim_median}.`),
-    panel("Normalized claim", `${C.n} claims`, bars(C.normalization, C.n, k => ({unnecessary:"Kept as written", rewritten:"Rewritten", insufficient_context:"Insufficient context"}[k] || k)),
+    panel("Normalized claim", `${C.n} claims`, stacked(inOrder(C.normalization, NORM_ORDER), C.n, k => NORM_LABEL[k] || k,
+      k => ["--c1", "--c2", "--c3"][NORM_ORDER.indexOf(k)] || "--other", "claims"),
       `Fact-check published ${C.check_days_median} days after the claim (median; mean ${C.check_days_mean}).`),
-    panel("Pipeline verdict", `${C.n} claims`, bars(V.pipeline, C.n, k => k),
+    panel("Pipeline verdict", `${C.n} claims`, stacked(inOrder(V.pipeline, VERDICT_ORDER), C.n, k => k,
+      k => VERDICT_COLOR[k] || "--other", "claims"),
       "A model prediction from the silver evidence, not a label."),
   ].join("");
   wireTips();
@@ -240,7 +269,7 @@ function claimHTML(it) {
         ${e.source_url ? `<a href="${esc(e.source_url)}" target="_blank" rel="noopener noreferrer">${esc(e.domain)}</a>` : ""}</div></div></div>`).join("");
   return `<details class="claim"><summary><div class="text">${esc(it.normalized_claim)}</div>
     <div class="tags"><span class="tag">#${it.claim_id}</span><span class="tag">${it.claim_date}</span><span class="tag">${esc(it.modality)}</span>
-      <span class="tag ${vcls}">${esc(it.pipeline_verdict || "no verdict")}${it.veritas_veracity_label ? " · VeriTaS: " + esc(it.veritas_veracity_label) : ""}</span>
+      <span class="tag ${vcls}">${wrapSlash(esc(it.pipeline_verdict || "no verdict"))}${it.veritas_veracity_label ? " · VeriTaS: " + esc(it.veritas_veracity_label) : ""}</span>
       <span class="tag">${it.silver_evidence.length} evidence</span></div></summary>
     <div class="body">
       ${it.veritas_claim !== it.normalized_claim ? `<p class="orig">VeriTaS original: ${esc(it.veritas_claim)}</p>` : ""}
