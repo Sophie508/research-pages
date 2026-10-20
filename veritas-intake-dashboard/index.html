@@ -84,6 +84,7 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 .ev .src{font-size:12.5px;color:var(--ink2);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
 .ev .src a{overflow-wrap:anywhere}
 .pass{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:5px;font-size:12px}
+.hint{color:var(--ink3);font-size:11.5px}
 .pill{border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--ink2);text-decoration:none}
 .pill.hl{color:var(--accent);border-color:var(--accent)}
 .pill.v-SUPPORTED,.pill.s-kept{border-color:var(--official);color:var(--official)}
@@ -233,12 +234,12 @@ function render(site) {
     card("Named outlets", pct(R.named_urls, R.n_urls), `of source URLs map to a named outlet (${R.named_domains} domains)`),
     card("Dated evidence", pct(dated, E.n), `${fmt(dated)} of ${fmt(E.n)} statements have a source date`),
     card("Agrees with VeriTaS", `${V.agree_with_veritas} / ${V.veritas_labelled}`, "pipeline verdict vs VeriTaS true/false label"),
-    ...(S.pass ? [card("Link + settle pass", `${S.pass.claims} / ${S.pass.text_only_claims}`, `text-only claims; evidence shown ${fmt(S.pass.evidence_before)} → ${fmt(S.pass.evidence_after)}, ${pct(S.pass.highlighted, S.pass.evidence_after)} with a passage highlight`)] : []),
+    ...(S.pass ? [card("Link + settle pass", `${S.pass.claims} / ${S.pass.scope_claims}`, `claims (${S.pass.by_modality.map(([m, n]) => `${n} ${m}`).join(", ")}); evidence shown ${fmt(S.pass.evidence_before)} → ${fmt(S.pass.evidence_after)}, ${pct(S.pass.highlighted, S.pass.evidence_after)} with a passage highlight`)] : []),
   ].join("");
   const P = S.pass;
   document.getElementById("passSection").hidden = !P;
   if (P) {
-    document.getElementById("passSub").textContent = `Each evidence item's link was re-derived by the main pipeline's link stage (the extractor's citation first, then links in the fact-check article ranked against the statement, then a date-restricted search; a verifier labels every readable candidate) and then settled: an LLM checks that the page states the evidence, trims or re-sources it when it does not, and drops what no page supports. ${P.claims_no_evidence_left} claims were left with no evidence; ${P.claims_no_article_links} had no usable links in their fact-check article.` + (P.verdict_recomputed ? ` The verdict was then recomputed on the settled evidence for ${P.verdict_recomputed} claims; it changed for ${P.verdict_changed}.` : " Verdicts were not recomputed after the pass.");
+    document.getElementById("passSub").textContent = `Each evidence item's link was re-derived by the main pipeline's link stage (the extractor's citation first, then links in the fact-check article ranked against the statement, then a date-restricted search; a verifier labels every readable candidate) and then settled: an LLM checks that the page states the evidence, trims or re-sources it when it does not, and drops what no page supports. ${P.claims_no_evidence_left} claims were left with no evidence; ${P.claims_no_article_links} had no usable links in their fact-check article.` + (P.verdict_recomputed ? ` The verdict was then recomputed on the settled evidence for ${P.verdict_recomputed} claims; it changed for ${P.verdict_changed}.` : " Verdicts were not recomputed after the pass.") + ` Highlights: ${P.highlighted - P.snapshot_highlights} links open the live page with the passage marked (a text-fragment URL: Chrome, Edge, Safari 16.1+, Firefox 131+; pages behind a login or consent wall, such as x.com, may not show it), ${P.snapshot_highlights} open a marked text copy; ${P.evidence_after - P.highlighted} items have no highlight, mostly pages the pipeline could not read.`;
     document.getElementById("passPanels").innerHTML = [
       panel("Where the kept links come from", `${fmt(P.evidence_after)} evidence items`, bars(P.link_origin, P.evidence_after, k => nz(k, TIER_LABEL[k] || k))),
       panel("How the link stage chose the link", `${fmt(P.evidence_after)} evidence items`, bars(P.link_basis, P.evidence_after, k => nz(k, BASIS_LABEL[k] || k)),
@@ -295,15 +296,18 @@ function timeline(it) {
   return `<div class="timeline"><div class="axis"></div>${dots}${marks}</div><div class="note">Dated sources only, from ${first}. ${it.silver_evidence.length - dates.length} undated not shown.</div>`;
 }
 
+// a text-fragment highlight on the live page becomes the main link; a snapshot (marked text copy) stays a separate button
+const fragHL = e => { const h = (e.settle || {}).highlight_url || ""; return h.startsWith("http") ? h : ""; };
+const mainLink = e => fragHL(e) || e.source_url;
 // what the link + settle pass recorded for one evidence item
 function passHTML(e) {
   if (!e.link && !e.settle) return "";
   const l = e.link || {}, st = e.settle || {};
-  const bits = [];
+  const bits = [], before = [];
   if (l.verdict) bits.push(`<span class="pill v-${esc(l.verdict)}">verifier: ${esc(l.verdict.toLowerCase())}</span>`);
   if (st.status) bits.push(`<span class="pill s-${esc(st.status)}">${esc(SETTLE_LABEL[st.status] || st.status)}</span>`);
-  if (st.highlight_url) bits.push(`<a class="pill hl" href="${esc(st.highlight_url)}" target="_blank" rel="noopener noreferrer">open with passage marked${st.highlight_url.startsWith("snapshots/") ? " (text copy)" : ""}</a>`);
-  const before = [];
+  if (st.highlight_url && st.highlight_url.startsWith("snapshots/")) bits.push(`<a class="pill hl" href="${esc(st.highlight_url)}" target="_blank" rel="noopener noreferrer">marked text copy of the page</a>`);
+  if (st.highlight_url && !st.highlight_url.startsWith("snapshots/")) before.push(`<div><span class="k">Plain page:</span> ${esc(e.source_url)}</div>`);
   if (st.statement_before) before.push(`<div><span class="k">Statement before settle:</span> ${esc(st.statement_before)}</div>`);
   if (st.source_url_before) before.push(`<div><span class="k">Link before settle:</span> ${esc(st.source_url_before)}</div>`);
   if (l.recovered_before_pass) before.push(`<div><span class="k">Search link before this pass:</span> ${esc(l.recovered_before_pass)}</div>`);
@@ -318,7 +322,7 @@ function claimHTML(it) {
       <div class="s">${esc(e.statement)}</div>
       <div class="src"><b>${esc(e.outlet || "Claim metadata")}</b><span>${esc(TYPE_LABEL[e.source_type] || e.source_type)}</span>
         ${e.source_date ? `<span>${e.source_date}</span>` : ""}<span>${esc(e.link ? (TIER_LABEL[e.link.origin] || e.link.origin || "") : (ORIGIN_LABEL[e.source_origin] || ""))}</span>
-        ${e.source_url ? `<a href="${esc(e.source_url)}" target="_blank" rel="noopener noreferrer">${esc(e.domain)}</a>` : ""}</div>
+        ${e.source_url ? `<a href="${esc(mainLink(e))}" target="_blank" rel="noopener noreferrer">${esc(e.domain)}</a>${fragHL(e) ? `<span class="hint">opens with the passage marked</span>` : ""}` : ""}</div>
       ${passHTML(e)}</div></div>`).join("");
   return `<details class="claim"><summary><div class="text">${esc(it.normalized_claim)}</div>
     <div class="tags"><span class="tag">#${it.claim_id}</span><span class="tag">${it.claim_date}</span><span class="tag">${esc(it.modality)}</span>

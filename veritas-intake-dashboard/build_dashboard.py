@@ -121,7 +121,8 @@ def main() -> None:
     if passed:
         pev = [e for it in passed for e in it["silver_evidence"]]
         summary["pass"] = {
-            "claims": len(passed), "text_only_claims": sum(1 for it in items if it["modality"] == "text-only"),
+            "claims": len(passed), "scope_claims": len(items),
+            "by_modality": counts(it["modality"] for it in passed),
             "evidence_before": sum(it["link_settle_pass"]["evidence_before"] for it in passed), "evidence_after": len(pev),
             "claims_no_evidence_left": sum(1 for it in passed if not it["silver_evidence"]),
             "claims_no_article_links": sum(1 for it in passed if not it["link_settle_pass"].get("article_link_pool")),
