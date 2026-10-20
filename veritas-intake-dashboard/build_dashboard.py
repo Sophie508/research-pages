@@ -22,7 +22,8 @@ DOMAINS = HERE / "data" / "domains.csv"
 OUT = HERE / "data" / "site.json"
 IMAGES = "../veritas-intake-review/media_clean/"    # the review page already serves the screened images
 # marked text copies the settle step wrote for pages whose passages cannot be linked with a text fragment
-SNAPSHOTS_SRC = Path.home() / "Downloads/mcfc-veritas-track3/analysis_outputs/veritas_intake_settle_20261020/runs/full/snapshots"
+SNAPSHOTS_SRC = [Path.home() / "Downloads/mcfc-veritas-track3/analysis_outputs/veritas_intake_settle_20261020/runs" / d / "snapshots"
+                 for d in ("full", "img")]      # text-only run, image-text run
 SNAPSHOTS = HERE / "snapshots"
 
 
@@ -51,9 +52,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--items", type=Path, default=ITEMS)
     ap.add_argument("--out", type=Path, default=OUT)
-    ap.add_argument("--snapshots-src", type=Path, default=SNAPSHOTS_SRC)
+    ap.add_argument("--snapshots-src", type=Path, action="append", default=None, help="snapshot directories; repeatable")
     args = ap.parse_args()
     items = [json.loads(l) for l in args.items.read_text(encoding="utf-8").splitlines() if l.strip()]
+    snapshot_dirs = args.snapshots_src or SNAPSHOTS_SRC
     SNAPSHOTS.mkdir(exist_ok=True)
     missing_snapshots = 0
     unknown_domains = set()
@@ -81,8 +83,8 @@ def main() -> None:
             # a snapshot highlight is a file the settle step wrote; serve a copy next to the page
             h = (e.get("settle") or {}).get("highlight_url") or ""
             if h.startswith("snapshots/"):
-                src = args.snapshots_src / Path(h).name
-                if src.is_file():
+                src = next((d / Path(h).name for d in snapshot_dirs if (d / Path(h).name).is_file()), None)
+                if src is not None:
                     shutil.copy2(src, SNAPSHOTS / src.name)
                 else:
                     missing_snapshots += 1
@@ -140,7 +142,7 @@ def main() -> None:
         print(f"warning: {len(unknown_domains)} domains not in domains.csv (run make_domain_table.py): {sorted(unknown_domains)[:5]}")
     if passed:
         if missing_snapshots:
-            print(f"warning: {missing_snapshots} snapshot files not found under {args.snapshots_src}")
+            print(f"warning: {missing_snapshots} snapshot files not found under {[str(d) for d in snapshot_dirs]}")
     args.out.write_text(json.dumps({"built": time.strftime("%Y-%m-%d %H:%M"), "summary": summary, "items": items},
                               ensure_ascii=False), encoding="utf-8")
     print(f"wrote {args.out.name}: {len(items)} claims, {len(ev)} evidence, {summary['sources']['domains']} domains"

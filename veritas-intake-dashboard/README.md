@@ -25,8 +25,8 @@ Then review the diff and push. To name or type a domain by hand, fill `name_manu
 
 ## The link + settle pass
 
-For the text-only claims the evidence comes from the main pipeline's link stage and settle step
-(2026-10-20). The page shows, per evidence item, the tier its link came from (the extractor's
+The evidence of every claim comes from the main pipeline's link stage and settle step (text-only
+claims on 2026-10-20, image-text claims on 2026-10-21). The page shows, per evidence item, the tier its link came from (the extractor's
 citation, a link in the fact-check article, or a search), the verifier's label, what the settle step
 did (kept / rewritten / kept with a second page / replaced / unverifiable) and a link that opens the
 page with the supporting passage marked. Marked text copies live in `snapshots/`; `build_dashboard.py`
