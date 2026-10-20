@@ -23,6 +23,16 @@ outputs, writes them to `data/items.jsonl`, then runs the two scripts here:
 Then review the diff and push. To name or type a domain by hand, fill `name_manual` /
 `type_manual` in `data/domains.csv` and rerun `build_dashboard.py`; manual values always win.
 
+## The link + settle pass
+
+For the text-only claims the evidence comes from the main pipeline's link stage and settle step
+(2026-10-20). The page shows, per evidence item, the tier its link came from (the extractor's
+citation, a link in the fact-check article, or a search), the verifier's label, what the settle step
+did (kept / rewritten / kept with a second page / replaced / unverifiable) and a link that opens the
+page with the supporting passage marked. Marked text copies live in `snapshots/`; `build_dashboard.py`
+copies the ones the data references from the run's snapshot directory. `?data=<file>` previews another
+data file from `data/` before it is published.
+
 ## How a source gets its name and type
 
 - **Domain:** the registered domain of the URL (tldextract; Wayback links are unwrapped first), so

@@ -9,7 +9,7 @@ Nothing on the page is written by hand: every count comes from these two files.
 """
 from __future__ import annotations
 
-import csv, json, statistics, sys, time
+import argparse, csv, json, shutil, statistics, sys, time
 from collections import Counter
 from pathlib import Path
 
@@ -21,6 +21,9 @@ ITEMS = HERE / "data" / "items.jsonl"
 DOMAINS = HERE / "data" / "domains.csv"
 OUT = HERE / "data" / "site.json"
 IMAGES = "../veritas-intake-review/media_clean/"    # the review page already serves the screened images
+# marked text copies the settle step wrote for pages whose passages cannot be linked with a text fragment
+SNAPSHOTS_SRC = Path.home() / "Downloads/mcfc-veritas-track3/analysis_outputs/veritas_intake_settle_20261020/runs/full/snapshots"
+SNAPSHOTS = HERE / "snapshots"
 
 
 def final_type(row: dict) -> str:
@@ -45,7 +48,15 @@ def counts(values) -> list[list]:
 
 
 def main() -> None:
-    items = [json.loads(l) for l in ITEMS.read_text(encoding="utf-8").splitlines() if l.strip()]
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--items", type=Path, default=ITEMS)
+    ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--snapshots-src", type=Path, default=SNAPSHOTS_SRC)
+    args = ap.parse_args()
+    items = [json.loads(l) for l in args.items.read_text(encoding="utf-8").splitlines() if l.strip()]
+    SNAPSHOTS.mkdir(exist_ok=True)
+    missing_snapshots = 0
+    unknown_domains = set()
     with DOMAINS.open(encoding="utf-8") as f:
         dom = {r["domain"]: r for r in csv.DictReader(f)}
 
@@ -53,7 +64,11 @@ def main() -> None:
         it["images"] = [IMAGES + Path(p).name for p in it["images"]]
         for e in it["silver_evidence"]:
             if e["source_url"]:
-                row = dom[domain_of(e["source_url"])]
+                d = domain_of(e["source_url"])
+                row = dom.get(d)
+                if row is None:          # a domain the table has not seen yet: run make_domain_table.py to name it
+                    unknown_domains.add(d)
+                    row = {"domain": d, "name": "", "name_manual": "", "type_manual": "", "type_auto": "UNKNOWN", "type_wikidata": ""}
                 e["domain"] = row["domain"]
                 e["outlet"] = row["name_manual"] or row["name"] or row["domain"]
                 e["outlet_named"] = bool(row["name_manual"] or row["name"])
@@ -63,6 +78,15 @@ def main() -> None:
                 e["outlet_named"] = False
                 e["source_type"] = "METADATA"
             e["timing"] = timing(e, it["claim_date"], it["fact_check_date"])
+            # a snapshot highlight is a file the settle step wrote; serve a copy next to the page
+            h = (e.get("settle") or {}).get("highlight_url") or ""
+            if h.startswith("snapshots/"):
+                src = args.snapshots_src / Path(h).name
+                if src.is_file():
+                    shutil.copy2(src, SNAPSHOTS / src.name)
+                else:
+                    missing_snapshots += 1
+                    e["settle"]["highlight_url"] = None
 
     ev = [e for it in items for e in it["silver_evidence"]]
     urls = [e for e in ev if e["source_url"]]
@@ -92,9 +116,34 @@ def main() -> None:
         "verdict": {"pipeline": counts(it["pipeline_verdict"] for it in items),
                     "veritas_labelled": len(labelled), "agree_with_veritas": agree},
     }
-    OUT.write_text(json.dumps({"built": time.strftime("%Y-%m-%d %H:%M"), "summary": summary, "items": items},
+    # the link + settle pass (text-only claims run through the main pipeline's link stage and settle step)
+    passed = [it for it in items if it.get("link_settle_pass")]
+    if passed:
+        pev = [e for it in passed for e in it["silver_evidence"]]
+        summary["pass"] = {
+            "claims": len(passed), "text_only_claims": sum(1 for it in items if it["modality"] == "text-only"),
+            "evidence_before": sum(it["link_settle_pass"]["evidence_before"] for it in passed), "evidence_after": len(pev),
+            "claims_no_evidence_left": sum(1 for it in passed if not it["silver_evidence"]),
+            "claims_no_article_links": sum(1 for it in passed if not it["link_settle_pass"].get("article_link_pool")),
+            "link_origin": counts(e["link"]["origin"] for e in pev if e.get("link")),
+            "link_basis": counts(e["link"]["basis"] for e in pev if e.get("link")),
+            "link_verdict": counts(e["link"]["verdict"] for e in pev if e.get("link")),
+            "settle_status": counts(e["settle"]["status"] for e in pev if e.get("settle")),
+            "highlighted": sum(1 for e in pev if (e.get("settle") or {}).get("highlight_url")),
+            "verdict_recomputed": sum(1 for it in passed if it["link_settle_pass"].get("verdict_recomputed")),
+            "verdict_changed": sum(1 for it in passed if it["link_settle_pass"].get("verdict_recomputed")
+                                   and it["pipeline_verdict"] != it["link_settle_pass"].get("verdict_before")),
+            "snapshot_highlights": sum(1 for e in pev if ((e.get("settle") or {}).get("highlight_url") or "").startswith("snapshots/")),
+        }
+    if unknown_domains:
+        print(f"warning: {len(unknown_domains)} domains not in domains.csv (run make_domain_table.py): {sorted(unknown_domains)[:5]}")
+    if passed:
+        if missing_snapshots:
+            print(f"warning: {missing_snapshots} snapshot files not found under {args.snapshots_src}")
+    args.out.write_text(json.dumps({"built": time.strftime("%Y-%m-%d %H:%M"), "summary": summary, "items": items},
                               ensure_ascii=False), encoding="utf-8")
-    print(f"wrote {OUT.name}: {len(items)} claims, {len(ev)} evidence, {summary['sources']['domains']} domains")
+    print(f"wrote {args.out.name}: {len(items)} claims, {len(ev)} evidence, {summary['sources']['domains']} domains"
+          + (f", {summary['pass']['claims']} claims through the link + settle pass" if passed else ""))
 
 
 if __name__ == "__main__":

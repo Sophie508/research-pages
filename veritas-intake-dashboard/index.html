@@ -83,6 +83,14 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 .ev .s{font-size:13.5px}
 .ev .src{font-size:12.5px;color:var(--ink2);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
 .ev .src a{overflow-wrap:anywhere}
+.pass{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:5px;font-size:12px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--ink2);text-decoration:none}
+.pill.hl{color:var(--accent);border-color:var(--accent)}
+.pill.v-SUPPORTED,.pill.s-kept{border-color:var(--official);color:var(--official)}
+.pill.v-PARTIAL,.pill.s-kept_rewritten,.pill.s-kept_compound,.pill.s-replaced,.pill.s-rewritten_to_cited_source{border-color:var(--social);color:var(--social)}
+.pill.v-UNVERIFIABLE,.pill.v-UNSUPPORTED,.pill.s-unverifiable{border-color:var(--ink3);color:var(--ink3)}
+.more{font-size:12px;color:var(--ink2);margin-top:4px;flex-basis:100%}.more summary{cursor:pointer;color:var(--ink3)}
+.more .k{color:var(--ink3)}.more div{margin-top:3px;overflow-wrap:anywhere}
 .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--ink2);margin:6px 0 0}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
 @media (max-width:560px){.bars{grid-template-columns:minmax(0,1.4fr) minmax(36px,1fr) auto}.card .v{font-size:24px}}
@@ -108,12 +116,17 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 <h2>Evidence and claims</h2>
 <div class="panels" id="evPanels"></div>
 
+<div id="passSection" hidden><h2>Link + settle pass</h2>
+<p class="sub" id="passSub"></p>
+<div class="panels" id="passPanels"></div></div>
+
 <h2>Claims</h2>
 <div class="controls">
   <select id="fMod"><option value="">All modalities</option></select>
   <select id="fBatch"><option value="">All batches</option></select>
   <select id="fVerdict"><option value="">All verdicts</option></select>
   <select id="fType"><option value="">Any source type</option></select>
+  <select id="fSettle" hidden><option value="">Any settle status</option></select>
   <input id="fText" type="search" placeholder="Search claim or outlet">
   <span class="count" id="count"></span>
 </div>
@@ -127,7 +140,16 @@ const TYPE_COLOR = {NEWS:"--news", OFFICIAL:"--official", ACADEMIC:"--academic",
 const TYPE_LABEL = {NEWS:"News", OFFICIAL:"Official", ACADEMIC:"Academic", SOCIAL:"Social", REFERENCE:"Reference",
   ORGANIZATION:"Organization", FACT_CHECK:"Fact-check", MEDIA_ARCHIVE:"Image archive", UNKNOWN:"Unclassified", METADATA:"Claim metadata"};
 const ORIGIN_LABEL = {external_search_date_verified:"Found by search, dated before the claim", fact_check_article:"Link given in the fact-check article",
-  fact_check_article_link:"Article link (revision of the first 69 claims)", metadata:"Claim metadata (no URL)"};
+  fact_check_article_link:"Link found in the fact-check article", metadata:"Claim metadata (no URL)"};
+// the link + settle pass: where the link came from (its priority tier), the verifier's label, what settle did
+const TIER_LABEL = {extractor:"Tier 1 · extractor's citation", article_link:"Tier 2 · link in the article", external_search:"Tier 3 · search"};
+const BASIS_LABEL = {article_supported:"Article link, supported", article_partial:"Article link, partial", article_unverified:"Article link, unverified",
+  external_supported:"Search result, supported", external_partial:"Search result, partial", external_unverified:"Search result, unverified",
+  extractor_unreadable:"Extractor link, unreadable", metadata_exempt:"Claim metadata (exempt)", image_exempt:"Image (exempt)"};
+const SETTLE_LABEL = {kept:"Kept", kept_rewritten:"Rewritten to what the page says", kept_compound:"Kept with a second page", kept_archived:"Kept (archived copy)",
+  replaced:"Replaced by another page", rewritten_to_cited_source:"Rewritten to a cited source", unverifiable:"Unverifiable (page unreadable)"};
+const nz = (k, label) => k == null ? "Claim metadata (exempt from linking)" : label;   // null keys are the 11 metadata items the link stage skips
+const SETTLE_ORDER = ["kept", "kept_archived", "kept_compound", "kept_rewritten", "rewritten_to_cited_source", "replaced", "unverifiable"];
 const TIMING_LABEL = {before_claim:"Dated before the claim", before_claim_archived:"Before the claim (by archive capture)",
   during_check:"Between claim and fact-check", after_check:"After the fact-check", not_dated:"Source not dated", no_url:"No source URL"};
 const NORM_ORDER = ["unnecessary", "rewritten", "insufficient_context"];
@@ -211,7 +233,21 @@ function render(site) {
     card("Named outlets", pct(R.named_urls, R.n_urls), `of source URLs map to a named outlet (${R.named_domains} domains)`),
     card("Dated evidence", pct(dated, E.n), `${fmt(dated)} of ${fmt(E.n)} statements have a source date`),
     card("Agrees with VeriTaS", `${V.agree_with_veritas} / ${V.veritas_labelled}`, "pipeline verdict vs VeriTaS true/false label"),
+    ...(S.pass ? [card("Link + settle pass", `${S.pass.claims} / ${S.pass.text_only_claims}`, `text-only claims; evidence shown ${fmt(S.pass.evidence_before)} → ${fmt(S.pass.evidence_after)}, ${pct(S.pass.highlighted, S.pass.evidence_after)} with a passage highlight`)] : []),
   ].join("");
+  const P = S.pass;
+  document.getElementById("passSection").hidden = !P;
+  if (P) {
+    document.getElementById("passSub").textContent = `Each evidence item's link was re-derived by the main pipeline's link stage (the extractor's citation first, then links in the fact-check article ranked against the statement, then a date-restricted search; a verifier labels every readable candidate) and then settled: an LLM checks that the page states the evidence, trims or re-sources it when it does not, and drops what no page supports. ${P.claims_no_evidence_left} claims were left with no evidence; ${P.claims_no_article_links} had no usable links in their fact-check article.` + (P.verdict_recomputed ? ` The verdict was then recomputed on the settled evidence for ${P.verdict_recomputed} claims; it changed for ${P.verdict_changed}.` : " Verdicts were not recomputed after the pass.");
+    document.getElementById("passPanels").innerHTML = [
+      panel("Where the kept links come from", `${fmt(P.evidence_after)} evidence items`, bars(P.link_origin, P.evidence_after, k => nz(k, TIER_LABEL[k] || k))),
+      panel("How the link stage chose the link", `${fmt(P.evidence_after)} evidence items`, bars(P.link_basis, P.evidence_after, k => nz(k, BASIS_LABEL[k] || k)),
+        "The rule that picked the link: a supported article link beats everything; a search result is used only when no article link is supported."),
+      panel("What the settle step did", `${fmt(P.evidence_after)} kept items`, bars(inOrder(P.settle_status, SETTLE_ORDER), P.evidence_after, k => nz(k, SETTLE_LABEL[k] || k)),
+        `${fmt(P.evidence_before - P.evidence_after)} of the ${fmt(P.evidence_before)} items shown before the pass were dropped: no page supported them, or no candidate link was found.`),
+      panel("Verifier label of the kept link", `${fmt(P.evidence_after)} evidence items`, bars(P.link_verdict, P.evidence_after, k => nz(k, (k || "").toLowerCase()))),
+    ].join("");
+  }
 
   document.getElementById("srcPanels").innerHTML = [
     panel("Source type", `${fmt(R.n_urls)} URLs`, bars(R.type, R.n_urls, k => TYPE_LABEL[k] || k, color),
@@ -259,14 +295,31 @@ function timeline(it) {
   return `<div class="timeline"><div class="axis"></div>${dots}${marks}</div><div class="note">Dated sources only, from ${first}. ${it.silver_evidence.length - dates.length} undated not shown.</div>`;
 }
 
+// what the link + settle pass recorded for one evidence item
+function passHTML(e) {
+  if (!e.link && !e.settle) return "";
+  const l = e.link || {}, st = e.settle || {};
+  const bits = [];
+  if (l.verdict) bits.push(`<span class="pill v-${esc(l.verdict)}">verifier: ${esc(l.verdict.toLowerCase())}</span>`);
+  if (st.status) bits.push(`<span class="pill s-${esc(st.status)}">${esc(SETTLE_LABEL[st.status] || st.status)}</span>`);
+  if (st.highlight_url) bits.push(`<a class="pill hl" href="${esc(st.highlight_url)}" target="_blank" rel="noopener noreferrer">open with passage marked${st.highlight_url.startsWith("snapshots/") ? " (text copy)" : ""}</a>`);
+  const before = [];
+  if (st.statement_before) before.push(`<div><span class="k">Statement before settle:</span> ${esc(st.statement_before)}</div>`);
+  if (st.source_url_before) before.push(`<div><span class="k">Link before settle:</span> ${esc(st.source_url_before)}</div>`);
+  if (l.recovered_before_pass) before.push(`<div><span class="k">Search link before this pass:</span> ${esc(l.recovered_before_pass)}</div>`);
+  if (l.candidates && l.candidates.length > 1) before.push(`<div><span class="k">Candidates tried:</span> ${l.candidates.map(c => `${esc((c.stage === "article" ? "article" : "search"))} · ${esc((c.verdict || "").toLowerCase())} · ${esc(c.url)}`).join("<br>")}</div>`);
+  return `<div class="pass">${bits.join("")}${before.length ? `<details class="more"><summary>details</summary>${before.join("")}</details>` : ""}</div>`;
+}
+
 function claimHTML(it) {
   const pole = {true: "Supported", false: "Refuted"}[(it.veritas_veracity_label || "").split(" ")[0]];
   const vcls = !pole ? "" : it.pipeline_verdict === pole ? "ok" : "bad";
   const ev = it.silver_evidence.map(e => `<div class="ev"><div class="stripe" style="background:${color(e.source_type)}"></div><div>
       <div class="s">${esc(e.statement)}</div>
       <div class="src"><b>${esc(e.outlet || "Claim metadata")}</b><span>${esc(TYPE_LABEL[e.source_type] || e.source_type)}</span>
-        ${e.source_date ? `<span>${e.source_date}</span>` : ""}<span>${esc(ORIGIN_LABEL[e.source_origin] || "")}</span>
-        ${e.source_url ? `<a href="${esc(e.source_url)}" target="_blank" rel="noopener noreferrer">${esc(e.domain)}</a>` : ""}</div></div></div>`).join("");
+        ${e.source_date ? `<span>${e.source_date}</span>` : ""}<span>${esc(e.link ? (TIER_LABEL[e.link.origin] || e.link.origin || "") : (ORIGIN_LABEL[e.source_origin] || ""))}</span>
+        ${e.source_url ? `<a href="${esc(e.source_url)}" target="_blank" rel="noopener noreferrer">${esc(e.domain)}</a>` : ""}</div>
+      ${passHTML(e)}</div></div>`).join("");
   return `<details class="claim"><summary><div class="text">${esc(it.normalized_claim)}</div>
     <div class="tags"><span class="tag">#${it.claim_id}</span><span class="tag">${it.claim_date}</span><span class="tag">${esc(it.modality)}</span>
       <span class="tag ${vcls}">${wrapSlash(esc(it.pipeline_verdict || "no verdict"))}${it.veritas_veracity_label ? " · VeriTaS: " + esc(it.veritas_veracity_label) : ""}</span>
@@ -285,11 +338,13 @@ function renderList(site) {
   fillSelect("fBatch", [...new Set(items.map(i => i.batch))], k => BATCH_LABEL[k] || k);
   fillSelect("fVerdict", [...new Set(items.map(i => i.pipeline_verdict))]);
   fillSelect("fType", site.summary.sources.type.map(r => r[0]), k => TYPE_LABEL[k] || k);
+  if (site.summary.pass) { document.getElementById("fSettle").hidden = false; fillSelect("fSettle", inOrder(site.summary.pass.settle_status, SETTLE_ORDER).map(r => r[0]), k => SETTLE_LABEL[k] || k); }
   const f = id => document.getElementById(id).value;
   const q = document.getElementById("fText").value.trim().toLowerCase();
   const shown = items.filter(i => (!f("fMod") || i.modality === f("fMod")) && (!f("fBatch") || i.batch === f("fBatch"))
     && (!f("fVerdict") || i.pipeline_verdict === f("fVerdict"))
     && (!f("fType") || i.silver_evidence.some(e => e.source_type === f("fType")))
+    && (!f("fSettle") || i.silver_evidence.some(e => (e.settle || {}).status === f("fSettle")))
     && (!q || (i.normalized_claim + " " + i.silver_evidence.map(e => e.outlet || "").join(" ")).toLowerCase().includes(q)));
   document.getElementById("count").textContent = `${shown.length} of ${items.length} claims`;
   document.getElementById("legend").innerHTML = Object.keys(TYPE_COLOR).map(t => `<span><i style="background:${color(t)}"></i>${TYPE_LABEL[t]}</span>`).join("");
@@ -297,7 +352,9 @@ function renderList(site) {
 }
 document.getElementById("fText").oninput = () => renderList(window.SITE);
 
-fetch("data/site.json").then(r => r.json()).then(site => { window.SITE = site; render(site); })
+// ?data=<file> previews another data file from data/ (used before publishing a new build)
+const DATA_FILE = (new URLSearchParams(location.search).get("data") || "site.json").replace(/[^A-Za-z0-9_.-]/g, "");
+fetch("data/" + DATA_FILE).then(r => r.json()).then(site => { window.SITE = site; render(site); })
   .catch(() => { document.getElementById("cards").textContent = "Could not load data/site.json."; });
 </script>
 </body>
