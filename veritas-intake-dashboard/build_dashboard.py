@@ -23,7 +23,7 @@ OUT = HERE / "data" / "site.json"
 IMAGES = "../veritas-intake-review/media_clean/"    # the review page already serves the screened images
 # marked text copies the settle step wrote for pages whose passages cannot be linked with a text fragment
 SNAPSHOTS_SRC = [Path.home() / "Downloads/mcfc-veritas-track3/analysis_outputs/veritas_intake_settle_20261020/runs" / d / "snapshots"
-                 for d in ("full", "img", "redo", "requote")]      # text-only run, image-text run, Wayback-article rerun, second-attempt highlights
+                 for d in ("full", "img", "redo", "redo2", "requote")]      # text-only run, image-text run, Wayback-article rerun, second-attempt highlights
 SNAPSHOTS = HERE / "snapshots"
 
 
