@@ -359,7 +359,9 @@ document.getElementById("fText").oninput = () => renderList(window.SITE);
 
 // ?data=<file> previews another data file from data/ (used before publishing a new build)
 const DATA_FILE = (new URLSearchParams(location.search).get("data") || "site.json").replace(/[^A-Za-z0-9_.-]/g, "");
-fetch("data/" + DATA_FILE, {cache: "no-cache"}).then(r => r.json())   // revalidate, so a republished build shows without a hard reload.then(site => { window.SITE = site; render(site); })
+// cache: "no-cache" revalidates, so a republished build shows without a hard reload.
+fetch("data/" + DATA_FILE, {cache: "no-cache"}).then(r => r.json())
+  .then(site => { window.SITE = site; render(site); })
   .catch(() => { document.getElementById("cards").textContent = "Could not load data/site.json."; });
 </script>
 </body>
