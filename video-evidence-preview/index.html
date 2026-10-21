@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Evidence Preview</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14171f;--ink2:#4a5263;--ink3:#7a8294;--line:#e3e6ec;--accent:#3b5bdb;--mark:#3b5bdb;--warn:#b7791f;--warnbg:#fff7e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11131a;--card:#1a1d26;--ink:#e8eaf0;--ink2:#b0b6c4;--ink3:#7d8496;--line:#2a2e3a;--accent:#748ffc;--mark:#6a85f5;--warn:#e2b45a;--warnbg:#2a2415}}
+:root[data-theme="dark"]{--bg:#11131a;--card:#1a1d26;--ink:#e8eaf0;--ink2:#b0b6c4;--ink3:#7d8496;--line:#2a2e3a;--accent:#748ffc;--mark:#6a85f5;--warn:#e2b45a;--warnbg:#2a2415}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0 0 4px} h2{font-size:17px;margin:0 0 6px;line-height:1.35}
+.sub{color:var(--ink2);max-width:760px;margin:0}
+.navlinks{display:flex;gap:28px;font-weight:500;color:var(--ink2);font-size:14.5px;flex-wrap:wrap;margin:14px 0 4px}
+.navlinks a{color:inherit;text-decoration:none} .navlinks a:hover{color:var(--ink)}
+button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer}
+.banner{background:var(--warnbg);border:1px solid var(--warn);color:var(--ink);border-radius:10px;padding:10px 14px;margin:18px 0 8px;font-size:13.5px}
+.claim{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:20px;display:grid;grid-template-columns:minmax(260px,380px) minmax(0,1fr);gap:22px}
+@media (max-width:760px){.claim{grid-template-columns:1fr}}
+video{display:block;width:100%;max-height:420px;background:#000;border-radius:8px}
+.meta{color:var(--ink3);font-size:12.5px;margin-top:8px;line-height:1.6}
+.meta a{color:var(--ink2)}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--ink2);margin-right:6px;vertical-align:middle}
+ol.ev{list-style:none;margin:14px 0 0;padding:0}
+ol.ev li{padding:10px 0;border-top:1px solid var(--line)}
+.eid{display:inline-block;min-width:26px;font-size:11.5px;font-weight:600;color:var(--ink3);font-variant-numeric:tabular-nums}
+.links{font-size:12.5px;color:var(--ink3);margin-top:4px;display:flex;gap:14px;flex-wrap:wrap}
+.links a.hl{color:var(--mark);font-weight:500}
+.span{font-size:12.5px;color:var(--ink2);margin-top:4px;padding-left:10px;border-left:2px solid var(--line)}
+details{margin-top:12px;font-size:13px;color:var(--ink2)} summary{cursor:pointer;color:var(--ink2)} details p{margin:6px 0}
+.drop{color:var(--ink3);text-decoration:line-through}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+  <div>
+    <h1>Video claims: cleaned evidence extraction</h1>
+    <p class="sub">The three video claims from the annotation test package, shown all at once instead of one form at a time. Each claim's video, the evidence statements and sources as they appear in the annotation interface, and the pipeline's own justification.</p>
+    <div class="navlinks"><a href="../">Home</a><a href="../veritas-intake-dashboard/">VeriTaS Intake</a><a href="../annotation-demo/">Annotation Demo</a></div>
+  </div>
+  <button class="theme" id="themeBtn" type="button">Theme</button>
+</header>
+<div class="banner"><b>Temporary page.</b> Built on 2026-10-21 from the annotation interface's cleaned items (<code>items_videotest_preview.jsonl</code>) and the pipeline output of 2026-10-07. The extractor read the fact-check article only; the video was not given to it.</div>
+<div id="claims"></div>
+<script>
+const $ = s => document.getElementById(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const host = u => { try { const h = new URL(u).hostname.replace(/^www\./, ""); return u.includes("web.archive.org/web/") ? "archive · " + u.split("/web/")[1].split("/").slice(1).join("/").replace(/^https?:\/\/(www\.)?/, "").split("/")[0] : h; } catch { return u; } };
+function render(d) {
+  $("claims").innerHTML = d.items.map((it, k) => `
+  <section class="claim">
+    <div>
+      ${it.videos.map(v => `<video src="${esc(v)}" controls preload="metadata" playsinline></video>`).join("")}
+      <div class="meta">VeriTaS ${esc(it.claim_id)} · claim date ${esc(it.claim_date)}<br>
+        Fact-check: <a href="${esc(it.article_url)}" target="_blank" rel="noopener">${esc(it.publisher)}</a> ·
+        <a href="${esc(it.veritas_url)}" target="_blank" rel="noopener">VeriTaS entry</a> ·
+        <a href="${esc(it.veritas_video)}" target="_blank" rel="noopener">original video file</a></div>
+    </div>
+    <div>
+      <span class="tag">Claim ${k + 1} of ${d.items.length}</span><span class="tag">video</span>
+      <h2>${esc(it.claim)}</h2>
+      <div class="meta">${it.evidence.length} evidence statements in the cleaned set (${it.raw_evidence_count} in the pipeline output)</div>
+      <ol class="ev">${it.evidence.map(e => `
+        <li><span class="eid">${esc(e.eid)}</span> ${esc(e.statement)}
+          <div class="links">
+            ${e.source_url ? `<a href="${esc(e.source_url)}" target="_blank" rel="noopener">${esc(host(e.source_url))}</a>` : `<span>no source URL</span>`}
+            ${e.highlight_url ? `<a class="hl" href="${esc(e.highlight_url)}" target="_blank" rel="noopener">open with the passage marked</a>` : `<span>no marked passage</span>`}
+            ${e.provenance ? `<span>${e.provenance === "article" ? "link cited in the article" : "link picked from the article's links"}</span>` : ""}
+          </div>
+          ${e.support_span ? `<div class="span">Article passage the statement was drawn from: “${esc(e.support_span)}”</div>` : ""}
+        </li>`).join("")}
+      </ol>
+      ${it.justification ? `<details><summary>Pipeline justification</summary><p>${esc(it.justification)}</p></details>` : ""}
+      ${it.raw_dropped.length ? `<details><summary>${it.raw_dropped.length} pipeline statements not in the cleaned set (dropped or reworded)</summary>${it.raw_dropped.map(s => `<p class="drop">${esc(s)}</p>`).join("")}</details>` : ""}
+    </div>
+  </section>`).join("");
+}
+$("themeBtn").onclick = () => {
+  const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+};
+fetch("data.json", {cache: "no-cache"}).then(r => r.json()).then(render)
+  .catch(e => { $("claims").textContent = "Could not load data.json: " + e.message; });
+</script>
+</div></body>
+</html>

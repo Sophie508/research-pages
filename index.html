@@ -38,7 +38,7 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 </head>
 <body>
 <nav><span class="brand">MCFC Bench</span>
-<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-dashboard/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="multilingual/">Multilingual</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a></div>
+<div class="navlinks"><a href="./">Home</a><a href="veritas-intake-dashboard/">VeriTaS Intake</a><a href="averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="deepfake-filter/">Deep Fake Filter</a><a href="multilingual/">Multilingual</a><a href="baseline-reproduce/">Baseline Reproduce</a><a href="annotation-demo/">Annotation Demo</a><a href="video-evidence-preview/">Video Preview</a></div>
 <button id="themeBtn">🌙</button></nav>
 <div class="hero">
 <h1>MCFC Bench</h1>
@@ -59,7 +59,13 @@ h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:44px;let
 <a class="card" href="veritas-intake-dashboard/">
 <h2>VeriTaS Intake</h2>
 <p><b>Their claims, our silver evidence.</b> Claims and fact-checking articles come from VeriTaS; the normalized claim, the extracted evidence and its sources come from our pipeline (decontextualization, evidence extraction, URL recovery under the strict temporal policy) and serve as silver labels. The page is generated from the pipeline's output: overview statistics, sources merged by domain and named by outlet, and every claim with its evidence timeline.</p>
-<div class="meta"><span>2026-10-19</span><span class="chip">n = 138 claims (100 text-only, 38 image-text)</span><span class="chip">650 evidence</span><span class="chip">generated from data</span></div>
+<div class="meta"><span>2026-10-21</span><span class="chip">n = 138 claims (100 text-only, 38 image-text)</span><span class="chip">461 evidence after the link + settle pass</span><span class="chip">generated from data</span></div>
+</a>
+
+<a class="card" href="video-evidence-preview/">
+<h2>Video Evidence Preview</h2>
+<p><b>Temporary.</b> The three video claims from the annotation test package on one page: the video, the cleaned evidence statements with their sources and marked passages, and the pipeline's justification. Built so the items can be read without stepping through the annotation form.</p>
+<div class="meta"><span>2026-10-21</span><span class="chip">n = 3 video claims</span><span class="chip">14 evidence statements</span><span class="chip">temporary</span></div>
 </a>
 <a class="card" href="averitec-averimatec-review/">
 <h2>AVeriTeC + AVerImaTeC Review</h2>

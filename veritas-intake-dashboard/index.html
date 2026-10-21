@@ -106,6 +106,7 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
     <p class="sub">Each claim was normalized by our pipeline, which then extracted evidence statements from the fact-check article and attached a source to each. The evidence and its sources are silver labels, not checked by people. Every number below is computed from <a href="data/items.jsonl">data/items.jsonl</a> and <a href="data/domains.csv">data/domains.csv</a> by <code>build_dashboard.py</code>.</p>
     <div class="meta" id="meta"></div>
     <div class="meta"><a href="../veritas-intake-review/">Previous view of this data</a> (the per-claim review page, kept for reference)</div>
+    <div class="navlinks" style="margin-top:14px"><a href="../">Home</a><a href="../averitec-averimatec-review/">AVeriTeC + AVerImaTeC</a><a href="../deepfake-filter/">Deep Fake Filter</a><a href="../multilingual/">Multilingual</a><a href="../baseline-reproduce/">Baseline Reproduce</a><a href="../annotation-demo/">Annotation Demo</a></div>
   </div>
   <button class="theme" id="themeBtn" type="button">Theme</button>
 </header>
@@ -141,8 +142,8 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 const TYPE_COLOR = {NEWS:"--news", OFFICIAL:"--official", ACADEMIC:"--academic", SOCIAL:"--social", UNKNOWN:"--unknown", METADATA:"--other"};
 const TYPE_LABEL = {NEWS:"News", OFFICIAL:"Official", ACADEMIC:"Academic", SOCIAL:"Social", REFERENCE:"Reference",
   ORGANIZATION:"Organization", FACT_CHECK:"Fact-check", MEDIA_ARCHIVE:"Image archive", UNKNOWN:"Unclassified", METADATA:"Claim metadata"};
-const ORIGIN_LABEL = {external_search_date_verified:"Found by search, dated before the claim", fact_check_article:"Link given in the fact-check article",
-  fact_check_article_link:"Link found in the fact-check article", metadata:"Claim metadata (no URL)"};
+const ORIGIN_LABEL = {external_search_date_verified:"Found by search, dated before the claim", fact_check_article:"Cited next to the sentence in the article",
+  fact_check_article_link:"Picked from the article's links by ranking", metadata:"Claim metadata (no URL)"};
 // the link + settle pass: where the link came from (its priority tier), the verifier's label, what settle did
 const TIER_LABEL = {extractor:"Tier 1 · extractor's citation", article_link:"Tier 2 · link in the article", external_search:"Tier 3 · search"};
 const BASIS_LABEL = {article_supported:"Article link, supported", article_partial:"Article link, partial", article_unverified:"Article link, unverified",
