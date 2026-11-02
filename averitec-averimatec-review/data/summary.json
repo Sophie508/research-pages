@@ -1,0 +1,1529 @@
+{
+ "built": "2026-11-03 00:10",
+ "splits": {
+  "averitec_dev": {
+   "dataset": "averitec",
+   "split": "dev",
+   "built": "2026-11-02 16:58 UTC",
+   "records_in_split": 500,
+   "claims": 500,
+   "pending": 0,
+   "scored": 479,
+   "evidence": {
+    "recall": 0.7228,
+    "precision": 0.6071,
+    "f1": 0.6178,
+    "recall_all": 0.6925,
+    "precision_all": 0.5816,
+    "n_all": 500,
+    "recall_hist": [
+     [
+      "1.0",
+      249
+     ],
+     [
+      "0.5–0.99",
+      138
+     ],
+     [
+      "0.01–0.49",
+      49
+     ],
+     [
+      "0",
+      43
+     ],
+     [
+      "unscored",
+      21
+     ]
+    ],
+    "precision_hist": [
+     [
+      "0.5–0.99",
+      219
+     ],
+     [
+      "1.0",
+      160
+     ],
+     [
+      "0",
+      50
+     ],
+     [
+      "0.01–0.49",
+      50
+     ],
+     [
+      "unscored",
+      21
+     ]
+    ]
+   },
+   "justification": {
+    "recall": 0.7797,
+    "precision": 0.3852
+   },
+   "verdict": {
+    "judged": 480,
+    "correct": 362,
+    "pred": [
+     [
+      "Refuted",
+      289
+     ],
+     [
+      "Supported",
+      100
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      78
+     ],
+     [
+      "none",
+      20
+     ],
+     [
+      "Not Enough Evidence",
+      13
+     ]
+    ],
+    "gold": [
+     [
+      "Refuted",
+      305
+     ],
+     [
+      "Supported",
+      122
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      38
+     ],
+     [
+      "Not Enough Evidence",
+      35
+     ]
+    ],
+    "confusion": [
+     [
+      "Refuted→Refuted",
+      260
+     ],
+     [
+      "Supported→Supported",
+      80
+     ],
+     [
+      "Refuted→Conflicting Evidence/Cherrypicking",
+      29
+     ],
+     [
+      "Supported→Conflicting Evidence/Cherrypicking",
+      20
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Refuted",
+      16
+     ],
+     [
+      "Not Enough Evidence→Conflicting Evidence/Cherrypicking",
+      15
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Conflicting Evidence/Cherrypicking",
+      14
+     ],
+     [
+      "Supported→none",
+      14
+     ],
+     [
+      "Refuted→Supported",
+      12
+     ],
+     [
+      "Not Enough Evidence→Refuted",
+      9
+     ],
+     [
+      "Not Enough Evidence→Not Enough Evidence",
+      8
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Supported",
+      6
+     ],
+     [
+      "Supported→Not Enough Evidence",
+      4
+     ],
+     [
+      "Supported→Refuted",
+      4
+     ],
+     [
+      "Refuted→none",
+      4
+     ],
+     [
+      "Not Enough Evidence→Supported",
+      2
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Not Enough Evidence",
+      1
+     ],
+     [
+      "Not Enough Evidence→none",
+      1
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→none",
+      1
+     ]
+    ]
+   },
+   "decon": [
+    [
+     "unnecessary",
+     384
+    ],
+    [
+     "rewritten",
+     79
+    ],
+    [
+     "insufficient_context",
+     34
+    ],
+    [
+     "error",
+     3
+    ]
+   ],
+   "status": [
+    [
+     "scored",
+     479
+    ],
+    [
+     "article not fetched",
+     20
+    ],
+    [
+     "no evidence extracted",
+     1
+    ]
+   ],
+   "links": {
+    "n_extract": 2512,
+    "n_link": 2501,
+    "n_final": 1048,
+    "outcomes": [
+     [
+      "article_unverified",
+      765
+     ],
+     [
+      "article_supported",
+      557
+     ],
+     [
+      "external_supported",
+      545
+     ],
+     [
+      "article_partial",
+      322
+     ],
+     [
+      "external_partial",
+      233
+     ],
+     [
+      "external_unverified",
+      29
+     ],
+     [
+      "dropped_no_candidate",
+      11
+     ],
+     [
+      "extractor_unreadable",
+      2
+     ],
+     [
+      "kept_search_unavailable",
+      1
+     ]
+    ],
+    "verifier": [
+     [
+      "SUPPORTED",
+      1102
+     ],
+     [
+      "UNVERIFIABLE",
+      601
+     ],
+     [
+      "PARTIAL",
+      555
+     ],
+     [
+      "UNSUPPORTED",
+      100
+     ],
+     [
+      "STUB",
+      92
+     ],
+     [
+      "NONE",
+      12
+     ],
+     [
+      "UNREADABLE",
+      3
+     ]
+    ],
+    "n_urls": 1040,
+    "distinct_urls": 875,
+    "domains": 489,
+    "top_domains": [
+     [
+      "twitter.com",
+      52
+     ],
+     [
+      "facebook.com",
+      31
+     ],
+     [
+      "en.wikipedia.org",
+      25
+     ],
+     [
+      "pmc.ncbi.nlm.nih.gov",
+      24
+     ],
+     [
+      "cdc.gov",
+      17
+     ],
+     [
+      "channelstv.com",
+      15
+     ],
+     [
+      "washingtonpost.com",
+      11
+     ],
+     [
+      "npr.org",
+      11
+     ],
+     [
+      "x.com",
+      10
+     ],
+     [
+      "t.co",
+      10
+     ],
+     [
+      "population.un.org",
+      10
+     ],
+     [
+      "nytimes.com",
+      9
+     ],
+     [
+      "who.int",
+      9
+     ],
+     [
+      "cnn.com",
+      9
+     ],
+     [
+      "foxnews.com",
+      8
+     ]
+    ],
+    "search_unavailable": 1,
+    "images_exempt": 0
+   },
+   "per_claim": {
+    "mean": 2.19,
+    "median": 2,
+    "hist": [
+     [
+      1,
+      43
+     ],
+     [
+      2,
+      328
+     ],
+     [
+      3,
+      86
+     ],
+     [
+      4,
+      19
+     ],
+     [
+      5,
+      3
+     ]
+    ]
+   },
+   "claims_with_images": 0
+  },
+  "averitec_train": {
+   "dataset": "averitec",
+   "split": "train",
+   "built": "2026-11-02 16:58 UTC",
+   "records_in_split": 3068,
+   "claims": 1174,
+   "pending": 1894,
+   "scored": 1010,
+   "evidence": {
+    "recall": 0.7186,
+    "precision": 0.5882,
+    "f1": 0.6069,
+    "recall_all": 0.6182,
+    "precision_all": 0.5061,
+    "n_all": 1174,
+    "recall_hist": [
+     [
+      "1.0",
+      513
+     ],
+     [
+      "0.5–0.99",
+      310
+     ],
+     [
+      "unscored",
+      164
+     ],
+     [
+      "0",
+      101
+     ],
+     [
+      "0.01–0.49",
+      86
+     ]
+    ],
+    "precision_hist": [
+     [
+      "0.5–0.99",
+      464
+     ],
+     [
+      "1.0",
+      316
+     ],
+     [
+      "unscored",
+      164
+     ],
+     [
+      "0",
+      124
+     ],
+     [
+      "0.01–0.49",
+      106
+     ]
+    ]
+   },
+   "justification": {
+    "recall": 0.7612,
+    "precision": 0.3722
+   },
+   "verdict": {
+    "judged": 1009,
+    "correct": 773,
+    "pred": [
+     [
+      "Refuted",
+      630
+     ],
+     [
+      "Supported",
+      200
+     ],
+     [
+      "none",
+      165
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      148
+     ],
+     [
+      "Not Enough Evidence",
+      31
+     ]
+    ],
+    "gold": [
+     [
+      "Refuted",
+      762
+     ],
+     [
+      "Supported",
+      264
+     ],
+     [
+      "Not Enough Evidence",
+      86
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      62
+     ]
+    ],
+    "confusion": [
+     [
+      "Refuted→Refuted",
+      564
+     ],
+     [
+      "Supported→Supported",
+      165
+     ],
+     [
+      "Refuted→none",
+      107
+     ],
+     [
+      "Refuted→Conflicting Evidence/Cherrypicking",
+      61
+     ],
+     [
+      "Supported→Conflicting Evidence/Cherrypicking",
+      47
+     ],
+     [
+      "Not Enough Evidence→Refuted",
+      39
+     ],
+     [
+      "Supported→none",
+      38
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Conflicting Evidence/Cherrypicking",
+      27
+     ],
+     [
+      "Refuted→Supported",
+      19
+     ],
+     [
+      "Not Enough Evidence→Not Enough Evidence",
+      17
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Refuted",
+      15
+     ],
+     [
+      "Not Enough Evidence→Conflicting Evidence/Cherrypicking",
+      13
+     ],
+     [
+      "Not Enough Evidence→none",
+      12
+     ],
+     [
+      "Supported→Refuted",
+      12
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Supported",
+      11
+     ],
+     [
+      "Refuted→Not Enough Evidence",
+      11
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→none",
+      8
+     ],
+     [
+      "Not Enough Evidence→Supported",
+      5
+     ],
+     [
+      "Supported→Not Enough Evidence",
+      2
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Not Enough Evidence",
+      1
+     ]
+    ]
+   },
+   "decon": [
+    [
+     "unnecessary",
+     929
+    ],
+    [
+     "rewritten",
+     188
+    ],
+    [
+     "insufficient_context",
+     49
+    ],
+    [
+     "error",
+     8
+    ]
+   ],
+   "status": [
+    [
+     "scored",
+     1010
+    ],
+    [
+     "pipeline error (model response)",
+     126
+    ],
+    [
+     "article not fetched",
+     30
+    ],
+    [
+     "no evidence extracted",
+     8
+    ]
+   ],
+   "links": {
+    "n_extract": 5141,
+    "n_link": 5072,
+    "n_final": 2210,
+    "outcomes": [
+     [
+      "article_unverified",
+      1927
+     ],
+     [
+      "article_supported",
+      1156
+     ],
+     [
+      "external_supported",
+      998
+     ],
+     [
+      "external_partial",
+      553
+     ],
+     [
+      "article_partial",
+      536
+     ],
+     [
+      "external_unverified",
+      139
+     ],
+     [
+      "dropped_no_candidate",
+      33
+     ],
+     [
+      "kept_search_unavailable",
+      20
+     ],
+     [
+      "extractor_unreadable",
+      10
+     ]
+    ],
+    "verifier": [
+     [
+      "SUPPORTED",
+      2154
+     ],
+     [
+      "UNVERIFIABLE",
+      1511
+     ],
+     [
+      "PARTIAL",
+      1089
+     ],
+     [
+      "STUB",
+      306
+     ],
+     [
+      "UNSUPPORTED",
+      249
+     ],
+     [
+      "NONE",
+      53
+     ],
+     [
+      "UNREADABLE",
+      10
+     ]
+    ],
+    "n_urls": 2188,
+    "distinct_urls": 1786,
+    "domains": 829,
+    "top_domains": [
+     [
+      "facebook.com",
+      105
+     ],
+     [
+      "twitter.com",
+      80
+     ],
+     [
+      "who.int",
+      73
+     ],
+     [
+      "pmc.ncbi.nlm.nih.gov",
+      69
+     ],
+     [
+      "en.wikipedia.org",
+      49
+     ],
+     [
+      "cdc.gov",
+      45
+     ],
+     [
+      "bbc.com",
+      32
+     ],
+     [
+      "youtube.com",
+      21
+     ],
+     [
+      "t.co",
+      21
+     ],
+     [
+      "npr.org",
+      20
+     ],
+     [
+      "cnn.com",
+      19
+     ],
+     [
+      "youtu.be",
+      18
+     ],
+     [
+      "politico.com",
+      17
+     ],
+     [
+      "indiatoday.in",
+      15
+     ],
+     [
+      "washingtonpost.com",
+      14
+     ]
+    ],
+    "search_unavailable": 17,
+    "images_exempt": 0
+   },
+   "per_claim": {
+    "mean": 2.19,
+    "median": 2.0,
+    "hist": [
+     [
+      1,
+      85
+     ],
+     [
+      2,
+      705
+     ],
+     [
+      3,
+      181
+     ],
+     [
+      4,
+      28
+     ],
+     [
+      5,
+      9
+     ],
+     [
+      6,
+      1
+     ],
+     [
+      9,
+      1
+     ]
+    ]
+   },
+   "claims_with_images": 0
+  },
+  "averimatec_val": {
+   "dataset": "averimatec",
+   "split": "val",
+   "built": "2026-11-02 16:58 UTC",
+   "records_in_split": 152,
+   "claims": 152,
+   "pending": 0,
+   "scored": 150,
+   "evidence": {
+    "recall": 0.7606,
+    "precision": 0.6474,
+    "f1": 0.6648,
+    "recall_all": 0.7506,
+    "precision_all": 0.6389,
+    "n_all": 152,
+    "recall_hist": [
+     [
+      "1.0",
+      79
+     ],
+     [
+      "0.5–0.99",
+      49
+     ],
+     [
+      "0.01–0.49",
+      17
+     ],
+     [
+      "0",
+      5
+     ],
+     [
+      "unscored",
+      2
+     ]
+    ],
+    "precision_hist": [
+     [
+      "0.5–0.99",
+      83
+     ],
+     [
+      "1.0",
+      36
+     ],
+     [
+      "0.01–0.49",
+      25
+     ],
+     [
+      "0",
+      6
+     ],
+     [
+      "unscored",
+      2
+     ]
+    ]
+   },
+   "justification": {
+    "recall": 0.8667,
+    "precision": 0.5735
+   },
+   "verdict": {
+    "judged": 151,
+    "correct": 138,
+    "pred": [
+     [
+      "Refuted",
+      140
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      6
+     ],
+     [
+      "Supported",
+      3
+     ],
+     [
+      "Not Enough Evidence",
+      2
+     ],
+     [
+      "none",
+      1
+     ]
+    ],
+    "gold": [
+     [
+      "Refuted",
+      141
+     ],
+     [
+      "Not Enough Evidence",
+      6
+     ],
+     [
+      "Supported",
+      4
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      1
+     ]
+    ],
+    "confusion": [
+     [
+      "Refuted→Refuted",
+      135
+     ],
+     [
+      "Refuted→Supported",
+      3
+     ],
+     [
+      "Not Enough Evidence→Refuted",
+      3
+     ],
+     [
+      "Not Enough Evidence→Not Enough Evidence",
+      2
+     ],
+     [
+      "Supported→Refuted",
+      2
+     ],
+     [
+      "Refuted→Conflicting Evidence/Cherrypicking",
+      2
+     ],
+     [
+      "Supported→Conflicting Evidence/Cherrypicking",
+      2
+     ],
+     [
+      "Not Enough Evidence→Conflicting Evidence/Cherrypicking",
+      1
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Conflicting Evidence/Cherrypicking",
+      1
+     ],
+     [
+      "Refuted→none",
+      1
+     ]
+    ]
+   },
+   "decon": [
+    [
+     "unnecessary",
+     95
+    ],
+    [
+     "rewritten",
+     54
+    ],
+    [
+     "insufficient_context",
+     2
+    ],
+    [
+     "error",
+     1
+    ]
+   ],
+   "status": [
+    [
+     "scored",
+     150
+    ],
+    [
+     "no evidence extracted",
+     1
+    ],
+    [
+     "article not fetched",
+     1
+    ]
+   ],
+   "links": {
+    "n_extract": 552,
+    "n_link": 550,
+    "n_final": 550,
+    "outcomes": [
+     [
+      "image_exempt",
+      237
+     ],
+     [
+      "article_unverified",
+      147
+     ],
+     [
+      "article_partial",
+      71
+     ],
+     [
+      "article_supported",
+      56
+     ],
+     [
+      "metadata_exempt",
+      15
+     ],
+     [
+      "external_supported",
+      11
+     ],
+     [
+      "external_unverified",
+      7
+     ],
+     [
+      "external_partial",
+      5
+     ],
+     [
+      "search_unavailable",
+      1
+     ],
+     [
+      "dropped_no_candidate",
+      2
+     ]
+    ],
+    "verifier": [
+     [
+      "UNVERIFIABLE",
+      112
+     ],
+     [
+      "PARTIAL",
+      76
+     ],
+     [
+      "SUPPORTED",
+      67
+     ],
+     [
+      "STUB",
+      24
+     ],
+     [
+      "UNSUPPORTED",
+      18
+     ],
+     [
+      "NONE",
+      1
+     ]
+    ],
+    "n_urls": 347,
+    "distinct_urls": 266,
+    "domains": 165,
+    "top_domains": [
+     [
+      "twitter.com",
+      41
+     ],
+     [
+      "facebook.com",
+      19
+     ],
+     [
+      "instagram.com",
+      8
+     ],
+     [
+      "t.co",
+      8
+     ],
+     [
+      "newschecker.in",
+      7
+     ],
+     [
+      "indiatoday.in",
+      6
+     ],
+     [
+      "factcheck.afp.com",
+      6
+     ],
+     [
+      "ghostarchive.org",
+      6
+     ],
+     [
+      "caixinglobal.com",
+      5
+     ],
+     [
+      "silvereco.org",
+      5
+     ],
+     [
+      "thequint.com",
+      5
+     ],
+     [
+      "web.archive.org",
+      5
+     ],
+     [
+      "reddit.com",
+      5
+     ],
+     [
+      "google.com",
+      4
+     ],
+     [
+      "apod.nasa.gov",
+      4
+     ]
+    ],
+    "search_unavailable": 1,
+    "images_exempt": 237
+   },
+   "per_claim": {
+    "mean": 3.67,
+    "median": 4.0,
+    "hist": [
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      3,
+      59
+     ],
+     [
+      4,
+      62
+     ],
+     [
+      5,
+      16
+     ],
+     [
+      6,
+      5
+     ]
+    ]
+   },
+   "claims_with_images": 152
+  },
+  "averimatec_train": {
+   "dataset": "averimatec",
+   "split": "train",
+   "built": "2026-11-02 16:58 UTC",
+   "records_in_split": 793,
+   "claims": 793,
+   "pending": 0,
+   "scored": 784,
+   "evidence": {
+    "recall": 0.752,
+    "precision": 0.6405,
+    "f1": 0.6612,
+    "recall_all": 0.7434,
+    "precision_all": 0.6332,
+    "n_all": 793,
+    "recall_hist": [
+     [
+      "1.0",
+      372
+     ],
+     [
+      "0.5–0.99",
+      332
+     ],
+     [
+      "0.01–0.49",
+      51
+     ],
+     [
+      "0",
+      29
+     ],
+     [
+      "unscored",
+      9
+     ]
+    ],
+    "precision_hist": [
+     [
+      "0.5–0.99",
+      418
+     ],
+     [
+      "1.0",
+      188
+     ],
+     [
+      "0.01–0.49",
+      149
+     ],
+     [
+      "0",
+      29
+     ],
+     [
+      "unscored",
+      9
+     ]
+    ]
+   },
+   "justification": {
+    "recall": 0.8639,
+    "precision": 0.5803
+   },
+   "verdict": {
+    "judged": 785,
+    "correct": 720,
+    "pred": [
+     [
+      "Refuted",
+      724
+     ],
+     [
+      "Supported",
+      29
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      29
+     ],
+     [
+      "none",
+      8
+     ],
+     [
+      "Not Enough Evidence",
+      3
+     ]
+    ],
+    "gold": [
+     [
+      "Refuted",
+      756
+     ],
+     [
+      "Not Enough Evidence",
+      18
+     ],
+     [
+      "Supported",
+      13
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking",
+      6
+     ]
+    ],
+    "confusion": [
+     [
+      "Refuted→Refuted",
+      707
+     ],
+     [
+      "Refuted→Conflicting Evidence/Cherrypicking",
+      22
+     ],
+     [
+      "Refuted→Supported",
+      18
+     ],
+     [
+      "Not Enough Evidence→Refuted",
+      14
+     ],
+     [
+      "Supported→Supported",
+      11
+     ],
+     [
+      "Refuted→none",
+      7
+     ],
+     [
+      "Not Enough Evidence→Conflicting Evidence/Cherrypicking",
+      4
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Refuted",
+      3
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Conflicting Evidence/Cherrypicking",
+      2
+     ],
+     [
+      "Refuted→Not Enough Evidence",
+      2
+     ],
+     [
+      "Supported→Conflicting Evidence/Cherrypicking",
+      1
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→none",
+      1
+     ],
+     [
+      "Supported→Not Enough Evidence",
+      1
+     ]
+    ]
+   },
+   "decon": [
+    [
+     "unnecessary",
+     522
+    ],
+    [
+     "rewritten",
+     246
+    ],
+    [
+     "insufficient_context",
+     24
+    ],
+    [
+     "error",
+     1
+    ]
+   ],
+   "status": [
+    [
+     "scored",
+     784
+    ],
+    [
+     "article not fetched",
+     8
+    ],
+    [
+     "no evidence extracted",
+     1
+    ]
+   ],
+   "links": {
+    "n_extract": 2785,
+    "n_link": 2760,
+    "n_final": 2760,
+    "outcomes": [
+     [
+      "image_exempt",
+      1052
+     ],
+     [
+      "article_unverified",
+      790
+     ],
+     [
+      "article_partial",
+      349
+     ],
+     [
+      "article_supported",
+      310
+     ],
+     [
+      "external_supported",
+      98
+     ],
+     [
+      "external_partial",
+      64
+     ],
+     [
+      "metadata_exempt",
+      48
+     ],
+     [
+      "external_unverified",
+      44
+     ],
+     [
+      "extractor_unreadable",
+      3
+     ],
+     [
+      "search_unavailable",
+      2
+     ],
+     [
+      "dropped_no_candidate",
+      25
+     ]
+    ],
+    "verifier": [
+     [
+      "UNVERIFIABLE",
+      592
+     ],
+     [
+      "PARTIAL",
+      413
+     ],
+     [
+      "SUPPORTED",
+      408
+     ],
+     [
+      "STUB",
+      164
+     ],
+     [
+      "UNSUPPORTED",
+      77
+     ],
+     [
+      "UNREADABLE",
+      3
+     ],
+     [
+      "NONE",
+      2
+     ],
+     [
+      "ERROR",
+      1
+     ]
+    ],
+    "n_urls": 1896,
+    "distinct_urls": 1528,
+    "domains": 668,
+    "top_domains": [
+     [
+      "twitter.com",
+      144
+     ],
+     [
+      "facebook.com",
+      80
+     ],
+     [
+      "web.archive.org",
+      70
+     ],
+     [
+      "instagram.com",
+      45
+     ],
+     [
+      "newschecker.in",
+      37
+     ],
+     [
+      "t.co",
+      28
+     ],
+     [
+      "hindustantimes.com",
+      24
+     ],
+     [
+      "youtube.com",
+      23
+     ],
+     [
+      "bbc.com",
+      22
+     ],
+     [
+      "alamy.com",
+      20
+     ],
+     [
+      "boomlive.in",
+      20
+     ],
+     [
+      "timesofindia.indiatimes.com",
+      19
+     ],
+     [
+      "usatoday.com",
+      19
+     ],
+     [
+      "ghostarchive.org",
+      17
+     ],
+     [
+      "indiatoday.in",
+      17
+     ]
+    ],
+    "search_unavailable": 2,
+    "images_exempt": 1052
+   },
+   "per_claim": {
+    "mean": 3.52,
+    "median": 3.0,
+    "hist": [
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      74
+     ],
+     [
+      3,
+      321
+     ],
+     [
+      4,
+      294
+     ],
+     [
+      5,
+      74
+     ],
+     [
+      6,
+      14
+     ],
+     [
+      7,
+      2
+     ]
+    ]
+   },
+   "claims_with_images": 793
+  }
+ }
+}
