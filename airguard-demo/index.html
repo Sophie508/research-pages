@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIRGuard Demo</title>
+<meta name="description" content="AIRGuard (WWW '27 submission #7481): a pre-action runtime guard for tool-using agents. Replays recorded runs and saved results.">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/demo.css">
+</head>
+<body class="demo">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <div class="brand"><b>AIRGuard</b><span>Runtime authority control for tool-using agents</span></div>
+    <nav class="dnav" id="dnav" aria-label="Sections">
+      <a href="#overview" data-sec="overview">Overview</a>
+      <a href="#case" data-sec="case">Case</a>
+      <a href="#results" data-sec="results">Results</a>
+      <a href="#method" data-sec="method">Method</a>
+      <a href="#evidence" data-sec="evidence"><span class="nl">Evidence &amp; limits</span><span class="ns">Evidence</span></a>
+    </nav>
+    <div class="top-actions">
+      <nav class="switcher" aria-label="Research demos"><span>Demos</span><a href="../skilllens-demo/">SkillLens</a><a href="../airguard-demo/" aria-current="page">AIRGuard</a></nav>
+      <details class="moremenu" id="moremenu">
+        <summary aria-label="Display settings">⋯</summary>
+        <div class="moremenu-list">
+          <div class="mm-row"><span>Theme</span><div class="seg" id="themeSeg"><button type="button" data-theme-set="auto">System</button><button type="button" data-theme-set="light">Light</button><button type="button" data-theme-set="dark">Dark</button></div></div>
+          <label class="mm-row mm-check"><input type="checkbox" id="motionToggle"> Reduce motion</label>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= overview ================= -->
+<section class="dsec" id="overview" aria-labelledby="ov-h">
+  <div class="wrap">
+    <p class="kicker">WWW '27 submission #7481 · under review · this page replays recorded runs and saved results; nothing runs in the browser</p>
+    <h1 id="ov-h">Can content an agent reads decide what the agent is allowed to do?</h1>
+    <div class="ov-grid">
+      <div class="ov-text" id="ovText"></div>
+      <aside class="ov-case" id="ovCase"></aside>
+    </div>
+    <div class="ov-stats" id="ovStats"></div>
+    <p class="ov-bound" id="ovBound"></p>
+  </div>
+</section>
+
+<!-- ================= case ================= -->
+<section class="dsec" id="case" aria-labelledby="case-h">
+  <div class="wrap">
+    <p class="kicker">Case study · AgentTrap task 8 · GPT-5.6 Sol · AIRGuard (full) · <span class="tag rec">Recorded run</span></p>
+    <h2 id="case-h">One email call, two recipients: which one did the user authorize?</h2>
+    <ol class="scn" id="scn" aria-label="The scenario in five parts"></ol>
+    <section class="bench" id="bench" aria-label="Call inspector"></section>
+    <div class="d-card" id="caseStates"></div>
+    <div class="d-card ev" id="caseEvidence"></div>
+    <div class="d-card" id="caseOther"></div>
+  </div>
+</section>
+
+<!-- ================= results ================= -->
+<section class="dsec" id="results" aria-labelledby="res-h">
+  <div class="wrap">
+    <p class="kicker">Results · <span class="tag paper">Paper</span> Table 1, Table 2, Findings 1–2</p>
+    <h2 id="res-h">Security, utility and cost on two benchmarks and six backbones</h2>
+    <div id="resBody"></div>
+  </div>
+</section>
+
+<!-- ================= method ================= -->
+<section class="dsec" id="method" aria-labelledby="m-h">
+  <div class="wrap">
+    <p class="kicker">Method · <span class="tag paper">Paper</span> §3, Algorithm 1</p>
+    <h2 id="m-h">Five modules around one pre-action check</h2>
+    <div id="methodBody"></div>
+  </div>
+</section>
+
+<!-- ================= evidence & limits ================= -->
+<section class="dsec" id="evidence" aria-labelledby="e-h">
+  <div class="wrap">
+    <p class="kicker">Evidence &amp; limits</p>
+    <h2 id="e-h">Where each number and record comes from, and what it does not show</h2>
+    <div id="evBody"></div>
+  </div>
+</section>
+</main>
+
+<div class="backpill" id="backpill" hidden></div>
+
+<footer class="foot wrap">
+  <p>AIRGuard demo · built from the WWW '27 submission and the saved records of the AIRGuard repository. Attack payloads are shown as recorded text and are never executed.</p>
+</footer>
+
+<script src="js/data-case.js"></script>
+<script src="js/data-paper.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/demo-case.js"></script>
+<script src="js/demo-results.js"></script>
+</body>
+</html>

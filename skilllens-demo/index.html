@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillLens · coding demo</title>
+<meta name="description" content="Research demo for the coding domain of SkillLens: saved results across 57 tasks and recorded runs of one task with and without a skill.">
+<link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<header class="topbar" id="topbar">
+  <div class="wrap topbar-in">
+    <div class="brand"><b>SkillLens</b><span>Diagnosing agent skills · coding domain</span></div>
+    <nav class="main-nav" id="nav" aria-label="Sections">
+      <a href="#overview" data-tab="overview">Overview</a>
+      <a href="#results" data-tab="results">Results</a>
+      <a href="#case" data-tab="case">Case: seaborn-2848</a>
+      <a href="#method" data-tab="method">Method</a>
+      <a href="#evidence" data-tab="evidence">Evidence &amp; limits</a>
+    </nav>
+    <div class="top-actions">
+      <nav class="switcher" aria-label="Research demos"><span>Research demos</span><a href="../skilllens-demo/" aria-current="page">SkillLens</a><a href="../airguard-demo/">AIRGuard</a></nav>
+      <details class="more" id="more">
+        <summary aria-label="More options">⋯</summary>
+        <div class="more-list">
+          <div class="row"><span>Theme</span><span class="seg" id="themeSeg"><button type="button" data-theme-set="auto">Auto</button><button type="button" data-theme-set="light">Light</button><button type="button" data-theme-set="dark">Dark</button></span></div>
+          <label class="row"><span>Reduce motion</span><input type="checkbox" id="motionToggle"></label>
+          <p class="muted small">This page replays saved results and recorded runs. Nothing runs in the browser.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+<div class="wrap backbar" id="backbar" hidden></div>
+
+<main id="main">
+<!-- ================= Overview ================= -->
+<section data-panel="overview" class="wrap">
+  <div class="hero">
+    <div>
+      <p class="kicker">SkillLens · coding domain</p>
+      <h1>When an agent gets a skill document, does the score change because of the skill?</h1>
+      <p class="lead">Agent benchmarks now ship "skills": short procedural guides that are prepended to a task. A single score difference between "with skill" and "without skill" cannot tell whether the agent used the procedure, was primed by extra domain text, or simply had a lucky run. SkillLens is a diagnostic benchmark built to separate these explanations.</p>
+      <p class="cta-narrow"><a class="btn primary" href="#case" data-back="Overview">Open the recorded case →</a><a class="btn" href="#results" >Results explorer</a></p>
+      <ul class="builds">
+        <li><b class="i">1</b><span><b>Tasks grouped by procedural bottleneck.</b> 57 coding tasks in 10 capability categories, drawn from public benchmarks and scored by deterministic or external verifiers (0/1), never by an LLM judge.</span></li>
+        <li><b class="i">2</b><span><b>Controlled conditions.</b> The same task is run with no skill, the matched skill, a mismatched same-domain skill, same-domain background text, or a skill the model routes to itself.</span></li>
+        <li><b class="i">3</b><span><b>Paired diagnostics.</b> Per-task repairs and regressions, category utility and model uptake, instead of one aggregate difference.</span></li>
+      </ul>
+      <div class="conds" aria-label="Conditions"><span class="cond"><b>N</b> task only</span><span class="cond"><b>M</b> + matched skill</span><span class="cond"><b>X</b> + mismatched skill</span><span class="cond"><b>B</b> + background text</span><span class="cond"><b>R</b> model routes</span></div>
+      <p class="src"><span class="tag paper">Paper</span><span id="citeLine"></span> · §3.3–3.4, §4.2–4.3</p>
+    </div>
+    <div class="card preview" id="casePreview"></div>
+  </div>
+  <h2>Key coding results</h2>
+  <div class="kpis" id="kpis"></div>
+  <div class="entries">
+    <a class="entry" href="#results"><b>Results explorer →</b><span>8 models, 57 tasks; filter by model and category</span></a>
+    <a class="entry" href="#case"><b>Same task, two runs →</b><span>seaborn-2848, Gemma-4-26B, N vs M</span></a>
+    <a class="entry" href="#method"><b>Method →</b><span>Conditions, contrasts, task construction</span></a>
+    <a class="entry" href="#evidence"><b>Evidence &amp; limits →</b><span>Sources, reruns, missing records, audits</span></a>
+  </div>
+  <p class="contrib"><b>Author contribution (coding domain):</b> prepared the coding experiment code and dataset, defined the coding capability areas, sourced public benchmarks for each area, screened samples, and ran the with-skill / without-skill comparisons.</p>
+</section>
+
+<!-- ================= Results ================= -->
+<section data-panel="results" class="wrap" hidden>
+  <p class="kicker">Results · coding domain · 57 tasks</p>
+  <h1>From the aggregate to individual tasks</h1>
+  <p class="lead">The paper reports pass rates per model; the saved per-task file shows which tasks flipped. Pick a category or model, then open a task.</p>
+
+  <h2 class="anchor" id="r-table1">Pass rate by model and condition</h2>
+  <div class="legend"><span><i class="mk n"></i>Base (N, no skill)</span><span><i class="mk m"></i>Matched skill (M)</span><span><i class="mk r"></i>Routed (R)</span><span>line: N → M (green up, red down)</span></div>
+  <div class="chart" id="chartT1"></div>
+  <p class="src"><span class="tag paper">Paper</span>Table 1, Code column; denominator 57 tasks per model. Counts reproduce exactly from the saved per-task file for 7 of 8 models; GPT-5.6-Sol has no per-task data in the saved results.</p>
+
+  <div class="grid2">
+    <div>
+      <h2 class="anchor" id="r-cats">Which categories gained or lost</h2>
+      <p class="small muted">Category utility = (repairs − regressions) / (tasks × 3), over Haiku 4.5, Gemma-4-26B and Qwen3-8B. Click a category to filter the task grid.</p>
+      <div class="chart bars" id="chartCats"></div>
+      <p class="src"><span class="tag paper">Paper</span>Table 6 and Figure 2(b). Benchmark per category from the sbench handover document (not stated in the paper).</p>
+    </div>
+    <div>
+      <h2 class="anchor" id="r-ctrl">Is it the matched skill, or any extra text?</h2>
+      <p class="small muted">Three models ran all four conditions on the code tasks.</p>
+      <div class="legend"><span><i class="mk n"></i>N</span><span><i class="mk m"></i>M</span><span><i class="mk x"></i>X mismatched skill</span><span><i class="mk b"></i>B background text</span></div>
+      <div class="chart" id="chartCtrl"></div>
+      <p class="src"><span class="tag paper">Paper</span>Table 2 (code). X and B inputs for code are not in the saved repository, so this page shows their scores only.</p>
+      <h3>Repairs and regressions behind the net change</h3>
+      <div class="chart" id="chartUptake"></div>
+      <p class="src"><span class="tag paper">Paper</span>Table 3 (code). Uptake = (repairs − regressions) / 57.</p>
+    </div>
+  </div>
+
+  <h2 class="anchor" id="r-grid">Task grid</h2>
+  <div class="filters" id="filters"></div>
+  <div class="scope" id="scope"></div>
+  <div class="counts" id="counts"></div>
+  <div class="legend"><span><i class="cell rep">▲</i>repair (fail → pass)</span><span><i class="cell reg">▼</i>regression (pass → fail)</span><span><i class="cell pp">●</i>pass in both</span><span><i class="cell ff">○</i>fail in both</span></div>
+  <div id="taskDetail"></div>
+  <div id="taskGrid"></div>
+  <p class="src"><span class="tag saved">Saved results</span>sbench <code>results/code_experiment_result/json/code_8model_results.json</code> (commit 3afdc03, 2026-05-07). One known mismatch with the CSV: Kimi-K2.6 on django-13925 under M is <code>?</code> in the CSV and 0 in this file.</p>
+</section>
+
+<!-- ================= Case ================= -->
+<section data-panel="case" class="wrap" hidden>
+  <p class="kicker">Case · recorded runs · seaborn__seaborn-2848 · Python traceback reading</p>
+  <h1>Same task, same model, one added skill: where do the two runs split?</h1>
+  <div id="caseBody"></div>
+</section>
+
+<!-- ================= Method ================= -->
+<section data-panel="method" class="wrap" hidden>
+  <p class="kicker">Method</p>
+  <h1>Conditions, contrasts and how coding tasks were built</h1>
+  <h2>Five conditions on the same task</h2>
+  <div class="tbl-wrap"><table class="mtable">
+    <thead><tr><th>Condition</th><th>What the agent receives</th><th>Used in coding results</th></tr></thead>
+    <tbody>
+      <tr><td><b>N</b> no skill</td><td>The task only</td><td>All 8 models (Table 1 "Base")</td></tr>
+      <tr><td><b>M</b> matched</td><td>Task + the expert skill for the task's category</td><td>All 8 models</td></tr>
+      <tr><td><b>X</b> mismatched</td><td>Task + a skill from another category of the same domain</td><td>Haiku 4.5, Gemma-4-26B, Qwen3-8B</td></tr>
+      <tr><td><b>B</b> background</td><td>Task + same-domain background text</td><td>Haiku 4.5, Gemma-4-26B, Qwen3-8B</td></tr>
+      <tr><td><b>R</b> routed</td><td>Task + the skill the model picks from the domain pool by metadata, or none</td><td>All 8 models; a wrong pick is scored by the run with that wrong skill</td></tr>
+    </tbody></table></div>
+  <p class="src"><span class="tag paper">Paper</span>§3.3 L336–349, §3.4 L363–379, §5.1 L554–555</p>
+  <h2>What each difference isolates</h2>
+  <div class="tbl-wrap"><table class="mtable">
+    <thead><tr><th>Contrast</th><th>Question</th></tr></thead>
+    <tbody>
+      <tr><td><b>M − N</b></td><td>Total effect of adding the matched skill</td></tr>
+      <tr><td><b>M − X</b></td><td>Does the matched procedure beat same-domain procedural text?</td></tr>
+      <tr><td><b>X − B</b></td><td>Does procedural text beat general domain background?</td></tr>
+      <tr><td><b>B − N</b></td><td>Domain background or prompt priming alone</td></tr>
+    </tbody></table></div>
+  <p class="src"><span class="tag paper">Paper</span>§3.3 L338–349</p>
+  <h2>How coding tasks entered the benchmark</h2>
+  <div class="pipeline">
+    <div class="card"><h4>1 · Categories</h4><p class="small">Defined by a recurring procedural bottleneck (a reusable workflow, tool convention, diagnostic check), not by benchmark instance.</p></div>
+    <div class="card"><h4>2 · Skills</h4><p class="small">One expert-written skill per category, extended with fallbacks for common no-skill failures; audited to exclude task ids, expected answers and verifier logic.</p></div>
+    <div class="card"><h4>3 · Tasks</h4><p class="small">Candidates from SWE-bench Lite, BugsInPy, RepoExec, SVEN/CWE, DABench, WebApp1K, AtCoder, BIRD SQL and MLE-bench, kept only if verifiable, not saturated without a skill, and procedurally bottlenecked.</p></div>
+    <div class="card"><h4>4 · Scoring</h4><p class="small">Each model–task–condition gets y ∈ {0, 1} from the task verifier; pass rates use a fixed denominator. An LLM judge is used only as a construction-time relevance filter.</p></div>
+  </div>
+  <p class="src"><span class="tag paper">Paper</span>§1 L118–123, §3.1 L248–255, §4.2 L437–472, §4.3 L497–528. Headroom is deliberate: the benchmark is diagnostic, "not a random population estimate of domain accuracy" (§4.2 L465–468).</p>
+  <h2>Execution setup for the coding runs</h2>
+  <p>Each task is a Harbor task directory: <code>instruction.md</code>, <code>environment/Dockerfile</code> and <code>tests/test.sh</code> (the verifier). The agent is mini-swe-agent working inside the container; the reward is read from Harbor's <code>result.json</code>. With-skill and without-skill runs use separate task roots (<code>…/with_skill</code>, <code>…/without_skill</code>); the skill text is inserted into the instruction.</p>
+  <p class="src"><span class="tag saved">Saved results</span>SkillLens-clean repository (commit 92ae48a): <code>README.md</code>, <code>configs/code.env</code>, <code>runners/collect_harbor_csv.py</code></p>
+</section>
+
+<!-- ================= Evidence & limits ================= -->
+<section data-panel="evidence" class="wrap" hidden>
+  <p class="kicker">Evidence &amp; limits</p>
+  <h1>Where each number comes from, and what it cannot show</h1>
+  <h2>Sources and versions</h2>
+  <div class="tbl-wrap"><table class="mtable">
+    <thead><tr><th>Source</th><th>Version</th><th>Used for</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag paper">Paper</span>SkillLens, ACL submission #8998</td><td>PDF of 2026-10-13, under review</td><td>All headline numbers (Tables 1, 2, 3, 5, 6; Figure 2)</td></tr>
+      <tr><td><span class="tag saved">Saved results</span>sbench <code>results/code_experiment_result/</code></td><td>commit 3afdc03 (2026-05-07)</td><td>Per-task pass/fail for N, M, R; router choices</td></tr>
+      <tr><td><span class="tag rec">Recorded run</span>sbench trial directories for seaborn-2848</td><td>commit 3afdc03</td><td>The case page: commands, outputs, result.json, verifier report</td></tr>
+      <tr><td><span class="tag saved">Saved results</span>SkillLens-clean</td><td>commit 92ae48a (2026-05-12)</td><td>Task layout, runner, reward collection</td></tr>
+      <tr><td><span class="tag log">Log summary</span>sbench <code>data/code_pilot/*HANDOVER.md</code></td><td>commit 3afdc03</td><td>Category → benchmark → verifier mapping; verifier fixes; run failures</td></tr>
+    </tbody></table></div>
+  <h2>Consistency checks</h2>
+  <ul class="bounds">
+    <li>For 7 of 8 models, Base / Matched / Routed counts in Table 1 equal the counts recomputed from the per-task file (e.g. Haiku 42 / 49 / 48). The paper's GPT-5.6-Sol row has no per-task data in the repository; the repository's eighth model (HY3-Preview) is not in the paper and is excluded here.</li>
+    <li>Table 3 repairs / regressions and all ten Table 6 category utilities recompute from the per-task file.</li>
+    <li>GLM-5.1: the paper's −1.7 is the difference of two rounded rates (89.5 − 91.2); by counts it is −1/57 ≈ −1.75.</li>
+  </ul>
+  <h2>Reruns, missing records and environment issues</h2>
+  <ul class="bounds">
+    <li><span class="tag log">Log summary</span>Agent crashes with zero tokens were rerun; timeouts were scored 0 and not rerun. In the case shown, Gemma's N run is a rerun; its M run timed out.</li>
+    <li><span class="tag log">Log summary</span>62 of 912 scored rows have no trajectory to inspect (for example GLM-5.1 N: 20, GPT-5.4-Mini M: 21, Kimi-K2.6: 17). Their rewards exist; their runs cannot be replayed.</li>
+    <li><span class="tag log">Log summary</span>Verifier fixes for 10 tasks (handover V3, 2026-05-01); several skills were revised during the pilot. 14 of the 57 tasks pass under N for all 8 models in the saved file, including two tasks whose verifier was fixed; whether headroom was measured before the fix is not recorded.</li>
+    <li><span class="tag post">Post-paper</span><span class="tag ed">Editor's summary</span>A scan of 870 recorded C0/C1 trajectories (2026-11-01, not in the paper) found 11 runs that read the task's upstream fix from git history, clone or curl; 5 of them then passed. One is Haiku's M run on seaborn-2848, which counts as a repair in Tables 3 and 6. Only SWE-bench tasks have a gold patch to compare against, so other channels were not scanned.</li>
+  </ul>
+  <h2>Limits stated in the paper</h2>
+  <ul class="bounds">
+    <li>Skill length, wording and helper scripts were not randomized.</li>
+    <li>Results do not extend to long-horizon software engineering; candidate-pool size and distractor quality remain open.</li>
+    <li>The variance decomposition is descriptive, "not a strong causal model": code variance is <span id="varLine"></span>.</li>
+  </ul>
+  <p class="src"><span class="tag paper">Paper</span>§7 L641–659; §3.5 L399–404; Table 5</p>
+</section>
+</main>
+
+<footer class="foot wrap">Replays saved results and recorded runs from the SkillLens repositories; nothing runs in the browser. Task code and trajectories are excerpts for discussion; AtCoder and Kaggle content is not redistributed.</footer>
+
+<script src="js/data-traj.js"></script>
+<script src="js/data-case.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>
