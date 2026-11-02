@@ -170,7 +170,7 @@ section[data-panel] { padding: 18px 0 40px; }
 .db-axis { display: grid; grid-template-columns: 150px minmax(0, 1fr) 150px; gap: 10px; font-size: .7rem; color: var(--ink-3); }
 .db-axis .ticks { position: relative; height: 16px; }
 .db-axis .ticks span { position: absolute; transform: translateX(-50%); }
-@media (max-width: 640px) { .db-row, .db-axis { grid-template-columns: 88px minmax(0, 1fr) 104px; gap: 6px; font-size: .78rem; } .db-val { font-size: .66rem; } }
+@media (max-width: 640px) { .db-row, .db-axis { grid-template-columns: 84px minmax(0, 1fr) 96px; gap: 6px; font-size: .78rem; } .db-val { font-size: .66rem; white-space: normal; line-height: 1.25; } }
 .bars .br { display: grid; grid-template-columns: 200px minmax(0, 1fr) 150px; gap: 10px; align-items: center; font-size: .86rem; min-height: 28px; }
 .bars .br button { text-align: left; border: 0; background: none; color: var(--accent); cursor: pointer; padding: 0; font-size: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent); }
 .bars .br.on button { font-weight: 700; color: var(--ink); text-decoration: none; }
@@ -178,7 +178,7 @@ section[data-panel] { padding: 18px 0 40px; }
 .div-track::before { content: ""; position: absolute; left: 50%; top: -3px; bottom: -3px; border-left: 1px solid var(--ink-3); }
 .div-bar { position: absolute; top: 2px; height: 12px; border-radius: 3px; }
 .div-bar.pos { background: var(--ok); } .div-bar.neg { background: var(--bad); }
-@media (max-width: 640px) { .bars .br { grid-template-columns: 104px minmax(0, 1fr) 112px; gap: 6px; font-size: .76rem; } }
+@media (max-width: 640px) { .bars .br { grid-template-columns: 100px minmax(0, 1fr) 104px; gap: 6px; font-size: .76rem; } .bars .br .db-val { white-space: normal; line-height: 1.25; } }
 
 /* ---------------- results explorer ---------------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 10px 0 6px; font-size: .86rem; }
@@ -338,3 +338,116 @@ a.btn { text-decoration: none; display: inline-block; }
 }
 .side.s-n { background: var(--n-soft); color: var(--n); } .side.s-m { background: var(--m-soft); color: var(--m); }
 #taskGrid { max-width: 860px; }
+
+/* ---------------- diagrams (SVG relations, HTML details) ---------------- */
+.vlead { color: var(--ink-2); max-width: 820px; margin: 4px 0 10px; }
+.vcmp { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0; }
+.vcmp button, .vrail button { border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; font-size: .86rem; }
+.vcmp button.on, .vrail button.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.vcmp .vclear { border-style: dashed; }
+.vcmp-box { min-height: 44px; margin: 4px 0 8px; }
+.vq { margin: 4px 0; color: var(--ink); }
+.vscroll { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; border-radius: 12px; }
+.vfig { min-width: 760px; } .vfig.wide { min-width: 1020px; }
+.vsvg { display: block; width: 100%; height: auto; font-family: var(--sans); }
+.vsvg text { pointer-events: none; }
+.vo-l1 { font-size: 13px; font-weight: 600; fill: var(--ink); }
+.vo-l2 { font-size: 11.5px; fill: var(--ink-2); }
+.vel { font-size: 10.5px; fill: var(--ink-3); }
+.vcov { font-size: 11px; fill: var(--ink-2); font-weight: 600; }
+.vb-l { font-size: 13px; font-weight: 700; } .vb-l.on-light { fill: var(--n); } .vb-l.on-dark { fill: var(--surface); }
+.vo-spine { font-size: 10px; font-weight: 700; fill: var(--surface); }
+.vo-doc, .vo-card, .vo-file { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1.4; }
+.vo-file { fill: var(--surface-2); }
+.vo-fold { fill: none; stroke: var(--ink-3); stroke-width: 1.2; }
+.vo-empty { fill: none; stroke: var(--ink-3); stroke-width: 1.4; stroke-dasharray: 5 4; }
+.vo-dia { fill: var(--surface); stroke: var(--ink-2); stroke-width: 2; }
+.vo-run { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.vo-ver { fill: var(--surface); stroke: var(--ok); stroke-width: 2; }
+.ve { fill: none; stroke: var(--ink-3); stroke-width: 1.6; }
+.ve.dashed { stroke-dasharray: 5 4; }
+.ve.writes { stroke-dasharray: 2 3; stroke-width: 1.3; }
+.ve.back { stroke: var(--bad); stroke-width: 2.4; stroke-dasharray: 8 4; }
+.ve.exit { stroke-dasharray: 6 3; }
+.vsame, .vdelta { display: none; }
+.vsame { font-size: 11px; font-weight: 700; fill: var(--accent); }
+.vdelta { font-size: 17px; font-weight: 700; fill: var(--accent); }
+.vrow { cursor: pointer; outline: none; }
+.vrow-hit { fill: transparent; stroke: transparent; stroke-width: 2; pointer-events: all; }
+.vrow:hover .vrow-hit { fill: var(--surface-2); }
+.vrow:focus-visible .vrow-hit, .vrow.sel .vrow-hit { stroke: var(--accent); fill: var(--accent-soft); }
+.vsvg g { transition: opacity .25s; }
+.vsvg.cmp .vrow.off { opacity: .32; }
+.vsvg.cmp .vsame { display: block; }
+.vsvg.cmp .vshared .vo-doc, .vsvg.cmp .vshared .vo-run, .vsvg.cmp .vshared .vo-ver { stroke: var(--accent); stroke-dasharray: 6 3; stroke-width: 2.2; }
+.vsvg.cmp .vrow.on .vdelta { display: block; }
+.vsvg.cmp .vrow.on .vobj .vo-card, .vsvg.cmp .vrow.on .vobj .vo-empty { stroke: var(--accent); stroke-width: 2.6; }
+.vsvg.cmp .vrow.on .to-run { stroke: var(--accent); stroke-width: 2.2; }
+.vlegend { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--ink-2); margin: 6px 0; align-items: center; }
+.vlegend span { display: inline-flex; align-items: center; gap: 6px; }
+.vlegend i { display: inline-block; width: 22px; height: 14px; border-radius: 3px; border: 1.5px solid var(--ink-3); background: var(--surface); }
+.vlegend .lg-skill { border-left: 7px solid var(--m); } .vlegend .lg-text { background: repeating-linear-gradient(180deg, var(--surface) 0 3px, var(--b) 3px 5px); }
+.vlegend .lg-dia { width: 13px; height: 13px; transform: rotate(45deg); border-color: var(--ink-2); }
+.vlegend .lg-empty { border-style: dashed; background: none; }
+.vlegend .lg-w { border-color: var(--accent); border-width: 2px; } .vlegend .lg-r { border-style: dashed; }
+.vlegend .lg-e { border-color: var(--bad); border-left: 5px solid var(--bad); background: var(--bad-soft); }
+.vlegend .lg-f { background: var(--surface-2); border-radius: 2px 6px 2px 2px; }
+.vlegend .lg-back { border: 0; height: 0; border-top: 2.5px dashed var(--bad); border-radius: 0; background: none; }
+.vlegend .lg-end { border-radius: 8px; border: 3px double var(--ink-2); }
+.vdet { margin: 8px 0 12px; }
+.vdet .card { margin: 0; }
+.vdet-h { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+.vdet-h h3 { margin: 0 0 4px; font-size: 1rem; }
+pre.vx { background: var(--code-bg); color: var(--code-ink); border-radius: 8px; padding: 8px 10px; font-size: .76rem; max-height: 260px; overflow: auto; white-space: pre-wrap; word-break: break-word; margin: 4px 0; }
+pre.vx mark { background: var(--bad-soft); color: var(--bad); font-weight: 700; }
+.vph { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.vph span { border: 1.5px dashed var(--ink-3); border-radius: 6px; padding: 6px 12px; color: var(--ink-2); font-size: .84rem; background: var(--surface); }
+.vph .vph-s { border-left: 7px solid var(--x); } .vph .vph-s.b { border-left-color: var(--b); }
+/* two-route state diagram */
+.vlane { stroke: none; } .vlane.n { fill: var(--n-soft); } .vlane.m { fill: var(--m-soft); }
+.vnode { cursor: pointer; outline: none; }
+.vn-box { fill: var(--surface); stroke: var(--line); stroke-width: 1.6; }
+.vn-box.write { stroke: var(--accent); stroke-width: 2; }
+.vn-box.read { stroke: var(--ink-3); stroke-dasharray: 4 3; }
+.vn-box.err { fill: var(--bad-soft); stroke: var(--bad); }
+.vn-box.ok { fill: var(--ok-soft); stroke: var(--ok); }
+.vn-box.restore { stroke: var(--bad); stroke-width: 2; }
+.vn-bar.err { fill: var(--bad); } .vn-bar.ok { fill: var(--ok); }
+.vn-end { fill: var(--surface); stroke-width: 2; } .vn-end2 { stroke-width: 1.2; }
+.vn-end.end-ok, .vn-end2.end-ok { stroke: var(--ok); } .vn-end2.end-ok { fill: var(--ok-soft); }
+.vn-end.end-bad, .vn-end2.end-bad { stroke: var(--bad); } .vn-end2.end-bad { fill: var(--bad-soft); }
+.vn-l1 { font-size: 11.5px; font-weight: 700; fill: var(--ink); }
+.vn-l2 { font-size: 10.5px; fill: var(--ink-2); }
+.vd-k { font-size: 9px; letter-spacing: .06em; text-transform: uppercase; fill: var(--ink-3); }
+.vd-l { font-size: 10.5px; fill: var(--ink-2); }
+.vbracket { fill: none; stroke: var(--ink-3); stroke-width: 1.4; }
+.vspan-l { font-size: 11px; fill: var(--ink-2); font-weight: 600; }
+.loop-l { fill: var(--bad); font-weight: 700; font-size: 11px; }
+.vnode:focus-visible .vn-box, .vnode:focus-visible .vn-end, .vnode.sel .vn-box, .vnode.sel .vn-end { stroke: var(--accent); stroke-width: 3.5; stroke-dasharray: none; }
+.vsvg.staged .later { opacity: .42; }
+.vsvg.staged .vnode.cur .vn-box, .vsvg.staged .vnode.cur .vn-end { stroke: var(--accent); stroke-width: 3.5; stroke-dasharray: none; }
+.vsvg.staged .vnode.cur { filter: drop-shadow(0 2px 6px rgba(0,0,0,.18)); }
+.vsvg.staged .vedge.cur .ve:not(.back) { stroke: var(--accent); stroke-width: 2.4; }
+.vsvg.staged .vedge.loop.cur .ve.back { stroke-width: 3.4; }
+.vsvg.staged .vdoc.cur .vo-file { stroke: var(--accent); stroke-width: 2; }
+.vctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 6px 0 8px; }
+.vrail { display: flex; flex-wrap: wrap; gap: 4px; }
+.vcap { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 6px 12px; margin: 6px 0; min-height: 52px; }
+.vcl { margin: 3px 0; font-size: .9rem; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 6px; align-items: baseline; }
+.vcl span { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; font-size: .74rem; font-weight: 700; }
+.vcl.n span { background: var(--surface); border: 2px solid var(--n); color: var(--n); } .vcl.m span { background: var(--m); color: var(--surface); }
+.vstep { border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; margin: 6px 0; }
+.vstep-h { display: flex; gap: 8px; align-items: center; font-size: .84rem; }
+.vstep details summary { cursor: pointer; font-size: .8rem; color: var(--ink-2); }
+pre.vcode { background: var(--code-bg); color: var(--code-ink); border-radius: 8px; padding: 8px 0; font-size: .78rem; overflow-x: auto; margin: 4px 0; line-height: 1.55; white-space: pre; }
+pre.vcode .cl { display: block; padding: 0 10px; }
+pre.vcode .cl.hl { background: var(--bad-soft); color: var(--ink); box-shadow: inset 3px 0 0 var(--bad); }
+pre.vcode .ig { box-shadow: inset 1px 0 0 color-mix(in srgb, var(--ink-3) 55%, transparent); }
+pre.vcode .cl-n { color: var(--bad); font-family: var(--sans); font-size: .72rem; font-weight: 700; margin-left: 10px; }
+.vside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.vtab { border-collapse: collapse; font-size: .84rem; margin: 6px 0; } .vtab th, .vtab td { border-bottom: 1px solid var(--line); padding: 3px 10px 3px 0; text-align: left; } .vtab th { font-weight: 500; color: var(--ink-2); }
+details.ref { margin: 10px 0 18px; } details.ref summary { cursor: pointer; color: var(--ink-2); font-size: .9rem; }
+.vhint { display: none; font-size: .76rem; color: var(--ink-3); margin: 2px 0; }
+@media (max-width: 1060px) { .vhint { display: block; } .vscroll { border: 1px dashed var(--line); } }
+@media (max-width: 640px) { .vside { grid-template-columns: minmax(0, 1fr); } }
+.reduce-motion .vsvg g { transition: none; }

@@ -266,51 +266,6 @@ function renderPhase() {
     '<p class="small">' + tag("ed") + esc(L.phases[i][2]) + "</p>" +
     '<p class="small">' + tag("rec") + "Key steps, command and the tail of its output (condensed log):</p><ul class=\"steps\">" + p.k.map(function (id) { return stepCard(r, id); }).join("") + "</ul></div>";
 }
-// the key fork: both Gemma runs hit an IndentationError after a scripted block replacement
-var FORK = {
-  n: [[30, "write", "Write patch", "Python script replaces the function"], [31, "err", "Run the reproduction script", "IndentationError: expected an indented block after function definition"],
-    [32, "read", "Inspect lines 140–175", "reads the file it just edited"], [33, "write", "Diagnose and rewrite", "comment: \"I added two def _lookup_single\"; rewrites the whole function"],
-    [34, "okk", "Run the reproduction script", "Successfully ran pairplot!"], [36, "end", "Submit", "after extra checks at step 35"]],
-  m: [[346, "restore", "Restore the file", "git checkout seaborn/_oldcore.py → \"Updated 1 path from the index\""], [346, "write", "Write patch", "same command: Python script replaces the block → \"Successfully replaced the block.\""],
-    [347, "err", "Run the reproduction script", "IndentationError: expected an indented block after 'try' statement"], [348, "read", "Inspect lines 145–175", "reads the file again"],
-    [349, "restore", "Restore and patch again", "\"Updated 1 path from the index\" · \"Successfully replaced the block.\""], [null, "end", "Time limit reached", "AgentTimeoutError at 5,400 s; nothing submitted"]]
-};
-var KD = { write: "write", err: "error", read: "read", restore: "restore", okk: "ok", end: "end" };
-function forkCol(side) {
-  var r = run(side === "n" ? "g_c0" : "g_c1");
-  return FORK[side].map(function (f, i) {
-    var s = f[0] ? stepOf(r, f[0]) : null, st = i < S.fork ? "seen" : i === S.fork ? "cur" : "";
-    var ex = "";
-    if (s) {
-      if (f[1] === "err" || f[1] === "okk") ex = clean(s.out).split("\n").slice(-3).join("\n");
-      else if (f[1] === "restore" || (f[1] === "write" && side === "m")) ex = (f[1] === "restore" ? clean(s.cmd).split("\n")[0] + "\n" : "") + clean(s.out).split("\n").slice(0, 2).join("\n");
-      else if (f[1] === "read") ex = "$ " + clean(s.cmd).split("\n")[0];
-      else ex = clean(s.cmd).split("\n").slice(0, 3).join("\n");
-    }
-    // order interleaves N and M station by station when the two columns stack on narrow screens
-    return '<div class="fstep ' + st + '" data-fi="' + i + '" style="order:' + (10 + i * 2 + (side === "m" ? 1 : 0)) + '"><div class="act"><span class="side s-' + side + '">' + (side === "n" ? "N" : "M") + '</span><span class="kd ' + f[1] + '">' + KD[f[1]] + "</span>" + esc(f[2]) + ' <span class="muted small">' + (f[0] ? "step " + f[0] : "—") + "</span></div>" +
-      '<div class="small">' + esc(f[3]) + "</div>" + (ex ? "<pre>" + esc(ex) + "</pre>" : "") + "</div>";
-  }).join("");
-}
-var playT = null;
-function renderFork() {
-  var n = FORK.n.length;
-  $("forkRail").innerHTML = FORK.n.map(function (f, i) { return '<button type="button" data-fk="' + i + '" class="' + (i === S.fork ? "on" : i < S.fork ? "done" : "") + '">' + (i + 1) + "</button>"; }).join("");
-  $("forkN").innerHTML = forkCol("n"); $("forkM").innerHTML = forkCol("m");
-  $("forkPlay").textContent = playT ? "❚❚ Pause" : S.fork >= n - 1 ? "↺ Replay" : S.fork > 0 ? "▶ Continue" : "▶ Replay the fork";
-}
-function follow() {
-  // keep the current pair on screen while it plays
-  var cur = document.querySelectorAll("#caseBody .fstep.cur"), lastCur = cur[cur.length - 1]; if (!lastCur) return;
-  var r = lastCur.getBoundingClientRect(); if (r.bottom > window.innerHeight - 8) window.scrollBy({ top: r.bottom - window.innerHeight + 16, behavior: reduce() ? "auto" : "smooth" });
-}
-function tick() { if (S.fork >= FORK.n.length - 1) { playT = null; renderFork(); return; } S.fork++; save(); renderFork(); follow(); playT = setTimeout(tick, 1500); }
-function forkPlay() {
-  if (playT) { clearTimeout(playT); playT = null; renderFork(); return; }
-  if (S.fork >= FORK.n.length - 1) S.fork = 0;
-  if (reduce()) { S.fork = FORK.n.length - 1; save(); renderFork(); return; }
-  save(); playT = setTimeout(tick, 900); renderFork();
-}
 function diffHtml(txt) {
   return clean(txt).split("\n").map(function (l) { var c = /^\+(?!\+\+)/.test(l) ? "add" : /^-(?!--)/.test(l) ? "del" : /^@@/.test(l) ? "hunk" : ""; return c ? '<span class="' + c + '">' + esc(l) + "</span>" : esc(l); }).join("\n");
 }
@@ -338,7 +293,7 @@ function renderFacts() {
 }
 var built = false;
 function renderCase() {
-  if (built) { renderPhase(); renderFork(); return; }
+  if (built) { renderPhase(); return; }
   built = true;
   var ti = TIDX[CASE_TASK], g0 = run("g_c0"), g1 = run("g_c1"), h1 = run("h_c1");
   var nPass = DM.filter(function (m) { return D.res[m.data].n[ti] === 1; }).length, mPass = DM.filter(function (m) { return D.res[m.data].m[ti] === 1; }).length;
@@ -367,12 +322,9 @@ function renderCase() {
     '<p class="src">' + tag("rec") + "step ids and commands from the trajectories · " + tag("ed") + "phase boundaries and names are the editor's grouping</p>" +
     '<div class="phase-detail anchor" id="phaseDetail"></div>' +
 
-  '<h2 class="anchor" id="c-fork">3 · The key fork: the same IndentationError, two recoveries</h2>' +
-    '<p class="small">Both Gemma runs replace a code block with a Python script and break the indentation. Under N the agent reads the file, names the cause and rewrites the function once. Under M the same cycle repeats until the time limit.</p>' +
-    '<div class="fork-ctl"><button type="button" class="btn primary" id="forkPlay"></button><span class="fork-rail" id="forkRail" aria-label="Replay stage"></span><a class="btn small" href="#case/c-path" id="forkLog">Inspect the full patch-loop log ↓</a></div>' +
-    '<div class="fork-cols"><div class="fork-col"><h4>Gemma-4-26B · N <small>steps 30–36</small></h4><div id="forkN"></div></div>' +
-    '<div class="fork-col"><h4>Gemma-4-26B · M <small>last cycle, steps 346–349</small></h4><div class="loopnote"><b>×' + countIE(g1) + '</b><span>IndentationError outputs between steps 25 and 347. The first cycle starts with the patch at step 24; one shell command can restore and re-patch in the same step.</span></div><div id="forkM"></div></div></div>' +
-    '<p class="src">' + tag("rec") + "commands and outputs from the trajectories (condensed) · " + tag("ed") + "action labels</p>" +
+  '<h2 class="anchor" id="c-fork">3 · Two routes from the same error</h2>' +
+    '<div id="vFork"></div>' +
+    '<p class="src">' + tag("rec") + "nodes, counts and outputs from the two Gemma trajectories · " + tag("ed") + 'node grouping and labels · <a href="#case/c-path" id="forkLog">full patch-loop log by phase ↓</a></p>' +
 
   '<h2 class="anchor" id="c-code">4 · Code</h2><div class="tabs" id="codeTabs"></div><div class="scrollbox diff" id="codeBox"></div><p class="src" id="codeSrc"></p>' +
 
@@ -391,18 +343,16 @@ function renderCase() {
     "<li>The task image keeps future git history, which let Haiku read the upstream fix. That repair is counted in the paper's Table 3 and Table 6.</li>" +
     '<li>For the population picture see the <a href="#results/r-grid">task grid</a> and <a href="#evidence">evidence &amp; limits</a>; for this category, Table 6 reports +11.1% utility (▲4 ▼1 over three models).</li></ul>';
   $("haikuToggle").addEventListener("change", function (e) { S.haiku = e.target.checked; if (!S.haiku && S.phase && S.phase.indexOf("h_c1") === 0) S.phase = null; save(); renderLanes(); renderPhase(); });
-  $("forkPlay").addEventListener("click", forkPlay);
-  $("forkRail").addEventListener("click", function (e) { var b = e.target.closest("[data-fk]"); if (!b) return; if (playT) { clearTimeout(playT); playT = null; } S.fork = +b.dataset.fk; save(); renderFork(); });
   $("forkLog").addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); S.phase = "g_c1:3"; save(); renderLanes(); renderPhase(); scrollToEl($("phaseDetail")); });
   $("codeTabs").addEventListener("click", function (e) { var b = e.target.closest("[data-code]"); if (!b) return; S.code = b.dataset.code; save(); renderCode(); });
   $("caseBody").addEventListener("click", function (e) { var b = e.target.closest("[data-ph]"); if (!b || b.closest(".mini-lanes")) return; S.phase = S.phase === b.dataset.ph ? null : b.dataset.ph; save(); renderLanes(); renderPhase(); if (S.phase) scrollToEl($("phaseDetail")); });
-  renderLanes(); renderPhase(); renderFork(); renderCode(); renderFacts();
+  renderLanes(); renderPhase(); window.SKVIS.fork($("vFork"), S, save); renderCode(); renderFacts();
 }
 function renderLanes() { $("lanes").innerHTML = lanes(S.haiku ? ["g_c0", "g_c1", "h_c1"] : ["g_c0", "g_c1"]); }
 
 /* ---------------- boot ---------------- */
 applyPrefs(); setTopVar();
-renderOverview(); renderT1(); renderCats(); renderCtrl(); renderFilters(); renderGrid(); renderTask();
+renderOverview(); renderT1(); renderCats(); renderCtrl(); renderFilters(); renderGrid(); renderTask(); window.SKVIS.method(S, save);
 window.addEventListener("resize", setTopVar);
 if (window.ResizeObserver) new ResizeObserver(setTopVar).observe($("topbar"));
 window.addEventListener("beforeunload", function () { S.scroll[S.tab] = window.scrollY; save(); });

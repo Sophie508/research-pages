@@ -166,3 +166,122 @@ body.demo h2 { font-size: 1.45rem; margin: 4px 0 14px; }
 @media (max-width: 560px) { .mods { grid-template-columns: minmax(0, 1fr); } }
 .algo-en { padding-left: 1.3em; font-size: .88rem; } .algo-en li { margin: 4px 0; }
 .tagkey .tag { margin-bottom: 4px; }
+
+/* ---------------- diagrams (inline SVG) ---------------- */
+.vz-block { margin: 18px 0 8px; }
+.vz-h { font-size: 1.05rem; margin: 0 0 4px; }
+.vz-obs { margin: 0 0 8px; font-size: .95rem; color: var(--ink); }
+.vz-scroll { overflow-x: auto; max-width: 100%; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); padding: 6px; }
+.vz-scroll:focus-visible { outline: 2px solid var(--accent); }
+svg.vz { display: block; width: 100%; height: auto; margin: 0 auto; }
+svg.vz.paths { max-width: 1060px; min-width: 760px; } svg.vz.proc { min-width: 980px; } svg.vz.sys { max-width: 1180px; min-width: 900px; }
+.vz text { font-family: var(--sans); fill: var(--ink); }
+.vz .ch { font-size: 11px; font-weight: 700; letter-spacing: .06em; fill: var(--ink-3); }
+.vz .ch.cur { fill: var(--accent); }
+.vz .bl { font-size: 11px; font-weight: 700; letter-spacing: .06em; fill: var(--ink-2); }
+.vz .el { font-size: 11px; fill: var(--ink-2); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+.vz .ctxl { fill: var(--ink-3); font-style: italic; }
+.vz .unk-note { font-size: 10.5px; fill: var(--ink-3); font-style: italic; }
+.vz-n .nb { fill: var(--card); stroke: var(--line); stroke-width: 1.5; transition: stroke .15s; }
+.vz-n .nb2 { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+.vz-n .t1 { font-size: 13px; font-weight: 700; fill: var(--card-ink); }
+.vz-n .t2 { font-size: 11.5px; fill: var(--card-ink-2); }
+.vz-n .t2.mono { font-family: var(--mono); font-size: 11px; }
+.vz-n[tabindex] { cursor: pointer; outline: none; }
+.vz-n[tabindex]:hover .nb { stroke: var(--accent); stroke-width: 2; }
+.vz-n[tabindex]:focus-visible .nb, .vz-n.sel .nb { stroke: var(--accent); stroke-width: 3.5; }
+.vz-n.off, .vz-e.off { opacity: .5; }
+.vz-n, .vz-e, [data-st] { transition: opacity .3s; }
+/* dual path */
+.vz-n.src.user .nb { stroke: var(--auth); stroke-width: 2; }
+.vz-n.src.file .nb { fill: var(--src-soft); stroke: var(--src); stroke-width: 2; }
+.vz-n.src.file .t1, .vz-n.src.file .t2 { fill: var(--ink); }
+.vz-n.ctx .nb { fill: var(--surface-2); stroke: var(--ink-3); stroke-dasharray: 3 3; }
+.vz-n.ctx .t1, .vz-n.ctx .t2 { fill: var(--ink); } .vz-n.ctx .t1 { font-size: 12px; }
+.vz-n.ctx.bad .nb { stroke: var(--src); }
+.vz-n.field .nb { fill: var(--surface); stroke: var(--ink-3); }
+.vz-n.field .t1, .vz-n.field .t2 { fill: var(--ink); }
+.vz-n.field.recon .nb { stroke: var(--src); stroke-dasharray: 6 4; stroke-width: 2; }
+.vz-n.auth.ok .nb, .vz-n.chk.ok .nb, .vz-n.dec.ok .nb, .vz-n.res.ok .nb { fill: var(--ok-soft); stroke: var(--ok); stroke-width: 2; }
+.vz-n.auth.none .nb, .vz-n.chk.bad .nb, .vz-n.dec.bad .nb { fill: var(--bad-soft); stroke: var(--bad); stroke-width: 2; stroke-dasharray: 6 4; }
+.vz-n.auth .t1, .vz-n.auth .t2, .vz-n.chk .t1, .vz-n.chk .t2, .vz-n.dec .t1, .vz-n.res .t1, .vz-n.res .t2 { fill: var(--ink); }
+.vz-n.auth.none .t1, .vz-n.chk.bad .t1, .vz-n.dec.bad .t1 { fill: var(--bad); }
+.vz-n.auth.ok .t1, .vz-n.chk.ok .t1, .vz-n.dec.ok .t1 { fill: var(--ok); }
+/* handling */
+.vz .callbox { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
+.vz .colbg { fill: transparent; transition: fill .3s; } .vz .colbg.cur { fill: var(--accent-soft); }
+.vz-n.opn .nb { fill: var(--surface); stroke: var(--ink-2); }
+.vz-n.opn .t1, .vz-n.opn .t2 { fill: var(--ink); }
+.vz-n.opn.none .nb, .vz-n.chk.none .nb, .vz-n.res.none .nb { fill: var(--surface-2); stroke: var(--ink-3); stroke-dasharray: 4 4; }
+.vz-n.opn.none .t1, .vz-n.chk.none .t1, .vz-n.dec .t1 { fill: var(--ink-2); }
+.vz-n.dec .nb { fill: var(--surface); stroke: var(--ink-3); }
+.vz-n.field.ok .nb { stroke: var(--ok); stroke-width: 2; }
+.vz-n.field.gone .nb { fill: none; stroke: var(--bad); stroke-dasharray: 5 4; stroke-width: 2; }
+.vz-n.field.gone .t1, .vz-n.field.gone .t2 { fill: var(--bad); }
+.vz-n.res .nb { fill: var(--surface); stroke: var(--ink-2); }
+[data-st].pend .vz-n text, .vz-n.pend text { opacity: 0; }
+[data-st].pend .vz-n .nb, [data-st].pend.callbox { fill: none; stroke: var(--line); stroke-dasharray: 4 4; stroke-width: 1.5; }
+[data-st].pend .vz-e, [data-st].pend.vz-e { opacity: 0; }
+/* system */
+.vz .band { stroke: var(--line); stroke-width: 1; }
+.vz .band.once { fill: color-mix(in srgb, var(--auth) 6%, transparent); stroke-dasharray: 6 4; }
+.vz .band.loop { fill: color-mix(in srgb, var(--ink) 3%, transparent); }
+.vz-n.in .nb { fill: var(--surface); stroke: var(--auth); stroke-width: 2; }
+.vz-n.in .t1 { fill: var(--ink); }
+.vz-n.proc .nb { fill: var(--card); stroke: var(--ink-3); }
+.vz-n.proc.key .nb { stroke: var(--accent); stroke-width: 2; }
+.vz-n.proc.ok .nb { stroke: var(--ok); stroke-width: 2; }
+.vz-n.proc.alt .nb { stroke-dasharray: 4 4; }
+.vz-n.state .nb { fill: var(--surface-2); stroke: var(--ink); stroke-width: 2; }
+.vz-n.state .t1, .vz-n.state .t2, .vz-n.gate .t1, .vz-n.agent .t1, .vz-n.agent .t2 { fill: var(--ink); }
+.vz-n.state.dyn .nb { stroke: var(--ink-2); stroke-dasharray: 7 3; }
+.vz-n.agent .nb { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.vz-n.gate .nb { fill: var(--surface); stroke: var(--ink-2); stroke-width: 2; }
+.vz .br-ok { fill: var(--ok); font-weight: 700; }
+/* edges: type = line style + marker + label, colour only reinforces it */
+.vz-e path { fill: none; stroke-width: 2; }
+.vz-e.ctl path { stroke: var(--ink-2); }
+.vz-e.ctl.ok path { stroke: var(--ok); } .vz-e.ctl.bad path { stroke: var(--bad); }
+.vz-e.ctl.alt path { stroke: var(--ink-3); stroke-dasharray: 5 4; }
+.vz-e.ctl.pass path { stroke: var(--ink-3); stroke-dasharray: 2 4; }
+.vz-e.data path { stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 6 4; }
+.vz-e.auth path { stroke: var(--ok); stroke-width: 3; }
+.vz-e.val.user path { stroke: var(--auth); stroke-dasharray: 8 4; stroke-width: 2.5; }
+.vz-e.val.file path { stroke: var(--src); stroke-dasharray: 8 4; stroke-width: 2.5; }
+.vz-e.none path { stroke: var(--bad); stroke-dasharray: 2 5; stroke-width: 3; stroke-linecap: round; }
+.vz-e.ctx path { stroke: var(--ink-3); stroke-dasharray: 2 3; stroke-width: 1.3; }
+.vz-e.stop path { stroke: var(--bad); stroke-width: 3; }
+.vz .mk-ctl { fill: var(--ink-2); } .vz .mk-auth { fill: var(--ok); } .vz .mk-val { fill: var(--auth); } .vz .mk-file { fill: var(--src); } .vz .mk-data { fill: var(--ink-3); } .vz .mk-none { fill: var(--bad); }
+/* legend and details */
+.vz-key { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .8rem; color: var(--ink-2); margin: 8px 0 4px; }
+.vz-key span { display: inline-flex; align-items: center; gap: 6px; }
+.vz-key i { display: inline-block; width: 26px; height: 0; }
+.k-val { border-top: 3px dashed var(--src); } .k-auth { border-top: 3px solid var(--ok); } .k-none { border-top: 3px dotted var(--bad); } .k-ctx { border-top: 2px dotted var(--ink-3); }
+.k-ctl { border-top: 2px solid var(--ink-2); } .k-data { border-top: 2px dashed var(--ink-3); } .k-alt { border-top: 2px dashed var(--ink-3); }
+.vz-key i.k-fixed, .vz-key i.k-dyn, .vz-key i.k-ok, .vz-key i.k-pend { width: 18px; height: 12px; border-radius: 3px; }
+.k-fixed { border: 3px double var(--ink); } .k-dyn { border: 2px dashed var(--ink-2); } .k-ok { border: 2px solid var(--ok); background: var(--ok-soft); } .k-pend { border: 2px dashed var(--line); }
+.vz-detail { margin: 8px 0 0; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 8px 14px; font-size: .9rem; }
+.vz-detail:empty { display: none; }
+.vz-detail h4 { margin: 2px 0 4px; font-size: .98rem; }
+.vz-detail pre { max-height: 240px; }
+.vz-detail mark { background: var(--mark); color: var(--mark-ink); border-radius: 3px; padding: 0 2px; }
+.vz-detail dl { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 4px 10px; margin: 6px 0; font-size: .86rem; }
+.vz-detail dt { color: var(--ink-3); font-weight: 600; } .vz-detail dd { margin: 0; overflow-wrap: anywhere; }
+.vz-detail code { font-size: .8rem; }
+.vz-detail .envl { margin: 4px 0; padding-left: 1.4em; font-size: .86rem; }
+.ev-btns .btn { margin: 0 6px 6px 0; }
+.cmpbox { display: block; }
+.pr-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 6px 0; }
+.bench .pr-rail { display: flex; margin: 0; }
+.pr-say { margin: 6px 0; font-size: .9rem; min-height: 1.5em; }
+.pr-predres { margin: 0 0 6px; font-size: .86rem; color: var(--ink-2); } .pr-predres:empty { display: none; }
+.pr-pred { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; background: var(--surface-2); color: var(--ink); border-radius: 10px; padding: 8px 12px; font-size: .88rem; }
+.pr-pred[hidden] { display: none; }
+.pr-pred .pp { display: inline-flex; align-items: center; gap: 6px; }
+.pr-pred .seg button { padding: 3px 12px; }
+details.ref > summary { cursor: pointer; font-weight: 600; }
+@media (max-width: 760px) {
+  .vz-scroll { box-shadow: inset -14px 0 12px -12px rgba(0,0,0,.3); }
+  svg.vz.paths { min-width: 880px; } svg.vz.proc { min-width: 1040px; } svg.vz.sys { min-width: 1000px; }
+  .vz-obs::after { content: " Scroll the diagram sideways →"; color: var(--ink-3); font-size: .85em; }
+}

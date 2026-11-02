@@ -116,6 +116,9 @@
   <p class="kicker">Method</p>
   <h1>Conditions, contrasts and how coding tasks were built</h1>
   <h2>Five conditions on the same task</h2>
+  <p class="vlead">One task, five ways to build the prompt, one agent and one verifier. Select a branch for its definition and inputs, or a contrast to see what two branches share and where they differ.</p>
+  <div class="vwrap" id="vMethod"></div>
+  <details class="ref"><summary>Reference tables: conditions and contrasts</summary>
   <div class="tbl-wrap"><table class="mtable">
     <thead><tr><th>Condition</th><th>What the agent receives</th><th>Used in coding results</th></tr></thead>
     <tbody>
@@ -126,7 +129,6 @@
       <tr><td><b>R</b> routed</td><td>Task + the skill the model picks from the domain pool by metadata, or none</td><td>All 8 models; a wrong pick is scored by the run with that wrong skill</td></tr>
     </tbody></table></div>
   <p class="src"><span class="tag paper">Paper</span>§3.3 L336–349, §3.4 L363–379, §5.1 L554–555</p>
-  <h2>What each difference isolates</h2>
   <div class="tbl-wrap"><table class="mtable">
     <thead><tr><th>Contrast</th><th>Question</th></tr></thead>
     <tbody>
@@ -136,6 +138,7 @@
       <tr><td><b>B − N</b></td><td>Domain background or prompt priming alone</td></tr>
     </tbody></table></div>
   <p class="src"><span class="tag paper">Paper</span>§3.3 L338–349</p>
+  </details>
   <h2>How coding tasks entered the benchmark</h2>
   <div class="pipeline">
     <div class="card"><h4>1 · Categories</h4><p class="small">Defined by a recurring procedural bottleneck (a reusable workflow, tool convention, diagnostic check), not by benchmark instance.</p></div>
@@ -191,6 +194,7 @@
 <script src="js/data-traj.js"></script>
 <script src="js/data-case.js"></script>
 <script src="js/demo-data.js"></script>
+<script src="js/demo-visual.js"></script>
 <script src="js/demo.js"></script>
 </body>
 </html>

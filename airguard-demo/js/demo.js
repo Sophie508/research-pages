@@ -100,6 +100,8 @@ var MODS = [
   ["5", "Sequence audit", "Keeps an ordered ledger of normalized actions, authority, trust, risk tags and decisions, and checks for harmful cross-step patterns.", null]
 ];
 document.getElementById("methodBody").innerHTML =
+  '<div class="vz-block" id="sysDiagram"></div>' +
+  '<details class="d-card ref"><summary>Module text, Algorithm 1 and related work (reference)</summary>' +
   '<ol class="mods">' + MODS.map(function (m) {
     return '<li><span class="mn">' + m[0] + "</span><h3>" + m[1] + "</h3><p>" + m[2] + "</p>" + (m[3] ? '<button type="button" class="linkish" data-jump="' + m[3][1] + '" data-back="Method" data-step="' + m[3][2].step + '"' + (m[3][2].part ? ' data-part="' + m[3][2].part + '"' : "") + ">" + m[3][0] + " →</button>" : '<p class="muted small">' + tag("unk") + "The case data on this page contains no sequence-audit entry.</p>") + "</li>";
   }).join("") + "</ol>" +
@@ -114,7 +116,7 @@ document.getElementById("methodBody").innerHTML =
   "<p><b>Plan-based</b> methods (CaMeL, IPIGuard, ACE) fix the graph before the agent reads untrusted data. Injected text cannot add actions, but actions that depend on data seen during execution are blocked too.</p>" +
   "<p><b>Trace-based</b> methods record where a value came from, but not whether the operation that uses it was granted by the task. Recent work pairs provenance with authorization through a plan, capability or grant ledger beside the execution graph (PACE, AuthGraph, AGATE).</p>" +
   "<p><b>AIRGuard</b> keeps authority and provenance in one graph that grows with the run. A recipient read from an untrusted file and placed in an authorized email is traced to that file, and only that recipient is dropped.</p>" +
-  '<p class="src">' + tag("paper") + "§5.3 Graph-based agent defenses.</p></div></div>";
+  '<p class="src">' + tag("paper") + "§5.3 Graph-based agent defenses.</p></div></div></details>";
 
 /* ---------------- evidence & limits ---------------- */
 var F = C.files;
