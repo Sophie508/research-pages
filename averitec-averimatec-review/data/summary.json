@@ -1,10 +1,10 @@
 {
- "built": "2026-11-03 00:10",
+ "built": "2026-11-03 00:12",
  "splits": {
   "averitec_dev": {
    "dataset": "averitec",
    "split": "dev",
-   "built": "2026-11-02 16:58 UTC",
+   "built": "2026-11-02 17:07 UTC",
    "records_in_split": 500,
    "claims": 500,
    "pending": 0,
@@ -390,26 +390,26 @@
   "averitec_train": {
    "dataset": "averitec",
    "split": "train",
-   "built": "2026-11-02 16:58 UTC",
+   "built": "2026-11-02 17:07 UTC",
    "records_in_split": 3068,
-   "claims": 1174,
-   "pending": 1894,
-   "scored": 1010,
+   "claims": 1184,
+   "pending": 1884,
+   "scored": 1020,
    "evidence": {
-    "recall": 0.7186,
-    "precision": 0.5882,
-    "f1": 0.6069,
-    "recall_all": 0.6182,
-    "precision_all": 0.5061,
-    "n_all": 1174,
+    "recall": 0.7184,
+    "precision": 0.5872,
+    "f1": 0.6061,
+    "recall_all": 0.6189,
+    "precision_all": 0.5059,
+    "n_all": 1184,
     "recall_hist": [
      [
       "1.0",
-      513
+      519
      ],
      [
       "0.5–0.99",
-      310
+      311
      ],
      [
       "unscored",
@@ -417,21 +417,21 @@
      ],
      [
       "0",
-      101
+      103
      ],
      [
       "0.01–0.49",
-      86
+      87
      ]
     ],
     "precision_hist": [
      [
       "0.5–0.99",
-      464
+      468
      ],
      [
       "1.0",
-      316
+      318
      ],
      [
       "unscored",
@@ -439,29 +439,29 @@
      ],
      [
       "0",
-      124
+      126
      ],
      [
       "0.01–0.49",
-      106
+      108
      ]
     ]
    },
    "justification": {
-    "recall": 0.7612,
-    "precision": 0.3722
+    "recall": 0.7619,
+    "precision": 0.3723
    },
    "verdict": {
-    "judged": 1009,
-    "correct": 773,
+    "judged": 1019,
+    "correct": 782,
     "pred": [
      [
       "Refuted",
-      630
+      638
      ],
      [
       "Supported",
-      200
+      202
      ],
      [
       "none",
@@ -479,15 +479,15 @@
     "gold": [
      [
       "Refuted",
-      762
+      769
      ],
      [
       "Supported",
-      264
+      266
      ],
      [
       "Not Enough Evidence",
-      86
+      87
      ],
      [
       "Conflicting Evidence/Cherrypicking",
@@ -497,11 +497,11 @@
     "confusion": [
      [
       "Refuted→Refuted",
-      564
+      571
      ],
      [
       "Supported→Supported",
-      165
+      167
      ],
      [
       "Refuted→none",
@@ -517,7 +517,7 @@
      ],
      [
       "Not Enough Evidence→Refuted",
-      39
+      40
      ],
      [
       "Supported→none",
@@ -580,15 +580,15 @@
    "decon": [
     [
      "unnecessary",
-     929
+     937
     ],
     [
      "rewritten",
-     188
+     189
     ],
     [
      "insufficient_context",
-     49
+     50
     ],
     [
      "error",
@@ -598,7 +598,7 @@
    "status": [
     [
      "scored",
-     1010
+     1020
     ],
     [
      "pipeline error (model response)",
@@ -614,29 +614,29 @@
     ]
    ],
    "links": {
-    "n_extract": 5141,
-    "n_link": 5072,
-    "n_final": 2210,
+    "n_extract": 5197,
+    "n_link": 5128,
+    "n_final": 2234,
     "outcomes": [
      [
       "article_unverified",
-      1927
+      1951
      ],
      [
       "article_supported",
-      1156
+      1166
      ],
      [
       "external_supported",
-      998
+      1009
      ],
      [
       "external_partial",
-      553
+      559
      ],
      [
       "article_partial",
-      536
+      541
      ],
      [
       "external_unverified",
@@ -658,15 +658,15 @@
     "verifier": [
      [
       "SUPPORTED",
-      2154
+      2175
      ],
      [
       "UNVERIFIABLE",
-      1511
+      1530
      ],
      [
       "PARTIAL",
-      1089
+      1100
      ],
      [
       "STUB",
@@ -674,7 +674,7 @@
      ],
      [
       "UNSUPPORTED",
-      249
+      254
      ],
      [
       "NONE",
@@ -685,9 +685,9 @@
       10
      ]
     ],
-    "n_urls": 2188,
-    "distinct_urls": 1786,
-    "domains": 829,
+    "n_urls": 2212,
+    "distinct_urls": 1799,
+    "domains": 834,
     "top_domains": [
      [
       "facebook.com",
@@ -695,19 +695,19 @@
      ],
      [
       "twitter.com",
-      80
+      81
      ],
      [
       "who.int",
-      73
+      76
      ],
      [
       "pmc.ncbi.nlm.nih.gov",
-      69
+      71
      ],
      [
       "en.wikipedia.org",
-      49
+      50
      ],
      [
       "cdc.gov",
@@ -743,11 +743,11 @@
      ],
      [
       "indiatoday.in",
-      15
+      17
      ],
      [
       "washingtonpost.com",
-      14
+      16
      ]
     ],
     "search_unavailable": 17,
@@ -763,11 +763,11 @@
      ],
      [
       2,
-      705
+      711
      ],
      [
       3,
-      181
+      185
      ],
      [
       4,
@@ -792,7 +792,7 @@
   "averimatec_val": {
    "dataset": "averimatec",
    "split": "val",
-   "built": "2026-11-02 16:58 UTC",
+   "built": "2026-11-02 17:07 UTC",
    "records_in_split": 152,
    "claims": 152,
    "pending": 0,
@@ -1146,7 +1146,7 @@
   "averimatec_train": {
    "dataset": "averimatec",
    "split": "train",
-   "built": "2026-11-02 16:58 UTC",
+   "built": "2026-11-02 17:07 UTC",
    "records_in_split": 793,
    "claims": 793,
    "pending": 0,
