@@ -56,8 +56,9 @@ button.theme{background:var(--card);border:1px solid var(--line);color:var(--ink
 .slegend{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:8px;row-gap:6px;align-items:center;font-size:13px}
 .slegend .sw{width:10px;height:10px;border-radius:2px}
 .slegend .n{color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
-table.conf{border-collapse:collapse;font-size:12.5px;width:100%;font-variant-numeric:tabular-nums}
+table.conf{border-collapse:collapse;font-size:12.5px;width:100%;font-variant-numeric:tabular-nums;border:1px solid var(--line);empty-cells:show}
 table.conf th,table.conf td{border:1px solid var(--line);padding:4px 6px;text-align:right}
+table.conf td.zero{color:var(--ink3)}
 table.conf th{color:var(--ink2);font-weight:500;text-align:left}
 table.conf td.diag{font-weight:650;color:var(--ok)}
 #tip{position:fixed;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;z-index:10}
@@ -185,7 +186,7 @@ function confusion(rows) {
   const get = (g, p) => (rows.find(r => r[0] === `${g}→${p}`) || [0, 0])[1];
   const preds = [...LABELS, "none"];
   const head = `<tr><th>gold ↓ / verdict →</th>${preds.map(p => `<th style="text-align:right">${LABEL_SHORT[p]}</th>`).join("")}</tr>`;
-  const body = LABELS.map(g => `<tr><th>${esc(g)}</th>${preds.map(p => `<td class="${g === p ? "diag" : ""}">${get(g, p) || ""}</td>`).join("")}</tr>`).join("");
+  const body = LABELS.map(g => `<tr><th>${esc(g)}</th>${preds.map(p => { const n = get(g, p); return `<td class="${g === p ? "diag" : n ? "" : "zero"}">${n}</td>`; }).join("")}</tr>`).join("");
   return `<table class="conf">${head}${body}</table>`;
 }
 function wireTips() {
