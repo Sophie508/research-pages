@@ -1,10 +1,10 @@
 {
- "built": "2026-11-03 12:24",
+ "built": "2026-11-03 14:00",
  "splits": {
   "averitec_dev": {
    "dataset": "averitec",
    "split": "dev",
-   "built": "2026-11-03 05:19 UTC",
+   "built": "2026-11-03 06:55 UTC",
    "records_in_split": 500,
    "claims": 500,
    "pending": 0,
@@ -390,34 +390,34 @@
   "averitec_train": {
    "dataset": "averitec",
    "split": "train",
-   "built": "2026-11-03 05:19 UTC",
+   "built": "2026-11-03 06:55 UTC",
    "records_in_split": 3068,
-   "claims": 3036,
-   "pending": 32,
-   "scored": 2872,
+   "claims": 3048,
+   "pending": 20,
+   "scored": 2884,
    "evidence": {
     "recall": 0.7034,
     "precision": 0.5808,
     "f1": 0.5942,
-    "recall_all": 0.6654,
+    "recall_all": 0.6656,
     "precision_all": 0.5495,
-    "n_all": 3036,
+    "n_all": 3048,
     "recall_hist": [
      [
       "1.0",
-      1397
+      1403
      ],
      [
       "0.5–0.99",
-      903
+      907
      ],
      [
       "0",
-      299
+      300
      ],
      [
       "0.01–0.49",
-      273
+      274
      ],
      [
       "unscored",
@@ -427,19 +427,19 @@
     "precision_hist": [
      [
       "0.5–0.99",
-      1308
+      1315
      ],
      [
       "1.0",
-      879
+      882
      ],
      [
       "0",
-      371
+      372
      ],
      [
       "0.01–0.49",
-      314
+      315
      ],
      [
       "unscored",
@@ -448,24 +448,24 @@
     ]
    },
    "justification": {
-    "recall": 0.7412,
-    "precision": 0.3575
+    "recall": 0.741,
+    "precision": 0.3574
    },
    "verdict": {
-    "judged": 2890,
-    "correct": 2079,
+    "judged": 2902,
+    "correct": 2089,
     "pred": [
      [
       "Refuted",
-      1576
+      1584
      ],
      [
       "Supported",
-      714
+      717
      ],
      [
       "Conflicting Evidence/Cherrypicking",
-      509
+      510
      ],
      [
       "none",
@@ -479,11 +479,11 @@
     "gold": [
      [
       "Refuted",
-      1719
+      1729
      ],
      [
       "Supported",
-      843
+      845
      ],
      [
       "Not Enough Evidence",
@@ -497,15 +497,15 @@
     "confusion": [
      [
       "Refuted→Refuted",
-      1370
+      1378
      ],
      [
       "Supported→Supported",
-      571
+      573
      ],
      [
       "Refuted→Conflicting Evidence/Cherrypicking",
-      181
+      182
      ],
      [
       "Supported→Conflicting Evidence/Cherrypicking",
@@ -529,7 +529,7 @@
      ],
      [
       "Refuted→Supported",
-      60
+      61
      ],
      [
       "Supported→Refuted",
@@ -580,11 +580,11 @@
    "decon": [
     [
      "unnecessary",
-     2425
+     2433
     ],
     [
      "rewritten",
-     492
+     496
     ],
     [
      "insufficient_context",
@@ -598,7 +598,7 @@
    "status": [
     [
      "scored",
-     2872
+     2884
     ],
     [
      "pipeline error (model response)",
@@ -614,29 +614,29 @@
     ]
    ],
    "links": {
-    "n_extract": 14734,
-    "n_link": 14653,
-    "n_final": 6393,
+    "n_extract": 14796,
+    "n_link": 14715,
+    "n_final": 6418,
     "outcomes": [
      [
       "article_unverified",
-      5476
+      5493
      ],
      [
       "external_supported",
-      2914
+      2932
      ],
      [
       "article_supported",
-      2639
+      2651
      ],
      [
       "external_partial",
-      1665
+      1670
      ],
      [
       "article_partial",
-      1433
+      1442
      ],
      [
       "external_unverified",
@@ -658,23 +658,23 @@
     "verifier": [
      [
       "SUPPORTED",
-      5553
+      5583
      ],
      [
       "UNVERIFIABLE",
-      4008
+      4021
      ],
      [
       "PARTIAL",
-      3098
+      3112
      ],
      [
       "STUB",
-      979
+      981
      ],
      [
       "UNSUPPORTED",
-      940
+      942
      ],
      [
       "NONE",
@@ -689,17 +689,17 @@
       2
      ]
     ],
-    "n_urls": 6328,
-    "distinct_urls": 4978,
-    "domains": 1905,
+    "n_urls": 6353,
+    "distinct_urls": 5000,
+    "domains": 1914,
     "top_domains": [
      [
       "facebook.com",
-      244
+      246
      ],
      [
       "twitter.com",
-      238
+      239
      ],
      [
       "en.wikipedia.org",
@@ -767,11 +767,11 @@
      ],
      [
       2,
-      2014
+      2025
      ],
      [
       3,
-      524
+      525
      ],
      [
       4,
@@ -800,7 +800,7 @@
   "averimatec_val": {
    "dataset": "averimatec",
    "split": "val",
-   "built": "2026-11-03 05:19 UTC",
+   "built": "2026-11-03 06:55 UTC",
    "records_in_split": 152,
    "claims": 152,
    "pending": 0,
@@ -1154,7 +1154,7 @@
   "averimatec_train": {
    "dataset": "averimatec",
    "split": "train",
-   "built": "2026-11-03 05:19 UTC",
+   "built": "2026-11-03 06:55 UTC",
    "records_in_split": 793,
    "claims": 793,
    "pending": 0,
