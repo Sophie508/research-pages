@@ -1,10 +1,10 @@
 {
- "built": "2026-11-03 09:13",
+ "built": "2026-11-03 12:24",
  "splits": {
   "averitec_dev": {
    "dataset": "averitec",
    "split": "dev",
-   "built": "2026-11-03 02:08 UTC",
+   "built": "2026-11-03 05:19 UTC",
    "records_in_split": 500,
    "claims": 500,
    "pending": 0,
@@ -390,174 +390,174 @@
   "averitec_train": {
    "dataset": "averitec",
    "split": "train",
-   "built": "2026-11-03 02:08 UTC",
+   "built": "2026-11-03 05:19 UTC",
    "records_in_split": 3068,
-   "claims": 2638,
-   "pending": 430,
-   "scored": 2479,
+   "claims": 3036,
+   "pending": 32,
+   "scored": 2872,
    "evidence": {
-    "recall": 0.7026,
-    "precision": 0.579,
-    "f1": 0.5924,
-    "recall_all": 0.6603,
-    "precision_all": 0.5441,
-    "n_all": 2638,
+    "recall": 0.7034,
+    "precision": 0.5808,
+    "f1": 0.5942,
+    "recall_all": 0.6654,
+    "precision_all": 0.5495,
+    "n_all": 3036,
     "recall_hist": [
      [
       "1.0",
-      1202
+      1397
      ],
      [
       "0.5–0.99",
-      786
+      903
      ],
      [
       "0",
-      255
+      299
      ],
      [
       "0.01–0.49",
-      236
+      273
      ],
      [
       "unscored",
-      159
+      164
      ]
     ],
     "precision_hist": [
      [
       "0.5–0.99",
-      1118
+      1308
      ],
      [
       "1.0",
-      758
+      879
      ],
      [
       "0",
-      323
+      371
      ],
      [
       "0.01–0.49",
-      280
+      314
      ],
      [
       "unscored",
-      159
+      164
      ]
     ]
    },
    "justification": {
-    "recall": 0.7398,
-    "precision": 0.3525
+    "recall": 0.7412,
+    "precision": 0.3575
    },
    "verdict": {
-    "judged": 2496,
-    "correct": 1799,
+    "judged": 2890,
+    "correct": 2079,
     "pred": [
      [
       "Refuted",
-      1343
+      1576
      ],
      [
       "Supported",
-      637
+      714
      ],
      [
       "Conflicting Evidence/Cherrypicking",
-      434
+      509
      ],
      [
       "none",
-      142
+      146
      ],
      [
       "Not Enough Evidence",
-      82
+      91
      ]
     ],
     "gold": [
      [
       "Refuted",
-      1482
+      1719
      ],
      [
       "Supported",
-      747
+      843
      ],
      [
       "Not Enough Evidence",
-      242
+      281
      ],
      [
       "Conflicting Evidence/Cherrypicking",
-      167
+      193
      ]
     ],
     "confusion": [
      [
       "Refuted→Refuted",
-      1171
+      1370
      ],
      [
       "Supported→Supported",
-      510
+      571
      ],
      [
       "Refuted→Conflicting Evidence/Cherrypicking",
-      154
+      181
      ],
      [
       "Supported→Conflicting Evidence/Cherrypicking",
-      132
+      156
      ],
      [
       "Not Enough Evidence→Refuted",
-      90
-     ],
-     [
-      "Refuted→none",
-      90
+      107
      ],
      [
       "Conflicting Evidence/Cherrypicking→Conflicting Evidence/Cherrypicking",
-      84
+      98
+     ],
+     [
+      "Refuted→none",
+      92
      ],
      [
       "Not Enough Evidence→Conflicting Evidence/Cherrypicking",
-      64
+      74
      ],
      [
       "Refuted→Supported",
-      51
+      60
      ],
      [
       "Supported→Refuted",
-      43
-     ],
-     [
-      "Not Enough Evidence→Supported",
-      42
+      52
      ],
      [
       "Conflicting Evidence/Cherrypicking→Refuted",
-      39
+      47
+     ],
+     [
+      "Not Enough Evidence→Supported",
+      47
+     ],
+     [
+      "Not Enough Evidence→Not Enough Evidence",
+      40
+     ],
+     [
+      "Conflicting Evidence/Cherrypicking→Supported",
+      36
      ],
      [
       "Supported→none",
       35
      ],
      [
-      "Conflicting Evidence/Cherrypicking→Supported",
-      34
-     ],
-     [
-      "Not Enough Evidence→Not Enough Evidence",
-      34
-     ],
-     [
       "Supported→Not Enough Evidence",
-      27
+      29
      ],
      [
       "Refuted→Not Enough Evidence",
@@ -565,168 +565,180 @@
      ],
      [
       "Not Enough Evidence→none",
-      12
+      13
      ],
      [
       "Conflicting Evidence/Cherrypicking→none",
-      5
+      6
      ],
      [
       "Conflicting Evidence/Cherrypicking→Not Enough Evidence",
-      5
+      6
      ]
     ]
    },
    "decon": [
     [
      "unnecessary",
-     2103
+     2425
     ],
     [
      "rewritten",
-     433
+     492
     ],
     [
      "insufficient_context",
-     88
+     103
     ],
     [
      "error",
-     14
+     16
     ]
    ],
    "status": [
     [
      "scored",
-     2479
+     2872
     ],
     [
      "pipeline error (model response)",
-     109
+     111
     ],
     [
      "article not fetched",
-     33
+     35
     ],
     [
      "no evidence extracted",
-     17
+     18
     ]
    ],
    "links": {
-    "n_extract": 12645,
-    "n_link": 12572,
-    "n_final": 5510,
+    "n_extract": 14734,
+    "n_link": 14653,
+    "n_final": 6393,
     "outcomes": [
      [
       "article_unverified",
-      4765
+      5476
      ],
      [
       "external_supported",
-      2490
+      2914
      ],
      [
       "article_supported",
-      2235
+      2639
      ],
      [
       "external_partial",
-      1440
+      1665
      ],
      [
       "article_partial",
-      1227
+      1433
      ],
      [
       "external_unverified",
-      374
+      459
      ],
      [
       "dropped_no_candidate",
-      74
+      82
      ],
      [
       "kept_search_unavailable",
-      61
+      65
      ],
      [
       "extractor_unreadable",
-      42
+      48
      ]
     ],
     "verifier": [
      [
       "SUPPORTED",
-      4725
+      5553
      ],
      [
       "UNVERIFIABLE",
-      3518
+      4008
      ],
      [
       "PARTIAL",
-      2667
+      3098
      ],
      [
       "STUB",
-      820
+      979
      ],
      [
       "UNSUPPORTED",
-      793
+      940
      ],
      [
       "NONE",
-      135
+      147
      ],
      [
       "UNREADABLE",
-      48
+      54
      ],
      [
       "ERROR",
       2
      ]
     ],
-    "n_urls": 5454,
-    "distinct_urls": 4258,
-    "domains": 1680,
+    "n_urls": 6328,
+    "distinct_urls": 4978,
+    "domains": 1905,
     "top_domains": [
      [
       "facebook.com",
-      202
+      244
      ],
      [
       "twitter.com",
-      200
+      238
      ],
      [
       "en.wikipedia.org",
-      184
+      216
      ],
      [
       "pmc.ncbi.nlm.nih.gov",
-      124
+      142
      ],
      [
       "who.int",
-      107
-     ],
-     [
-      "cdc.gov",
-      65
+      118
      ],
      [
       "bbc.com",
-      60
+      74
+     ],
+     [
+      "cdc.gov",
+      67
      ],
      [
       "president.go.ke",
-      59
+      60
+     ],
+     [
+      "theguardian.com",
+      51
      ],
      [
       "npr.org",
+      50
+     ],
+     [
+      "washingtonpost.com",
+      49
+     ],
+     [
+      "youtube.com",
       47
      ],
      [
@@ -734,56 +746,44 @@
       45
      ],
      [
-      "youtube.com",
+      "snopes.com",
       43
      ],
      [
       "cnn.com",
       42
-     ],
-     [
-      "theguardian.com",
-      42
-     ],
-     [
-      "washingtonpost.com",
-      40
-     ],
-     [
-      "politico.com",
-      33
      ]
     ],
-    "search_unavailable": 51,
+    "search_unavailable": 55,
     "images_exempt": 0
    },
    "per_claim": {
-    "mean": 2.22,
-    "median": 2,
+    "mean": 2.23,
+    "median": 2.0,
     "hist": [
      [
       1,
-      177
+      194
      ],
      [
       2,
-      1730
+      2014
      ],
      [
       3,
-      451
+      524
      ],
      [
       4,
-      95
+      112
      ],
      [
       5,
-      20
+      21
      ],
      [
       6,
-      4
+      5
      ],
      [
       7,
@@ -800,7 +800,7 @@
   "averimatec_val": {
    "dataset": "averimatec",
    "split": "val",
-   "built": "2026-11-03 02:08 UTC",
+   "built": "2026-11-03 05:19 UTC",
    "records_in_split": 152,
    "claims": 152,
    "pending": 0,
@@ -1154,7 +1154,7 @@
   "averimatec_train": {
    "dataset": "averimatec",
    "split": "train",
-   "built": "2026-11-03 02:08 UTC",
+   "built": "2026-11-03 05:19 UTC",
    "records_in_split": 793,
    "claims": 793,
    "pending": 0,
