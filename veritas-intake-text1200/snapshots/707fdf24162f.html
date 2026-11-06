@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en" translate="no"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshot of a source page</title><style>
+body{font:15px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fff;color:#111}
+.top{background:#fff6e0;border:1px solid #f0d58c;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+pre{white-space:pre-wrap;font:inherit} mark{background:#ffe36e;padding:0 2px}
+</style></head><body>
+<div class="top"><b>Text copy of a source page</b>, as our pipeline read it when it was read. Layout and images are not kept.
+The marked passages are where the page is most relevant to the evidence statement.<br>
+Original page: <a href="https://st3.idealista.com/cms/archivos/static/price-indicator/metodologia-informes-de-precios-vivienda-2023.pdf?VersionId=HOZHaa4C2fCEGmqsVMhPD1Bh4YYilmSE&amp;fv=FjHyQnGn&amp;v=1556008208#page=6" target="_blank" rel="noopener">https://st3.idealista.com/cms/archivos/static/price-indicator/metodologia-informes-de-precios-vivienda-2023.pdf?VersionId=HOZHaa4C2fCEGmqsVMhPD1Bh4YYilmSE&amp;fv=FjHyQnGn&amp;v=1556008208#page=6</a></div>
+<pre>Metodología de  informes de precios
+
+Metodología de informes de precios
+2
+Índice
+Descripción general
+Alcance
+Ámbito geográfico
+Ámbito temporal
+Descripción de la metodología
+Visión general del proceso
+Selección de muestra de anuncios
+Cálculo de parámetros en las distribuciones de precios y demanda para 
+identificación de anuncios anómalos
+Eliminación de anuncios anómalos en precio y fuera de mercado
+Cálculo de precio promedio en zonas finales
+Cálculo de precio promedio en zonas no finales
+Estimación del nivel de soporte de información y corrección de valores 
+anómalos en las series
+
+Metodología de informes de precios
+3
+Descripción general
+<mark>El informe de precios calcula una estimación mensual del precio promedio 
+residencial de la oferta viva en idealista</mark> desglosada para las operaciones de 
+compraventa y alquiler. Se calcula tanto para zonas idealista y administrativas más 
+relevantes en España, Portugal e Italia.
+Es importante tener en cuenta que <mark>se trata de una visión sobre la oferta viva 
+disponible en idealista.</mark> Y aunque existe una fuerte correlación con otros 
+indicadores de mercado, y por tanto puede ser usado como aproximación de un 
+gran número de medidas en el mercado o como indicador adelantado de ciertos 
+indicadores de mercado, esta información no representa el precio final de 
+transacción (precio por el que se formaliza la venta de una casa) ni el importe medio 
+corriente de la renta de alquiler.
+El tratamiento de la información permite tener una visión que limite en gran medida 
+todos aquellos sesgos derivados de la comercialización o de la variabilidad en la 
+composición del stock de oferta en el tiempo (número de unidades por tipo de 
+inmueble). El sesgo debido a la composición del stock puede inducir a precios 
+medios erróneos cuando entre periodos contiguos cambia de forma significativa la 
+proporción de pisos sobre el total de inmuebles y su relación con la proporción de 
+viviendas unifamiliares y total de inmuebles de uso residencial.
+
+Metodología de informes de precios
+4
+Alcance
+Ámbito geográfico
+En general las zonas que se calculan son finales de idealista y un subconjunto 
+de no finales más las zonas administrativas más relevantes, este último punto 
+varía ligeramente en función del país. En la tabla a continuación se indican las 
+particularidades por mercado (en el seccionado idealista se adopta la 
+terminología de la división en España):
+Mercado
+Niveles idealista
+Niveles administrativos
+España
+País (L2), Provincia (L3), 
+Municipio, Distrito (L7), Barrio 
+(L8)
+País, Comunidad Autónoma 
+(NUTS2)
+Italia
+País (L2), Provincia (L3), 
+Municipio,
+Distrito (L7), Barrio (L8)
+País, Regioni (NUTS2)
+Portugal
+País (L2), Provincia (L3), 
+Municipio,
+Distrito (L7), Barrio (L8)
+Pais, NUTS2, Distrito
+
+Metodología de informes de precios
+5
+Ámbito temporal
+Las series históricas proceden del histórico de idealista y se seleccionan 
+siempre inmuebles únicos, no erróneos, en mercado que hayan tenido 
+actividad en el periodo, debido al desigual desarrollo comercial del portal por 
+geografía la ventana histórica cambia (en el futuro se podrán ampliar algunos 
+de los rangos):
+Mercado
+Profundidad histórica
+España
+Desde 2006
+Italia
+ 
+Desde 2012
+Portugal
+Desde 2015
+
+Metodología de informes de precios
+6
+Descripción de la metodología
+Visión general del proceso
+El proceso consta de varios pasos que se describen a continuación con más 
+detalle:
+1.
+Selección de muestra de anuncios
+2.
+Cálculo de parámetros en las distribuciones de precios y demanda 
+para identificación de anuncios anómalos
+3.
+Eliminación de anuncios anómalos en precio y fuera de mercado
+4.
+Cálculo de precio promedio en zonas finales
+5.
+Cálculo de precio promedio en zonas no finales
+6.
+Estimación del nivel de soporte de información y corrección de 
+valores anómalos en las series
+Selección de muestra de anuncios
+Se seleccionan todos los anuncios que han estado activos y visibles para 
+durante el periodo que comprende el periodo de la medida y los dos meses 
+anteriores, en este proceso se descartan todos los valores que se consideran 
+con errores en sus atributos:
+-
+Inmuebles con dirección errónea 
+-
+Inmuebles que no tienen al menos 3 visitas
+-
+Inmuebles marcados como fraudulentos o erróneos por los 
+procesos de customer care de idealista
+-
+Superficies, precios o precios unitarios erróneos (determinados por 
+criterio experto y en base al estudio de las distribuciones de 
+frecuencias de estos atributos para las tipologías de estudio)
+Finalmente se consolidan todos los anuncios en oferta repetidos, de forma que 
+la muestra contenga solamente anuncios únicos. Consideramos un conjunto de 
+anuncios co∫mo repetidos cuando éstos hacen referencia a la misma propiedad, 
+que se han comercializado a través de distintos canales: varias agencias, 
+particular...
+
+Metodología de informes de precios
+7
+Además, se descartan los inmuebles que se consideren como alquileres 
+temporales y aquellos que presenten características atípicas, tales como 
+propiedades en subasta o de nudas propiedades. De esta manera, se busca 
+obtener una muestra más precisa y fiable para realizar el análisis 
+correspondiente.
+Cálculo de parámetros en las distribuciones de precios y 
+demanda para identificación de anuncios anómalos
+Sobre la muestra inicial anterior se calculan los parámetros más relevantes 
+para cada uno de los mercados de forma que se pueda determinar qué valores 
+son anómalos en precios unitarios y por actividad en el portal.La muestra está 
+estratificada por tipología, operación y características básicas del inmueble (a 
+esta combinación la denominamos microsegmento).
+Se eliminan por tanto todos aquellos valores que tienen precios unitarios 
+fuera de un intervalo de confianza del 95% con un error del 5%, calculado 
+sobre la distribución del logaritmo de los precios unitarios. En el caso del 
+filtrado de anómalos por actividad intenta estimar cuál es el conjunto de 
+activos en mercado (líquidos) a través de un filtro por el intervalo de 
+confianza de al menos del 95% con un error del 5% sobre el volumen de visitas 
+homogeneizado y días en mercado de los anuncios (de forma que no entran 
+en el análisis anuncios con muy poca actividad o pocos días en mercado para 
+su tipología o llevan un tiempo en mercado anómalo).
+Por último se determina el nivel de soporte (considerando el nivel de soporte 
+como nivel de cobertura en número de registros, que ha de ser suficiente para 
+tomar una medida de precios como válida) de cada una de los estratos de la 
+muestra:tipología y geografía.
+Eliminación de anuncios anómalos en precio y fuera de 
+mercado
+Se eliminan de la muestra los anuncios que quedan fuera de los intervalos de 
+confianza anteriormente calculados. Este proceso es particular de cada
+
+Metodología de informes de precios
+8
+micromercado (zona geográfica en la que se encuadra el anuncio) y se realiza en 
+base a la variabilidad de la muestra y el número de elementos, determinado el 
+tamaño muestral mínimo necesario para un intervalo de confianza del 90% con un 
+error del 5% para cada uno de los microsegmentos anteriormente mencionados.
+Cálculo de precio promedio en zonas finales
+Para cada una de las zonas finales idealista: Zona Municipal (nivel 6 idealista), Distrito 
+(Nivel 7), Barrio (Nivel 8) se calculan los precios promedios que se usarán 
+posteriormente para propagarlo hacia capas superiores. Se realiza el cálculo de los 
+precios medios sobre estas zonas ya que representan mercados relativamente 
+homogéneos en términos de mercado inmobiliario.
+El precio promedio de cada uno de los microsegmentos se calcula con la mediana 
+de los precios unitarios, se ha decidido el uso de la mediana al ser una medida de 
+posición más insensible ante valores anómalos (a pesar de que se hace un primer 
+proceso, la mediana garantiza una mayor estabilidad). El precio promedio final de 
+una zona se calcula como la media ponderada de cada uno de los microsegmentos, 
+la ponderación es la proporción entre el tamaño del microsegmento con respecto al 
+tamaño total de anuncios de tipo residencial.
+Cálculo de precio promedio en zonas no finales
+Los precios de las zonas no finales se calculan de forma iterativa (de abajo 
+arriba, en este sentido: municipio, provincia, país) como una media ponderada 
+de los precios de las zonas que contienen.
+Al igual que en el caso de la media ponderada sobre los microsegmentos de 
+anuncios,la ponderación para geografías está basada en la frecuencia relativa 
+de cada una de las zonas con respecto al total de anuncios en la zona en la 
+que se calcula el valor.
+
+Metodología de informes de precios
+9
+Estimación del nivel de soporte de información y corrección 
+de valores anómalos en las series
+Finalmente se estima si el nivel de soporte de la información es suficiente y se 
+revisa la coherencia del valor en la serie temporal, de forma que si el soporte 
+es insuficiente cuando sea posible se re-estima el valor como una media móvil 
+ponderada de los periodos adyacentes al anómalo.
+La ponderación procede de la relación de los precios en una zona superior con 
+suficiente soporte, de esta forma incorporamos tanto el componente de 
+tendencia al promediar los periodos adyacentes y el estacional al usar una 
+ponderación de ese punto de datos con respecto a los adyacentes en una zona 
+superior o equivalente.
+Existe un caso especial que es la corrección del último punto de datos, en este 
+caso se usan los dos puntos anteriores y una ponderación del punto actual de 
+la misma naturaleza al que se indica en el párrafo anterior.
+
+Metodología de informes de precios
+10
+Otros
+Este informe ha sido preparado por el equipo de estudios de idealista. Su 
+contenido está protegido por derechos de autor, marcas registradas, tratados 
+internacionales y otros derechos de propiedad y leyes de España, así como por 
+convenios internacionales, quedando prohibidas su reproducción y 
+distribución sin mencionar la fuente.
+La información contenida en este informe ha sido elaborada por idealista y se 
+facilita sólo a efectos informativos. Bajo ninguna circunstancia deberá usarse 
+como asesoramiento, valoración final de una vivienda u otros servicios.
+idealista no se hace responsable de todas aquellas informaciones incluidas en 
+este informe de fuentes ajenas a idealista. La inclusión en este informe de 
+medias, cuadros o estimaciones elaborados por idealista o tomados de 
+informaciones de terceros tiene una finalidad puramente informativa, sin que, 
+por tanto, puedan considerarse como opiniones o recomendaciones de 
+ninguna clase. En cualquier caso, idealista no se hace responsable de las 
+interpretaciones que los usuarios puedan hacer sobre la información 
+contenida.
+</pre>
+<script>const m=document.querySelector("mark"); if (m) m.scrollIntoView({block:"center"});</script>
+</body></html>

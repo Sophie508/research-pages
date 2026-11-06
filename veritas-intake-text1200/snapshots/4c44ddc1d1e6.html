@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en" translate="no"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshot of a source page</title><style>
+body{font:15px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fff;color:#111}
+.top{background:#fff6e0;border:1px solid #f0d58c;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+pre{white-space:pre-wrap;font:inherit} mark{background:#ffe36e;padding:0 2px}
+</style></head><body>
+<div class="top"><b>Text copy of a source page</b>, as our pipeline read it when it was read. Layout and images are not kept.
+The marked passages are where the page is most relevant to the evidence statement.<br>
+Original page: <a href="https://www3.nasa.gov/sites/default/files/atoms/files/acr22-wp-mars-transportation.pdf" target="_blank" rel="noopener">https://www3.nasa.gov/sites/default/files/atoms/files/acr22-wp-mars-transportation.pdf</a></div>
+<pre>ARCHITECTURE CONCEPT 
+REVIEW 2022
+White Paper
+ — 1 —
+National Aeronautics and 
+Space Administration
+MARS TRANSPORTATION
+BACKGROUND
+As discussed in the Systems Analysis of Architecture Drivers  white paper, the systems engineering 
+process identifies several example trades and design drivers to selecting an architecture. These 
+trades reflect the tightly coupled dependency on the order and weighting applied answering 
+the fundamental questions of Who, What, Where, When, Why, and How to meet the Moon 
+to Mars objectives. One of the most visible and significant portions of the Mars architecture 
+is the Earth to Mars transportation system. While numerous previous studies, analyses, and 
+trades have been conducted with respect to this system, most were highly constrained with 
+initial conditions or assumptions made in the absence of objective clarity that did not permit 
+accurate or meaningful “apples to apples” comparisons, making selections between concepts 
+difficult. It is NASA’s intention to utilize the Moon to Mars Goals &amp; Objectives as a foundation 
+to establish the key architectural needs, use cases, and functions, conduct assessments to the 
+performance of multiple solutions, and ultimately establish a roadmap of system, mission, and 
+technology demonstrations to enable informed architectural decisions. This effort and planning 
+will be communicated through the Architecture Definition Document and future revisions. 
+The purpose of this paper is to orient the greater community to the breadth, variations, and 
+associated risks of the range of Earth-to-Mars transportation systems under study.
+INTRODUCTION
+Spacecraft traveling either to the Moon or Mars do not travel in a straight line; rather, they 
+must travel along arced paths shaped by the relevant gravity wells. A single round-trip journey 
+between Earth and Mars will put about 1.8 to 2 billion kilometers on a Mars transportation 
+system’s odometer, which is different than the straight-line distance between the two planets. 
+To put this distance in context, the recent Artemis I mission between Earth and the Moon put 
+about 2.2 million kilometers on Orion’s odometer.
+The distance and velocity that the Moon orbits Earth varies by a relatively small amount. However, 
+both Mars and Earth orbit the Sun at different velocities, so the distance between the two planets 
+is constantly changing, hence the energy required to travel between Earth and Mars is also 
+constantly changing. This variation leads to some mission opportunities requiring 20 to 60% 
+more transportation energy to complete the interplanetary transits between Earth and Mars for 
+the same mission duration than in other calendar years. Figure 1 shows the cyclical variation in 
+energy during interplanetary round-trip transits between Earth and Mars. In this particular analysis, 
+Lunar Distance High Earth Orbit (LDHEO) is used as the starting point for Earth departure staging 
+for Mars missions, and a 5-sol orbit is used for Mars arrival staging and departure.
+Transportation energy is a function of many variables, including the distance and relative 
+velocity of the planets as well as the mission duration and orbital stay time. This is shown in 
+the comparison between two example mission types in Figure 1. The conjunction class Mars 
+
+ — 2 —
+mission on the left is a minimum energy style mission, where the outbound and inbound portions of the 
+interplanetary trajectory are optimized for the best planetary alignment between Earth and Mars, resulting in a 
+roundtrip mission duration of ~1,000 days, with more than 300 days loiter time in Mars vicinity while awaiting 
+the next optimal planetary alignment for the return journey. The opposition class Mars mission shown on the 
+right shortens the total mission duration to ~760 days or less but requires more energy to achieve and shortens 
+the Mars vicinity loiter time to about 30- 50 days. It is important to note that Mars missions are not restricted to 
+a binary choice between these two options as the mission duration can be varied across a continuous space.
+The interplanetary energy required for the Mars mission may be a major component of achieving the roundtrip 
+mission, but the energy required to get in and out of the planet’s gravity well cannot be overlooked. Figure 
+2 shows an Earth-Moon-Mars energy map for missions to the surface of the Moon or Mars. Both missions 
+have unique challenges, and systems designed for one may not be directly applicable to the other as they 
+have different energy and mission needs. Missions to Mars generally have a higher energy need, require much 
+longer system service life, and have more stringent departure window constraints.
+The bulk of current human spaceflight experience is limited to six months or less in space, with just a few 
+data points around the one-year mark, and almost all within the Earth’s magnetosphere. While International 
+Space Station (ISS) research is helping to answer some questions about human health and performance 
+during long duration spaceflight, we don’t yet understand all of the mechanisms involved, or the extent that 
+multifactorial contributors to human system risks may limit which countermeasures would be effective or 
+potentially introduce other stressors. Researchers believe that the combined effects of many stressors such as 
+microgravity, radiation exposure, isolation, confinement, and closed environment are at issue, so many different 
+countermeasures may be needed. Crew cabin mass/volume limitations and lack of on-demand resupply for 
+medical countermeasures supplies further complicates planning. Some proposed countermeasures, such as 
+active radiation protection or artificial gravity, would drive transportation mass and complexity. NASA’s Human 
+Research Program has identified a plateau for some—but not all—adverse health and performance effects. In 
+other words, by some metrics, human health and performance may continue to degrade or adapt the longer 
+crew remain away from Earth, but we don’t yet know the extent of these changes, whether adverse effects are 
+reversible, or what individual variation we’ll see across a larger cohort of astronauts. Health and performance 
+issues have implications for a Mars crew’s ability to perform their surface mission and poses uncertainty for 
+their long-term health after returning to Earth.
+To mitigate crew health and performance risks, NASA has recently revisited “opposition” class missions that 
+can shave a year or more off total mission duration by shortening Mars vicinity stay time, and not waiting for 
+optimal planetary alignment before returning to Earth. 
+Figure 1. Variation of roundtrip interplanetary energy needs between LDHEO earth and 5-sol Mars orbits
+
+ — 3 —
+Though this type of mission can significantly reduce crew time away from Earth, the penalty is significantly 
+higher transportation energy (and propellant mass). Heritage chemical propulsion systems were historically 
+considered impractical for opposition-class missions, but the emergence of reusable launch systems and 
+in-space propellant depot concepts potentially changes the calculus. Alternatively, highly efficient nuclear 
+propulsion systems can mitigate the potential for exponential propellant mass growth of all-chemical 
+transportation but will require significant technology investments. In addition to crew health and performance 
+risks, vehicle reliability and operational risks must also be considered when comparing different transportation 
+and mission options.
+NASA ANALYSIS APPROACH
+Crew departure opportunity – As noted in Figure 1, transportation energy varies significantly over mission 
+opportunities. Instead of designing a transport for the lowest energy opportunity (which only enables missions 
+about every 15-20 years), or for the highest energy opportunity (resulting in an oversized vehicle for most 
+missions), recent NASA analysis has focused on moderate energy opportunities, such as 2039, as an analysis 
+reference. This is not to say that 2039 is the recommended mission date, only that 2039 is a representative 
+energy opportunity for the purpose of evaluating transportation system performance.
+Transportation architecture – NASA is evaluating four transportation propulsion systems (Figure 3): 
+Nuclear Electric Propulsion/Chemical hybrid (NEP/Chem), Nuclear Thermal Propulsion (NTP), Solar Electric 
+Propulsion/Chemical hybrid (SEP/Chem), and All-Chemical propulsion (All-Chem). For initial apples-to-apples 
+performance analysis comparisons, a separable transit habitat, sized to accommodate 4 crew for up to 1200 
+days is assumed for all four transportation systems, but an integrated transit habitat case is part of the All-
+FIGURE 2. Earth-Moon-Mars ΔV (energy) map
+
+ — 4 —
+Chem trade space, and the impacts of varying number of crew will be assessed. Launch cadence and costs 
+for the Space Launch System (SLS) and emerging super-heavy Commercial Launch Vehicles (CLVs) are also 
+being assessed for each transportation option.
+Entry, Descent, Landing and Ascent (EDLA) architecture – in all analysis cases, NASA assumes surface 
+mission cargo—most importantly a Mars Ascent Vehicle—will be pre-deployed prior to crew arrival to ensure 
+crew are able to return. All four transportation systems are also being assessed for cargo transport use. Two 
+different lander types (Figure 3) are also being analyzed: a “flat bed” lander with a lower payload capacity, but 
+readily accessible cargo deck, and a vertical lander with higher payload capacity, sometimes referred to in 
+previous analyses as a “mid L/D” lander. Again, for the sake of apples-to-apples comparison analyses, roughly 
+the same cargo suite is assumed for both approaches, the difference being the number of landers required 
+and some differences in cargo operations, particularly Mars Ascent Vehicle propellant loading.
+Surface Mission – for the sake of apples-to-apples comparisons, initial analysis held the surface mission 
+constant across all options for various in-space mission profiles, focusing on the minimum practical corner 
+of the trade space: two crew to the surface for 30 days, with limited surface infrastructure. Release of the 
+September 2022 Moon-to-Mars Strategy and Objectives provides guidance to expand surface mission 
+analysis to include longer surface stay durations and expanded surface infrastructure, such as in-situ resource 
+utilization. Architectural impacts of varying the number of surface crew is also being assessed.
+Total Mission Duration – To understand how the transportation architecture changes as a function of mission 
+duration, each of the four transportation concepts is evaluated under three different reference missions, 
+ranging from 870 to 1250 total days away from Earth (actual transit duration, plus rendezvous, staging, and 
+crew launch opportunity time), resulting in 27 different mission concepts; design concepts and campaign 
+analysis has been completed for about a third of these to date. Additional analysis cases that expand the 
+surface mission will be added in a future analysis cycle.
+PRELIMINARY ANALYSIS RESULTS
+As mission duration decreases, the total energy required to perform a roundtrip Mars mission increases 
+exponentially, significantly increasing Earth-launched mass. For both high thrust propulsion systems (NTP 
+Figure 3. Mars transportation system options trade space
+
+ — 5 —
+and All-Chem), the total mass required is at the mercy of the exponential nature of the rocket equation. For 
+the hybrid systems (SEP and NEP), for any given power level, there is a limitation to how much energy the 
+low thrust system can produce. Thus, to enable higher energy missions, either the chemical part of the hybrid 
+system must be more heavily utilized, or the power level must be increased. Mass curves for the low thrust 
+systems are therefore also exponential in nature as mission duration is shortened.
+Assuming active Cryogenic Fluid Management (CFM), a one-MegaWatt (MW)-class SEP/Chem, 2 x 12.5 
+kilo-pound force (klbf) thruster NTP, or 1.8 MW NEP/Chem all weigh in at about 300 metric tons (t) Earth 
+departure mass from high Earth orbit for the moderate 850-day transit duration (roughly in the middle between 
+opposition and conjunction class). For reference, the fully assembled International Space Station (ISS) is about 
+400t in low Earth orbit. Initial analysis of an All-Chem concept without active CFM (similar to designs being 
+considered for lunar transportation) is nearly five times the mass of the other concepts. For the longer duration, 
+conjunction class end of the trade space, a similar pattern is evident: for a 1000-day round-trip mission, the All-
+Chem concept would shed the equivalent mass of an assembled ISS as compared to the moderate duration 
+variant—but it would still be about five times the mass of similar duration SEP or NEP hybrid concepts, and 
+nearly twice the mass of nuclear concepts flying the much shorter duration opposition class mission.
+Addition of active CFM shows promise in bringing the All-Chem stack mass more in line with the other three 
+options. NASA analysis found that active CFM could reduce the number of Earth- launched propellant tankers 
+needed by 30% for an All-Chem transportation system flying the 850- day mission; active CFM could reduce 
+the number of propellant tankers needed by 50% for an All-Chem concept flying a 1000-day conjunction 
+class mission. In addition to significant stack mass savings, reducing the number of propellant launches can 
+also reduce launch costs and shorten the in-space transport fueling timeline prior to Earth departure, which 
+in turn relaxes launch cadence pressure and operational risk. Note that All-Chem concept analysis is not yet 
+complete, but trends indicate that opposition-class All-Chem vehicle mass will be much higher than for other 
+concepts. Additional analysis is required to pinpoint a mission duration length where All-Chem mass would be 
+competitive with nuclear transportation mass at various power levels.
+DISCUSSION
+Historically, launched mass has served as a cost analog when comparing options, but if reusable launch 
+systems promise to drive down Earth launch costs, transportation mass may not be a useful metric. If it 
+was as simple as using our lunar all-chemical transportation system and just paying the cost to launch extra 
+propellant mass, it could significantly decrease Mars transportation costs as compared to developing new 
+technologies. But current lunar approaches cannot be used as-is for Mars. Even when the planets are as 
+close as they ever get, the round-trip distance between Earth and Mars is about 950 times that to the Moon 
+and back. What’s more, Mars gravity is twice Lunar gravity, requiring even more energy for Mars ascent and 
+descent. As compared to their lunar counterparts, Mars transportation systems not only have to carry much 
+more propellant, but they also need to maintain that propellant for much longer periods of time. Even a fraction 
+of a percent boil-off loss per day will result in significant cryogenic propellant loss over a two to three-year 
+round-trip Mars mission, so Mars transportation systems must either employ active CFM or carry significant 
+additional propellant to offset losses. In considering Mars extensibility for All-Chem lunar transportation 
+systems in development, it is important to note that active CFM is not required for the shorter duration Artemis 
+lunar missions so Mars extensibility may require additional technology infusion and vehicle redesign.
+In short, a vehicle designed to fly to, land on, and ascend from the Moon simply can’t perform the same 
+operation to Mars without refueling or modification to the design. As noted above, without active CFM, a large 
+number of propellant tankers is required to fuel a single round-trip Mars crew mission. Even if these propellant 
+launches are inexpensive, the complexity of fielding a significant number of individual launches, rendezvous, 
+docking, and propellant transfer operations within a very specific deadline increases mission risk: the longer it 
+takes to complete the entire in-space fueling operation, the more propellant will boil off before Earth departure. 
+If a weather delay or launch pad issue causes the Mars transport to miss its narrow Earth departure window, 
+it may have to loiter in Earth vicinity for several years until the next departure opportunity, and by then the 
+propellant (and any other life-limited cargo) will have to be replaced, further adding to the mission cost.
+
+ — 6 —
+So why haul round-trip propellant, why not just carry enough to get to Mars and refuel there? <mark>Historically, 
+NASA has been hesitant to send humans anywhere without on-board capability to return to Earth</mark>, although 
+NASA’s Design Reference Architecture 5.0 (DRA5, 2009) did rely on surface refueling for a pre-deployed 
+ascent vehicle to orbit. In that architecture <mark>the transport itself carried round-trip propellant, but the crew would 
+not commit to the surface mission until after the pre-deployed ascent vehicle was confirmed fueled</mark>, thus 
+mitigating the risk crew would be stranded on Mars in the event of an ISRU problem. The DRA5 architecture 
+required about 40 kiloWatts (kW) of surface power, operating for more than a year prior to crew arrival, to 
+robotically manufacture and liquefy enough oxygen propellant to boost a single-purpose ascent vehicle to 
+Mars orbit. More recent concepts have gone beyond DRA5, proposing to fuel a combination ascent vehicle/
+Earth return all-chemical transport on the Mars surface. Propellant loads will obviously depend on mission 
+mode, ascent vehicle design, and Mars return cargo mass, but these concepts would require a leap from tens 
+of kW to hundreds of kW surface power for propellant production. Expanding from atmospheric to regolith 
+ISRU could reduce fueling time and enable other fueling strategies, but additional power would be required for 
+the vehicles and equipment needed to collect, transport, and process Martian regolith or water ice.
+For context, a one MW power capability would require 25 each of the 40-kiloWatt (kW) fission surface power 
+units that NASA is currently developing, or perhaps tens of acres of solar arrays sized for seasonal solar 
+variations and dust storm disruptions. It remains forward work to complete assessment of various surface 
+mission cases and assess the number of landers required to deliver the power systems and equipment needed 
+to robotically deploy and maintain the power infrastructure, plus robotic ice mining systems that could supply 
+water ice to the ISRU plant. Atmospheric extraction could eliminate the need for robotic ice mining equipment, but 
+the lower process efficiency will either require much more propellant production time, or much higher power, with 
+flow-down impacts to operations and preparation timeline before the first crew return vehicle arrives on Mars.
+FORWARD WORK
+As this paper highlighted, design trades to address the architectural Who, What, Where, When, Why, and 
+How come at a trade of cost, risk, and benefit. NASA will continue to analyze and publish the key findings of 
+architectural trades and their effectiveness during annual updates to the Architecture Definition Document. 
+This approach to refine and define a path to objective success informed by system, mission, and technology 
+demonstrations will be reflected and communicated through the architectural process initiated by the Moon to 
+Mars Goals &amp; Objectives. NASA will continue developing transportation conceptual designs for the remaining 
+cases, plus expanded surface mission concepts with heavier Mars surface infrastructure, to assess campaign 
+impacts, technology development needs, and affordability.
+KEY TAKE-AWAYS 
+•	 Mars missions require significantly more energy (propellant mass), require much longer system service 
+life, and have more stringent departure window constraints than the lunar missions that NASA is 
+developing under the Artemis program, even for the most optimal planetary alignment and trajectories.
+•	 Shorter total roundtrip duration missions potentially mitigate crew health and performance concerns 
+but increase the energy (propellant mass &amp; technology development) required for Mars missions.
+•	 Four In-Space Transportation Systems are currently under consideration: Nuclear Thermal 
+Propulsion, Nuclear Electric/Chemical Hybrid, Solar Electric/Chemical Hybrid, and All Chemical 
+Propulsion.
+•	 Active CFM reduces required propellant loads for all Mars propulsion systems.
+•	 Both Moon and Mars missions have their unique challenges, and systems designed for one may not 
+be directly applicable to the other. 
+This white paper was developed as part of NASA’s 2022 strategic analysis cycle to address topics of frequent discussion. For 
+the latest white papers or other architectural documents related to human missions to the Moon and Mars, please visit:
+www.nasa.gov/MoonToMarsArchitecture. 
+</pre>
+<script>const m=document.querySelector("mark"); if (m) m.scrollIntoView({block:"center"});</script>
+</body></html>
