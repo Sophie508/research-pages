@@ -1,0 +1,856 @@
+<!DOCTYPE html><html lang="en" translate="no"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshot of a source page</title><style>
+body{font:15px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fff;color:#111}
+.top{background:#fff6e0;border:1px solid #f0d58c;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+pre{white-space:pre-wrap;font:inherit} mark{background:#ffe36e;padding:0 2px}
+</style></head><body>
+<div class="top"><b>Text copy of a source page</b>, as our pipeline read it when it was read. Layout and images are not kept.
+The marked passages are where the page is most relevant to the evidence statement.<br>
+Original page: <a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC9927125&amp;blobtype=pdf" target="_blank" rel="noopener">https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC9927125&amp;blobtype=pdf</a></div>
+<pre>·新技术与新方法·
+胚胎长时程培养在线监测系统设计与试验
+曾维俊1, 2，赵振英2，杨语谌1, 2，周旻超2，王弼陡2，孙海旋2, 3
+1. 中国科学技术大学（合肥 230022）
+2. 中国科学院苏州生物医学工程技术研究所（江苏苏州 215163）
+3. 中国科学院干细胞与再生医学创新研究院（北京 100101）
+【摘要】 在胚胎发育过程的研究中，胚胎各阶段的形态特征是评价其发育优劣的重要依据，用于指导胚胎
+体外培养体系的优化和改进。本文为胚胎长时程培养设计了一种基于“低倍搜寻、高倍观察”策略的在线监测
+系统。首先，针对胚胎在发育过程中体积不断增大的情况，本系统配置了4 倍相差、10 倍和20 倍霍夫曼调制相
+衬三种光学模块，以满足不同视场的观察需求；通过光机系统匹配设计、误差控制和装调试验，保证了成像光学
+分辨率，并获得了胚胎的高对比度的浮雕立体成像效果；然后，通过低倍大视场进行识别定位，高倍小视场捕获
+细节，本系统实现了胚胎的在线跟踪监测；最后，开发并验证了一种基于图像轮廓面积和清晰度评价的胚胎识别
+定位算法。本文开发的体外胚胎培养在线监测系统能在不影响胚胎发育的前提下，跟踪记录发育过程的形态特
+征，为胚胎发育评估和体外培养体系的优化提供依据。
+【关键词】 体外胚胎培养；长时程培养；在线监测；光学系统匹配；图像处理
+Design and experiment of online monitoring system for long-term culture of embryo
+ZENG Weijun 1, 2, ZHAO Zhenying 2, YANG Yuchen 1, 2, ZHOU Minchao 2, WANG Bidou 2, SUN Haixuan 2, 3
+1. University of Science and Technology of China, Hefei 230022, P.R.China
+2. Suzhou Institute of Biomedical Engineering and Technology, Chinese Academy of Sciences, Suzhou, Jiangsu 215163, P.R.China
+3. Institute for Stem Cell and Regeneration, Chinese Academy of Sciences, Beijing 100101, P.R.China
+Corresponding author: <mark>SUN Haixuan, Email: sunhx@sibet.ac.cn</mark>
+【Abstract】 In the study of embryo development process, the morphological features at different stages are essential
+to evaluate developmental competence of the embryo, which can be used to optimize and improve the system for in-vitro
+embryo culture. In this paper, an online monitoring system was designed for long-term culture of embryos, based on a
+monitoring strategy of low-magnification search and high-magnification observation. Three optical modules of 4× phase
+contrast, 10× and 20× Hoffman modulation phase contrast were configured in this system to meet the requirements of
+different fields of view, especially when the size of the embryo increases during the culture. Using an optomechanical
+system matching design, an error control and alignment test, the resolution of optical imaging was guaranteed, and a relief
+stereoscopic imaging with high contrast of embryos was obtained. Through low-magnification field of view to identify and
+locate embryos and high-magnification field of view to capture the details, the system realized online tracking and
+monitoring of embryos. In addition, we developed and verified an embryo identifying and locating algorithm based on
+image contour area and definition evaluation. The online monitoring system of in-vitro embryo culture proposed in this
+paper can track and record the morphological features of embryos without affecting the embryo development, providing a
+basis for the assessment of embryo development and the optimization of in-vitro culture system.
+【Key words】 in-vitro embryo culture; long-term culture; online monitoring; optical system matching; image
+processing
+引言
+随着2021 年我国三胎政策的全面开放，预防
+和治疗新生儿的出生缺陷已成为生殖生物学领域
+重要的科研方向。但目前，对人类胚胎正常发育的
+生理学过程，尚有很多未解之谜。所以，对人类胚
+DOI：10.7507/1001-5515.202107053
+基金项目：中国科学院器官重建与制造战略性先导科技专项（XDA16020704）
+通信作者：孙海旋，Email：sunhx@sibet.ac.cn
+• 1134 •
+Journal of Biomedical Engineering, Dec. 2021, Vol. 38, No.6
+http://www.biomedeng.cn
+胎发育过程的研究，不仅有助于人们对生命起源和
+胚胎发育的进一步了解，更为解决出生缺陷等重大
+生殖健康问题提供了理论基础[1]。
+国际伦理标准规定，人类胚胎的科学研究只能
+止步于受精后14 天，而与出生缺陷相关的疾病，如
+无脑畸形、先天性心脏病等的发生，大多与以原肠
+运动为基础的三胚层分化异常密切相关，发生在受
+精14 天之后[2]。因此科研人员只能借助于模式动
+物，如小鼠和猴子，探索胚胎更长时期的发育机
+制。目前，中国科学院动物研究所的科研人员已成
+功实现食蟹猴胚胎在体外长时程培养至受精后
+20 天，并在此基础上研究了灵长类动物原肠运动
+的发生过程[3]。不过由于人员经验、实验技术和培
+养条件的限制，虽然在发育不同阶段鉴定了胚胎特
+征，但无法追踪到胚胎在整个发育过程中的动态变
+化，且胚胎体外培养不同批次之间稳定性和重复性
+差，发育至后期阶段的比例非常有限。因此急需开
+发一种新型全自动的胚胎培养设备，能对温湿度、
+气体组分、培养液成分、液流剪切力等参数进行在
+线调控，以实现更长时程的胚胎培养。同时，为追
+踪胚胎发育过程信息，培养设备需对胚胎发育全程
+进行在线监测，还原胚胎的形态变化，记录胚胎发
+育的关键事件。
+胚胎早期（囊胚之前）的体外培养系统，目前
+主要采用微滴或微穴培养方式，胚胎从受精卵开始
+发育，经历原核期、卵裂期、桑椹胚和囊胚期，总体
+积变化不大，且胚胎处于静置状态，便于自动化显
+微成像和在线监测，基于微穴培养的观察方式已衍
+生多种临床应用的培养箱产品，如time-lapse 培养
+箱，胚胎在培养期间不受外界干扰，由内置的光学
+模块对胚胎发育过程的形态进行延时拍摄，基于胚
+胎形态动力学参数评估其发育潜能，筛选出最优的
+胚胎[4-7]。然而，在体外长时程培养条件下，随时间
+推移，胚胎的发育体积变化巨大，以小鼠为例，其
+妊娠期为20 天，受精后4.5 天达到囊胚期，胚体大
+小约为0.1 mm，而到12.5 天时胚体增长至约
+4.2 mm，增长约40 倍[8]。因此采用微滴或微穴培
+养方式和单一光学观察方式显然已无法满足更长
+时程发育的培养和观测需求。另外受在线换液和
+液流剪切动作影响，胚胎在培养液中的位置会随液
+体流动在培养空间内改变，相应的光学系统成像视
+场中心和焦面位置也需要及时进行调整，极大地增
+加了在线自动观察的难度。
+本文针对胚胎体外长时程培养过程中的形态
+观察需求，开发了一套在线培养监测装置和配套培
+养器皿，为胚胎不同发育阶段配置了不同放大倍数
+的光学观察模块，基于“低倍搜寻、高倍观察”的
+策略，采用多维运动机构对胚胎进行自动跟踪和捕
+捉，通过图像处理算法识别和定位胚胎在空间中的
+位置，最终拍摄得到清晰的胚胎图像。为了验证系
+统的可行性，本文以小鼠为试验对象，取小鼠受精
+后第3 天的胚胎进行体外长时程培养，拍摄了胚胎
+从囊胚发育至原肠胚不同阶段的形态，验证了光学
+系统的成像质量；然后在装置内开展了胚胎的在
+线培养监测试验研究，将胚胎置于培养皿栅罩内的
+任意位置，系统按照设计的在线跟踪策略和图像处
+理算法对胚胎进行自动捕捉和成像，从而获得胚胎
+清晰图像。文中涉及的鼠胚动物试验得到了中国
+科学院苏州生物医学工程技术研究所实验动物伦
+理委员会的批准。
+1 胚胎长时程培养装置方案
+胚胎长时程培养装置作为体外生命孕育系统，
+用于模拟子宫内环境研究胚胎发育机制和不同因
+素对胚胎发育的影响，从而探索新型的胚胎体外培
+养体系。早期胚胎的体外培养和监测技术已较为
+成熟，而囊胚之后的培养目前只能依靠人工操作和
+经验技术，缺乏自动化设备，因此，长时程培养装
+置的开发目的，一方面研究优化培养参数，构建稳
+定的培养体系，做到高通量和高成活率培养，在此
+基础上探索更长时程的培养，另一方面通过在线监
+测记录胚胎发育的过程信息，动态评估胚胎发育优
+劣，为培养参数调控提供依据。
+1.1 培养装置组成
+胚胎长时程培养装置及配套培养器皿如图1
+所示，其中培养装置主要包括培养模块、液路模
+块、气路模块和光学模块。培养模块提供37 ℃恒
+温培养环境，由多个培养室组成，每个培养室内部
+可放置一个培养器皿，液路模块负责培养液的在线
+更换和液流剪切动作的实现，气路模块用于供应胚
+胎发育所必需的CO2 混合气，光学模块负责培养
+期间对胚胎的在线监测。
+胚胎培养器皿由栅罩和35 mm 标准培养皿构
+成。栅罩贴于培养皿的底部，由两个长片和八个隔
+片拼接形成4 个正方形的培养隔间，每个隔间内放
+置一枚胚胎，在培养隔间四周的相应区域开设栅
+孔，孔隙为0.1 mm 左右，能允许培养液内外自由
+交换，同时阻挡胚胎逸出。培养隔间截面尺寸为
+4.5 mm × 4.5 mm，满足胚胎长时程培养的空间需
+求。培养隔间沿直线排列，与培养室排列方向一
+生物医学工程学杂志 2021年12月第38卷第6期
+• 1135 •
+致，便于光学模块运动扫描和观察。
+液路的进液针一分四对准每个培养隔间，换液
+时通过栅孔能将新鲜培养液灌注至培养隔间内，通
+过液路泵阀的控制可以实现进液针对培养液的吸
+吐动作，在培养隔间内部形成紊流，从而达到对胚
+胎的液流剪切效果。
+1.2 在线监测方案
+通过栅罩的空间约束，胚胎可以有效地约束在
+特定空间内，为光学观察提供了便利，但是由于换
+液和液流剪切动作的影响，胚胎在培养液中的位置
+会随液体流动在培养隔间内发生改变，极大地增加
+了在线自动观察的难度。
+针对上述问题，本文提出了低倍搜寻、高倍观
+察的监测方案，如图2 所示，首先低倍观察模式
+下，移动光学系统的视场中心至胚胎培养隔间的中
+央处，在低倍大视场物镜下拍摄培养隔间的完整图
+像，基于图像算法识别出胚胎的轮廓，并定位胚胎
+的中心坐标，计算其相对视场中心的偏离量，然后
+通过运动机构对光学系统进行位置补偿，将视场中
+心移动至胚胎中心处，再切换至高倍小视场物镜拍
+摄胚胎的细节。
+采用低倍搜寻、高倍观察的监测方案，可以应
+对不同发育阶段胚胎体积变化的情况，选用合适的
+光学系统进行观察或拍摄。欲实现理想的监测效
+果，需解决以下几个问题：
+（1）光学系统匹配：为胚胎长时程培养匹配合
+适的光学系统，满足观察分辨率和立体感需求，记
+录胚胎发育过程的形态细节。
+（2）光机运动模块设计：光学系统由低倍切换
+至高倍观察涉及到多自由度的机械运动，通过误差
+控制，既要保证光学成像分辨率，又要实现精确位
+置定位。
+（3）胚胎在线跟踪策略：基于培养装置的系统
+控制架构，建立各个模块或部件的配合时序关系，
+实现对胚胎的自动化在线跟踪和拍摄。
+（4）胚胎图像处理算法：图像处理算法用于识
+别胚胎轮廓并定位胚胎在培养隔间内的坐标，进而
+进行位置补偿并切换至高倍观察，是对胚胎进行跟
+踪和捕捉以实现长时程在线监测的核心。
+2 光机系统设计与验证
+胚胎细胞是透明的，在非荧光染色观察时利用
+光的干涉原理，将通过样品光线的相位差转换为人
+眼可以分辨的振幅差（即明暗），使样品便于观察，
+广泛运用的观察方式有相差、霍夫曼调制相衬和微
+分干涉相衬观察三种[9-12]。其中，相差系统简单经
+济，常用于活体细胞的鉴定和细胞计数，后两者可
+以使细胞产生较强的三维立体效果，对比度更高，
+观察更直观，尤其适合显微操作。
+本文采用相差和霍夫曼调制相衬结合的方式
+对胚胎进行在线监测，低倍搜寻时采用相差成像，
+培养模块
+光学模块
+液路模块
+气路模块
+进液针
+排液针
+栅罩
+培养皿
+图 1 胚胎长时程培养装置及配套培养器皿
+Fig.1 Long-term embryo culture device and matching culture utensils
+低倍视场
+高倍视场
+目标样品
+图 2 胚胎在线监测方案示意
+Fig.2 Schematic diagram of online embryo monitoring
+• 1136 •
+能分辨出胚胎的大致轮廓即可，高倍观察时采用霍
+夫曼调制相衬成像，能呈现对比度更高的胚胎内部
+形态细节。
+2.1 光学系统匹配
+胚胎在线监测的光学系统方案如图3 所示，采
+用倒置显微镜结构，支持相差和霍夫曼调制相衬两
+种观察模式，照明光依次经过偏振片、光阑、聚光
+镜、胚胎样品、物镜、筒镜和合适的缩小镜后，在相
+机靶面上成像，通过切换物镜和相应的光阑，可以
+更改胚胎的观察方式为相差或霍夫曼调制相衬。
+为适应胚胎发育不同阶段的观测需求，采用
+了3 种不同放大倍数的物镜，分别为4 ×、10 × 和
+20 × 物镜，其中，4×为相差物镜，用于大视场成像
+和胚胎搜寻，后两者为霍夫曼调制相衬物镜，用于
+小视场胚胎细节的观察，光学系统元件选用奥林巴
+斯相关模块，其中关键的元件和参数配置如表1
+所示。
+不同光谱成分对胚胎的发育影响不同，蓝紫光
+对胚胎发育损伤最大，绿光和红光几乎没有损
+伤[13-14]。本文胚胎培养装置的照明光选用对胚胎
+发育影响最小的红光，波长为635 nm，单色光可有
+效降低光学系统的色差影响。
+根据光学元件相关参数可以由下式计算得到
+系统的光学分辨率[15]：
+R = 0.61λ
+NA
+(1)
+式中，R 为光学分辨率，λ 为入射光波长，
+NA 为物镜的数值孔径。
+为了让被物镜分辨清楚的图像细节也被相机
+分辨清楚，相机理想像元尺寸需满足奈奎斯特采样
+定律[16]，由如下公式计算：
+l = RM
+2
+(2)
+式中，l 为相机理想像元尺寸，R 为光学分辨
+率，M 为光学系统的综合放大倍率。
+此外，在4×相差视场观察下，相机靶面要求能
+覆盖完整的单个培养隔间（4.5 mm × 4.5 mm）。
+因此，光学系统的参数匹配要求如表2 所示，
+最终选用相机为度申科技USB3.0 大靶面相机，型
+号U3P2 100-H，分辨率5 480 × 3 648，像元大小
+3.45 µm，靶面尺寸18.9 mm × 12.6 mm。
+2.2 光机运动模块设计
+胚胎在线监测的光学系统采用倒置显微镜结
+构方案，如图4 所示，所有光学元件安装在立柱
+上，呈C 型结构，培养模块位于聚光镜和物镜模块
+之间，其中光阑和物镜均沿直线排布，可以通过相
+应的x 向直线运动机构实现光阑和物镜的切换，使
+两者搭配进行观察。物镜模块搭载在调焦机构上，
+可沿z 向作升降运动，调节物镜成像焦平面的高
+度，从而对样品不同层切面成像。
+另外，采用低倍搜寻、高倍观察的监测方案，
+需根据胚胎偏离光学系统视场中心的坐标值对光
+学系统x 和y 方向的位置进行补偿，分别由平台
+x 机构和平台y 机构执行相应的动作，同时通过平
+台x 机构可以将光学系统切换至不同培养室内的
+培养隔间进行观察。
+所有直线运动单元采用步进电机+丝杆传动的
+方式，为保证机构的定位精度，步进电机配置了编
+码器，避免运动过程中的丢步现象，丝杆螺母通过
+消隙处理避免空回误差。
+为保证光学系统的成像质量，立柱上了设置
+了x 和y 向定位基准，用以对安装在立柱上的光学
+表 1 光学系统主要元件及参数
+Tab.1 Main components and parameters of optical system
+元件名称
+型号
+参数
+聚光镜
+IX2-MLWCD
+NA 0.5，WD 45 mm
+4 × 相差物镜
+UPLFLN4XPH
+NA 0.13，WD 17 mm
+10 × 霍夫曼物镜
+CPLFLN10XRC
+NA 0.3，WD 9 mm
+20 × 霍夫曼物镜
+LUCPLFLN20XRC
+NA 0.45，WD 7 mm
+筒镜
+U-TLU
+焦距180 mm
+缩小镜
+U-TV0.63xc
+倍数0.63
+偏振片
+光阑：可切换相衬、霍夫曼光阑
+载物台
+物镜：可切换相衬、霍夫曼物镜
+反射镜
+相机
+胚胎样品
+照明光
+图 3 光学系统方案
+Fig.3 Optical system scheme
+• 1137 •
+元件的离轴误差进行控制，光学系统的综合离轴误
+差合成公式如下[17-18]：
+σ =
+√
+σ2x + σ2y
+(3)
+σ
+σx
+σy
+式中为系统综合离轴误差，
+和
+为x 和y 向
+的离轴误差分量，其中以
+为例，计算公式如下：
+σx =
+σ2
+x1 + σ2
+x2 + · · · + σ2xn
+(4)
+σxi
+式中
+为第i 个光学元件中心至x 基准面的距
+离误差，主要由零件的尺寸加工误差引入，考虑到
+各光学元件的误差传递方式相同，装配尺寸相近，
+可以按等作用误差原则进行分配，计算公式如下：
+σx1 = σx2 = · · · = σxn = σx
+√n
+(5)
+控制光学系统的综合离轴误差为0.05 mm，由
+于光阑和物镜x 向是可移动的，通过运动机构精度
+保证，各光学元件中心至基准的误差分配结果详见
+表3，据此对相关结构件的尺寸误差进行约束。
+2.3 系统装调与试验
+为保证成像质量，达到设计分辨率要求和高对
+比度效果，光学系统装调最关键的环节便是满足相
+差光路环形光阑与物镜内置相位板的共轭关系，以
+及霍夫曼调制相衬光路矩形光阑与物镜内置调制
+板的共轭的关系，其装调示意图如图5 所示。
+在相差观察视场内，照明光通过环形光阑呈现
+为明亮的圆环，而物镜后焦面内置相位板为灰暗的
+圆环，两者互相匹配，大小一致，需要通过x 和
+y 两个方向的平移，保证两者重合。
+霍夫曼物镜后焦面内置调制板分为三个区域，
+依次是D 区（透光率1%）、G 区（透光率15%）和
+B 区（透光率100%）。矩形光阑分两个区域，一是
+透射区（T 区），另一个是亮度随偏振器而改变的偏
+振区（P 区）。在霍夫曼观察视场内，调节x、y 方向
+的平移和绕轴旋转，使矩形光阑的T 区进入物镜调
+制板的G 区，光阑的P 区进入物镜调制板的
+B 区。通过旋转位于光阑上部的偏振片的角度，可
+以改变图像对比度。
+本研究对光学系统的成像质量进行了验证。
+利用Edmund USAF 1951 分辨率测试目标板（空间
+频率最高645 lp/mm）对光学分辨率进行测试。取
+分辨率板成像图案中刚能分辨的某一单元线条，查
+找对应的空间频率的数值，由下式计算系统的光学
+分辨率。
+R = 1 000
+f
+(6)
+式中，R 为光学分辨率（单位：µm），f 为空间
+频率（单位：lp/mm）。
+最终系统的光学分辨率测试结果如表4 所示，
+考虑到光学系统不可避免存在像差，测量值与理论
+值接近，认为三种模式均达到了光学设计要求。
+2.4 胚胎成像试验
+分辨率是表征光学成像系统解析物体细节的
+能力，而胚胎作为透明体，光线经过样品后产生的
+相位差转换成图像对比度的变化，所呈现出的直观
+立体效果可以通过实际胚胎成像进行观察和评
+价。胚胎从囊胚发育至原肠胚不同阶段的形态，
+表 2 光学系统参数匹配表
+Tab.2 Parameter matching of optical system
+观察方式
+物镜数值孔径NA
+照明光波长λ
+理论光学分辨率R
+相机理想像元尺寸l
+相机最小靶面尺寸
+4 × 相差
+0.13
+635 nm
+3 µm
+3.7 µm
+11.4 mm × 11.4 mm
+10 × 霍夫曼
+0.3
+1.3 µm
+4.1 µm
+—
+20 × 霍夫曼
+0.45
+0.9 µm
+5.4 µm
+表 3 光学系统误差分配表（mm）
+Tab.3 Error distribution of optical system (mm)
+方向
+分量
+光阑
+物镜
+x
+0.035
+0.020
+y
+0.016
+光阑模块
+物镜模块
+光阑机构-x
+物镜机构-x
+调焦机构-z
+平台x机构-x
+平台y机构-y
+z
+样品区域
+LED光源
+图 4 光机运动模块实物图
+Fig.4 Picture of optomechanical motion module
+• 1138 •
+在相差和霍夫曼观察模式下拍摄的图像如图6
+从图6 可见，低倍的相差成像系统能从背景中
+识别出胚胎大致轮廓，但内部细节无法看清，而霍
+夫曼调制相衬成像系统所呈现的胚胎图像具有更
+加明显的浮雕立体效果，且能清晰地表征出胚胎的
+3 胚胎跟踪和捕捉策略
+培养装置光学模块的运动部件各自由度的执
+行器为步进电机，电机的运动控制模块通过控制器
+局域网络（controller area network，CAN）总线接口
+与上位机进行通讯，相机与上位机通过USB3.0 进
+行通讯和数据传输，采用软件触发模式拍摄采集图
+像，所有电机运动和相机拍摄动作由上位机进行时
+序调度和控制。
+在胚胎长时程培养过程中，采用低倍搜寻、高
+倍观察的在线监测方案，由光学模块的多自由度机
+构配合对胚胎进行跟踪和捕捉拍摄，基于图像处理
+算法定位胚胎的空间位置。
+胚胎在线跟踪拍摄流程和原理详见图7，在所
+有机构零位状态下开始，首先将观察方式切换为
+4×相差模式，移动至要观察的胚胎，采用低倍系统
+进行粗调拍摄，记录得到多焦面图像数据，然后基
+于多焦面图像数据，通过图像识别和定位处理算
+法，获取胚胎在空间中的x、y 和z 的位置坐标，再
+表 4 光学分辨率测试结果
+Tab.4 Results of optical resolution test
+4×相差
+10×霍夫曼
+20×霍夫曼
+分辨率板图案
+空间频率/（lp·mm−1）
+287
+575
+优于645
+分辨率/µm
+3.4
+1.7
+优于1.5
+环形光阑
+相位环
+矩形光阑
+调制板
+D
+G B
+T
+P
+相差光路
+霍夫曼光路
+图 5 光学系统装调示意
+Fig.5 Installation and adjustment of optical system
+相差图像
+霍夫曼图像
+图 6 胚胎拍摄图像
+Fig.6 Images of embryos
+• 1139 •
+由运动机构进行位置补偿，将光学视场中心移动至
+目标胚胎中心处，最后切换至高倍霍夫曼观察模
+式，对胚胎细节进行微调拍摄，记录胚胎细胞不同
+层切面的图像。
+上述在对某个胚胎进行在线跟踪拍摄期间，该
+培养室的液路暂停工作，包括换液操作和动态液流
+剪切动作，以确保拍摄期间内胚胎在培养隔间内的
+位置是固定的。
+胚胎长时程培养过程中通过自动跟踪拍摄，实
+现在线监测的核心环节是胚胎的图像处理算法，基
+于低倍大视场光学系统拍摄的多焦面图像获取胚
+胎准确的空间位置坐标，进而转入高倍系统观察胚
+胎的细节形态。
+4 胚胎图像处理与试验
+胚胎在低倍视场下拍摄的图像随着物镜观察
+焦面高度位置的切换，样本会经历模糊—清晰—模
+糊的过程，需通过图像算法识别出胚胎最清晰的焦
+面图像，进而确定其在培养隔间中的x、y、z 坐标。
+目前广泛采用的清晰度识别方法基于图像边
+缘信息或图像的灰度梯度信息，认为对焦清晰的图
+像具有更尖锐的边缘，故具有更大的梯度函数值，
+主要包括绝对方差函数、Roberts 梯度和函数、梯度
+向量平方函数、Brenner 函数、Laplacian 函数、
+Tenengrad 函数和Variance 函数等[19-20]。这些算法
+都是对全局图像进行清晰度评价，而胚胎在图像中
+占据面积一般很小，且往往出现背景清晰、胚胎模
+糊或背景模糊、胚胎清晰的现象，对评价结果的贡
+献量微弱，因此，无法直接基于清晰度识别来确定
+胚胎最为清晰的焦面。
+为了实现胚胎低倍搜寻、高倍观察的在线监测
+效果，本文提出了另一种胚胎识别定位思路，并开
+展了图像算法的试验研究。首先对低倍视场拍摄
+的多焦面图像，进行去噪和灰度二值化预处理，然
+后基于轮廓查找和面积过滤算法，依此遍历各个焦
+面图像，确定出胚胎的质心坐标（x 和y 坐标），再
+以胚胎质心为中心对每张焦面图像截取胚胎所在
+的图像区域，最后对不同焦面截取的图像进行清晰
+度评价，找出最清晰的焦面，从而确定胚胎的z 坐
+标。定位出胚胎的具体位置，便可以通过运动机构
+胚胎选择
+粗调拍摄
+平台X向运动
+平台Y向运动
+总线
+物镜Z向运动
+拍摄
+物镜Z向归零
+物镜调焦
+图像采集
+USB
+图像处理
+预处理
+识别定位
+按指定焦面数
+坐标转换
+获得胚胎中心相对运动系统的x、y和z坐标值
+位置补偿
+微调拍摄
+物镜对焦
+选择4×相差物镜
+低倍观察
+光阑切换
+物镜切换
+切换至高倍霍夫曼物镜
+高倍观察
+定位至某个胚胎位
+机构复位
+平台X向归零
+平台Y向归零
+物镜X向归零
+光阑归零
+图 7 胚胎在线跟踪拍摄流程和原理
+Fig.7 Process and principle of embryo online tracking and capturing
+• 1140 •
+对光学系统的位置进行修正补偿，实现胚胎的对中
+和对焦，再切换至高倍模式观察胚胎的细节。胚胎
+识别定位的详细图像处理算法流程如图8 所示。
+4.1 图像预处理
+由于实验室操作环境的影响，制备胚胎时培养
+液内可能会混入杂质成分，并且随着胚胎发育的不
+断推进，胚胎周围也会逐渐滋生许多颗粒细胞，因
+此为避免杂质的干扰对胚胎轮廓提取的影响，需对
+图像进行去噪处理，保留重要的胚胎的轮廓信息，
+去除无用的杂质信息。
+胚胎图像预处理效果如图9 所示。图像取灰
+度化后，首先进行滤波处理和二值化阈值分割，选
+取阈值时，以保留胚胎图像部分的主要信息为准。
+滤波算法采用中值滤波，能消除和平滑图像中较小
+的椒盐噪声，而且能有效保护图像的边缘信息，不
+对后续的轮廓提取造成影响[21]。
+对二值化图像通过膨胀及腐蚀算法进行处理
+能有效去除较大的杂质噪声[22]，膨胀运算后可以将
+胚胎培养隔间内的长条纹和小颗粒杂质完全滤除，
+虽然胚胎图像自身受膨胀运算也会出现收缩，但再
+进行腐蚀运算后，胚胎面积会恢复，同时原来离散
+的接近贴壁的干扰图像能与栅罩的内壁进一步联
+通，形成完整轮廓，为后续的轮廓提取和面积过滤
+做准备。
+4.2 胚胎轮廓提取
+预处理后的图像通过resize() 函数缩放为800 ×
+600 的分辨率，以左上角为图像的坐标原点，则
+视场中心的坐标为（400，300），图像总面积为
+480 000。
+通过调用O p e n C V 函数库中的查找轮廓
+findContours() 函数、轮廓面积contourArea() 函数
+和图像矩moments() 函数，提取出封闭区域的轮
+廓，并计算其面积和质心坐标。
+轮廓提取结果如表5 所示，找到4 处轮廓，其
+中编号2 即为胚胎的轮廓，与其他轮廓有明显的差
+别，经过简单的面积和质心过滤可以将其他过小过
+大或培养隔间之外的轮廓排除，便能定位出胚胎的
+坐标（443，218），其与视场中心（400，300）作差，
+可求得坐标的补偿量。
+4.3 清晰度评价
+以胚胎质心为中心，根据胚胎实际占据的面
+积，截取出不同焦平面图像中胚胎所在的图像区
+域，进行清晰度评价。本文选取了三种清晰度评价
+方法进行对比，分别是Tenengrad 梯度方法、
+Laplacian 梯度方法和方差方法。其中，Tenen-
+grad 梯度方法使用Sobel 算子提取图像水平和垂直
+方向的梯度值，其清晰度评价函数 Ten 定义为如下
+公式[23-24]：
+Ten = 1
+n
+∑
+[S(x, y)]2
+(7)
+S(x, y) =
+Gx ∗I(x, y) + Gy ∗I(x, y)
+Gx
+Gy
+I(x, y)
+S(x, y)
+(x, y)
+式中，
+，其中
+分别是Sobel 算子沿x 向和y 向的卷积核，
+分别为图像在点
+处的灰度值和
+灰度梯度值， 为图像总像素数。
+Laplacian 梯度方法和Tenengrad 梯度方法原理
+第 i 张焦面图
+中值滤波
+灰度二值化
+膨胀、腐蚀
+轮廓查找
+面积质心计算
+面积质心过滤
+输出质心坐标
+（x和y坐标）
+阈值内
+i=i+1
+阈值外
+胚胎区域截取
+清晰度评价
+清晰度排序
+最清晰焦面n
+输出z坐标
+图 8 胚胎识别定位算法流程图
+Fig.8 Flow chart of embryo identification and location
+algorithm
+原图灰度化
+滤波+二值化
+膨胀运算
+膨胀后腐蚀
+图 9 图像预处理效果
+Fig.9 Effect of image preprocessing
+• 1141 •
+相似，只是Laplacian 算子是一种二阶导数算子，可
+以满足不同方向图像边缘锐化的要求。
+方差方法认为清晰聚焦的图像有着比模糊图
+像更大的灰度差异，可以将方差函数F 作为清晰度
+评价函数[25]：
+F = 1
+(I(x, y) −μ)2
+(8)
+μ
+式中， 为整幅图像的平均灰度值，
+为点
+处的灰度值， 为图像总像素数。
+表6 列出三种不同方法得出的清晰度评分结
+果，值越大表示图像越清晰，可以看出，不同评价
+方法的结论是一致的，均认为第3 个焦面的胚胎最
+清晰，与肉眼判断的结果吻合。
+识别出最清晰的一层焦面，便可以定位胚胎在
+空间内z 方向的坐标，进而通过位置补偿将光学系
+统移动至胚胎中心，切换至高倍观察模式对胚胎进
+行拍摄，获取胚胎清晰的形态图像。
+5 结论
+本文为胚胎体外长时程培养设计了一种在线
+监测系统，配置了4 × 相差、10 × 和20 × 霍夫曼调
+制相衬光学系统。实验证明，匹配的光学系统成像
+分辨率满足设计要求，并达到高对比度的浮雕立体
+效果。胚胎的在线监测系统采用“低倍搜寻、高倍
+观察”的跟踪和捕捉策略，并基于图像轮廓面积和
+清晰度评价对胚胎进行识别和定位，结果证明开发
+的图像处理算法具有较好的准确性和通用性。
+本文开发的胚胎长时程培养在线监测系统可
+以准确捕捉胚胎发育过程中的形态信息，重现胚胎
+发育的动态过程，评价胚胎发育的优劣，为胚胎体
+外长时程培养体系的优化和迭代提供依据。
+利益冲突声明：本文全体作者均声明不存在利益冲突。
+参考文献
+吕群燕, 王雁玲, 田婵, 等. 生育力与生殖健康: 生殖医学的挑战
+与对策——第170期“双清论坛”学术综述. 中国科学: 生命科学,
+2017, 47(7): 689-701.
+1
+Moris N, Anlas K, Brink S, et al. An in vitro model of early
+anteroposterior organization during human development. Nature,
+2020, 582(7812): 1-6.
+Ma Huaixiao, Zhai Jinglei, Wan Haifeng, et al. In vitro culture of
+cynomolgus monkey embryos beyond early gastrulation. Science,
+2019, 366(6467): eaax7890.
+3
+李楠, 林忠. 体外胚胎培养是胚胎工程技术的关键环节. 中国组
+织工程研究, 2019, 23(29): 4735-4742.
+4
+Kirkegaard K, Agerholm I E, Ingerslev H J. Time-lapse monitoring
+as a tool for clinical embryo assessment. Human Reproduction,
+2012, 27(5): 1277-1285.
+5
+Pribenszky C, Nilselid A M, Montag M, et al. Time-lapse culture
+with morphokinetic embryo selection improves pregnancy and live
+birth chances and reduces early pregnancy loss: a meta-analysis.
+Reprod BioMed Online 2017, 35(5): 511-520.
+6
+Kovacs P. Embryo selection: the role of time-lapse monitoring.
+Reprod Biol Endocrinol, 2014, 12(1): 1-11.
+7
+Theiler K. The house mouse: development and normal stages from
+fertilization to 4 weeks of age. Quart Rev Biol, 1972, 17(3): 133-145.
+8
+朱晓辉, 朱忠勇. 相差显微镜的原理、结构和临床应用. 临床检验
+杂志, 2007, 25(4): 308-310.
+9
+Curl C L, Bellair C J, Harris P J, et al. Quantitative phase
+microscopy: A new tool for investigating the structure and function
+of unstained live cells. Clin Exp Pharmacol Physiol, 2010, 31(12):
+896-901.
+10
+Shribak M, Inoué S. Orientation-independent differential
+interference contrast microscopy. Appl Opt, 2006, 45(3): 460-469.
+11
+Giusti A, Corani G, Gambardella L, et al. Blastomere segmentation
+and 3D morphology measurements of early embryos from
+Hoffman Modulation Contrast image stacks// 2010 IEEE
+International Symposium on Biomedical Imaging: from Nano to
+Macro. Rotterdam: IEEE, 2010: 1261-1264.
+12
+王一鸣, 张冰, 王婷, 等. 可见光谱照明对小鼠卵母细胞及早期胚
+胎发育质量的影响. 光谱学与光谱分析, 2018, 38(3): 918-922.
+13
+Li R, Pedersen K S, Liu Y, et al. Effect of red light on the
+development and quality of mammalian embryos. J Assist Reprod
+Genet, 2014, 31(7): 795-801.
+14
+张以谟. 应用光学. 第3版. 北京: 电子工业出版社, 2008:
+394-402.
+15
+表 5 轮廓提取结果
+Tab.5 Results of contour extraction
+提取轮廓
+编号
+坐标
+（474，109）
+（443，218）
+（42，285）
+（411，296）
+面积
+46
+906
+6 511
+252 711
+过滤
+面积过小
+保留
+隔间之外
+面积过大
+表 6 清晰度评分结果
+Tab.6 Results of definition evaluation
+焦面
+截取区域
+Tenengrad
+梯度法
+15.7
+16.9
+66.4
+18.1
+Laplacian
+28.3
+30.4
+97.7
+32.0
+方差方法
+3 157
+4 449
+5 702
+5 427
+• 1142 •
+韩昌元. 光电成像系统的性能优化. 光学精密工程, 2015, 23(1):
+1-9.
+16
+费业泰. 误差理论与数据处理. 第7版. 北京: 机械工业出版社,
+2015: 67-72.
+17
+马宏, 王金波. 仪器精度理论. 第2版. 北京: 北京航空航天大学出
+版社, 2014: 109-117.
+18
+张田, 田勇, 王子, 等. 基于清晰度评价的自适应阈值图像分割
+法. 东北大学学报(自然科学版), 2020, 41(9): 1231-1238.
+19
+Xu G L, Liu X X, Tian Y P, et al. Image clarity-evaluation-function
+method. Infrar Laser Eng, 2009, 38(1): 180-184.
+20
+王芳, 满益云. 基于模糊中值滤波的椒盐噪声去除方法. 模糊系
+统与数学, 2012, 26(1): 166-174.
+21
+邓仕超, 黄寅. 二值图像膨胀腐蚀的快速算法. 计算机工程与应
+用, 2017, 53(5): 207-211.
+22
+Pech-Pacheco J L, Cristóbal G, Alvarez-Borrego J, et al. Automatic
+system for phytoplanktonic algae identification. Limnetica, 2001,
+20(1): 143-158.
+23
+张俊杰, 操晶晶, 贡力, 等. 微型零件图像测量清晰度算法的选择
+与综合评价. 光学精密工程, 2008, 16(3): 543-550.
+24
+严锦雯, 贾星伟, 隋国荣, 等. 图像清晰度评价函数的研究. 光学
+仪器, 2019, 41(4): 54-58.
+25
+收稿日期：2021-07-21 修回日期：2021-10-29
+本文编辑：李蓓兰
+(上接第 1133 页；Continued from Page 1133)
+Tokuhara D, Yuki Y, Nochi T, et al. Secretory IgA-mediated
+protection against V. cholerae and heat-labile enterotoxin-
+producing enterotoxigenic Escherichia coli by rice-based vaccine..
+Proc Natl Acad Sci U S A, 2010, 107(19): 8794-8799.
+37
+Yoon S, Yu J, McDowell A, et al. Bile salt hydrolase-mediated
+inhibitory effect of Bacteroides ovatus on growth of Clostridium
+difficile. J Microbiol, 2017, 55(11): 892-899.
+38
+Koh A, Molinaro A, Stahlman M, et al. Microbially produced
+imidazole propionate impairs insulin signaling through mTORC1.
+Cell, 2018, 175(4): 947-961.
+39
+Iwakiri D, Zhou Li, Samanta M, et al. Epstein-Barr virus (EBV)-
+encoded small RNA is released from EBV-infected cells and
+activates signaling from Toll-like receptor 3. J Exp Med, 2009,
+206(10): 2091-2099.
+40
+Lopez-Otin C, Galluzzi L, Freije J M P, et al. Metabolic control of
+41
+longevity. Cell, 2016, 166(4): 802-821.
+Liu Hu, Wang Ji, He Ting, et al. Butyrate: A double-edged sword
+for health?. Adv Nutr, 2018, 9(1): 21-29.
+42
+Dent E, Martin F C, Bergman H, et al. Management of frailty:
+opportunities, challenges, and future directions. Lancet, 2019,
+394(10206): 1376-1386.
+43
+Haran J, Bucci V, Dutta P, et al. The nursing home elder
+microbiome stability and associations with age, frailty, nutrition
+and physical location. J Med Microbiol, 2018, 67(1): 40-51.
+44
+Gaulke C A, Sharpton T J. The influence of ethnicity and
+geography on human gut microbiome composition. Nat Med,
+2018, 24(10): 1495-1496.
+45
+收稿日期：2021-01-27 修回日期：2021-08-25
+• 1143 •</pre>
+<script>const m=document.querySelector("mark"); if (m) m.scrollIntoView({block:"center"});</script>
+</body></html>

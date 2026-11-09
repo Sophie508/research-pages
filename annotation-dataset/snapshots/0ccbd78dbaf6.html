@@ -1,0 +1,1765 @@
+<!DOCTYPE html><html lang="en" translate="no"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshot of a source page</title><style>
+body{font:15px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fff;color:#111}
+.top{background:#fff6e0;border:1px solid #f0d58c;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+pre{white-space:pre-wrap;font:inherit} mark{background:#ffe36e;padding:0 2px}
+</style></head><body>
+<div class="top"><b>Text copy of a source page</b>, as our pipeline read it when it was read. Layout and images are not kept.
+The marked passages are where the page is most relevant to the evidence statement.<br>
+Original page: <a href="https://faraday.ac.uk/wp-content/uploads/2020/01/High-Energy-battery-technologies-FINAL.pdf" target="_blank" rel="noopener">https://faraday.ac.uk/wp-content/uploads/2020/01/High-Energy-battery-technologies-FINAL.pdf</a></div>
+<pre>FARADAY REPORT - JANUARY 2020
+High-energy battery technologies
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Introduction.........................................................................................................................................................1
+Section one: Sectors and their energy requirements...................................................................................2
+	
+- Portable consumer electronics...............................................................................................................2
+	
+- Electric vehicles........................................................................................................................................3
+	
+- Civil aviation..............................................................................................................................................5
+	
+- Unmanned systems..................................................................................................................................7
+	
+- Large-scale energy storage.....................................................................................................................9
+Section two: Technologies...............................................................................................................................11
+	
+- Part one: current state-of-the-art.........................................................................................................11
+	
+	
+• High-energy lithium-ion commercial cells...................................................................................11
+	
+	
+• Pre-commercial lithium-sulfur cells.............................................................................................12
+	
+	
+• Pre-commercial lithium metal rechargeable cells......................................................................14
+	
+- Part two: emerging high energy lithium-ion and related technologies..........................................15
+	
+	
+• Nickel-rich cathodes........................................................................................................................15
+	
+	
+• Vanadium-based cathodes..............................................................................................................16
+	
+	
+• High-voltage cathodes.....................................................................................................................17
+	
+	
+• Silicon anodes...................................................................................................................................18
+	
+	
+• Tin-based anodes.............................................................................................................................19
+	
+	
+• Conversion electrodes.....................................................................................................................21
+	
+- Part three: lithium-metal cells..............................................................................................................23
+	
+	
+• Lithium-oxygen.................................................................................................................................23
+	
+- Part four: solid-state batteries..............................................................................................................24
+	
+- Part five: beyond lithium........................................................................................................................26
+	
+	
+• Multivalent ion chemistries............................................................................................................26
+	
+	
+• Aluminium-air...................................................................................................................................27
+Conclusions........................................................................................................................................................28
+References.........................................................................................................................................................30
+Appendices.........................................................................................................................................................32
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Introduction 
+Energy storage is crucial in ensuring society has access to a ready supply of sustainable electrical power, and is a 
+fundamental enabler for sectors from transportation to consumer electronics. From the increased market uptake 
+of electric vehicles to growing environmental concerns and legal mandates to shift away from fossil fuels, there 
+has been a rapid rise in global demand for lithium-ion batteries. The global lithium-ion battery market is forecast to 
+exceed $73 billion by 2025, achieving a compound annual growth rate of 11 per cent1.
+As a result of increasing global demand and competition, batteries steadily have been getting better. It is more 
+than two centuries since Michael Faraday’s first recorded experiment, in which he stacked seven ha&#x27;penny coins, 
+seven disks of sheet zinc, and six pieces of paper moistened with salt water to create a voltaic pile – a rudimentary 
+precursor to the modern battery. It is 25 years since Sony released a commercial version of the rechargeable 
+lithium-ion battery. Invented in the UK, it now sits snugly in countless smartphones, laptops and other devices. 
+Rechargeable lithium-ion batteries still provide the best combination of compactness, power and efficiency for 
+products ranging from drones to smartphones and cars, but research continues into alternatives that can improve 
+performance in a number of areas, from energy density, to specific energy and cycle life (how many times a cell can 
+be recharged before it needs replacing). 
+For those keen to explore new ways of electrifying their products and services this opens up enormous potential, 
+but with it comes enormous complexity. Once limited, the battery landscape is now characterised by a greater 
+choice of technology options. Further still, new technologies are in development or just emerging on the market 
+with characteristics that may be well suited for some applications, but not others. For a technology company, 
+making the wrong battery choice could be commercially catastrophic. 
+Understanding which battery options offer a given technology the greatest immediate promise, and which need 
+more time to mature, is essential to a sector’s commercial development process. To help organisations make 
+critical electrical power decisions today to maximise the potential of their capabilities tomorrow, the Faraday 
+Institution has developed this report, which considers the most promising technology developments in the field 
+of high-energy batteries. By high-energy, we mean those with the capacity to store and deliver large amounts of 
+energy, as opposed to high-power, which deliver energy quickly. High-energy batteries are designed to achieve 
+aims such as enabling electric vehicles to drive farther on a single charge, or consumers to use their mobile 
+devices longer between charges.
+Alongside our assessment of current technical progress, the report offers an overview of the main applications for 
+battery systems, the drivers for adoption for those applications, the most relevant battery technologies for each, as 
+well as any applications where certain technologies are not suitable. By doing so, the report provides an accessible 
+starting point for any company considering new battery systems for their products or services. 
+Our key metrics for energy content are:
+- Energy density, or volumetric energy, defined as the battery’s energy content in relation to its volume, usually 
+measured in Watt-hours per litre (Wh/l); and
+- Specific energy, or gravimetric energy, defined as the battery’s energy content in relation to its mass, usually 
+measured in Watt-hours per kilogram (Wh/kg).  
+1
+This report includes details on emerging technologies and market values throughout. For easy reference this data 
+is summarised in Appendix 1 and 2 on pages 32 and 33.
+This report was prepared by QinetiQ Ltd.
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+2
+Sectors and their energy requirements
+Portable consumer electronics
+Cast your mind back 20 years or so and you will remember a time when mobile phones were almost exclusively for 
+calling people and sending the occasional text message. Consequently, they tended to be used intermittently, only 
+when needed for communicating. The devices also required little computing power, meaning batteries could last 
+for days between charges.
+Fast-forward to the present day and usage habits have changed dramatically. A 2018 study by UK communications 
+regulator Ofcom revealed the average time spent online on a smartphone is almost two and a half hours a day, 
+rising to three hours and 14 minutes for 18 to 24-year-olds2. The humble mobile phone has morphed into a 
+constantly connected entertainment centre on which users can take photos, watch whole movies, play games and 
+listen to music.  
+Smartphone developers are under pressure to provide all this additional functionality without compromising on 
+operational battery life. A survey of 1,303 smartphone buyers for the USA Today newspaper in 2019 showed that 
+consumers are far less concerned with innovations such as folding screens and 5G than they are with having a 
+battery that lasts all day. In fact, 76 per cent of iPhone owners and 77 per cent of Android users cited longer battery 
+life as a key factor in their purchasing decisions3. In a hotly contested market, where the products are often very 
+similar, battery life may even be the differentiating factor that provides the competitive edge. 
+Smartphones: consumer demands
+For a while, consumer preference trended toward smaller and smaller mobile devices, forcing developers to 
+squeeze more energy out of ever-shrinking batteries. But then manufacturers were granted something of a 
+reprieve, as devices began growing again to accommodate consumer demand for larger screens, providing more 
+volume in which to house bigger batteries with more energy. However, phones may now have reached their 
+optimum size; in the USA Today study, less than a third of respondents said they wanted a bigger screen, which will 
+once again put pressure on developers to seek out batteries with greater energy density to service power-hungry 
+apps and features.     
+Smartphones: industry demands 
+For mobile device designers, there are significant challenges in delivering the battery life the consumer wants 
+without making the device bigger, without compromising on its overall quality, and without incurring high 
+manufacturing costs that necessitate a choice between reducing profit margins or increasing prices to levels that 
+may deter buyers. 
+Developers have identified clever solutions to the volume challenge, such as the realisation that lithium-ion 
+batteries do not have to be a uniform shape, enabling bespoke batteries to be precisely formed around the device’s 
+internal components. However, this does create challenges of its own. The tight integration of the battery means it 
+cannot easily be replaced, so the life of the whole phone is determined by that of the battery. Cycle life is therefore 
+very important, the expectation being between 500 and 1000 charges before the battery is no longer usable and the 
+device must be recycled or replaced.         
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Other types of devices
+While smartphones are the most prevalent of portable consumer electronic devices (Pew Research places 
+ownership at 76 per cent among adults in advanced economies4), they are by no means the only category enjoying 
+a surge in popularity.
+The global market for wearable tech, which includes products like fitness trackers, health monitoring devices and 
+augmented reality glasses, is expected to be worth $34bn in 2020, according to analyst CCS Insight. Some of these 
+devices may be integrated into clothing fabrics, making fire safety critical. Historically, the types of small battery 
+used to power body-worn devices like watches and hearing aids have not been rechargeable, but manufacturers 
+are now exploring solutions such as flexible rechargeable batteries by adapting lithium-ion and zinc-carbon 
+systems.
+A 2017 survey by the Consumer Technology Association (CTA) found that more than half of US adults who own 
+mobile technologies also own a portable power device with which to charge them5. Respondents commented that 
+portable power devices were needed because the battery life in their mobile devices was not sufficient to satisfy 
+their heavy usage requirements. 
+The safety factor
+Not all priorities are led purely by consumer preferences. Battery safety does not significantly influence buying 
+decisions – the 2017 CTA survey found that only 18 per cent of people considered it an important factor when 
+buying a portable power device, perhaps because consumers expect that manufacturers deal with the risk on their 
+behalf – so for manufacturers it is critical. The Samsung Galaxy Note 7 became a poster child for the potential 
+dangers of lithium-ion batteries following a series of issues in 2016. A combination of manufacturing faults 
+prompted a product recall, costing the company an estimated $5.3bn6, and leading the US Transport Security 
+Administration and a number of international airlines to ban the device from aircraft. Given the enormous potential 
+monetary losses associated with incidents of this type, tech companies would be well advised to invest in research 
+that could help prevent them from happening.
+Key battery technologies for portable consumer electronics
+- High-energy lithium-ion commercial cells	
+Page 11
+- Pre-commercial lithium metal rechargeable cells	
+Page 14
+- Nickel-rich cathodes	
+Page 15
+- Silicon anodes	
+Page 18
+- Solid-state batteries	
+Page 24
+Electric vehicles
+In 2017, the UK Government made a commitment to ban the sale of petrol and diesel cars by the year 20407. While 
+campaigners have pushed for this deadline to be brought forward to 20308, it’s not just the Government they need 
+to convince. Consumers have been slow to purchase electric vehicles (EV), citing ‘range anxiety’ as one of the main 
+factors in their reluctance to buy despite the fact that in reality 99% of journeys are less than 100 miles.
+Range anxiety, perhaps better referred to as charging anxiety, is the fear of running out of battery energy mid-
+journey and ending up stranded. A 2019 study by the Transport Research Laboratory (TRL), based on the real-
+world driving experiences of 200 test subjects, confirmed that the range of EVs remains a critical factor for 
+3
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+uptake for UK customers9. Another survey by Volvo in the US found that ‘running out of power’ was the number 
+one fear among motorists about switching to electric, although purchase cost was also a major factor for 57% of 
+respondents10. These fears must be allayed quickly if we are to expect 100 per cent consumer take-up within a 
+decade or two.   
+What will it take to make people switch?
+Public attitude challenges underline the need for energy-dense batteries that can increase vehicles’ range, offering 
+owners greater choice and flexibility in their driving and recharging routines. Part of the solution will be changing 
+consumer perceptions, as there is a tendency for drivers – especially in cities – to overestimate the battery life 
+needed in practice. Data from the UK’s Department for Transport shows the average car journey in England in 
+2018 was just 6.6 miles11. Investment in charging infrastructure will also be crucial, although making it work for 
+everyone presents a host of challenges. Competition for on-street charging stations can be fierce in densely-
+populated urban areas where parking spaces are scarce. Residents living in flats above the ground floor are not 
+able to run cables to their vehicles to charge them using their home supply. The introduction of public ‘drop-in’ 
+charging hubs, akin to petrol stations, may help to improve accessibility, but will require car batteries to charge in a 
+matter of minutes to be practicable. Greater energy density means greater range, which in turn means fewer visits 
+to charging hubs. Both energy density and charge time are improving rapidly. 
+There is certainly cause for optimism. In the aforementioned TRL survey, 50 per cent of participants said they 
+would use an electric vehicle as a main car if it could travel 200 miles on one charge, rising to over 90 per cent 
+if it could travel 300 miles. Recent leaps in technology mean the electric vehicles currently rolling off production 
+lines are approaching that figure. Tesla’s Model S Long Range leads the field, claiming 373 miles, but models from 
+Jaguar, Kia, Hyundai and Mercedes-Benz are already exceeding 250 miles.  
+Of course, range is not the only consideration in selecting the right battery technology for future electric vehicles. 
+Safety is an important factor, as packing more and more energy into an ever smaller space could increase the 
+chances of fire or explosion if sufficient safety control systems are not put in place to mitigate the added risk. The 
+public perception of lithium-ion batteries as being unsafe has been a cause of contention, although this may be 
+unjustified. A 2017 report for the US Department of Transportation concluded that: 
+“…the propensity and severity of fires and explosions from ... lithium-ion battery systems are anticipated to be 
+somewhat comparable to or perhaps slightly less than those for gasoline or diesel vehicular fuels12.”
+However, the report acknowledges that more data is needed before the matter can be settled. Also, perception 
+matters, so neither consumers nor manufacturers would turn away an even safer, high-performance, low-cost 
+alternative if such a solution can be developed.    
+What is required of an electric vehicle battery?
+The US Advanced Battery Consortium (USABC) has published a series of performance targets for electric vehicles. 
+In its view, an electric vehicle battery should meet the following specifications:
+- Useable Specific Energy at C/3 rate: 350 Wh/kg at cell level, 235 Wh/kg at pack level
+- Useable Energy density at C/3 rate: 750 Wh/l at cell level, 500 Wh/l at pack level
+- Peak specific discharge power (80% Depth of Discharge, 30s): 700 W/kg
+- Peak power density (80% Depth of Discharge, 30s), 1500 W/l
+- Cycle life: 1000 cycles
+4
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+- Calendar life: 15 years
+- Cost: $100/kWh
+No battery today meets all of these criteria. If the claims of US company Sion Power prove true13, its Licerion-
+branded lithium-metal rechargeable cell (page 14) may come closest, but for researchers investigating competing 
+solutions there is still a lot to play for. 
+What is the best approach to date?
+Most existing commercial EV batteries are based on lithium-ion chemistry, making it the benchmark against which 
+all potential alternatives are measured. A 2018 EU Joint Research Centre (JRC) report on the future markets for 
+Li-ion batteries identified the average battery capacity based on annual sales as being 39 kWh for a battery electric 
+vehicle (BEV) and 11 kWh for hybrid electric vehicle (HEV). The main cathode chemistries cited in the report are 
+nickel manganese cobalt (NMC) and nickel cobalt aluminium oxide (NCA).
+Different EV manufacturers have taken a variety of approaches to battery system architectures. Tesla uses a large 
+array comprising thousands of relatively small cylindrical cells. Initially, Tesla used mass-market 18650 cells, but 
+is now using slightly larger 21700 cells. The 21700 cell is around 50 per cent larger by volume than the 18650 but 
+Tesla claims it provides around 20 per cent more specific energy at a similar manufacturing cost. Other developers 
+favour fewer, higher capacity prismatic cells. The casing of a large prismatic cell accounts for a smaller percentage 
+of its total weight, so its specific energy can be higher. Prismatic cells also pack together more efficiently. 
+Cylindrical cells have some advantage because they can be more easily tightly wound, reducing resistance in the 
+cell. It is also easier to maintain compression in a cylinder than in a rectangular case but this gives other problems 
+such as increased internal stress. Time will tell which format becomes the preferred solution but currently most 
+manufacturers seem to be preferring a prismatic cell packaged in a pouch.
+Near-future alternatives to lithium-ion batteries are likely to remain lithium-based, such as lithium-sulfur (Li-S) 
+and other chemistries using lithium metal anodes. Li-S offers higher specific energy, but is poorer volumetrically. 
+Low cycle life may also be an issue compared to lithium-ion. The potential benefit of sulfur is its low cost compared 
+to other cathode materials. Lithium-metal based cells with intercalation cathodes, a more direct successor to 
+conventional Li-ion, offers gains in both specific energy and energy density, hitting “range anxiety” head-on. 
+Lithium-metal intercalation cells may well overtake Li-S, leaving it to fall by the wayside. Looking to the longer 
+term, researchers are already looking at cheaper and more readily available metals that could eventually take 
+lithium’s place in the EV market.
+Key battery technologies for electric vehicles
+- High-energy lithium-ion commercial cells	
+Page 11
+- Pre-commercial lithium-sulfur cells	
+Page 12
+- Pre-commercial lithium metal rechargeable cells	
+Page 14
+- Nickel-rich cathodes	
+Page 15
+- Silicon anodes	
+Page 18
+- Conversion anodes	
+Page 21
+Civil aviation
+Although batteries have been used to power on-board systems in aircraft for decades, fully electrical powered 
+flight is still in its infancy. The fact we do not yet see fleets of electric passenger airliners cruising quietly above 
+5
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+our heads is almost entirely due to the present-day limitations of power and energy provision. Aviation generally 
+requires huge amounts of power to be delivered over prolonged periods of time, and today’s battery technology is 
+not capable of meeting the performance demands for long-haul aircraft in a package small and light enough to be 
+conducive to flight. 
+That is not to say it will never happen. Industry experts place the introduction of the first large-capacity electric 
+passenger aircraft at anywhere between 10 and 20 years from now, and there are certainly plenty of good reasons 
+to try. Aviation accounts for two per cent of global greenhouse gas emissions, according to the International 
+Civil Aviation Organization (ICAO)14. At a time of unprecedented urgency to take action to counter climate change, 
+research into high-energy batteries may define the future of the aviation industry; and of the planet. 
+First steps
+Progress toward large electric airliners will be incremental, and so manufacturers are starting small. US company 
+Ampaire is set to begin testing its six-seat hybrid-electric design, based on a retrofitted Cessna 337, on commercial 
+routes to Hawaii in 2019. The model comprises one conventional combustion engine and one electric motor 
+powered by lithium-ion batteries and is currently the largest of its kind ever flown. 
+The race to scale this type of technology is well underway. British start-up Faradair hopes to certify its 18-seat 
+Bio Electric Hybrid Aircraft (BEHA) for passenger operations by 2025. Meanwhile, Wright Electric in the US has 
+partnered with airline operator EasyJet to develop a 150-seat, all-electric plane, which it hopes will rival existing 
+737-sized aircraft in providing short-haul trips of under 300 miles by 2027. 
+High-energy battery technology will be fundamental to achieving these goals and, to an even greater extent, 
+making the next logical leap to electric long-haul commercial flight. 
+Vertical take-off and landing (VTOL)
+As some electric aircraft developers seek to compete against the fossil fuel-powered airliners of today, others are 
+exploring completely different avenues.
+Electric vertical take-off and landing aircraft (eVTOL) aim to exploit the potential of all electric propulsion to provide 
+inexpensive, quiet and environmentally friendly short-range transportation. There are many different designs 
+under development, and the Vertical Flight Society classifies eVTOLs into a number of categories:
+- Wingless: multi-copter designs that work like scaled-up versions of commercial off-the-shelf multi-rotor drones, 
+capable of carrying small numbers of passengers. Examples include the E-Hang 184 and Volocopter 2X. 
+- Vectored Thrust: winged aircraft that take off vertically, then tilt or redirect the same propulsion system to 
+generate forward thrust, like the Lilium Jet and minibus-sized Bell Nexus, unveiled at the CES 2019 trade show.
+- Lift + Cruise: winged aircraft that feature separate mechanisms for taking off vertically and cruising forward at 
+speed. ZeeAero, Aurora Flight Sciences and Kitty Hawk are all working on prototypes.
+- Hoverbikes: the airborne equivalent of motorcycles. Malloy Aeronautics has produced a working hoverbike under 
+a contract with the US Department of Defense.
+- Electric Helicopters: conventional helicopter designs that use electric motors instead of combustion engines, like 
+the Sikorsky Firefly.
+All of these prototypes are assumed to use similar batteries to those found in electric vehicles to meet the rigorous 
+power and energy requirements. The biggest challenge in all cases is supplying sufficient energy for extended 
+6
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+flight times, especially in those which do not have wings to assist in generating lift, or those for which space is 
+particularly constrained, such as hoverbikes and other personal flying devices.
+A recent NASA presentation gave a useable eVTOL specific energy target at pack level of 400 Wh/kg, equating to an 
+estimated cell specific energy of around 600 Wh/kg. This is significantly higher than the EV target and more than 
+double the present-day commercial state-of-the-art lithium-ion battery.
+More electric aircraft
+Putting to one side the exoticism of electrically propelled aircraft, it is possible to achieve gains in performance, 
+operating cost, reliability and emissions in the nearer term by adapting aircraft already in service. The More 
+Electric Aircraft (MEA) concept aims to use electricity for all aircraft systems that are not associated with 
+propulsion – systems that are currently driven by combinations of secondary power sources such as hydraulic, 
+pneumatic and mechanical. In addition to the already growing energy demands presented by everything from air 
+conditioning to in-cabin entertainment systems, this will create a significant additional requirement. Airbus and 
+Rolls-Royce have partnered on a solution in the form of the E-Fan X demonstrator, due to make its first flight in 
+2020. A Rolls-Royce gas turbine installed in the rear fuselage will provide energy to a two-megawatt electrical 
+generator. The ability to store this energy will be the key to ensuring it can be delivered where and when it is 
+needed.
+Safety first   
+The MEA approach is not without its risks. The Boeing 787 Dreamliner is the most electric aircraft currently in 
+service, with two alternators for each of its two engines generating 250 kW each. In January 2013, shortly after 
+its introduction, the Federal Aviation Administration (FAA) ordered all US airlines to ground their 787s amid 
+reports of overheating lithium-ion batteries. The aircraft were allowed to return to service in April of that year 
+following implementation of additional measures to contain battery fires. The episode underlines the inherent 
+risks associated with energy-dense lithium-ion batteries, and the case for examining safer alternatives for use in 
+aviation.    
+Key battery technologies for aerospace
+- High-energy lithium-ion commercial cells	
+Page 11
+- Pre-commercial lithium-sulfur cells	
+Page 12
+- Pre-commercial lithium metal rechargeable cells	
+Page 14
+- Nickel-rich cathodes	
+Page 15
+- Silicon anodes	
+Page 18
+- Conversion anodes	
+Page 21
+Unmanned systems
+The global market for unmanned aerial vehicles (UAV) is expected grow from $25.59bn in 2018 to $70.28bn in 
+2029, according to analysis from BIS Research, with potential applications spanning multiple sectors, including 
+infrastructure, agriculture, transport and security. 
+7
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+In the maritime environment, the unmanned underwater vehicle (UUV) and unmanned surface vehicle (USV) 
+markets are forecast to reach over $5bn and $1bn respectively by the early 2020s, driven largely by demand in the 
+maritime security and offshore oil and gas industries. 
+The defence sector is likely to remain at the forefront of unmanned ground vehicle (UGV) technology, with the 
+market predicted to reach $7bn by 2025.
+Each of these domains – air, maritime and land – poses unique energy challenges, which must be solved if 
+unmanned technology is to live up to its promise.      
+Unmanned aerial vehicles
+Extending battery life in UAVs (commonly known as drones) will be critical if some of the more ambitious proposals 
+are to be realised. Take parcel delivery as an example. To achieve flight with a heavy package the drone must be 
+able to attain high peak power, but must also be capable of sustaining effort for extended periods to deliver over 
+long distances. 
+There are two potential routes for achieving the required range: 
+The first is to provide multiple localised charging points for delivery drones, so they are not required to cover large 
+distances on a single charge. This approach prioritises the battery’s cycle life over its energy density, as it must be 
+able to withstand frequent charging. 
+The second approach favours energy density over cycle life, opting for the battery that enables the longest possible 
+flight time between charges. This is likely to be greatly preferable from a logistics perspective, as it centralises 
+operations and minimises the charging cycle for the whole fleet. A minimum flight time of one hour may be 
+necessary to support this method – or even three to four hours, depending on the area covered.    
+Unmanned maritime vehicles
+The various options for alternative energy sources on board unmanned surface vehicles (USVs) reduce the 
+importance of specific energy for propulsion – solar, wind and wave-powered surface craft can already operate 
+continuously for weeks or even months at a time, while larger vehicles have the option of generating power using 
+traditional fuels. The main role of the battery on a USV is therefore to power its payloads, such as sensors and 
+communications equipment, along with providing the occasional added burst of propulsion. For many solutions, the 
+battery will form part of a hybrid system, collecting and storing energy produced by solar or kinetic generators on 
+board the craft, and so cycle life will be important.  
+Unmanned underwater vehicles (UUVs) are much more reliant on batteries than USVs, especially those required 
+to operate at depth away from sunlight. The battery does not need to be light – in fact a heavy battery can actually 
+be an advantage, as it adds ballast to help sink the craft. The major constraint is one of volume, as there is typically 
+little room available on board. The ideal solution packs a lot of energy into a small space, and can tolerate extreme 
+pressures and cold temperatures – but this may come at the cost of cycle life. 
+Unmanned ground vehicles
+The technology used to power large unmanned ground vehicles (UGVs) will follow a similar trajectory to electric 
+vehicles – starting with diesel hybrid systems before adopting emerging anode and cathode materials into their 
+battery architectures. 
+8
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+In the military environment, small UGVs will present different challenges. Soldiers will carry the vehicles with 
+them on the battlefield, so the batteries must not be so heavy or numerous as to limit their mobility. Safety and 
+unit cost will be other key considerations, taking precedence over endurance or cycle life. The ideal battery will 
+be small, light, and based on stable chemistry. It will either be quickly rechargeable, or low-cost enough to justify 
+disposal after a single use – although the latter creates additional environmental considerations.
+Bringing it all together
+Many of the most promising applications for unmanned technologies will make use of multiple vehicles, working 
+as whole systems that are not vulnerable to the loss of individual elements. As companies seek to assemble fleets 
+of vehicles they will want bulk orders of safe, robust, low-cost, energy-dense batteries to power them. Economies 
+of scale in manufacturing will reduce the unit cost per battery, but to achieve this, innovation must be shared to 
+accelerate the pace of progress and prevent similar but incompatible technologies being developed in silos.
+Key battery technologies for unmanned systems
+- Lithium sulfur	
+Page 12
+- Lithium metal rechargeable cells	
+Page 14
+- Nickel-rich cathodes	
+Page 15
+- Silicon anodes	
+Page 18
+- Solid-state batteries	
+Page 24
+Large-scale energy storage
+Most of the requirements for high-energy batteries covered so far in this report have tended towards the very 
+small, for applications in which space is constrained, but there is also a burgeoning market for large-scale battery 
+installations. Research company Bloomberg New Energy Finance (BNEF) forecasts a rise from 9GW/17GWh in 
+2018 to 1,095GW/2,850GWh by 204015, enabled by a steep drop in the cost of lithium-ion batteries. BNEF predicts 
+that most of the new capacity will be utility-scale, although there will remain a strong market for home and 
+business installations.   
+Sometimes referred to as Battery Energy Storage Systems (BESS), applications include energy storage for 
+renewables, main grid, local microgrids and ship energy storage, where there is a large market for modular, often 
+containerised energy storage in unit sizes of tens to hundreds of kWh scale.
+A 2018 Joint Research Centre report considered lithium iron phosphate to be the dominant lithium-ion chemistry 
+for large-scale storage16. Although it is a large market for lithium-ion batteries, it is not one in which high energy 
+density or high specific energy are priorities, so there is good scope for exploring alternatives. Both lifetime (3000+ 
+cycles) and cost are more important drivers, sometimes combined as a cost per cycle. 
+Energy storage for renewables
+According to BNEF, more than half of electrical energy supplied to grids in large European economies will come 
+from renewable sources by 2030. Storage will be fundamental in ensuring a successful transition from fossil fuels. 
+Generation schemes that rely on natural energy sources, such as wind and solar farms, can only produce energy 
+9
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+under favourable conditions. For instance, a peak in energy usage between 5 p.m. and 7 p.m. may take place after 
+sunset, depending on the country’s latitude and the time of year. Since additional solar energy cannot be generated 
+in response to the additional demand, the requirement must be met using stored energy previously generated 
+during the daylight hours. 
+Improving continuity in existing grids
+In August 2019 parts of England and Wales were hit by the biggest blackout in more than a decade, affecting 
+nearly a million people. The outage had a significant impact on the London transport network, leaving passengers 
+stranded at stations as train services were cancelled, and causing chaos on the roads as traffic lights went dark. 
+The UK utility provider National Grid has indicated that a lighting strike may have caused the almost simultaneous 
+loss of two large generators – one gas and one offshore wind. It was subsequently reported that National Grid 
+had 1,000MW in reserve at the time, which was not enough to cover the 1,300MW capacity lost as a result of the 
+outages. At the time of writing, investigations into the incident remain ongoing, so it cannot be said with certainty 
+that greater battery storage would have prevented it. However, it does underline the cost and disruption that can 
+result from such events, and large-scale energy storage undoubtedly has an important role to play in preventing 
+similar outcomes in future. This will become even more relevant as the mass adoption of electric vehicles 
+increases the transport network’s dependency on power availability.   
+Home battery systems
+Continuity may be further improved using domestic generation and storage. Such domestic storage solutions 
+enable homeowners to become less reliant on the grid, making outages less likely and increasing society’s 
+resilience to outages if they do occur. The UK Government, as part of its Clean Growth Strategy, is providing 
+incentives to homes and businesses to produce and store their own energy using renewable sources. Home energy 
+generation is becoming a more attractive prospect for homeowners, as the cost of residential solar panels falls, 
+dropping by 50 per cent since 2011. For domestic energy consumers, the switch to renewables could reduce bills 
+by up to 30 per cent, while the government’s Smart Export Guarantee provides the additional perk of being able to 
+sell excess energy back to the grid. 
+Although energy density is still less important than cost and cycle life, it is likely to play a bigger role in home and 
+business storage solutions than in utility-scale applications, as available space may be limited in domestic and 
+workplace settings. Living and working alongside large high-energy batteries also makes safety an important 
+consideration, providing a further incentive to consider alternatives to lithium-ion.
+Key battery technologies for large-scale energy storage
+- Nickel-rich cathodes	
+Page 15
+- Multivalent ion chemistries	
+Page 26
+- Aluminium-air	
+Page 27
+10
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Technologies: part one
+Current state-of-the-art
+High-energy lithium-ion commercial cells 
+First patented in 1982, lithium-ion (Li-ion) has been the dominant battery technology since its discovery by John 
+Goodenough at the University of Oxford and subsequent commercialisation by Sony and Asahi Kasei in 1991. 
+Today’s mobile phone industry would probably not exist without this technology, as its introduction doubled the 
+energy density available to handheld devices compared to nickel-cadmium (NiCd) batteries. 
+Lithium-ion cells typically comprise a lithium cobalt oxide cathode and graphite anode, with a liquid electrolyte 
+made up of lithium salts in a mix of organic solvents, although other new chemistries and electrode materials are 
+pushing the boundaries of energy density, cycle life, and charge and discharge rate.
+Advantages
+Of the commercial battery technologies available today, Li-ion offers the best combination of energy density, 
+longevity, versatility and affordability. The ability to pack so much energy into such a small space makes Li-ion 
+the battery of choice for virtually every mobile electronic device. Over the years, the battery life of the average 
+smartphone has steadily increased even as devices have become more power hungry, while the time taken to 
+recharge them has significantly decreased. 
+Scaled up, these same qualities make Li-ion ideal for electric vehicles. The ability to travel long distances on a 
+single quick charge is essential to gaining the support of consumers. 
+Its low mass and volume also make it ideal for lightweight applications like small unmanned aerial systems. 
+A low maintenance requirement further adds to its popularity. Li-ion battery self-discharge rate is low, starting at 
+around five per cent in the first four hours after charging before falling to around one or two per cent per month. 
+Unlike NiCd and similar batteries, it does not need to be regularly discharged to avoid the memory effect, in which 
+the maximum energy capacity decreases with repeated charging.
+Challenges
+Safety is the greatest argument against the Li-ion battery. Its use of flammable electrolytes, stored under pressure, 
+makes it susceptible to catching fire violently if pierced or crushed. <mark>Fires are also known to have been caused by 
+short circuits and thermal runaway brought on by manufacturing faults or user error.</mark> There have been several 
+high-profile examples of this in recent years. In 2016, Samsung discontinued production of its Galaxy Note 7 mobile 
+device following a series of battery fires resulting from combinations of several different manufacturing faults. 
+And in July 2019, a Virgin Atlantic flight from New York to London was forced to make an emergency landing at 
+Boston when smoke and flames began emanating from a passenger seat. Upon inspection, bomb disposal experts 
+discovered the remains of what appeared to be an external phone charger lodged between seat cushions.    
+Incidents like this make lithium-ion challenging for the airline industry, so while such incidents are rare, the 
+successful commercialisation and proliferation of a safer alternative would make regulators breathe a huge sigh of 
+relief.
+Safety concerns do not rule out Li-ion for other applications. Tesla made headlines in April 2019 when one of its 
+Model S electric vehicles suffered a battery fire in Shanghai. However, in response to the incident, the company 
+11
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+argued that its cars are around ten times less likely to catch fire than those powered by petrol. Common sense 
+suggests that having a Li-ion battery on board is no riskier than driving around with 50 litres of highly combustible 
+fossil fuel in the tank, even if fires associated with electric vehicles are more newsworthy. That said, safety is 
+always a priority in the automotive industry, so the discovery of increasingly safer solutions is likely to be well 
+received. Today’s automotive batteries already have to pass stringent safety tests to ensure that they do not catch 
+fire when crushed, punctured or heated in a fire.   
+Another disadvantage with Li-ion is that the limitations of the chemistry mean increases in energy density are 
+becoming more incremental, having achieved annual performance improvements of only one or two per cent over 
+the last five years. This slowdown means that investment in other emerging technologies may yield bigger returns 
+as their progress begins to overtake that of Li-ion. 
+Development
+Recent gains in performance of commercial cells have been achieved by exploring new materials for anodes and 
+cathodes. Increasing amounts of silicon has been introduced to increase the capacity of graphite anodes and 
+alternative higher capacity cathode materials such as lithium nickel cobalt aluminium oxide (NCA) and lithium 
+nickel manganese cobalt oxide (NMC) are becoming more widespread. Cylindrical cells with NCA cathodes 
+and silicon/graphite composite anodes, such as those used in the latest Tesla battery packs, have reached 
+approximately 270 Wh/kg and 650 Wh/l.
+The highest specific energy reported for a near-commercial lithium-ion cell is 304 Wh/kg, claimed by Chinese 
+company Contemporary Amperex Technology Ltd (CATL). A development roadmap presented by CATL at the 
+Advanced Automotive Battery Conference in 2017 suggests the cell is based on a silicon/graphite anode paired 
+with a cathode comprising nickel, manganese and cobalt in a ratio of 8:1:1 (NMC811), rather than the NMC532 used 
+in the company’s current production cells. The same source projects 700 Wh/l for the technology. The battery is a 
+flat prismatic design, unlike the cylindrical models used by Tesla. The prismatic format makes more effective use of 
+space in the vehicle, but allowance must still be made for thermal management of cells.
+Applications
+- Mobile electronic devices	
+Page 2
+- Electric vehicles	
+Page 3
+- Unmanned systems	
+Page 7
+Pre-commercial lithium-sulfur cells
+A lithium-sulfur (Li-S) cell is formed of a lithium metal anode coupled with a sulfur-based cathode. Although no 
+such cell is currently available on a fully commercial, mass-market basis, companies such as Sion in the USA and 
+Oxis in the UK do have niche commercial products and the technology was successfully used to power the Zephyr 
+unmanned aerial vehicle (UAV), designed by QinetiQ and owned by Airbus, which holds the official endurance 
+record for unrefuelled unmanned flight.  
+12
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Advantages
+Lithium-sulfur cells provide the highest proven energy to mass ratio of any available cell chemistry, offering three 
+to five times the energy of a typical lithium-ion battery of the same weight. It has a theoretical specific energy of 
+2500 Wh/kg and theoretical energy density of 2800 Wh/l, making it a strong contender for ultra-high-endurance 
+applications. Current practical cells can be made with performance about a quarter of this. 
+Unlike metal oxides, which tend to be heavy and expensive, sulfur as a cathode material is light and cheap. It is in 
+fact one of the most abundant elements on earth, making it inexpensive and easy to obtain in large quantities. 
+Challenges
+The major compromise is cycle life. Early Li-S batteries could withstand 50 to 100 charge cycles, which is too 
+low for most mass-market applications. Reportedly the latest can achieve more than 1000. This is due to the 
+‘polysulfide shuttle’ effect, in which the sulfur cathode reacts with the electrolyte to form lithium polysulfides that 
+move between the electrodes during charge and discharge, degrading both the sulfur cathode and lithium anode.
+For the end user, the battery’s short lifespan and the consequent need to replace it regularly may negate any 
+cost savings passed on from the manufacturing process. Frequent disposal also creates additional logistical and 
+environmental considerations.
+In practice, the Li-S cell has yet to get anywhere near its theoretical energy density, topping out at around  
+300 Wh/l. Progress has been hampered by the material’s low conductivity and the fact it expands by up to 80 per 
+cent on cycling. This makes it unsuitable for situations in which space is constrained, such as small unmanned 
+systems or handheld electronic devices. This limits its utility to large vehicles and static applications in which 
+ample room is available.  
+Development
+Preventing polysulfide shuttling is the key to extending the cycle life of the Li-S battery and making it commercially 
+viable on a mass-market basis. Researchers have achieved incremental gains by adjusting the electrolyte system 
+or applying protective coatings to the sulfur to retain dissolved material. But progress has been slow, leading some 
+companies to abandon their research altogether. Sion Power, which developed and supplied the cells used on 
+the Zephyr UAS, has since ceased its development of the technology to focus on lithium metal rechargeable cells, 
+leaving UK-based Oxis Energy as the sole developer of near-commercial Li-S cells. 
+Oxis Energy’s website provides a specification for a pre-commercial Li-S cell with a proven specific energy of  
+400 Wh/kg – almost a third higher than the best performing Li-ion cell – but with a comparatively low energy 
+density of 300 Wh/l and a cycle life of 60 to 100 charges. Even its projections for future improvements are modest, 
+predicting specific energy of up to 550 Wh/kg with energy density of 500 Wh/l, which still lags behind current 
+lithium ion.
+These factors mean it is likely to remain a high-value specialist item for niche applications in which run time 
+and weight take precedence over total lifespan, size and cost. The Advanced Lithium Sulfur battery for Electric 
+Vehicles (ALISE) project, conducted under the European Union’s Horizon 2020 innovation programme, examined 
+the potential market for lithium-sulfur cells17. It concluded that its higher specific energy and lower energy density 
+than Li-ion makes it well suited to electric buses and aerospace, but unsuitable for small hybrid and plug-in hybrid 
+electric vehicles. 
+In UK academia, fundamental studies to understand how the microstructure of the sulfur cathode changes 
+with cycling has been undertaken by University College London. Fundamental research into the screening of 
+electrolytes for Li-S batteries is ongoing at Southampton University.
+13
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Applications
+- Civil aviation	
+Page 5
+- Unmanned systems	
+Page 7
+- Maritime	
+Page 8
+Pre-commercial lithium metal rechargeable cells
+Commercial lithium metal batteries predate Li-ion by a couple of decades and are still widely used today in various 
+formats, the most familiar being three-volt button cells. To date these have been available only as primary cells, 
+as the ability to produce rechargeable models that are safe and durable has so far eluded developers. However, a 
+number of companies are now marketing rechargeable cells on a pre-commercial prototype basis.
+The cells currently in development are typically built using conventional Li-ion cathodes, but with an ultra-thin 
+lithium metal anode instead of the usual graphite.  
+Advantages
+At 3862 mAh/g, lithium metal has the highest specific capacity of any anode material. Lithium metal cells are 
+claimed to be twice as effective as the best Li-ion models available today, with specific energy approaching 
+500 Wh/kg and energy density of up to 1200 Wh/l in some current prototypes. If these can be successfully 
+commercialised, and the life and safety managed, they could launch the energy revolution needed to stop electric 
+vehicles from being seen merely as an alternative to combustion engines and position them firmly as the buyer’s 
+first choice. Their high energy, combined with low weight and low volume, also make them an attractive prospect 
+for portable electronic devices and unmanned aerial systems.    
+Challenges
+Before rechargeable lithium metal cells can be commercialised, developers must solve problems caused by 
+the build-up of lithium deposits known as dendrites on the anode. These grow like needles that can penetrate 
+conventional separators, leading to short-circuits and causing fires. They also limit cycle life to a current maximum 
+of around 375 charges – well short of the 1000-cycle target for electric vehicles.  
+Development
+Several solutions are being explored to make lithium metal batteries safer and more durable through prevention 
+of dendrite formation, including the addition of protective coatings to the lithium anode, chemical additives to liquid 
+electrolytes, and incorporating ceramics into the separator.  
+Sion Power has adapted its Li-S technology to produce its Licerion brand lithium metal cell, comprising a 
+conventional nickel-rich cathode and an ‘ultrathin’ lithium anode with protective coating, developed in collaboration 
+with BASF, which has a $50m equity investment in Sion. Initially targeting the unmanned aircraft system (UAS) 
+market, the company claims it can achieve 496 Wh/kg specific energy and 929 Wh/l energy density in a 100 x 100 x 
+10 mm pouch cell. 
+14
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Solid Energy, a spinoff from the Massachusetts Institute of Technology (MIT), is developing a lithium metal cell 
+using an ultrathin lithium metal anode, nickel-rich cathode and ceramic-filled separator, which can provide  
+450 Wh/kg and 1200 Wh/l. Although conceived for the UAS, HALE and eVTOL markets, Solid Energy has 
+announced plans to develop other product lines for consumer electronics and electric vehicles. 
+Applications
+- Portable consumer electronics	
+Page 2
+- Electric vehicles	
+Page 3
+- Aerospace	
+Page 5
+- Unmanned systems	
+Page 7
+           
+Technologies: part two
+Emerging high energy lithium-ion and related technologies
+Nickel-rich cathodes
+The main development trend in conventional lithium-ion cathodes has been a shift away from the established 
+lithium cobalt oxide (LCO) chemistry. Cobalt is a costly, toxic element with a relatively low capacity, so developers 
+are keen to explore alternatives. Nickel has been a popular substitute, being both less expensive and less toxic, 
+but the direct analogue of LCO, lithium nickel oxide (LiNiO2) is not sufficiently stable. Developers have sought to 
+stabilise nickel-based cathodes by combining nickel with cobalt alongside other metals such as aluminium and 
+manganese. 
+Advantages
+The low cost and high capacity of nickel relative to cobalt makes it an attractive prospect for mass-market 
+applications. Nickel cobalt manganese variants have proven effective in mobile phones and other consumer 
+electronic devices, while nickel cobalt aluminium (NCA) is employed in commercial electric vehicle cells 
+manufactured by Panasonic and Tesla.  
+Challenges
+The major trade-off is between capacity and stability. Higher nickel content offers more energy, but reduced cycle 
+life.
+Although researchers have put a great deal of effort into optimising capacity and cycle life of nickel-rich cathodes, 
+the approach by itself can provide only incremental improvements in specific energy and energy density, rather 
+than the step-change needed to make them commercially viable. 
+15
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Development
+Developers have been busy experimenting with ratios of metal content, making small incremental changes to the 
+chemical composition of cells and testing them. Present-day fully commercial cells are thought to employ nickel, 
+manganese and cobalt at ratios of 1:1:1 (NMC111) and 5:2:3 (NMC523), offering capacities of around 155 and  
+165 mAh/g respectively. Prototypes using NMC622 and NMC811 ratios are believed to be close to market, 
+potentially delivering up to 175 and 200 mAh/g.      
+The alternative to tweaking chemistries is to radically redesign the physical structures of batteries, increasing the 
+percentage of active material inside from a typical 30 per cent to perhaps 50 per cent. LG has reengineered its 
+batteries to achieve 20% more energy in the same phone case. However, the Samsung Galaxy Note 7 serves as a 
+cautionary tale against attempting to pack too much into too small a space.
+Another way of increasing capacity of cells utilising NMC materials is to increase the operating voltage beyond  
+4.3 V. A group of South Korean researchers has recently demonstrated that NMC622 cycled to 4.5 V exhibits 
+greater stability and capacity after 100 cycles than NMC811 at 4.3 V.
+Many other potential developments are in the pipeline and Faraday Institution research through its next generation 
+cathode projects will be investigating some of these. Of particular note is the focus on engineered particles and 
+single crystal structures for the transition metal oxide chemistries and the inclusion of other elements such as 
+sulfur and halides.
+Applications
+- Portable electronic devices	
+Page 2
+- Electric vehicles	
+Page 3
+- Unmanned systems	
+Page 7
+Vanadium-based cathodes
+There are other families of high-capacity intercalation materials that would be compatible with existing lithium-ion 
+configurations, as well as having the potential to be used for future solid-state and lithium-metal cells. Vanadium-
+based materials have received considerable interest, with electroactive lithium vanadyl phosphate (LiVOPO4) 
+having shown particular promise.
+Advantages
+Like nickel-rich cathodes, those employing vanadium may provide higher capacity at a reduced material cost.
+Challenges
+LiVOPO4 and similar materials tend to exhibit low conductivity and poor cycle life. They are at lower technology 
+readiness levels, so have a long way to go before they are ready for commercialisation.
+Development
+Researchers from Germany and Estonia have reported intercalation of up to 420 mAh/g for Li2VO2F in half cells 
+16
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+with lithium. The cycle life reported in these experiments was modest, but the early results show promise. 
+Conductivity and cycle life issues were previously successfully overcome for LiFePO4 as a cathode material, 
+using a combination of carbon-coating and nanosizing, to the extent that its use is now widespread in large-scale 
+applications. A similar approach to improving performance has been considered for other materials, including 
+LiVOPO4. Collaboration between researchers at Binghampton University in the US and Professor Clare Grey’s 
+research group at Cambridge University reported reversible capacity of 250 mAh/g over 70 cycles for a ε-LiVOPO4 
+material.
+  
+Applications
+- Portable electronic devices	
+Page 2
+- Electric vehicles	
+Page 3
+- Unmanned systems	
+Page 7
+High-voltage cathodes
+Increasing a cell’s operating voltage by adopting new cathode materials, such as lithium-nickel-manganese oxide 
+(LNMO) and lithium cobalt phosphate or other transition metals such as manganese or vanadium, may increase 
+specific energy and energy density by improving the battery’s efficiency.
+Advantages
+Large battery packs, such as those used in today’s electric vehicles, are composed of multiple cells in a series. 
+The connections that join these cells are a source of resistance, causing incremental reductions in voltage as 
+electrons pass through them. It may be possible to counter this effect by increasing the operating voltage of each 
+cell, meaning fewer cells and associated interconnections are needed. This would reduce overall resistance and 
+increase the battery’s efficiency. This solution hypothetically decreases the mass and volume of the battery pack 
+without reducing its energy.     
+Challenges
+The main factor holding back the development of high-voltage cathodes is the absence of an equally high-voltage 
+electrolyte. Existing organic solvent-based electrolytes decompose and become unstable at higher voltages, 
+making them unusable – but a suitable synthetic alternative may not yet have been found. Efforts to date have 
+produced mixed results, with most suffering from very poor cycle life. Although some claim to have solved this, 
+evidence has been difficult to identify.
+Development
+To focus on novel cathode materials at this stage of development would be premature. More research is needed to 
+identify an electrolyte that can handle the voltages produced by the cathode. Only once the electrolyte material is 
+defined can the cathode material be developed. 
+Thankfully, such research is currently underway. Academia and small to medium-sized enterprises (SME) are 
+17
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+working together on potential remedies, including inorganic solid-state electrolytes and others based on ionic 
+liquids.  
+Researchers at the University of Maryland, led by Chunsheng Wang, have announced promising results for a 
+battery employing a LiCoMnO4 cathode with graphite and lithium metal anodes, which uses a specially designed 
+electrolyte stable to 5.5V. Using this electrolyte, LiCoMnO4 cells with lithium anodes can provide 720 Wh/kg for 
+1000 cycles at 5.3 V, while those with graphite anode produce 480 Wh/kg for 100 cycles at 5.2 V.
+In the UK, researchers at the University of Sheffield have produced a LiCoMnO4 cell which, when cycled between 
+3.0 and 5.3 V, exhibits higher capacity (up to 110 mAh/g), higher coulombic efficiency and better capacity retention 
+over the 20 cycles reported than cells using unmodified electrolyte. The researchers highlighted the need for 
+further optimisation of electrolyte composition to improve cycle life.
+Applications
+- Portable electronic devices	
+Page 2
+- Electric vehicles	
+Page 3
+- Unmanned systems	
+Page 7
+Silicon anodes
+Silicon is denser than graphite and possesses a much higher theoretical capacity, making it an attractive prospect 
+as an anode material. Silicon and silicon-oxide materials are already used alongside graphite in composite anodes 
+for some commercial cells, but these typically contain no more than around five per cent silicon by weight. Some 
+researchers are exploring ways to increase the silicon content of composite anodes, while others are trying to 
+produce anodes formed entirely out of the material. Although our focus here is on energy density, Silicon added 
+to the anode also allows the use of “fluffy” carbon material which has a higher power capability at the anode and 
+hence more rapid charging.
+Advantages
+The theoretical capacity of silicon, at 3600 mAh/g, is almost ten times that of graphite. This allows for much 
+thinner electrodes, ultimately resulting in a smaller cell that contains a lot more energy. Manufacturers of compact 
+consumer electronics are likely to watch this technology’s progress very closely. One Californian developer, Enovix, 
+claims that its pure silicon anode provides an 80% increase in energy density for wearable devices and 30% for 
+smartphones. The company does not provide metrics for specific energy, but in December 2018 another Californian 
+company, Amprius, reported that its silicon anode lithium-ion cells had been successfully demonstrated in Airbus’s 
+Zephyr S pseudo-satellite. This technology delivers specific energy of 435 Wh/kg, exceeding that of Zephyr’s 
+previous Li-S cells by around 100 Wh/kg. 
+Challenges
+Silicon ‘swells’ as it takes on lithium ions, increasing in size by up to 320 per cent. Repeated expansion and 
+contraction as the cell is charged and discharged causes the anode to fracture and degrade, leading to a rapid 
+decline in its capacity. 
+18
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Development
+Of the companies seeking to increase the silicon content of composite anodes, the UK’s Nexeon is perhaps the 
+most notable. The company has been developing silicon anode materials since 2006 and currently offers two 
+different types of silicon material. The first, NSP-1, is a silicon composite powder for use in conventional graphite 
+anodes to improve capacity. It is said to give typical anode capacity of 400 to 450 mAh/g. The second, NSP-2, is a 
+‘silicon-based material’ designed to mitigate expansion through a combination of engineered porosity at a particle 
+level and optimised anode design. According to Nexeon, the material provides a ‘significant’ increase in anode 
+capacity, although metrics have not yet been released. Further development of Nexeon’s silicon anodes continues, 
+partly funded by the Faraday Battery Challenge project SPICE (Silicon Product Improvement through Coating 
+Enhancement). The project team, which also includes Phoenix Scientific Industries (PSI), AGM Batteries, and the 
+Department of Materials at Oxford University, will develop enhanced carbon surface coatings for the silicon to 
+avoid the need for higher cost electrolyte additives.
+In the world of pure silicon anodes, several developers are researching innovative structures that are capable of 
+taking on more lithium without fracturing. Amprius has developed a porous, amorphous nanowire structure that 
+it claims reduces swelling to less than 30 per cent and eases stresses associated with expansion and contraction. 
+The anode can reportedly be used over ‘hundreds’ of cycles, closing in on the performance of graphite anodes. 
+Although Amprius’s own cell technology is not yet fully commercial, the company also provides its nanowire silicon 
+materials to be used as additives to graphite anodes in other manufacturers’ cells. 
+Dutch Company Leyden Jar uses a technique borrowed from the semiconductor industry called plasma-enhanced 
+chemical vapour deposition (PECVD) to deposit silicon onto a copper column. These porous anodes are produced 
+in a single manufacturing step and can reportedly be used to produce cells of up to 1200 Wh/l or 450 Wh/kg with 
+a cycle life of 570 cycles. If true, this would allow it to compete with Li-ion. Leyden Jar aims to demonstrate semi-
+commercial production in 2019.
+Both Amprius and Leyden Jar pair structured anodes with conventionally produced intercalation cathodes in a 
+standard Li-ion cell format, but Evonix has developed a whole cell architecture of its own, using silicon wafers 
+a millimetre thick stacked with the cathode and separator materials to form a three-dimensional structure. The 
+company claims its format is more volume-efficient than conventional lithium-ion products. A prototype cell 
+designed to fit in a smart watch is said to reach 695 Wh/l, compared to 460 Wh/l for the conventional lithium-ion 
+cell.
+Applications
+- Portable consumer electronic	
+Page 2
+- Electric vehicles	
+Page 3
+- Unmanned systems	
+Page 7
+Tin-based anodes
+Like silicon, tin can reversibly react to form alloys with lithium. While tin’s gravimetric capacity is lower than that of 
+silicon, its volumetric capacity is similar.
+The incorporation of tin-based anode materials into commercial cells predates silicon, with Sony‘s Nexelion 14430 
+lithium-ion cell, introduced in 2005. These cells employed a composite anode consisting of approximately half 
+19
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+graphite and half 1:1 tin-cobalt alloy.
+In 2011, Sony released a second-generation Nexelion cell in the common 18650 format, which achieved 723 Wh/l, 
+and 226 Wh/kg. At that time, this was around 30 per cent higher than equivalent cells based on graphite alone. 
+Advantages
+Tin anodes have high gravimetric and volumetric capacities. The theoretical capacity of pure tin is 993 mAh/g, 
+while tin oxide (SnO2) has a theoretical capacity of 782 mAh/g. Tin is also environmentally benign, inexpensive and 
+safe.
+Challenges
+Like silicon, tin exhibits large volume changes on cycling (300 per cent), leading to similar electrode degradation 
+and capacity fade issues.  
+Development
+Various strategies have been employed to minimise or accommodate the large volume change on cycling:
+• Composites with carbon-based materials to accommodate strain during cycling, such as carbon nanotubes and 
+microporous carbon
+• Intermetallic alloys with metals such as cobalt, copper, lanthanum, nickel, molybdenum, iron, manganese, silver, 
+vanadium or titanium
+• Tin compounds – oxides, fluorides, sulfides, nitrides 
+These materials have been employed in a number of tailored structures, such as core-shell, 2-D layered structures, 
+nanowires, nanotubes and anchored structures.
+In the research paper “Oxidized Co–Sn nanoparticles as long-lasting anode materials for lithium-ion batteries”, 
+published in the journal Nanoscale, the authors report a CoSn2Ox anode with a high capacity of 525 mAh/g after 
+1500 cycles – 92 per cent of the starting capacity.
+Researchers at the University of Southampton have reported a Sn3N4 anode for potential use in Li-ion and Na-ion, 
+but the practical specific capacities reported at 50 cycles are not particularly high, at 270 mAh/g for sodium and 
+370 mAh/g for lithium.
+A group of researchers including Dan Brett and Jawwad Darr of University College London has studied the effect 
+of a range of nine different metal ion dopants on the performance of SnO2 anodes. Of the dopants tested, only 
+the sample with nine per cent cobalt was shown to enhance performance over the non-doped material, giving a 
+capacity of 953 mAh/g and coulombic efficiency of 79.4 per cent, compared to 812 mAh/g and 62.5 per cent for 
+un-doped SnO2. The researchers concluded that doping may not be beneficial for increasing energy density if the 
+electrodes were to be used in full cells in the future.
+	
+	
+	
+20
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Applications
+- Portable consumer electronics	
+Page 2
+- Electric vehicles	
+Page 3
+- Unmanned systems	
+Page 7
+Conversion electrodes
+Unlike lithium-ion batteries based on intercalation, in which lithium ions shuttle between a lithium-metal oxide 
+cathode and a graphite anode, conversion batteries produce current via a reversible chemical reaction. 
+This mechanism is not uncommon in other battery systems; both lead acid and sodium sulfur are examples of 
+large-scale commercial battery systems based on conversion chemistry as are currently commercial lithium-sulfur 
+and metal-air cells.
+Advantages
+Various materials have been investigated for use as conversion anodes, such as metal oxides, phosphides, sulfides 
+and nitrides, all of which offer higher theoretical specific capacities than graphite, ranging from 500 to 1800 mAh/g. 
+This would enable production of a battery with a greater capacity than existing graphite-based models, but without 
+the disadvantages associated with silicon.
+A number of materials have also been studied as potential conversion cathodes, the attraction being a much higher 
+specific capacity than the conventional lithium-ion cathode.
+Examples are:
+• Fluorides: TiF3, VF3, CrF3, FeF3, NiF2, CoF2, CuF2
+• Chalcogenides: Li2S, Li2Se, Li2Te
+As well as a high specific capacity, CuF2 has a theoretical operating voltage which is close to that of intercalation 
+cathodes and so offers the clearest potential benefit as an alternative cathode material. It has been projected that 
+an idealised CuF2 based cell could achieve 1896 Wh/l and 983 Wh/kg with a lithium anode, and 980 Wh/l and  
+420 Wh/kg even with a conventional graphite anode.
+Challenges
+Conversion systems have several drawbacks.
+Because energy must be expended in the reaction, there is usually significant hysteresis between charge and 
+discharge voltage, which has been attributed to differing electrochemcial reaction paths for the charge and 
+discharge processes. This results in reduced energy efficiency (often less than 80 per cent) compared to lithium-ion 
+(typically greater than 99 per cent under ideal charging conditions) and heat generation, which may be difficult to 
+manage.
+The conversion reactions also tend to result in major structural reorganisation, potentially leading to loss of 
+electrical contact and degradation of the electrode, and in turn limiting cycle life.
+Conversion anodes typically exhibit much greater first-cycle irreversibility than conventional anodes, which must 
+be compensated for by starting with a larger excess of the cathode material for example, potentially negating some 
+21
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+of the capacity increase.
+With the exception of CuF2, many conversion cathodes exhibit much lower electrode potentials than existing lithium 
+ion cathode materials, so would not be a direct replacement for existing lithium-ion systems. 
+These types of materials also typically react with conventional electrolytes, so new electrolyte systems must be 
+developed.
+Development
+The range of possible conversion anode and cathode materials is very wide, but all are at a low technology 
+readiness level. At this early stage it is difficult to predict which are most likely to succeed, and such work is 
+probably best suited at present to academia.
+Academics in China have reported a nanocrystalline manganese(II) fluoride anode material with a reversible 
+capability of 481.9 mAh/g at 0.1 C for the first cycle and stable discharge capability of 530.5 mAh/g and  
+359.2 mAh/g at 0.1 C and 1 C for 250 cycles respectively .
+The article “High energy-density and reversibility of iron fluoride cathode enabled via an intercalation extrusion 
+reaction,” published in Nature Communications, reports a system that achieved good reversibility over 1000 cycles 
+and 420 mAh/g capacity using iron fluoride nanorods doped with cobalt and oxygen. Not only does this system 
+achieve an energy density of around 1000 Wh/kg with a decay rate of only 0.03% per cycle, but the authors believe 
+the co-substitution strategy could be extended to improve the performance of other high energy conversion 
+cathodes.
+Iron fluoride (FeF3) shows promise as a conversion-intercalation cathode material for lithium-ion cells, as it has a 
+very high theoretical specific capacity of 712 mAh/g, but unfortunately exhibits poor electrochemical reversibility.
+In the UK, Professor Clare Grey has previously collaborated with researchers at Brookhaven National Laboratory, 
+State University of New York at Binghamton, Rutgers University, and Stony Brook University on binary fluoride 
+(FeF2 and CuF2) conversion cathodes.
+Applications
+Due to the range of different properties, it is too early to 
+specify applications.
+  
+ 
+22
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Technologies: part three
+Lithium-metal cells
+Lithium-oxygen
+Metal-air cells, which use oxygen from the air as the active cathode material and a reactive metal as the anode, 
+have been something of a holy grail in battery research circles since the 1970s. In a lithium-oxygen (also known 
+as lithium-air) cell, current is generated by the oxidation of lithium at the anode and reduction of oxygen at the 
+cathode. Recharging reverses the reaction, returning the oxygen to the atmosphere. In theory, lithium-oxygen 
+provides the highest possible specific energy of any battery, but much research is needed before the theoretical 
+possibilities can translate into reality.   
+Advantages
+Lithium-oxygen cells have the potential to provide up to five times the energy density of current Li-ion technology. 
+Using just 60 kg of these batteries – roughly the same mass as a full petrol tank – a 2000 kg electric vehicle could 
+travel 500 kilometres on a single charge. 
+The other obvious advantage of using air as a cathode material is that it is free and abundant, although it is too 
+early to know for certain whether the resulting cost savings will compensate for other expenses incurred during 
+the manufacturing process.  
+Challenges
+Most prototypes are tested using pure oxygen, but for a lithium-oxygen cell to be commercially viable it would 
+need to operate without an air tank using the normal air around it. The air that we breathe contains many 
+contaminants, such as moisture and carbon dioxide, which can degrade the battery’s component parts, leading to 
+poor reversibility and cycle life. 
+The technology is currently inefficient due to an imbalance between the battery’s input voltage when charging and 
+output voltage when discharging, which causes up to 30 per cent of electrical energy to be wasted as heat during 
+each cycle. 
+Although its energy density is very high, the rate at which a lithium-oxygen battery discharges that energy is lower 
+than contemporary Li-ion batteries, meaning power is limited. Using a lithium-oxygen battery, an electric vehicle 
+could drive for a long time on a single charge, but at the cost of speed, acceleration and charging performance. 
+Lastly, the reduction of oxygen requires a reaction surface and catalyst. The materials currently in the frame to 
+fulfil this role – such as manganese, cobalt, ruthenium, platinum, and silver – tend to be expensive, and so work is 
+still needed to identify cost-effective, stable materials that are up to the task. 
+Development
+A recent paper from researchers at Linda Nazar’s group at The University of Waterloo in Canada demonstrated 
+a novel inorganic electrolyte Li-O2 cell that operates at 150°C . By operating at elevated temperature, the cell was 
+shown to reversibly cycle at close to 100 per cent efficiency for 150 cycles with pure oxygen, delivering a capacity 
+of 11 mAh/cm2. Although such a high operating temperature would not lend itself to consumer electronics, if 
+developed further it could be suitable for electric vehicles and large scale energy storage.
+23
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+UK academic researchers continue to play a major role in the development of lithium-air batteries with many 
+leading battery scientists investigating potential solutions.  
+Despite promising progress, commercialisation of lithium-oxygen technology is thought to be at least five to 
+10 years away. The first products are likely to be very high energy primary cells for niche applications, as 
+rechargeability remains the biggest hurdle for a cell operating on normal air.
+Applications
+- Electric vehicles	
+Page 3
+- Large-scale storage	
+Page 9
+Technologies: part four
+Solid-state batteries
+Solid-state batteries
+As the name suggests, solid-state batteries are distinguishable by their lack of liquid electrolyte. They instead rely 
+on inorganic solid-state electrolytes, which generally fall into one of three classes: ceramics; glasses; or sulfides. 
+Earlier attempts to use organic polymers failed to bear fruit, largely because the materials had to be heated to 
+between 60 and 80 degrees Celsius. The newer synthetic materials can function at room temperature, prompting 
+a resurgence of interest that has led solid-state cells to be considered among the most promising future battery 
+technologies. In the past, manufacturing techniques have generally limited their potential uses to micro-scale 
+devices operating at low power, but a great deal of research is now being conducted in an effort to scale up the 
+technology. This research is strongly supported by major motor manufacturers such as Ford, General Motors, 
+Toyota, BMW, Honda and Volkswagen.
+Advantages
+The potential risk of contemporary Li-ion batteries to ignite when damaged or faulty remains a driving force behind 
+the search for an alternative. Solid-state batteries, by dispensing with flammable liquid electrolytes, could go a 
+long way to allaying these concerns.
+Solid-state electrolytes are generally compatible with existing cathode materials and should also be capable 
+of tolerating future, higher-voltage cathodes. They have been touted as one of the most promising options for 
+enabling the use of lithium metal anodes, opening the door for higher energy density and specific energy.
+The solid electrolytes possess lower conductivity than liquids, but can be made thinner to compensate – which 
+may actually prove an advantage, as a greater proportion of the cell can be made up of active material, increasing 
+energy density.
+Finally, it may be possible to print solid-state batteries using additive manufacturing techniques, which could 
+significantly reduce production costs and turnaround times.
+24
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Challenges
+Although the use of solid-state electrolytes is widely promoted as a means of enabling the use of lithium metal 
+anodes by prohibiting dendrite penetration, recent research has cast doubt on that assertion. In response 
+to adverse findings by other researchers, a team from the University of Maryland and Oak Ridge National 
+Laboratory in the US examined dendrite formation and observed that it was actually easier for them to form in 
+high-conductivity solid electrolytes than in conventional liquids. They concluded that the cause of lithium growth 
+is independent of the density of the solid electrolyte or its structural integrity, but is in fact directly linked to the 
+high conductivity. The findings of this work contrast strongly with the general direction of solid-state electrolyte 
+research, which has been to improve electrical performance by increasing the conductivity of the solid electrolyte.  
+Development
+Developers of solid-state battery technology include US company SolidPower, a spinoff from the University of 
+Colorado at Boulder. According to its website its cells use lithium metal anodes, a “high ionic conductivity inorganic 
+solid separator&quot; and a high capacity cathode. The company is reported to have made laboratory scale cells at  
+400 to 500 Wh/kg, capable of up to 500 charge cycles and projects the following metrics at an unspecified cell 
+scale:
+- Specific energy: 320-700 Wh/kg
+- Energy density: 700-1100 Wh/l
+- Power density: &gt;1000 Wh/kg
+- Cycle life : &gt;1000 cycles
+- Shelf life: &gt;10 years
+Another US developer, Ionic Materials, has developed a solid-state polymer electrolyte which exhibits high 
+conductivity at room temperature. Rather than develop its own cells, Ionic sees its novel electrolyte as an enabler 
+across a variety of different chemistries, including lithium-sulfur and lithium-metal cells with conventional 
+cathodes. To accelerate commercialisation of its technology, it has teamed with A123 Systems to develop electric 
+vehicle-sized NMC/graphite lithium-ion cells, which it aims to begin manufacturing on a large scale as soon as 
+2022.
+In the UK, Ilika is developing lithium-ion technology using an inorganic solid-state electrolyte. Ilika’s current 
+products are micro-batteries designed for sensors, Internet of Things (IoT) devices and other small-scale 
+applications. Starting in around 2020, the company plans to scale up its technology to electric vehicles and 
+stationary power. It claims the new range could reach 1000 Wh/kg with a 10-year operating life, but has not yet 
+given an indication as to how this scale-up might be achieved.
+ Applications
+- Small consumer electronics	
+Page 2
+- Electric vehicles	
+Page 3
+- Large-scale energy storage	
+Page 9 
+25
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Technologies: part five
+Beyond lithium
+Multivalent ion chemistries
+Lithium is a monovalent metal, meaning it is capable of transferring just one electron per atom of lithium during 
+the cell reaction. Multivalent metals are those capable of transferring more than one electron per atom. Using 
+these metals in batteries could increase their energy, so there is interest in applying them to cells that use similar 
+chemistries to lithium-ion. The metal that has received the most attention is magnesium, which can transfer two 
+electrons – but others include calcium and zinc, each able to transfer two electrons, and aluminium, which can 
+transfer three.
+Advantages
+Magnesium as an anode material has a high volumetric capacity, offering 3833 mAh/cm3 compared to the  
+2046 mAh/cm3 provided by lithium. It is safe to use in its metallic form and does not form dendrites, which 
+removes many of the practical difficulties associated with lithium-based cells. It is also more abundant and less 
+expensive than lithium, making it an attractive prospect for certain mass-market applications.
+Challenges
+The principle issue facing developers is finding a suitable cathode material to match.
+In general, magnesium intercalation is very slow at room temperature, resulting in significant voltage hysteresis 
+between charge and discharge. Even the most successful intercalation cathode demonstrated to date at room 
+temperature exhibits low capacity, at 120 mAh/g, and low voltage, at 1.2 V. Others exhibit higher voltage and 
+therefore a higher theoretical capacity of up to 400 Wh/kg, but show very poor intercalation ability at room 
+temperature.
+One way of overcoming this may be to couple a magnesium metal anode with a mature lithium-ion battery type 
+cathode, but this arrangement requires a significant excess of electrolyte, which negatively impacts energy density 
+and specific energy.
+Development
+Rechargeable magnesium batteries have only been seriously studied for around a decade, so are in their infancy in 
+comparison to Li-ion systems. There are potential long-term benefits, but it is difficult to assess which is the most 
+promising of the large number of systems studied.
+In the UK, research into multivalent chemistries is being performed by several research groups. The universities of 
+Cambridge and Sheffield are investigating magnesium-ion, while Southampton University is exploring aluminium-
+ion.
+Elsewhere, the 2018 article, “A critical review of cathodes for rechargeable Mg batteries,” published in the journal, 
+Chemical Society Reviews, reports on the range of potential cathode materials, and on the large number of 
+intercalation, conversion and redox cathodes.
+26
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+All multivalent chemistries are at a comparable stage of development and present similar issues. It would appear 
+that none of the technologies studied to date are likely to yield a practical high energy system in the near future, 
+although low-cost, low-energy versions may reach commercialisation in the interim.
+Applications
+- Large-scale energy storage	
+Page 9 
+Aluminium-air
+Following the same basic concept as lithium-air, the aluminium-air variant has garnered much interest as a lower-
+cost alternative to high-energy battery technology’s ”holy grail.” Electricity is generated as the aluminium anode 
+reacts with oxygen in the air, which can either be introduced passively via a membrane or similar component, or 
+delivered actively using pumps or fans. 
+The aluminium is consumed by the reaction and so currently these batteries cannot be recharged in the 
+conventional electrochemical sense. The current early variants are designed to be mechanically recharged by 
+removing waste discharge products, installing new aluminium anodes and replacing the electrolyte.
+Advantages
+Such systems are proposed for a variety of applications, including electric vehicles, where they are thought to offer 
+up to eight times the driving range of a lithium-ion battery. The aluminium anode is claimed to enable a practical 
+specific energy of 8000 Wh/kg, and a car powered by the technology could conceivably travel over 1000km on 
+a single charge. Although the battery is not electrochemically rechargeable, the aluminium waste products are 
+readily recyclable, minimising the environmental impact of disposal associated with many other battery types.
+Challenges
+The flow of current can be inhibited by an oxide layer that forms on the aluminium surface, limiting the 
+battery’s performance. To counter this effect, the cell must either employ specialised aluminium alloys, which 
+can be expensive, or rely on electrolytes that are corrosive and typically caustic, making safe handling and 
+environmentally-friendly disposal a challenge. 
+The need to access air probably precludes routine use in consumer electronics, which are increasingly sealed to 
+protect against dust and water ingress. Air delivery is not an issue for vehicles, for which fans and air pumps have 
+long been features, although the inability to electrically recharge may present a problem for domestic car owners. 
+The process of mechanically charging the battery is cumbersome and requires specialist equipment, meaning 
+the technology is best suited to organisations with fleets of vehicles, where the recharging infrastructure can be 
+centralised. The cars themselves may have to be redesigned from the ground up to accommodate the batteries, 
+which are unlikely to be compatible with existing vehicle architectures.     
+Development
+Israeli company Phinergy is the source of the “1000-mile” claim. With the backing of Alcoa, the world’s largest 
+aluminium producer, it demonstrated its aluminium-air concept car at the Circuit Gilles-Villeneuve in Montreal in 
+2014, subsequently raising $50m in investment.
+27
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Phinergy has also produced a containerised 5.8 kWh system for marine energy storage.
+In the UK, aluminium-air technology is being developed by Métalectrique, which claims up to 1300 Wh/kg for 
+a vehicle-sized system. It is also developing a specialised military battery product which is probably nearer 
+commercialisation. Métalectrique’s key intellectual property is its proprietary electrolyte, which is non-corrosive 
+but still allows the use of inexpensive aluminium grades.
+Applications
+- Electric vehicles	
+Page 3
+- Large-scale energy storage	
+Page 9 
+Conclusions
+What is the best high-energy battery technology available today?
+Lithium-ion is the incumbent market leader, favoured because of its high energy density, high specific energy, and 
+versatility that makes it suitable for applications from consumer electronics to electric vehicles. The European 
+Commission expects annual demand for car batteries and energy storage to increase by ten times between 2018 
+and 2028, and predicts a further surge before 2030 as mass manufacturing halves the cost of lithium-ion cells 
+through economies of scale and streamlined production processes. Lithium-ion’s past track record, and continuing 
+ability to satisfy some of today’s most demanding energy challenges, means it will remain the battery of choice for 
+at least the next ten years.
+However, lithium-ion is not perfect. Safety issues, while still relatively rare, have led to a number of very high-
+profile incidents in which the batteries in mobile devices and electric vehicles have caught fire, putting their users 
+in danger and causing financial and reputational damage to the manufacturers. Most companies would be keen to 
+reduce this risk by embracing safer alternatives, if researchers are able to prove that they are high performing and 
+cost effective.
+We are also witnessing a slowdown in advancement regarding conventional lithium-ion batteries, in which 
+improvements are becoming ever more incremental as they approach the physical performance limits. Progress 
+may not come to a complete halt, but it is not inconceivable that other technologies will begin to overtake it within 
+the next decade as research into alternative chemistries gains momentum.     
+What is the most promising emerging technology?
+In the near-term, variants on existing lithium-ion formats will produce the biggest gains in energy density and 
+specific energy. The use of higher energy cathode materials such as lithium nickel cobalt aluminium oxide (NCA) 
+and lithium nickel manganese cobalt oxide (NMC) has led to increased capacity in commercial cells, but in the near 
+to medium-term augmenting or replacing graphite as the standard anode material is likely to offer more significant 
+improvements. Silicon is becoming increasingly common in small quantities in some commercial cells and some 
+scientists have high hopes for pure silicon and tin-based anodes, which could deliver big increases in energy 
+density if efforts to mitigate degradation caused by swelling prove successful.
+28
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Developing in parallel with silicon and tin anodes, lithium metal offers the most scope for increased capacity. With 
+existing prototypes reaching 500 Wh/kg specific energy and 1200 Wh/l energy density, lithium metal could prove 
+twice as effective as lithium-ion; but only if developers can demonstrate sufficient cycle life and solve the safety 
+problems caused by dendrite formation.
+In the long term, developers will continue their quest for the holy grail of high-energy battery technology. Metal-
+air cells are potentially five times more energy dense than today’s lithium-ion technology and use air as a cathode 
+material, which is abundant, free to obtain, and environmentally friendly. However, there is still a long way to 
+go before the technology’s efficiency, power, durability, and affordability reach levels that will make it a realistic 
+commercial prospect.     
+Looking even further ahead, battery users could benefit from research that produces lower-cost alternatives to 
+lithium. In addition to the well-publicised safety issues, international trade wars and political instability in the 
+countries in which lithium is mined means continuity of the supply chain may not always be guaranteed and prices 
+may be prone to unpredictable fluctuations. Magnesium, calcium, zinc and aluminium are all being investigated, but 
+have yet to yield a practical high-energy system.  
+The final word
+While there are several possible contenders to lithium-ion’s throne, there is no single silver bullet that will solve all 
+challenges for all markets. Any organisation seeking to electrify its products and services, or increase the energy 
+of its existing offerings, must understand the unique properties of each battery type and choose the solution 
+that is the best fit for its specific purpose. That decision will inevitably involve an acceptance of compromises, 
+as maximising a system’s energy density or specific energy may come at the cost of power, cycle life, safety or 
+affordability. Developers must consider the extent to which energy adds value, and decide what they are willing to 
+sacrifice to maximise it. 
+29
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+References
+1 Lithium battery market to experience rapid growth (Environment Analyst, 2019) 
+https://environment-analyst.com/dis/79774/lithium-battery-market-to-experience-rapid-growth 
+2 A decade of digital dependency (Ofcom, 2018) 
+https://www.ofcom.org.uk/about-ofcom/latest/media/media-releases/2018/decade-of-digital-dependency
+3 Forget 5G and foldable. We just want it to last all day: What you want from new smartphone (USA Today, 2019) 
+https://eu.usatoday.com/story/tech/2019/02/20/5-g-foldable-phone-better-battery-what-you-want-from-your-
+next-smartphone/2883789002/ 
+4 Smartphone Ownership Is Growing Rapidly Around the World, but Not Always Equally (Pew Research, 2019) 
+https://www.pewresearch.org/global/2019/02/05/smartphone-ownership-is-growing-rapidly-around-the-world-
+but-not-always-equally/ 
+5 Consumer Use &amp; Perceptions of Portable Power (Consumer Technology Association, 2017) 
+https://shop.cta.tech/collections/Research/products/consumer-use-perceptions-of-portable-power
+6 Samsung confirms battery faults as cause of Note 7 fires (BBC, 2017) 
+https://www.bbc.co.uk/news/business-38714461 
+7 Government launches Road to Zero Strategy to lead the world in zero emission vehicle technology (Gov.uk, 2018) 
+https://www.gov.uk/government/news/government-launches-road-to-zero-strategy-to-lead-the-world-in-zero-
+emission-vehicle-technology 
+8 Ban diesel and petrol cars by 2030, government told (The Times, 2019) 
+https://www.thetimes.co.uk/article/ban-diesel-and-petrol-cars-by-2030-government-told-qq973lqz0 
+9 Consumer Uptake Trial Report: Mainstream consumers’ attitudes and willingness to adopt BEVs and PHEVs 
+(Transport Research Laboratory, 2019) 
+https://trl.co.uk/sites/default/files/CVEI%20D5.2%20Consumer%20Uptake%20Trial%20Report_0.pdf
+10 Americans Cite Range Anxiety, Cost as Largest Barriers for New EV Purchases (The Drive, 2019) 
+https://www.thedrive.com/news/26637/americans-cite-range-anxiety-cost-as-largest-barriers-for-new-ev-
+purchases-study 
+11 Average number of trips made and distance travelled (Gov.uk, 2019) 
+https://www.gov.uk/government/statistical-data-sets/nts01-average-number-of-trips-made-and-distance-
+travelled 
+30
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+12 Lithium-ion Battery Safety Issues for Electric and Plug-in Hybrid Vehicles (National Highway Traffic 
+Safety Administration, 2017) https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/12848-
+lithiumionsafetyhybrids_101217-v3-tag.pdf 
+13 Licerion product specification (Sion Power website) 
+https://sionpower.com/products/ 
+14 Reducing emissions from aviation (European Commission website) 
+https://ec.europa.eu/clima/policies/transport/aviation_en
+ 
+15 Energy Storage Investments Boom As Battery Costs Halve in the Next Decade (Bloomberg NEF, 2019) 
+https://about.bnef.com/blog/energy-storage-investments-boom-battery-costs-halve-next-decade/ 
+16 Li-ion batteries for mobility and stationary storage applications (European Commission Joint Research Centre, 
+2018) 
+https://publications.jrc.ec.europa.eu/repository/bitstream/JRC113360/kjna29440enn.pdf
+17 ALISE Advanced Lithium Sulphur battery for xEV D7.4 Market Analysis, H2020-NMP17-GV-2014 – 2014 
+Post-lithium ion batteries for electric automotive applications: Collaborative project, Ref. Ares (2018)3205635, 
+18/06/2018.
+18 Xianji Li, Andrew L. Hector, John R. Owen and S. Imran U. Shah, Evaluation of nanocrystalline Sn3N4 derived 
+from ammonolysis of Sn(NEt2)4 as a negative electrode material for Li-ion and Na-ion batteries, Journal of 
+Materials Chemistry A, Volume 4, Pages 5081-5087, 2016.
+19 Mechthild Lübke, Ding Ning, Ceilidh F. Armer, Dougal Howard, Dan J.L. Brett, Zhaolin Liu, Jawwad A. Darr, 
+Evaluating the Potential Benefits of Metal Ion Doping in SnO2 Negative Electrodes for Lithium Ion Batteries, 
+Electrochimica Acta, Volume 242, Pages 400-407, 2017
+20 Yiyong Wei, Xiaohang Ma, Cheng Yang, Bangchuan Zhao, Xuebin Zhu,Changhao Liang, Zhenfa Zi and Jianming 
+Dai, Facile solvothermal preparation of nanostructured MnF2 as outstanding anode materials for lithium-ion 
+batteries, Journal of Electroanalytical Chemistry, Volume 840, pages 237–241, 2019.
+21 C. Xia, C. Y. Kwok, L. F. Nazar, A high-energy-density lithium-oxygen battery based on a reversible four-electron 
+conversion to lithium oxide, Science, Volume  361, pages 777–781, 24 August 2018.
+22 Fudong Han, Andrew S. Westover, Jie Yue, Xiulin Fan, Fei Wang, Miaofang Chi, Donovan N. Leonard, Nancy 
+J. Dudney, Howard Wang and Chunsheng Wang, High electronic conductivity as the origin of lithium dendrite 
+formation within solid electrolytes, Nature Energy, Volume 4, pages 187–196, 2019.
+31
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Sector
+Current or recent market 
+value (2014-18) (US$)
+Prediction date 
+range
+Market value 
+in prediction 
+(US$)
+CAGR (%)
+Portable consumer electronics
+1,172 billion
+2018-2024
+1,787 billion
+6.0
+Portable consumer electronics 
+batteries (0-3000 mAH vs. NMC)
+N/A
+2018-2026
+29.28 billion
+N/A
+N/A
+2018-2026
+39.01 billion
+N/A
+Electric vehicles
+118.86 billion
+2018-2025
+567.3 billion
+22.3
+Electric vehicle batteries
+23 billion
+2017-2025
+84 billion
+17.2
+Civil aviation
+N/A
+2019-2024
+224.5 million
+N/A
+E-VTOL
+N/A
+2019-2027
+315.2 million
+12.6
+High altitude platforms
+2.3 billion
+2015-2023
+4.77 billion
+8.7
+Unmanned systems (UAV vs. USV)
+18.14 billion
+2018-2025
+52.3 billion
+14.15
+534 million
+2018-2023
+1.02 billion
+13.8
+   
+Appendix 1 - Estimated value
+32
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Appendix 2 - Emerging technology summary
+Time to  
+commercialisation
+Battery 
+type
+Development 
+Status
+Nominal cell 
+voltage/V
+Specific 
+Energy/
+Wh/kg
+Energy  
+Density/ 
+Wh/l
+Cycle life
+Notes
+Available now
+Lithium- 
+ion with 
+graphite/
+silicon 
+anodes and 
+NCA or NCM 
+cathodes
+State-of-the-art 
+commercial 
+cells
+3.7 
+240 - 270 
+600-650
+1000 -2000 
+e.g. Tesla 21700 
+cylindrical cells 
+(NCA) NCM 532 
+cathode cells pouch 
+or cylindrical formats
+Commercial 
+prototype cells
+3.7 
+Up to ~300
+Up to ~700
+&gt;1000  
+NCM 622/811 
+cathodes
+Ready for 
+commercialisation
+Lithium-ion 
+with pure 
+silicon 
+anodes and 
+nickel-rich 
+cathodes
+Commercial 
+prototype cells
+Not specified
+465
+Not 
+specified
+Not specified
+Amprius Si-nanowire 
+anode cells– as 
+demonstrated in 
+Airbus Zephyr-S
+Not specified
+Up to 450 
+(projected)
+Up to 1200 
+(projected)
+&gt;570
+Leyden Jar PECVD 
+anode
+Lithium 
+metal 
+anode– 
+NCM 
+cathode
+Commercial 
+prototype cells
+3.82
+426 – 496
+807-929
+&gt;350
+Sion Power “Licerion” 
+6 Ah and 20 Ah cell 
+variants
+3.8
+450
+838 for 
+prototype 
+cell, “up 
+to” 1200 
+projected
+&gt;120
+Solid Energy 
+“Hermes” 3 Ah 
+cell prototype 
+(+projected future 
+cell performance for 
+larger cells)
+Lithium-
+sulfur
+Commercial 
+prototype cells
+2.1
+400 
+(up to 550 
+projected 
+for future 
+cells)
+300 
+(up to 500 
+projected 
+for future 
+cells)
+60-100 (100% 
+depth of 
+discharge)
+~200 (60% 
+depth of 
+discharge)
+Oxis Energy 14.7 Ah 
+cell
+Up to 5 years
+Solid state 
+electrolyte 
+cells with 
+lithium 
+metal 
+anode and 
+nickel-rich 
+intercalation 
+cathode
+Commercial 
+prototype or 
+pre-prototype 
+cells
+~3.8 V
+400-700
+(up to 1000 
+projected 
+for future)
+700-1100
+&gt;1000 
+Current and near-
+future metrics based 
+on SolidPower cell 
+characteristics.
+Both Ilika (UK) and 
+Innolith (Switzerland) 
+project 1000 Wh/kg 
+achievable for EV-
+scale system based 
+on lithium-metal 
+anode based system.  
+No information is 
+provided by either 
+developer on how 
+this would be 
+practically achieved
+Aluminium-
+air
+Commercial 
+prototype or 
+pre-prototype 
+cells
+~1.5 – 2 V 
+(dependant  
+on air  
+electrode 
+characteristics 
+and system 
+design)
+Up to  
+1300 
+claimed
+Not 
+specified
+Not electrically 
+rechargeable – 
+“mechanically 
+rechargeable” 
+by anode and 
+electrolyte 
+replacement
+Developers include 
+Métalectrique (UK), 
+Phinergy (Israel)
+continued on next page
+33
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Appendix 2 - Emerging technology summary (continued)
+Time to  
+commercialisation
+Battery 
+type
+Development 
+Status
+Nominal cell 
+voltage/V
+Specific 
+Energy/
+Wh/kg
+Energy  
+Density/ 
+Wh/l
+Cycle life
+Notes
+Over 5 years
+High voltage 
+LiCoMnO4 
+cathode 
+with lithium 
+metal or 
+graphite 
+anodes
+Small scale 
+Laboratory 
+prototype cells
+4.7-5.3  
+(vs Li)
+4.6-5.2  
+(vs graphite)
+720  
+(vs Li)
+480  
+(vs graphite)
+Not 
+specified
+1000 vs 
+lithium in test 
+cells, lithium-
+ion cells with 
+graphite 
+exhibited only 
+100 cycles
+Wang Chunsheng 
+– University of 
+Maryland
+Li-metal cells might 
+achieve ~1300-
+1400 Wh/l if exhibit 
+similar relationship 
+between mass 
+and volume as 
+comparable cells
+Conversion 
+cathode
+(Fe0.9Co0.1OF)
+Small scale 
+laboratory 
+prototype cells
+~2 V  
+(average 
+voltage 
+for sloping 
+discharge 
+profile)
+1000 in 
+“half-cell” 
+tests vs Li
+Not 
+specified
+1000 cycles 
+in half- cell 
+tests
+Most promising 
+example data for 
+Fe0.9Co0.1OF nanorods 
+given.  Such systems 
+suffer from large 
+voltage hysteresis 
+and typically exhibit 
+poor cycle life in full 
+cells
+Up to 10 years
+Lithium-
+oxygen / 
+lithium-air
+Low TRL - 
+laboratory 
+research
+~2.9
+Up to 3500 
+(theoretical) 
+Up to 1000 
+projected for 
+a practical 
+system
+Dependent 
+on system
+100s to 1000s 
+(depending 
+on depth of 
+discharge) in 
+oxygen.
+Good cycle life 
+has only been 
+successfully 
+demonstrated 
+using pure oxygen. 
+Potential first 
+commercialisation 
+as high capacity 
+primary.
+Conversion 
+anodes
+e.g. 
+transition 
+metal 
+oxides, 
+phosphides, 
+sulfides and 
+nitrides
+Low TRL - 
+laboratory 
+research
+Dependent  
+on system
+Dependent 
+on system
+Dependent 
+on system
+Poor cycle life
+High theoretical 
+capacity (~500 to 
+1800 mAh/g), but 
+suffer from large 
+voltage hysteresis, 
+poor cycle life 
+(as a result of 
+deterioration 
+because of 
+structural 
+reorganisation).
+Multivalent 
+intercalation 
+cell 
+chemistries 
+based on 
+aluminium, 
+calcium, 
+magnesium 
+or zinc
+Low TRL - 
+laboratory 
+research
+Dependent  
+on system
+Dependent 
+on system
+Dependent 
+on system
+Dependent  
+on system
+Systems tested to 
+date exhibit poor 
+performance vs the 
+theoretically high 
+capacity predicted 
+based on the multi-
+electron reactions 
+for multivalent 
+systems.
+If projected high 
+energy performance 
+remains 
+unachievable these 
+systems may still 
+offer cost benefits 
+for large-scale 
+energy storage 
+application. 
+ 
+34
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+Notes on status definitions used in the table: 
+Commercial cells – full-commercial scale manufacturing and supply.
+Commercial prototype cells – cells available to selected customers for evaluation or in-house prototype versions of 
+next-generation products, which are amendable to production scale-up in the near term. 
+Commercial pre-prototype – cells demonstrated by commercial developer in-house, which also have been 
+validated by independent testing. Potential for scale-up to commercialisation within 5 years.
+Small scale laboratory prototype cells – demonstrations of small-scale cells (typically in academic/national 
+Research laboratory environment. Projection of representative cell specific energy and/or energy density 
+characteristics. Possible commercial exploitation in 5+ years.
+Low-TRL laboratory research – individual anodes, cathodes or other components demonstrated at test-cell level.  
+Often results reported are for so-called “half-cell” tests vs lithium. In such cases, the lithium electrode is usually in 
+large excess, which can result in unrealistic prediction of cycle life and other metrics. There may be limited or no 
+projection of full cell characteristics. Further R&amp;D required to exploit on 5-10 year timescale at best.
+35
+
+FARADAY REPORT - HIGH-ENERGY BATTERY TECHNOLOGIES
+CONTACT 
+Ian Ellerington
+Head of Technology Transfer
+ian.ellerington@faraday.ac.uk
+www.faraday.ac.uk
+01235 425124
+07741 853065
+36
+</pre>
+<script>const m=document.querySelector("mark"); if (m) m.scrollIntoView({block:"center"});</script>
+</body></html>

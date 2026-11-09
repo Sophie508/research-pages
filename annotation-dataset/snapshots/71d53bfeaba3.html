@@ -1,0 +1,916 @@
+<!DOCTYPE html><html lang="en" translate="no"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshot of a source page</title><style>
+body{font:15px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fff;color:#111}
+.top{background:#fff6e0;border:1px solid #f0d58c;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+pre{white-space:pre-wrap;font:inherit} mark{background:#ffe36e;padding:0 2px}
+</style></head><body>
+<div class="top"><b>Text copy of a source page</b>, as our pipeline read it when it was read. Layout and images are not kept.
+The marked passages are where the page is most relevant to the evidence statement.<br>
+Original page: <a href="http://www.faraday.ac.uk/wp-content/uploads/2023/07/Faraday_Insights_17_July2023_FINAL.pdf" target="_blank" rel="noopener">http://www.faraday.ac.uk/wp-content/uploads/2023/07/Faraday_Insights_17_July2023_FINAL.pdf</a></div>
+<pre>Faraday Insights - Issue 17: July 2023
+Improving the Safety of Lithium-ion Battery Cells
+Paul Christensen, Wojciech Mrozik, Newcastle University
+Julia Weaving, University College London
+Lithium-ion battery cells in electric vehicles are already safe and failure incidents are very rare. 
+But with increasing use across automotive, stationary storage, aerospace and other sectors, there 
+is a need to make them even safer. Whilst lithium-ion cell fires are extremely infrequent, they can 
+occur under conditions of mechanical, thermal or electrical stress or abuse. Building safer and 
+more reliable lithium-ion battery packs, as well as improving the design and optimisation of safety 
+systems, will help to decrease the risks associated with rising lithium-ion battery usage.   
+Introduction
+Even with billions of lithium-ion cells in circulation, there are 
+very few safety incidents involving them, which is a testament 
+to how safe they are. Rates of catastrophic cell failure and 
+associated battery fires involving lithium-ion cells remain 
+extremely low, with some estimates suggesting that only one 
+in 40 million cells suffers such a failure.1 But with an 
+increasing range of use cases for lithium-ion batteries (LiBs), 
+spanning electric vehicles (EVs), heavy goods vehicles, 
+aerospace, micromobility and consumer electronics, as well as 
+in second-life applications, the potential for problems is 
+increasing. There is, therefore, a pressing need to improve LiB 
+safety still further. 
+As well as protecting end users, improving battery 
+safety has economic benefits. Increasing the reliability 
+of lithium-ion battery cells could allow EV automakers 
+to reduce the complexity of their systems, saving 
+space, weight, and system and warranty costs.
+This Insight looks at the routes to LiB failure, the different 
+risks involved and the way fires in EVs differ to those in 
+internal combustion engine (ICE) vehicles. It considers current 
+mitigations in place and the additional mitigations that could 
+be implemented to further reduce these risks. It also sets 
+out the work that the Faraday Institution SafeBatt project is 
+undertaking to develop even safer LiBs.
+Routes to Cell Failure
+When LiB fires do infrequently occur, the cause is generally 
+due to the following forms of stress or abuse:
+•	 <mark>Mechanical – An internal defect introduced during 
+manufacture or damage caused to the cell by crushing 
+or penetration (for example, from an EV collision or 
+penetration by a sharp object) can lead to an internal short 
+circuit.</mark> Shorting results in an excessive current flowing 
+through the circuit, causing heating above safe limits, cell 
+damage and, in some circumstances, may ignite a fire.
+•	 Thermal – Overheating the cell (for example, if exposed 
+to an external fire) causes the cell components, such 
+as the cathode and electrolyte, to break down. These 
+processes are heat generating (i.e. exothermic), resulting 
+in a feedback loop where the cell temperature spirals 
+upwards and eventually results in a fire. This is referred 
+to as ‘thermal runaway’. Overheating can also result in 
+the softening or melting of the separator between the two 
+electrodes (generally a polymer such as polypropylene), 
+which can lead to an internal short circuit.
+1	D.H. Doughty and E.P. Roth, “A General Discussion of Li Ion Battery Safety”, 2012 Electrochem. Soc. Interface 21 37.
+Powering Britain’s Battery Revolution
+
+Faraday Insights - Issue 17: July 2023
+•	 Electrical – Shorting a LiB externally (for example, if a 
+metal object is placed across the terminals or by cells in a 
+battery shorting to one another) creates a low resistance 
+pathway for a very high current to flow, which causes 
+the temperature of the cell to rise above safe limits. 
+Overcharging the cell by using, for example, an incorrect 
+or incompatible charger, leads to internal heating and 
+cathode breakdown, both of which contribute to thermal 
+runaway. <mark>Poor pack design or poor battery management 
+system (BMS) design can also result in some cells 
+being overcharged.</mark> Overcharging is the most dangerous 
+electrical abuse scenario, as it results in far more energy 
+being pumped into the cell than the cell is designed to 
+accommodate. If this leads to cell failure, the extra energy 
+is released through a fire or explosion.
+In summary, the operation of LiBs under the above abnormal 
+or abuse conditions may lead to a significant temperature 
+increase, as well as the venting of toxic and flammable 
+gases, which then ignite and cause a fire or vapour cloud 
+explosion. The mechanical, thermal and electrical abuse 
+routes to LiB failure are schematically presented in Figure 1.
+An EV battery has many cells, connected in series and 
+parallel, to increase voltage and range. When a single cell 
+enters thermal runaway, the heat can be propagated from 
+cell to cell throughout the battery pack, escalating the 
+hazard; eventually, all the cells in the battery pack may fail, 
+venting the toxic and flammable gas mixture. When the 
+gases vent from the cells they take with them small droplets 
+of the organic solvents from the electrolyte, resulting in 
+a white vapour cloud that may be mistaken for smoke or 
+steam, and which could present an explosion risk.
+The design of the whole system, namely the battery pack, 
+inter-cell connections, surrounds (for example, insulation, 
+packing material and casing), high voltage system and the 
+thermal and electrical management systems, is critical to 
+ensuring each cell is operated within its safe parameters, 
+thus mitigating cell failure and preventing cell-to-cell 
+propagation of thermal runaway through the pack in the 
+event that a cell does fail.
+Assessment of Risk 
+Vehicles containing LiBs present unique risks, which 
+need to be understood and controlled. Of course, the 
+perception of risk for a new, immature technology tends 
+to be higher than the reality. Drivers of petrol cars are, in 
+general, comfortable driving a vehicle containing a tank of 
+flammable fuel because it is a familiar technology and risk. 
+As EVs mature, the perception of risk will change. Factors 
+that increase the risk of EVs catching fire compared with 
+ICEs are summarised below.
+2
+Table 1: Factors that increase the risk of fires in EVs and 
+ICE vehicles
+Fire risk in electric vehicles
+Fire risk in internal 
+combustion engine 
+vehicles
+Additional risk for EVs during 
+charging
+Explosion risk when filling 
+with petrol/diesel
+Potential for a delayed fire in 
+EVs, for instance, several days 
+after a road traffic collision
+Fire risk from the fuel in the 
+vehicle
+Risk that battery fires can 
+re-ignite some time (hours, 
+days or weeks) after being 
+extinguished
+Spillage risk, for example, if 
+the fuel tank ruptures liquid 
+can spill over the road and be 
+a hazard to other drivers
+Influence of ageing, as aged 
+batteries may be more 
+susceptible to catching fire/
+thermal runaway
+Poor maintenance or ageing 
+engines 
+Immaturity of the EV 
+technology
+Figure 1: Causes of lithium-ion cell failure 
+Li-ion cells get caught 
+in a heating feedback 
+loop: 
+THERMAL RUNAWAY
+Cathode 
+and 
+electrolyte 
+breakdown
+T
+h
+e
+y 
+d
+e
+c
+o
+m
+p
+o
+s
+e 
+a
+n
+d
+ p
+r
+o
+d
+u
+c
+e
+ 
+h
+e
+a
+t 
+a
+n
+d 
+g
+a
+s 
+(
+a
+n
+d
+ 
+o
+x
+y
+g
+e
+n)
+T
+h
+e 
+te
+m
+p
+e
+r
+a
+t
+u
+r
+e 
+a
+n
+d
+ t
+h
+e
+i
+n
+t
+e
+r
+n
+a
+l 
+p
+r
+e
+s
+s
+u
+r
+e
+ r
+is
+e
+b
+e
+c
+o
+m
+e 
+u
+n
+st
+a
+bl
+e
+T
+he
+ c
+he
+m
+ic
+a
+ls
+ i
+n
+si
+d
+e
+M
+E
+C
+H
+A
+N
+I
+C
+A
+L
+I
+n
+t
+e
+r
+n
+a
+l 
+d
+ef
+e
+c
+t
+ o
+r
+ 
+d
+a
+m
+a
+g
+e
+I
+nt
+er
+n
+al
+ s
+ho
+rt
+M
+E
+C
+H
+A
+N
+I
+C
+A
+L
+  
+  
+  
+  
+   
+  
+  
+   
+  
+   
+  
+   
+ E
+L
+E
+C
+T
+R
+IC
+A
+L 
+O
+v
+er
+c
+ha
+r
+ge
+ E
+L
+E
+C
+T
+RI
+C
+A
+L 
+E
+xt
+er
+na
+l 
+sh
+or
+t
+THERMAL Overheating
+Separator softens/melts
+This results in a very high 
+current ﬂ ow, which causes the 
+cell to get hot
+The two electrodes 
+come onto contact
+
+Faraday Insights - Issue 17: July 2023
+Incidents of fires in EVs and ICE vehicles 
+Rates of catastrophic LiB failure (fire or explosion) remain 
+extremely low, ranging from 1 in 10 million to 1 in 40 million 
+cells experiencing such a failure.1 Emerging figures 
+and comparisons of fire incidence rates for EVs and ICE 
+vehicles2,3,4 should be treated with caution as there is a lack 
+of publicly available data from vehicle manufacturers and 
+information varies. In 2022, the US insurance industry,3 
+estimated 25 fires per 100,000 electric car sales (0.025%) 
+and 3,475 fires per 100,000 hybrid vehicle sales (3.5%), 
+compared to 1,530 fires per 100,000 (1.5%) petrol car sales. 
+Data from the London Fire Brigade4 indicated a fire incident 
+rate in 2019 of around 0.1% per annum for plug-in vehicles 
+relative to 0.04% per annum for petrol and diesel cars. 
+Fire risks from DIY battery assembly 
+In EVs, the BMS, together with the battery pack electrical, 
+thermal and mechanical design and the safety devices in 
+the high voltage system (fuses, contactors, etc.) all help to 
+manage and reduce risk and protect the vehicle occupants 
+from hazards related to battery thermal runaway. A properly 
+functioning vehicle should, therefore, not be able to operate 
+the battery in an unsafe way, unless it is due to extreme 
+events such as a collision. However, for smaller devices such 
+as e-scooters and domestic battery energy storage systems 
+(BESS), there is an increasing trend of ‘do-it-yourself’ battery 
+assembly from sub-standard cells, posing a potential risk 
+of house fires (see Box 2). Such systems may or may not 
+include a BMS (or other safety devices) of sufficient quality 
+to ensure that operation remains within safe parameters. 
+Furthermore, many small LiBs in toys and radio control 
+Box 1: EV fires are different from petrol/diesel fires 
+The characteristics of fires in EVs differ from those in 
+traditional ICE vehicles. EV battery fires release large 
+amounts of heat, can be directional (involving projectiles), 
+produce large volumes of toxic gases in a vapour cloud 
+and produce micro- and nano-particles of nickel, cobalt 
+and manganese metals and carbon fibres in fumes/smoke. 
+EV fires also have the potential to reignite hours, days or 
+even weeks after they have been extinguished, and may do 
+so more than once.
+Battery fires involving lithium-ion cells take significantly 
+longer to extinguish and require substantially larger 
+volumes of water to do so. Any run-off water is toxic and 
+should not be drained into the local environment. These 
+differences could pose significant risks to human health 
+if they are not managed or mitigated. Because of these 
+unique risks, widespread reskilling of emergency service 
+personnel, vehicle mechanics, auto dealers and the 
+general public is required.5 
+In 2020, Professor Paul Christensen of Newcastle 
+University (a co-investigator on the Faraday Institution’s 
+SafeBatt project) and his team were responsible for a 
+major breakthrough, when they highlighted the previously 
+unrecognised hazard of vapour cloud explosion from 
+LiBs in thermal runaway. When overheated, crushed or 
+overcharged, gases can be produced in lithium-ion cells, 
+accompanied by a sudden increase in temperature under 
+certain circumstances. This results in the venting of a 
+vapour cloud (shown in Figure 2) that includes hydrogen, 
+carbon monoxide, carbon dioxide and very small droplets 
+of the organic solvents used in the electrolyte of the cells. 
+Emergency services had previously mistaken these 
+clouds for steam or smoke, but their composition means 
+they create the potential for a vapour cloud explosion, 
+which can be more damaging than the initial fire. Since 
+its discovery, Professor Christensen has been delivering 
+training and guidance to first responders around the world 
+on how to deal with these vapour clouds safely. He has 
+worked with over 40 different fire and rescue services 
+across the globe, training hundreds of firefighters.6 He was 
+the recipient of the 2022 Motorola Foundations Knowledge 
+Event Series award from the Australasian Fire and 
+Emergency Service Authorities Council for educating fire 
+and rescue services, police and government officials. 
+3
+Figure 2: Vapour cloud emitted from battery module 
+undergoing nail penetration abuse test 
+The risk of vapour cloud explosion is not confined to 
+electric vehicles. The Norwegian Maritime Authority, 
+for example, has recommended ship owners of vessels 
+containing lithium-ion battery pack installations conduct 
+new risk assessments that specifically cover the risk of 
+explosion due to the accumulation of explosive gases in 
+the event of LiB failure.7 Because of the volume of vapour 
+cloud released, even small LiBs (for example, for e-bikes 
+and e-scooters) have caused vapour cloud explosions. 
+There is a need for more scientific understanding of these 
+complex failure processes, which is one of the goals of the 
+SafeBatt programme.
+2	EV Fire Safe (December 2022). Passenger EV LiB Fire Incidents.
+3	Gas vs electric vehicle fires, AutoinsuranceEZ (2022), using data from the National Transportation Safety Board, Bureau of Transportation Statistics and US government recall data.
+4	Fleet News (November 2020). Vehicle fire data suggests higher incident rate for EVs, September 2020. The incident rate is based on 54 EV fires against 1,898 ICE fires in 2019
+	 controlled for underlying vehicle registration numbers.
+5	Faraday Insight 4 (May 2021). Electric vehicle and battery safety skills for emergency services, vehicle repair, and auto retailers.
+6	Faraday Institution success story: Research breakthrough increases safety of lithium-ion batteries, June 2022.
+7	IMCA (October 2019). Battery fire with subsequent gas explosion: Warning about lithium-ion power following ferry fire.
+
+Faraday Insights - Issue 17: July 2023
+hobby equipment just have single or multiple cells wired 
+together and are charged with no BMS. 
+Box 2: Safety in the micromobility8 and BESS 
+industries 
+With a 70% growth in e-bike sales in 2020 in the UK,9 
+reports of thermal runaway events related to battery 
+failures in micromobility applications resulting in fires 
+and interior damage to flats/houses are increasing. 
+Several fire services around the country have reported 
+incidents linked to e-scooters and e-bikes, with the 
+London Fire Brigade attending 28 e-scooter/e-bike 
+fires in 2020 and 74 in 2021.10 It is not clear whether 
+these incidents were primarily due to battery design 
+issues, the use of home-made replacement batteries 
+(for example, in e-bikes) or incompatible/incorrectly 
+specified chargers.
+Dissemination of best practices to industry and 
+consumers would be useful to mitigate these risks. It 
+is essential that users are informed about the hazards 
+of ‘do-it-yourself’ battery assembly, charging devices 
+at home and bypassing safety features. The BMS and 
+charging device must be designed to operate safely in 
+conjunction with each other and the battery pack and 
+charging device should be purchased simultaneously 
+from a reputable supplier. A national education initiative, 
+initially aimed at consumers and the wider public, is 
+required to disseminate best practice and improve 
+knowledge of risks. 
+The online trade in lithium-ion cells and batteries 
+(including second life cells) also needs to be regulated 
+and additional policy changes are required to ensure 
+that the micromobility and BESS industries are subject 
+to the same rigorous regulations as EVs. For example, 
+a standard similar to UK Conformity Assessed (UKCA) 
+marking, but specifically for the battery, could be 
+introduced.
+Fire risks in the recycling space 
+Fires are a significant problem in recycling and waste 
+facilities, with nearly one-third of incidents in these facilities 
+(around 250 fires) in the UK between April 2019 and March 
+2020 attributed to LiBs,11 with financial, environmental and 
+societal costs amounting to £150 million in 2021 (Table 2). 
+Currently, these fires typically involve small LiBs from 
+consumer electronic products rather than from EVs. 
+However, as the EV market grows, volumes of materials are 
+set to increase substantially in recycling facilities over the 
+next 5 to 10 years. Disposal of automotive and industrial 
+batteries in landfill or by incineration is prohibited12 and the 
+development of appropriate recycling infrastructure to 
+handle these volumes is critical. These facilities will need to 
+put mitigative measures in place to ensure batteries can be 
+safely recycled.
+Table 2: UK cost of waste fires caused by lithium-ion batteries 
+Fire 
+severity 
+category
+% of total 
+fires
+Estimated 
+cost per 
+fire
+(£ million)
+Annual 
+number of 
+waste fires 
+attributed 
+to LiBs 
+Estimated 
+annual cost
+(£ million)
+1 (most 
+severe)
+1%
+£3.8
+1.7
+£6.6
+2
+5%
+£1.8
+10.4
+£19.0
+3
+73%
+£0.9
+147.5
+£128.6
+4 (least 
+severe)
+21%
+£0.1
+41.8
+£3.8
+Total
+201
+£158.0
+Source: Eunomia (January 2021). Cutting Lithium-ion Battery Fires in the 
+Waste Industry. 
+Tackling the risk and impact of fires in recycling and waste 
+facilities requires a mix of regulation, policy and incentives, 
+but the overall framework is similar, irrespective of whether 
+the battery is from the consumer electronics market or an 
+EV. Initiatives that can be implemented with immediate effect 
+include public awareness campaigns, separate collection 
+from households and businesses, increasing collection 
+points, banning LiBs from residual/mixed recycling schemes, 
+enhanced extended producer responsibilities and creating 
+incentive schemes to encourage the return of LiBs for 
+recycling. Longer-term initiatives are focused on research 
+that aims to reduce the risk of fires when LiBs are damaged 
+and the development and commercialisation of new battery 
+chemistries that are intrinsically safer than those currently in 
+use.
+Mitigations in Place 
+Although the rapid adoption of LIBs in EVs over the past 
+few years has inevitably led to various media reports of 
+fire incidents, LIB chemistries and cell designs have been 
+under development for over 30 years and have been 
+used extensively in consumer electronic applications for 
+decades. Scientists and engineers continue to improve their 
+understanding of these systems and innovative research 
+and development is enabling the adoption of LIBs into new 
+applications. 
+Novel technologies and cell components are under 
+development to enable longer lifetime and driving range, 
+coupled with improved safety. Sophisticated modelling 
+techniques are increasing the understanding of the behaviour 
+of LiBs under normal and extraordinary conditions, improving 
+safety performance. Additionally, multiple mitigations are in 
+use by cell manufacturers, pack designers and manufacturers 
+ 
+8	 For more details on micromobility, see: Faraday Insight 16 (February 2023). The Micromobility Revolution Gathers Momentum.
+9	 Mintel (June 2021). The great British bike boom: Brits bought over 3 million bikes in 2020.
+10	iNews (May 2022). Fears legalisation of e-scooters could lead to more house fires as batteries can ‘explode’.
+11	Environmental Services Association (October 2020). Press Release.
+12	The Waste Batteries and Accumulators Regulations 2009.
+4
+
+Faraday Insights - Issue 17: July 2023
+5
+as well as the wider supply chain to minimise risks from the 
+use of LiBs.
+Battery management systems 
+LiBs used in EVs have electronic circuitry that is monitored 
+in the battery management system (BMS). This records 
+cell voltage, temperature and charge, as well as ensuring 
+cells are always balanced (i.e., the same voltage or state of 
+charge). BMSs are generally always active (during charging, 
+when parked and during use) and have safety features to 
+prevent overcharging. The BMS is especially important when 
+the battery is being charged, as it is in this situation that the 
+battery is most likely to fail. 
+EV safety systems
+For many years automakers have focused on minimising 
+risks around the use of LiBs in EVs. Multiple safety systems 
+are now designed into EVs to protect passengers, emergency 
+services, mechanics and other users from harm, including:
+•	 Employing overcharge protection additives in the 
+electrolyte in LiB cells.
+•	 Incorporating features such as thermal and BMS, venting 
+devices and fire-retardant materials into the battery pack 
+and system.
+•	 Integrating battery packs into the vehicle crash system 
+design to minimise risk from impact.
+•	 Developing flexible BMSs, which ensure that the EV 
+operates well within application/design limits and can 
+switch the vehicle to operate in different modes to protect 
+the car and its occupants if safe operating limits are 
+exceeded.
+•	 Checking all high voltage circuits in an EV on start-up, 
+before closing the battery circuit breakers.
+•	 Employing suitable electrical, thermal and mechanical pack 
+design rules to reduce risk. 
+•	 Incorporating an additional layer of protection (above 
+that of the BMS) in the high voltage system, with fuses, 
+contactors etc. 
+•	 Building in redundancy in certain safety systems, to ensure 
+that if a critical component fails, a second one will take 
+over control. 
+•	 Enhanced manufacturing quality and robust certification.
+Battery testing 
+Lithium-ion cells and batteries are required to undergo 
+extensive testing at cell, module, pack and system level, and 
+stringent quality control, before use in EVs. This includes 
+assessment of cell and battery performance, as well as safety 
+and abuse testing. Examples of different tests undertaken 
+and testing regimes in place include:
+•	 Extensive thermal, electrical and impact testing (for 
+example, according to standards such as GB 38031-
+2020) under both normal operating conditions and abuse 
+conditions, to comply with international legislation as well 
+as the automakers’ own safety standards.
+•	 Ensuring that cells and batteries are tested to relevant 
+standards, such as UN38.3, SAE, ISO, IEEE, IEC, BS EN and 
+UL.13 
+Benefits of improved cell safety
+Increasing the safety of LiBs could allow automakers to 
+reduce the complexity of the overall system (redundancy, 
+packaging and BMS sophistication), saving space, weight 
+and cost.
+Safer LiBs may lead to a decrease in warranty costs. These 
+costs can be substantial, potentially amounting to £10,000 
+or more, owing to the significant battery replacement 
+costs.14 The precise costs will depend on the warranty 
+model, with the costs for out-of-warranty replacements 
+subject to a service part mark-up set by automakers. 
+Considering propagating effects, such as the spread of EV 
+battery fires, the total cost from a single EV failure is likely 
+to be higher than that of an ICE vehicle.
+Improving the safety of LiBs is also critical to enable 
+their adoption in non-automotive industries, such as 
+aviation, aerospace, maritime, rail and stationary storage, 
+leading to considerable economic benefits. There would 
+be a particularly significant gain for the aviation industry 
+as it evidently demands the highest safety standards 
+commensurate with its unique operational conditions and 
+the potential consequences of failure at high altitudes. To 
+ensure the safe operation of battery-powered aircraft, yet 
+more advanced temperature and safety features as well as 
+new certification policies, are essential.
+Making Batteries Even Safer
+In 2021, the Faraday Institution launched the LiB safety 
+research programme, SafeBatt. This project takes a broad 
+look at the science of LiB safety, building on the previous 
+work of the Faraday Institution’s Degradation and ReLiB 
+projects. Led by Professor Paul Shearing at the University 
+of Oxford, SafeBatt is a collaboration between eight 
+academic15 and numerous industry partners, across the 
+following research areas:
+•	 Studying sub-cell level events to understand the 
+root causes of cell failure and the interplay between 
+degradation and safety.
+•	 Investigating how LiBs fail at the cell level and how cell 
+failure propagates within a module/battery.
+•	 Carrying out large-scale experiments on modules and 
+ 
+13	UN38.3 (United Nations Standard to certify cells for transport); SAE (Society of Automotive Engineers); ISO (International Organisation for Standardization); IEEE (Institute 
+of Electrical and Electronics Engineers); IEC (International Electrotechnical Commission), BS EN (British Standards Institution version of European Standard) and UL 
+(Underwriters Laboratories). This list is not exhaustive as there are many different standards for different applications in use worldwide.
+14	Electrek (September 2021). Tesla Battery Replacement.
+15	Academic partners are the University of Oxford (lead), University College London, King’s College London, Imperial College London and the Universities of Cambridge, 
+Newcastle, Sheffield and Warwick.
+
+Faraday Insights - Issue 17: July 2023
+6
+battery packs to observe how they behave under stress 
+and understand the processes occurring during real-
+world failure, including the toxicity and environmental 
+consequences of lithium-ion battery fires.
+•	 Providing underpinning modelling and experimental tools 
+to enhance understanding of the science of battery safety 
+and deploying these to tackle key industry challenges.
+The overall aim of SafeBatt is to understand the range of 
+processes that could lead to LiB failure, which will help 
+industry both to design and build more safety-reliable 
+battery packs and to simplify safety systems. Further 
+details are given in Box 3. 
+SafeBatt researchers are already using their skills and 
+knowledge to advise fire services, local authorities and 
+other government agencies on the risks posed by lithium-
+ion cells and batteries and how to respond to emergencies. 
+SafeBatt research associates are also training and 
+educating stakeholder groups in the UK and internationally.
+A coordinated approach to LiB safety research and 
+validation will greatly benefit the UK, particularly in the 
+domain of standards development for emerging sectors 
+such as electric aviation battery safety. By linking the 
+Faraday Institution project with industry and government 
+bodies, such as the Health and Safety Executive (HSE) 
+and the National Physical Laboratory (NPL), the UK could 
+position itself as a centre of excellence for battery safety. 
+Legislation and Policy
+There is a huge volume of legislation in place globally 
+to minimise EV battery safety risks, but legislation and 
+testing regimes for lithium-ion cells are highly dependent 
+on geography and application. Furthermore, insufficient 
+consideration has yet been given to repurposed and 
+second-life lithium-ion cells and batteries. The adoption 
+of global standardisation of testing and legislation in this 
+area would not only increase safety but also save time and 
+money. 
+The legislative and testing framework for battery safety in 
+other sectors, such as aerospace and stationary storage 
+(including repurposed and second-life lithium-ion cells and 
+batteries) is in its infancy. There is a need for governments, 
+industry bodies, standards institutes such as the British 
+Standards Institution and measurement institutes such 
+as the NPL, to work collaboratively to agree international 
+legislation and testing protocols that are industry 
+recognised, fit for purpose and coherent across boundaries. 
+The HSE should also play a crucial role in providing 
+guidance and enforcing safety regulations. 
+Measures that need to be taken to minimise further the 
+unique safety risks of EVs include skills development for 
+emergency service personnel, auto retailers and mechanics 
+(with programmes led by appropriate government 
+departments and coordinated through professional bodies 
+and skills councils), and the adoption of a coherent, national 
+framework and industry recognised guidelines for the safe 
+handling and recycling of used and/or damaged EV LIBs. 
+Box 3: Objectives of the SafeBatt research programme 
+• 	Identify the safety signatures of LiBs and how they 
+change over the cell lifetime and with degradation:
+-	 When does a degraded cell become an unsafe cell?
+-	 What are the specific safety signatures of degraded 
+materials?
+• 	Investigate the effect of fast charging and operation 
+under extreme conditions on cell ageing and safety:
+-	 How do fast charging and cold charging affect the 
+formation of dendrites and cell safety?
+• 	Understand how cell failure modes translate to multi-
+cell modules:
+-	 Is there a minimum cell count that can be shown to 
+be representative of a module, and how might cell-to-
+pack designs affect this?
+• 	Develop an advanced model or models for thermal 
+runaway and propagation:
+-	 What are the reaction pathways during cell failure?
+-	 What is the temperature distribution in a cell 
+approaching thermal runaway?
+-	 What gases and other ejecta are released from a 
+ruptured cell? 
+- 	What is the flame structure and behaviour?
+-	 How does thermal runaway propagate from cell to 
+cell?
+• 	Develop a method to instrument cells to measure the 
+internal temperature and pressure during failure.
+• 	Investigate detection methods and mitigation strategies 
+for thermal runaway.
+• 	Improve the understanding of real-world battery failure:
+-	 What is the impact of failure in confined spaces, such 
+as underground car parks?
+- 	How does ageing influence the stability and safety of 
+LiBs in second life applications, for example, energy 
+storage systems?
+-	 What factors affect the composition and toxicity of the 
+vapour cloud and other gases and particulates emitted 
+on venting?
+-	 What are the efficacy and environmental 
+consequences of LiB fire extinguishing systems?
+• 	Engage with standards bodies and provide expert advice 
+to stakeholders such as the emergency services , cell/
+battery manufacturing facilities, recycling and storage 
+facilities and government.
+
+Faraday Insights - Issue 17: July 2023
+7
+Summary 
+Rates of catastrophic LiB failure remain extremely low, 
+but with EV demand increasing and new applications and 
+technologies emerging, there is a need to enhance LiB safety 
+and the understanding of safety further. The economic case 
+for building safer LiBs is compelling, the key benefits being 
+lower warranty costs and a reduction in the financial cost of 
+damage to EVs from a pack failing catastrophically. Warranty 
+costs for EV automakers in the UK are expected to reach 
+around £780 million per annum by 2030,16 and in this context, 
+even small safety improvements will have a significant 
+positive economic benefit. 
+The SafeBatt initiative represents a pivotal step in enhancing 
+LiB safety, which is vital for supporting the growing demand 
+and expanding applications of LiBs. Alongside this ongoing 
+research, the safety of batteries will also be an important 
+cross-departmental government concern, that requires a 
+coordinated approach involving activities such as:
+•	 Educating end-users, the emergency services and other 
+stakeholders on safety risks, mitigation measures and 
+how to deal with any fires will be critical as the UK battery 
+industry moves forward.
+•	 The development of a coherent UK framework and 
+industry-recognised guidelines for the safe handling, 
+recycling and disposal of used and damaged EV LiBs to 
+minimise safety risks.
+•	 International collaboration to establish global standards of 
+testing and legislation for LiBs across different applications 
+and geographies, including repurposed and second-life 
+batteries.
+The need for an integrated understanding of the science 
+of LiB safety will only increase with time. Next generation 
+LiBs will contain even more energy as automakers seek 
+to extend EV range. LiBs are also expanding into ever-
+increasing applications, such as e-scooters, aviation, marine, 
+and domestic and industrial energy storage systems, as well 
+as starting to permeate second-life applications and enter 
+recycling facilities. Managing the risks associated with these 
+new applications will require a combination of regulation, 
+dissemination of best practices and ongoing scientific 
+research to ensure safety across all sectors. 
+Acknowledgements
+Thanks go to the following for their input and help with this 
+Insight: 
+•	 Valentina Gentili, Evangelos Kalamaras and Paul Haney 
+(Jaguar Land Rover)
+•	 Nigel Taylor (BatteryDesign.net) 
+•	 Paul Shearing (University of Oxford)
+•	 Martin Dowson (University of Warwick) 
+•	 Mark Buckwell, Tom Heenan, Jason Millichamp and Tobias 
+Neville (University College London)
+About the Faraday Institution and Faraday Insights
+The Faraday Institution is the UK’s independent institute for 
+electrochemical energy storage research, skills development, 
+market analysis, and early-stage commercialisation. We bring 
+together academics and industry partners in a way that is 
+fundamentally changing how basic research is carried out at 
+scale to address industry-defined goals.
+Our ‘Faraday Insights’ provide an evidence-based assessment 
+of the market, economics, technology and capabilities for 
+energy storage technologies and the transition to a fully 
+electric UK. The insights are concise briefings that aim to 
+help bridge knowledge gaps across industry, academia and 
+government. If you would like to discuss any issues raised 
+by this &quot;Faraday Insight&quot; or suggest a subject for a future 
+Insight, please contact Stephen Gifford. 
+Sign up today to be added to the distribution list for future 
+Faraday Insights www.faraday.ac.uk/subscribe.
+The Faraday Institution is a key delivery partner for the 
+Faraday Battery Challenge at UK Research and Innovation, 
+which is delivered by Innovate UK. The Challenge is making 
+the UK a science and innovation superpower for batteries, 
+supporting the UK&#x27;s world-class battery facilities along 
+with growing innovative businesses that are developing the 
+battery supply chain for our future prosperity. Its aim is to 
+build a high-tech, high-value, high-skill battery industry in the 
+UK.
+16	Faraday Insight 15 (December 2022). The Value of Modelling for Battery Development and UK.
+
+Faraday Insights - Issue 17: July 2023
+CONTACT
+Stephen Gifford
+Chief Economist
+stephen.gifford@faraday.ac.uk
+www.faraday.ac.uk
+01235 425125
+07741 853068
+Prof. Paul Christensen
+Co-Investigator, SafeBatt
+Newcastle University
+paul.christensen@ncl.ac.uk
+Prof. Paul Shearing
+Principal Investigator, SafeBatt
+University of Oxford 
+paul.shearing@eng.ox.ac.uk
+Dr Julia Weaving
+Project Leader, SafeBatt
+University College London
+j.weaving@ucl.ac.uk
+</pre>
+<script>const m=document.querySelector("mark"); if (m) m.scrollIntoView({block:"center"});</script>
+</body></html>
