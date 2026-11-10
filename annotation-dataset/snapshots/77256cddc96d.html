@@ -1,0 +1,1299 @@
+<!DOCTYPE html><html lang="en" translate="no"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshot of a source page</title><style>
+body{font:15px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fff;color:#111}
+.top{background:#fff6e0;border:1px solid #f0d58c;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+pre{white-space:pre-wrap;font:inherit} mark{background:#ffe36e;padding:0 2px}
+</style></head><body>
+<div class="top"><b>Text copy of a source page</b>, as our pipeline read it when it was read. Layout and images are not kept.
+The marked passages are where the page is most relevant to the evidence statement.<br>
+Original page: <a href="https://www.cs.ox.ac.uk/files/13226/chapter-revision.pdf" target="_blank" rel="noopener">https://www.cs.ox.ac.uk/files/13226/chapter-revision.pdf</a></div>
+<pre>Securing the Air–Ground Link in Aviation
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+Abstract A plethora of wireless communication protocols are used on the air–
+ground link within aviation, comprising both data links and air trafﬁc control tech-
+nologies. With the widespread proliferation of modern software-deﬁned radio tech-
+nology, the threat model for aviation has shifted. Independent security researchers
+and scientists have shown that the fundamental deﬁciencies in all of these protocols
+can be easily exploited with an impact of both the security and the privacy of their
+users. This article analyzes the current situation of the aviation air–ground link in
+a comprehensive manner. We collect and classify the known reported security and
+privacy incidents related to the seven main air–ground technologies. We ﬁnd that
+all are considered vulnerable in the literature and many incidents relating to po-
+tential breaches and exploits have been made. In the second part of this work, we
+survey, systematize and discuss the academic research on possible countermeasures.
+We create a novel taxonomy, based on which we identify gaps in the literature and
+discuss potential future directions for aviation security research.
+1 Introduction
+As an increasingly interconnected and digitalized global system of systems, avia-
+tion faces new challenges. Passengers, airlines and air navigation service providers
+(ANSPs) all demand more connectivity; passengers for their entertainment needs,
+Martin Strohmeier, Vincent Lenders
+armasuisse W + T, Feuerwerkerstrasse 39, 3603 Thun, Switzerland.
+e-mail:
+martin.strohmeier@armasuisse.ch,vincent.lenders@armasuisse.
+ch
+Ivan Martinovic
+Department of Computer Science, University of Oxford. Parks Road, Oxford, OX1 3QD, UK.
+e-mail: ivan.martinovic@cs.ox.ac.uk
+1
+
+2
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+airlines for increased serviceability and more efﬁcient operations, and ANSPs to
+help facilitate the safe control of the ever increasing ﬂight trafﬁc.
+Recently, security researchers in both academia and industry have increasingly
+treated the aviation system as national and supra-national critical infrastructure sim-
+ilar to power grids, telecommunication and public health infrastructure. Responsi-
+ble for this renewed focus on aviation security are new technological developments,
+which have shifted the threat model away from traditional electronic warfare and to-
+wards easy accessibility of wireless systems by a wide variety of threat actors [115].
+The ubiquitous availability of low-cost SDR (software-deﬁned radio transceiver)
+technology enables both innocent amateurs and malicious actors to compromise
+civil aviation security.
+Academic and industrial research on such matters has picked up signiﬁcantly
+over the past decade, and those who argue that airports and aircraft are secure with
+current defenses slowly become the minority. However, there is still a large knowl-
+edge and awareness gap in the broader industry on this topic. Until recently, voices
+from outside and within the industry have been ignored too often and necessary
+actions such as information sharing have not been taken or delayed considerably.
+It is commonly held that reminding passengers about any potential dangers of
+ﬂying is likely to be detrimental to the aviation industry as a whole. Consequently,
+the main goal with regards to cybersecurity is to not scare the public at all costs. In
+a traditionally very secretive industry, this means that public information is scarce
+and often unreliable, and cybersecurity is no exception.
+In this work, we compile and systematize the existing sources on the topic of
+wireless security in civil aviation. We ﬁrst compile recent academic research on
+vulnerabilities but also real-world reports on possible incidents, such as news arti-
+cles and analyses conducted by aviation authorities. Following this, we discuss the
+existing strategies suggested by researchers to address the problems of integrity, au-
+thenticity and conﬁdentiality in these technologies. Our aim is to ﬁll the knowledge
+and awareness gaps that exist around the security and privacy of commonly used
+communication technologies in aviation. Similarly, we hope to provide a reliable
+resource for aspiring researchers who look to get started in this ﬁeld and who seek
+to understand its most important issues.
+To make these contributions, we survey the literature on reported security inci-
+dents and privacy breaches and link this evidence to extant research on security and
+privacy in aviation. We use these insights to create a taxonomy of feasible counter-
+measures and develop recommendations for future aviation security research.
+The remainder of this chapter is organised as follows: Section 2 discusses and
+classiﬁes known vulnerabilities and incidents. Section 3 then outlines the existing
+research on security before it examines the work on privacy. Section 4 discusses the
+lessons and recommendations and Section ?? ﬁnally concludes this work.
+
+Securing the Air–Ground Link in Aviation
+3
+2 Classiﬁcation of Air–Ground Link Incidents &amp; Vulnerabilities
+We ﬁrst survey and systematize all incidents and vulnerabilities across the technolo-
+gies that underpin modern air trafﬁc management (ATM) that have been reported in
+the past. We ﬁrst consider those that impact the security of the system, followed by
+privacy-related incidents. Table 1 below provides a short glossary of the surveyed
+technologies.
+Table 1 Glossary of the analyzed technologies.
+Abb.
+Technology
+ACARS
+Aircraft Communications Addressing and Reporting System
+ADS-B
+Automatic Dependent Surveillance-Broadcast
+CPDLC
+Controller-Pilot Data Link Communication
+MLAT
+Multilateration
+PSR
+Primary Surveillance Radar
+SSR
+Secondary Surveillance Radar
+TCAS
+Trafﬁc Alert and Collision Avoidance System
+VHF
+Voice (Very High Frequency)
+2.1 Security Incidents
+Table 2 lists reported incidents and vulnerabilities relating to air–ground links, with
+attack vectors including denial of service (DoS), jamming, injection and intrusion.
+Additionally, <mark>eavesdropping is possible for all considered technologies as none of
+them uses encryption.</mark> However, we do not consider eavesdropping a direct security
+problem, although it is a possible ﬁrst stepping stone for active attacks, and thus do
+not discuss it further in this section. Eavesdropping can have direct consequences
+for privacy, which is considered in Section 2.2. It is noteworthy that there has been
+no academic research or public incident reports with regards to TCAS, although
+its vulnerability is similar to the SSR and ADS-B technologies, whose information
+TCAS is using.
+2.1.1 ADS-B
+The introduction of ADS-B has motivated much research on aviation security. Talks
+by hackers and academics pointed out the absence of any security in the protocol
+by the early 2010s (e.g. [24]). Later works analyzed the concrete physical circum-
+stances (distance, sending power) required to manipulate the 1090 MHz ADS-B
+channel and showed concrete laboratory attacks [60, 89]. Since the technology is
+only mandated by 2020 and not yet widely used operationally, no concrete incidents
+
+4
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+Table 2 Reported security incidents and vulnerabilities related to different air trafﬁc control (ATC)
+technologies.
+Technology Type
+Vector
+Description
+Ref’s
+ADS-B
+Vulnerability
+Injection
+Analysis of different types of message
+injection theoretically and in lab
+[24,89]
+Vulnerability
+Jamming
+Analysis of jamming with SDR in lab
+[60]
+Exploit
+Injection
+Software enabling ADS-B spooﬁng
+with SDRs
+[25]
+SSR
+Incident
+DoS
+Ground-based over-interrogation of
+aircraft transponders, causing real-
+world radar failures.
+[6]
+Vulnerability
+Jamming,
+Injection
+Lab analysis by German Aerospace
+Center
+[80]
+PSR
+Vulnerability
+Jamming
+Traditional electronic warfare
+[7–9]
+MLAT
+Vulnerability
+Injection
+Proof of concept of an attack on
+MLAT system in lab
+[72,95]
+VHF
+Incident
+Injection
+Spooﬁng of ATC in Turkish airspace
+and at Melbourne airport
+[101,134]
+Incident
+DoS
+Regular communication interference
+from pirate radio stations and other
+unlicensed transmitters
+[102]
+ACARS
+Vulnerability
+Intrusion
+Remote intrusion in lab into ﬂight
+management system
+[119]
+Vulnerability
+Injection
+Analysis of different types of message
+injection theoretically and in lab
+[17,87,137]
+CPDLC
+Incident
+Injection
+Delayed CPDLC messages received
+undetected at aircraft hours later
+[11,94]
+Vulnerability
+Jamming,
+Injection, DoS
+Lab analyses conducted by several
+different aviation authorities
+[26,80]
+involving ADS-B have been publicly reported until now. However, exploit kits, i.e.,
+tool boxes for SDRs, which enable the spooﬁng of ADS-B messages are available
+online (e.g., [25]), such that attacks are presumably only a matter of time.
+2.1.2 SSR
+While there are no dedicated attack tool boxes available for SSR/Mode S, it shares
+the the same fundamental protocol characteristics with ADS-B. Thus, sending and
+exploiting Mode S is trivially possible by adapting existing scripts such as [25] or
+others. Consequently, the analysis by the German Aerospace Center [80] showed
+that radio frequency interference is possible, enabling ghost aircraft, jamming, or
+transponder lockouts. There has been one widely reported real-world incident re-
+
+Securing the Air–Ground Link in Aviation
+5
+lated to SSR jamming and over-interrogation, causing several aircraft to vanish
+from controllers’ radar screens in Central Europe on two separate occasions in June
+2014 [6]. The subsequent investigation by the European Aviation Safety Agency
+could not identify the culprit for this SSR over-interrogation but found it was un-
+likely the attack had a malicious nature. Nevertheless, the consulted cybersecurity
+experts state that such attacks are possible in principle [6].
+2.1.3 PSR
+PSR takes a special role in our survey, since attacks are not feasible with standard
+software-deﬁned radio transmitters. PSR detection is conducted exclusively based
+on the reﬂection of its signals, thus there is no message content that could be in-
+jected or modiﬁed. Jamming, in contrast, remains fundamentally possible, however
+it requires much more sophisticated and powerful equipment, available only to the
+military (see [7–9] for an extended treatment of primary radar jamming and elec-
+tronic warfare). Due to our focus on civil aviation, and the lack of credible threats
+and consequently any research on attacking PSR in this context, we will not consider
+the security of PSR further in this work.
+2.1.4 MLAT
+Multilateration is by its nature a technology derived from the signals of other wire-
+less protocols, typically SSR or ADS-B. Thus, MLAT is often considered as a ver-
+iﬁcation of unauthenticated wireless links [47]. Even if the contents of, e.g., an
+ADS-B message are wrong, the location of the sender can still be identiﬁed. Thus,
+MLAT offers security based on physical layer properties (speciﬁcally the propaga-
+tion speed of electromagnetic waves) which are difﬁcult to manipulate. However,
+real-world MLAT systems heavily rely on fusing the location obtained from the sig-
+nals with the message contents to display identiﬁcation and altitude of the targets,
+leaving the system as a whole as vulnerable as Mode A/C/S or ADS-B. Additionally,
+a well-coordinated and synchronized attacker may manipulate the time of arrival of
+a message at the distributed receivers of an MLAT system and hence may falsify
+location data [72].
+2.1.5 VHF
+VHF has long been subject to radio interference due to its analogue nature and
+well-known technological underpinning. Indeed, in a recent survey, aviation experts
+regarded VHF as the most untrustworthy communication with the highest likeli-
+hood and real-world experiences of outside interference, both malicious and non-
+malicious [111]. Exemplary incidents in this regard include, but are not limited to,
+spoofed voice communication, such as the impersonation of air trafﬁc controllers in
+
+6
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+Turkish airspace [101] and at Melbourne airport [134], the latter of which caused
+signiﬁcant distress. Further, VHF communication is regularly interfered with by
+non-licensed emitters such as pirate radio stations, implying additional workload
+for controllers who must identify such frequency abuse [102].
+2.1.6 ACARS
+ACARS vulnerabilities have been described as early as 2001 when a U.S. military
+ofﬁcial pointed out that forged ATC clearances may be issued by unauthenticated
+data links [87]. In 2013, Hugo Teso used second-hand hardware to show the po-
+tential of using ACARS to remotely exploit a Flight Management System (FMS).
+Recently, [137] has considered the injection of ACARS messages both in theory and
+practice.
+2.1.7 CPDLC
+CPDLC is a relatively new technology; hence, it has only recently been scrutinized
+by security experts, partly because fully implemented decoders for SDRs have not
+been openly available. Nonetheless, CPDLC generally offers no authentication or
+conﬁdentiality and hence is subject to the same attack vectors used to compromise
+ACARS. The German Aerospace Center has recently addressed some vulnerabilities
+of CPDLC [80], highlighting the ease with which this technology can be spammed
+and spoofed. While no incidents have been reported publicly related to malicious
+interference, the robustness of CPDLC against any kind of interference is question-
+able. To date, several investigations have been launched into duplicate, delayed or
+lost CPDLC messages as well as logins to unauthenticated ground stations [11,94].
+These problems, while yet benign, illustrate the vulnerabilities of the system.
+2.2 Privacy Incidents
+Table 3 lists the known privacy-related incidents and vulnerabilities with respect
+to air trafﬁc control communication. Besides systematizing these incidents by the
+technologies concerned, we can broadly classify them into a) tracking-related leaks
+and b) leaks of (other) personal information via data link technologies. The over-
+whelming majority of the surveyed privacy incidents relates to the possibility of
+aircraft tracking, while very few studies discuss aircraft user privacy breaches by
+compromised data links.
+
+Securing the Air–Ground Link in Aviation
+7
+Table 3 Reported privacy leaks and conﬁrmed vulnerabilities on ATC technologies.
+Technology
+Type of Leak
+Description of Privacy Leak
+Ref’s
+Tracking
+Tracking sensitive aircraft using ACARS
+[97,99]
+ACARS
+Data
+Personal data leakage on non-commercial and
+commercial aircraft
+[97,99,122]
+Tracking, Data
+Weak proprietary cryptography broken
+[96]
+ADS-B
+Tracking
+Leak of military operations
+[20,21]
+Tracking
+Tracking of personal/governmental assets
+[28]
+Tracking
+Circumvention of aircraft blocking
+[55]
+Tracking
+Tracking of business assets
+[81]
+Tracking
+De-anonymization of transponder IDs
+[88]
+Tracking
+Fingerprinting of aircraft transponders
+[59,110]
+SSR &amp; MLAT
+Tracking
+Tracking of surveillance drones
+[115]
+VHF
+Tracking
+Aircraft tracking using voice recognition
+[45]
+Tracking
+Correlating CEO vacations with press releases
+[132]
+Tracking
+Analysis of CEO private aircraft use
+[64]
+ATC (general)
+Tracking
+Corporate aircraft movement tracking for
+merger data
+[65,113]
+Tracking
+Large-scale analysis of effects of government
+and military aircraft tracking
+[113,114]
+Tracking
+Use of aircraft blocking to hide merger nego-
+tiations
+[23]
+Tracking
+Analysis
+of
+aircraft
+patterns
+to
+uncover
+surveillance operations
+[12]
+2.2.1 Tracking-related Privacy Leaks
+Privacy is at risk predominantly because almost all ATC technologies allow non-
+aviation actors to closely track ﬂight movements. Many websites on the Internet
+(e.g., Flightradar24, ADS-B Exchange, or the OpenSky Network) exploit one or sev-
+eral of these technologies and provide easy access to immediate, highly detailed and
+continuous tracking data. In conjunction with publicly available metadata provided
+by these sites and many other comprehensive sources (including authoritative ones
+such as the FAA [32]), tracking of individual users has become feasible for even
+lowest-resource actors [115]. In the following, we describe the existing incidents
+and identiﬁed vulnerabilities, systematized according to their technologies (those
+ﬁled under ‘ATC general’ concern two or more technologies and apply to aircraft
+tracking in general).
+• ACARS: ACARS has become a recent target to obtain tracking information
+about aircraft, caused by its increased popularity for transmission of relevant
+data such as ﬂight plans and the ease of receiving ACARS data links via novel
+software-deﬁned radio means. As shown in [96,97,99], ACARS presents a high-
+value target, as location data sent via satellite can be received far out of the line-
+
+8
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+of-sight required for other technologies. Further, data that allow for the identi-
+ﬁcation of aircraft movements and locations are regularly transmitted without
+effective encryption.
+• ADS-B: ADS-B has undoubtedly caused the greatest shift in concerns over air-
+craft tracking and privacy since its conception and even more so since the begin-
+ning of the equipage phase, which is mandated to end in 2020. As the authorities
+in the US, Europe and many other airspaces mandate the use of ADS-B for all
+ﬂights under instrument ﬂight rules, without practical exceptions for military,
+government or corporate stakeholders, the effort required to track such poten-
+tially sensitive aircraft has decreased substantially. Consequently, reports of sen-
+sitive military missions picked up via ADS-B are commonplace (e.g., [21]). Like-
+wise, journalists have set up ADS-B receivers and Twitter bots which publicly an-
+nounce the presence of government aircraft at Geneva airport. These data leaks
+are not only a privacy concern for users, but they have also been used as evidence
+in court [28]. Moreover, the private use of corporate aircraft by CEOs has been
+published, implying reputation and business losses for the ﬁrms involved [81].
+The National Business Aviation Association (NBAA) has repeatedly criticized
+that ADS-B data intercepts are compromising the privacy of their members. In
+particular, they note that attempts to block online services from using these data
+can be circumvented [55]. Studies on ADS-B have shown that the existing pri-
+vacy provision in the ADS-B Universal Access Transceiver (UAT) data link is
+ﬂawed [88] since pseudonyms can be correlated with real transponder IDs. Air-
+craft transponders can be ﬁngerprinted on the physical and data link layer, such
+that aircraft can be tracked even if the real transponder ID is unknown [59,110].
+• SSR/MLAT: Even if aircraft are not equipped with ADS-B, their presence in
+the general vicinity is easily derived via Mode S. Hence, the movements and
+locations of non-updated military aircraft can be exposed once multiple stations
+are able to receive the same signal. For example, the combination of SSR and
+MLAT data on the Flightradar24 website allowed the public to track movements
+of the border surveillance drones of the Swiss armed forces [115].
+• VHF: While VHF remains the most important ATC communication option to
+date, both its analogue nature and the fact that transmissions are not encrypted en-
+able almost anyone to listen into local voice communication and identify aircraft
+registration codes. Websites such as LiveATC1 publicly broadcast ATC commu-
+nication transmitted by VHF. An experimental approach demonstrated that voice
+recognition algorithms can be used to automate and scale a tracking approach,
+even if blocking techniques designed to prevent public websites from accessing
+the data are used [45].
+• ATC (general): Many privacy issues are rather associated with ATC as a system
+than with any particular technology. Three studies have used a list of all civil
+ﬂights in the United States between 2007 and 2011 that the Wall Street Jour-
+nal obtained from the FAA following a Freedom of Information Act request.
+Journalists have used this dataset to track CEOs’ private aircraft use. The pub-
+1 https://www.liveatc.net
+
+Securing the Air–Ground Link in Aviation
+9
+lication of these data led to accusations of under-reported CEO income and in-
+creased scrutiny of corporate ﬂight departments [64]. Other authors have used
+this dataset to establish a correlation between CEOs’ holiday schedules and their
+companies’ news announcements to predict stock price volatility [132]. Finally,
+the data have been used to correlate merger and acquisition activities with cor-
+porate ﬂights [65], motivating later research that used ADS-B data to investigate
+the same issue [113].
+Reports indicate that some companies are aware of this vulnerability and there-
+fore attempt to prevent the exposure of their aircraft on public tracking web-
+sites [23]. Lastly, aircraft movement data obtained from the ATC system has
+been used to uncover government and military operations [113, 114] as well as
+surveillance operations by police entities [12].
+2.2.2 Leaks of Personal Data
+There have been only sporadic reports of privacy leaks on data links, despite the pop-
+ularity of ACARS decoders such as acarsd.2 A Swiss pilot magazine reports several
+incidents such as the transmission of credit card data and refers to Internet forums
+where aviation enthusiasts share potenially sensitive ACARS messages [122]. Very
+recently, three academic works analyzed the occurrence and impact of misusing
+unsecured data links for potentially sensitive and conﬁdential data in more system-
+atic ways. The authors in [97,99] examine the usage of ACARS in Central Europe
+by analyzing a large amount of messages received via VHF and satellite commu-
+nication. On both data links, they showed that sensitive information ranging from
+credit card data and medical records to passenger lists was transmitted. In a related
+study [96], the authors show that there is a clear demand for privacy by ACARS
+users as some of them use mono-alphabetic substitution ciphers in an attempt to
+protect their communication. Naturally, this approach is highly insecure and leaks
+both tracking information and personal data.
+3 Defensive Research
+3.1 Research on Security Countermeasures
+We create a novel taxonomy that partitions the literature on countermeasures to
+security and privacy threats into four categories (viz. Table 4 below). We use this
+taxonomy to illustrate current research directions.
+2 http://www.acarsd.org
+
+10
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+Table 4 Existing research on security for ATC technologies.
+Cyber-Physical Security
+Physical Layer
+[14,37,53,57,58,60–62,72–74,76,82,91,95,106,118,125,128,133]
+Localization
+[29,31,69,70,90,107,109]
+Watermark/Fingerprinting
+[30,42,44,85,110,133]
+Machine Learning
+Classiﬁcation
+[35,75,101,133]
+Anomaly Detection
+[35,41,57,58,62,106,108,116]
+Non-technical Measures
+Formal Methods
+[17,68,71,78,117,120]
+Policies/Procedures
+[22,63,77,80,98,104,124]
+Cryptography
+Cryptographic Measures
+[1–3,10,13,16,18,33,34,36,38,40,46,48–52,56,66,67,79,84,86,
+87,93,103,108,121,126,129–131,135,136]
+3.1.1 Cyber-physical Security
+While security has always been a major issue in computer networking, and aca-
+demic research has developed countless strategies to secure and authenticate data
+and users, many of these are either bound to the traditional wired paradigm or difﬁ-
+cult to deploy in a legacy-oriented aviation environment.
+Cyber-physical systems (CPS) such as ATC combine computation and physical
+processes. Integrated feedback loops between these are securing the monitoring and
+controlling of the system. While classical attacker-defender models for wired net-
+works have been developed, these can be too prohibitive since they do not consider
+the fact that in wireless networks there are always (if inadvertent) listeners. Hence,
+new solutions beyond cryptographic measures are required that can take into ac-
+count the peculiarities of wireless communication. Such a cyber-physical approach
+to security should focus on attack detection in the ﬁrst place and only deploy addi-
+tional security measures if these are deemed necessary. Thus, the performance and
+the security requirements of the CPS may be balanced. To date, the extent research
+interest on CPS can be partitioned into three (if partially overlapping) areas: physi-
+cal layer security, localization, and watermarking/ﬁngerprinting.
+Physical Layer Security
+Physical layer security has recently emerged as a complementary technique to im-
+prove the communication security of wireless networks. A fundamentally different
+approach to cryptography, it achieves secrecy by exploiting the physical layer prop-
+erties of the channel [138]. It is particularly attractive for the legacy systems found
+in aviation as it does not require changes to communication protocols or aircraft.
+The work in this area has identiﬁed several methods by which spooﬁng attacks can
+
+Securing the Air–Ground Link in Aviation
+11
+be identiﬁed, such as time differences of arrival [14,72,106], Doppler shifts [37,91],
+direction of arrival [125], or angle of arrival [73]. Some authors [74,118] further sug-
+gest the use of beamforming to detect spooﬁng attacks. Several works also exploit
+physical layer characteristics to improve defenses against jamming [60,61,128].
+Localization
+The opportunities the physical layer offers to increase security can also be exploited
+to verify aircraft location data. Hence, the veracity of ADS-B position messages
+can be checked. As localization is a relatively mature area of research, technical
+implementations based on multilateration have been realized. This approach seems
+promising since it is based on physical constants and constraints that are difﬁcult to
+manipulate (e.g., the speed of light). For the case of ATC, most works have exploited
+time differences of arrival, often in the form of traditional multilateration [29,69,70]
+but also using other techniques [90,107,109]. Other approaches have used the angle
+of arrival to localize aircraft and verify their position claims [31].
+Watermarking/Fingerprinting
+Watermarking and ﬁngerprinting are two related approaches that both can iden-
+tify or authenticate wireless devices and their users. Watermarking installs delib-
+erate markers in the communication process that can be used by authentication al-
+gorithms. Fingerprinting exploits technological imperfections of the hardware and
+software that enable communication. Both techniques can verify the authenticity of
+the participants’ transceivers on the ground and on the aircraft. Hence, they can be
+deployed to detect both malicious and inadvertent intrusion. Several studies have in-
+vestigated the option to watermark VHF communication in an attempt to introduce
+speaker veriﬁcation [30, 42, 44, 85]. Further, two studies considered the feasibility
+of ﬁngerprinting the ADS-B protocol. One of them proposes to exploit differences
+in transponder implementations on the data link layer [110], another approach uses
+behavioural differences in the frequencies exhibited by different aircraft transpon-
+ders [59]. Note that none of these approaches offer perfect security, since attackers
+with a large resource endowment may mimic both watermarks and ﬁngerprints.
+3.1.2 Machine Learning
+The use of machine learning for security purposes has found widespread adoption
+over the past years, in particular with respect to intrusion detection in networked
+systems. Two principal approaches have been used to detect attacks on wireless
+aviation systems. The ﬁrst is classiﬁcation, whereby the characteristics of particular
+legitimate users are segmented and veriﬁed against these saved patterns. The other
+is anomaly detection, whereby the parameters of the normal state of the system are
+
+12
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+learned over time, and deviations from these patterns are marked as an anomaly and
+potential security concern.
+Classiﬁcation
+Currently, classiﬁcation approaches have mostly been applied to human users using
+the VHF channel. The authors in [35,75,101] use behavioural biometric voice data
+from pilots communicating via VHF radio to tell apart speakers on the VHF channel
+in an attempt to verify them and detect potential imposters. Very recent approaches
+have attempted to classify and segment standardized digital communication using
+deep learning on ADS-B signal characteristics [133].
+Anomaly Detection
+Some of the above-cited studies attempt to detect abnormal stress levels and distress
+in the pilot’s voices over VHF radio [35, 101], thereby seeking to detect anomalies
+with regards to legitimate channel use. In contrast, the authors in [106,116] suggest
+to use analogue physical layer features such as received signal strength and time
+differences of arrival collected from ADS-B/SSR data to learn the space of states
+normally occupied by aircraft and detect subsequent diversions from this normal
+state. Finally, the authors in [41] apply long short-term memory networks to detect
+spoofed ADS-B location messages in the ﬂight tracks of commercial aircraft.
+In general, there are often multiple explanations and causes for abnormal be-
+haviour, making anomaly detection usually only one part of an intrusion detection
+system. Careful calibration and engineering are required to prevent false positives.
+3.1.3 Non-technical Measures
+Besides technical approaches, there is signiﬁcant recent research into non-technical
+measures to secure the air–ground link. By the term ‘non-technical’, we refer to
+approaches that prefer formal and procedural adaptations within extant ATC tech-
+nology landscapes over the development of new technical systems or technologies.
+Formal Methods
+Early academic work has described changes to user experience following the intro-
+duction of formal security requirements into an ATC system and explored whether
+ADS-B position reports should be used as a primary position source for aircraft and
+considering potential mitigations [78]. More recently, the authors of [68] conducted
+a risk and requirements analysis of the ATM system, using VHF communication as
+a case study.
+
+Securing the Air–Ground Link in Aviation
+13
+As the popularity of this research ﬁeld grows, and as users become more experi-
+enced and deploy novel technological tools, research is now at a point where secu-
+rity standards can formally be veriﬁed. Recent work has delivered a complete for-
+mal veriﬁcation of the ACARS Message Security standard ARINC 823 [17]. They
+conﬁrm the security properties of the protocol, yet their analysis also ﬁnds several
+weaknesses, attacks, and imprecisions in the standard for which they propose po-
+tential ﬁxes. Other work proposes the use of ontologies [71], modal logic [120], and
+dynamic queue networks [117] to validate different aspects of the information ﬂow
+on the air–ground link.
+Policies/Procedures
+As new systems and technical changes to existing technologies are difﬁcult to de-
+ploy in the real aviation environment, researchers have looked at policies and proce-
+dures to improve the security of wireless communications. An overview of security-
+related initiatives of aviation authorities and the industry can be found in [63].
+For example, changes to the education of aviation professionals and air travel-
+ers on as regards the security problems of ADS-B are proposed [104], as is the use
+of ﬂight simulators to simulate cyberattacks [77, 98]. Further, aviation authorities
+are advised to release test-run data and mitigation options, to increase the aware-
+ness of security vulnerabilities, and to continuously operate primary surveillance
+radars [104,124]. While the last recommendation is costly and thus offsets the efﬁ-
+ciency advantage of introducing improved protocols, it is mentioned by the FAA as
+a potential intermediate solution until the 2020 ADS-B adoption requirement [19].
+Finally, it is suggested that the next generation of ATC technology should be de-
+signed with cyberattacks and radio frequency interference in mind [80,105].
+3.1.4 Cryptography
+Cryptography is the most effective means to realize secure communication in any
+scenario. Indeed, this is also the single most popular research area regarding the
+protection of wireless aviation protocols, despite the straightforward obstacles to de-
+ployment that have been pointed out by many authors (e.g., [108,126]). Its main ap-
+peal lies in the ability to effectively secure the content of any digital communication,
+offering integrity, authentication, and conﬁdentiality if required. Conﬁdentiality in
+particular cannot be offered by any other means, making works on cryptographic
+security in ATC also a viable starting point for the research on privacy counter-
+measures, which we discuss in the next chapter. Unfortunately, besides the ARINC
+823 standards on ACARS Message Security [2,3], which have seen no adoption in
+practice, no currently used aviation standard proposes any implementation of cryp-
+tography [97].
+Earlier work has analyzed the security problems of unencrypted communication
+in both ACARS [87], ADS-B [48], and CPDLC [36, 67, 79] and suggested experi-
+
+14
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+mental solutions to build on further. Once the security problems of ADS-B came
+to the fore, many researchers focused on the development of adequate schemes
+for existing and potentially future protocols. New proposals include identity-based
+encryption [40, 43, 121, 129, 130], format preserving encryption [10, 33, 34, 46]
+and retro-active key publication [16, 93, 108]. There has been renewed research
+on public key infrastructures in the aviation context [56, 136] and the application
+of blockchains towards the problem [13, 86]. While much work has addressed the
+downsides of cryptographic countermeasures and their incompatibility with current
+systems [1, 93, 131], to the best of our knowledge these studies have not yet been
+considered in detail by aviation authority committees.
+3.2 Research on Privacy Countermeasures
+Studies that aim to protect the privacy of aircraft users and stakeholders can be
+categorized into two fundamental areas: First, those which analyze countermeasures
+to the tracking of private and government aircraft, and second, those which strive to
+provide greater conﬁdentiality for sensitive data that are sent to or from aircraft. We
+also discuss the aviation industry’s attempts to strengthen privacy and the related
+measures proposed.
+3.2.1 Countermeasures against Tracking
+Recent works have analysed industry proposals to mitigate the problem of track-
+ing sensitive private and public aircraft and found them largely ineffective against
+realistic threat models [113]. The examined countermeasures can be divided into
+technical and non-technical countermeasures.
+Technical Measures
+• Turn position broadcasting off: As ADS-B is not mandated in all airspaces,
+there are around 30% of all aircraft in recent samples that did not yet support
+it and consequently do not broadcast their position [92]. However, this is only a
+short-term solution until 2020 in Western airspaces, and moreover much recent
+research has shown that aircraft can easily be tracked using other means.
+• Pseudonymous Identiﬁers: The only ATC technology offering pseudonymous
+identiﬁers by design, is the UAT data link used by some aircraft under visual
+ﬂight rules in the US. It offers a built-in privacy mechanism that generates a non-
+conﬂicting, random, temporary identiﬁer to avoid third-party tracking [5]. Unfor-
+tunately, this approach is both limited to general aviation aircraft in the US and
+ineffective as the aircraft’s real identiﬁers can be recovered [88]. Furthermore, the
+FAA warns that using this feature may have serious negative consequences [4]:
+
+Securing the Air–Ground Link in Aviation
+15
+We do not recommend integrating the anonymity features, as the operator will not be
+eligible to receive ATC services, may not be able to beneﬁt from enhanced ADS-B
+search and rescue capabilities, and may impact ADS-B In situational awareness beneﬁts.
+On the level of the aircraft call sign, commercial entities offer solutions which
+enlist an aircraft into an anonymous ”DOTCOM” airline [123], thus effectively
+anonymizing their call sign. While this approach has potential beneﬁts compared
+to other blocking solutions, aircraft still broadcast their real transponder IDs,
+such that the solution is ineffective to all but the weakest attacker models.
+• Encryption: While few works have actively proposed and developed crypto-
+graphic solutions speciﬁcally tailored to prevent tracking, the full encryption of
+a message’s identifying information may constitute an effective method. Conse-
+quently, cryptographic solutions as discussed in Section 3.1.4) may also be effec-
+tive. In practice, the problem of compatibility and quick implementation remain,
+in particular as regards the need to prevent data leaks on all wireless technologies
+used by an aircraft, i.e., separate solutions for SSR, ADS-B, ACARS, CPDLC
+and even VHF would be required.
+Non-Technical Measures
+• Web tracker blocking: Many stakeholders seek to prevent the live and public
+display of their aircraft on websites such as Flightradar24 using block lists. For
+a history and legal analysis of the FAA’s blocking program in the USA, see [39].
+The effectiveness of any such approach has however been strongly disputed re-
+cently [113], as alternative data sources such as personal SDR receivers or non-
+complying websites trivially circumvent such obscuration.
+• Ownership obscuration: Similarly to the blocking of ﬂight data, some stake-
+holders use third-party entities to register their aircraft and conceal the real owner
+from public records. Popular methods include the use of offshore shell compa-
+nies, special aircraft registration services, wealth management companies and
+trusts. This approach can help obscure the movements of their owners, however,
+a single slip of operational security can permanently destroy this advantage.3
+• Commercial air transport: The most straightforward and effective approach to
+avoid the described type of privacy concerns is provided by not using designated
+aircraft, regardless of whether they are operated by the government, military or
+privately, and instead rely on more anonymous, non-exclusive transport means.
+As such radical measures may compromise the security or privacy of the user,
+they may not be feasible in many cases.
+3 Examples of such slips include pictures and reports by traditional planespotters upon landing,
+investigative journalism, or posts on social media.
+
+16
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+Recommendations
+The literature has further discussed potential directions in aviation privacy: In the
+short term, regulation could provide one possible avenue in mitigating the privacy
+impact of large-scale tracking. Governments may legally restrict and regulate enti-
+ties (such as web trackers) which share data about aircraft movements.
+In this respect, more dedicated efforts are required that may, for example, intro-
+duce mandatory requirements or enforce signiﬁcant penalties [113]. Still, as legal
+norms differ internationally, and as aircraft data can be freely accessed on the Inter-
+net, the international enforcement of such regulation remains difﬁcult.
+Thus, in the longer term, technical solutions should be developed to provide pri-
+vacy guarantees; a robust pseudonym system could limit the tracking of aircraft over
+time.
+There is no critical technical or procedural need to have a consistent, publicly
+known identiﬁer for any aircraft. On the contrary, there is evidence that authorities
+have assigned alternative identiﬁers to aircraft deployed in sensitive (e.g., military)
+ﬂights [27]. Hence, a more ﬂexible identiﬁcation and assignment policy could disen-
+tangle aircraft identiﬁcation from ﬂights patterns. This measure alone would greatly
+reduce the security risk of ATC-based ﬂight tracking.
+Hence, the only way to effectively create the short-term opportunity for privacy
+in ATC systems is through the combination of technical and regulatory measures
+[113]. Regulatory measures can cover data generated by state entities but technical
+measures are needed to prevent entities from collecting signiﬁcant amounts of data.
+3.2.2 Privacy for Data Links
+In the long term, encryption is the sensible, mature and effective solution to achieve
+conﬁdentiality in wireless networks. In the short term, as there may be no suitable
+implementations available, changes in procedures and awareness can at least miti-
+gate some of the worst misuses reported.
+Such short-term measures should focus on educating avionics users to not use
+ACARS or CPDLC to send sensitive information. In fact, this requirement has been
+voiced as early as 1998 [83,127]. For example, a Swiss pilot has documented a case
+study where sensitive credit card data transmitted by plain-text ACARS messages
+were intercepted [122]. The author subsequently suggests not to use ACARS free-
+text messages to send credit card information or names of passengers and crew. The
+article also suggests to prefer telephone lines on the ground and satellite links over
+VHF. However, a recent study has found that this suggestion is ineffective [97].
+While cryptographic solutions are desirable in the long term, the deployment of
+related technology and protocols is in its infancy. Besides the ARINC 823 standards
+on ACARS Message Security [2, 3, 103], which have seen no adoption in practice,
+no currently used aviation standard proposes cryptographic measures. This leads
+to a proliferation of several proprietary encryption standards to protect ACARS
+and/or CPDLC, which have not been independently veriﬁed. Instead, researchers
+
+Securing the Air–Ground Link in Aviation
+17
+have shown examples where these schemes can be broken quickly and trivially [96].
+While recent proposals for novel data link technology, such as L-DACS and Aero-
+MACS, do consider encryption as a standard measure (e.g., [66]), they do not entail
+readily available solution since the technology is still in its early development phase.
+4 Research Agenda
+Our survey suggests that the reporting and data sharing on security vulnerabilities
+and incidents should be improved. A number of contemporary initiatives are already
+responding to this call. In Europe, the European Air Safety Agency (EASA) has
+created the European Centre for Cyber Security in Aviation (ECCSA); while the US-
+based Aviation Information Sharing &amp; Analysis Center (A-ISAC) aims to distribute
+crucial cybersecurity information between its fee-paying members. However, a free
+global platform that shares and integrates data among all relevant stakeholders has
+not yet been realized.
+Second, we suggest that the aviation industry should reconsider its approach to
+aviation security. Just as technology ﬁrms have evolved from producers of consumer
+goods to providers of global IT infrastructure, airlines and operators should embrace
+cooperation with academic research to transform the industry such that it provides
+not only physical, but also effective cybersecurity.
+Third, many authors have pointed out that security is not safety, hence the produc-
+tion of effective security solutions requires a different mindset. Some intersections
+between these ﬁeld have been identiﬁed early on [100]. While extensive develop-
+ment, testing and certiﬁcation cycles boosted ﬂight safety performance to record
+levels, those measures traditionally deployed for physical ﬂight safety (e.g., redun-
+dancy) are ineffective against malicious actors in the radio and cyber spheres. In-
+deed, the available (consumer) technology signiﬁcantly outpaced aviation commu-
+nication systems, leaving the latter dangerously vulnerable [54].
+As a result, there are some fundamental gaps in the literature, which we propose
+should be addressed by the following agenda.
+4.1 Security
+There is very little research that focuses on the security of the collision avoidance
+system TCAS. While there are also no explicit (public) reports on security incidents
+related to TCAS, the system uses both SSR and ADS-B to communicate, hence, it
+is exposed to all physical and cyber-related vulnerabilities these technologies entail
+[15, 112]. In light of the safety criticality of the system, active steps to secure it
+should be strongly considered.
+Further, the application of formal methods to verify security claims in aviation
+protocols should considered. Such veriﬁcation procedures can help minimize the
+
+18
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+risk of technology development failure as novel technology such as L-DACS is de-
+ployed throughout the industry.
+In the meantime, it is ﬁnally worth noting that there has been no research into
+short-term, transparent, quickly applicable solutions for the data link protocols
+ACARS and CPDLC. While there are many proposed approaches based on cyber-
+physical security or machine learning for all ATC technologies, there have been no
+attempts to transfer such research in order to protect the integrity of data transmit-
+ted on the data link. While cryptographic solutions are desirable in the long term,
+short-term solutions should focus on alternative technological approaches as the
+non-existing uptake of the ACARS Message Security standard and the many ﬂawed
+proprietary attempts to encrypt ACARS illustrate [96].”
+4.2 Privacy
+Privacy research has shown that both innocent and malicious actors can compromise
+aircraft and passenger privacy by correlating publicly available or leaked data and
+metadata. This problem is due to the simple fact that the data links used to transmit
+information are unsuited to even basic privacy requirements. To date, little academic
+work has focused on mitigating these disadvantages. While many studies attempt to
+improve the integrity and authenticity of ATC systems, few have explicitly looked
+at the conﬁdentiality of ATC data or the anonymity of its users. To date, the aviation
+industry still prefers open systems in an attempt to maximize safety by maximizing
+global compatibility [115]. As a result, this compatibility focus is at odds with de-
+mands for more privacy and security. Privacy leaks may be less obvious, but they
+still compromise the safety of aircraft users. As the number of reported cyber- and
+radio-related incidents of data interception and manipulation increases, a shift of the
+research focus towards privacy issues seems desirable.
+References
+1. ADS-B authentication compliant with Mode-S extended squitter using PSK modulation
+2. DataLink Security, Part 1 - ACARS Message Security. Tech. Rep. 823P1, ARINC (2007)
+3. DataLink Security, Part 2 - Key Management. Tech. Rep. 823P2, ARINC (2008)
+4. Airworthiness Approval of Automatic Dependent Surveillance - Broadcast (ADS-B) Out
+Systems. Tech. Rep. 20-165, Federal Aviation Administration (2010)
+5. Minimum operational performance standards for Universal Access Transceiver (UAT) Auto-
+matic Dependent Surveillance – Broadcast. Tech. Rep. DO-282B, RTCA, Inc (2011)
+6. Results from EASA technical investigation on the radar detection losses in June 2014 in
+Central Europe. Tech. Rep. ED0.1-2014-ed04.00, European Aviation Safety Agency (2014)
+7. Adamy, D.: EW 101: A ﬁrst course in electronic warfare. Artech (2001)
+8. Adamy, D.: EW 102: A second course in electronic warfare. Artech (2004)
+9. Adamy, D.: EW 103: Tactical battleﬁeld communications electronic warfare. Artech (2008)
+
+Securing the Air–Ground Link in Aviation
+19
+10. Agbeyibor, R., Butts, J., Grimaila, M., Mills, R.: Evaluation of format-preserving encryp-
+tion algorithms for critical infrastructure protection. In: International Conference on Critical
+Infrastructure Protection, pp. 245–261. Springer (2014)
+11. Airways New Zealand: FANS1/A Problem Reporting (2018).
+URL http://www.
+fans-cra.com/report/de-identified/list/
+12. Aldhous, P.: BuzzFeed News trained a computer to search for hidden spy planes. This
+is what we found.
+Buzzfeed News (2017).
+URL https://www.buzzfeed.com/
+peteraldhous/hidden-spy-planes
+13. Arora, A., Yadav, S.K.: Batman: Blockchain-based aircraft transmission mobile ad hoc net-
+work. In: Proceedings of 2nd International Conference on Communication, Computing and
+Networking, pp. 233–240. Springer (2019)
+14. Baker, R., Martinovic, I.: Secure location veriﬁcation with a mobile receiver. In: Proceedings
+of the 2nd ACM Workshop on Cyber-Physical Systems Security and Privacy, pp. 35–46.
+ACM (2016)
+15. Berges, P.M.: Exploring the Vulnerabilities of Trafﬁc Collision Avoidance Systems (TCAS)
+Through Software Deﬁned Radio (SDR) Exploitation. Ph.D. thesis, Virginia Tech (2019)
+16. Berthier, P., Fernandez, J.M., Robert, J.M.: Sat: Security in the air using tesla. In: 36th Digital
+Avionics Systems Conference. IEEE (2017)
+17. Blanchet, B.: Symbolic and Computational Mechanized Veriﬁcation of the ARINC823
+Avionic Protocols. In: 30th Computer Security Foundations Symposium. IEEE (2017)
+18. Bresteau, C., Guigui, S., Berthier, P., Fernandez, J.M.: On the security of aeronautical
+datalink communications: Problems and solutions. In: 2018 Integrated Communications,
+Navigation, Surveillance Conference (ICNS), pp. 1A4–1. IEEE (2018)
+19. Carey,
+B.:
+FAA
+No
+Longer
+Expected
+To
+Retire
+Radars.
+Aviation
+Week
+(2018).
+URL
+https://aviationweek.com/awincommercial/
+faa-no-longer-expected-retire-radars
+20. Cenciotti, D.: Forget any security concern and welcome Air Force One on Flightradar24!
+The Aviationist (2011).
+URL https://theaviationist.com/2011/11/24/
+af1-adsb
+21. Cenciotti, D.: Online ﬂight tracking provides interesting details about Russian air bridge to
+Syria. The Aviationist (2015). URL https://theaviationist.com/2015/09/
+11/ads-b-exposes-russian-air-bridge-to-syria/
+22. Chivers, H.: Control consistency as a management tool: the identiﬁcation of systematic secu-
+rity control weaknesses in air trafﬁc management. International Journal of Critical Computer-
+Based Systems 6(3), 229–245 (2016)
+23. City
+A.M.:
+Drugs
+giant
+AbbVie
+ﬂicks
+privacy
+switch
+on
+corpo-
+rate
+jet
+(2014).
+URL
+http://www.cityam.com/1405384925/
+drugs-giant-abbvie-flicks-privacy-switch-corporate-jet
+24. Costin, A., Francillon, A.: Ghost is in the Air(trafﬁc): On insecurity of ADS-B protocol and
+practical attacks on ADS-B devices. In: Black Hat USA, pp. 1–12 (2012)
+25. crescenvenus: Wireless Attack Launch Box (WALB) (2018). URL https://github.
+com/crescentvenus/WALB
+26. Di Marco, D., Manzo, A., Ivaldi, M., Hird, J.: Security testing with controller-pilot data link
+communications. In: Availability, Reliability and Security (ARES), 2016 11th International
+Conference on, pp. 526–531. IEEE (2016)
+27. Directorate of Air Trafﬁc Management: Automatic Dependent Surveillance-Broadcast
+(ADS-B). Tech. rep., Airports Authority of India, New Delhi, India (2014)
+28. Dupraz-Dobias, P.: Swiss ofﬁcials just seized 11 of the world’s most expensive cars from this
+African president’s son. Quartz (2016). URL https://goo.gl/rR34aP
+29. El Marady, A.A.W.: Enhancing accuracy and security of ads-b via mlat assisted-ﬂight infor-
+mation system. In: Computer Engineering and Systems (ICCES), 2017 12th International
+Conference on, pp. 182–187. IEEE (2017)
+30. Fantacci, R., Menci, S., Micciullo, L., Pierucci, L.: A secure radio communication system
+based on an efﬁcient speech watermarking approach. Security and Communication Networks
+2(4), 305–314 (2009)
+
+20
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+31. Faragher, R., et al.: Spooﬁng mitigation, robust collision avoidance, and opportunistic re-
+ceiver localisation using a new signal processing scheme for ADS-B or AIS. In: 27th Inter-
+national Technical Meeting of The Satellite Division of the Institute of Navigation (2014)
+32. Federal
+Aviation
+Administration:
+Aircraft
+Registry
+(2017).
+URL
+{https:
+//www.faa.gov/licenses_certificates/aircraft_certification/
+aircraft_registry/}
+33. Finke, C., Butts, J., Mills, R.: ADS-B encryption: conﬁdentiality in the friendly skies. 8th
+Annual Cyber Security and Information Intelligence Research Workshop (2013)
+34. Finke, C., Butts, J., Mills, R., Grimaila, M.: Enhancing the security of aircraft surveillance in
+the next generation air trafﬁc control system. International Journal of Critical Infrastructure
+Protection 6(1), 3–11 (2013)
+35. Finke, M., Stelkens-Kobsch, T.H.: A practical example for validation of atm security proto-
+types. CEAS Aeronautical Journal pp. 1–14 (2018)
+36. Getachew, D., Griner Jr, J.H.: An elliptic curve based authentication protocol for controller-
+pilot data link communications. In: Integrated CNS Conference &amp; Workshop (2005)
+37. Ghose, N., Lazos, L.: Verifying ADS-B navigation information through Doppler shift mea-
+surements. In: 34th IEEE/AIAA Digital Avionics Systems Conference (DASC) (2015)
+38. Gurtov, A., Polishchuk, T., Wernberg, M.: Controller–pilot data link communication security.
+Sensors 18(5), 1636 (2018)
+39. Gurtovaya, O.: Maintaining privacy in a world of technological transparency: The barr pro-
+gram’s ups and downs in changing times. J. Air L. &amp; Com. 77, 569 (2012)
+40. Hableel, E., Baek, J., Byon, Y.J., Wong, D.S.: How to protect ADS-B: Conﬁdentiality frame-
+work for future air trafﬁc communication. In: Computer Communications Workshops (2015)
+41. Habler, E., Shabtai, A.: Using LSTM encoder-decoder algorithm for detecting anomalous
+ADS-B messages. arXiv preprint arXiv:1711.10192 (2017)
+42. Hagmuller, M., Hering, H., Kropﬂ, A., Kubin, G.: Speech watermarking for air trafﬁc control.
+In: IEEE European Signal Processing Conference (2004)
+43. He, D., Kumar, N., Choo, K.K.R., Wu, W.: Efﬁcient hierarchical identity-based signature
+with batch veriﬁcation for automatic dependent surveillance-broadcast system. IEEE Trans-
+actions on Information Forensics and Security 12(2), 454–464 (2017)
+44. Hering, H., Hagm¨uller, M., Kubin, G.: Safety and security increase for air trafﬁc management
+through unnoticeable watermark aircraft identiﬁcation tag transmitted with the VHF voice
+communication. In: 22nd IEEE/AIAA Digital Avionics Systems Conference (DASC) (2003)
+45. Hoffman, D., Rezchikov, S.: Busting the BARR: Tracking “Untrackable” Private Aircraft for
+Fun &amp; Proﬁt. In: DEF CON 20. Las Vegas (2012)
+46. Huang, R.S., Yang, H.M., Wu, H.G.: Enabling conﬁdentiality for ads-b broadcast messages
+based on format-preserving encryption. In: Applied Mechanics and Materials, vol. 543, pp.
+2032–2035. Trans Tech Publ (2014)
+47. International Civil Aviation Organization (ICAO): Guidance Material: Security issues asso-
+ciated with ADS-B. Tech. rep., Montreal, QC, Canada (2014)
+48. Jochum, J.R.: Encrypted Mode Select ADS-B tactical military situational awareness. Mas-
+ter’s thesis, Massachusetts Institute of Technology, Cambridge, MA (2001)
+49. Kacem, T., Wijesekera, D., Costa, P.: Integrity and authenticity of ADS-B broadcasts. In:
+IEEE Aerospace Conference (2015)
+50. Kacem, T., Wijesekera, D., Costa, P.: Key distribution scheme for aircraft equipped with
+secure ads-b in. In: Intelligent Transportation Systems (ITSC), 2017 IEEE 20th International
+Conference on, pp. 1–6. IEEE (2017)
+51. Kacem, T., Wijesekera, D., Costa, P., Carvalho, J., Monteiro, M., Barreto, A.: Key distribu-
+tion mechanism in secure ADS-B networks. In: IEEE Integrated Communications, Naviga-
+tion and Surveillance Conference (ICNS) (2015)
+52. Kenney, L., Dietrich, J., Woodall, J.: Secure ATC surveillance for military applications. In:
+IEEE Military Communications Conference (MILCOM), pp. 1–6. IEEE (2008)
+53. Kim, Y., Jo, J.Y., Lee, S.: ADS-B vulnerabilities and a security solution with a timestamp.
+IEEE Aerospace and Electronic Systems Magazine 32(11), 52–61 (2017)
+
+Securing the Air–Ground Link in Aviation
+21
+54. Kirschbaum, J.: Urgent need for DOD and FAA to address risks and improve planning for
+technology that tracks military aircraft. Tech. Rep. GAO-18-177, United States Government
+Acocuntability Ofﬁce (2018)
+55. Laboda, A.: Unencrypted ADS-B OUT Confounds Aircraft Blocking. NBAA Convention
+News (2015)
+56. Lee, S.H., Han, J.W., Lee, D.G.: The ADS-B protection method for next-generation air trafﬁc
+management system. In: Ubiquitous Computing Application and Wireless Sensor. Springer
+(2015)
+57. Leonardi, M.: ADS-B anomalies and intrusions detection by sensor clocks tracking. IEEE
+Transactions on Aerospace and Electronic Systems (2018)
+58. Leonardi, M., Di Fausto, D.: ADS-B signal signature extraction for intrusion detection in
+the air trafﬁc surveillance system. In: 2018 26th European Signal Processing Conference
+(EUSIPCO), pp. 2564–2568. IEEE (2018)
+59. Leonardi, M., Di Gregorio, L., Di Fausto, D.: Air trafﬁc security: Aircraft classiﬁcation using
+ADS-B message’s phase-pattern. Aerospace 4(4), 51 (2017)
+60. Leonardi, M., Piracci, E., Galati, G.: ADS-B vulnerability to low cost jammers: Risk as-
+sessment and possible solutions. In: IEEE Tyrrhenian International Workshop on Digital
+Communications-Enhanced Surveillance of Aircraft and Vehicles (TIWDC/ESAV), pp. 41–
+46. IEEE (2014)
+61. Leonardi, M., Piracci, E., Galati, G.: ADS-B jamming mitigation: a solution based on a
+multichannel receiver. IEEE Aerospace and Electronic Systems Magazine 32(11), 44–51
+(2017)
+62. Li, T., Wang, B.: Sequential collaborative detection strategy on ads-b data attack. Interna-
+tional Journal of Critical Infrastructure Protection 24, 78–99 (2019)
+63. Mahmoud, M., Pirovano, A., Larrieu, N.: Aeronautical communication transition from ana-
+log to digital data: A network security survey. Elsevier Computer Science Review 11 (2014)
+64. Maremont,
+M.,
+McGinty,
+T.:
+Corporate
+jet
+set:
+Leisure
+vs.
+business.
+The
+Wall
+Street
+Journal
+(2011).
+URL
+https://www.wsj.com/articles/
+SB10001424052748703551304576260871791710428
+65. Maremont,
+M.,
+McGinty,
+T.:
+Ready
+for
+departure:
+M&amp;A
+airlines.
+The
+Wall
+Street
+Journal
+(2011).
+URL
+https://www.wsj.com/articles/
+SB10001424052702303499204576389923856575528
+66. M¨aurer, N., Bilzhause, A.: A Cybersecurity Architecture for the L-band Digital Aeronautical
+Communications System (LDACS). In: Digital Avionics Systems Conference. IEEE (2018)
+67. McParland, T., Patel, V., Hughes, W.J.: Securing air-ground communications.
+In: 20th
+IEEE/AIAA Digital Avionics Systems Conference (DASC), vol. 2 (2001)
+68. Montefusco, P., Casar, R., Stelkens-Kobsch, T.H., Koelle, R.: Addressing security in the ATM
+environment (2016)
+69. Monteiro, M., Barreto, A., Division, R., Kacem, T., Carvalho, J., Wijesekera, D., Costa, P.:
+Detecting malicious ADS-B broadcasts using wide area multilateration. In: 34th IEEE/AIAA
+Digital Avionics Systems Conference (DASC) (2015)
+70. Monteiro, M., Barreto, A., Kacem, T., Wijesekera, D., Costa, P.: Detecting malicious ADS-B
+transmitters using a low-bandwidth sensor network. In: IEEE International Conference on
+Information Fusion (Fusion) (2015)
+71. Morel, L.P.: Using ontologies to detect anomalies in the sky. Ph.D. thesis, ´Ecole Polytech-
+nique de Montr´eal (2017)
+72. Moser, D., Leu, P., Lenders, V., Ranganathan, A., Ricciato, F., Capkun, S.: Investigation of
+multi-device location spooﬁng attacks on air trafﬁc control and possible countermeasures. In:
+22nd Annual International Conference on Mobile Computing and Networking (MobiCom)
+(2016)
+73. Murphy, T., Harris, W.: Device, System and Methods Using Angle of Arrival Measurements
+for ADS-B Authentication and Navigation (2014). URL https://www.google.com/
+patents/US20140327581. US Patent App. 13/875,749
+
+22
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+74. Naganawa, J., Tajima, H., Miyazaki, H., Koga, T., Chomel, C.: ADS-B anti-spooﬁng perfor-
+mance of monopulse technique with sector antennas. In: Antenna Measurements &amp; Appli-
+cations (CAMA), 2017 IEEE Conference on, pp. 87–90. IEEE (2017)
+75. Neffe, M., Van Pham, T., Hering, H., Kubin, G.: Speaker segmentation for air trafﬁc control.
+In: Speaker Classiﬁcation II. Springer (2007)
+76. Nguyen, A.Q., Amrhar, A., Zambrano, J., Brown, G., Landry Jr, R., Yeste, O.: Application
+of phase modulation enabling secure automatic dependent surveillance-broadcast. Journal of
+Air Transportation 26(4), 157–170 (2018)
+77. Nguyen, D., Shelton, J.W., Mitchell, T.M.: System and method for evaluating cyber-attacks
+on aircraft (2017). US Patent 9,836,990
+78. Nuseibeh, B., Haley, C.B., Foster, C.: Securing the skies: In requirements we trust. IEEE
+Computer 42(9), 64–72 (2009)
+79. Olive, M.L.: Efﬁcient datalink security in a bandwidth-limited mobile environment-an
+overview of the Aeronautical Telecommunications Network (ATN) security concept. In:
+20th IEEE/AIAA Digital Avionics Systems Conference (DASC), vol. 2, pp. 1–10 (2001)
+80. Osechas, O., Mostafa, M., Graupl, T., Meurer, M.: Addressing vulnerabilities of the CNS
+infrastructure to targeted radio interference. IEEE Aerospace and Electronic Systems Maga-
+zine 32(11), 34–42 (2017)
+81. Palan, D., Boldt, K.: Abﬂug in h¨ohere Sph¨aren. Manager Magazin (2012). URL http:
+//www.manager-magazin.de/lifestyle/reise/a-827947-6.html
+82. Park, P., Khadilkar, H., Balakrishnan, H., Tomlin, C.J.: High conﬁdence networked control
+for next generation air transportation systems. IEEE Transactions on Automatic Control
+59(12), 3357–3372 (2014)
+83. Pascoe, K.: ACARS and Error Checking (2015).
+URL http://www.flight.org/
+acars-and-error-checking
+84. Patel, V.: ICAO air-ground security standards strategy. In: IEEE Integrated Communications,
+Navigation and Surveillance Conference (ICNS) (2015)
+85. Prinz, J., Sajatovic, M., Haindl, B.: S/sup 2/EV-safety and security enhanced ATC voice
+system. In: IEEE Aerospace Conference (2005)
+86. Reisman, R.: Blockchain serverless public/private key infrastructure for ADS-B security,
+authentication, and privacy. In: AIAA Scitech 2019 Forum, p. 2203 (2019)
+87. Risley, C., McMath, J., Payne, C.B.: Experimental encryption of aircraft communications
+addressing and reporting system (ACARS) aeronautical operational control (AOC) messages.
+In: Digital Avionics Systems Conference (2001)
+88. Sampigethaya, K., Taylor, S., Poovendran, R.: Flight privacy in the nextgen: Challenges and
+opportunities. In: Integrated Communications, Navigation and Surveillance Conf. (2013)
+89. Sch¨afer, M., Lenders, V., Martinovic, I.: Experimental analysis of attacks on next genera-
+tion air trafﬁc communication. In: International Conference on Applied Cryptography and
+Network Security (ACNS), pp. 253–271. Springer (2013)
+90. Sch¨afer, M., Lenders, V., Schmitt, J.: Secure Track Veriﬁcation. In: IEEE Symposium on
+Security and Privacy (S&amp;P), pp. 199–213. IEEE (2015)
+91. Sch¨afer, M., Leu, P., Lenders, V., Schmitt, J.: Secure motion veriﬁcation using the doppler
+effect. In: Proceedings of the 9th ACM Conference on Security &amp; Privacy in Wireless and
+Mobile Networks, pp. 135–145. ACM (2016)
+92. Sch¨afer, M., Strohmeier, M., Smith, M., Fuchs, M., Pinheiro, R., Lenders, V., Martinovic,
+I.: OpenSky Report 2016: Facts and Figures on SSR Mode S and ADS-B Usage. In: 35th
+IEEE/AIAA Digital Avionics Systems Conference (DASC) (2016)
+93. Sciancalepore, S., Di Pietro, R.: SOS - Securing Open Skies. In: International Conference on
+Security, Privacy and Anonymity in Computation, Communication and Storage, pp. 15–32.
+Springer (2018)
+94. Selleck, D.: Iridium fault prompts ban by Oceanic ATC. Flight Service Bureau (2017). URL
+ttp://flightservicebureau.org/iridium-fault/
+95. Shang, F., Wang, B., Yan, F., Li, T.: Multidevice false data injection attack models of ADS-B
+multilateration systems. Security and Communication Networks 2019, 1–11 (2019)
+
+Securing the Air–Ground Link in Aviation
+23
+96. Smith, M., Moser, D., Strohmeier, M., Lenders, V., Martinovic, I.: Economy Class Crypto:
+Exploring Weak Cipher Usage in Avionic Communications via ACARS. In: International
+Conference on Financial Cryptography and Data Security (2017)
+97. Smith, M., Moser, D., Strohmeier, M., Martinovic, I., Lenders, V.: Undermining Privacy in
+the Aircraft Communications Addressing and Reporting System (ACARS). In: 18th Privacy
+Enhancing Technologies Symposium (PETS 2018) (2018)
+98. Smith, M., Strohmeier, M., Harman, J., Lenders, V., Martinovic, I.: Safety vs. security: At-
+tacking avionic systems with humans in the loop. arXiv preprint arXiv:1905.08039 (2019)
+99. Smith, M., Strohmeier, M., Lenders, V., Martinovic, I.: On the security and privacy of
+ACARS. IEEE Integrated Communications, Navigation and Surveillance Conference (2016)
+100. Stavridou, V., Dutertre, B.: From security to safety and back. In: Computer Security, De-
+pendability and Assurance: From Needs to Solutions, pp. 182–195. IEEE (1998)
+101. Stelkens-Kobsch, T., Hasselberg, A., M¨uhlhausen, T., Carstengerdes, N.: Towards a more
+secure ATC voice communications system. In: Digital Avionics Systems Conference (2015)
+102. Stewart, J.: Meet the NATS pirate hunters. NATS Blog (2015). URL https://nats.
+aero/blog/2015/05/meet-the-nats-pirate-hunters/
+103. Storck, P.: Beneﬁts of commercial data link security. In: IEEE Integrated Communications,
+Navigation and Surveillance Conference (ICNS) (2013)
+104. Strand, D.A.: Automatic dependent surveillance - broadcast (ADS-B) vulnerabilities. Ph.D.
+thesis, Utica College (2017)
+105. Strohmeier, M.: Security in next generation air trafﬁc communication networks. Ph.D. thesis,
+University of Oxford (2016)
+106. Strohmeier, M., Lenders, V., Martinovic, I.: Intrusion detection for airborne communication
+using PHY-layer information. In: International Conference on Detection of Intrusions and
+Malware, and Vulnerability Assessment (DIMVA), pp. 67–77. Springer (2015)
+107. Strohmeier, M., Lenders, V., Martinovic, I.: Lightweight location veriﬁcation in air trafﬁc
+surveillance networks. In: Proceedings of the 1st ACM Workshop on Cyber-Physical System
+Security (CPSS), pp. 49–60. ACM (2015)
+108. Strohmeier, M., Lenders, V., Martinovic, I.: On the Security of the Automatic Dependent
+Surveillance-Broadcast Protocol. IEEE Communications Surveys &amp; Tutorials 17(2) (2015)
+109. Strohmeier, M., Lenders, V., Martinovic, I.: A k-nn-based localization approach for crowd-
+sourced air trafﬁc communication networks. IEEE Transactions on Aerospace and Electronic
+Systems 56(1) (2018)
+110. Strohmeier, M., Martinovic, I.: On passive data link layer ﬁngerprinting of aircraft transpon-
+ders.
+In: Proceedings of the First ACM Workshop on Cyber-Physical Systems-Security
+and/or PrivaCy (CPS-SPC), pp. 1–9. ACM (2015)
+111. Strohmeier, M., Niedbala, A.K., Sch¨afer, M., Lenders, V., Martinovic, I.: Surveying aviation
+professionals on the security of the air trafﬁc control system. In: Security and Safety Interplay
+of Intelligent Software Systems, pp. 135–152. Springer (2018)
+112. Strohmeier, M., Sch¨afer, M., Pinheiro, R., Lenders, V., Martinovic, I.: On perception and re-
+ality in wireless air trafﬁc communication security. IEEE Transactions on Intelligent Trans-
+portation Systems 18(6), 1338–1357 (2017)
+113. Strohmeier, M., Smith, M., Lenders, V., Martinovic, I.: The real ﬁrst class? inferring conﬁ-
+dential corporate mergers and government relations from air trafﬁc communication. In: IEEE
+European Symposium on Security and Privacy (EuroS&amp;P) (2018)
+114. Strohmeier, M., Smith, M., Moser, D., Sch¨afer, M., Lenders, V., Martinovic, I.: Utilizing
+air trafﬁc communications for osint on state and government aircraft. In: 10th International
+Conference on Cyber Conﬂict (CyCon) (2018)
+115. Strohmeier, M., Smith, M., Sch¨afer, M., Lenders, V., Martinovic, I.: Assessing the impact
+of aviation security on cyber power. In: 8th International Conference on Cyber Conﬂict
+(CyCon), pp. 223–241 (2016)
+116. Strohmeier, M., Smith, M., Sch¨afer, M., Lenders, V., Martinovic, I.: Crowdsourcing security
+for wireless air trafﬁc communications. In: 9th International Conference on Cyber Conﬂict
+(CyCon),, pp. 1–18 (2017)
+
+24
+Martin Strohmeier, Ivan Martinovic, Vincent Lenders
+117. Tamimi, A., Hahn, A., Roy, S.: Cyber threat impact analysis to air trafﬁc ﬂows through
+dynamic queue networks. arXiv preprint arXiv:1810.07514 (2018)
+118. Tart, A., Trump, T.: Addressing security issues in ADS-B with robust two dimensional gen-
+eralized sidelobe canceller. In: Digital Signal Processing (DSP), 2017 22nd International
+Conference on, pp. 1–5. IEEE (2017)
+119. Teso, H.: Aircraft hacking: Practical aero series. Fourth Annual Hack in the Box Security
+Conference (2013)
+120. Thudimilla, A., McMillin, B.: Multiple security domain nondeducibility air trafﬁc surveil-
+lance systems. In: High Assurance Systems Engineering (HASE), 2017 IEEE 18th Interna-
+tional Symposium on, pp. 136–139. IEEE (2017)
+121. Thumbur, G., Gayathri, N., Reddy, P.V., Rahman, M.Z.U., Lay-Ekuakille, A.: Efﬁcient
+pairing-free identity-based ADS-B authentication scheme with batch veriﬁcation.
+IEEE
+Transactions on Aerospace and Electronic Systems (2019)
+122. Tilly,
+Peter:
+Die
+verpasste
+Chance.
+AEROPERS
+Rundschau
+(2013).
+URL
+https://www.aeropers.ch/index.php/der-verband/
+rundschau1/archiv/rundschau-archiv-rundschau-archiv-2013-1/
+638-rundschau-2-2013-1/file
+123. Trautvetter,
+C.:
+FltPlan
+ﬂight
+privacy
+program
+exposes
+tangled
+FAA
+pol-
+icy.
+AIN
+Online
+(2011).
+URL
+https://www.ainonline.com/
+aviation-news/aviation-international-news/2011-08-31/
+fltplan-flight-privacy-program-exposes-tangled-faa-policy
+124. Viveros, C.A.P.: Analysis of the cyber attacks against ADS-B perspective of aviation experts.
+Ph.D. thesis, Master’s Thesis, University of Tartu, Institute of Computer Science). (2016)
+125. Wang, W., Chen, G., Wu, R., Lu, D., Wang, L.: A low-complexity spooﬁng detection and
+suppression approach for ADS-B. In: IEEE Integrated Communications, Navigation and
+Surveillance Conference (ICNS) (2015)
+126. Wesson, K.D., Humphreys, T.E., Evans, B.L.: Can cryptography secure next generation air
+trafﬁc surveillance? IEEE Security and Privacy Magazine (2014)
+127. Wolper, J.: Security risks of laptops in airline cockpits (1998). URL http://catless.
+ncl.ac.uk/Risks/20/12
+128. Wu, R., Chen, G., Wang, W., Lu, D., Wang, L.: Jamming suppression for ADS-B based on
+a cross-antenna array. In: IEEE Integrated Communications, Navigation and Surveillance
+Conference (ICNS) (2015)
+129. Yang, A., Tan, X., Baek, J., Wong, D.S.: A new ADS-B authentication framework based on
+efﬁcient hierarchical identity-based signature with batch veriﬁcation. IEEE Transactions on
+Services Computing 10(2), 165–175 (2015)
+130. Yang, H., Huang, R., Wang, X., Deng, J., Chen, R.: EBAA: An efﬁcient broadcast authen-
+tication scheme for ADS-B communication based on IBS-MR. Elsevier Chinese Journal of
+Aeronautics 27(3), 688–696 (2014)
+131. Yang, H., Zhou, Q., Yao, M., Lu, R., Li, H., Zhang, X.: A Practical and Compatible Crypto-
+graphic Solution to ADS-B Security. IEEE Internet of Things Journal (2018)
+132. Yermack, D.: Tailspotting: Identifying and proﬁting from CEO vacation trips. Journal of
+Financial Economics 113(2), 252–269 (2014)
+133. Ying, X., Mazer, J., Bernieri, G., Conti, M., Bushnell, L., Poovendran, R.: Detecting ADS-B
+spooﬁng attacks using deep neural networks. arXiv preprint arXiv:1904.09969. (2019)
+134. Younger,
+E.:
+Melbourne
+Airport
+hoax
+caller
+Paul
+Sant
+pleads
+guilty
+to
+making
+fake
+ﬂight
+calls,
+aborting
+Virgin
+landing.
+ABC
+News
+(2017).
+URL
+http://www.abc.net.au/news/2017-09-05/
+melbourne-airport-hoax-caller-paul-sant-pleads-guilty/
+8873984
+135. Yue, M.: Security of VHF data link in ATM. In: M.S. Musa, Z. Wu (eds.) Aeronautical
+telecommunications network: Advances, challenges, and modeling. CRC Press (2015)
+136. Yue, M., Wu, X.: The approach of ACARS data encryption and authentication. In: Interna-
+tional Conference on Computational Intelligence and Security (CIS) (2010)
+
+Securing the Air–Ground Link in Aviation
+25
+137. Zhang, R., Liu, G., Liu, J., Nees, J.P.: Analysis of message attacks in aviation data-link
+communication. IEEE Access 6, 455–463 (2018)
+138. Zhou, X., Song, L., Zhang, Y.: Physical layer security in wireless communications. CRC
+Press, Boca Raton, FL (2014)
+</pre>
+<script>const m=document.querySelector("mark"); if (m) m.scrollIntoView({block:"center"});</script>
+</body></html>
