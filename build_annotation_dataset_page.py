@@ -6,6 +6,7 @@ Reads analysis_outputs/annotation_dataset_export_<date>/ (claims.json and snapsh
 otakotak:/scratch/users/suliu/mcfc-settle/intake_text1200/ by export_dataset.py) and the selection in
 analysis_outputs/annotation_2000_v1/claims_final.jsonl (select_2000.py). A claim qualifies if at least one evidence
 statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language.
+Claim images and videos come from media.json and media/ beside the selection (build_media.py).
 Writes annotation-dataset/.
 """
 import collections
@@ -20,7 +21,8 @@ TEMPLATE = HERE / 'veritas-intake-review/index.html'
 OUT = HERE / 'annotation-dataset'
 SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_dataset_export_20261110')
 SEL = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_2000_v1/claims_final.jsonl')
-AS_OF = '2026-11-10'
+MEDIA = SEL.parent / 'media.json'  # build_media.py; images sit in SEL.parent / 'media'
+AS_OF = '2026-11-11'
 TIERS = {'English': 'High', 'Chinese': 'High', 'Hindi': 'Medium', 'Arabic': 'Medium', 'Tamil': 'Low', 'Indonesian': 'Low'}
 QUOTA = {'High': 250, 'Medium': 150, 'Low': 100}
 VERITAS = 'https://veritas.mai.informatik.tu-darmstadt.de/claims/'
@@ -31,18 +33,31 @@ sel = {json.loads(l)['claim_id']: json.loads(l)['script'] for l in SEL.open(enco
 (OUT / 'snapshots').mkdir(parents=True, exist_ok=True)
 for f in (SRC / 'snapshots').iterdir():
     shutil.copy(f, OUT / 'snapshots' / f.name)
+media = json.loads(MEDIA.read_text(encoding='utf-8'))
+(OUT / 'media').mkdir(exist_ok=True)
+for f in (SEL.parent / 'media').iterdir():
+    shutil.copy(f, OUT / 'media' / f.name)
 for r in rows:
     r['tier'] = TIERS[r['lang']]
     r['mod'] = {'text-only': 'text', 'image-text': 'image', 'video': 'video'}[r['mod']]
     r['veritas'] = VERITAS + str(r['id']) if r['veritas'] else ''
     r['sel'] = r['id'] in sel
     r['script'] = sel.get(r['id']) or ''
+    m = media.get(str(r['id'])) or {'items': [], 'note': ''}
+    r['media'] = [{**x, 'src': x['src'] if x['src'].startswith('http') else 'media/' + x['src'],
+                   **({'poster': 'media/' + x['poster']} if x.get('poster') else {})} for x in m['items']]
+    r['mnote'] = m['note']
 rows.sort(key=lambda r: r['date'] or '', reverse=True)
 
 cnt = collections.Counter((r['lang'], r['mod']) for r in rows if r['sel'])
 all_cnt = collections.Counter(r['lang'] for r in rows)
 sel_rows = [r for r in rows if r['sel']]
 n_ev = sum(len(r['ev']) for r in sel_rows); n_nourl = sum(1 for r in sel_rows for e in r['ev'] if not e['u'])
+mm_rows = [r for r in sel_rows if r['mod'] != 'text']
+n_media = sum(1 for r in mm_rows if r['media'])
+n_vid = sum(1 for r in mm_rows if r['mod'] == 'video' and any(x['t'] == 'video' for x in r['media']))
+n_vid_all = sum(1 for r in mm_rows if r['mod'] == 'video')
+n_out = sum(1 for r in mm_rows if not r['veritas'])
 trs = []
 for L, T in TIERS.items():
     q = QUOTA[T]; t, i, v = cnt[(L, 'text')], cnt[(L, 'image')], cnt[(L, 'video')]
@@ -56,7 +71,11 @@ note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_ro
         'A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. '
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
         'claims with more linked evidence first, then the newest. All selected Chinese claims are Simplified. Type is estimated by a keyword rule for claims from outside VeriTaS. '
-        f'{n_nourl} selected evidence statements have no source link yet. Image and video files are not shown here.</div>' + table)
+        f'{n_nourl} selected evidence statements have no source link yet. '
+        f'{n_media} of the {len(mm_rows)} selected image and video claims show their media; {n_vid} of the {n_vid_all} video claims have a playable video. '
+        'VeriTaS claims show the media VeriTaS stores. Their videos are copies re-encoded at 480 px wide. '
+        f'The {n_out} claims from outside VeriTaS show images from the fact-checking article, usually its screenshots of the claimed post, which may carry the fact-checker\'s marks. '
+        'Where the article embeds the video itself, it is shown too; otherwise the original video was not kept.</div>' + table)
 
 html = TEMPLATE.read_text(encoding='utf-8')
 html = re.sub(r'(const DATA\s*=\s*)\[.*?\](;\s*\n)', lambda m: m.group(1) + json.dumps(rows, ensure_ascii=False).replace('</', '<\\/') + ';const BASIS={original_claim:"claim in the language",article:"article in the language",evidence_page:"evidence page in the language"}' + m.group(2), html, flags=re.S)
@@ -90,13 +109,18 @@ evidence_js = r'''function evidenceHTML(e){
 }'''
 html = re.sub(r'function evidenceHTML\(e\)\{.*?\n\}\n// END ARTICLE SOURCE RENDERER', lambda m: evidence_js + '\n// END ARTICLE SOURCE RENDERER', html, count=1, flags=re.S)
 
+html = html.replace('''  const img = d.img ? `<img class="cardimg" src="${d.img}" loading="lazy" alt="claim media">` : "";''',
+                    '''  const one = x => x.t==="video" ? `<video class="cardimg" controls preload="none" playsinline${x.poster?` poster="${esc(x.poster)}"`:""} src="${esc(x.src)}" onclick="event.stopPropagation()"></video>`
+                                 : `<img class="cardimg" src="${esc(x.src)}" loading="lazy" alt="claim media">`;
+  const img = d.media.length ? one(d.media[0]) + (d.media.length>1?`<div class="mmore">+${d.media.length-1} more, open the card</div>`:"") : "";
+  const mediaDetail = d.media.length ? `<h4>Claim media (${d.media.length})</h4><div class="mgrid">${d.media.map(one).join("")}</div><div class="muted">${esc(d.mnote)}</div>` : "";''')
 html = html.replace('''  <div class="claimtext">${esc(d.claim)}</div>''', '''  <div class="claimtext" dir="auto">${esc(d.claim)}</div>''')
 html = html.replace('''  <div class="cfoot"><span>#${d.id}</span><span>${d.date}</span><span class="chip mod">${d.mod}</span>''',
                     '''  <div class="cfoot"><span>#${d.id}</span><span>${d.date}</span><span class="chip mod">${esc(d.tier)}</span><span class="chip mod">${esc(d.lang)}</span>${d.script?`<span class="chip mod">${esc(d.script)}</span>`:""}${d.sel?"":`<span class="chip mod">not selected</span>`}<span class="chip mod">${esc(d.mod)}</span><span class="chip mod">${esc(d.pub)}</span>''')
 html = html.replace('''${d.gold?` · gold: ${esc(d.gold)}`:""}''', '''${d.gold?` · rating: ${esc(d.gold)}`:""}''')
 html = html.replace('''<div class="deconbox">original: ${esc(d.orig)}</div>''', '''<div class="deconbox" dir="auto">original: ${esc(d.orig)}</div>''')
 html = html.replace('''  <div class="detail">${decon}<h4>Evidence (${d.ev.length})</h4>${ev}''',
-                    '''  <div class="detail">${decon}<h4>Evidence (${d.ev.length})</h4>${d.ev.length?ev:'<div class="muted">No statement survived the link and settle steps.</div>'}''')
+                    '''  <div class="detail">${mediaDetail}${decon}<h4>Evidence (${d.ev.length})</h4>${d.ev.length?ev:'<div class="muted">No statement survived the link and settle steps.</div>'}''')
 html = html.replace('''  <h4>Source</h4><a href="${esc(d.art)}" target="_blank" onclick="event.stopPropagation()">fact-checking article ↗</a></div></div></div>`;''',
                     '''  <h4>Source</h4><a href="${esc(d.art)}" target="_blank" onclick="event.stopPropagation()">fact-checking article (${esc(d.pub)}) ↗</a>${d.veritas?` · <a href="${esc(d.veritas)}" target="_blank" onclick="event.stopPropagation()">VeriTaS claim page ↗</a>`:""}<h4>Language basis</h4>${esc(BASIS[d.basis]||d.basis)}${d.est?" · type estimated by keyword rule":""}</div></div></div>`;''')
 html = html.replace('''  const fv=document.getElementById("fVerdict").value, fm=document.getElementById("fMod").value,
@@ -122,7 +146,11 @@ html = html.replace('</style>', '.tag.external_search{background:var(--warn-soft
                     '.cmp-scroll{overflow-x:auto;max-width:1000px;margin:0 auto}\n'
                     'table.cmp{border-collapse:collapse;width:100%;min-width:760px;margin:12px 0;font-size:.85rem;background:var(--card)}\n'
                     'table.cmp th,table.cmp td{border:1px solid var(--line);padding:6px 9px;vertical-align:top;text-align:left}\n'
-                    'table.cmp th{color:var(--ink);font-weight:600}\n</style>', 1)
+                    'table.cmp th{color:var(--ink);font-weight:600}\n'
+                    '.cardimg{object-fit:contain;background:var(--line)}\nvideo.cardimg{background:#000}\n'
+                    '.mmore{font-size:12px;color:var(--ink3);padding:4px 16px 0}\n'
+                    '.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:6px}\n'
+                    '.mgrid .cardimg{max-height:220px;border-radius:8px}\n</style>', 1)
 
 (OUT / 'index.html').write_text(html, encoding='utf-8')
 print(len(rows), 'claims', n_ev, 'evidence', n_nourl, 'without a link', (OUT / 'index.html').stat().st_size // 1024, 'KB', len(list((OUT / 'snapshots').iterdir())), 'snapshots')
