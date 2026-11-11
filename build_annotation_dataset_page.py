@@ -79,7 +79,53 @@ note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_ro
         f'{n_media} of the {len(mm_rows)} selected image and video claims show their media; {n_vid} of the {n_vid_all} video claims have a playable video. '
         'VeriTaS claims show the media VeriTaS stores. Their videos are copies re-encoded at 480 px wide. '
         f'The {n_out} claims from outside VeriTaS show images from the fact-checking article, usually its screenshots of the claimed post, which may carry the fact-checker\'s marks. '
-        'Where the article embeds the video itself, it is shown too; otherwise the original video was not kept.</div>' + table)
+        'Where the article embeds the video itself, it is shown too; otherwise the original video was not kept.</div>')
+# the quota chart is drawn from DATA when the page loads; the table stays as its table view
+chart = ('<div class="qv"><div class="qv-tiles" id="qvTiles"></div>'
+         '<div class="qv-legend"><span><i style="background:var(--c-text)"></i>Text</span><span><i style="background:var(--c-image)"></i>Image</span>'
+         '<span><i style="background:var(--c-video)"></i>Video</span><span class="qv-poolh" title="Qualifying claims not selected, kept as replacements">pool left</span></div>'
+         '<div id="qvRows"></div><div class="qv-hint">Hover a bar for counts. Click it to show those claims below.</div>'
+         '<details class="qv-table"><summary>Table view</summary>' + table + '</details></div><div class="qv-tip" id="qvTip" hidden></div>')
+chart_js = r'''<script>
+(function(){
+const TIERS=__TIERS__, QUOTA=__QUOTA__, MODS=["text","image","video"], NAME={text:"Text",image:"Image",video:"Video"};
+const fmt=n=>n.toLocaleString("en-US"), c={}, pool={};
+for(const d of DATA){ c[d.lang]=c[d.lang]||{text:0,image:0,video:0}; if(d.sel) c[d.lang][d.mod]++; else pool[d.lang]=(pool[d.lang]||0)+1; }
+let tot={text:0,image:0,video:0}, met=0, nq=0, even=true, need=0;
+for(const [L,T] of Object.entries(TIERS)){ const q=QUOTA[T], x=c[L]||{text:0,image:0,video:0};
+  for(const m of MODS) tot[m]+=x[m];
+  nq+=2; met+=(x.text>=q)+(x.image+x.video>=q); need+=2*q; if(x.text!==x.image+x.video) even=false; }
+const sel=tot.text+tot.image+tot.video, mm=tot.image+tot.video;
+const tile=(h,v,s)=>`<div class="qv-tile"><div class="qv-th">${h}</div><div class="qv-tv">${v}</div><div class="qv-ts">${s}</div></div>`;
+document.getElementById("qvTiles").innerHTML=
+  tile("Selected",`${fmt(sel)} / ${fmt(need)}`, met===nq?`all ${nq} quotas met`:`${met} of ${nq} quotas met`)+
+  tile("Text : multimodal",`${fmt(tot.text)} : ${fmt(mm)}`, even?"50 / 50 in every language":"not 50 / 50 in every language")+
+  tile("Image : video",`${fmt(tot.image)} : ${fmt(tot.video)}`,"within multimodal");
+const max=Math.max(...Object.keys(TIERS).map(L=>MODS.reduce((s,m)=>s+((c[L]||{})[m]||0),0)));
+let h="";
+for(const T of ["High","Medium","Low"]){
+  h+=`<div class="qv-group">${T} resource</div>`;
+  for(const [L,TT] of Object.entries(TIERS)){ if(TT!==T) continue;
+    const x=c[L]||{text:0,image:0,video:0}, n=x.text+x.image+x.video, q=QUOTA[T], p=pool[L]||0;
+    const segs=MODS.filter(m=>x[m]).map(m=>`<span class="qv-seg" data-l="${L}" data-m="${m}" style="flex:${x[m]};background:var(--c-${m})"></span>`).join("");
+    h+=`<div class="qv-row"><div class="qv-lang">${L}</div><div class="qv-track"><div class="qv-bar" style="width:calc((100% - 84px) * ${n/max})">${segs}</div><span class="qv-n">${fmt(n)}${n<2*q?` / ${fmt(2*q)}`:""}</span></div>`+
+       `<div class="qv-pool${p<20?" low":""}" title="${p<20?"Few replacements left. ":""}${p} qualifying claims not selected">${fmt(p)}${p<20?'<span class="qv-low">low</span>':""}</div></div>`;
+  }
+}
+document.getElementById("qvRows").innerHTML=h;
+const tip=document.getElementById("qvTip");
+for(const s of document.querySelectorAll(".qv-seg")){
+  const L=s.dataset.l, m=s.dataset.m, x=c[L], q=QUOTA[TIERS[L]];
+  const txt=m==="text"?`${L} · Text: ${x.text} of the ${q} text quota`:`${L} · ${NAME[m]}: ${x[m]}, so multimodal ${x.image+x.video} of the ${q} quota`;
+  s.addEventListener("mousemove",e=>{tip.hidden=false;tip.textContent=txt;tip.style.left=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8)+"px";tip.style.top=(e.clientY+14)+"px";});
+  s.addEventListener("mouseleave",()=>{tip.hidden=true;});
+  s.addEventListener("click",()=>{
+    for(const [id,v] of [["fSel","sel"],["fTier",""],["fLang",L],["fMod",m]]){ const el=document.getElementById(id); el.value=v; el.dispatchEvent(new Event("change")); }
+    tip.hidden=true; document.querySelector(".controls").scrollIntoView({behavior:"smooth"});
+  });
+}
+})();
+</script>'''.replace('__TIERS__', json.dumps(TIERS)).replace('__QUOTA__', json.dumps(QUOTA))
 
 html = TEMPLATE.read_text(encoding='utf-8')
 html = re.sub(r'(const DATA\s*=\s*)\[.*?\](;\s*\n)', lambda m: m.group(1) + json.dumps(rows, ensure_ascii=False).replace('</', '<\\/') + ';const BASIS={original_claim:"claim in the language",article:"article in the language",evidence_page:"evidence page in the language"}' + m.group(2), html, flags=re.S)
@@ -88,7 +134,8 @@ html = html.replace('<h1>Claim Overview</h1>', '<h1>Annotation Dataset</h1>')
 html = html.replace('document.getElementById("pill").textContent=DATA.length+" claims";',
                     f'document.getElementById("pill").textContent="{len(sel_rows):,} selected · {len(rows) - len(sel_rows):,} not selected";')
 html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../annotation-demo/">Annotation Demo</a><a href="../veritas-intake-text1200/">Text Intake</a></div>', html, count=1, flags=re.S)
-html = re.sub(r'<div class="revision-note">.*?</div>', lambda m: note, html, count=1, flags=re.S)
+html = re.sub(r'<div class="revision-note">.*?</div>', lambda m: note + chart, html, count=1, flags=re.S)
+html = html.replace('</body>', chart_js + '\n</body>', 1)
 html = re.sub(r'<div class="revision-note" id="text-extension-note">.*?</div>', '', html, count=1, flags=re.S)
 
 opt = lambda xs: ''.join(f'<option value="{x}">{x}</option>' for x in xs)
@@ -156,7 +203,28 @@ html = html.replace('</style>', '.tag.external_search{background:var(--warn-soft
                     '.cardimg{object-fit:contain;background:var(--line)}\nvideo.cardimg{background:#000}\n'
                     '.mmore{font-size:12px;color:var(--ink3);padding:4px 16px 0}\n'
                     '.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:6px}\n'
-                    '.mgrid .cardimg{max-height:220px;border-radius:8px}\n</style>', 1)
+                    '.mgrid .cardimg{max-height:220px;border-radius:8px}\n'
+                    # text is a neutral gray on purpose; image and video checked with the dataviz palette validator in both themes
+                    ':root{--c-text:#b4b0a8;--c-image:#2e78d6;--c-video:#e8663a}\n[data-theme="dark"]{--c-text:#77736b;--c-image:#4a89e0;--c-video:#e06c38}\n'
+                    '.qv{max-width:1000px;margin:16px auto 0;padding:22px 24px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);box-shadow:var(--shadow)}\n'
+                    '.qv-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}\n'
+                    '.qv-th{color:var(--ink2);font-size:14px}.qv-tv{font-size:32px;font-weight:700;color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums}.qv-ts{color:var(--ink3);font-size:13px}\n'
+                    '.qv-legend{display:flex;gap:18px;align-items:center;font-size:14px;color:var(--ink2);margin-bottom:6px}\n'
+                    '.qv-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}\n'
+                    '.qv-poolh{margin-left:auto;color:var(--ink3);cursor:help}\n'
+                    '.qv-group{color:var(--ink3);font-size:13px;margin:12px 0 2px}\n'
+                    '.qv-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:10px;height:30px}\n'
+                    '.qv-lang{color:var(--ink);font-size:14px}\n'
+                    '.qv-track{display:flex;align-items:center;gap:8px;min-width:0}\n'
+                    '.qv-bar{display:flex;gap:2px;height:22px;border-radius:4px;overflow:hidden;flex:none}\n'
+                    '.qv-seg{height:100%;min-width:2px;cursor:pointer}.qv-seg:hover{filter:brightness(1.1)}\n'
+                    '.qv-n{color:var(--ink3);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}\n'
+                    '.qv-pool{text-align:right;color:var(--ink2);font-size:14px;font-variant-numeric:tabular-nums;cursor:help}\n'
+                    '.qv-pool.low{color:var(--warn)}.qv-low{font-size:11px;margin-left:4px}\n'
+                    '.qv-hint{color:var(--ink3);font-size:12px;margin-top:10px}\n'
+                    '.qv-table summary{cursor:pointer;color:var(--ink2);font-size:13px;margin-top:8px}\n'
+                    '.qv-tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:5px 9px;border-radius:6px;max-width:280px}\n'
+                    '@media (max-width:640px){.qv{padding:16px}.qv-tiles{grid-template-columns:1fr;gap:10px}.qv-tv{font-size:26px}.qv-row{grid-template-columns:78px 1fr 48px;gap:6px}.qv-lang{font-size:13px}}\n</style>', 1)
 
 (OUT / 'index.html').write_text(html, encoding='utf-8')
 print(len(rows), 'claims', n_ev, 'evidence', n_nourl, 'without a link', (OUT / 'index.html').stat().st_size // 1024, 'KB', len(list((OUT / 'snapshots').iterdir())), 'snapshots')

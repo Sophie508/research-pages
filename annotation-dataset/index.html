@@ -83,6 +83,27 @@ video.cardimg{background:#000}
 .mmore{font-size:12px;color:var(--ink3);padding:4px 16px 0}
 .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:6px}
 .mgrid .cardimg{max-height:220px;border-radius:8px}
+:root{--c-text:#b4b0a8;--c-image:#2e78d6;--c-video:#e8663a}
+[data-theme="dark"]{--c-text:#77736b;--c-image:#4a89e0;--c-video:#e06c38}
+.qv{max-width:1000px;margin:16px auto 0;padding:22px 24px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);box-shadow:var(--shadow)}
+.qv-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
+.qv-th{color:var(--ink2);font-size:14px}.qv-tv{font-size:32px;font-weight:700;color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums}.qv-ts{color:var(--ink3);font-size:13px}
+.qv-legend{display:flex;gap:18px;align-items:center;font-size:14px;color:var(--ink2);margin-bottom:6px}
+.qv-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.qv-poolh{margin-left:auto;color:var(--ink3);cursor:help}
+.qv-group{color:var(--ink3);font-size:13px;margin:12px 0 2px}
+.qv-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:10px;height:30px}
+.qv-lang{color:var(--ink);font-size:14px}
+.qv-track{display:flex;align-items:center;gap:8px;min-width:0}
+.qv-bar{display:flex;gap:2px;height:22px;border-radius:4px;overflow:hidden;flex:none}
+.qv-seg{height:100%;min-width:2px;cursor:pointer}.qv-seg:hover{filter:brightness(1.1)}
+.qv-n{color:var(--ink3);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.qv-pool{text-align:right;color:var(--ink2);font-size:14px;font-variant-numeric:tabular-nums;cursor:help}
+.qv-pool.low{color:var(--warn)}.qv-low{font-size:11px;margin-left:4px}
+.qv-hint{color:var(--ink3);font-size:12px;margin-top:10px}
+.qv-table summary{cursor:pointer;color:var(--ink2);font-size:13px;margin-top:8px}
+.qv-tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:5px 9px;border-radius:6px;max-width:280px}
+@media (max-width:640px){.qv{padding:16px}.qv-tiles{grid-template-columns:1fr;gap:10px}.qv-tv{font-size:26px}.qv-row{grid-template-columns:78px 1fr 48px;gap:6px}.qv-lang{font-size:13px}}
 </style>
 </head>
 <body>
@@ -90,7 +111,7 @@ video.cardimg{background:#000}
 <div class="navlinks"><a href="../">Home</a><a href="../annotation-demo/">Annotation Demo</a><a href="../veritas-intake-text1200/">Text Intake</a></div>
 <button id="themeBtn" title="toggle theme">🌙</button></nav>
 <div class="hero"><h1>Annotation Dataset</h1><span class="pill" id="pill"></span></div>
-<div class="revision-note"><b>Selection v1, as of 2026-11-11: 2000 claims selected for annotation, with 5451 evidence statements.</b> The page opens on the selected claims. The Set filter also shows the 772 qualifying claims not selected, which are kept as replacements. The 8 exact repeats of a claim text are left out. A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, claims with more linked evidence first, then the newest. All selected Chinese claims are Simplified. Type is estimated by a keyword rule for claims from outside VeriTaS. 215 selected evidence statements have no source link yet. 998 of the 1000 selected image and video claims show their media; 218 of the 313 video claims have a playable video. VeriTaS claims show the media VeriTaS stores. Their videos are copies re-encoded at 480 px wide. The 285 claims from outside VeriTaS show images from the fact-checking article, usually its screenshots of the claimed post, which may carry the fact-checker's marks. Where the article embeds the video itself, it is shown too; otherwise the original video was not kept.</div><div class="cmp-scroll"><table class="cmp"><tr><th>Tier</th><th>Language</th><th>Text vs quota</th><th>Multimodal vs quota</th><th>Image</th><th>Video</th><th>Selected</th><th>Not selected</th></tr><tr><th>High</th><th>English</th><td>250 / 250</td><td>250 / 250</td><td>225</td><td>25</td><td>500 / 500</td><td>58</td></tr><tr><th>High</th><th>Chinese</th><td>250 / 250</td><td>250 / 250</td><td>142</td><td>108</td><td>500 / 500</td><td>543</td></tr><tr><th>Medium</th><th>Hindi</th><td>150 / 150</td><td>150 / 150</td><td>127</td><td>23</td><td>300 / 300</td><td>9</td></tr><tr><th>Medium</th><th>Arabic</th><td>150 / 150</td><td>150 / 150</td><td>92</td><td>58</td><td>300 / 300</td><td>4</td></tr><tr><th>Low</th><th>Tamil</th><td>100 / 100</td><td>100 / 100</td><td>55</td><td>45</td><td>200 / 200</td><td>76</td></tr><tr><th>Low</th><th>Indonesian</th><td>100 / 100</td><td>100 / 100</td><td>46</td><td>54</td><td>200 / 200</td><td>82</td></tr><tr><th>All</th><th></th><td>1000 / 1000</td><td>1000 / 1000</td><td>687</td><td>313</td><td>2000 / 2000</td><td>772</td></tr></table></div>
+<div class="revision-note"><b>Selection v1, as of 2026-11-11: 2000 claims selected for annotation, with 5451 evidence statements.</b> The page opens on the selected claims. The Set filter also shows the 772 qualifying claims not selected, which are kept as replacements. The 8 exact repeats of a claim text are left out. A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, claims with more linked evidence first, then the newest. All selected Chinese claims are Simplified. Type is estimated by a keyword rule for claims from outside VeriTaS. 215 selected evidence statements have no source link yet. 998 of the 1000 selected image and video claims show their media; 218 of the 313 video claims have a playable video. VeriTaS claims show the media VeriTaS stores. Their videos are copies re-encoded at 480 px wide. The 285 claims from outside VeriTaS show images from the fact-checking article, usually its screenshots of the claimed post, which may carry the fact-checker's marks. Where the article embeds the video itself, it is shown too; otherwise the original video was not kept.</div><div class="qv"><div class="qv-tiles" id="qvTiles"></div><div class="qv-legend"><span><i style="background:var(--c-text)"></i>Text</span><span><i style="background:var(--c-image)"></i>Image</span><span><i style="background:var(--c-video)"></i>Video</span><span class="qv-poolh" title="Qualifying claims not selected, kept as replacements">pool left</span></div><div id="qvRows"></div><div class="qv-hint">Hover a bar for counts. Click it to show those claims below.</div><details class="qv-table"><summary>Table view</summary><div class="cmp-scroll"><table class="cmp"><tr><th>Tier</th><th>Language</th><th>Text vs quota</th><th>Multimodal vs quota</th><th>Image</th><th>Video</th><th>Selected</th><th>Not selected</th></tr><tr><th>High</th><th>English</th><td>250 / 250</td><td>250 / 250</td><td>225</td><td>25</td><td>500 / 500</td><td>58</td></tr><tr><th>High</th><th>Chinese</th><td>250 / 250</td><td>250 / 250</td><td>142</td><td>108</td><td>500 / 500</td><td>543</td></tr><tr><th>Medium</th><th>Hindi</th><td>150 / 150</td><td>150 / 150</td><td>127</td><td>23</td><td>300 / 300</td><td>9</td></tr><tr><th>Medium</th><th>Arabic</th><td>150 / 150</td><td>150 / 150</td><td>92</td><td>58</td><td>300 / 300</td><td>4</td></tr><tr><th>Low</th><th>Tamil</th><td>100 / 100</td><td>100 / 100</td><td>55</td><td>45</td><td>200 / 200</td><td>76</td></tr><tr><th>Low</th><th>Indonesian</th><td>100 / 100</td><td>100 / 100</td><td>46</td><td>54</td><td>200 / 200</td><td>82</td></tr><tr><th>All</th><th></th><td>1000 / 1000</td><td>1000 / 1000</td><td>687</td><td>313</td><td>2000 / 2000</td><td>772</td></tr></table></div></details></div><div class="qv-tip" id="qvTip" hidden></div>
 
 <div class="controls"> <label>Set: <select id="fSel"><option value="sel">Selected 2,000</option><option value="rest">Not selected</option><option value="">All</option></select></label> <label>Tier: <select id="fTier"><option value="">All</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option></select></label> <label>Language: <select id="fLang"><option value="">All</option><option value="English">English</option><option value="Chinese">Chinese</option><option value="Hindi">Hindi</option><option value="Arabic">Arabic</option><option value="Tamil">Tamil</option><option value="Indonesian">Indonesian</option></select></label> <label>Type: <select id="fMod"><option value="">All</option><option value="text">text</option><option value="image">image</option><option value="video">video</option></select></label> <label>Verdict: <select id="fVerdict"><option value="">All</option><option value="ok">Matches rating</option><option value="bad">Differs from rating</option><option value="na">NEI / Conflicting / no rating</option></select></label> <label>Evidence: <select id="fEv"><option value="">All</option><option value="external_search">Has an external-search link</option><option value="snap">Has a snapshot highlight</option></select></label> <label>Order: <select id="fOrder"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select></label> <span class="count" id="count"></span> </div>
 <div class="grid" id="grid"></div>
@@ -167,5 +188,45 @@ function setTheme(t){document.documentElement.setAttribute("data-theme",t);btn.t
 btn.onclick=()=>setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
 setTheme(localStorage.getItem("mcfc_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
 render();
+</script>
+<script>
+(function(){
+const TIERS={"English": "High", "Chinese": "High", "Hindi": "Medium", "Arabic": "Medium", "Tamil": "Low", "Indonesian": "Low"}, QUOTA={"High": 250, "Medium": 150, "Low": 100}, MODS=["text","image","video"], NAME={text:"Text",image:"Image",video:"Video"};
+const fmt=n=>n.toLocaleString("en-US"), c={}, pool={};
+for(const d of DATA){ c[d.lang]=c[d.lang]||{text:0,image:0,video:0}; if(d.sel) c[d.lang][d.mod]++; else pool[d.lang]=(pool[d.lang]||0)+1; }
+let tot={text:0,image:0,video:0}, met=0, nq=0, even=true, need=0;
+for(const [L,T] of Object.entries(TIERS)){ const q=QUOTA[T], x=c[L]||{text:0,image:0,video:0};
+  for(const m of MODS) tot[m]+=x[m];
+  nq+=2; met+=(x.text>=q)+(x.image+x.video>=q); need+=2*q; if(x.text!==x.image+x.video) even=false; }
+const sel=tot.text+tot.image+tot.video, mm=tot.image+tot.video;
+const tile=(h,v,s)=>`<div class="qv-tile"><div class="qv-th">${h}</div><div class="qv-tv">${v}</div><div class="qv-ts">${s}</div></div>`;
+document.getElementById("qvTiles").innerHTML=
+  tile("Selected",`${fmt(sel)} / ${fmt(need)}`, met===nq?`all ${nq} quotas met`:`${met} of ${nq} quotas met`)+
+  tile("Text : multimodal",`${fmt(tot.text)} : ${fmt(mm)}`, even?"50 / 50 in every language":"not 50 / 50 in every language")+
+  tile("Image : video",`${fmt(tot.image)} : ${fmt(tot.video)}`,"within multimodal");
+const max=Math.max(...Object.keys(TIERS).map(L=>MODS.reduce((s,m)=>s+((c[L]||{})[m]||0),0)));
+let h="";
+for(const T of ["High","Medium","Low"]){
+  h+=`<div class="qv-group">${T} resource</div>`;
+  for(const [L,TT] of Object.entries(TIERS)){ if(TT!==T) continue;
+    const x=c[L]||{text:0,image:0,video:0}, n=x.text+x.image+x.video, q=QUOTA[T], p=pool[L]||0;
+    const segs=MODS.filter(m=>x[m]).map(m=>`<span class="qv-seg" data-l="${L}" data-m="${m}" style="flex:${x[m]};background:var(--c-${m})"></span>`).join("");
+    h+=`<div class="qv-row"><div class="qv-lang">${L}</div><div class="qv-track"><div class="qv-bar" style="width:calc((100% - 84px) * ${n/max})">${segs}</div><span class="qv-n">${fmt(n)}${n<2*q?` / ${fmt(2*q)}`:""}</span></div>`+
+       `<div class="qv-pool${p<20?" low":""}" title="${p<20?"Few replacements left. ":""}${p} qualifying claims not selected">${fmt(p)}${p<20?'<span class="qv-low">low</span>':""}</div></div>`;
+  }
+}
+document.getElementById("qvRows").innerHTML=h;
+const tip=document.getElementById("qvTip");
+for(const s of document.querySelectorAll(".qv-seg")){
+  const L=s.dataset.l, m=s.dataset.m, x=c[L], q=QUOTA[TIERS[L]];
+  const txt=m==="text"?`${L} · Text: ${x.text} of the ${q} text quota`:`${L} · ${NAME[m]}: ${x[m]}, so multimodal ${x.image+x.video} of the ${q} quota`;
+  s.addEventListener("mousemove",e=>{tip.hidden=false;tip.textContent=txt;tip.style.left=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8)+"px";tip.style.top=(e.clientY+14)+"px";});
+  s.addEventListener("mouseleave",()=>{tip.hidden=true;});
+  s.addEventListener("click",()=>{
+    for(const [id,v] of [["fSel","sel"],["fTier",""],["fLang",L],["fMod",m]]){ const el=document.getElementById(id); el.value=v; el.dispatchEvent(new Event("change")); }
+    tip.hidden=true; document.querySelector(".controls").scrollIntoView({behavior:"smooth"});
+  });
+}
+})();
 </script>
 </body></html>
