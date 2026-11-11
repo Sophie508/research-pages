@@ -30,6 +30,10 @@ esc = lambda t: _html.escape(str(t or ''))
 
 rows = json.loads((SRC / 'claims.json').read_text(encoding='utf-8'))
 sel = {json.loads(l)['claim_id']: json.loads(l)['script'] for l in SEL.open(encoding='utf-8')}
+rest = {json.loads(l)['claim_id'] for l in (SEL.parent / 'not_selected.jsonl').open(encoding='utf-8')}
+n_repeat = len(rows)
+rows = [r for r in rows if r['id'] in sel or r['id'] in rest]  # select_2000.py drops exact repeats of a claim text
+n_repeat -= len(rows)
 (OUT / 'snapshots').mkdir(parents=True, exist_ok=True)
 for f in (SRC / 'snapshots').iterdir():
     shutil.copy(f, OUT / 'snapshots' / f.name)
@@ -67,7 +71,7 @@ trs.append(f'<tr><th>All</th><th></th><td>{tt} / 1000</td><td>{ti + tv} / 1000</
 table = ('<div class="cmp-scroll"><table class="cmp"><tr><th>Tier</th><th>Language</th><th>Text vs quota</th><th>Multimodal vs quota</th><th>Image</th><th>Video</th><th>Selected</th><th>Not selected</th></tr>'
          + ''.join(trs) + '</table></div>')
 note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_rows)} claims selected for annotation, with {n_ev} evidence statements.</b> '
-        f'The page opens on the selected claims. The Set filter also shows the {len(rows) - len(sel_rows)} qualifying claims not selected, which are kept as replacements. '
+        f'The page opens on the selected claims. The Set filter also shows the {len(rows) - len(sel_rows)} qualifying claims not selected, which are kept as replacements. The {n_repeat} exact repeats of a claim text are left out. '
         'A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. '
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
         'claims with more linked evidence first, then the newest. All selected Chinese claims are Simplified. Type is estimated by a keyword rule for claims from outside VeriTaS. '
@@ -81,6 +85,8 @@ html = TEMPLATE.read_text(encoding='utf-8')
 html = re.sub(r'(const DATA\s*=\s*)\[.*?\](;\s*\n)', lambda m: m.group(1) + json.dumps(rows, ensure_ascii=False).replace('</', '<\\/') + ';const BASIS={original_claim:"claim in the language",article:"article in the language",evidence_page:"evidence page in the language"}' + m.group(2), html, flags=re.S)
 html = html.replace('<title>MCFC Bench — Claim Browser</title>', '<title>MCFC Bench · Annotation Dataset</title>')
 html = html.replace('<h1>Claim Overview</h1>', '<h1>Annotation Dataset</h1>')
+html = html.replace('document.getElementById("pill").textContent=DATA.length+" claims";',
+                    f'document.getElementById("pill").textContent="{len(sel_rows):,} selected · {len(rows) - len(sel_rows):,} not selected";')
 html = re.sub(r'<div class="navlinks">.*?</div>', '<div class="navlinks"><a href="../">Home</a><a href="../annotation-demo/">Annotation Demo</a><a href="../veritas-intake-text1200/">Text Intake</a></div>', html, count=1, flags=re.S)
 html = re.sub(r'<div class="revision-note">.*?</div>', lambda m: note, html, count=1, flags=re.S)
 html = re.sub(r'<div class="revision-note" id="text-extension-note">.*?</div>', '', html, count=1, flags=re.S)
