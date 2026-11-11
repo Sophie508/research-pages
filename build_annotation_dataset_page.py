@@ -31,7 +31,9 @@ esc = lambda t: _html.escape(str(t or ''))
 rows = json.loads((SRC / 'claims.json').read_text(encoding='utf-8'))
 sel = {json.loads(l)['claim_id']: json.loads(l)['script'] for l in SEL.open(encoding='utf-8')}
 rest = {json.loads(l)['claim_id'] for l in (SEL.parent / 'not_selected.jsonl').open(encoding='utf-8')}
-n_repeat = len(rows)
+third = SEL.parent / 'excluded_third_language.jsonl'  # claims with an evidence page in a third language (third_language_check/)
+n_third = sum(1 for _ in third.open(encoding='utf-8')) if third.exists() else 0
+n_repeat = len(rows) - n_third
 rows = [r for r in rows if r['id'] in sel or r['id'] in rest]  # select_2000.py drops exact repeats of a claim text
 n_repeat -= len(rows)
 (OUT / 'snapshots').mkdir(parents=True, exist_ok=True)
@@ -62,6 +64,9 @@ n_media = sum(1 for r in mm_rows if r['media'])
 n_vid = sum(1 for r in mm_rows if r['mod'] == 'video' and any(x['t'] == 'video' for x in r['media']))
 n_vid_all = sum(1 for r in mm_rows if r['mod'] == 'video')
 n_out = sum(1 for r in mm_rows if not r['veritas'])
+n_zh = sum(1 for r in sel_rows if r['lang'] == 'Chinese'); n_simp = sum(1 for r in sel_rows if r['script'] == 'simplified')
+zh_note = ('All selected Chinese claims are Simplified.' if n_simp == n_zh else
+           f'{n_simp} of the {n_zh} selected Chinese claims are Simplified; the other {n_zh - n_simp} are worded in English and count as Chinese through their article or evidence pages.')
 trs = []
 for L, T in TIERS.items():
     q = QUOTA[T]; t, i, v = cnt[(L, 'text')], cnt[(L, 'image')], cnt[(L, 'video')]
@@ -72,9 +77,10 @@ table = ('<div class="cmp-scroll"><table class="cmp"><tr><th>Tier</th><th>Langua
          + ''.join(trs) + '</table></div>')
 note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_rows)} claims selected for annotation, with {n_ev} evidence statements.</b> '
         f'The page opens on the selected claims. The Set filter also shows the {len(rows) - len(sel_rows)} qualifying claims not selected, which are kept as replacements. The {n_repeat} exact repeats of a claim text are left out. '
+        f'{n_third} more claims are left out because one of their evidence pages is in a language other than English or the claim\'s own; cells below their quota are being refilled from VeriTaS. '
         'A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. '
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
-        'claims with more linked evidence first, then the newest. All selected Chinese claims are Simplified. Type is estimated by a keyword rule for claims from outside VeriTaS. '
+        'claims with more linked evidence first, then the newest. ' + zh_note + ' Type is estimated by a keyword rule for claims from outside VeriTaS. '
         f'{n_nourl} selected evidence statements have no source link yet. '
         f'{n_media} of the {len(mm_rows)} selected image and video claims show their media; {n_vid} of the {n_vid_all} video claims have a playable video. '
         'VeriTaS claims show the media VeriTaS stores. Their videos are copies re-encoded at 480 px wide. '
@@ -139,7 +145,7 @@ html = html.replace('</body>', chart_js + '\n</body>', 1)
 html = re.sub(r'<div class="revision-note" id="text-extension-note">.*?</div>', '', html, count=1, flags=re.S)
 
 opt = lambda xs: ''.join(f'<option value="{x}">{x}</option>' for x in xs)
-controls = ('<div class="controls"> <label>Set: <select id="fSel"><option value="sel">Selected 2,000</option><option value="rest">Not selected</option><option value="">All</option></select></label>'
+controls = ('<div class="controls"> <label>Set: <select id="fSel"><option value="sel">Selected</option><option value="rest">Not selected</option><option value="">All</option></select></label>'
             ' <label>Tier: <select id="fTier"><option value="">All</option>' + opt(['High', 'Medium', 'Low']) + '</select></label>'
             ' <label>Language: <select id="fLang"><option value="">All</option>' + opt(TIERS) + '</select></label>'
             ' <label>Type: <select id="fMod"><option value="">All</option>' + opt(['text', 'image', 'video']) + '</select></label>'
