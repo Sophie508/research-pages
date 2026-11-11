@@ -19,7 +19,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE / 'veritas-intake-review/index.html'
 OUT = HERE / 'annotation-dataset'
-SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_dataset_export_20261110')
+SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_dataset_export_20261111')
 SEL = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_2000_v1/claims_final.jsonl')
 MEDIA = SEL.parent / 'media.json'  # build_media.py; images sit in SEL.parent / 'media'
 AS_OF = '2026-11-11'
@@ -77,7 +77,7 @@ table = ('<div class="cmp-scroll"><table class="cmp"><tr><th>Tier</th><th>Langua
          + ''.join(trs) + '</table></div>')
 note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_rows)} claims selected for annotation, with {n_ev} evidence statements.</b> '
         f'The page opens on the selected claims. The Set filter also shows the {len(rows) - len(sel_rows)} qualifying claims not selected, which are kept as replacements. The {n_repeat} exact repeats of a claim text are left out. '
-        f'{n_third} more claims are left out because one of their evidence pages is in a language other than English or the claim\'s own; cells below their quota are being refilled from VeriTaS. '
+        f'{n_third} more claims are left out because one of their evidence pages is in a language other than English or the claim\'s own; the cells this left below quota were refilled from VeriTaS. '
         'A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. '
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
         'claims with more linked evidence first, then the newest. ' + zh_note + ' Type is estimated by a keyword rule for claims from outside VeriTaS. '
