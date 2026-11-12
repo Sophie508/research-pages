@@ -7,6 +7,8 @@ otakotak:/scratch/users/suliu/mcfc-settle/intake_text1200/ by export_dataset.py)
 analysis_outputs/annotation_2000_v1/claims_final.jsonl (select_2000.py). A claim qualifies if at least one evidence
 statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language.
 Claim images and videos come from media.json and media/ beside the selection (build_media.py).
+Evidence statements of the selected claims that were not in English are shown in the English of statement_translations.json
+(translate_statements.py, check_translations.py), with the statement as extracted one click away.
 Writes annotation-dataset/.
 """
 import collections
@@ -22,7 +24,7 @@ OUT = HERE / 'annotation-dataset'
 SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_dataset_export_20261111')
 SEL = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_2000_v1/claims_final.jsonl')
 MEDIA = SEL.parent / 'media.json'  # build_media.py; images sit in SEL.parent / 'media'
-AS_OF = '2026-11-11'
+AS_OF = '2026-11-12'
 TIERS = {'English': 'High', 'Chinese': 'High', 'Hindi': 'Medium', 'Arabic': 'Medium', 'Tamil': 'Low', 'Indonesian': 'Low'}
 QUOTA = {'High': 250, 'Medium': 150, 'Low': 100}
 VERITAS = 'https://veritas.mai.informatik.tu-darmstadt.de/claims/'
@@ -40,6 +42,7 @@ n_repeat -= len(rows)
 for f in (SRC / 'snapshots').iterdir():
     shutil.copy(f, OUT / 'snapshots' / f.name)
 media = json.loads(MEDIA.read_text(encoding='utf-8'))
+tr = json.loads((SEL.parent / 'statement_translations.json').read_text(encoding='utf-8'))
 (OUT / 'media').mkdir(exist_ok=True)
 for f in (SEL.parent / 'media').iterdir():
     shutil.copy(f, OUT / 'media' / f.name)
@@ -53,12 +56,16 @@ for r in rows:
     r['media'] = [{**x, 'src': x['src'] if x['src'].startswith('http') else 'media/' + x['src'],
                    **({'poster': 'media/' + x['poster']} if x.get('poster') else {})} for x in m['items']]
     r['mnote'] = m['note']
+    for e in r['ev']:
+        if e['s'] in tr:
+            e['so'], e['s'] = e['s'], tr[e['s']]['en']
 rows.sort(key=lambda r: r['date'] or '', reverse=True)
 
 cnt = collections.Counter((r['lang'], r['mod']) for r in rows if r['sel'])
 all_cnt = collections.Counter(r['lang'] for r in rows)
 sel_rows = [r for r in rows if r['sel']]
 n_ev = sum(len(r['ev']) for r in sel_rows); n_nourl = sum(1 for r in sel_rows for e in r['ev'] if not e['u'])
+n_tr = sum(1 for r in sel_rows for e in r['ev'] if e.get('so'))
 mm_rows = [r for r in sel_rows if r['mod'] != 'text']
 n_media = sum(1 for r in mm_rows if r['media'])
 n_vid = sum(1 for r in mm_rows if r['mod'] == 'video' and any(x['t'] == 'video' for x in r['media']))
@@ -82,6 +89,7 @@ note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_ro
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
         'claims with more linked evidence first, then the newest. ' + zh_note + ' Type is estimated by a keyword rule for claims from outside VeriTaS. '
         f'{n_nourl} selected evidence statements have no source link yet. '
+        f'{n_tr} selected evidence statements were extracted in the claim\'s language and are shown in English translation; the statement as extracted is one click away. '
         f'{n_media} of the {len(mm_rows)} selected image and video claims show their media; {n_vid} of the {n_vid_all} video claims have a playable video. '
         'VeriTaS claims show the media VeriTaS stores. Their videos are copies re-encoded at 480 px wide. '
         f'The {n_out} claims from outside VeriTaS show images from the fact-checking article, usually its screenshots of the claimed post, which may carry the fact-checker\'s marks. '
@@ -164,7 +172,8 @@ evidence_js = r'''function evidenceHTML(e){
     :`<div class="evmeta"><span class="tag ${esc(e.p)}">${esc(PL[e.p]||e.p)}</span></div>`;
   const cands=e.cands.length?`<details class="source-history" onclick="event.stopPropagation()"><summary>Other links checked, not used (${e.cands.length})</summary><div class="muted">Each was checked for this statement and not chosen. The label is the link stage's first check of the page.</div>${e.cands.map(c=>`<div class="source-row"><span class="mono">${esc(c.verdict)}</span> ${sourceLink(c.url)}</div>`).join("")}</details>`:"";
   const before=e.before?`<details class="source-history" onclick="event.stopPropagation()"><summary>Statement before it was cut back</summary><div>${esc(e.before)}</div></details>`:"";
-  return `<div class="evitem">${esc(e.s)}${before}<details class="source-history" onclick="event.stopPropagation()"><summary>Passage in the article</summary><div dir="auto">${esc(e.span)}</div></details>${link}${cands}</div>`;
+  const orig=e.so?`<details class="source-history" onclick="event.stopPropagation()"><summary>Statement before translation</summary><div dir="auto">${esc(e.so)}</div></details>`:"";
+  return `<div class="evitem">${esc(e.s)}${orig}${before}<details class="source-history" onclick="event.stopPropagation()"><summary>Passage in the article</summary><div dir="auto">${esc(e.span)}</div></details>${link}${cands}</div>`;
 }'''
 html = re.sub(r'function evidenceHTML\(e\)\{.*?\n\}\n// END ARTICLE SOURCE RENDERER', lambda m: evidence_js + '\n// END ARTICLE SOURCE RENDERER', html, count=1, flags=re.S)
 
