@@ -9,6 +9,8 @@ statement survived the link stage and its claim, its fact-checking article or an
 Claim images and videos come from media.json and media/ beside the selection (build_media.py).
 Evidence statements of the selected claims that were not in English are shown in the English of statement_translations.json
 (translate_statements.py, check_translations.py), with the statement as extracted one click away.
+Chinese claims that were report titles are shown in the wording of claim_normalization.json (stage_normalize_decon.py,
+claim_normalization.py), with the title shown as the original.
 Writes annotation-dataset/.
 """
 import collections
@@ -43,6 +45,7 @@ for f in (SRC / 'snapshots').iterdir():
     shutil.copy(f, OUT / 'snapshots' / f.name)
 media = json.loads(MEDIA.read_text(encoding='utf-8'))
 tr = json.loads((SEL.parent / 'statement_translations.json').read_text(encoding='utf-8'))
+norm = json.loads((SEL.parent / 'claim_normalization.json').read_text(encoding='utf-8'))
 (OUT / 'media').mkdir(exist_ok=True)
 for f in (SEL.parent / 'media').iterdir():
     shutil.copy(f, OUT / 'media' / f.name)
@@ -56,6 +59,8 @@ for r in rows:
     r['media'] = [{**x, 'src': x['src'] if x['src'].startswith('http') else 'media/' + x['src'],
                    **({'poster': 'media/' + x['poster']} if x.get('poster') else {})} for x in m['items']]
     r['mnote'] = m['note']
+    if str(r['id']) in norm:
+        r['orig'], r['claim'] = norm[str(r['id'])]['title_claim'], norm[str(r['id'])]['claim']
     for e in r['ev']:
         if e['s'] in tr:
             e['so'], e['s'] = e['s'], tr[e['s']]['en']
@@ -66,6 +71,7 @@ all_cnt = collections.Counter(r['lang'] for r in rows)
 sel_rows = [r for r in rows if r['sel']]
 n_ev = sum(len(r['ev']) for r in sel_rows); n_nourl = sum(1 for r in sel_rows for e in r['ev'] if not e['u'])
 n_tr = sum(1 for r in sel_rows for e in r['ev'] if e.get('so'))
+n_norm = sum(1 for r in sel_rows if str(r['id']) in norm)
 mm_rows = [r for r in sel_rows if r['mod'] != 'text']
 n_media = sum(1 for r in mm_rows if r['media'])
 n_vid = sum(1 for r in mm_rows if r['mod'] == 'video' and any(x['t'] == 'video' for x in r['media']))
@@ -87,7 +93,9 @@ note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_ro
         f'{n_third} more claims are left out because one of their evidence pages is in a language other than English or the claim\'s own; the cells this left below quota were refilled from VeriTaS. '
         'A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. '
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
-        'claims with more linked evidence first, then the newest. ' + zh_note + ' Type is estimated by a keyword rule for claims from outside VeriTaS. '
+        'claims with more linked evidence first, then the newest. ' + zh_note
+        + f' {n_norm} selected Chinese claims were report titles phrased as questions. They are shown as statements, after the VeriTaS claim normalization step and our decontextualization step; the title is shown as the original.'
+        + ' Type is estimated by a keyword rule for claims from outside VeriTaS. '
         f'{n_nourl} selected evidence statements have no source link yet. '
         f'{n_tr} selected evidence statements were extracted in the claim\'s language and are shown in English translation; the statement as extracted is one click away. '
         f'{n_media} of the {len(mm_rows)} selected image and video claims show their media; {n_vid} of the {n_vid_all} video claims have a playable video. '
