@@ -190,18 +190,6 @@ evidence_js = r'''function evidenceHTML(e){
   const orig=e.so?`<details class="source-history" onclick="event.stopPropagation()"><summary>Statement before translation</summary><div dir="auto">${esc(e.so)}</div></details>`:"";
   return `<div class="evitem">${esc(e.s)}${orig}${before}<details class="source-history" onclick="event.stopPropagation()"><summary>Passage in the article</summary><div dir="auto">${esc(e.span)}</div></details>${link}${cands}</div>`;
 }'''
-# A link shows as one line: no scheme, no text fragment, percent-escapes decoded, cut with an ellipsis where the card ends.
-# The href keeps the full URL and the tooltip shows it.
-source_link_js = r"""function sourceLink(url,label){
-  if(!/^https?:\/\//i.test(url||"")) return "";
-  let t=label;
-  if(!t){ t=url.split("#:~:text=")[0].replace(/^https?:\/\/(www\.)?/i,""); try{t=decodeURI(t);}catch(_){} }
-  return `<a class="srcurl" href="${esc(url)}" title="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(t)}</a>`;
-}"""
-old_source_link = 'function sourceLink(url,label){return /^https?:\\/\\//i.test(url||"")?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(label||url)}</a>`:""}'
-assert html.count(old_source_link) == 1
-html = html.replace(old_source_link, source_link_js)
-html = html.replace('</style>', '.srcurl{max-width:100%;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n</style>', 1)
 html = re.sub(r'function evidenceHTML\(e\)\{.*?\n\}\n// END ARTICLE SOURCE RENDERER', lambda m: evidence_js + '\n// END ARTICLE SOURCE RENDERER', html, count=1, flags=re.S)
 
 html = html.replace('''  const img = d.img ? `<img class="cardimg" src="${d.img}" loading="lazy" alt="claim media">` : "";''',

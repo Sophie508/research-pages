@@ -28,7 +28,12 @@ CSS='''
 JS='''
 // BEGIN ARTICLE SOURCE RENDERER
 const MATERIAL_LABELS={ACADEMIC:"Academic literature",OFFICIAL:"Official / judicial",NEWS:"News",ORGANIZATION:"Organization / company",SOCIAL:"Social post",REFERENCE:"Reference / document mirror",MEDIA_ARCHIVE:"Image archive",FACT_CHECK:"Fact-check",UNKNOWN:"Unclassified"};
-function sourceLink(url,label){return /^https?:\\/\\//i.test(url||"")?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(label||url)}</a>`:""}
+function sourceLink(url,label){
+  if(!/^https?:\\/\\//i.test(url||"")) return "";
+  let t=label;
+  if(!t){ t=url.replace(/:~:.*$/,"").replace(/#$/,"").replace(/^https?:\\/\\/(www\\.)?/i,""); try{t=decodeURI(t);}catch(_){} }
+  return `<a class="srcurl" href="${esc(url)}" title="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(t)}</a>`;
+}
 function sourceRow(s){
   const type=(s.material||{}).source_type||"UNKNOWN";
   const format=(s.material||{}).format||"UNKNOWN";
@@ -99,6 +104,8 @@ def update():
                 lambda _:JS.strip(),text,flags=re.S)
     text=re.sub(r'<div class="revision-note">.*?</div>',
                 lambda _:f'<div class="revision-note">Article-link revision: {len(changes)} evidence statements now show links recovered from their fact-checking articles. Source types and formats are shown beside each link. Previous external URLs remain in history. Claim verdicts have not been recomputed.</div>',text,count=1)
+    # A link shows on one line without scheme and text fragment; the full URL is the href and the tooltip.
+    text=re.sub(r'\.srcurl\{[^}]*\}\n','',text).replace('</style>','.srcurl{display:inline-block;vertical-align:bottom;max-width:100%;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n</style>',1)
     text='\n'.join(line for line in text.split('\n') if not line.startswith(('.source-status','.review-concern')))
     text=text.replace('/* Article-link revision: material type and support status remain separate. */',
                       '/* Article-link revision: display source type and format. */')

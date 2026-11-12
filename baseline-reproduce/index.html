@@ -184,7 +184,8 @@ footer{border-top:1px solid var(--border);color:var(--faint);font-size:12px;padd
   const $=(s,el=document)=>el.querySelector(s);
   const esc=(s)=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const safeUrl=(u)=>typeof u==='string'&&/^https?:\/\//i.test(u.trim());
-  const link=(u)=>safeUrl(u)?`<a href="${esc(u.trim())}" target="_blank" rel="noopener noreferrer">${esc(u)}</a>`:`<span class="mono">${esc(u)}</span>`;
+  const shortUrl=(u)=>{let t=u.trim().replace(/:~:.*$/,'').replace(/#$/,'').replace(/^https?:\/\/(www\.)?/i,'');try{t=decodeURI(t);}catch(_){}return t.length>80?t.slice(0,79)+'…':t;};
+  const link=(u)=>safeUrl(u)?`<a href="${esc(u.trim())}" title="${esc(u.trim())}" target="_blank" rel="noopener noreferrer">${esc(shortUrl(u))}</a>`:`<span class="mono">${esc(u)}</span>`;
   const DS={averitec:'AVeriTeC dev · 文本',averimatec:'AVerImaTeC val · 图文'};
   const STATUS_ZH={ok:'ok（有输出）',no_evidence:'无证据',retrieval_failed:'检索失败',system_failed:'系统失败',generation_failed:'生成失败',crashed:'崩溃',deferred:'正式运行暂缓',not_in_smoke:'小样未覆盖'};
   const ROLE_ZH={formal:'正式运行',smoke:'小样（前 5 条试运行）'};

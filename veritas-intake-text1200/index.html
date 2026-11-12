@@ -78,6 +78,7 @@ select{font-family:inherit;font-size:14px;padding:9px 14px;border:1px solid var(
 table.cmp{border-collapse:collapse;width:100%;min-width:760px;margin:12px 0;font-size:.85rem;background:var(--card)}
 table.cmp th,table.cmp td{border:1px solid var(--line);padding:6px 9px;vertical-align:top;text-align:left}
 table.cmp th{color:var(--ink);font-weight:600}
+.srcurl{display:inline-block;vertical-align:bottom;max-width:100%;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 </style>
 </head>
 <body>
@@ -100,7 +101,12 @@ function vclass(d){
 function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
 // BEGIN ARTICLE SOURCE RENDERER
 const MATERIAL_LABELS={ACADEMIC:"Academic literature",OFFICIAL:"Official / judicial",NEWS:"News",ORGANIZATION:"Organization / company",SOCIAL:"Social post",REFERENCE:"Reference / document mirror",MEDIA_ARCHIVE:"Image archive",FACT_CHECK:"Fact-check",UNKNOWN:"Unclassified"};
-function sourceLink(url,label){return /^https?:\/\//i.test(url||"")?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(label||url)}</a>`:""}
+function sourceLink(url,label){
+  if(!/^https?:\/\//i.test(url||"")) return "";
+  let t=label;
+  if(!t){ t=url.replace(/:~:.*$/,"").replace(/#$/,"").replace(/^https?:\/\/(www\.)?/i,""); try{t=decodeURI(t);}catch(_){} }
+  return `<a class="srcurl" href="${esc(url)}" title="${esc(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${esc(t)}</a>`;
+}
 function sourceRow(s){
   const type=(s.material||{}).source_type||"UNKNOWN";
   const format=(s.material||{}).format||"UNKNOWN";
