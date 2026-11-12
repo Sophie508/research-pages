@@ -26,7 +26,7 @@ OUT = HERE / 'annotation-dataset'
 SRC = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_dataset_export_20261111')
 SEL = Path('/Users/sophie/Downloads/mcfc-veritas-track3/analysis_outputs/annotation_2000_v1/claims_final.jsonl')
 MEDIA = SEL.parent / 'media.json'  # build_media.py; images sit in SEL.parent / 'media'
-AS_OF = '2026-11-12'
+AS_OF = '2026-11-13'
 TIERS = {'English': 'High', 'Chinese': 'High', 'Hindi': 'Medium', 'Arabic': 'Medium', 'Tamil': 'Low', 'Indonesian': 'Low'}
 QUOTA = {'High': 250, 'Medium': 150, 'Low': 100}
 VERITAS = 'https://veritas.mai.informatik.tu-darmstadt.de/claims/'
@@ -38,7 +38,9 @@ rest = {json.loads(l)['claim_id'] for l in (SEL.parent / 'not_selected.jsonl').o
 third = SEL.parent / 'excluded_third_language.jsonl'  # claims with an evidence page in a third language (third_language_check/)
 n_third = sum(1 for _ in third.open(encoding='utf-8')) if third.exists() else 0
 n_not = len(json.loads((SEL.parent / 'not_checkable.json').read_text(encoding='utf-8')))  # reports that do not check a claim
-n_repeat = len(rows) - n_third - n_not
+val = json.loads((SEL.parent / 'claim_validation.json').read_text(encoding='utf-8'))  # stage_validate_verdict.py, claims from outside VeriTaS
+n_dis = sum(1 for v in val.values() if v['dismissed'])
+n_repeat = len(rows) - n_third - n_not - n_dis
 rows = [r for r in rows if r['id'] in sel or r['id'] in rest]  # select_2000.py drops exact repeats of a claim text
 n_repeat -= len(rows)
 (OUT / 'snapshots').mkdir(parents=True, exist_ok=True)
@@ -72,6 +74,7 @@ all_cnt = collections.Counter(r['lang'] for r in rows)
 sel_rows = [r for r in rows if r['sel']]
 n_ev = sum(len(r['ev']) for r in sel_rows); n_nourl = sum(1 for r in sel_rows for e in r['ev'] if not e['u'])
 n_tr = sum(1 for r in sel_rows for e in r['ev'] if e.get('so'))
+n_out_sel = sum(1 for r in sel_rows if not r['veritas'])
 n_norm = sum(1 for r in sel_rows if str(r['id']) in norm)
 n_manual = sum(1 for r in sel_rows if norm.get(str(r['id']), {}).get('claim_from') == 'manual')
 mm_rows = [r for r in sel_rows if r['mod'] != 'text']
@@ -94,6 +97,7 @@ note = (f'<div class="revision-note"><b>Selection v1, as of {AS_OF}: {len(sel_ro
         f'The page opens on the selected claims. The Set filter also shows the {len(rows) - len(sel_rows)} qualifying claims not selected, which are kept as replacements. The {n_repeat} exact repeats of a claim text are left out. '
         f'{n_third} more claims are left out because one of their evidence pages is in a language other than English or the claim\'s own; the cells this left below quota were refilled from VeriTaS. '
         f'{n_not} more are left out because their report does not check a claim. '
+        f'Claims from outside VeriTaS went through the VeriTaS claim validation and Stage 6 before selection: {n_dis} are left out, most because the claim refers to a video or an image that is not attached, and the {n_out_sel} selected ones passed. '
         'A claim qualifies if at least one evidence statement survived the link stage and its claim, its fact-checking article or an evidence page is in the language. '
         'Video counts as multimodal. Within each language and type, the selection takes Chinese Simplified first, one claim per fact-checking article first, '
         'claims with more linked evidence first, then the newest. ' + zh_note
